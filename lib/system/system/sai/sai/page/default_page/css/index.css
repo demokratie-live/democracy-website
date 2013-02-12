@@ -1,0 +1,37 @@
+/* 
+    Document   : index.css
+    Created on : 31.01.2013, 01:59:37
+    Author     : CHRIS MEURISCH
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#content-wrapper{
+    padding: 20px;
+}
+
+.brand-logo{ 
+    float: left;
+    padding-top: 8px;
+    padding-right: 10px;
+}
+
+.footer{
+    text-align: right;
+    padding-right: 20px;
+    color: #777;
+}
+
+.footer a{
+    color: #777;
+}
+
+.carousel-img{
+    width: 1200px;
+    height: 650px;
+}

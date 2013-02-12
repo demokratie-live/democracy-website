@@ -1,0 +1,220 @@
+<legend>Incentive systems</legend>
+<p>Incentive systems are features with the aim to motivate user to use Noisemap and increase data quantity. But some of them also influence data quality.
+</p><br>
+<legend>Statistics</legend>
+Statistics give a complete feedback of user's measurement behaviour.
+<dl class="dl-horizontal">
+  <dt># Data</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt># Series</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Total time</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Total distance</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Avg. Speed</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Bonus Areas</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Exploration factor</dt>
+  <dd>...</dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Daytime behaviour</dt>
+  <dd>... + graph sample</dd>
+</dl>
+<br>
+<legend>Achievements</legend>
+Achievements are level-based honours for specific measurement behaviour of users.<br>
+@todo: generate from database
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Expert</th>
+      <th>Traveler</th>
+      <th>Routinier</th>
+      <th>Follower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="warning">
+      <td>Description</td>
+      <td># data</td>
+      <td>distance</td>
+      <td># consecutive days</td>
+      <td># data within bonus area</td>
+    </tr>
+    <tr>
+      <td><i class="icon-star"></i></td>
+      <td>> 100</td>
+      <td>> 1000m</td>
+      <td>> 2d</td>
+      <td>> 50</td>
+    </tr>
+    <tr>
+      <td><span><i class="icon-star"></span><span><i class="icon-star"></span></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<legend>Badges</legend>
+Badges are unique honours for special measurement activities.<br>
+@todo: generate from database
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th style="width:32px;">Badge</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td><img src="dasense/page/default_developer/img/badge.png" style="width: 28px; height:28px;"></td>
+      <td>Newbie</td>
+      <td>First measurement series</td>
+    </tr>
+    <tr>
+      <td><img src="dasense/page/default_developer/img/badge.png" style="width: 28px; height:28px;"></td>
+      <td>Tourist</td>
+      <td>Visit more than two countries</td>
+    </tr>
+    
+    <tr>
+      <td><img src="dasense/page/default_developer/img/badge.png" style="width: 28px; height:28px;"></td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<legend>Point system</legend>
+<p>Measurement data will be rewarded by points. These points are used for temporal (cf. global ranking) and 
+location-based (cf. Titles) ranking.</p>
+
+<caption>Data points</caption>
+<pre>P = 1 + 1</pre>
+
+<caption>Series points</caption>
+<pre>P = 1 + 1</pre>
+
+<caption>Exploration factor</caption>
+<pre>P = 1 + 1</pre>
+
+<caption>Bonus Area multiplier</caption>
+<pre>P = 1 + 1</pre>
+
+<caption>Accuracy factor</caption>
+<pre>P = 1 + 1</pre>
+
+<br>
+<legend>Ranking</legend>
+The ranking shows the best global <i>"Noisemappers"</i> in a specific time range.
+
+<dl class="dl-horizontal">
+  <dt>Criterium</dt>
+  <dd>Points (descending)</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Time range</dt>
+  <dd>Total</dd>
+  <dd>Monthly</dd>
+  <dd>Weekly</dd>
+  <dd>Daily</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Location</dt>
+  <dd>Worldwide</dd>
+</dl>
+
+
+<br>
+<legend>Titles</legend>
+Titles are location-based incentive ranking system, i.e. users get points for specific locality (e.g. countries, cities) when they measured inside the corresponding locality.
+The best <i>"Noisemappers"</i> of a locality obtain a special title (e.g. Mayor, President).
+<dl class="dl-horizontal">
+  <dt>Criterium</dt>
+  <dd>Points (descending)</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Ranking</dt>
+  <dd>Top 5</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Locality</dt>
+  <dd>World</dd>
+  <dd>Continents</dd>
+  <dd>Countries</dd>
+  <dd>Cities with more than 100.000 inhabitants</dd>
+</dl>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>World</th>
+      <th>Continent</th>
+      <th>Country</th>
+      <th>City (> 100.000 pop.)</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td>Available Title</td>
+      <td>God</td>
+      <td>?</td>
+      <td>President,<br>Vice-President</td>
+      <td>Mayor</td>
+    </tr>
+    <tr>
+      <td>Polygon Coverage</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>92%</td>
+    </tr>
+  </tbody>
+</table>
+
+Polygon data based on OSM: 
+<ul>
+    <li><a href="http://openstreetmap.de" target="_blank">http://openstreetmap.de</a></li>
+    <li><a href="http://wiki.openstreetmap.org/wiki/Nominatim" target="_blank">http://wiki.openstreetmap.org/wiki/Nominatim</a></li>
+    <li><a href="http://nominatim.openstreetmap.org/" target="_blank">http://nominatim.openstreetmap.org/</a></li>
+    <li><a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/" target="_blank">http://www.naturalearthdata.com/downloads/10m-cultural-vectors</a></li>
+</ul>
+Locality hierarchy, capitals, population based on
+<ul>
+    <li><a href="http://unstats.un.org/unsd/demographic/products/dyb/dyb2011.htm" target="_blank">http://unstats.un.org/unsd/demographic/products/dyb/dyb2011.htm</a></li>
+</ul>
+
+<br>
+<legend>Bonus Areas</legend>
+Bonus areas are pre-defined circular areas. If a user measures inside these areas, his points for the measurement data will be multiplied with a specific factor defining by the bonus area.

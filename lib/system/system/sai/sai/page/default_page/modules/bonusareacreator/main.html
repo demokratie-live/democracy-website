@@ -1,0 +1,110 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>da_sense | Bonus Area Creator</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="dasense/page/default_developer/css/libs/bootstrap-switch.css" rel="stylesheet">
+        <link href="dasense/page/default_developer/css/libs/bootstrap-timepicker.min.css" rel="stylesheet"/>
+        <link href="dasense/page/default_developer/css/libs/datepicker.css" rel="stylesheet"/>
+    </head>
+    <body>
+        
+        <div class="main">
+            <div class="masthead">
+                <h3 class="muted">Bonus Area Creator 2.0</h3>
+            </div>
+            <hr>
+            <div class="row-fluid">
+                <div class="span8">
+                    <div id="map_canvas" style="width:100%; height:695px"></div>
+                </div>
+                <div class="span4">
+                  <legend>Bonus Area</legend>
+                  <form>
+                      <div class="control-group">
+                        <label class="control-label">Coordinates</label>
+                        <span class="muted" id="field_coords">(49.123123, 8.123125)</span>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">Radius</label>
+                        <span class="muted" id="field_radius">500.00 m</span>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">Exploration</label>
+                        <span class="muted" id="field_exploration">34.90 %</span>
+                      </div>
+                       <div class="control-group">
+                        <label class="control-label">Formatted address</label>
+                        <span class="muted" id="field_address">Luisenplatz, Darmstadt</span>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputLabel">Label</label>
+                        <div class="controls">
+                            <input class="input-xlarge" type="text" id="inputLabel" placeholder="Required">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputMultiplier">Multiplier</label>
+                        <div class="controls input-append">
+                            <input class="input-xlarge" style="width: 60px" type="number" min="1" max="100" step="0.1" value="1.0" id="inputMultiplier">
+                            <span class="add-on">x</span>
+                        </div>
+                      </div>
+                      <div class="control-group" style="width: 100%">
+                        <label class="control-label">Start time</label>
+                        <div class="row-fluid controls">
+                            <div class="span5">
+                                <div class="input-append date" id="datepicker" data-date="01-02-2013" data-date-format="dd-mm-yyyy" style="margin-right: 10px">
+                                    <input size="16" type="text" style="width: 110px;" value="01-02-2013">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                            </div>
+                            <div class="span5">
+                                <div class="input-append bootstrap-timepicker">
+                                   <input id="timepicker" data-minute-step="5" data-show-meridian="false" type="text" class="input-small">
+                                   <span class="add-on"><i class="icon-time"></i></span>
+                               </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="control-group">
+                        <label class="control-label" for="inputDuration">Duration</label>
+                        <div class="controls row-fluid">
+                            <div class="input-append span3">
+                                <input class="input-xlarge" type="number" value="1" min="0" style="width: 40px" id="inputDuration">
+                                <span class="add-on">d</span>
+                            </div>
+                            <div class="input-append span3">
+                                <input class="input-xlarge" type="number" value="6" max="23" min="0" style="width: 40px" id="inputDuration">
+                                <span class="add-on">h</span>
+                            </div>
+                        </div>
+                      </div>
+                     <div class="control-group">
+                        <label class="control-label">Push Notification to all</label>
+                        <div class="switch switch-small">
+                              <input type="checkbox">
+                        </div>
+                      </div>
+                     <br>
+                    <div class="control-group">
+                      <div class="controls">
+                        <button type="submit" class="btn btn-submit btn-primary"><i class="icon-plus icon-white"></i> Create</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>            
+        </div>
+        
+       <script src="dasense/page/default_developer/js/libs/geoFunctions.js"></script>
+       <script src="dasense/page/default_developer/js/bonusareacreator.js"></script>
+       <script src="dasense/page/default_developer/js/libs/jquery.switch.js"></script>
+       <script src="dasense/page/default_developer/js/libs/bootstrap-timepicker.min.js"></script>
+       <script src="dasense/page/default_developer/js/libs/bootstrap-datepicker.js"></script>
+    </body>
+</html>
