@@ -15,70 +15,100 @@ class Security {
     const AVAILABLE_FAIL = false;
     const AVAILABLE_OK = true;
     
-    public static function create(\SYSTEM\DB\DBInfo $dbinfo, $username, $password, $email, $hashed){
-        @session_start();
+    public static function create(\SYSTEM\DB\DBInfo $dbinfo, $username, $password, $email, $locale, $advancedResult=false, $checkAvailable = true){
+        self::startSession();
 
-        $con = new \SYSTEM\DB\Connection($dbinfo);
-        $result = $con->prepare('SELECT COUNT(*) as count FROM '.\DBD\UserTable::NAME.
-                                ' WHERE '.\DBD\UserTable::FIELD_USERNAME.' like ? '.
-                                ' LIMIT 1;',
-                                array($username));
-        if(!($res = $result->next()) || $res['count'] != 0){            
-            return self::REGISTER_FAIL;}
-
-        unset($result);
-        $result = $con->prepare('INSERT INTO '.\DBD\UserTable::NAME.
-                                ' ('.\DBD\UserTable::FIELD_USERNAME.','.\DBD\UserTable::FIELD_PASSWORD.','.\DBD\UserTable::FIELD_EMAIL.','.\DBD\UserTable::FIELD_CREATIONTIMESTAMP.')'.
-                                ' VALUES (?, ?, ?, ?);',
-                                array(  $username, ($hashed ? $password : md5($password)),
-                                        $email, (microtime(true)*1000))
-                                );
-        if(!$result){
-            return self::REGISTER_FAIL;}
-
-        if(!self::login($dbinfo, $username, $password, $hashed)){
-            return self::REGISTER_FAIL;}
-            
-        return self::REGISTER_OK;
-    }
-     
-    public static function login(\SYSTEM\DB\DBInfo $dbinfo, $username, $password, $hashed){
-        @session_start();        
+        // check availability of username (in non-compatibility mode, otherwise it is already checked in DasenseAccount)
+        if($checkAvailable && !self::available($dbinfo, $username)){
+            return self::REGISTER_FAIL;}        
         
-        $con = new \SYSTEM\DB\Connection($dbinfo);        
-        $result = $con->prepare(    'SELECT * FROM '.\DBD\UserTable::NAME.
-                                    ' WHERE '.\DBD\UserTable::FIELD_USERNAME.' = ?'.
-                                    ' AND '.\DBD\UserTable::FIELD_PASSWORD.' = ?;',
-                                    array($username,($hashed ? $password : md5($password))));
-        //Database check
-        if(!$result){
-            $_SESSION['user'] = NULL;
-            return self::LOGIN_FAIL;
-        }        
-
-        $row = $result->next();
-        if(!$row){
+        $con = new \SYSTEM\DB\Connection($dbinfo);
+        $result = $con->prepare('createAccountStmt','INSERT INTO '.\DBD\SYSTEM\UserTable::NAME.
+                                ' ('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.','.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.','
+                                    .\DBD\SYSTEM\UserTable::FIELD_EMAIL.','.\DBD\SYSTEM\UserTable::FIELD_LOCALE.','.\DBD\SYSTEM\UserTable::FIELD_ACCOUNT_FLAG.')'.
+                                ' VALUES ($1, $2, $3, $4, $5) RETURNING *;',
+                                array( $username , $password, $email, $locale, 1 ));
+        
+        if( !$result || !self::login($dbinfo, $username, $password, $locale)){
+                return self::REGISTER_FAIL;}        
+         
+        return ($advancedResult ? $result->next() : self::REGISTER_OK);
+    }
+    
+     
+    public static function login(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false){
+        self::startSession();
+        
+        if(!isset($password_sha)){
+            self::trackLogins($dbinfo, NULL, self::LOGIN_FAIL);
             $_SESSION['user'] = NULL;
             return self::LOGIN_FAIL;}
 
-        $_SESSION['user'] = new User(   $row[\DBD\UserTable::FIELD_ID],
-                                        $row[\DBD\UserTable::FIELD_USERNAME],
-                                        $row[\DBD\UserTable::FIELD_EMAIL],
-                                        $row[\DBD\UserTable::FIELD_CREATIONTIMESTAMP],
-                                        time(), //TODO put in database
-                                        getenv('REMOTE_ADDR'), //TODO put in database
-                                        0, //TODO put in database
-                                        NULL); //TODO put in database        
-        return self::LOGIN_OK;
-    }
+        $con = new \SYSTEM\DB\Connection($dbinfo); 
+        if(isset($password_md5)){
+            $result = $con->prepare('loginAccountStmt', 
+                                    'SELECT * FROM '.\DBD\SYSTEM\UserTable::NAME.
+                                    ' WHERE lower('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                    ' AND ('.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
+                                    array($username, $password_sha, $password_md5) );            
+        }else{
+            $result = $con->prepare('loginAccountStmtSHA', 
+                                    'SELECT * FROM '.\DBD\SYSTEM\UserTable::NAME.
+                                    ' WHERE lower('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                    ' AND '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.' = $2;',
+                                    array($username, $password_sha) );
+        }
 
+        //Database check
+        if(!$result){
+            self::trackLogins($dbinfo, NULL, self::LOGIN_FAIL);
+            $_SESSION['user'] = NULL;
+            return self::LOGIN_FAIL;}        
+
+        $row = $result->next();
+        if(!$row){
+            self::trackLogins($dbinfo, NULL, self::LOGIN_FAIL);
+            $_SESSION['user'] = NULL;            
+            return self::LOGIN_FAIL;}        
+        
+        // set password_sha if it is empty
+        if(!$row[\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA]){
+            $res = $con->prepare(   'updatePasswordSHAStmt',  
+                                    'UPDATE '.\DBD\SYSTEM\UserTable::NAME.' SET '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\DBD\SYSTEM\UserTable::FIELD_ID.' = $2'.' RETURNING '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.';', 
+                                    array($password_sha,$row[\DBD\SYSTEM\UserTable::FIELD_ID]));
+            $res = $res->next();
+            $row[\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA] = $res[\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA];
+        }
+            
+        // set session variables
+        $_SESSION['user'] = new User(   $row[\DBD\SYSTEM\UserTable::FIELD_ID],
+                                        $row[\DBD\SYSTEM\UserTable::FIELD_USERNAME],
+                                        $row[\DBD\SYSTEM\UserTable::FIELD_EMAIL],
+                                        $row[\DBD\SYSTEM\UserTable::FIELD_JOINDATE],
+                                        time(),
+                                        getenv('REMOTE_ADDR'),
+                                        0,
+                                        NULL);
+        
+        if(isset($locale)){
+            \SYSTEM\locale::set($locale);}
+        // track succesful user login
+        self::trackLogins($dbinfo, $row[\DBD\SYSTEM\UserTable::FIELD_ID], self::LOGIN_OK);        
+        return ($advancedResult ? $row : self::LOGIN_OK);
+    }       
+    
+    private static function trackLogins(\SYSTEM\DB\DBInfo $dbinfo, $userID, $succ){
+        $con = new \SYSTEM\DB\Connection($dbinfo);         
+        $con->prepare(  'trackLoginAccountStmt', 
+                        'INSERT INTO '.\DBD\SYSTEM\UserLoginsTable::NAME.' ("'.\DBD\SYSTEM\UserLoginsTable::FIELD_USERID.'","'.
+                        \DBD\SYSTEM\UserLoginsTable::FIELD_IP.'",'.\DBD\SYSTEM\UserLoginsTable::FIELD_SUCC.') VALUES ($1,$2,$3)',
+                        array(isset($userID) ? $userID : -1, getenv('REMOTE_ADDR'), (int)$succ ));
+    }
 
     public static function getUser(){
         if(!self::isLoggedIn()){
             return NULL;}
-
-        return $_SESSION['user'];
-    }
+        return $_SESSION['user'];}
 
     /**
      * Determine if username exists
@@ -87,12 +117,13 @@ class Security {
      */
     public static function available(\SYSTEM\DB\DBInfo $dbinfo, $username){        
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'SELECT COUNT(*) as count FROM '.\DBD\UserTable::NAME.
-                                ' WHERE '.\DBD\UserTable::FIELD_USERNAME.' like ? ;',
+        $res = $con->prepare(   'availableStmt',  
+                                'SELECT COUNT(*) as count FROM '.\DBD\SYSTEM\UserTable::NAME.
+                                ' WHERE lower('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.') like lower($1) ;',
                                 array($username));
 
         if(!($res = $res->next())){
-            throw new Exception("Problem!");}
+            throw new \SYSTEM\LOG\ERRROR("Cannot determine the availability of username!");}
         
         if($res['count'] != 0){
             return self::AVAILABLE_FAIL;}
@@ -114,7 +145,7 @@ class Security {
                                 array($user->id, $rightid));
 
         if(!($res = $res->next())){
-            throw new Exception("Problem!");}
+            throw new \SYSTEM\LOG\ERROR("Cannot determine if you have the required rights!");}
         
         if($res['count'] == 0){
             return false;}
@@ -123,22 +154,41 @@ class Security {
 
     //Session
     public static function logout(){
-        @session_start();        
+        self::startSession();
         session_destroy();
 
         return self::LOGOUT_OK;
     }
     public static function save($key,$value){
-        @session_start();
+        self::startSession();
         $_SESSION['values'][$key] = $value;}
     public static function load($key){
-        @session_start();    
+        self::startSession();
         if(!isset($_SESSION['values'][$key])){
             return NULL;}
 
         return $_SESSION['values'][$key];
     }
     public static function isLoggedIn(){
-        @session_start();
+        self::startSession();
         return (isset($_SESSION['user']) && $_SESSION['user'] instanceof User);}
+    private static function startSession(){
+        if(!isset($_SESSION)){
+            session_start();}
+    }
+        
+    //This functions is called from \SYSTEM\locale::set()
+    public static function _db_setLocale($dbinfo, $lang){
+        $user = self::getUser();
+        if(!$user){
+            throw new \SYSTEM\LOG\ERROR("You need to be logged in");}
+                 
+        $con = new \SYSTEM\DB\Connection($dbinfo);
+        $res = $con->prepare(   'updateUserLocaleStmt',
+                                'UPDATE '.\DBD\SYSTEM\UserTable::NAME.' SET '.\DBD\SYSTEM\UserTable::FIELD_LOCALE.' = $1 '.
+                                'WHERE '.\DBD\SYSTEM\UserTable::FIELD_ID.' = $2'.' RETURNING '.\DBD\SYSTEM\UserTable::FIELD_LOCALE.';', 
+                                array($lang, $user->id));
+        if(!$res->next()){
+            throw new \SYSTEM\LOG\ERROR("Problem updating the User!");}        
+    }
 }

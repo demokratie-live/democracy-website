@@ -14,18 +14,13 @@ class saigui extends \SYSTEM\PAGE\Page {
 
     public function html(){
         
-        /*if(! \SYSTEM\SECURITY\Security::check($this->sys_dbinfo ? $this->sys_dbinfo : new \DBD\system() , \SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
-            throw new \Exception("YOU SHALL NOT PASS!");
-        }*/
-
-        $call = array(  array(\DBD\PAGETable::FIELD_ID=>0,  \DBD\PAGETable::FIELD_FLAG=>0,  \DBD\PAGETable::FIELD_PARENTID=>-1,  \DBD\PAGETable::FIELD_PARENTVALUE=>'',    \DBD\PAGETable::FIELD_NAME=>'action',    \DBD\PAGETable::FIELD_ALLOWEDVALUES=>'ALL'),
-                        array(\DBD\PAGETable::FIELD_ID=>1,  \DBD\PAGETable::FIELD_FLAG=>1,  \DBD\PAGETable::FIELD_PARENTID=>0,  \DBD\PAGETable::FIELD_PARENTVALUE=>'module',    \DBD\PAGETable::FIELD_NAME=>'module',    \DBD\PAGETable::FIELD_ALLOWEDVALUES=>'ALL'));
-        $sai = new \SYSTEM\PAGE\PageApi( $call, new \SYSTEM\verifyclass(), new \SYSTEM\SAI\SaiApi());
-
-        try{
-            return $sai->CALL(array_merge($_POST,$_GET))->html();
-        } catch(Exception $e) {
-            return $e;
+        if(!\SYSTEM\SECURITY\Security::check($this->sys_dbinfo ? $this->sys_dbinfo : new \DBD\system() , \SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
+            $login = new \SYSTEM\SAI\login_page();
+            return $login->html();
         }
+
+        $pg = array_merge($_POST,$_GET);
+        $sai = new \SYSTEM\SAI\default_page ($pg['module'],$pg);
+        return $sai->html();
     }
 }

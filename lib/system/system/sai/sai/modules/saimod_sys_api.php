@@ -91,5 +91,5 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
 
-    public static function html_li_menu(){return '<li><a href="#" id="SYS API">SYS API</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_api">SYS API</a></li>';}
 }

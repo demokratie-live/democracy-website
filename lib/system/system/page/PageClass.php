@@ -3,5 +3,6 @@
 namespace SYSTEM\PAGE;
 
 abstract class PageClass {
-    public abstract static function default_page();
+    public static function default_page(){
+        throw new RuntimeException("Unimplemented");}
 }

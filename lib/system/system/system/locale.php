@@ -13,7 +13,10 @@ class locale {
         if(!self::isLang($lang)){
             return false;}
 
-        \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);
+        \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);        
+        if(\SYSTEM\SECURITY\Security::isLoggedIn()){
+            \SYSTEM\SECURITY\Security::_db_setLocale(new \DBD\SYSTEM\systemPostgres(), $lang);} //TODO: connection def move somewhere?        
+            
         return true;
     }
 
@@ -25,7 +28,7 @@ class locale {
         return $value;
     }
 
-    public static function isLang($lang){
+    public static function isLang($lang){        
         if(!\in_array($lang, unserialize(LANGS))){
             return false;}
         return true;
@@ -49,29 +52,29 @@ class locale {
             foreach($request as $strid){
                 if(!\preg_match("^[a-zA-Z0-9_]+$^", $strid) != 0){
                     throw new \Exception("Requested id contains inpropper symbols: ".$strid);}
-                 $where .= 'OR '.\DBD\locale_string::FIELD_ID.' = ? ';
+                 $where .= 'OR "'.\DBD\SYSTEM\locale_string::FIELD_ID.'" = $1 ';
             }
             $where = substr($where,2);
 
-            $con = new \SYSTEM\DB\Connection(new \DBD\dasensedata());
-            $res = $con->prepare(   'SELECT '.$lang.','.\DBD\locale_string::FIELD_ID.' FROM '.\DBD\locale_string::NAME.' WHERE '.$where,
+            $con = new \SYSTEM\DB\Connection(new \DBD\dasensePostgres());
+            $res = $con->prepare( 'localeArrStmt',  'SELECT "'.$lang.'","'.\DBD\SYSTEM\locale_string::FIELD_ID.'" FROM '.\DBD\SYSTEM\locale_string::NAME.' WHERE '.$where,
                                     $request);
 
             $result = array();
             while($r = $res->next()){
-                $result[$r[\DBD\locale_string::FIELD_ID]] = $r[$lang];}
+                $result[$r[\DBD\SYSTEM\locale_string::FIELD_ID]] = $r[$lang];}
 
             return $result;
         } else if(\intval($request)){
             $cat = \intval($request);
 
-            $con = new \SYSTEM\DB\Connection(new \DBD\dasensedata());
-            $res = $con->prepare(   'SELECT '.$lang.','.\DBD\locale_string::FIELD_ID.' FROM '.\DBD\locale_string::NAME.' WHERE '.\DBD\locale_string::FIELD_CATEGORY.' = ?;',
+            $con = new \SYSTEM\DB\Connection(new \DBD\dasensePostgres());
+            $res = $con->prepare( 'localeStmt', 'SELECT "'.$lang.'","'.\DBD\SYSTEM\locale_string::FIELD_ID.'" FROM '.\DBD\SYSTEM\locale_string::NAME.' WHERE '.\DBD\SYSTEM\locale_string::FIELD_CATEGORY.' = $1;',
                                     array($cat));
 
             $result = array();
             while($r = $res->next()){
-                $result[$r[\DBD\locale_string::FIELD_ID]] = $r[$lang];}
+                $result[$r[\DBD\SYSTEM\locale_string::FIELD_ID]] = $r[$lang];}
 
             return $result;
         } 

@@ -5,9 +5,11 @@ namespace SYSTEM\SAI;
 class default_page extends \SYSTEM\PAGE\Page {
 
     private $module = NULL;
+    private $pg = NULL;
 
-    public function __construct($module = NULL){
-        $this->module = \str_replace('%', '\\', $module);}
+    public function __construct($module = NULL, $pg = NULL){
+        $this->module = \str_replace('.', '\\', $module);
+        $this->pg = $pg;}
 
     private function menu(){        
         $mods = \SYSTEM\SAI\sai::getInstance()->getModules();
@@ -20,12 +22,11 @@ class default_page extends \SYSTEM\PAGE\Page {
 
     private function content(){
         $mods = \SYSTEM\SAI\sai::getInstance()->getModules();        
-
         if( $this->module &&
             \array_search($this->module, $mods) !== false){
-            return \call_user_func(array($this->module, 'html_content'));}
-            
-        return 'Welcome to the System Admin Interface.';
+            return \call_user_func(array($this->module, 'html_content'),array($this->pg));}
+
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'sai/page/default_page/carousel.tpl'), array());
     }
 
     private function css(){        
@@ -60,12 +61,16 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['js'] = $this->js();
 
         $vars['menu'] = $this->menu();
-        //$vars['content'] = $this->content();
+
+        //TODO
+        new \SYSTEM\LOG\DEPRECATED();
+        if($this->module != NULL){
+            return $this->content();}
 
         //$vars['PATH_IMG'] = SYSTEM\WEBPATH(new PPAGE(),'default_developer/img/');
         //$vars['PATH_LIB'] = SYSTEM\WEBPATH(new PLIB());
         //$vars['PATH_JS'] = SYSTEM\WEBPATH(new PJS());
-        //$vars = array_merge($vars, SYSTEM\locale::getStrings(\DBD\locale_string::VALUE_CATEGORY_DASENSE));
+        //$vars = array_merge($vars, SYSTEM\locale::getStrings(\DBD\SYSTEM\locale_string::VALUE_CATEGORY_DASENSE));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'sai/page/default_page/sai.tpl'), $vars);        
     }
 }

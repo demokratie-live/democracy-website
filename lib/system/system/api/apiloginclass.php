@@ -2,10 +2,7 @@
 
 namespace SYSTEM\API;
 
-abstract class apiloginclass extends \SYSTEM\API\apiclass {
-
-    protected abstract static function getUserDBInfo();
-
+class apiloginclass extends \SYSTEM\API\apiclass {
     /*
     INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (0, 0, -1, NULL, 'call', NULL);
     INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (60, 0, 0, 'account', 'action', NULL);
@@ -22,14 +19,14 @@ abstract class apiloginclass extends \SYSTEM\API\apiclass {
     INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (68, 1, 60, 'create', 'hashed', 'ALL');
      */
 
-    public static function call_account_action_login($username, $password, $hashed){
-        return \SYSTEM\SECURITY\Security::login(static::getUserDBInfo(), $username, $password, $hashed);}
+    public static function call_account_action_login($username, $password_sha, $password_md5){
+        return \SYSTEM\SECURITY\Security::login(new \DBD\SYSTEM\systemPostgres(), $username, $password_sha, $password_md5);}
     public static function call_account_action_logout(){
         return \SYSTEM\SECURITY\Security::logout();}
     public static function call_account_action_isloggedin(){
         return \SYSTEM\SECURITY\Security::isLoggedIn();}
     public static function call_account_action_check($rightid){
-        return \SYSTEM\SECURITY\Security::check(static::getUserDBInfo(),$rightid);}
-    public static function call_account_action_create($username, $password, $email, $hashed){
-        return \SYSTEM\SECURITY\Security::create(static::getUserDBInfo(), $username, $password, $email, $hashed);}
+        return \SYSTEM\SECURITY\Security::check(new \DBD\SYSTEM\systemPostgres(),$rightid);}
+    public static function call_account_action_create($username, $password_sha, $email, $locale){
+        return \SYSTEM\SECURITY\Security::create(new \DBD\SYSTEM\systemPostgres(), $username, $password_sha, $email, $locale);}
 }

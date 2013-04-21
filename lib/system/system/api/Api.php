@@ -52,88 +52,75 @@ class Api {
     // returns resultstring
     public function CALL($call = array()){
 
-        if( !isset($call) ||
-            !is_array($call) ||
-            count($call) <= 0){
-            throw new \Exception("No call given for the api");
-            return null;}
+        if( !isset($call) || !is_array($call) || count($call) <= 0){
+            throw new \SYSTEM\LOG\ERROR("No call given for the api");}
 
         //Get the Databasetree
         $tree = array();
         if($this->m_dbinfo instanceof \SYSTEM\DB\DBInfo){
-            $tree = self::getApiTree();}
-        else {
+            $tree = self::getApiTree();
+            if(!is_array($tree)){
+                throw new \SYSTEM\LOG\ERROR("Database Tree for Api empty - cannot proced!");}
+        } else {
             if(!is_array($this->m_dbinfo)){
-                throw new Exception('No Connectioninfo and no call table given to the api');}
+                throw new \SYSTEM\LOG\ERROR('No Connectioninfo and no call table given to the api');}
             $tree = $this->m_dbinfo;
-        }
-
-        //print_r($tree);
-        if(!is_array($tree)){
-            throw new \Exception("Database Tree for Api empty - cannot proced!");}
+        }        
 
         //Commands
         $commands = array();
         $parentid = -1;
-        foreach($tree as $item){                
-            if( $item[\DBD\APITable::FIELD_FLAG] == \DBD\APITable::VALUE_FLAG_COMMAND &&
-                $item[\DBD\APITable::FIELD_PARENTID] == $parentid &&
-                isset($call[$item[\DBD\APITable::FIELD_NAME]])){
-
-                if( isset($item[\DBD\APITable::FIELD_PARENTVALUE]) &&
-                    $commands[count($commands)-1][1] != $item[\DBD\APITable::FIELD_PARENTVALUE]){
-                    continue;}
-                $commands[] = array($item,$call[$item[\DBD\APITable::FIELD_NAME]]);
-                $parentid = $item[\DBD\APITable::FIELD_ID];                
+        
+        foreach($tree as $item){ 
+            if( intval($item[\DBD\SYSTEM\APITable::FIELD_FLAG]) == \DBD\SYSTEM\APITable::VALUE_FLAG_COMMAND &&
+                intval($item[\DBD\SYSTEM\APITable::FIELD_PARENTID]) == $parentid &&
+                isset($call[$item[\DBD\SYSTEM\APITable::FIELD_NAME]])){
+                
+                if( isset($item[\DBD\SYSTEM\APITable::FIELD_PARENTVALUE]) &&
+                    $commands[count($commands)-1][1] != $item[\DBD\SYSTEM\APITable::FIELD_PARENTVALUE]){
+                    continue;
+                }
+                
+                $commands[] = array($item,$call[$item[\DBD\SYSTEM\APITable::FIELD_NAME]]);
+                $parentid = intval($item[\DBD\SYSTEM\APITable::FIELD_ID]);                
             }
         }
-
+        
         //Parameters
         $parameters = array();
         $lastCommand = $commands[count($commands)-1][0];
         foreach($tree as $item){
-            if( $item[\DBD\APITable::FIELD_FLAG] == \DBD\APITable::VALUE_FLAG_PARAM &&
-                $item[\DBD\APITable::FIELD_PARENTID] == $lastCommand[\DBD\APITable::FIELD_ID]){
+            if( intval($item[\DBD\SYSTEM\APITable::FIELD_FLAG]) == \DBD\SYSTEM\APITable::VALUE_FLAG_PARAM &&
+                intval($item[\DBD\SYSTEM\APITable::FIELD_PARENTID]) == $lastCommand[\DBD\SYSTEM\APITable::FIELD_ID]){
                 
-                if( isset($item[\DBD\APITable::FIELD_PARENTVALUE]) &&
-                    $commands[count($commands)-1][1] != $item[\DBD\APITable::FIELD_PARENTVALUE]){
+                if( isset($item[\DBD\SYSTEM\APITable::FIELD_PARENTVALUE]) &&
+                    $commands[count($commands)-1][1] != $item[\DBD\SYSTEM\APITable::FIELD_PARENTVALUE]){
                     continue;}
 
-                if(!isset($call[$item[\DBD\APITable::FIELD_NAME]])){
-                    throw new \Exception('Parameter missing: '.$item[\DBD\APITable::FIELD_NAME]);}
+                if(!isset($call[$item[\DBD\SYSTEM\APITable::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\DBD\SYSTEM\APITable::FIELD_NAME]);}
 
 
-                if( !method_exists($this->m_verifyclass, $item[\DBD\APITable::FIELD_ALLOWEDVALUES]) ||
-                    !$this->m_verifyclass->$item[\DBD\APITable::FIELD_ALLOWEDVALUES]($call[$item[\DBD\APITable::FIELD_NAME]])){
-                    throw new \Exception('Parameter type missmacht or Missing Verifier. Param: '.$item[\DBD\APITable::FIELD_NAME].' Verifier: '.$item[\DBD\APITable::FIELD_ALLOWEDVALUES]);}
+                if( !method_exists($this->m_verifyclass, $item[\DBD\SYSTEM\APITable::FIELD_ALLOWEDVALUES]) ||
+                    !$this->m_verifyclass->$item[\DBD\SYSTEM\APITable::FIELD_ALLOWEDVALUES]($call[$item[\DBD\SYSTEM\APITable::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\DBD\SYSTEM\APITable::FIELD_NAME].' Verifier: '.$item[\DBD\SYSTEM\APITable::FIELD_ALLOWEDVALUES]);}
 
-                $parameters[] = array($item, $call[$item[\DBD\APITable::FIELD_NAME]]);
+                $parameters[] = array($item, $call[$item[\DBD\SYSTEM\APITable::FIELD_NAME]]);
             }
-        }
-
-        //Check
-        /*echo "<pre>";
-        print_r($commands);
-        echo "</pre>";
-        echo "</br>---</br>";
-        print_r($parameters);
-        echo "</br>---</br>";
-        print_r($call);
-        echo "</br>---</br>";
-        echo count($call).'-'.count($parameters).'-'.count($commands);*/
-        if(count($call) != count($parameters) + count($commands)){
-            throw new \Exception("Unhandled or misshandled parameters - api query is invalid");}
+        }        
+        if(count($call) != (count($parameters) + count($commands)) ){
+            throw new \SYSTEM\LOG\ERROR('Unhandled or misshandled parameters - api query is invalid');}
 
         //Function Name
         $command_call = "";       
         foreach($commands as $com){                        
             if(!\preg_match('^[0-9A-Za-z_]+$^', $com[1])){
-                throw new \Exception("Call Command can only have letters!");}
+                throw new \SYSTEM\LOG\ERROR('Call Command can only have letters!');}
 
-            if($com[0][\DBD\APITable::FIELD_ALLOWEDVALUES] == 'FLAG'){
-                $command_call .= '_flag_'.$com[0][\DBD\APITable::FIELD_NAME];
+            if($com[0][\DBD\SYSTEM\APITable::FIELD_ALLOWEDVALUES] == 'FLAG'){
+                $command_call .= '_flag_'.$com[0][\DBD\SYSTEM\APITable::FIELD_NAME];
             } else {
-                $command_call .= '_'.$com[0][\DBD\APITable::FIELD_NAME].'_'.\strtolower($com[1]);}
+                $command_call .= '_'.$com[0][\DBD\SYSTEM\APITable::FIELD_NAME].'_'.\strtolower($com[1]);}
         }
         $command_call = substr($command_call, 1);
 
@@ -143,7 +130,7 @@ class Api {
             $parameter_call[] = $param[1];}        
 
         if(!\method_exists($this->m_apiclass, $command_call)){
-            throw new \Exception("API call is not implemented in API: ".$command_call);}
+            throw new \SYSTEM\LOG\ERROR("API call is not implemented in API: ".$command_call);}
 
         //Call Function            
         return \call_user_func_array(array($this->m_apiclass,$command_call),$parameter_call);
@@ -152,11 +139,11 @@ class Api {
     private function getApiTree(){
 
         $con = new \SYSTEM\DB\Connection($this->m_dbinfo);
-        $res = $con->query("SELECT * FROM ".\DBD\APITable::NAME." ORDER BY ".\DBD\APITable::FIELD_ID);
+        $res = $con->query('SELECT * FROM '.\DBD\SYSTEM\APITable::NAME.' ORDER BY "'.\DBD\SYSTEM\APITable::FIELD_ID.'"');
         unset($con);
 
         if(!$res){
-            throw new \Exception("Sql Error ".mysqli_error());}
+            throw new \SYSTEM\LOG\ERROR('Database Error '.pg_last_error($con));}
 
         $result = array();        
         while($row = $res->next()){
