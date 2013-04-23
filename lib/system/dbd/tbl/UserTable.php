@@ -1,10 +1,10 @@
 <?php
 
-namespace DBD\SYSTEM;
+namespace SYSTEM\DBD;
 
 class UserTable {
 
-    const NAME = 'system.user';
+    const NAME = 'system_user';
 
     const FIELD_ID = 'id';
     const FIELD_USERNAME = 'username';

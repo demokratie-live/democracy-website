@@ -1,9 +1,9 @@
 <?php
 
-namespace DBD\SYSTEM;
+namespace SYSTEM\DBD;
 
 class locale_string {
-    const NAME = 'system.locale_string';
+    const NAME = 'system_locale_string';
 
     const FIELD_ID = 'id';
     const FIELD_CATEGORY = 'category';

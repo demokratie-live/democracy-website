@@ -1,10 +1,10 @@
 <?php
 
-namespace DBD\SYSTEM;
+namespace SYSTEM\DBD;
 
 class APITable {
 
-    const NAME = 'system.api_calls';
+    const NAME = 'system_api_calls';
 
     const FIELD_ID = 'ID';
     const FIELD_FLAG = 'flag';

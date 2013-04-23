@@ -1,10 +1,10 @@
 <?php
 
-namespace DBD\SYSTEM;
+namespace SYSTEM\DBD;
 
 class PAGETable {
 
-    const NAME = 'system.page_calls';
+    const NAME = 'system_page_calls';
 
     const FIELD_ID = 'ID';
     const FIELD_FLAG = 'flag';

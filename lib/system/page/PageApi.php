@@ -27,8 +27,8 @@ class PageApi {
     private $m_verifyclass = null;
     private $m_pageclass = null;
 
-    public function __construct($DBInfo,\SYSTEM\verifyclass $VerifyClass, \SYSTEM\PAGE\PageClass $PageClass){
-        $this->m_dbinfo = $DBInfo;
+    public function __construct(\SYSTEM\verifyclass $VerifyClass, \SYSTEM\PAGE\PageClass $PageClass,$DBInfo = null){
+        $this->m_dbinfo = $DBInfo == null ? \SYSTEM\system::getSystemDBInfo() : $DBInfo;
         $this->m_verifyclass = $VerifyClass;
         $this->m_pageclass = $PageClass;
     }
@@ -50,15 +50,15 @@ class PageApi {
         $commands = array();
         $parentid = -1;
         foreach($tree as $item){
-            if( $item[\DBD\SYSTEM\PAGETable::FIELD_FLAG] == \DBD\SYSTEM\PAGETable::VALUE_FLAG_COMMAND &&
-                $item[\DBD\SYSTEM\PAGETable::FIELD_PARENTID] == $parentid &&
-                isset($call[$item[\DBD\SYSTEM\PAGETable::FIELD_NAME]])){
+            if( $item[\SYSTEM\DBD\PAGETable::FIELD_FLAG] == \SYSTEM\DBD\PAGETable::VALUE_FLAG_COMMAND &&
+                $item[\SYSTEM\DBD\PAGETable::FIELD_PARENTID] == $parentid &&
+                isset($call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]])){
 
-                if( isset($item[\DBD\SYSTEM\PAGETable::FIELD_PARENTVALUE]) &&
-                    $commands[count($commands)-1][1] != $item[\DBD\SYSTEM\PAGETable::FIELD_PARENTVALUE]){
+                if( isset($item[\SYSTEM\DBD\PAGETable::FIELD_PARENTVALUE]) &&
+                    $commands[count($commands)-1][1] != $item[\SYSTEM\DBD\PAGETable::FIELD_PARENTVALUE]){
                     continue;}
-                $commands[] = array($item,$call[$item[\DBD\SYSTEM\PAGETable::FIELD_NAME]]);
-                $parentid = $item[\DBD\SYSTEM\PAGETable::FIELD_ID];
+                $commands[] = array($item,$call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]]);
+                $parentid = $item[\SYSTEM\DBD\PAGETable::FIELD_ID];
             }
         }
 
@@ -68,22 +68,22 @@ class PageApi {
         if(count($commands) > 0){            
             $lastCommand = $commands[count($commands) -1 ][0];
             foreach($tree as $item){
-                if( $item[\DBD\SYSTEM\PAGETable::FIELD_FLAG] == \DBD\SYSTEM\PAGETable::VALUE_FLAG_PARAM &&
-                    $item[\DBD\SYSTEM\PAGETable::FIELD_PARENTID] == $lastCommand[\DBD\SYSTEM\PAGETable::FIELD_ID]){
+                if( $item[\SYSTEM\DBD\PAGETable::FIELD_FLAG] == \SYSTEM\DBD\PAGETable::VALUE_FLAG_PARAM &&
+                    $item[\SYSTEM\DBD\PAGETable::FIELD_PARENTID] == $lastCommand[\SYSTEM\DBD\PAGETable::FIELD_ID]){
 
-                    if( isset($item[\DBD\SYSTEM\PAGETable::FIELD_PARENTVALUE]) &&
-                        $commands[count($commands)-1][1] != $item[\DBD\SYSTEM\PAGETable::FIELD_PARENTVALUE]){
+                    if( isset($item[\SYSTEM\DBD\PAGETable::FIELD_PARENTVALUE]) &&
+                        $commands[count($commands)-1][1] != $item[\SYSTEM\DBD\PAGETable::FIELD_PARENTVALUE]){
                         continue;}
 
-                    if(!isset($call[$item[\DBD\SYSTEM\PAGETable::FIELD_NAME]])){
-                        throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\DBD\SYSTEM\PAGETable::FIELD_NAME]);}
+                    if(!isset($call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]])){
+                        throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]);}
 
 
-                    if( !method_exists($this->m_verifyclass, $item[\DBD\SYSTEM\PAGETable::FIELD_ALLOWEDVALUES]) ||
-                        !$this->m_verifyclass->$item[\DBD\SYSTEM\PAGETable::FIELD_ALLOWEDVALUES]($call[$item[\DBD\SYSTEM\PAGETable::FIELD_NAME]])){
-                        throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\DBD\SYSTEM\PAGETable::FIELD_NAME].' Verifier: '.$item[\DBD\SYSTEM\PAGETable::FIELD_ALLOWEDVALUES]);}
+                    if( !method_exists($this->m_verifyclass, $item[\SYSTEM\DBD\PAGETable::FIELD_ALLOWEDVALUES]) ||
+                        !$this->m_verifyclass->$item[\SYSTEM\DBD\PAGETable::FIELD_ALLOWEDVALUES]($call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]])){
+                        throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\PAGETable::FIELD_NAME].' Verifier: '.$item[\DBD\SYSTEM\PAGETable::FIELD_ALLOWEDVALUES]);}
 
-                    $parameters[] = array($item, $call[$item[\DBD\SYSTEM\PAGETable::FIELD_NAME]]);
+                    $parameters[] = array($item, $call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]]);
                 }
             }        
 
@@ -92,10 +92,10 @@ class PageApi {
                 if(!\preg_match('^[0-9A-Za-z_]+$^', $com[1])){
                     throw new \SYSTEM\LOG\ERROR("Call Command can only have letters!");}
 
-                if($com[0][\DBD\SYSTEM\PAGETable::FIELD_ALLOWEDVALUES] == 'FLAG'){
-                    $command_call .= '_flag_'.$com[0][\DBD\SYSTEM\PAGETable::FIELD_NAME];
+                if($com[0][\SYSTEM\DBD\PAGETable::FIELD_ALLOWEDVALUES] == 'FLAG'){
+                    $command_call .= '_flag_'.$com[0][\SYSTEM\DBD\PAGETable::FIELD_NAME];
                 } else {
-                    $command_call .= '_'.$com[0][\DBD\SYSTEM\PAGETable::FIELD_NAME].'_'.\strtolower($com[1]);}
+                    $command_call .= '_'.$com[0][\SYSTEM\DBD\PAGETable::FIELD_NAME].'_'.\strtolower($com[1]);}
             }
             $command_call = substr($command_call, 1);
         }
@@ -119,7 +119,7 @@ class PageApi {
     private function getPageTree(){
 
         $con = new \SYSTEM\DB\Connection($this->m_dbinfo);
-        $res = $con->query('SELECT * FROM '.\DBD\SYSTEM\PAGETable::NAME.' ORDER BY "'.\DBD\SYSTEM\PAGETable::FIELD_ID.'"');
+        $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\PAGETable::NAME.' ORDER BY "'.\SYSTEM\DBD\PAGETable::FIELD_ID.'"');
 
         if(!$res){
             throw new \SYSTEM\LOG\ERROR("Database Error ".  pg_last_error());}

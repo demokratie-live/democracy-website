@@ -1,6 +1,6 @@
 <?php
 
-namespace DBD\SYSTEM;
+namespace SYSTEM\DBD;
 
 class UserLoginsTable {
 
