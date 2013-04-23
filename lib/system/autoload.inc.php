@@ -14,4 +14,3 @@ spl_autoload_register('__autoload_system');
 
 //Register system classes
 require_once dirname(__FILE__).'/system/register_system_autoload_classes.php';
-require_once dirname(__FILE__).'/dbd/autoload.inc.php';
