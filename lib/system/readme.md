@@ -1,11 +1,10 @@
 system
 ======
-
 System - PHP Framework
 
 
-The MIT License (MIT)
-
+License
+=======
 Copyright (c) 2013 TU-Darmstadt, Ulf Gebhardt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
