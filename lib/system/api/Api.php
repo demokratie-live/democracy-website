@@ -42,7 +42,7 @@ class Api {
     private $m_verifyclass = null;
     private $m_apiclass = null;
 
-    public function __construct(\SYSTEM\verifyclass $VerifyClass, \SYSTEM\API\apiclass $ApiClass,$DBInfo = null){
+    public function __construct(\SYSTEM\verifyclass $VerifyClass, \SYSTEM\API\apiclass $ApiClass,$DBInfo = null){        
         $this->m_dbinfo = $DBInfo == null ? \SYSTEM\system::getSystemDBInfo() : $DBInfo;
         $this->m_verifyclass = $VerifyClass;
         $this->m_apiclass = $ApiClass;
@@ -139,7 +139,7 @@ class Api {
     private function getApiTree(){
 
         $con = new \SYSTEM\DB\Connection($this->m_dbinfo);
-        $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME.' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
+        $res = $con->query('SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\APITable::NAME_PG : \SYSTEM\DBD\APITable::NAME_MYS).' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
         unset($con);
 
         if(!$res){

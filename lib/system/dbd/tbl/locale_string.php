@@ -3,7 +3,8 @@
 namespace SYSTEM\DBD;
 
 class locale_string {
-    const NAME = 'system_locale_string';
+    const NAME_PG  = 'system.locale_string';
+    const NAME_MYS = 'system_locale_string';
 
     const FIELD_ID = 'id';
     const FIELD_CATEGORY = 'category';

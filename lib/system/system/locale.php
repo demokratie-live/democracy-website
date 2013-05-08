@@ -52,29 +52,29 @@ class locale {
             foreach($request as $strid){
                 if(!\preg_match("^[a-zA-Z0-9_]+$^", $strid) != 0){
                     throw new \Exception("Requested id contains inpropper symbols: ".$strid);}
-                 $where .= 'OR "'.\DBD\SYSTEM\locale_string::FIELD_ID.'" = $1 ';
+                 $where .= 'OR "'.\SYSTEM\DBD\locale_string::FIELD_ID.'" = $1 ';
             }
             $where = substr($where,2);
 
-            $con = new \SYSTEM\DB\Connection(new \DBD\dasensePostgres());
-            $res = $con->prepare( 'localeArrStmt',  'SELECT "'.$lang.'","'.\DBD\SYSTEM\locale_string::FIELD_ID.'" FROM '.\DBD\SYSTEM\locale_string::NAME.' WHERE '.$where,
+            $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+            $res = $con->prepare( 'localeArrStmt',  'SELECT "'.$lang.'","'.\SYSTEM\DBD\locale_string::FIELD_ID.'" FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.$where,
                                     $request);
 
             $result = array();
             while($r = $res->next()){
-                $result[$r[\DBD\SYSTEM\locale_string::FIELD_ID]] = $r[$lang];}
+                $result[$r[\SYSTEM\DBD\locale_string::FIELD_ID]] = $r[$lang];}
 
             return $result;
         } else if(\intval($request)){
             $cat = \intval($request);
 
             $con = new \SYSTEM\DB\Connection(new \DBD\dasensePostgres());
-            $res = $con->prepare( 'localeStmt', 'SELECT "'.$lang.'","'.\DBD\SYSTEM\locale_string::FIELD_ID.'" FROM '.\DBD\SYSTEM\locale_string::NAME.' WHERE '.\DBD\SYSTEM\locale_string::FIELD_CATEGORY.' = $1;',
+            $res = $con->prepare( 'localeStmt', 'SELECT "'.$lang.'","'.\SYSTEM\DBD\locale_string::FIELD_ID.'" FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.\SYSTEM\DBD\locale_string::FIELD_CATEGORY.' = $1;',
                                     array($cat));
 
             $result = array();
             while($r = $res->next()){
-                $result[$r[\DBD\SYSTEM\locale_string::FIELD_ID]] = $r[$lang];}
+                $result[$r[\SYSTEM\DBD\locale_string::FIELD_ID]] = $r[$lang];}
 
             return $result;
         } 

@@ -119,7 +119,7 @@ class PageApi {
     private function getPageTree(){
 
         $con = new \SYSTEM\DB\Connection($this->m_dbinfo);
-        $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\PAGETable::NAME.' ORDER BY "'.\SYSTEM\DBD\PAGETable::FIELD_ID.'"');
+        $res = $con->query('SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\PAGETable::NAME_PG : \SYSTEM\DBD\PAGETable::NAME_MYS).' ORDER BY "'.\SYSTEM\DBD\PAGETable::FIELD_ID.'"');
 
         if(!$res){
             throw new \SYSTEM\LOG\ERROR("Database Error ".  pg_last_error());}

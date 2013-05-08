@@ -4,7 +4,8 @@ namespace SYSTEM\DBD;
 
 class PAGETable {
 
-    const NAME = 'system_page_calls';
+    const NAME_PG  = 'system.page_calls';
+    const NAME_MYS = 'system_page_calls';
 
     const FIELD_ID = 'ID';
     const FIELD_FLAG = 'flag';
