@@ -23,9 +23,9 @@ class Security {
             return self::REGISTER_FAIL;}        
         
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $result = $con->prepare('createAccountStmt','INSERT INTO '.\DBD\SYSTEM\UserTable::NAME.
-                                ' ('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.','.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.','
-                                    .\DBD\SYSTEM\UserTable::FIELD_EMAIL.','.\DBD\SYSTEM\UserTable::FIELD_LOCALE.','.\DBD\SYSTEM\UserTable::FIELD_ACCOUNT_FLAG.')'.
+        $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME.
+                                ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
+                                    .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
                                 ' VALUES ($1, $2, $3, $4, $5) RETURNING *;',
                                 array( $username , $password, $email, $locale, 1 ));
         
@@ -47,15 +47,15 @@ class Security {
         $con = new \SYSTEM\DB\Connection($dbinfo); 
         if(isset($password_md5)){
             $result = $con->prepare('loginAccountStmt', 
-                                    'SELECT * FROM '.\DBD\SYSTEM\UserTable::NAME.
-                                    ' WHERE lower('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                    ' AND ('.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
+                                    'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME.
+                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                    ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
                                     array($username, $password_sha, $password_md5) );            
         }else{
             $result = $con->prepare('loginAccountStmtSHA', 
-                                    'SELECT * FROM '.\DBD\SYSTEM\UserTable::NAME.
-                                    ' WHERE lower('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                    ' AND '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.' = $2;',
+                                    'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME.
+                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                    ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
                                     array($username, $password_sha) );
         }
 
@@ -72,19 +72,19 @@ class Security {
             return self::LOGIN_FAIL;}        
         
         // set password_sha if it is empty
-        if(!$row[\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA]){
+        if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]){
             $res = $con->prepare(   'updatePasswordSHAStmt',  
-                                    'UPDATE '.\DBD\SYSTEM\UserTable::NAME.' SET '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\DBD\SYSTEM\UserTable::FIELD_ID.' = $2'.' RETURNING '.\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA.';', 
-                                    array($password_sha,$row[\DBD\SYSTEM\UserTable::FIELD_ID]));
+                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
+                                    array($password_sha,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
             $res = $res->next();
-            $row[\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA] = $res[\DBD\SYSTEM\UserTable::FIELD_PASSWORD_SHA];
+            $row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] = $res[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA];
         }
             
         // set session variables
-        $_SESSION['user'] = new User(   $row[\DBD\SYSTEM\UserTable::FIELD_ID],
-                                        $row[\DBD\SYSTEM\UserTable::FIELD_USERNAME],
-                                        $row[\DBD\SYSTEM\UserTable::FIELD_EMAIL],
-                                        $row[\DBD\SYSTEM\UserTable::FIELD_JOINDATE],
+        $_SESSION['user'] = new User(   $row[\SYSTEM\DBD\UserTable::FIELD_ID],
+                                        $row[\SYSTEM\DBD\UserTable::FIELD_USERNAME],
+                                        $row[\SYSTEM\DBD\UserTable::FIELD_EMAIL],
+                                        $row[\SYSTEM\DBD\UserTable::FIELD_JOINDATE],
                                         time(),
                                         getenv('REMOTE_ADDR'),
                                         0,
@@ -93,15 +93,15 @@ class Security {
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
         // track succesful user login
-        self::trackLogins($dbinfo, $row[\DBD\SYSTEM\UserTable::FIELD_ID], self::LOGIN_OK);        
+        self::trackLogins($dbinfo, $row[\SYSTEM\DBD\UserTable::FIELD_ID], self::LOGIN_OK);        
         return ($advancedResult ? $row : self::LOGIN_OK);
     }       
     
     private static function trackLogins(\SYSTEM\DB\DBInfo $dbinfo, $userID, $succ){
         $con = new \SYSTEM\DB\Connection($dbinfo);         
         $con->prepare(  'trackLoginAccountStmt', 
-                        'INSERT INTO '.\DBD\SYSTEM\UserLoginsTable::NAME.' ("'.\DBD\SYSTEM\UserLoginsTable::FIELD_USERID.'","'.
-                        \DBD\SYSTEM\UserLoginsTable::FIELD_IP.'",'.\DBD\SYSTEM\UserLoginsTable::FIELD_SUCC.') VALUES ($1,$2,$3)',
+                        'INSERT INTO '.\SYSTEM\DBD\UserLoginsTable::NAME.' ("'.\SYSTEM\DBD\UserLoginsTable::FIELD_USERID.'","'.
+                        \SYSTEM\DBD\UserLoginsTable::FIELD_IP.'",'.\SYSTEM\DBD\UserLoginsTable::FIELD_SUCC.') VALUES ($1,$2,$3)',
                         array(isset($userID) ? $userID : -1, getenv('REMOTE_ADDR'), (int)$succ ));
     }
 
@@ -118,8 +118,8 @@ class Security {
     public static function available(\SYSTEM\DB\DBInfo $dbinfo, $username){        
         $con = new \SYSTEM\DB\Connection($dbinfo);
         $res = $con->prepare(   'availableStmt',  
-                                'SELECT COUNT(*) as count FROM '.\DBD\SYSTEM\UserTable::NAME.
-                                ' WHERE lower('.\DBD\SYSTEM\UserTable::FIELD_USERNAME.') like lower($1) ;',
+                                'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME.
+                                ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower($1) ;',
                                 array($username));
 
         if(!($res = $res->next())){
@@ -185,8 +185,8 @@ class Security {
                  
         $con = new \SYSTEM\DB\Connection($dbinfo);
         $res = $con->prepare(   'updateUserLocaleStmt',
-                                'UPDATE '.\DBD\SYSTEM\UserTable::NAME.' SET '.\DBD\SYSTEM\UserTable::FIELD_LOCALE.' = $1 '.
-                                'WHERE '.\DBD\SYSTEM\UserTable::FIELD_ID.' = $2'.' RETURNING '.\DBD\SYSTEM\UserTable::FIELD_LOCALE.';', 
+                                'UPDATE '.\SYSTEM\DBD\UserTable::NAME.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.
+                                'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.';', 
                                 array($lang, $user->id));
         if(!$res->next()){
             throw new \SYSTEM\LOG\ERROR("Problem updating the User!");}        

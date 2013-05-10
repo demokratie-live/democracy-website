@@ -15,7 +15,7 @@ class locale {
 
         \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);        
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            \SYSTEM\SECURITY\Security::_db_setLocale(new \DBD\SYSTEM\systemPostgres(), $lang);} //TODO: connection def move somewhere?        
+            \SYSTEM\SECURITY\Security::_db_setLocale(new \SYSTEM\DBD\systemPostgres(), $lang);} //TODO: connection def move somewhere?        
             
         return true;
     }

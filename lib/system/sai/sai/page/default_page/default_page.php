@@ -70,7 +70,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         //$vars['PATH_IMG'] = SYSTEM\WEBPATH(new PPAGE(),'default_developer/img/');
         //$vars['PATH_LIB'] = SYSTEM\WEBPATH(new PLIB());
         //$vars['PATH_JS'] = SYSTEM\WEBPATH(new PJS());
-        //$vars = array_merge($vars, SYSTEM\locale::getStrings(\DBD\SYSTEM\locale_string::VALUE_CATEGORY_DASENSE));
+        //$vars = array_merge($vars, SYSTEM\locale::getStrings(\SYSTEM\DBD\locale_string::VALUE_CATEGORY_DASENSE));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'sai/page/default_page/sai.tpl'), $vars);        
     }
 }

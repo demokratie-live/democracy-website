@@ -81,7 +81,7 @@ class PageApi {
 
                     if( !method_exists($this->m_verifyclass, $item[\SYSTEM\DBD\PAGETable::FIELD_ALLOWEDVALUES]) ||
                         !$this->m_verifyclass->$item[\SYSTEM\DBD\PAGETable::FIELD_ALLOWEDVALUES]($call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]])){
-                        throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\PAGETable::FIELD_NAME].' Verifier: '.$item[\DBD\SYSTEM\PAGETable::FIELD_ALLOWEDVALUES]);}
+                        throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\PAGETable::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\PAGETable::FIELD_ALLOWEDVALUES]);}
 
                     $parameters[] = array($item, $call[$item[\SYSTEM\DBD\PAGETable::FIELD_NAME]]);
                 }
