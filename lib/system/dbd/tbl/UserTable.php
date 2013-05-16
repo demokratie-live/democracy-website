@@ -4,7 +4,8 @@ namespace SYSTEM\DBD;
 
 class UserTable {
 
-    const NAME = 'system_user';
+    const NAME_PG = 'system.user';
+    const NAME_MYS = 'system_user';   
 
     const FIELD_ID = 'id';
     const FIELD_USERNAME = 'username';

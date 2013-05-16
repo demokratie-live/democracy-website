@@ -26,12 +26,12 @@ class default_page extends \SYSTEM\PAGE\Page {
             \array_search($this->module, $mods) !== false){
             return \call_user_func(array($this->module, 'html_content'),array($this->pg));}
 
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'sai/page/default_page/carousel.tpl'), array());
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/default_page/carousel.tpl'), array());
     }
 
     private function css(){        
-        $result = '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'sai/page/default_page/css/libs/bootstrap.min.css').'" type="text/css" />'.
-                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'sai/page/default_page/css/index.css').'" type="text/css" />';;
+        $result = '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/css/libs/bootstrap.min.css').'" type="text/css" />'.
+                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/css/index.css').'" type="text/css" />';
 
         $mods = \SYSTEM\SAI\sai::getInstance()->getModules();
         if( $this->module &&
@@ -42,9 +42,9 @@ class default_page extends \SYSTEM\PAGE\Page {
     }
 
     private function js(){
-        $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'sai/page/default_page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'sai/page/default_page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'sai/page/default_page/js/index.js').'" type="text/javascript"></script>';
+        $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/index.js').'" type="text/javascript"></script>';
 
         $mods = \SYSTEM\SAI\sai::getInstance()->getModules();        
         if( $this->module &&
@@ -61,6 +61,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['js'] = $this->js();
 
         $vars['menu'] = $this->menu();
+        $vars['navimg'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG);
 
         //TODO
         new \SYSTEM\LOG\DEPRECATED();
@@ -71,6 +72,6 @@ class default_page extends \SYSTEM\PAGE\Page {
         //$vars['PATH_LIB'] = SYSTEM\WEBPATH(new PLIB());
         //$vars['PATH_JS'] = SYSTEM\WEBPATH(new PJS());
         //$vars = array_merge($vars, SYSTEM\locale::getStrings(\SYSTEM\DBD\locale_string::VALUE_CATEGORY_DASENSE));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'sai/page/default_page/sai.tpl'), $vars);        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/default_page/sai.tpl'), $vars);        
     }
 }

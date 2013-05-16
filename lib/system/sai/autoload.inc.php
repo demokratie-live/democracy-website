@@ -1,7 +1,7 @@
 <?php
 
 $autoload = SYSTEM\autoload::getInstance();
-$autoload->registerFolder(dirname(__FILE__),'SYSTEM\SAI');
+$autoload->registerFolder(dirname(__FILE__).'/sai','SYSTEM\SAI');
 
 $autoload->registerFolder(dirname(__FILE__).'/page','SYSTEM\SAI');
 $autoload->registerFolder(dirname(__FILE__).'/page/default_page','SYSTEM\SAI');

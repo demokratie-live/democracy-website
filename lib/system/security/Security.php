@@ -47,7 +47,7 @@ class Security {
         $con = new \SYSTEM\DB\Connection($dbinfo); 
         if(isset($password_md5)){
             $result = $con->prepare('loginAccountStmt', 
-                                    'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME.
+                                    'SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).
                                     ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
                                     ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
                                     array($username, $password_sha, $password_md5) );            
@@ -139,9 +139,10 @@ class Security {
             return false;}
 
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'SELECT COUNT(*) as count FROM '.\DBD\UserRightsTable::NAME.
-                                ' WHERE '.\DBD\UserRightsTable::FIELD_USERID.' = ?'.
-                                ' AND '.\DBD\UserRightsTable::FIELD_RIGHTID.' = ?;',
+        $res = $con->prepare(   'security_check',
+                                'SELECT COUNT(*) as count FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserRightsTable::NAME_PG : \SYSTEM\DBD\UserRightsTable::NAME_MYS).
+                                ' WHERE "'.\SYSTEM\DBD\UserRightsTable::FIELD_USERID.'" = $1'.
+                                ' AND "'.\SYSTEM\DBD\UserRightsTable::FIELD_RIGHTID.'" = $2;',
                                 array($user->id, $rightid));
 
         if(!($res = $res->next())){

@@ -20,13 +20,13 @@ class apiloginclass extends \SYSTEM\API\apiclass {
      */
 
     public static function call_account_action_login($username, $password_sha, $password_md5){
-        return \SYSTEM\SECURITY\Security::login(new \SYSTEM\DBD\systemPostgres(), $username, $password_sha, $password_md5);}
+        return \SYSTEM\SECURITY\Security::login(\SYSTEM\system::getSystemDBInfo(), $username, $password_sha, $password_md5);}
     public static function call_account_action_logout(){
         return \SYSTEM\SECURITY\Security::logout();}
     public static function call_account_action_isloggedin(){
         return \SYSTEM\SECURITY\Security::isLoggedIn();}
     public static function call_account_action_check($rightid){
-        return \SYSTEM\SECURITY\Security::check(new \SYSTEM\DBD\systemPostgres(),$rightid);}
+        return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(),$rightid);}
     public static function call_account_action_create($username, $password_sha, $email, $locale){
-        return \SYSTEM\SECURITY\Security::create(new \SYSTEM\DBD\systemPostgres(), $username, $password_sha, $email, $locale);}
+        return \SYSTEM\SECURITY\Security::create(\SYSTEM\system::getSystemDBInfo(), $username, $password_sha, $email, $locale);}
 }
