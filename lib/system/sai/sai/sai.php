@@ -16,7 +16,7 @@ class sai {
     private function __construct(){}
     private function __clone(){}
 
-    public function register($module){        
+    public function register($module){                        
         if( !\class_exists($module) ||
             !\is_array($parents = \class_parents($module)) ||
             !\array_search('SYSTEM\SAI\SaiModule', $parents)){

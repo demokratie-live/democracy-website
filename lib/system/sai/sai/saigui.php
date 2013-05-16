@@ -1,16 +1,17 @@
 <?php
 namespace SYSTEM\SAI;
 
+define('SAI_MOD_POSTFIELD','sai_mod');
+
 class saigui extends \SYSTEM\PAGE\Page {
     
     public function html(){
-        
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo() , \SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
-            $login = new \SYSTEM\SAI\login_page();
-            return $login->html();}
-
         $pg = array_merge($_POST,$_GET);
-        $sai = new \SYSTEM\SAI\default_page ((isset($pg['sai_mod']) ? $pg['sai_mod'] : null),$pg);
+        if(isset($pg[SAI_MOD_POSTFIELD])){
+            $mod = new \SYSTEM\SAI\default_module(\str_replace('.', '\\', $pg[SAI_MOD_POSTFIELD]),$pg);
+            return $mod->html();}
+        
+        $sai = new \SYSTEM\SAI\default_page();
         return $sai->html();
     }
 }
