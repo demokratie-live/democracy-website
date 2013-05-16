@@ -46,18 +46,20 @@ class locale {
 
         if(!self::isLang($lang)){
             throw new \Exception("The requested language is not supported: ".$lang);}
+            
+        $q = \SYSTEM\system::isSystemDbInfoPG() ? '"' : '`';
 
         if(\is_array($request)){
             $where = '';
             foreach($request as $strid){
                 if(!\preg_match("^[a-zA-Z0-9_]+$^", $strid) != 0){
                     throw new \Exception("Requested id contains inpropper symbols: ".$strid);}
-                 $where .= 'OR `'.\SYSTEM\DBD\locale_string::FIELD_ID.'` = $1 ';
+                 $where .= 'OR '.$q.\SYSTEM\DBD\locale_string::FIELD_ID.$q.' = $1 ';
             }
             $where = substr($where,2);
 
             $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-            $res = $con->prepare( 'localeArrStmt',  'SELECT `'.$lang.'`,`'.\SYSTEM\DBD\locale_string::FIELD_ID.'` FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.$where,
+            $res = $con->prepare( 'localeArrStmt',  'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.$where,
                                     $request);
 
             $result = array();
@@ -69,7 +71,7 @@ class locale {
             $cat = \intval($request);
 
             $con = new \SYSTEM\DB\Connection( \SYSTEM\system::getSystemDBInfo());            
-            $res = $con->prepare( 'localeStmt', 'SELECT `'.$lang.'`,`'.\SYSTEM\DBD\locale_string::FIELD_ID.'` FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.\SYSTEM\DBD\locale_string::FIELD_CATEGORY.' = '.(\SYSTEM\system::isSystemDbInfoPG() ? '$1' : '?').';',
+            $res = $con->prepare( 'localeStmt', 'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.\SYSTEM\DBD\locale_string::FIELD_CATEGORY.' = '.(\SYSTEM\system::isSystemDbInfoPG() ? '$1' : '?').';',
                                     array($cat));
 
             $result = array();
