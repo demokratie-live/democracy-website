@@ -6,7 +6,10 @@
 <div id="myCarousel" class="carousel slide">
     <!-- Carousel items -->
     <div class="carousel-inner">
-      <div class="active item">
+       <div class="active item">
+        <iframe width="1200" height="650" src="http://www.youtube.com/embed/hMLcKtVwF-A" frameborder="0" allowfullscreen autoplay></iframe>
+      </div>
+      <div class="item">
         <img class="carousel-img" src="dasense/page/default_developer/img/carousel/webseite.jpg" alt="">
         <div class="carousel-caption">
           <h4>TK Forschungspraktikum WS 2012/2013</h4>
