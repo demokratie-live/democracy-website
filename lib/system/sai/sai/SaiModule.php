@@ -13,5 +13,11 @@ abstract class SaiModule {
     //check your rights here -> returns true or false
     public static function right_right(){
         throw new RuntimeException("Unimplemented!");}
+    //array with paths as json    
+    public static function src_js(){
+        throw new RuntimeException("Unimplemented!");}    
+    //array with paths as json
+    public static function src_css(){
+        throw new RuntimeException("Unimplemented!");}
     
 }
