@@ -1,22 +1,32 @@
 Please login for developer access.
 </br>
-<font color="red">
-    <span id="loginStatusMsg"></span>
-</font>
 
-
-<fieldset>
-    <legend>Login</legend>
-    <input type='hidden' name='submitted' id='submitted' value='1'/>
-
-    <label for='username' >Username:</label>
-    <input type='text' name='username' id='username'  maxlength="50" />
-
-    <label for='password' >Password:</label>
-    <input type='password' name='password' id='password' maxlength="50" />
-    <br />
-    <button class="btn btn-primary" id="submitButton">Login</button>
-</fieldset>
-
-
-<script src="login.js" type="text/javascript"></script>
+<form class="textbox" style="padding:10px" id="login_form">
+    <div class="control-group">
+        <div class="controls">
+            <input  type="text"
+                    size="30"
+                    style="margin-bottom: 15px;"
+                    id="bt_login_user"
+                    placeholder="${loginUsername}"
+                    minlength="3" data-validation-minlength-message="${login_username_too_short}"
+                    maxlength="16" data-validation-maxlength-message="${login_username_too_long}"
+                    required data-validation-required-message="${login_username_required}"/>
+        </div>
+        <div class="controls">
+            <input  type="password"
+                    size="30"
+                    style="margin-bottom: 15px;"
+                    id="bt_login_password"
+                    placeholder="${loginPassword}"
+                    minlength="5" data-validation-minlength-message="${login_password_too_short}"
+                    maxlength="16" data-validation-maxlength-message="${login_password_too_short}"
+                    required data-validation-required-message="${login_password_required}"/>
+        </div>        
+        <div class="help-block"></div>
+        <input type="hidden" />
+        <button class="btn btn-primary" style="clear: left; height: 32px; font-size: 13px;"
+                type="submit"
+                id="login_submit">${login}</button>
+    </div>
+</form>

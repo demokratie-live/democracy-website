@@ -38,4 +38,7 @@ class saimod_sys_error extends \SYSTEM\SAI\SaiModule {
     public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_error">SYS Error</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    
+    public static function src_css(){}
+    public static function src_js(){}
 }

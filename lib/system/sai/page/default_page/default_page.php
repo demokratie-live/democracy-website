@@ -4,7 +4,19 @@ namespace SYSTEM\SAI;
 
 class default_page extends \SYSTEM\PAGE\Page {
     
-    private function menu(){                
+    private function menu_sys(){                
+        $result = '';
+        
+        $mods = \SYSTEM\SAI\sai::getInstance()->getSysModules();
+        foreach($mods as $mod){
+            if(\call_user_func(array($mod, 'right_public')) ||
+               \call_user_func(array($mod, 'right_right'))){
+                $result .= \call_user_func(array($mod, 'html_li_menu'));}
+        }
+        return $result;        
+    }
+    
+    private function menu_proj(){                
         $result = '';
         
         $mods = \SYSTEM\SAI\sai::getInstance()->getModules();
@@ -13,7 +25,7 @@ class default_page extends \SYSTEM\PAGE\Page {
                \call_user_func(array($mod, 'right_right'))){
                 $result .= \call_user_func(array($mod, 'html_li_menu'));}
         }
-        return $result.'</ul>';        
+        return $result;        
     }
 
     private function css(){        
@@ -23,11 +35,9 @@ class default_page extends \SYSTEM\PAGE\Page {
     }
 
     private function js(){
-        //if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo() , \SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
-        //    $login = new \SYSTEM\SAI\login_page();
-        //    return $login->html();}
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/loadcssjs.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/index.js').'" type="text/javascript"></script>';
         return $result;
     }
@@ -38,14 +48,10 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['css'] = $this->css();
         $vars['js'] = $this->js();
 
-        $vars['menu'] = $this->menu();
+        $vars['menu_sys'] = $this->menu_sys();
+        $vars['menu_proj'] = $this->menu_proj();
         $vars['navimg'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG);
         
-
-        //$vars['PATH_IMG'] = SYSTEM\WEBPATH(new PPAGE(),'default_developer/img/');
-        //$vars['PATH_LIB'] = SYSTEM\WEBPATH(new PLIB());
-        //$vars['PATH_JS'] = SYSTEM\WEBPATH(new PJS());
-        //$vars = array_merge($vars, SYSTEM\locale::getStrings(\SYSTEM\DBD\locale_string::VALUE_CATEGORY_DASENSE));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/default_page/sai.tpl'), $vars);        
     }
 }
