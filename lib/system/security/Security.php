@@ -61,13 +61,13 @@ class Security {
 
         //Database check
         if(!$result){
-            self::trackLogins($dbinfo, NULL, self::LOGIN_FAIL);
+            new \SYSTEM\LOG\WARNING("Login Failed, Db result was not valid");            
             $_SESSION['user'] = NULL;
             return self::LOGIN_FAIL;}        
 
         $row = $result->next();
         if(!$row){
-            self::trackLogins($dbinfo, NULL, self::LOGIN_FAIL);
+            new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");            
             $_SESSION['user'] = NULL;            
             return self::LOGIN_FAIL;}        
         
@@ -93,16 +93,16 @@ class Security {
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
         // track succesful user login
-        self::trackLogins($dbinfo, $row[\SYSTEM\DBD\UserTable::FIELD_ID], self::LOGIN_OK);        
+        self::trackLogins($dbinfo, $row[\SYSTEM\DBD\UserTable::FIELD_ID]);        
         return ($advancedResult ? $row : self::LOGIN_OK);
     }       
     
-    private static function trackLogins(\SYSTEM\DB\DBInfo $dbinfo, $userID, $succ){
+    private static function trackLogins(\SYSTEM\DB\DBInfo $dbinfo, $userID){
         $con = new \SYSTEM\DB\Connection($dbinfo);         
         $con->prepare(  'trackLoginAccountStmt', 
-                        'INSERT INTO '.\SYSTEM\DBD\UserLoginsTable::NAME.' ("'.\SYSTEM\DBD\UserLoginsTable::FIELD_USERID.'","'.
-                        \SYSTEM\DBD\UserLoginsTable::FIELD_IP.'",'.\SYSTEM\DBD\UserLoginsTable::FIELD_SUCC.') VALUES ($1,$2,$3)',
-                        array(isset($userID) ? $userID : -1, getenv('REMOTE_ADDR'), (int)$succ ));
+                        'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= to_timestamp($1) '.
+                        'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2;',
+                        array(microtime(true), $userID));
     }
 
     public static function getUser(){
