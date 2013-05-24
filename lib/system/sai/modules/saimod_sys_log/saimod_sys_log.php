@@ -17,9 +17,15 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     
     
     private static function build_table($filter){
-        
+
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        $res = $con->query('SELECT * FROM system.sys_log ORDER BY time DESC LIMIT 100;');
+        $res = null;                
+        if($filter !== NULL && $filter !== 'all'){        
+            $res = $con->prepare(   'selectSysLogFilter',
+                                    'SELECT * FROM system.sys_log WHERE class ILIKE $1 ORDER BY time DESC LIMIT 100;',
+                                    array('%'.$filter.'%'));            
+        } else {
+            $res = $con->query('SELECT * FROM system.sys_log ORDER BY time DESC LIMIT 100;');}
         
         $now = microtime(true);
         
@@ -27,13 +33,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                     '<tr>'.'<th>'.'time ago in sec'.'</th>'.'<th>'.'time'.'</th>'.'<th>'.'class'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'code'.'</th>'.'<th>'.'file'.'</th>'.'<th>'.'line'.'</th>'.'<th>'.'ip'.'</th>'.'<th>'.'querytime'.'</tr>';
         while($r = $res->next()){
             
-            if($filter !== NULL && $filter !== 'all'){
-                if(self::tablerow_class($r['class']) === $filter){
-                    $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';
-                }
-            }else{
-                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';
-            }
+            
+                    $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
         }
         $result .= '</table></div>';
         
@@ -77,8 +78,10 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                     <button class="btn active" href="#" id="all">All</button>
                     <button class="btn" href="#" id="error">Error</button>
                     <button class="btn" href="#" id="warning">Warning</button>
-                    <button class="btn" href="#" id="success">Info</button>
-                    <button class="btn" href="#" id="info">Deprecated</button>
+                    <button class="btn" href="#" id="info">Info</button>
+                    <button class="btn" href="#" id="deprecated">Deprecated</button>
+                    <button class="btn" href="#" id="exception">Exception</button>
+                    <button class="btn" href="#" id="apperror">AppError</button>
                   </diV>
                   <button data-toggle="modal" href="#truncate_modal" class="btn" style="height: 32px; font-size: 13px; float: right;">Truncate Table</button>
                   <br /><br />';
