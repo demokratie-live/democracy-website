@@ -22,7 +22,7 @@
          </div>
      </div>
 
-     <div id="project_navbar" style="width:150px;float:left;">
+     <div id="project_navbar" style="width:210px;float:left;">
         <div class="navbar-inner">          
             <ul class="nav nav-list">                
                 ${menu_proj}
