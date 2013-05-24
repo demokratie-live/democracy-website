@@ -3,7 +3,7 @@
 namespace SYSTEM\SAI;
 
 
-class saimod_sys_error extends \SYSTEM\SAI\SaiModule {    
+class saimod_sys_log extends \SYSTEM\SAI\SaiModule {    
     
     private static function truncate_syslog(){
         if(\SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
@@ -29,10 +29,10 @@ class saimod_sys_error extends \SYSTEM\SAI\SaiModule {
             
             if($filter !== NULL && $filter !== 'all'){
                 if(self::tablerow_class($r['class']) === $filter){
-                    $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</tr>';
+                    $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';
                 }
             }else{
-                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</tr>';
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';
             }
         }
         $result .= '</table></div>';
@@ -105,11 +105,11 @@ class saimod_sys_error extends \SYSTEM\SAI\SaiModule {
         }        
     }
     
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_error">SYS Error</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_log">Log</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     public static function src_css(){}
     public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
-                                    array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_error/sai_sys_error.js')));}
+                                    array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/sai_sys_log.js')));}
 }

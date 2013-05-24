@@ -24,9 +24,9 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         } else {
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/login.tpl'), $vars);}
     }
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_login">SYS Login</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_login">Login</a></li>';}
     public static function right_public(){return true;}    
-    public static function right_right(){}
+    public static function right_right(){return true;}
     
     public static function src_css(){}
     public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
