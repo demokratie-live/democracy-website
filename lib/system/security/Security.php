@@ -53,7 +53,7 @@ class Security {
                                     array($username, $password_sha, $password_md5) );            
         }else{
             $result = $con->prepare('loginAccountStmtSHA', 
-                                    'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME.
+                                    'SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).
                                     ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
                                     ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
                                     array($username, $password_sha) );
