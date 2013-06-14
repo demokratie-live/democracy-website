@@ -8,4 +8,4 @@
 \SYSTEM\SAI\sai::getInstance()->register_sys('\SYSTEM\SAI\saimod_sys_config');
 \SYSTEM\SAI\sai::getInstance()->register_sys('\SYSTEM\SAI\saimod_sys_calls');
 \SYSTEM\SAI\sai::getInstance()->register_sys('\SYSTEM\SAI\saimod_sys_locale');
-//\SYSTEM\SAI\sai::getInstance()->register('\SYSTEM\SAI\saimod_sys_docu');
+//\SYSTEM\SAI\sai::getInstance()->register_sys('\SYSTEM\SAI\saimod_sys_docu');

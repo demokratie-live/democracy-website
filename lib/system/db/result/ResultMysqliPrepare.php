@@ -45,8 +45,9 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
     //$result_type not used!
     public function next($object = false, $result_type = MYSQL_BOTH){        
         if(\mysqli_stmt_fetch($this->res)){
-            return $this->binds;}
-
+            foreach( $this->binds as $key=>$value ){
+                $row[ $key ] = $value;} 
+            return $row;}
         return NULL;       
     }
 
