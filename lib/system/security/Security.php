@@ -88,7 +88,8 @@ class Security {
                                         time(),
                                         getenv('REMOTE_ADDR'),
                                         0,
-                                        NULL);
+                                        NULL,
+                                        $row[\SYSTEM\DBD\UserTable::FIELD_LOCALE]);
         
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
