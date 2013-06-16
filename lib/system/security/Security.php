@@ -74,7 +74,7 @@ class Security {
         // set password_sha if it is empty
         if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]){
             $res = $con->prepare(   'updatePasswordSHAStmt',  
-                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
+                                    'UPDATE '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
                                     array($password_sha,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
             $res = $res->next();
             $row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] = $res[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA];
