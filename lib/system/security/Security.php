@@ -119,7 +119,7 @@ class Security {
     public static function available(\SYSTEM\DB\DBInfo $dbinfo, $username){        
         $con = new \SYSTEM\DB\Connection($dbinfo);
         $res = $con->prepare(   'availableStmt',  
-                                'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME.
+                                'SELECT COUNT(*) as count FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).
                                 ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower($1) ;',
                                 array($username));
 
