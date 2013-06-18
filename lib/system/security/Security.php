@@ -23,7 +23,7 @@ class Security {
             return self::REGISTER_FAIL;}        
         
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME.
+        $result = $con->prepare('createAccountStmt','INSERT INTO '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).
                                 ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
                                     .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
                                 ' VALUES ($1, $2, $3, $4, $5) RETURNING *;',
