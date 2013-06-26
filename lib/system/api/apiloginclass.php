@@ -4,19 +4,17 @@ namespace SYSTEM\API;
 
 class apiloginclass extends \SYSTEM\API\apiclass {
     /*
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (0, 0, -1, NULL, 'call', NULL);
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (60, 0, 0, 'account', 'action', NULL);
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (0, 0, -1, NULL, 'call', NULL);
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (60, 0, 0, 'account', 'action', NULL);
 
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (61, 1, 60, 'login', 'username', 'ALL');
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (62, 1, 60, 'login', 'password', 'ALL');
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (63, 1, 60, 'login', 'hashed', 'ALL');
-
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (64, 1, 60, 'check', 'rightid', 'ALL');
-
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (65, 1, 60, 'create', 'username', 'ALL');
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (66, 1, 60, 'create', 'password', 'ALL');
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (67, 1, 60, 'create', 'email', 'ALL');
-    INSERT INTO `APICalls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (68, 1, 60, 'create', 'hashed', 'ALL');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (61,1,60,'login','username','USERNAME');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (62,1,60,'login','password_sha','PASSHASH');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (63,1,60,'login','password_md5','PASSHASH');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (64,1,60,'check','rightid','UINT');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (65,1,60,'create','username','USERNAME');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (66,1,60,'create','password_sha','PASSHASH');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (67,1,60,'create','email','EMAIL');
+    INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (68,1,60,'create','locale','LANG');
      */
 
     public static function call_account_action_login($username, $password_sha, $password_md5){
