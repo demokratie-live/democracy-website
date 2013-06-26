@@ -21,12 +21,12 @@ class PROOT extends PATH {
 
 class PSYSTEM extends PATH {
     static public function getPath(){
-        return C_ROOT.'system/'.C_SUBPATH;}
+        return C_ROOT.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).C_SUBPATH;}
 }
 
 class PSAI extends PATH {
     static public function getPath(){
-        return C_ROOT.'system/sai/'.C_SUBPATH;}
+        return C_ROOT.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'sai/'.C_SUBPATH;}
 }
 
 function SERVERPATH(\SYSTEM\PATH $basepath, $subpath = ''){
