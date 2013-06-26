@@ -112,7 +112,8 @@ class Security {
                                         time(),
                                         getenv('REMOTE_ADDR'),
                                         0,
-                                        NULL);
+                                        NULL,
+                                        $row[\SYSTEM\DBD\UserTable::FIELD_LOCALE]);
         
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
@@ -224,7 +225,7 @@ class Security {
                  
         $con = new \SYSTEM\DB\Connection($dbinfo);
         $res = $con->prepare(   'updateUserLocaleStmt',
-                                'UPDATE '.\SYSTEM\DBD\UserTable::NAME.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.
+                                'UPDATE '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.
                                 'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.';', 
                                 array($lang, $user->id));
         if(!$res->next()){

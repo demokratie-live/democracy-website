@@ -63,7 +63,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                       <h3>Truncate table system.sys_log</h3>
                     </div>
                     <div class="modal-body">
-                      <p>This action will delete all error messages from databse. <br />
+                      <p>This action will delete all error messages from database. <br />
                          Are you sure?</p>
                       <span id="info_box" />
                     </div>
