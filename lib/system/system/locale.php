@@ -1,13 +1,8 @@
 <?php
-
 namespace SYSTEM;
 
-define('LANGS',  \serialize(array('deDE', 'enUS')));
-
-class locale {
-    
-    const SESSION_KEY = 'locale';    
-    const DEFAULT_LANG = 'deDE';
+class locale {    
+    const SESSION_KEY = 'locale';        
 
     public static function set($lang){
         if(!self::isLang($lang)){
@@ -23,13 +18,13 @@ class locale {
     public static function get(){
         $value = \SYSTEM\SECURITY\Security::load(self::SESSION_KEY);
         if($value == NULL){
-            return self::DEFAULT_LANG;}
+            return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);}
 
         return $value;
     }
 
     public static function isLang($lang){        
-        if(!\in_array($lang, unserialize(LANGS))){
+        if(!\in_array($lang, unserialize(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS)))){
             return false;}
         return true;
     }
