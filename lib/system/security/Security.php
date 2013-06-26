@@ -23,11 +23,19 @@ class Security {
             return self::REGISTER_FAIL;}        
         
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME.
-                                ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
-                                    .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
-                                ' VALUES ($1, $2, $3, $4, $5) RETURNING *;',
-                                array( $username , $password, $email, $locale, 1 ));
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME_PG.
+                                    ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
+                                        .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
+                                    ' VALUES ($1, $2, $3, $4, $5) RETURNING *;',
+                                    array( $username , $password, $email, $locale, 1 ));
+        } else {
+            $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME_MYS.
+                                    ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
+                                        .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
+                                    ' VALUES (?, ?, ?, ?, ?);',
+                                    array( $username , $password, $email, $locale, 1 ));
+        }
         
         if( !$result || !self::login($dbinfo, $username, $password, $locale)){
                 return self::REGISTER_FAIL;}        
@@ -45,21 +53,37 @@ class Security {
             return self::LOGIN_FAIL;}
 
         $con = new \SYSTEM\DB\Connection($dbinfo); 
-        if(isset($password_md5)){
-            $result = $con->prepare('loginAccountStmt', 
-                                    'SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).
-                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                    ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
-                                    array($username, $password_sha, $password_md5) );            
+        if(isset($password_md5)){      
+            if(\SYSTEM\system::isSystemDbInfoPG()){
+                $result = $con->prepare('loginAccountStmt', 
+                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
+                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                        ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
+                                        array($username, $password_sha, $password_md5) );            
+            } else {
+                $result = $con->prepare('loginAccountStmt', 
+                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
+                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower(?)'.
+                                        ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = ? OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = ? );',
+                                        array($username, $password_sha, $password_md5) );
+            }
         }else{
-            $result = $con->prepare('loginAccountStmtSHA', 
-                                    'SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).
-                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                    ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
-                                    array($username, $password_sha) );
+            if(\SYSTEM\system::isSystemDbInfoPG()){
+                $result = $con->prepare('loginAccountStmtSHA', 
+                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
+                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
+                                        array($username, $password_sha) );
+            } else {
+                $result = $con->prepare('loginAccountStmtSHA', 
+                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
+                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower(?)'.
+                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = ?;',
+                                        array($username, $password_sha) );
+            }
         }
 
-        //Database check
+        //Database check        
         if(!$result){
             new \SYSTEM\LOG\WARNING("Login Failed, Db result was not valid");            
             $_SESSION['user'] = NULL;
@@ -99,10 +123,17 @@ class Security {
     
     private static function trackLogins(\SYSTEM\DB\DBInfo $dbinfo, $userID){
         $con = new \SYSTEM\DB\Connection($dbinfo);         
-        $con->prepare(  'trackLoginAccountStmt', 
-                        'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= to_timestamp($1) '.
-                        'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2;',
-                        array(microtime(true), $userID));
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $con->prepare(  'trackLoginAccountStmt', 
+                            'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= to_timestamp($1) '.
+                            'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2;',
+                            array(microtime(true), $userID));
+        } else {
+            $con->prepare(  'trackLoginAccountStmt', 
+                            'UPDATE '.\SYSTEM\DBD\UserTable::NAME_MYS.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= ? '.
+                            'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = ?;',
+                            array(microtime(true), $userID));
+        }
     }
 
     public static function getUser(){
@@ -117,10 +148,17 @@ class Security {
      */
     public static function available(\SYSTEM\DB\DBInfo $dbinfo, $username){        
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'availableStmt',  
-                                'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME.
-                                ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower($1) ;',
-                                array($username));
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->prepare(   'availableStmt',  
+                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
+                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower($1) ;',
+                                    array($username));
+        } else {
+            $res = $con->prepare(   'availableStmt',  
+                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
+                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower(?) ;',
+                                    array($username));
+        }
 
         if(!($res = $res->next())){
             throw new \SYSTEM\LOG\ERRROR("Cannot determine the availability of username!");}
