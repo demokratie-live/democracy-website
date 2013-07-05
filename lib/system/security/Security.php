@@ -178,11 +178,19 @@ class Security {
             return false;}
 
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'security_check',
-                                'SELECT COUNT(*) as count FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserRightsTable::NAME_PG : \SYSTEM\DBD\UserRightsTable::NAME_MYS).
-                                ' WHERE "'.\SYSTEM\DBD\UserRightsTable::FIELD_USERID.'" = $1'.
-                                ' AND "'.\SYSTEM\DBD\UserRightsTable::FIELD_RIGHTID.'" = $2;',
-                                array($user->id, $rightid));
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->prepare(   'security_check',
+                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserRightsTable::NAME_PG.
+                                    ' WHERE "'.\SYSTEM\DBD\UserRightsTable::FIELD_USERID.'" = $1'.
+                                    ' AND "'.\SYSTEM\DBD\UserRightsTable::FIELD_RIGHTID.'" = $2;',
+                                    array($user->id, $rightid));
+        } else {
+            $res = $con->prepare(   'security_check',
+                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserRightsTable::NAME_MYS.
+                                    ' WHERE '.\SYSTEM\DBD\UserRightsTable::FIELD_USERID.' = ?'.
+                                    ' AND '.\SYSTEM\DBD\UserRightsTable::FIELD_RIGHTID.' = ?;',
+                                    array($user->id, $rightid));
+        }
 
         if(!($res = $res->next())){
             throw new \SYSTEM\LOG\ERROR("Cannot determine if you have the required rights!");}
@@ -224,11 +232,17 @@ class Security {
             throw new \SYSTEM\LOG\ERROR("You need to be logged in");}
                  
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'updateUserLocaleStmt',
-                                'UPDATE '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\UserTable::NAME_PG : \SYSTEM\DBD\UserTable::NAME_MYS).' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.
-                                'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.';', 
-                                array($lang, $user->id));
-        if(!$res->next()){
-            throw new \SYSTEM\LOG\ERROR("Problem updating the User!");}        
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->prepare(   'updateUserLocaleStmt',
+                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.
+                                    'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.';', 
+                                    array($lang, $user->id));
+        }else{
+            $res = $con->prepare(   'updateUserLocaleStmt',
+                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_MYS.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = ? '.
+                                    'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = ?;', 
+                                    array($lang, $user->id));            
+        }
+        return true;
     }
 }

@@ -139,7 +139,11 @@ class Api {
     private function getApiTree(){
 
         $con = new \SYSTEM\DB\Connection($this->m_dbinfo);
-        $res = $con->query('SELECT * FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\APITable::NAME_PG : \SYSTEM\DBD\APITable::NAME_MYS).' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_PG.' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
+        } else {
+            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_MYS.' ORDER BY '.\SYSTEM\DBD\APITable::FIELD_ID);            
+        }
         unset($con);
 
         if(!$res){
