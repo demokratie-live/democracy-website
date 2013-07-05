@@ -8,7 +8,11 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>'.'<th>'.'enUS'.'</th>'.'<th>'.'deDE'.'</th>'.'</tr>';        
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        $res = $con->query('SELECT * FROM system.locale_string ORDER BY "category" ASC;');
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT * FROM system.locale_string ORDER BY "category" ASC;');
+        } else {
+            $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
+        }
         
         while($r = $res->next()){
             $result .= '<tr>'.'<td>'.$r['id'].'</td>'.'<td>'.$r['category'].'</td>'.'<td>'.$r['enUS'].'</td>'.'<td>'.$r['deDE'].'</td>'.'</tr>';}

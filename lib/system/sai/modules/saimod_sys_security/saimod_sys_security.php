@@ -4,7 +4,11 @@ namespace SYSTEM\SAI;
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {    
     public static function html_content(){
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system.user ORDER BY last_active DESC;');
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system.user ORDER BY last_active DESC;');
+        } else {
+            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system_user ORDER BY last_active DESC;');
+        }
         
         
         $now = microtime(true);

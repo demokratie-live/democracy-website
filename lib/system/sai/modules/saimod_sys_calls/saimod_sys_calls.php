@@ -8,7 +8,11 @@ class saimod_sys_calls extends \SYSTEM\SAI\SaiModule {
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'flag'.'</th>'.'<th>'.'parentID'.'</th>'.'<th>'.'parentValue'.'</th>'.'<th>'.'name'.'</th>'.'<th>'.'allowedValues'.'</th>'.'</tr>';        
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        $res = $con->query('SELECT * FROM system.api_calls ORDER BY "ID" ASC;');
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT * FROM system.api_calls ORDER BY "ID" ASC;');
+        } else {
+            $res = $con->query('SELECT * FROM system_api_calls ORDER BY ID ASC;');
+        }
         
         while($r = $res->next()){
             $result .= '<tr class="'.self::tablerow_class($r['flag']).'">'.'<td>'.$r['ID'].'</td>'.'<td>'.$r['flag'].'</td>'.'<td>'.$r['parentID'].'</td>'.'<td>'.$r['parentValue'].'</td>'.'<td>'.$r['name'].'</td>'.'<td>'.$r['allowedValues'].'</td>'.'</tr>';}
@@ -18,8 +22,12 @@ class saimod_sys_calls extends \SYSTEM\SAI\SaiModule {
         $result .=  '<h3>Page Calls</h3>'.
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'flag'.'</th>'.'<th>'.'parentID'.'</th>'.'<th>'.'parentValue'.'</th>'.'<th>'.'name'.'</th>'.'<th>'.'allowedValues'.'</th>'.'</tr>';        
-                
-        $res = $con->query('SELECT * FROM system.page_calls ORDER BY "ID" ASC;');
+        
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT * FROM system.page_calls ORDER BY "ID" ASC;');
+        } else {
+            $res = $con->query('SELECT * FROM system_page_calls ORDER BY ID ASC;');
+        }
         
         while($r = $res->next()){
             $result .= '<tr class="'.self::tablerow_class($r['flag']).'">'.'<td>'.$r['ID'].'</td>'.'<td>'.$r['flag'].'</td>'.'<td>'.$r['parentID'].'</td>'.'<td>'.$r['parentValue'].'</td>'.'<td>'.$r['name'].'</td>'.'<td>'.$r['allowedValues'].'</td>'.'</tr>';}
