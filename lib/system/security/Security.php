@@ -43,6 +43,42 @@ class Security {
         return ($advancedResult ? $result->next() : self::REGISTER_OK);
     }
     
+    
+    public static function changePassword(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha_old, $password_sha_new){
+        
+        $con = new \SYSTEM\DB\Connection($dbinfo);
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+                $result = $con->prepare('',
+                                        'SELECT id FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
+                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
+                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
+                                        array($username, $password_sha_old) );     
+                
+        }else{
+            return 'MySQL Query not implemented!';
+        }
+        
+        
+        $row = $result->next();
+        if(!$row){
+            return 0; // old password wrong
+        }
+        
+        $userID = $row['id'];
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+                $result = $con->prepare('', 
+                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.
+                                    ' SET "password_sha" = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2;',
+                                     array($password_sha_new, $userID) );           
+        }else{
+            return 'MySQL Query not implemented!';
+        }
+        
+        
+        return 1;
+    }
+    
+    
      
     public static function login(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false){
         self::startSession();
