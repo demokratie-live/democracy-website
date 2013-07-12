@@ -80,7 +80,7 @@ class Security {
     
     
      
-    public static function login(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false){
+    public static function login(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false, $password_sha_new=NULL){
         self::startSession();
         
         if(!isset($password_sha)){
@@ -94,8 +94,9 @@ class Security {
                 $result = $con->prepare('loginAccountStmt', 
                                         'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
                                         ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                        ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $3 );',
-                                        array($username, $password_sha, $password_md5) );            
+                                        ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR 
+                                                '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $3 OR  '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $4 );',
+                                        array($username, $password_sha, $password_sha_new, $password_md5) );            
             } else {
                 $result = $con->prepare('loginAccountStmt', 
                                         'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
@@ -108,8 +109,9 @@ class Security {
                 $result = $con->prepare('loginAccountStmtSHA', 
                                         'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
                                         ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
-                                        array($username, $password_sha) );
+                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR 
+                                               '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $3 ;',
+                                        array($username, $password_sha, $password_sha_new) );
             } else {
                 $result = $con->prepare('loginAccountStmtSHA', 
                                         'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
@@ -131,11 +133,18 @@ class Security {
             $_SESSION['user'] = NULL;            
             return self::LOGIN_FAIL;}        
         
-        // set password_sha if it is empty
-        if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]){
+        // set password_sha if it is empty or if it length is < 40 -> SHA1 Androidappbugfix
+        if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] ||strlen($row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]) < 40){
+            
+            if($password_sha_new != NULL){
+                $pw = $password_sha_new;
+            }else{
+                $pw = $password_sha;
+            }
+            
             $res = $con->prepare(   'updatePasswordSHAStmt',  
-                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
-                                    array($password_sha,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
+                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
+                                    array($pw,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
             $res = $res->next();
             $row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] = $res[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA];
         }
