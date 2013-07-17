@@ -29,7 +29,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         }
         
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" value="delete">'.'</td>'.'<td>'.$r["category"].'</td>';
+            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" value="delete" delete_ID="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
                         $result .= '<td>'.$r[$columns].'<br><input type="submit" value="edit" lang="'.$columns.'" edit_ID="'.$r["id"].'">'.'</td>';
                     }
@@ -48,5 +48,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     public static function src_css(){}
-    public static function src_js(){}
+    public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
+                                    array(  
+                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js')
+                                            ));}
 }
