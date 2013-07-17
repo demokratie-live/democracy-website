@@ -7,16 +7,25 @@ namespace SYSTEM\LOG;
 abstract class error_handler_dbwriter extends \SYSTEM\LOG\error_handler {    
     public static function CALL(\Exception $E, $errno, $thrown){
         try{
-            $con = new \SYSTEM\DB\Connection(static::getDBInfo());
-            $con->prepare( 'sysLogStmt', 'INSERT INTO system.sys_log '.
-                            '(class, message, code, file, line, trace, ip, querytime) '.
-                            'VALUES ($1, $2, $3, $4, $5, $6, $7, $8);',
-                            array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                    getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5)));            
+            if(\SYSTEM\system::isSystemDbInfoPG()){
+                $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+                $con->prepare( 'sysLogStmt', 'INSERT INTO system.sys_log '.
+                                '(class, message, code, file, line, trace, ip, querytime) '.
+                                'VALUES ($1, $2, $3, $4, $5, $6, $7, $8);',
+                                array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
+                                        getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5)));            
+            } else {
+                $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+                $con->prepare( 'sysLogStmt', 'INSERT INTO system_log '.
+                                '(class, message, code, file, line, trace, ip, querytime) '.
+                                'VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
+                                array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
+                                        getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5)));            
+            }
         } catch (\Exception $E){} //Error -> Ignore
         
         return false; //We just log and do not handle the error!
-    }
-    
-    abstract protected static function getDBInfo();
+    }        
+    public static function MASK(){
+        return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING);}
 }
