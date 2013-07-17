@@ -27,14 +27,14 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                         array('%'.$filter.'%'));            
             } else {
                 $res = $con->prepare(   'selectSysLogFilter',
-                                        'SELECT * FROM system_sys_log WHERE class ILIKE $1 ORDER BY time DESC LIMIT 100;',
+                                        'SELECT * FROM system_log WHERE class LIKE ? ORDER BY time DESC LIMIT 100;',
                                         array('%'.$filter.'%'));
             }
         } else {
             if(\SYSTEM\system::isSystemDbInfoPG()){
                 $res = $con->query('SELECT * FROM system.sys_log ORDER BY time DESC LIMIT 100;');                
             } else {
-                $res = $con->query('SELECT * FROM system_sys_log ORDER BY time DESC LIMIT 100;');
+                $res = $con->query('SELECT * FROM system_log ORDER BY time DESC LIMIT 100;');
             }
         }
         
