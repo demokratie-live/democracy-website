@@ -16,7 +16,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $result =   '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Username'.'</th>'.'<th>'.'EMail'.'</th>'.'<th>'.'JoinDate'.'</th>'.'<th>'.'Locale'.'</th>'.'<th>'.'Last Active'.'</th>'.'<th>'.'Flag'.'</th>'.'<th>'.'Rights'.'</th>'.'</tr>';
         while($r = $res->next()){
-            $result .= '<tr class="'.self::tablerow_class($r['last_active']).'">'.'<td>'.$r['id'].'</td>'.'<td>'.$r['username'].'</td>'.'<td>'.$r['email'].'</td>'.'<td>'.$r['joindate'].'</td>'.'<td>'.$r['locale'].'</td>'.'<td>'.$r['last_active'].'</td>'.'<td>'.$r['account_flag'].'</td>'.'<td>'.'BUTTON'.'</td>'.'</tr>';
+            $result .= '<tr class="'.self::tablerow_class($r['last_active']).'">'.'<td>'.$r['id'].'</td>'.'<td>'.$r['username'].'</td>'.'<td>'.$r['email'].'</td>'.'<td>'.$r['joindate'].'</td>'.'<td>'.$r['locale'].'</td>'.'<td>'.$r['last_active'].'</td>'.'<td>'.$r['account_flag'].'</td>'.'<td>'.'<input type="submit" value="edit" user="'.$r['id'].'" action="edit"><input type="submit" value="delete" user="'.$r['id'].'" action="delete">'.'</td>'.'</tr>';
         }
         $result .= '</table>';
         return $result;        

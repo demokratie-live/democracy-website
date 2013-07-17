@@ -1,14 +1,8 @@
 <?php
-
 namespace SYSTEM;
 
 const C_ROOT                = '<root>';
 const C_SUBPATH             = '<subpath>';
-
-//move that 2 extern so we can modify without modifying system files
-//const C_SERVER_ROOT         = '/home/dasense/test/'; // root on the server
-//const C_WEB_ROOT            = '/test/';              // http://www.da-sense.de/
-//const C_WEB_ADDRESS         = 'http://www.da-sense.de';
 
 abstract class PATH {
     abstract static public function getPath();
