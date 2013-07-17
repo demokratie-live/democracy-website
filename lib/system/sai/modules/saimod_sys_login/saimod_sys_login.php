@@ -30,9 +30,9 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     
     public static function src_css(){}
     public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
-                                    array(  \SYSTEM\WEBPATH(new \PPAGE(),'default_page/js/jqBootstrapValidation.js'),
+                                    array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/jqBootstrapValidation.js'),
                                             \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/sai_sys_login_submit.js'),
-                                            \SYSTEM\WEBPATH(new \PPAGE(),'default_page/js/crypto/jquery.md5.js'),
-                                            \SYSTEM\WEBPATH(new \PPAGE(),'default_page/js/crypto/jquery.sha1.js')
+                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.md5.js'),
+                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.sha1.js')
                                             ));}
 }

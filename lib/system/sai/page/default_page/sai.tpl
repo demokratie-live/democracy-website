@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>da_sense | Developer Center</title>
+        <title>${title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <link rel="icon" type="image/png" href="${navimg}" />
@@ -34,7 +34,7 @@
         <div id="content-wrapper"></div>
         <hr>
         <div class="footer">
-           <p>&copy; <a href="http://www.da-sense.de" target="_blank">da_sense</a>, TU Darmstadt 2013</p>
+           <p>${copyright}</p>
         </div>
      </div>
     </body>
