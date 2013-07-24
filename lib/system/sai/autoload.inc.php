@@ -16,5 +16,6 @@ $autoload->registerFolder(dirname(__FILE__).'/modules/saimod_sys_mod','SYSTEM\SA
 $autoload->registerFolder(dirname(__FILE__).'/modules/saimod_sys_config','SYSTEM\SAI');
 $autoload->registerFolder(dirname(__FILE__).'/modules/saimod_sys_calls','SYSTEM\SAI');
 $autoload->registerFolder(dirname(__FILE__).'/modules/saimod_sys_locale','SYSTEM\SAI');
+$autoload->registerFolder(dirname(__FILE__).'/modules/saimod_sys_cache','SYSTEM\SAI');
 
 require_once dirname(__FILE__).'/modules/register_modules.php';

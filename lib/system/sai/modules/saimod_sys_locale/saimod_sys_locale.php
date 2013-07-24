@@ -3,10 +3,8 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {    
     
-    public static function getLanguages()
-    {
-        $languages = unserialize(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS));
-        return $languages;
+    public static function getLanguages(){
+        return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);        
     }
 
     public static function html_content(){

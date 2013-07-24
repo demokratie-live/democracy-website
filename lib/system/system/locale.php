@@ -24,7 +24,7 @@ class locale {
     }
 
     public static function isLang($lang){        
-        if(!\in_array($lang, unserialize(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS)))){
+        if(!\in_array($lang, \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS))){
             return false;}
         return true;
     }
