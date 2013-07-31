@@ -2,9 +2,11 @@
 
 namespace SYSTEM\LOG;
 
-abstract class error_handler {
+class error_handler {
     //Error Mask E_ALL, E_NOTICE ...
-    abstract public static function MASK();
+    public static function MASK(){
+        throw new \RuntimeException("Implement this");}
     //Errorhandler
-    abstract public static function CALL(\Exception $E, $errno, $thrown);
+    public static function CALL(\Exception $E, $errno, $thrown){
+        throw new \RuntimeException("Implement this");}
 }

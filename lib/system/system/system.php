@@ -34,4 +34,20 @@ class system {
     
     public static function isSystemDbInfoPG(){
         return (\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE) == \SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE_PG);}
+        
+    public static function include_ExceptionShortcut(){
+        require_once 'system/log/register_exception_shortcut.php';
+    }
+    
+    public static function include_ResultShortcut(){
+        require_once 'system/log/register_result_shortcut.php';
+    }
+    
+    public static function register_errorhandler_jsonoutput(){
+        require_once 'system/log/register_errorhandler_jsonoutput.php';
+    }
+    
+    public static function register_errorhandler_dbwriter(){
+        require_once 'system/log/register_errorhandler_dbwriter.php';
+    }
 }
