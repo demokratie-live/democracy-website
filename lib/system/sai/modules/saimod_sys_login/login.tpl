@@ -1,6 +1,7 @@
-Please login for developer access.
-</br>
-
+<div class="masthead">
+    <h3 class="muted">Login / Register</h3>
+    <h4 class="text-info">Please login for developer access (if you are a developer).</a></h4>
+</div>
 <form class="textbox" style="padding:10px" id="login_form">
     <div class="control-group">
         <div class="controls">
@@ -30,3 +31,5 @@ Please login for developer access.
                 id="login_submit">${login}</button>
     </div>
 </form>
+<a href="#" id="register_link">Register an Account</a></br>
+<a href="#" id="password_link">Can't really remember your Password?</a>

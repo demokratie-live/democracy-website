@@ -27,9 +27,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         }
         
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" value="delete" delete_ID="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
+            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger" value="delete" delete_ID="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
-                        $result .= '<td>'.$r[$columns].'<br><input type="submit" value="edit" lang="'.$columns.'" edit_ID="'.$r["id"].'">'.'</td>';
+                        $result .= '<td>'.$r[$columns].'<br><input type="submit" class="btn" value="edit" lang="'.$columns.'" edit_ID="'.$r["id"].'">'.'</td>';
                     }
                     
             $result .= '</tr>';
@@ -41,7 +41,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $result;
     }        
     
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_locale">Locale</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_locale">DB Text</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

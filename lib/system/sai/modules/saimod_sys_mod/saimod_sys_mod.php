@@ -24,7 +24,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         return $result;        
     }
     
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_mod">Mods</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_mod">SAI Mods</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

@@ -134,7 +134,7 @@ class Security {
             return self::LOGIN_FAIL;}        
         
         // set password_sha if it is empty or if it length is < 40 -> SHA1 Androidappbugfix
-        if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] ||strlen($row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]) < 40){
+        if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] || strlen($row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]) < 40){
             
             if($password_sha_new != NULL){
                 $pw = $password_sha_new;

@@ -1,6 +1,7 @@
-You are logged in
-</br>
-
+<div class="masthead">
+    <h3 class="muted">Logout</h3>
+    <h4 class="text-info">You are logged in</a></h4>
+</div>
 <form class="textbox" style="padding:10px" id="logout_form">
     <div class="control-group">
         <div class="help-block"></div>

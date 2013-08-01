@@ -43,9 +43,12 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'time ago in sec'.'</th>'.'<th>'.'time'.'</th>'.'<th>'.'class'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'code'.'</th>'.'<th>'.'file'.'</th>'.'<th>'.'line'.'</th>'.'<th>'.'ip'.'</th>'.'<th>'.'querytime'.'</tr>';
         while($r = $res->next()){
-            
-            
-                    $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+            //TODO make time conversion on database
+            if(\SYSTEM\system::isSystemDbInfoPG()){
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+            } else {
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - $r['time']).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+            }
         }
         $result .= '</table></div>';
         
