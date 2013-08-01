@@ -4,26 +4,16 @@ namespace SYSTEM;
 
 class autoload {
     
-    private $files = array();       // array(class, namespace, file)
-    private $folders = array();     // array(namespace, folder)
+    private static $files = array();       // array(class, namespace, file)
+    private static $folders = array();     // array(namespace, folder)   
 
-    //SINGLETON!
-    static private $instance = null;
-    static public function getInstance(){
-        if (null === self::$instance) {
-            self::$instance = new self;}
-        return self::$instance;
-    }
-    private function __construct(){}
-    private function __clone(){}
-
-    private function getClassFromFile($file){
+    private static function getClassFromFile($file){
         $path_info = \pathinfo($file);
 
         return $path_info['filename'];
     }
 
-    private function getClassNamespaceFromClass($class){
+    private static function getClassNamespaceFromClass($class){
         $path_info = \pathinfo($class);
 
         $lastslash = \strrpos($class, 92);
@@ -37,15 +27,15 @@ class autoload {
                         \substr($class, 0, $lastslash));
     }
 
-    private function autoload_($class, $namespace = ''){        
-        foreach($this->files as $file){
+    private static function autoload_($class, $namespace = ''){        
+        foreach(self::$files as $file){
             if(strtolower($file[0]) == strtolower($class) &&
                strtolower($file[1]) == strtolower($namespace)){
                 require_once $file[2];
                 return true;}
         }
         
-        foreach($this->folders as $folder){            
+        foreach(self::$folders as $folder){            
             if(strtolower($folder[0]) == strtolower($namespace) &&               
                is_file($folder[1].'/'.$class.'.php')){                
                 require_once $folder[1].'/'.$class.'.php';
@@ -55,23 +45,23 @@ class autoload {
         return false;
     }
 
-    public function registerFile($file, $namespace = ''){
+    public static function registerFile($file, $namespace = ''){
         if(!is_file($file)){
             throw new \Exception('File not found on registerFile for Autoload: '.$file);}
 
-        $this->files[] = array($this->getClassFromFile($file), $namespace, $file);
+        self::$files[] = array(self::getClassFromFile($file), $namespace, $file);
     }
 
-    public function registerFolder($folder, $namespace = ''){        
+    public static function registerFolder($folder, $namespace = ''){        
         if(!is_dir($folder)){
             throw new \Exception('Folder not found on registerFolder for Autoload: '.$folder);}
 
-        $this->folders[] = array($namespace, $folder);
+        self::$folders[] = array($namespace, $folder);
     }    
 
-    public function autoload($class){        
-        $classns = $this->getClassNamespaceFromClass($class);
+    public static function autoload($class){        
+        $classns = self::getClassNamespaceFromClass($class);
         
-        return $this->autoload_($classns[0],$classns[1]);
+        return self::autoload_($classns[0],$classns[1]);
     }
 }
