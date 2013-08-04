@@ -1,8 +1,8 @@
 <?php
 
-namespace SYSTEM\PAGE;
+namespace SYSTEM\API;
 
-abstract class PageClass {
+abstract class api_default {
     public static function default_page(){
         throw new RuntimeException("Unimplemented");}
 }

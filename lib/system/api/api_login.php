@@ -2,7 +2,7 @@
 
 namespace SYSTEM\API;
 
-class apiloginclass extends \SYSTEM\API\apiclass {
+class api_login {
     /*
     INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (0, 0, -1, NULL, 'call', NULL);
     INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (60, 0, 0, 'account', 'action', NULL);

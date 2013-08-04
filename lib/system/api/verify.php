@@ -1,8 +1,8 @@
 <?php
 
-namespace SYSTEM;
+namespace SYSTEM\API;
 
-class verifyclass {
+class verify {
     public static function ALL      ($param)    {return true;}
     public static function UINT     ($param)    {return \is_numeric($param) ? ((int)$param > 0 ? true : false) : false;}
     public static function INT      ($param)    {return \is_numeric($param);}
