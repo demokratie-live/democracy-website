@@ -41,8 +41,10 @@ class api {
                 $commands[] = array($item,$params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]]);
                 $parentid = intval($item[\SYSTEM\DBD\APITable::FIELD_ID]);                
             }
-        }        
-        
+        }                
+        if(count($commands) <= 0){
+            return \call_user_func(array($apiclassname,'default_page'));}
+            
         //Parameters        
         $parameters = array();
         $parentid = $commands[count($commands)-1][0];
