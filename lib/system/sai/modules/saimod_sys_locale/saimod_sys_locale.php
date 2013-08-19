@@ -9,7 +9,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
 
     public static function html_content(){
         $result =   '<h3>Locale String</h3>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
+                    '<form action="http://www.mojotrollz.eu/danube/system/sai/modules/saimod_sys_locale/edit.php"><table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
                     
                     foreach (self::getLanguages() as $lang){
@@ -29,14 +29,14 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){
             $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger" value="delete" delete_ID="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
-                        $result .= '<td>'.$r[$columns].'<br><input type="submit" class="btn" value="edit" lang="'.$columns.'" edit_ID="'.$r["id"].'">'.'</td>';
+                        $result .= '<td>'.$r[$columns].'<br><input type="submit" subject="testsubject" message="testmessage" class="btn" value="edit" lang="'.$columns.'" edit_ID="'.$r["id"].'">'.'</td>';
                     }
                     
             $result .= '</tr>';
             
             }
             
-        $result .= '</table>';
+        $result .= '</table></form>';
                
         return $result;
     }        
