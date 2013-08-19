@@ -1,0 +1,66 @@
+{***** Buttons ****************************************************************}
+<table class="cms_css_wysiwyg">
+<tr>
+<td>
+{include file='wysiwyg/popup.html'   command='hyperlink'}
+{include file='wysiwyg/popup.html'   command='picture'}
+{include file='wysiwyg/popup.html'   command='table'}
+{include file='wysiwyg/popup.html'   command='smileys'}
+{include file='wysiwyg/command.html' command='inserthorizontalrule'}
+{include file='wysiwyg/command.html' command='justifyleft'}
+{include file='wysiwyg/command.html' command='justifycenter'}
+{include file='wysiwyg/command.html' command='justifyright'}
+{include file='wysiwyg/command.html' command='justifyfull'}
+{include file='wysiwyg/command.html' command='indent'}
+{include file='wysiwyg/command.html' command='outdent'}
+{include file='wysiwyg/command.html' command='insertunorderedlist'}
+{include file='wysiwyg/command.html' command='insertorderedlist'}
+{include file='wysiwyg/command.html' command='undo'}
+{include file='wysiwyg/command.html' command='redo'}
+{include file='wysiwyg/popup.html'   command='info'}
+</td>
+</tr>
+<tr>
+<td>
+{include file='wysiwyg/command.html' command='bold'}
+{include file='wysiwyg/command.html' command='italic'}
+{include file='wysiwyg/command.html' command='underline'}
+{include file='wysiwyg/command.html' command='strikethrough'}
+{include file='wysiwyg/command.html' command='subscript'}
+{include file='wysiwyg/command.html' command='superscript'}
+{include file='wysiwyg/popup.html'   command='colorback'}
+{include file='wysiwyg/popup.html'   command='colorfore'}
+{include file='wysiwyg/select.html'  command='fontname' source=$lists.fonts}
+{include file='wysiwyg/select.html'  command='fontsize' source=$lists.sizes}
+</td>
+</tr>
+</table>
+{***** Buttons ****************************************************************}
+
+
+{***** Popups *****************************************************************}
+{include file='popup/popup.html'          popup_id="`$id`_info"      popup='wysiwyg/popup_info.html'      title=$names.info      class='cms_css_wysiwyg_popup_info'}
+{include file='popup/popup.html'          popup_id="`$id`_hyperlink" popup='wysiwyg/popup_hyperlink.html' title=$names.hyperlink class='cms_css_wysiwyg_popup_form'}
+{include file='popup/popup.html'          popup_id="`$id`_picture"   popup='wysiwyg/popup_picture.html'   title=$names.picture   class='cms_css_wysiwyg_popup_form'}
+{include file='popup/popup.html'          popup_id="`$id`_table"     popup='wysiwyg/popup_table.html'     title=$names.table     class='cms_css_wysiwyg_popup_form'}
+{include file='popup/popup_centered.html' popup_id="`$id`_smileys"   popup='wysiwyg/popup_smileys.html'   title=$names.smileys   class='cms_css_wysiwyg_popup_smileys'}
+{include file='popup/popup_centered.html' popup_id="`$id`_colorback" popup='wysiwyg/popup_colorback.html' title=$names.colorback class='cms_css_wysiwyg_popup_colors'}
+{include file='popup/popup_centered.html' popup_id="`$id`_colorfore" popup='wysiwyg/popup_colorfore.html' title=$names.colorfore class='cms_css_wysiwyg_popup_colors'}
+{***** Popups *****************************************************************}
+
+
+{***** Output *****************************************************************}
+{capture name=wysiwyg_blank}{include file='wysiwyg/blank.html' value=''}{/capture}
+{capture name=wysiwyg_value}{include file='wysiwyg/blank.html'         }{/capture}
+
+<input  id="{$id}_blank" type="hidden"                value="{$smarty.capture.wysiwyg_blank|escape}" />
+<input  id="{$id}_value" type="hidden"                value="{$smarty.capture.wysiwyg_value|escape}" />
+<input  id="{$id}_input" type="hidden" name="{$name}" value="{$value|escape}" />
+<iframe id="{$id}"
+      name="{$id}"
+     class="cms_css_wysiwyg"></iframe>
+
+<script type="text/javascript">
+WysiwygInit('{$id}', document.getElementById('{$id}_value').value);
+</script>
+{***** Output *****************************************************************}

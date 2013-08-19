@@ -1,0 +1,11 @@
+<img src="{$root}images/wysiwyg/colors.png"
+     alt=""
+   width="147"
+  height="99"
+  usemap="#{$id}_colorfore_map" />
+<map name="{$id}_colorfore_map"
+       id="{$id}_colorfore_map">{foreach from=$lists.colors key=key item=item}<area href="#" alt="" coords="{$item.x1},{$item.y1},{$item.x2},{$item.y2}" onclick="return WysiwygCmdColorFore('{$id}', '#{$item.color}');" />{/foreach}</map>
+
+<script type="text/javascript">
+var img = new Image(); img.src = '{$root}images/wysiwyg/colors.png';
+</script>

@@ -1,0 +1,65 @@
+
+
+html body table.cms_css_wysiwyg img { border: none; }
+
+
+html body table.cms_css_wysiwyg { border-collapse: collapse; }
+html body table.cms_css_wysiwyg th,
+html body table.cms_css_wysiwyg td { padding: 0px; }
+
+
+html body table.cms_css_wysiwyg  img.cms_css_wysiwyg
+{
+      cursor: pointer;
+      border: 1px  solid #404040;
+  background: #F7F7F0;
+}
+
+html body                       img.cms_css_wysiwyg { margin: -5px 1px -5px 0px; }
+html body table.cms_css_wysiwyg img.cms_css_wysiwyg { margin:  0px 1px  1px 0px; }
+
+html body table.cms_css_wysiwyg img,
+html body table.cms_css_wysiwyg select { vertical-align: middle; }
+
+html body iframe.cms_css_wysiwyg
+{
+       width: 500px;
+      height: 250px;
+  background: #FFFFFF;
+}
+
+
+/***** popup ******************************************************************/
+
+html body div.cms_css_wysiwyg_popup_info { width: 250px; }
+
+html body div.cms_css_wysiwyg_popup_info div.cms_css_wysiwyg_popup_info_content
+{
+  border: 1px solid black;
+  background: #FFFFFF;
+  padding: 10px;
+
+  font: 100 0.8em Verdana, Sans-Serif;
+}
+
+html body div.cms_css_wysiwyg_popup_info div.cms_css_wysiwyg_popup_info_content p
+{
+  padding: 0px; margin: 0px 0px 3px 0px;
+}
+
+
+
+html body div.cms_css_wysiwyg_popup_form        {   width: 300px; }
+html body div.cms_css_wysiwyg_popup_form     td { padding: 1px 1px 1px 1px; }
+
+html body div.cms_css_wysiwyg_popup_colors      {   width: 161px; }
+html body div.cms_css_wysiwyg_popup_colors area {  cursor: pointer; }
+html body div.cms_css_wysiwyg_popup_colors  img {   float: left; }
+html body div.cms_css_wysiwyg_popup_colors   br {   clear: both; }
+
+html body div.cms_css_wysiwyg_popup_smileys     {   width: 224px; }
+html body div.cms_css_wysiwyg_popup_smileys  td { padding: 1px 0px 0px 1px; border: 1px  solid #000000; background: #FFFFFF; }
+html body div.cms_css_wysiwyg_popup_smileys img {  margin: 0px 1px 1px 0px; border: 1px  solid #D0D0D0;  background: #FFFFFF; }
+html body div.cms_css_wysiwyg_popup_smileys img {  cursor: pointer; }
+html body div.cms_css_wysiwyg_popup_smileys img {   float: left; }
+html body div.cms_css_wysiwyg_popup_smileys  br {   clear: both; }

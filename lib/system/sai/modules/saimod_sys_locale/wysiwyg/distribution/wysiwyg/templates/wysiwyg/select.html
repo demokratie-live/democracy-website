@@ -1,0 +1,1 @@
+<select onchange="if (this.selectedIndex) WysiwygCmd('{$id}', '{$command}', this.value); this.selectedIndex = 0;">{foreach from=$source key=key item=item}<option value="{$key}">{$item}</option>{/foreach}</select>

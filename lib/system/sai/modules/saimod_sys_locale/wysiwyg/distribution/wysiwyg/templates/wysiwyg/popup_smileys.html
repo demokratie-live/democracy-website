@@ -1,0 +1,13 @@
+{foreach from=$lists.smileys key=key item=item}
+
+<img src="{$root}images/smileys/{$item}"
+     alt=""
+   width="20"
+  height="20"
+ onclick="WysiwygInsSmiley('{$id}', this.src);" />{cycle name=$id values=',,,,,,,,<br />'}
+
+<script type="text/javascript">
+var img = new Image(); img.src = '{$root}images/smileys/{$item}';
+</script>
+
+{/foreach}
