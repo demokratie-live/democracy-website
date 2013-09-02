@@ -21,12 +21,16 @@ if (get_magic_quotes_gpc()) $_POST = array_map('stripslashes', $_POST);
 $subject = isset($_POST['subject']) ? $_POST['subject'] : 'Subject';
 $message = isset($_POST['message']) ? $_POST['message'] : 'Message';
 
+$test = \SYSTEM\SECURITY\Security::load("site_content");
+
+print_r($test);
+
 ?>
 
-<form action="demo.php" method="post">
+<form action="http://www.mojotrollz.eu/web/system/sai/modules/saimod_sys_locale/wysiwyg/demo.php" method="post">
 <table>
 <tr><td><input type="text" name="subject" value="<?=htmlspecialchars($subject);?>" /></td></tr>
-<tr><td><?php echo wysiwyg('wysiwyg_id', 'message', $message); ?></td></tr>
+<tr><td><?php echo wysiwyg('wysiwyg_id', 'message', $test); ?></td></tr>
 <tr><td><input type="submit" value="Submit" /></td></tr>
 </table>
 </form>

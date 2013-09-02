@@ -9,7 +9,7 @@
 <meta       name="description"  content="" />
 <meta       name="keywords"     content="" />
 
-<?php $wysiwyg_root = 'wysiwyg/'; include 'wysiwyg/php/init.php'; ?>
+<?php $wysiwyg_root = 'wysiwyg/'; include 'http://www.mojotrollz.eu/web/system/sai/modules/saimod_sys_locale/wysiwyg/php/init.php'; ?>
 
 </head>
 <body>
