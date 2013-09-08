@@ -137,7 +137,7 @@ class api {
     private static function getApiTree($group){        
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){            
-            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_PG .' WHERE `'.\SYSTEM\DBD\APITable::FIELD_GROUP.'` = '.$group.' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
+            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_PG .' WHERE "'.\SYSTEM\DBD\APITable::FIELD_GROUP.'" = '.$group.' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
         } else {            
             $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_MYS.' WHERE `'.\SYSTEM\DBD\APITable::FIELD_GROUP.'` = '.$group.' ORDER BY '.\SYSTEM\DBD\APITable::FIELD_ID);            
         }        
