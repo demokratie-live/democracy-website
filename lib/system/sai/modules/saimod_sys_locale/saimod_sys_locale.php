@@ -36,10 +36,10 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
         }
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger" value="delete" delete_ID="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
+            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger" value="delete" delete_ID="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td>'.$r[$columns].'<br><input type="submit" class="btn" value="edit" lang="'.$columns.'" name="'.$r["id"].'" onclick="javascript:init__SYSTEM_SAI_saimod_sys_locale();">'.'</td>';
+                        $result .= '<td>'.$r[$columns].'</td>';
                         //$_POST[$r["id"]] = $r[$columns];
                     }
                     
@@ -61,10 +61,19 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
                         $languages[] = $lang;
                     }
                     
-                    $result .= '</tr>';        
-        
+                    $result .= '</tr>';                
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        $res = $con->prepare('edit', 'SELECT * FROM system_locale_string WHERE id=? ORDER BY "category" ASC;', array($entry));
+        $res = null;
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->prepare(   'edit',
+                                    'SELECT * FROM system.locale_string WHERE id = $1 ORDER BY "category" ASC;',
+                                    array($entry));
+        } else {
+            $res = $con->prepare(   'edit',
+                                    'SELECT * FROM system_locale_string WHERE id = ? ORDER BY "category" ASC;',
+                                    array($entry));
+        }
+            
         while($r = $res->next()){
             $result .= "<tr>";
             foreach ($languages as $columns){
