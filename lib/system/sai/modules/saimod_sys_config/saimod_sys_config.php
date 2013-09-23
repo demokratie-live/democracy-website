@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
         $result =   '<h3>Sys Config</h3>'.
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'Config ID'.'</th>'.'<th>'.'Config Name'.'</th>'.'<th>'.'Value'.'</th>'.'</tr>';
@@ -32,6 +32,6 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){}
-    public static function src_js(){}        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_config_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_config_flag_js(){}
 }

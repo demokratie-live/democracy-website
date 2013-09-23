@@ -3,7 +3,6 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__).'/sai','SYSTEM\SAI');
 
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/page','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/page/default_page','SYSTEM\SAI');
-SYSTEM\autoload::registerFolder(dirname(__FILE__).'/page/default_module','SYSTEM\SAI');
 
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/modules','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/modules/saimod_sys_sai','SYSTEM\SAI');

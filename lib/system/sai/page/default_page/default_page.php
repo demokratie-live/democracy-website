@@ -7,7 +7,7 @@ class default_page extends \SYSTEM\PAGE\Page {
     private function menu_sys(){                
         $result = '';
         
-        $mods = \SYSTEM\SAI\sai::getInstance()->getSysModules();
+        $mods = \SYSTEM\SAI\sai::getSysModules();
         foreach($mods as $mod){
             if(\call_user_func(array($mod, 'right_public')) ||
                \call_user_func(array($mod, 'right_right'))){
@@ -19,7 +19,7 @@ class default_page extends \SYSTEM\PAGE\Page {
     private function menu_proj(){                
         $result = '';
         
-        $mods = \SYSTEM\SAI\sai::getInstance()->getModules();
+        $mods = \SYSTEM\SAI\sai::getModules();
         foreach($mods as $mod){
             if(\call_user_func(array($mod, 'right_public')) ||
                \call_user_func(array($mod, 'right_right'))){

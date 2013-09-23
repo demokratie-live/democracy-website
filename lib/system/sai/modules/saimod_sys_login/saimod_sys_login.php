@@ -2,9 +2,8 @@
 
 namespace SYSTEM\SAI;
 
-class saimod_sys_login extends \SYSTEM\SAI\SaiModule {    
-    public static function html_content(){
-        
+class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login(){
        /* 
         if( isset($_POST['username']) && isset($_POST['password']) &&                            
             \SYSTEM\SECURITY\Security::login(\SYSTEM\system::getSystemDBInfo(), $_POST['username'], sha1($_POST['password']), md5($_POST['password']))){            
@@ -28,11 +27,12 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     
-    public static function src_css(){}
-    public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
-                                    array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/jqBootstrapValidation.js'),
-                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/sai_sys_login_submit.js'),
-                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.md5.js'),
-                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.sha1.js')
-                                            ));}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_flag_js(){
+        return \SYSTEM\LOG\JsonResult::toString(
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/jqBootstrapValidation.js'),
+                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/sai_sys_login_submit.js'),
+                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.md5.js'),
+                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.sha1.js')
+                 ));}
 }

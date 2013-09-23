@@ -44,7 +44,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
     
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
         $vars = array();
         $vars['content_users'] = self::html_content_users();
         $vars['content_rights'] = self::html_content_rights();
@@ -69,8 +69,8 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){return \SYSTEM\LOG\JsonResult::toString(
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_flag_css(){return \SYSTEM\LOG\JsonResult::toString(
                                      array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.css')));}
-    public static function src_js(){ return \SYSTEM\LOG\JsonResult::toString(
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_flag_js(){ return \SYSTEM\LOG\JsonResult::toString(
                                      array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.js')));}
 }

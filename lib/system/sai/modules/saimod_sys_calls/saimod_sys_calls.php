@@ -2,14 +2,14 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_calls extends \SYSTEM\SAI\SaiModule {    
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_calls(){
         $last_group = -1;
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT * FROM system.api ORDER BY "group", "ID" ASC;');
         } else {
-            $res = $con->query('SELECT * FROM system_api ORDER BY group, ID ASC;');
+            $res = $con->query('SELECT * FROM system_api ORDER BY "group", "ID" ASC;');
         }
        
         $result = "";
@@ -40,6 +40,6 @@ class saimod_sys_calls extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){}
-    public static function src_js(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_calls_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_calls_flag_js(){}
 }

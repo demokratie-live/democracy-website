@@ -11,7 +11,7 @@ class api {
         
         //API Class
         if(!class_exists($apiclassname)){
-            throw new \SYSTEM\LOG\ERROR("API Class given to the api does not exist.");}
+            throw new \SYSTEM\LOG\ERROR("API Class given to the api does not exist: '".$apiclassname."'");}
             
         //check parameters
         if( !isset($params) || !is_array($params) || count($params) <= 0){

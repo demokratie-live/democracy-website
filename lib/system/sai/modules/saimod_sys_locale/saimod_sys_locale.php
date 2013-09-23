@@ -9,7 +9,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);        
     }
 
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){
         $entries = array_merge($_POST,$_GET);
         if(isset($entries[self::INPUT_VAR])){
             return self::html_content_entry_edit($entries[self::INPUT_VAR]);
@@ -90,9 +90,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){}
-    public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
-                                    array(  
-                                            \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js')
-                                            ));}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_js(){
+        return \SYSTEM\LOG\JsonResult::toString(
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js')));}
 }
