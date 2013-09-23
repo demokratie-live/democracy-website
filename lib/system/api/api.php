@@ -7,7 +7,7 @@ class api {
     public static function run($verifyclassname,$apiclassname,$params,$group = self::DEFAULT_GROUP,$strict = true,$default = false){
         //Verify Class
         if(!class_exists($verifyclassname)){
-            throw new \SYSTEM\LOG\ERROR("Verify Class given to the api does not exist.");}
+            throw new \SYSTEM\LOG\ERROR("Verify Class given to the api does not exist: '".$verifyclassname."'");}
         
         //API Class
         if(!class_exists($apiclassname)){
@@ -100,7 +100,7 @@ class api {
         //strict check
         if( $strict &&
             count($params) != (count($parameters) + count($commands)) ){
-            throw new \SYSTEM\LOG\ERROR('Unhandled or misshandled parameters - api query is invalid');}
+            throw new \SYSTEM\LOG\ERROR('Unhandled or misshandled parameters - api query is invalid: '.$_SERVER["REQUEST_URI"]);}
 
         //Function Name
         $call_funcname = "";       

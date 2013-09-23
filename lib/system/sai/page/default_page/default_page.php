@@ -37,11 +37,11 @@ class default_page extends \SYSTEM\PAGE\Page {
     private function js(){
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/loadcssjs.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/index.js').'" type="text/javascript"></script>';
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/sai.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
                   '<script src="https://maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>'.
-                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';        
+                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
+                  '<script type="text/javascript">var SAI_ENDPOINT = "'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_BASEURL).'";</script>';
         return $result;
     }
 

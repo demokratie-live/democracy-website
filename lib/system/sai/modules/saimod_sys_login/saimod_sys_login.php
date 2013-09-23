@@ -3,13 +3,7 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_login(){
-       /* 
-        if( isset($_POST['username']) && isset($_POST['password']) &&                            
-            \SYSTEM\SECURITY\Security::login(\SYSTEM\system::getSystemDBInfo(), $_POST['username'], sha1($_POST['password']), md5($_POST['password']))){            
-            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/login_success.tpl'), array());}            
-         */           
-        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login(){              
         $vars = array();    
         $vars['login'] = 'Login';
         $vars['logout'] = 'Logout';
@@ -17,13 +11,21 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars['loginPassword'] = 'Password';
         $vars['login_username_too_short'] = 'Username to short.';
         $vars['login_password_too_short'] = 'Password to short.';
+        $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(new \DBD\dasensePostgres(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
+        $vars = array_merge($vars, \SYSTEM\locale::getStrings(\DBD\locale_string::VALUE_CATEGORY_DASENSE_USERSTATISTICS));
         
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/logout.tpl'), $vars);        
         } else {
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/login.tpl'), $vars);}
     }
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_login">Login</a></li>';}
+
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_logout(){
+        return \SYSTEM\SECURITY\Security::logout();}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_login($username,$password_sha,$password_md5){
+        return \SYSTEM\SECURITY\Security::login(new \DBD\dasensePostgres(), $username, $password_sha, $password_md5);}
+
+    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_login">Login</a></li>';}
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     
