@@ -3,23 +3,13 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
-    const INPUT_VAR = 'sai_input';
-    
     public static function getLanguages(){
         return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);        
     }
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){
-        $entries = array_merge($_POST,$_GET);
-        if(isset($entries[self::INPUT_VAR])){
-            return self::html_content_entry_edit($entries[self::INPUT_VAR]);
-        }
-        return self::html_content_table();        
-    }   
-    
-    public static function html_content_table(){
         $result =   '<h3>Locale String</h3>'.
-                    '<input type="submit" value="Add" class="btn add_content"><br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
+                    '<input type="submit" value="Add" class="btn add_form"><br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
                     
                     foreach (self::getLanguages() as $lang){
@@ -62,6 +52,27 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $lang, $newtext){
+         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+         $res = null;
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            throw new \SYSTEM\LOG\ERROR("action_edit failed");
+        } else {
+                $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, '.$lang.') VALUES (?, ?);', array($id, $newtext));
+        }
+        return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added")) : \SYSTEM\LOG\JsonResult::ok();
+    }
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_addcontent(){
+         $result = "<h3>Add new text</h3><br>";
+         $result .= '<input type="text" id="new"><br><select name="lang" size="1">'; 
+         foreach (self::getLanguages() as $lang){
+                        $result .= '<option>'.$lang.'</option>';
+                        $languages[] = $lang;
+                    }
+         $result .= '</select><br><textarea></textarea>';
+         return $result;
+    }
+    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
@@ -73,7 +84,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data")) : \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function html_content_entry_edit($entry){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_editmode($entry){
         $result =
         '<h3>'.$entry.'</h3>'.
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
