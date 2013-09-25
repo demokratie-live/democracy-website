@@ -58,18 +58,18 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         if(\SYSTEM\system::isSystemDbInfoPG()){
             throw new \SYSTEM\LOG\ERROR("action_edit failed");
         } else {
-                $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, '.$lang.') VALUES (?, ?);', array($id, $newtext));
+                $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, '.$lang.', category) VALUES (?, ?, 100);', array($id, $newtext));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added")) : \SYSTEM\LOG\JsonResult::ok();
     }
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_addcontent(){
          $result = "<h3>Add new text</h3><br>";
-         $result .= '<input type="text" id="new"><br><select name="lang" size="1">'; 
+         $result .= '<input type="text" id="new" value=""><br><select id="langselect" size="1">'; 
          foreach (self::getLanguages() as $lang){
                         $result .= '<option>'.$lang.'</option>';
                         $languages[] = $lang;
                     }
-         $result .= '</select><br><textarea></textarea>';
+         $result .= '</select><br><textarea id="areacontent"></textarea><br><input type="submit" class="btn add" value="save" onclick="add();">';
          return $result;
     }
     
@@ -110,11 +110,12 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             
         while($r = $res->next()){
             $result .= "<tr>";
+            $fu = 0;
             foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
                         $result .= '<td><input type="textarea" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
                         //$_POST[$r["id"]] = $r[$columns];
-                    }
+                }
             $result .= "</tr></table>";
         }
         $result .= '<br><input type="submit" class="btn localeMain" value="back">';
@@ -128,5 +129,6 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_css(){}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_js(){
         return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js')));}
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js'),
+                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/js/tinymce/tinymce.min.js')));}
 }
