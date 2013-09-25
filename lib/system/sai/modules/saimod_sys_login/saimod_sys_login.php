@@ -24,6 +24,12 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\SECURITY\Security::logout();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_login($username,$password_sha,$password_md5){
         return \SYSTEM\SECURITY\Security::login(new \DBD\dasensePostgres(), $username, $password_sha, $password_md5);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_register($username,$password_sha,$password_md5,$email, $locale = 'deDE'){
+        return \SYSTEM\SECURITY\Security::create(new \DBD\dasensePostgres(), $username, $password_sha, $password_md5, $email, $locale);}
+        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_registerform(){
+        $vars = \SYSTEM\locale::getStrings(\DBD\locale_string::VALUE_CATEGORY_DASENSE);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/register.tpl'), $vars);}
 
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_login">Login</a></li>';}
     public static function right_public(){return true;}    

@@ -1,0 +1,22 @@
+<?php
+namespace SYSTEM\SAI;
+
+class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo(){        
+        $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+                    '<tr>'.'<th>'.'time ago in days'.'</th>'.'<th>'.'time'.'</th>'.'<th>'.'reporttype'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'suggestion'.'</th>'.'<th>'.'additional sources'.'</th>'.'<th>'.'author'.'</th>'.'<th>'.'assigned'.'</th>'.'<th>'.'state of todo(closed/in progress)'.'</th>'.'<th>'.'action'.'</th>'.'</tr>'.
+                    '<tr class="info">'.'<td>'.'5d'.'</td>'.'<td>'.'5days ago obviously'.'</td>'.'<td>'.'Feature Request'.'</td>'.'<td>'.'Do some new stuff the old stuff sucks.'.'</td>'.'<td>'.'not a valid field for this type of report(ment for error suggestions)'.'</td>'.'<td>'.'http:... here some fancy examples what i want'.'</td>'.'<td>'.'Mr. Pink'.'</td>'.'<td>'.'I_S and many more'.'</td>'.'<td>'.'in progress'.'</td>'.'<td>'.'<input type="submit" class="btn-danger" value="delete">'.'<input type="submit" class="btn" value="edit">'.'<input type="submit" class="btn" value="assign">'.'</th>'.'</tr>'.
+                    '<tr class="error">'.'<td>'.'5d'.'</td>'.'<td>'.'5days ago obviously'.'</td>'.'<td>'.'Bugreport'.'</td>'.'<td>'.'Do some new stuff the old stuff sucks.'.'</td>'.'<td>'.'not a valid field for this type of report(ment for error suggestions)'.'</td>'.'<td>'.'http:... here some fancy examples what i want'.'</td>'.'<td>'.'Mr. Pink'.'</td>'.'<td>'.'I_S and many more'.'</td>'.'<td>'.'in progress'.'</td>'.'<td>'.'<input type="submit" class="btn-danger" value="delete">'.'<input type="submit" class="btn" value="edit">'.'<input type="submit" class="btn" value="assign">'.'</th>'.'</tr>'.
+                    '<tr class="warning">'.'<td>'.'5d'.'</td>'.'<td>'.'5days ago obviously'.'</td>'.'<td>'.'Unasigned Category - what is this?'.'</td>'.'<td>'.'Do some new stuff the old stuff sucks.'.'</td>'.'<td>'.'not a valid field for this type of report(ment for error suggestions)'.'</td>'.'<td>'.'http:... here some fancy examples what i want'.'</td>'.'<td>'.'Mr. Pink'.'</td>'.'<td>'.'I_S and many more'.'</td>'.'<td>'.'in progress'.'</td>'.'<td>'.'<input type="submit" class="btn-danger" value="delete">'.'<input type="submit" class="btn" value="edit">'.'<input type="submit" class="btn" value="assign">'.'</th>'.'</tr>'.
+                    '<tr class="success">'.'<td>'.'5d'.'</td>'.'<td>'.'5days ago obviously'.'</td>'.'<td>'.'Closed FR/BR/OT'.'</td>'.'<td>'.'Do some new stuff the old stuff sucks.'.'</td>'.'<td>'.'not a valid field for this type of report(ment for error suggestions)'.'</td>'.'<td>'.'http:... here some fancy examples what i want'.'</td>'.'<td>'.'Mr. Pink'.'</td>'.'<td>'.'I_S and many more'.'</td>'.'<td>'.'in progress'.'</td>'.'<td>'.'<input type="submit" class="btn-danger" value="delete">'.'<input type="submit" class="btn" value="edit">'.'<input type="submit" class="btn" value="assign">'.'</th>'.'</tr>'.
+                    '<tr>'.'<td>'.'5d'.'</td>'.'<td>'.'5days ago obviously'.'</td>'.'<td>'.'Note/Reminder'.'</td>'.'<td>'.'Do some new stuff the old stuff sucks.'.'</td>'.'<td>'.'not a valid field for this type of report(ment for error suggestions)'.'</td>'.'<td>'.'http:... here some fancy examples what i want'.'</td>'.'<td>'.'Mr. Pink'.'</td>'.'<td>'.'I_S and many more'.'</td>'.'<td>'.'in progress'.'</td>'.'<td>'.'<input type="submit" class="btn-danger" value="delete">'.'<input type="submit" class="btn" value="edit">'.'<input type="submit" class="btn" value="assign">'.'</th>'.'</tr>';
+        return $result;
+    }   
+    
+    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_todo">ToDo</a></li>';}
+    public static function right_public(){return false;}    
+    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_flag_js(){}
+}

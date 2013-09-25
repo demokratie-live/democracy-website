@@ -9,4 +9,5 @@
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_calls');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_locale');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_cache');
-//\SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_docu');
+\SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_todo');
+\SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_docu');

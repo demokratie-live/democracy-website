@@ -84,13 +84,13 @@ class api {
                     $commands[count($commands)-1][1] != $item[\SYSTEM\DBD\APITable::FIELD_PARENTVALUE]){
                     continue;}
 
-                //all parameters are required
+                //all parameters are NOT required - just continue
                 if(!isset($params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
-                    throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\SYSTEM\DBD\APITable::FIELD_NAME]);}
+                    continue;}
 
                 //verify parameter
-                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\APITable::FIELD_VERIFY]) ||
-                    !$verifyclassname->$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]($params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
+                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\APITable::FIELD_VERIFY]) ||                    
+                    !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
                     throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\APITable::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]);}
 
                 $parameters_opt[] = array($item, $params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]]);
@@ -99,7 +99,7 @@ class api {
         
         //strict check
         if( $strict &&
-            count($params) != (count($parameters) + count($commands)) ){
+            count($params) != (count($parameters) + count($commands) + count($parameters_opt)) ){
             throw new \SYSTEM\LOG\ERROR('Unhandled or misshandled parameters - api query is invalid: '.$_SERVER["REQUEST_URI"]);}
 
         //Function Name
