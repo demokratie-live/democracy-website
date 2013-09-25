@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {    
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_cache(){
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT COUNT(*)as "count" FROM system.cache');
@@ -39,10 +39,10 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
         return 'success';                
     }
     
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_cache">Cache</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_cache">Cache</a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){}
-    public static function src_js(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_cache_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_cache_flag_js(){}
 }

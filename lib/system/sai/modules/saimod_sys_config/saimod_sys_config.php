@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
         $result =   '<h3>Sys Config</h3>'.
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'Config ID'.'</th>'.'<th>'.'Config Name'.'</th>'.'<th>'.'Value'.'</th>'.'</tr>';
@@ -19,6 +19,8 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
         $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME.           '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME'.           '</td>'.'<td>'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME).                             '</td>'.'</tr>';
         $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_BASEURL.         '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_BASEURL'.         '</td>'.'<td>'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_BASEURL).                           '</td>'.'</tr>';
         $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG.          '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG'.          '</td>'.'<td>'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG).                            '</td>'.'</tr>';
+        $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT.       '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT'.          '</td>'.'<td>'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT).                      '</td>'.'</tr>';
+        $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE.           '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE'.          '</td>'.'<td>'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE).                              '</td>'.'</tr>';
         $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS.               '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS'.               '</td>'.'<td>'.implode(',',\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS)).                    '</td>'.'</tr>';
         $result .= '<tr>'.'<td>'.\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG.        '</td>'.'<td>'.'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG'.        '</td>'.'<td>'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG).                          '</td>'.'</tr>';        
 
@@ -26,10 +28,10 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
         
         return $result;
     }
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_config">Config</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_config">Config</a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){}
-    public static function src_js(){}        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_config_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_config_flag_js(){}
 }

@@ -21,21 +21,18 @@
            </ul>
          </div>
      </div>
-
-     <div id="project_navbar" style="width:210px;float:left;">
-        <div class="navbar-inner">          
-            <ul class="nav nav-list">                
-                ${menu_proj}
-            </ul>
-        </div>
-    </div>
-
-     <div id="content">
-        <div id="content-wrapper"></div>
+    
+    <div id="project_navbar" style="width:210px; float:left;">
+       <div class="navbar-inner">          
+           <ul class="nav nav-list">                
+               ${menu_proj}
+           </ul>
+       </div>
+    </div>    
+    <div id="content" style="float: left;">
+        <div id="content-wrapper" style="clear: both; overflow: auto; width: 100%; min-width:500px;"></div>
         <hr>
-        <div class="footer">
-           <p>${copyright}</p>
-        </div>
+        <div class="footer"><p>${copyright}</p></div>
      </div>
     </body>
 </html>

@@ -7,11 +7,11 @@ class api {
     public static function run($verifyclassname,$apiclassname,$params,$group = self::DEFAULT_GROUP,$strict = true,$default = false){
         //Verify Class
         if(!class_exists($verifyclassname)){
-            throw new \SYSTEM\LOG\ERROR("Verify Class given to the api does not exist.");}
+            throw new \SYSTEM\LOG\ERROR("Verify Class given to the api does not exist: '".$verifyclassname."'");}
         
         //API Class
         if(!class_exists($apiclassname)){
-            throw new \SYSTEM\LOG\ERROR("API Class given to the api does not exist.");}
+            throw new \SYSTEM\LOG\ERROR("API Class given to the api does not exist: '".$apiclassname."'");}
             
         //check parameters
         if( !isset($params) || !is_array($params) || count($params) <= 0){
@@ -84,13 +84,13 @@ class api {
                     $commands[count($commands)-1][1] != $item[\SYSTEM\DBD\APITable::FIELD_PARENTVALUE]){
                     continue;}
 
-                //all parameters are required
+                //all parameters are NOT required - just continue
                 if(!isset($params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
-                    throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\SYSTEM\DBD\APITable::FIELD_NAME]);}
+                    continue;}
 
                 //verify parameter
-                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\APITable::FIELD_VERIFY]) ||
-                    !$verifyclassname->$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]($params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
+                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\APITable::FIELD_VERIFY]) ||                    
+                    !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
                     throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\APITable::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]);}
 
                 $parameters_opt[] = array($item, $params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]]);
@@ -99,8 +99,8 @@ class api {
         
         //strict check
         if( $strict &&
-            count($params) != (count($parameters) + count($commands)) ){
-            throw new \SYSTEM\LOG\ERROR('Unhandled or misshandled parameters - api query is invalid');}
+            count($params) != (count($parameters) + count($commands) + count($parameters_opt)) ){
+            throw new \SYSTEM\LOG\ERROR('Unhandled or misshandled parameters - api query is invalid: '.$_SERVER["REQUEST_URI"]);}
 
         //Function Name
         $call_funcname = "";       
@@ -137,7 +137,7 @@ class api {
     private static function getApiTree($group){        
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){            
-            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_PG .' WHERE `'.\SYSTEM\DBD\APITable::FIELD_GROUP.'` = '.$group.' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
+            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_PG .' WHERE "'.\SYSTEM\DBD\APITable::FIELD_GROUP.'" = '.$group.' ORDER BY "'.\SYSTEM\DBD\APITable::FIELD_ID.'"');
         } else {            
             $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\APITable::NAME_MYS.' WHERE `'.\SYSTEM\DBD\APITable::FIELD_GROUP.'` = '.$group.' ORDER BY '.\SYSTEM\DBD\APITable::FIELD_ID);            
         }        

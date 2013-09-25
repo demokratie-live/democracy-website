@@ -6,7 +6,7 @@ namespace SYSTEM\SAI;
 class saimod_sys_log extends \SYSTEM\SAI\SaiModule {    
     
     private static function truncate_syslog(){
-        if(\SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
+        if(\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
             $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
             $res = $con->query('TRUNCATE system.sys_log;');
             return true;
@@ -41,13 +41,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $now = microtime(true);
         
         $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed" style="overflow: auto;">'.                    
-                    '<tr>'.'<th>'.'time ago in sec'.'</th>'.'<th>'.'time'.'</th>'.'<th>'.'class'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'code'.'</th>'.'<th>'.'file'.'</th>'.'<th>'.'line'.'</th>'.'<th>'.'ip'.'</th>'.'<th>'.'querytime'.'</tr>';
+                    '<tr>'.'<th>'.'time ago'.'</th>'.'<th>'.'time'.'</th>'.'<th>'.'class'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'code'.'</th>'.'<th>'.'file'.'</th>'.'<th>'.'line'.'</th>'.'<th>'.'ip'.'</th>'.'<th>'.'querytime'.'</tr>';
         while($r = $res->next()){
             //TODO make time conversion on database
             if(\SYSTEM\system::isSystemDbInfoPG()){
-                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.self::time_elapsed_string(strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
             } else {
-                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.(int)($now - $r['time']).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.self::time_elapsed_string($r['time']).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.$r['message'].'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all;">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
             }
         }
         $result .= '</table></div>';
@@ -56,8 +56,35 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         
     }
     
+    private static function time_elapsed_string($ptime)
+    {
+        $etime = time() - $ptime;
+
+        if ($etime < 1)
+        {
+            return '0 seconds';
+        }
+
+        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
+                    30 * 24 * 60 * 60       =>  'month',
+                    24 * 60 * 60            =>  'day',
+                    60 * 60                 =>  'hour',
+                    60                      =>  'minute',
+                    1                       =>  'second'
+                    );
+
+        foreach ($a as $secs => $str)
+        {
+            $d = $etime / $secs;
+            if ($d >= 1)
+            {
+                $r = round($d);
+                return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago';
+            }
+        }
+    }
     
-    public static function html_content(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){
         
         
         if( isset($_GET['truncate'])){
@@ -122,11 +149,12 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }        
     }
     
-    public static function html_li_menu(){return '<li><a href="#" id=".SYSTEM.SAI.saimod_sys_log">Log</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_log">Log</a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function src_css(){}
-    public static function src_js(){return \SYSTEM\LOG\JsonResult::toString(
-                                    array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/sai_sys_log.js')));}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_flag_css(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_flag_js(){
+        return \SYSTEM\LOG\JsonResult::toString(
+            array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log.js')));}
 }
