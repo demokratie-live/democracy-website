@@ -15,14 +15,14 @@ class Security {
     const AVAILABLE_FAIL = false;
     const AVAILABLE_OK = true;
     
-    public static function create(\SYSTEM\DB\DBInfo $dbinfo, $username, $password, $email, $locale, $advancedResult=false, $checkAvailable = true){
+    public static function create($username, $password, $email, $locale, $advancedResult=false, $checkAvailable = true){
         self::startSession();
 
         // check availability of username (in non-compatibility mode, otherwise it is already checked in DasenseAccount)
-        if($checkAvailable && !self::available($dbinfo, $username)){
+        if($checkAvailable && !self::available($username)){
             return self::REGISTER_FAIL;}        
         
-        $con = new \SYSTEM\DB\Connection($dbinfo);
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME_PG.
                                     ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
@@ -37,16 +37,16 @@ class Security {
                                     array( $username , $password, $email, $locale, 1 ));
         }
         
-        if( !$result || !self::login($dbinfo, $username, $password, $locale)){
+        if( !$result || !self::login($username, $password, $locale)){
                 return self::REGISTER_FAIL;}        
          
         return ($advancedResult ? $result->next() : self::REGISTER_OK);
     }
     
     
-    public static function changePassword(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha_old, $password_sha_new){
+    public static function changePassword($username, $password_sha_old, $password_sha_new){
         
-        $con = new \SYSTEM\DB\Connection($dbinfo);
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
                 $result = $con->prepare('',
                                         'SELECT id FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
@@ -77,18 +77,16 @@ class Security {
         
         return 1;
     }
-    
-    
-     
-    public static function login(\SYSTEM\DB\DBInfo $dbinfo, $username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false, $password_sha_new=NULL){
+             
+    public static function login($username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false, $password_sha_new=NULL){
         self::startSession();
         
         if(!isset($password_sha)){
-            self::trackLogins($dbinfo, NULL, self::LOGIN_FAIL);
+            self::trackLogins(NULL, self::LOGIN_FAIL);
             $_SESSION['user'] = NULL;
             return self::LOGIN_FAIL;}
 
-        $con = new \SYSTEM\DB\Connection($dbinfo); 
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo()); 
         if(isset($password_md5)){      
             if(\SYSTEM\system::isSystemDbInfoPG()){
                 $result = $con->prepare('loginAccountStmt', 
@@ -141,12 +139,18 @@ class Security {
             }else{
                 $pw = $password_sha;
             }
-            
-            $res = $con->prepare(   'updatePasswordSHAStmt',  
-                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
-                                    array($pw,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
+            unset($result);
+            if(\SYSTEM\system::isSystemDbInfoPG()){
+                $res = $con->prepare(   'updatePasswordSHAStmt',  
+                                        'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
+                                        array($pw,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
+            }else{
+                $res = $con->prepare(   'updatePasswordSHAStmt',  
+                                        'UPDATE '.\SYSTEM\DBD\UserTable::NAME_MYS.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = ? WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = ?'.';', 
+                                        array($pw,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
+            }
             $res = $res->next();
-            $row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] = $res[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA];
+            $row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] = $pw;
         }
             
         // set session variables
@@ -163,12 +167,12 @@ class Security {
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
         // track succesful user login
-        self::trackLogins($dbinfo, $row[\SYSTEM\DBD\UserTable::FIELD_ID]);        
+        self::trackLogins($row[\SYSTEM\DBD\UserTable::FIELD_ID]);        
         return ($advancedResult ? $row : self::LOGIN_OK);
     }       
     
-    private static function trackLogins(\SYSTEM\DB\DBInfo $dbinfo, $userID){
-        $con = new \SYSTEM\DB\Connection($dbinfo);         
+    private static function trackLogins($userID){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());         
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $con->prepare(  'trackLoginAccountStmt', 
                             'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= to_timestamp($1) '.
@@ -192,8 +196,8 @@ class Security {
      *
      * @param String $username
      */
-    public static function available(\SYSTEM\DB\DBInfo $dbinfo, $username){        
-        $con = new \SYSTEM\DB\Connection($dbinfo);
+    public static function available($username){        
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare(   'availableStmt',  
                                     'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
@@ -215,14 +219,14 @@ class Security {
     }
 
     //checks for a right for a logged in user
-    public static function check(\SYSTEM\DB\DBInfo $dbinfo, $rightid){
+    public static function check($rightid){
         //Not logged in? Go away.
         //If you think you need rights for your guests ur doing smth wrong ;-)
         $user = null;
         if(!($user = self::getUser())){
             return false;}
 
-        $con = new \SYSTEM\DB\Connection($dbinfo);
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare(   'security_check',
                                     'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserRightsTable::NAME_PG.
@@ -271,12 +275,12 @@ class Security {
     }
         
     //This functions is called from \SYSTEM\locale::set()
-    public static function _db_setLocale($dbinfo, $lang){
+    public static function _db_setLocale($lang){
         $user = self::getUser();
         if(!$user){
             throw new \SYSTEM\LOG\ERROR("You need to be logged in");}
                  
-        $con = new \SYSTEM\DB\Connection($dbinfo);
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare(   'updateUserLocaleStmt',
                                     'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.

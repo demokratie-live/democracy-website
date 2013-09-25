@@ -38,7 +38,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $result =   '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Username'.'</th>'.'<th>'.'E-Mail'.'</th>'.'<th>'.'JoinDate'.'</th>'.'<th>'.'Locale'.'</th>'.'<th>'.'Last Active'.'</th>'.'<th>'.'Flag'.'</th>'.'<th style="width: 110px;">'.'Rights'.'</th><th>reset password</th>'.'</tr>';
         while($r = $res->next()){
-            $result .= '<tr class="'.self::tablerow_class($r['last_active']).'">'.'<td>'.$r['id'].'</td>'.'<td>'.$r['username'].' <input type="submit" class="btn-danger" value="delete" user="'.$r['id'].'" action="delete">'.'</td>'.'<td>'.$r['email'].'</td>'.'<td>'.$r['joindate'].'</td>'.'<td>'.$r['locale'].'</td>'.'<td>'.$r['last_active'].'</td>'.'<td>'.$r['account_flag'].'</td>'.'<td>'.'<input type="submit" class="btn" value="edit" user="'.$r['id'].'" action="edit"><input type="submit" class="btn-danger" value="delete" user="'.$r['id'].'" action="delete"></td><td><button type="submit" class="btn" value="reset_password" user="'.$r['id'].'" email="'.$r['email'].'">send EMail</button>'.'</td>'.'</tr>';
+            $result .= '<tr class="'.self::tablerow_class($r['last_active']).'">'.'<td>'.$r['id'].'</td>'.'<td>'.$r['username'].'</td>'.'<td>'.$r['email'].'</td>'.'<td>'.$r['joindate'].'</td>'.'<td>'.$r['locale'].'</td>'.'<td>'.self::time_elapsed_string($r['last_active']).'</td>'.'<td>'.$r['account_flag'].'</td>'.'<td>'.'<input type="submit" class="btn" value="edit" user="'.$r['id'].'" action="edit"><input type="submit" class="btn-danger" value="delete" user="'.$r['id'].'" action="delete"></td><td><button type="submit" class="btn" value="reset_password" user="'.$r['id'].'" email="'.$r['email'].'">send EMail</button>'.'</td>'.'</tr>';
         }
         $result .= '</table>';
         return $result;
@@ -65,9 +65,37 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return 'error';
     }
     
+    private static function time_elapsed_string($ptime)
+    {
+        $etime = time() - $ptime;
+
+        if ($etime < 1)
+        {
+            return '0 seconds';
+        }
+
+        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
+                    30 * 24 * 60 * 60       =>  'month',
+                    24 * 60 * 60            =>  'day',
+                    60 * 60                 =>  'hour',
+                    60                      =>  'minute',
+                    1                       =>  'second'
+                    );
+
+        foreach ($a as $secs => $str)
+        {
+            $d = $etime / $secs;
+            if ($d >= 1)
+            {
+                $r = round($d);
+                return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago';
+            }
+        }
+    }
+    
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_security">Security</a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\system::getSystemDBInfo(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_flag_css(){return \SYSTEM\LOG\JsonResult::toString(
                                      array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.css')));}

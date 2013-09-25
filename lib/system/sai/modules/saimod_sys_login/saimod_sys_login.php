@@ -11,7 +11,7 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars['loginPassword'] = 'Password';
         $vars['login_username_too_short'] = 'Username to short.';
         $vars['login_password_too_short'] = 'Password to short.';
-        $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(new \DBD\dasensePostgres(), \SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
+        $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
         $vars = array_merge($vars, \SYSTEM\locale::getStrings(\DBD\locale_string::VALUE_CATEGORY_DASENSE_USERSTATISTICS));
         
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
@@ -23,9 +23,19 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_logout(){
         return \SYSTEM\SECURITY\Security::logout();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_login($username,$password_sha,$password_md5){
-        return \SYSTEM\SECURITY\Security::login(new \DBD\dasensePostgres(), $username, $password_sha, $password_md5);}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_register($username,$password_sha,$password_md5,$email, $locale = 'deDE'){
-        return \SYSTEM\SECURITY\Security::create(new \DBD\dasensePostgres(), $username, $password_sha, $password_md5, $email, $locale);}
+        return \SYSTEM\SECURITY\Security::login($username, $password_sha, $password_md5);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_register($username,$password,$email, $locale = 'deDE'){
+        return \SYSTEM\SECURITY\Security::create($username, $password, $email, $locale);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_userinfo(){
+        $user = \SYSTEM\SECURITY\Security::getUser();
+        if(!$user){
+            return;}
+        return json_encode(array(   'username' => $user->username,
+                                    'email' => $user->email,
+                                    'joindate' => $user->creationDate,
+                                    'locale' => $user->locale,
+                                    'last_active' => $user->lastLoginDate));        
+    }        
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_registerform(){
         $vars = \SYSTEM\locale::getStrings(\DBD\locale_string::VALUE_CATEGORY_DASENSE);
