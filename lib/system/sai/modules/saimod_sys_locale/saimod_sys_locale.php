@@ -19,7 +19,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function html_content_table(){
         $result =   '<h3>Locale String</h3>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
+                    '<table class="table table-hover table-condensed" style="overflow: auto;" >'.        
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
                     
                     foreach (self::getLanguages() as $lang){
@@ -51,11 +51,15 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
     public static function html_content_entry_edit($entry){
+        //$wysiwyg_root = 'http://mojotrollz.eu/web/system/sai/modules/saimod_sys_locale/wysiwyg'; 
+        //include 'http://mojotrollz.eu/web/system/sai/modules/saimod_sys_locale/wysiwyg/php/init.php';
+        
         $result =
+        
         '<h3>'.$entry.'</h3>'.
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
-                    '<tr>';
-                    
+                    '<tr><form method="post">';
+        
                     foreach (self::getLanguages() as $lang){
                         $result .= '<th>'.$lang.'</th>';
                         $languages[] = $lang;
@@ -65,15 +69,25 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         $res = $con->prepare('edit', 'SELECT * FROM system_locale_string WHERE id=? ORDER BY "category" ASC;', array($entry));
+        
+        $editor_id = 0;
         while($r = $res->next()){
             $result .= "<tr>";
             foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td><input type="textarea" value="'.$r[$columns].'"><br><input type="submit" class="btn" value="edit" lang="'.$columns.'" name="'.$r["id"].'" onclick="javascript:init__SYSTEM_SAI_saimod_sys_locale();"><br></td>';
+                        //echo wysiwyg($editor_id, $entry, $r[$columns]);
+                        $editor_id++;
+                        $result .= '<td><textarea 
+                            onclick="tinymce.init({
+                            mode : "textareas",
+                            theme : "simple"
+                            });">'.$r[$columns].'</textarea><br><input type="submit" class="btn" value="edit" lang="'.$columns.'" name="'.$r["id"].'" onclick="javascript:init__SYSTEM_SAI_saimod_sys_locale();"><br></td>';
                         //$_POST[$r["id"]] = $r[$columns];
                     }
             $result .= "</tr>";
         }
+        $result .= '</form>';
+
         return $result; 
     }
     

@@ -38,10 +38,17 @@ class default_page extends \SYSTEM\PAGE\Page {
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/loadcssjs.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/index.js').'" type="text/javascript"></script>';
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/js/tinymce/tinymce.min.js').'" type="text/javascript"></script>'.
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/index.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
                   '<script src="https://maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>'.
-                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';        
+                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
+                    '<script type="text/javascript">
+                    tinymce.init({
+                    mode : "textareas",
+                    theme : "simple"
+                    });
+                  </script>';        
         return $result;
     }
 
