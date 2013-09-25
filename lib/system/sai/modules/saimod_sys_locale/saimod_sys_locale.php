@@ -113,7 +113,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $fu = 0;
             foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td><input type="textarea" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
+                        $result .= '<td><div class="dialog"><input type="textarea" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"></textarea></div><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
                         //$_POST[$r["id"]] = $r[$columns];
                 }
             $result .= "</tr></table>";
@@ -130,5 +130,5 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_js(){
         return \SYSTEM\LOG\JsonResult::toString(
             array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/js/tinymce/tinymce.min.js')));}
+                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/tinymce.min.js')));}
 }
