@@ -19,7 +19,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function html_content_table(){
         $result =   '<h3>Locale String</h3>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
+                    '<input type="submit" value="Add" class="btn add_content"><br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
                     
                     foreach (self::getLanguages() as $lang){
@@ -36,7 +36,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
         }
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger" value="delete" delete_ID="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
+            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger delete_content" value="delete" id="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
                         $result .= '<td>'.$r[$columns].'</td>';
@@ -50,6 +50,29 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
                
         return $result;
     }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_edit($id, $lang, $newtext){
+         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+         $res = null;
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            throw new \SYSTEM\LOG\ERROR("action_edit failed");
+        } else {
+            $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array($newtext, $id));
+        }
+        return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
+         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+         $res = null;
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            throw new \SYSTEM\LOG\ERROR("action_delete failed");
+        } else {
+            $res = $con->prepare('deleteText' ,'DELETE FROM system_locale_string WHERE id=?;', array($id));
+        }
+        return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data")) : \SYSTEM\LOG\JsonResult::ok();
+    }
+    
     public static function html_content_entry_edit($entry){
         $result =
         '<h3>'.$entry.'</h3>'.
@@ -78,11 +101,12 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $result .= "<tr>";
             foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td><input type="textarea" value="'.$r[$columns].'"><br><input type="submit" class="btn" value="edit" lang="'.$columns.'" name="'.$r["id"].'" onclick="javascript:init__SYSTEM_SAI_saimod_sys_locale();"><br></td>';
+                        $result .= '<td><input type="textarea" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
                         //$_POST[$r["id"]] = $r[$columns];
                     }
-            $result .= "</tr>";
+            $result .= "</tr></table>";
         }
+        $result .= '<br><input type="submit" class="btn localeMain" value="back">';
         return $result; 
     }
     
