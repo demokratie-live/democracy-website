@@ -69,7 +69,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
                         $result .= '<option>'.$lang.'</option>';
                         $languages[] = $lang;
                     }
-         $result .= '</select><br><textarea id="areacontent"></textarea><br><input type="submit" class="btn add" value="save" onclick="add();">';
+         $result .= '</select><br><textarea class="tinymce" name="content" id="areacontent" style="width: 100%"></textarea><br><input type="submit" class="btn add" value="save" onclick="add();">';
          return $result;
     }
     
@@ -86,7 +86,20 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_editmode($entry){
         $result =
-        '<h3>'.$entry.'</h3>'.
+        
+        
+        '<script>tinymce.init({
+    selector: "textarea",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste moxiemanager"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});</script><textarea></textarea>
+            
+
+<h3>'.$entry.'</h3>'.
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>';
                     
@@ -113,7 +126,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $fu = 0;
             foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td><div class="dialog"><input type="textarea" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"></textarea></div><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
+                        $result .= '<td>
+                                    <div class="dialog"><input type="textarea" name="content" class="tinymce" style="width: 100%" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"></textarea></div><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
                         //$_POST[$r["id"]] = $r[$columns];
                 }
             $result .= "</tr></table>";
