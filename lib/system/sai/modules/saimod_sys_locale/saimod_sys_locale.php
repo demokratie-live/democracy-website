@@ -69,7 +69,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
                         $result .= '<option>'.$lang.'</option>';
                         $languages[] = $lang;
                     }
-         $result .= '</select><br><textarea class="tinymce" name="content" id="areacontent" style="width: 100%"></textarea><br><input type="submit" class="btn add" value="save" onclick="add();">';
+         $result .= '</select><br><textarea class="tinymce" name="content" id="areacontent" style="width: 100%"></textarea><br><input type="submit" class="btn add" value="save">'.'<script>tinymce.init({selector:\'textarea\'});</script>';
          return $result;
     }
     
@@ -85,8 +85,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_editmode($entry){
-        $result =
-        '<h3>'.$entry.'</h3>'.
+        $result =   '<h3>'.$entry.'</h3>'.                    
                     '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>';
                     
@@ -106,20 +105,28 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare(   'edit',
                                     'SELECT * FROM system_locale_string WHERE id = ? ORDER BY "category" ASC;',
                                     array($entry));
-        }
-            
+        }       
         while($r = $res->next()){
             $result .= "<tr>";
             $fu = 0;
-            foreach ($languages as $columns){
-                        //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td>
-                                    <div class="dialog"><textarea name="content" id="testcontent" class="tinymce" style="width: 100%" value="'.$r[$columns].'" id="edit_field_'.$r["id"].'_'.$columns.'"></textarea></div><br><input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
-                        //$_POST[$r["id"]] = $r[$columns];
-                }
+            foreach ($languages as $columns){                        
+                $result .= '<td>
+                            <div class="dialog">'.
+                                '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.$r[$columns].'</textarea>'.
+                            '</div>
+                            <input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
+            }
             $result .= "</tr></table>";
         }
-        $result .= '<br><input type="submit" class="btn localeMain" value="back">';
+        $result .=  '<br><input type="submit" class="btn localeMain" value="back">'.'<script>tinymce.init({
+    selector: "textarea",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste moxiemanager"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});</script>';
         return $result; 
     }
     
@@ -130,7 +137,5 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_css(){}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_js(){
         return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/default_page/js/libs/jquery.min.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/tinymce.min.js')));}
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js')));}
 }
