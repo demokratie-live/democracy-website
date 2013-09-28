@@ -5,7 +5,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo(){
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM system.todo LEFT JOIN system_user ON system_todo.author = system_user.ID ORDER BY state, time DESC;');
+            $res = $con->query('SELECT * FROM system.todo LEFT JOIN system.user ON system.todo.author = system.user.ID ORDER BY state, time DESC;');
         } else {
             $res = $con->query('SELECT * FROM system_todo LEFT JOIN system_user ON system_todo.author = system_user.ID ORDER BY state, time DESC;');
         }

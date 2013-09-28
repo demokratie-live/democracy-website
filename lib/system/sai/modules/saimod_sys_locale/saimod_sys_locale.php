@@ -45,7 +45,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            throw new \SYSTEM\LOG\ERROR("action_edit failed");
+            $res = $con->prepare('newText' ,'UPDATE system.locale_string SET "'.$lang.'"=$1 WHERE id=$2;', array($newtext, $id));
         } else {
             $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array($newtext, $id));
         }
