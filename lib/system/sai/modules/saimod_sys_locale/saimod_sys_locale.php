@@ -9,7 +9,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){
         $result =   '<h3>Locale String</h3>'.
-                    '<input type="submit" value="Add" class="btn add_form"><br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
+                    //<input type="submit" value="Add" class="btn add_form">
+                    '<br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
                     
                     foreach (self::getLanguages() as $lang){
@@ -26,10 +27,10 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
         }
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger delete_content" value="delete" id="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
+            $result .= '<tr>'.'<td style="padding-bottom: 5px;">'.$r["id"].'<br><br><input type="submit" class="btn-danger delete_content" value="delete" id="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" style="margin-left: 3px;" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td>'.$r[$columns].'</td>';
+                        $result .= '<td>'.utf8_encode($r[$columns]).'</td>';
                         //$_POST[$r["id"]] = $r[$columns];
                     }
                     
@@ -42,6 +43,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_edit($id, $lang, $newtext){
+         $charset = 'utf-8';
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
@@ -111,7 +113,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $fu = 0;
             foreach ($languages as $columns){                        
                 $result .= '<td>
-                            <div class="dialog">'.
+                            <div class="dialog" style="padding-bottom: 5px;">'.
                                 '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.$r[$columns].'</textarea>'.
                             '</div>
                             <input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
@@ -120,6 +122,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         }
         $result .=  '<br><input type="submit" class="btn localeMain" value="back">'.'<script>tinymce.init({
     selector: "textarea",
+    entity_encoding : "raw",
     plugins: [
         "advlist autolink lists link image charmap print preview anchor",
         "searchreplace visualblocks code fullscreen",
