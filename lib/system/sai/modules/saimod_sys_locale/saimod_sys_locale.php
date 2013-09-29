@@ -9,7 +9,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){
         $result =   '<h3>Locale String</h3>'.
-                    '<input type="submit" value="Add" class="btn add_form"><br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
+                    //<input type="submit" value="Add" class="btn add_form">
+                    '<br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
                     
                     foreach (self::getLanguages() as $lang){
@@ -26,10 +27,10 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
         }
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r["id"].'<br><input type="submit" class="btn-danger delete_content" value="delete" id="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
+            $result .= '<tr>'.'<td style="padding-bottom: 5px;">'.$r["id"].'<br><br><input type="submit" class="btn-danger delete_content" value="delete" id="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" style="margin-left: 3px;" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
                     foreach ($languages as $columns){
                         //echo "+tututututututut:".$r[$columns]."nochmal tututututututut";
-                        $result .= '<td>'.$r[$columns].'</td>';
+                        $result .= '<td>'.utf8_encode($r[$columns]).'</td>';
                         //$_POST[$r["id"]] = $r[$columns];
                     }
                     
@@ -42,12 +43,13 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_edit($id, $lang, $newtext){
+         $charset = 'utf-8';
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare('newText' ,'UPDATE system.locale_string SET "'.$lang.'"=$1 WHERE id=$2;', array($newtext, $id));
         } else {
-            $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array($newtext, $id));
+            $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array(utf8_decode($newtext), $id));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
@@ -111,8 +113,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $fu = 0;
             foreach ($languages as $columns){                        
                 $result .= '<td>
-                            <div class="dialog">'.
-                                '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.$r[$columns].'</textarea>'.
+                            <div class="dialog" style="padding-bottom: 5px;">'.
+                                '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.utf8_encode($r[$columns]).'</textarea>'.
                             '</div>
                             <input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
             }
@@ -120,12 +122,15 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         }
         $result .=  '<br><input type="submit" class="btn localeMain" value="back">'.'<script>tinymce.init({
     selector: "textarea",
+    entity_encoding : "raw",
+    theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
     plugins: [
         "advlist autolink lists link image charmap print preview anchor",
         "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste moxiemanager"
+        "insertdatetime media table contextmenu paste moxiemanager",
+        "textcolor"
     ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
 });</script>';
         return $result; 
     }

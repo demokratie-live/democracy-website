@@ -1,5 +1,5 @@
 <div class="masthead">
-    <h3 class="muted">Design.Simple.Fast.Reliable.Innovative.</h3>
+    <h3 class="muted">Design. Simple. Fast. Reliable. Innovative.</h3>
     <h4 class="text-info">We write awesome code and we use <a href="http://getbootstrap.com/">Twitter Bootstrap.</a></h4>
 </div>
 <br>
