@@ -49,7 +49,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare('newText' ,'UPDATE system.locale_string SET "'.$lang.'"=$1 WHERE id=$2;', array($newtext, $id));
         } else {
-            $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array($newtext, $id));
+            $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array(utf8_decode($newtext), $id));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
@@ -114,7 +114,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             foreach ($languages as $columns){                        
                 $result .= '<td>
                             <div class="dialog" style="padding-bottom: 5px;">'.
-                                '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.$r[$columns].'</textarea>'.
+                                '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.utf8_encode($r[$columns]).'</textarea>'.
                             '</div>
                             <input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
             }
@@ -123,12 +123,14 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         $result .=  '<br><input type="submit" class="btn localeMain" value="back">'.'<script>tinymce.init({
     selector: "textarea",
     entity_encoding : "raw",
+    theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
     plugins: [
         "advlist autolink lists link image charmap print preview anchor",
         "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste moxiemanager"
+        "insertdatetime media table contextmenu paste moxiemanager",
+        "textcolor"
     ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
 });</script>';
         return $result; 
     }
