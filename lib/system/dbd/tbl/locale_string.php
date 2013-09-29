@@ -16,6 +16,7 @@ class locale_string {
 
     const VALUE_CATEGORY_SYSTEM                 = 10;
     const VALUE_CATEGORY_SYSTEM_ERROR           = 11;
+    const VALUE_CATEGORY_SYSTEM_SAI             = 12;
     
     const VALUE_CATEGORY_SYSTEM_ENDCAT          = 99;   
 }

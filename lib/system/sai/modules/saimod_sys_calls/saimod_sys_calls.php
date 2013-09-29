@@ -9,7 +9,7 @@ class saimod_sys_calls extends \SYSTEM\SAI\SaiModule {
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT * FROM system.api ORDER BY "group", "ID" ASC;');
         } else {
-            $res = $con->query('SELECT * FROM system_api ORDER BY group, ID ASC;');
+            $res = $con->query('SELECT * FROM system_api ORDER BY `group`, `ID` ASC;');
         }
        
         $result = "";
