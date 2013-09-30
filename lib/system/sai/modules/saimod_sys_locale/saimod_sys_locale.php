@@ -7,32 +7,57 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);        
     }
 
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){
-        $vars = array();        
-         
-        $vars['langhead'] = '';
-        foreach (self::getLanguages() as $lang){
-            $vars['langhead'] .= '<th>'.$lang.'</th>';
-            $languages[] = $lang;
-        }
-                                                
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){        
+        $vars = array();                        
+                                                                
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT "category", COUNT(*) as "count" FROM system.locale_string GROUP BY "category" ORDER BY "category" ASC;');
+        } else {
+            $res = $con->query('SELECT "category", COUNT(*) as "count" FROM system.locale_string GROUP BY "category" ORDER BY "category" ASC;');
+        }
+                
+        $vars['tabopts'] = '';
+        $first = true;
+        while($r = $res->next()){
+            $vars2 = array( 'active' => ($first ? 'active' : ''),
+                            'tab_id' => $r['category']);
+            $first = false;
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tabopt.tpl'), $vars2);
+        }       
+                
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT * FROM system.locale_string ORDER BY "category" ASC;');
         } else {
             $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
         }
-        $vars['content'] = '';
-        while($r = $res->next()){
-            $content = '';
+                
+        $langhead = '';
+        foreach (self::getLanguages() as $lang){
+            $langhead .= '<th>'.$lang.'</th>'; 
+            $languages[] = $lang;
+        }         
+                        
+        while($r = $res->next()){            
+            $tabs[$r['category']]['tab_id'] = $r['category'];            
+            $tabs[$r['category']]['content'] = isset($tabs[$r['category']]['content']) ? $tabs[$r['category']]['content'] : '';
+            $tabs[$r['category']]['langhead'] = $langhead;
+            
+            $r['content'] = '';
             foreach ($languages as $columns){                        
-                $content .= '<td>'.$r[$columns].'</td>';                        
-            }
-            $r['content'] = $content;
-            $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/list_entry.tpl'), $r);
-        }        
+                $r['content'] .= '<td>'.$r[$columns].'</td>';
+            }                                    
+            $tabs[$r['category']]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/list_entry.tpl'), $r);                        
+        }   
+        
+        $vars['tabs'] = '';
+        $first = true;                   
+        foreach($tabs as $tab){
+            $tab['active'] = ($first ? 'active' : '');
+            $first = false;
+            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tab.tpl'), $tab);}
                
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/list.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tabs.tpl'), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_edit($id, $lang, $newtext){         
@@ -51,7 +76,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            throw new \SYSTEM\LOG\ERROR("action_edit failed");
+            $res = $con->prepare('addText' ,'INSERT INTO system.locale_string (id, category) VALUES ($1, $2);', array($id, $category));
         } else {
             $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, category) VALUES (?, ?);', array($id, $category));
         }
@@ -66,7 +91,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            throw new \SYSTEM\LOG\ERROR("action_delete failed");
+            $res = $con->prepare('deleteText' ,'DELETE FROM system.locale_string WHERE id=$1;', array($id));
         } else {
             $res = $con->prepare('deleteText' ,'DELETE FROM system_locale_string WHERE id=?;', array($id));
         }

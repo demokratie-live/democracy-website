@@ -6,7 +6,10 @@ define('SAI_MOD_POSTFIELD','sai_mod');
 class saigui extends \SYSTEM\PAGE\Page {
     
     public function html(){
-        $pg = array_merge($_POST,$_GET);
+        //Direct JSON Input
+        $pg = json_decode(file_get_contents("php://input"), true);
+        if(!$pg){
+            $pg = array_merge($_POST,$_GET);}        
         if(isset($pg[SAI_MOD_POSTFIELD])){
             $classname = \str_replace('.', '\\', $pg[SAI_MOD_POSTFIELD]);
             $pg[SAI_MOD_POSTFIELD] = \str_replace('.', '_', $pg[SAI_MOD_POSTFIELD]);
