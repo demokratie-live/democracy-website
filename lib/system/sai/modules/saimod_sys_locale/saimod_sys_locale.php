@@ -14,7 +14,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT "category", COUNT(*) as "count" FROM system.locale_string GROUP BY "category" ORDER BY "category" ASC;');
         } else {
-            $res = $con->query('SELECT "category", COUNT(*) as "count" FROM system.locale_string GROUP BY "category" ORDER BY "category" ASC;');
+            $res = $con->query('SELECT `category`, COUNT(*) as `count` FROM system_locale_string GROUP BY `category` ORDER BY `category` ASC;');
         }
                 
         $vars['tabopts'] = '';
