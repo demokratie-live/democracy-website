@@ -8,36 +8,31 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     }
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){
-        $result =   '<h3>Locale String</h3>'.
-                    //<input type="submit" value="Add" class="btn add_form">
-                    '<br><table class="table table-hover table-condensed" style="overflow: auto;">'.        
-                    '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Category'.'</th>';
-                    
-                    foreach (self::getLanguages() as $lang){
-                        $result .= '<th>'.$lang.'</th>';
-                        $languages[] = $lang;
-                    }
-                    
-                    $result .= '</tr>';        
-        
+        $vars = array();        
+         
+        $vars['langhead'] = '';
+        foreach (self::getLanguages() as $lang){
+            $vars['langhead'] .= '<th>'.$lang.'</th>';
+            $languages[] = $lang;
+        }
+                                                
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT * FROM system.locale_string ORDER BY "category" ASC;');
         } else {
             $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
         }
+        $vars['content'] = '';
         while($r = $res->next()){
-            $result .= '<tr>'.'<td style="padding-bottom: 5px;">'.$r["id"].'<br><br><input type="submit" class="btn-danger delete_content" value="delete" id="'.$r["id"].'">'.'<input type="submit" class="btn" value="edit" style="margin-left: 3px;" name="'.$r["id"].'">'.'</td>'.'<td>'.$r["category"].'</td>';
-                    foreach ($languages as $columns){                        
-                        $result .= '<td>'.$r[$columns].'</td>';                        
-                    }
-                    
-            $result .= '</tr>';
-            
+            $content = '';
+            foreach ($languages as $columns){                        
+                $content .= '<td>'.$r[$columns].'</td>';                        
             }
-        $result .= '</table>';
+            $r['content'] = $content;
+            $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/list_entry.tpl'), $r);
+        }        
                
-        return $result;
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/list.tpl'), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_edit($id, $lang, $newtext){         
@@ -52,25 +47,19 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $lang, $newtext){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $category){
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
             throw new \SYSTEM\LOG\ERROR("action_edit failed");
         } else {
-                $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, '.$lang.', category) VALUES (?, ?, 100);', array($id, $newtext));
+            $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, category) VALUES (?, ?);', array($id, $category));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added")) : \SYSTEM\LOG\JsonResult::ok();
     }
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_addcontent(){
-         $result = "<h3>Add new text</h3><br>";
-         $result .= '<input type="text" id="new" value=""><br><select id="langselect" size="1">'; 
-         foreach (self::getLanguages() as $lang){
-                        $result .= '<option>'.$lang.'</option>';
-                        $languages[] = $lang;
-                    }
-         $result .= '</select><br><textarea class="tinymce" name="content" id="areacontent" style="width: 100%"></textarea><br><input type="submit" class="btn add" value="save">'.'<script>tinymce.init({selector:\'textarea\'});</script>';
-         return $result;
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_addmode(){
+         $vars = array();         
+         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/add.tpl'), $vars);         
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
@@ -85,16 +74,6 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_editmode($entry){
-        $result =   '<h3>'.$entry.'</h3>'.                    
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.        
-                    '<tr>';
-                    
-                    foreach (self::getLanguages() as $lang){
-                        $result .= '<th>'.$lang.'</th>';
-                        $languages[] = $lang;
-                    }
-                    
-                    $result .= '</tr>';                
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
@@ -105,33 +84,25 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare(   'edit',
                                     'SELECT * FROM system_locale_string WHERE id = ? ORDER BY "category" ASC;',
                                     array($entry));
-        }       
-        while($r = $res->next()){
-            $result .= "<tr>";
-            $fu = 0;
-            foreach ($languages as $columns){                        
-                $result .= '<td>
-                            <div class="dialog" style="padding-bottom: 5px;">'.
-                                '<textarea name="content" class="tinymce" style="width: 100%" id="edit_field_'.$r["id"].'_'.$columns.'">'.$r[$columns].'</textarea>'.
-                            '</div>
-                            <input type="submit" class="btn edit_content" value="edit" lang="'.$columns.'" name="'.$r["id"].'"><br></td>';
-            }
-            $result .= "</tr></table>";
         }
-        $result .=  '<br><input type="submit" class="btn localeMain" value="back">'.'<script>tinymce.init({
-    selector: "textarea",
-    force_p_newlines : false,
-    forced_root_block : false,    
-    theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-    plugins: [
-        "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste moxiemanager",
-        "textcolor"
-    ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-});</script>';
-        return $result; 
+        if(!$r = $res->next()){
+            throw new \SYSTEM\LOG\ERROR("No such Entry found!");}
+            
+        $vars = array();
+        $vars['entry'] = $entry;
+        $vars['langhead'] = '';
+                    
+        foreach (self::getLanguages() as $lang){
+            $vars['langhead'] .= '<th>'.$lang.'</th>';
+            $languages[] = $lang;
+        }                                                            
+        $vars['content'] = '';
+        foreach ($languages as $lang){
+            $r['lang'] = $lang;
+            $r['value'] = $r[$lang];
+            $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/edit_entry.tpl'), $r);}
+            
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/edit.tpl'), $vars);
     }
     
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_locale">DB Text</a></li>';}
@@ -141,5 +112,5 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_css(){}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_js(){
         return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale_submit.js')));}
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale.js')));}
 }

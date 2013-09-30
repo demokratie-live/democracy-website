@@ -6,11 +6,11 @@
     <table id="userDetailsTable" class="table table-striped">
        <tbody>
             <tr>
-               <th style="width: 200px;">${ua_name}</th>
+               <th style="width: 200px;">${sai_mod_login_username}</th>
                <td><span id="user_username" /></td>
             </tr>
             <tr>
-               <th>${ua_email}</th>
+               <th>${sai_mod_login_email}</th>
                <td>
                    <span id="user_email" />
                     <div class="control-group" id="change_user_email" style="display: none;">
@@ -27,7 +27,7 @@
                </td>
             </tr>
             <tr>
-               <th>${ua_password}</th>
+               <th>${sai_mod_login_password}</th>
                <td>
                    <span id="user_password">****</span>
                     <div class="control-group" id="change_user_password" style="display: none;">
@@ -66,15 +66,15 @@
                </td>
             </tr>
             <tr>
-               <th>${ua_last_active}</th>
+               <th>${sai_mod_login_last_active}</th>
                <td><span id="user_last_active"></span></td>
             </tr>
             <tr>
-               <th>${ua_joindate}</th>
+               <th>${sai_mod_login_join_date}</th>
                <td><span id="user_joindate"></span></td>
             </tr>
             <tr>
-               <th>${ua_locale}</th>
+               <th>${sai_mod_login_locale}</th>
                <td>
                    <span id="user_locale"></span>
                    <div id="change_user_locale" style="display: none;">
@@ -86,7 +86,7 @@
                </td>
             </tr>
             <tr>
-               <th style="width: 200px;">Admin Rights</th>
+               <th style="width: 200px;">${sai_mod_login_admin_rights}</th>
                <td><span id="user_adminrights" />${isadmin}</td>
             </tr>
        </tbody>

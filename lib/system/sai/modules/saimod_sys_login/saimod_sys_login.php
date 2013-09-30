@@ -13,6 +13,7 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars['login_password_too_short'] = 'Password to short.';
         $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
         $vars = array_merge($vars, \SYSTEM\locale::getStrings(\SYSTEM\DBD\locale_string::VALUE_CATEGORY_SYSTEM_SAI));
+        $vars = array_merge($vars, \SYSTEM\locale::getStrings(\SYSTEM\DBD\locale_string::VALUE_CATEGORY_SYSTEM_SAI_ERROR));        
         
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/logout.tpl'), $vars);        
