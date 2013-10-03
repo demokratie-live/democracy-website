@@ -8,7 +8,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM system.api ORDER BY "group", "ID" ASC;');
+            $res = $con->query('SELECT "group", count(*) as "count" FROM system.api GROUP BY "group" ORDER BY "group" ASC;');
         } else {
             $res = $con->query('SELECT `group`, count(*) as `count` FROM system_api GROUP BY `group` ORDER BY `group` ASC;');
         }
