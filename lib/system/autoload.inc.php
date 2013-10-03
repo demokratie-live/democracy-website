@@ -35,3 +35,7 @@ spl_autoload_register('__autoload_system');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/cache','SYSTEM\CACHE');
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/sai','SYSTEM\SAI');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/docu','SYSTEM\DOCU');
+
+require_once dirname(__FILE__).'/lib/autoload.inc.php';
+require_once dirname(__FILE__).'/docu/register_sys_docu.php';

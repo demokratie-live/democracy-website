@@ -3,7 +3,42 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu(){
-        return "todo";
+        $documents = \SYSTEM\DOCU\docu::getDocuments();
+                
+        $vars['tabopts'] = '';
+        $first = true;                
+        foreach($documents as $cat => $docs){
+            $vars2 = array( 'active' => ($first ? 'active' : ''),
+                            'tab_id' => str_replace(' ', '_', $cat),
+                            'tab_id_pretty' => $cat);
+            $first = false;
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tabopt.tpl'), $vars2);
+            
+            $first2 = true;
+            foreach($docs as $doc){                
+                $tabs[$cat]['tab_id'] = str_replace(' ', '_', $cat);            
+                $tabs[$cat]['content'] = isset($tabs[$cat]['content']) ? $tabs[$cat]['content'] : '';
+                $tabs[$cat]['menu'] = isset($tabs[$cat]['menu']) ? $tabs[$cat]['menu'] : '';
+                //$tabs[$cat]['content'] .= \Michelf\Markdown::defaultTransform(file_get_contents($doc));
+                $vars3 = array( 'active' => ($first2 ? 'active' : ''),
+                                'content' => \Michelf\Markdown::defaultTransform(file_get_contents($doc)),
+                                'tab_id' => str_replace(array('.',' '), '_', basename($doc)));                
+                $tabs[$cat]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tab2.tpl'), $vars3);
+                $vars3 = array( 'active' => ($first2 ? 'active' : ''),
+                                'tab_id' => str_replace(array('.',' '), '_', basename($doc)),
+                                'tab_id_pretty' => basename($doc));
+                $tabs[$cat]['menu'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tabopt.tpl'), $vars3);
+                $first2 = false;
+        }   
+        
+        $vars['tabs'] = '';
+        $first = true;                   
+        foreach($tabs as $tab){
+            $tab['active'] = ($first ? 'active' : '');
+            $first = false;
+            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tab.tpl'), $tab);}
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tabs.tpl'), $vars);
     }    
     
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_docu">Docu</a></li>';}
@@ -11,5 +46,8 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_flag_css(){}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_flag_js(){}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_flag_js(){
+        return \SYSTEM\LOG\JsonResult::toString(
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSYSTEM(),'lib/EpicEditor/js/epiceditor.min.js'),
+                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/saimod_sys_docu.js')));}
 }
