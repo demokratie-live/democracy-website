@@ -10,7 +10,7 @@ class locale {
 
         \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);        
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            \SYSTEM\SECURITY\Security::_db_setLocale(\SYSTEM\system::getSystemDBInfo(), $lang);} //TODO: connection def move somewhere?        
+            \SYSTEM\SECURITY\Security::_db_setLocale($lang);}
             
         return true;
     }
