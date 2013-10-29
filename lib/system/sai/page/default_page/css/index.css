@@ -5,7 +5,10 @@
     Description:
         Purpose of the stylesheet follows.
 */
-
+.tab-content{
+    overflow: scroll;
+    height: 800px;
+}
 #content{
     max-width: 1200px;
     margin: 0 auto;
