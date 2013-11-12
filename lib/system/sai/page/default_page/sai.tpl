@@ -29,7 +29,7 @@
            </ul>
        </div>
     </div>    
-    <div id="content" style="float: left;">
+    <div id="content" style="float: left; width: 1000px;">
         <div id="content-wrapper" style="clear: both; overflow: auto; width: 100%; min-width:500px;"></div>
         <hr>
         <div class="footer"><p>${copyright}</p></div>
