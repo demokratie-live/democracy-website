@@ -32,4 +32,7 @@ class img {
         return $files;
     }
     
+    public static function getURL($cat,$id=null){
+        return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL).'api.php?call=img&cat='.$cat.'&id='.$id;}
+    
 }
