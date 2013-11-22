@@ -10,29 +10,26 @@
     </head>
     
     <body>
-      <div id="sai_navbar" class="navbar">
-         <div class="navbar-inner">
-           <div class="brand-logo">
-             <img src="${navimg}" height="24" width="24">
-           </div>
-           <a class="brand" href="#">developer</a>
-           <ul class="nav">
-                ${menu_sys}
-           </ul>
+        <div id="sai_navbar" class="navbar navbar-fixed-top" style="height:40px;">
+            <div class="navbar-inner">
+                <div class="brand-logo" style="padding-left: 10px;">
+                    <img src="${navimg}" height="24" width="24"/>
+                </div>
+                <a class="brand" href="#" style="width: 159px;">SAI</a>
+                <ul class="nav">
+                    ${menu_sys}
+                </ul>
+            </div>
+        </div>                
+        <div id="project_navbar" style="width:224px; position: fixed; left: 0px; bottom: 0px; top: 38px;">
+            <ul class="nav nav-tabs nav-stacked">                
+                ${menu_proj}
+            </ul>       
+        </div>    
+        <div id="content" style="overflow: auto; position: absolute; top: 40px; bottom: 0px; left: 224px; right: 0px; padding: 15px; min-width:1000px;">
+            <div id="content-wrapper" style="width:100%"></div>
+            <hr>
+            <div class="footer"><p>${copyright}</p></div>
          </div>
-     </div>
-    
-    <div id="project_navbar" style="width:210px; float:left;">
-       <div class="navbar-inner">          
-           <ul class="nav nav-list">                
-               ${menu_proj}
-           </ul>
-       </div>
-    </div>    
-    <div id="content" style="float: left; width: 1000px;">
-        <div id="content-wrapper" style="clear: both; overflow: auto; width: 100%; min-width:500px;"></div>
-        <hr>
-        <div class="footer"><p>${copyright}</p></div>
-     </div>
     </body>
 </html>
