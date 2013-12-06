@@ -40,7 +40,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         
         $now = microtime(true);
         
-        $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+        $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed">'.                    
                     '<tr>'.'<th>'.'time ago'.'</th>'.'<th>'.'time'.'</th>'.'<th>'.'class'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'code'.'</th>'.'<th>'.'file'.'</th>'.'<th>'.'line'.'</th>'.'<th>'.'ip'.'</th>'.'<th>'.'querytime'.'</tr>';
         while($r = $res->next()){
             //TODO make time conversion on database

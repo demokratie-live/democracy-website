@@ -21,7 +21,7 @@ class saigui extends \SYSTEM\PAGE\Page {
                     \call_user_func(array($classname, 'right_right')))){                                        
                     return \SYSTEM\API\api::run('\SYSTEM\API\verify', $classname , $pg, 42, false, false);
                 } else {
-                    return "Could not find Module";}
+                    return '<meta http-equiv="refresh" content="5">You are no longer logged in. Page reload in 5sec...';}
         } else {            
             return \SYSTEM\API\api::run('\SYSTEM\API\verify', '\SYSTEM\SAI\SaiModule', array(), 42, false, true);}
     }

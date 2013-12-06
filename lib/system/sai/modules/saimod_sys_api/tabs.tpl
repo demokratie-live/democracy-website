@@ -1,5 +1,3 @@
-<h3>Api Tables</h3>
-<br>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="localetab">
         ${tabopts}
