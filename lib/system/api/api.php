@@ -11,11 +11,11 @@ class api {
                                 $params,$group = self::DEFAULT_GROUP,
                                 $strict = self::DEFAULT_STRICT,$default = self::DEFAULT_DEFAULT){
         //Verify Class
-        if(!class_exists($verifyclassname)){
+        if(!\class_exists($verifyclassname)){
             throw new \SYSTEM\LOG\ERROR("Verify Class given to the api does not exist: '".$verifyclassname."'");}
         
         //API Class
-        if(!class_exists($apiclassname)){
+        if(!\class_exists($apiclassname)){
             throw new \SYSTEM\LOG\ERROR("API Class given to the api does not exist: '".$apiclassname."'");}
             
         //check parameters

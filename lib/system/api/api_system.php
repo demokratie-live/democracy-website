@@ -29,7 +29,7 @@ class api_system {
         return \SYSTEM\SECURITY\Security::create($username, $password_sha, $email, $locale);}
         
     public static function call_locale($request,$lang){        
-        return JsonResult::toString(\SYSTEM\time::getStartTime(), \SYSTEM\locale::getStrings($request, $lang));}
+        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\locale::getStrings($request, $lang));}
         
     public static function call_img($cat,$id = null){
         return \SYSTEM\IMG\img::get($cat, $id, true);}
