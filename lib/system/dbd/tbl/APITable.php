@@ -19,4 +19,5 @@ class APITable {
     const VALUE_TYPE_COMMAND_FLAG   = 1;
     const VALUE_TYPE_PARAM          = 2;
     const VALUE_TYPE_PARAM_OPT      = 3;
+    const VALUE_TYPE_STATIC         = 4;
 }

@@ -7,9 +7,7 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
     const JSONRESULT_OK     = true;
     const JSONRESULT_ERROR  = false;
 	
-    public static function toString($json_array, $status = self::JSONRESULT_OK, $start_time = NULL){
-        //send Header
-        \SYSTEM\HEADER::JSON();                
+    public static function toString($json_array, $status = self::JSONRESULT_OK, $start_time = NULL){        
 
         if($start_time == NULL){
             $start_time = \SYSTEM\time::getStartTime();}
@@ -17,9 +15,19 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
         $json = array();        
         $json['querytime']  = round(microtime(true) - $start_time,5);
         $json['status']     = $status;
-        $json['result']     = $json_array;        
-	        
-        return json_encode($json);
+        $json['result']     = $json_array;
+        
+        if(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT) == 'json'){
+            //send Header
+            \SYSTEM\HEADER::JSON();
+
+            return json_encode($json);
+        } else {
+            //send Header
+            \SYSTEM\HEADER::JSON();
+            
+            return msgpack_pack($json);
+        }
     }
 
     //Return Exception as string

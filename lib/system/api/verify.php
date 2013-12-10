@@ -13,4 +13,5 @@ class verify {
     public static function JSON     ($param)    {return (self::ARY($param) || \json_decode(\stripslashes($param))) ? true : false;} //ary cuz when sent via direct json, all json is alrdy converted to an array.
     public static function ARY      ($param)    {return \is_array($param);}
     public static function LANG     ($param)    {return \SYSTEM\locale::isLang($param);}
+    public static function RESULT   ($param)    {return ($param == 'json' || $param == 'msgpack');}
 };

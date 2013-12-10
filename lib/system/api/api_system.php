@@ -2,7 +2,7 @@
 
 namespace SYSTEM\API;
 
-class api_system {
+class api_system extends api_login{
     /*
     INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (0, 0, -1, NULL, 'call', NULL);
     INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (60, 0, 0, 'account', 'action', NULL);
@@ -17,7 +17,7 @@ class api_system {
     INSERT INTO `system_api_calls` (`ID`, `Flag`, `ParentID`, `ParentValue`, `Name`, `AllowedValues`) VALUES (68,1,60,'create','locale','LANG');
      */
 
-    public static function call_account_action_login($username, $password_sha, $password_md5){
+    /*public static function call_account_action_login($username, $password_sha, $password_md5){
         return \SYSTEM\SECURITY\Security::login($username, $password_sha, $password_md5);}
     public static function call_account_action_logout(){
         return \SYSTEM\SECURITY\Security::logout();}
@@ -26,11 +26,16 @@ class api_system {
     public static function call_account_action_check($rightid){
         return \SYSTEM\SECURITY\Security::check($rightid);}
     public static function call_account_action_create($username, $password_sha, $email, $locale){
-        return \SYSTEM\SECURITY\Security::create($username, $password_sha, $email, $locale);}
+        return \SYSTEM\SECURITY\Security::create($username, $password_sha, $email, $locale);}*/
         
     public static function call_locale($request,$lang){        
         return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\locale::getStrings($request, $lang));}
         
     public static function call_img($cat,$id = null){
         return \SYSTEM\IMG\img::get($cat, $id, true);}
+        
+    public static function static__lang($lang){
+        \SYSTEM\locale::set($lang);}        
+    public static function static__result($result){
+        \SYSTEM\CONFIG\config::set(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT, $result);}    
 }

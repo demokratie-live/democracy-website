@@ -8,6 +8,7 @@ class config_ids {
     const SYS_CONFIG_PATH_BASEURL   = 2;
     const SYS_CONFIG_PATH_BASEPATH  = 3;
     const SYS_CONFIG_PATH_SYSTEMPATHREL = 4;
+    const SYS_CONFIG_DEFAULT_RESULT = 5;
         
     const SYS_CONFIG_DB_TYPE        = 11; //mys = 1 pg = 2
         const SYS_CONFIG_DB_TYPE_MYS= 1;

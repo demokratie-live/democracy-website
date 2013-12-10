@@ -23,7 +23,9 @@ class api {
             return self::do_default($default, $apiclassname);} //throws    
             
         //Get the Databasetree
-        $tree = self::getApiTree($group); //throws                 
+        $tree = self::getApiTree($group); //throws
+        
+        $statics = self::do_statics($params, $tree, $apiclassname, $verifyclassname, $default); //throws
             
         //Commands
         $commands = self::do_commands($params, $tree);          
@@ -41,7 +43,7 @@ class api {
         $parameters_opt = self::do_parameters_opt($params, $tree, $parentid, $commands[count($commands)-1][1],$verifyclassname); //throws                      
         
         //strict check
-        self::do_strict($strict, $params, $parameters, $commands, $parameters_opt); //throws
+        self::do_strict($strict, $params, $statics, $commands, $parameters, $parameters_opt); //throws        
 
         //Function Name
         $call_funcname = self::do_func_name($commands); //throws
@@ -78,6 +80,33 @@ class api {
         return $result;
     }
     
+    private static function do_statics($params,$tree,$apiclassname,$verifyclassname,$default){
+        $statics = array();
+        $parentid = self::ROOT_PARENTID;        
+        foreach($tree as $item){             
+            if( intval($item[\SYSTEM\DBD\APITable::FIELD_TYPE]) == \SYSTEM\DBD\APITable::VALUE_TYPE_STATIC &&
+                intval($item[\SYSTEM\DBD\APITable::FIELD_PARENTID]) == $parentid &&
+                isset($params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){                                
+                
+                $statics[] = array($item,$params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]]);
+                $call_funcname = 'static_'.$item[\SYSTEM\DBD\APITable::FIELD_NAME];                
+                
+                //verify func
+                if(!\method_exists($apiclassname, $call_funcname)){
+                    return self::do_default($default, $apiclassname, $call_funcname);} //throws
+                    
+                //verify parameter
+                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\APITable::FIELD_VERIFY]) ||
+                    !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\APITable::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\APITable::FIELD_VERIFY]);}                        
+                    
+                \call_user_func_array(array($apiclassname,$call_funcname),array($params[$item[\SYSTEM\DBD\APITable::FIELD_NAME]]));
+            }
+        }                        
+            
+        return $statics;
+    }
+    
     private static function do_default($default, $apiclassname, $call_funcname = null){
         if($default){ //should we call the default function or throw an error?
             return \call_user_func(array($apiclassname,'default_page'));}        
@@ -86,11 +115,12 @@ class api {
         throw new \SYSTEM\LOG\ERROR("API call is not implemented in API: ".$call_funcname);
     }
     
-    private static function do_strict($strict, $params, $parameters, $commands, $parameters_opt){
+    private static function do_strict($strict, $params, $statics, $commands, $parameters, $parameters_opt){
         if( $strict &&
-            count($params) != (count($parameters) + count($commands) + count($parameters_opt)) ){
+            count($params) != (count($statics) + count($parameters) + count($commands) + count($parameters_opt))){            
             throw new \SYSTEM\LOG\ERROR(    'Unhandled or misshandled parameters - api query is invalid'.
                                             '; given: '.count($params).
+                                            '; statics: '.count($statics).
                                             '; req_command: '.count($commands).
                                             '; req_param: '.count($parameters).                                            
                                             '; opt_param: '.count($parameters_opt).
