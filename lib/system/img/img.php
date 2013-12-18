@@ -45,6 +45,14 @@ class img {
             return false;}
         return unlink(self::$imgfolders[$cat][0].$id); 
     }
+    
+    public static function rename($cat, $id, $newid) {        
+        if (!array_key_exists($cat, self::$imgfolders)) {
+            throw new \SYSTEM\LOG\ERROR("No matching Cat '" . $cat . "' found.");}
+        if(!file_exists(self::$imgfolders[$cat][0].$id)){
+            return false;}
+        return rename(self::$imgfolders[$cat][0].$id, self::$imgfolders[$cat][0].$newid.substr(self::$imgfolders[$cat][1],1)); 
+    }
 
     private static function getFolder($folder, $mask) {
         $files = array();

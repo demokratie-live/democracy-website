@@ -9,7 +9,10 @@ class saimod_sys_img extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_img_action_rn($cat,$id,$newid){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_img_action_rn($cat,$id,$newid){   
+        if(!\SYSTEM\IMG\img::rename($cat, $id, $newid)){
+            throw new \SYSTEM\LOG\ERROR("rename problem");}
+        
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
@@ -23,6 +26,7 @@ class saimod_sys_img extends \SYSTEM\SAI\SaiModule {
         //tt
         $result = '';  
         $img_folders = \SYSTEM\IMG\img::get();  
+        $i = 0;
         foreach($img_folders as $name=>$folder){
             $cat = \SYSTEM\IMG\img::get($name);
             $result .= "<h3>".$name."</h3>";
@@ -31,10 +35,11 @@ class saimod_sys_img extends \SYSTEM\SAI\SaiModule {
                         <input type="file" name="datei"><br>
                         <input type="submit" class="btn" value="Add">';
             $result .= "</form>";
-            $result .= "<table>";       
+            $result .= "<table><tr><th>Delete</th><th>Name</th><th>new name</th><th>Rename</th></tr>";            
             foreach($cat as $img){
                 //$result .= '<img src="api.php?call=img&cat='.$name.'&id='.$img.'" alt="" />';   
-                $result .= '<tr><td><input type="button" class="btn-danger imgdelbtn" style="margin: 1px; margin-right: 3px" value="Delete" cat="'.$name.'" id="'.$img.'"></td><td><a href="api.php?call=img&cat='.$name.'&id='.$img.'">'.$img.'</a></td><td><input type="text" class="form-control" style="width: 100px; margin:0;" placeholder="new name..."></td><td><input type="submit" class="btn-warning imgrnbtn" style="margin: 1px;;" value="Rename" cat="'.$name.'" id="'.$img.'"></td></tr>';   
+                $result .= '<tr><td><input type="button" class="btn-danger imgdelbtn" style="margin: 1px; margin-right: 3px" value="Delete" cat="'.$name.'" id="'.$img.'"></td><td><a href="api.php?call=img&cat='.$name.'&id='.$img.'">'.$img.'</a></td><td><input type="text" id="renametext_'.$i.'" class="form-control" style="width: 100px; margin:0;" placeholder="new name..."></td><td><input type="submit" class="btn-warning imgrnbtn" style="margin: 1px;;" value="Rename" cat="'.$name.'" id="'.$img.'" textfield="'.$i.'"></td></tr>';   
+                $i++;
             }
             $result .= "</table>";
         }        
