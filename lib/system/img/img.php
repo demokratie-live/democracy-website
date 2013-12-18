@@ -38,9 +38,11 @@ class img {
         return move_uploaded_file($contents, self::$imgfolders[$cat][0].$id);        
     }
     
-    public static function delete($cat, $id) {
+    public static function delete($cat, $id) {        
         if (!array_key_exists($cat, self::$imgfolders)) {
-            throw new \SYSTEM\LOG\ERROR("No matching Cat '" . $cat . "' found.");}            
+            throw new \SYSTEM\LOG\ERROR("No matching Cat '" . $cat . "' found.");}
+        if(!file_exists(self::$imgfolders[$cat][0].$id)){
+            return false;}
         return unlink(self::$imgfolders[$cat][0].$id); 
     }
 

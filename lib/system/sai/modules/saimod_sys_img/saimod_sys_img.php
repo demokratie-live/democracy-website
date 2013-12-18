@@ -2,14 +2,14 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_img extends \SYSTEM\SAI\SaiModule {    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_img_action_delete($cat,$id){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_img_action_del($cat,$id){
         if(!\SYSTEM\IMG\img::delete($cat, $id)){
             throw new \SYSTEM\LOG\ERROR("delete problem");}
         
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_img_action_rename($cat,$id,$newid){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_img_action_rn($cat,$id,$newid){
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
@@ -22,7 +22,7 @@ class saimod_sys_img extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_img(){
         //tt
         $result = '';  
-        $img_folders = \SYSTEM\IMG\img::get();                
+        $img_folders = \SYSTEM\IMG\img::get();  
         foreach($img_folders as $name=>$folder){
             $cat = \SYSTEM\IMG\img::get($name);
             $result .= "<h3>".$name."</h3>";
@@ -31,11 +31,12 @@ class saimod_sys_img extends \SYSTEM\SAI\SaiModule {
                         <input type="file" name="datei"><br>
                         <input type="submit" class="btn" value="Add">';
             $result .= "</form>";
-                        
+            $result .= "<table>";       
             foreach($cat as $img){
                 //$result .= '<img src="api.php?call=img&cat='.$name.'&id='.$img.'" alt="" />';   
-                $result .= '<input type="button" class="btn-danger imgdelbtn" style="margin: 1px;" value="Delete" cat="'.$name.'" id="'.$img.'"><input type="submit" class="btn-warning imgrnbtn" style="margin: 1px; margin-right: 3px;" value="Rename" cat="'.$name.'" id="'.$img.'"><a href="api.php?call=img&cat='.$name.'&id='.$img.'">'.$img.'</a><br>';   
+                $result .= '<tr><td><input type="button" class="btn-danger imgdelbtn" style="margin: 1px; margin-right: 3px" value="Delete" cat="'.$name.'" id="'.$img.'"></td><td><a href="api.php?call=img&cat='.$name.'&id='.$img.'">'.$img.'</a></td><td><input type="text" class="form-control" style="width: 100px; margin:0;" placeholder="new name..."></td><td><input type="submit" class="btn-warning imgrnbtn" style="margin: 1px;;" value="Rename" cat="'.$name.'" id="'.$img.'"></td></tr>';   
             }
+            $result .= "</table>";
         }        
         return $result;
     }       
