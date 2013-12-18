@@ -7,7 +7,10 @@ class img {
     public static function registerFolder($path,$cat,$mask){
         self::$imgfolders[$cat] = array($path,$mask);}
     
-    public static function get($cat,$id = null,$returnasjson = false){                
+    public static function get($cat = null,$id = null,$returnasjson = false){
+        if(!$cat){
+            return $returnasjson ? \SYSTEM\LOG\JsonResult::toString(self::$imgfolders) : self::$imgfolders;}        
+        
         if(!array_key_exists($cat, self::$imgfolders)){
             throw new \SYSTEM\LOG\ERROR("No matching Cat '".$cat."' found.");}
             
