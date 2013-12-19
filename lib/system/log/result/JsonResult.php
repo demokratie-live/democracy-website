@@ -17,16 +17,16 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
         $json['status']     = $status;
         $json['result']     = $json_array;
         
-        if(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT) == 'json'){
+        if(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT) == \SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT_MSGPACK){
+            //send Header
+            \SYSTEM\HEADER::JSON();
+            
+            return msgpack_pack($json);            
+        } else {
             //send Header
             \SYSTEM\HEADER::JSON();
 
             return json_encode($json);
-        } else {
-            //send Header
-            \SYSTEM\HEADER::JSON();
-            
-            return msgpack_pack($json);
         }
     }
 
