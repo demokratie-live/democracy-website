@@ -32,6 +32,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
             $tabs[$r['group']]['tab_id'] = $r['group'];            
             $tabs[$r['group']]['content'] = isset($tabs[$r['group']]['content']) ? $tabs[$r['group']]['content'] : '';
             $r['tr_class'] = self::tablerow_class($r['type']);
+            $r['type'] = self::type_names($r['type']);
             $tabs[$r['group']]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/list_entry.tpl'), $r);                        
         }   
         
@@ -49,10 +50,22 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return $result;*/
     }
     
+    private static function type_names($type){
+        switch($type){
+            case 0: return 'COMMAND';
+            case 1: return 'COMMAND_FLAG';
+            case 2: return 'PARAMETER';
+            case 3: return 'PARAMETER_OPT';
+            case 4: return 'STATIC';
+            default: return 'Problem unknown type';
+        }   
+    }
+    
     private static function tablerow_class($flag){
         switch($flag){
             case 0: return 'info';
             case 1: return '';
+            case 4: return 'warning';
             default: return 'success';
         }        
     }
