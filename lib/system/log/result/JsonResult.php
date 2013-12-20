@@ -35,7 +35,7 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
         $error = array();        
         
 	$error['class']     = get_class($e);
-	$error['message']   = htmlentities($e->getMessage());
+	$error['message']   = $e->getMessage();
 	$error['code']      = $e->getCode();
 	$error['file']      = $e->getFile();
 	$error['line']      = $e->getLine();
