@@ -47,14 +47,14 @@ class autoload {
 
     public static function registerFile($file, $namespace = ''){
         if(!is_file($file)){
-            throw new \Exception('File not found on registerFile for Autoload: '.$file);}
+            throw new \SYSTEM\LOG\ERROR('File not found on registerFile for Autoload: '.$file);}
 
         self::$files[] = array(self::getClassFromFile($file), $namespace, $file);
     }
 
     public static function registerFolder($folder, $namespace = ''){        
         if(!is_dir($folder)){
-            throw new \Exception('Folder not found on registerFolder for Autoload: '.$folder);}
+            throw new \SYSTEM\LOG\ERROR('Folder not found on registerFolder for Autoload: '.$folder);}
 
         self::$folders[] = array($namespace, $folder);
     }    
@@ -62,6 +62,9 @@ class autoload {
     public static function autoload($class){        
         $classns = self::getClassNamespaceFromClass($class);
         
-        return self::autoload_($classns[0],$classns[1]);
+        if(!self::autoload_($classns[0],$classns[1]) || !class_exists($class)){
+            throw new \SYSTEM\LOG\ERROR("Class not found: ".$class);}
+        
+        return true;
     }
 }

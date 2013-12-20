@@ -42,8 +42,8 @@ class system {
         require_once \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'/log/register_result_shortcut.php';}
     
     public static function register_errorhandler_jsonoutput(){
-        require_once \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'/log/register_errorhandler_jsonoutput.php';}
+        \SYSTEM\LOG\log::registerHandler('\SYSTEM\LOG\error_handler_jsonoutput');}
     
     public static function register_errorhandler_dbwriter(){        
-        require_once \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'/log/register_errorhandler_dbwriter.php';}
+        \SYSTEM\LOG\log::registerHandler('\SYSTEM\LOG\error_handler_dbwriter');}       
 }

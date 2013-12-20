@@ -10,7 +10,7 @@ class error_handler_jsonoutput extends \SYSTEM\LOG\error_handler {
             try{
                 echo \SYSTEM\LOG\JsonResult::error($E);             
             } catch (\Exception $E){} //Error -> Ignore
-            return true;
+            return die(); //die is required cuz else some fatals cant be catched properly
         }
     }
 }
