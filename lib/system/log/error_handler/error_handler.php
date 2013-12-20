@@ -7,6 +7,6 @@ class error_handler {
     public static function MASK(){
         throw new \RuntimeException("Implement this");}
     //Errorhandler
-    public static function CALL(\Exception $E, $errno, $thrown){
+    public static function CALL(\Exception $E, $thrown){
         throw new \RuntimeException("Implement this");}
 }

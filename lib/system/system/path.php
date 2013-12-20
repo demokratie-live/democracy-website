@@ -5,7 +5,8 @@ const C_ROOT                = '<root>';
 const C_SUBPATH             = '<subpath>';
 
 abstract class PATH {
-    abstract static public function getPath();
+    static public function getPath(){
+        throw new \RuntimeException("Not Implemented");}
 }
 
 class PROOT extends PATH {
