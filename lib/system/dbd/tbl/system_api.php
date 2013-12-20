@@ -2,8 +2,7 @@
 
 namespace SYSTEM\DBD;
 
-class APITable {
-
+class system_api {
     const NAME_PG                   = 'system.api';
     const NAME_MYS                  = 'system_api';
 
