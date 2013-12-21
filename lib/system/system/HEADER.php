@@ -6,7 +6,7 @@ class HEADER {
     private static function checkHeader(){
         $file = null;
         $line = null;
-        if(headers_sent(&$file, &$line)){
+        if(headers_sent($file, $line)){
             throw new \SYSTEM\LOG\ERROR('Header already sent @ '.$file.' line '.$line);}
     }
     
