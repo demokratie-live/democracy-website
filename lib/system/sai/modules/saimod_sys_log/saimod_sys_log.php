@@ -79,9 +79,9 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){
             //TODO make time conversion on database
             if(\SYSTEM\system::isSystemDbInfoPG()){
-                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.self::time_elapsed_string(strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.substr($r['message'],0,255).'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.self::time_elapsed_string(strtotime($r['time'])).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td style="word-break: break-all">'.substr($r['message'],0,255).'</td>'.'<td>'.$r['code'].'</td>'.'<td style="word-break: break-all">'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
             } else {
-                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.self::time_elapsed_string($r['time']).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td>'.substr($r['message'],0,255).'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
+                $result .= '<tr class="'.self::tablerow_class($r['class']).'">'.'<td>'.self::time_elapsed_string($r['time']).'</td>'.'<td>'.$r['time'].'</td>'.'<td>'.$r['class'].'</td>'.'<td style="word-break: break-all;">'.substr($r['message'],0,255).'</td>'.'<td>'.$r['code'].'</td>'.'<td>'.$r['file'].'</td>'.'<td>'.$r['line'].'</td>'.'<td>'.$r['ip'].'</td>'.'<td>'.$r['querytime'].'</td>'.'</tr>';            
             }
         }
         $result .= '</table>';
