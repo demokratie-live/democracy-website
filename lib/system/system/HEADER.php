@@ -12,9 +12,8 @@ class HEADER {
     
     public static function JSON(){
         self::checkHeader();
+        header('Access-Control-Allow-Origin: *');//allow cross domain calls
         header('content-type: application/json');        
-        //header('Access-Control-Allow-Methods", "POST, GET, OPTIONS');
-        //header('Access-Control-Allow-Headers *');
     }
     public static function PNG(){
         self::checkHeader();
