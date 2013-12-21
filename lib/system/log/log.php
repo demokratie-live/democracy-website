@@ -49,7 +49,7 @@ class log {
     
     public static function __fatal_error_handler($bufferContent, $thrown = true){
         $errors    = array();        
-        if ( preg_match('|<phpfatalerror>.*</phpfatalerror>|s', $bufferContent, &$errors) ){
+        if ( preg_match('|<phpfatalerror>.*</phpfatalerror>|s', $bufferContent, $errors) ){
             $error = strip_tags($errors[0]);
             $error = substr($error,1,strlen($error)-2);            
             $file = substr($error,strpos($error,' in ')+5,strpos($error,' on ')-5-strpos($error,' in '));
