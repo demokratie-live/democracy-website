@@ -17,4 +17,5 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (35, 42, 2, 3, 'add', 'id', 'ALL');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (30, 42, 2, 3, 'edit', 'id', 'ALL');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (36, 42, 2, 3, 'add', 'category', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (40, 42, 3, 3, 'filter', 'filter', 'STRING');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (302, 42, 4, -1, NULL, '_lang', 'LANG');
