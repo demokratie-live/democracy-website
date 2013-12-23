@@ -40,7 +40,20 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
                                     .' LIMIT 30;');
-        } else {            
+        } else {
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\COUNTER\' then 1 else 0 end) class_SYSTEM_LOG_COUNTER,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' then 1 else 0 end) class_SYSTEM_LOG_INFO,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' then 1 else 0 end) class_SYSTEM_LOG_DEPRECATED,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\WARNING\' then 1 else 0 end) class_SYSTEM_LOG_WARNING,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\ERROR\' then 1 else 0 end) class_SYSTEM_LOG_ERROR,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\ERROR_EXCEPTION\' then 1 else 0 end) class_SYSTEM_LOG_ERROR_EXCEPTION,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\SHUTDOWN_EXCEPTION\' then 1 else 0 end) class_SYSTEM_LOG_SHUTDOWN_EXCEPTION'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
         }
         $result = array();
         while($row = $res->next()){
@@ -61,7 +74,16 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
                                     .' LIMIT 30;');
-        } else {            
+        } else {
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'                                                                                
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'Exception\' then 1 else 0 end) class_Exception,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'RuntimeException\' then 1 else 0 end) class_RuntimeException,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ErrorException\' then 1 else 0 end) class_ErrorException'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
         }
         $result = array();
         while($row = $res->next()){
@@ -84,7 +106,170 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
                                     .' LIMIT 30;');
-        } else {            
+        } else {
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'                                                                                
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ERROR\' then 1 else 0 end) class_ERROR,'                                        
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'WARNING\' then 1 else 0 end) class_WARNING,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' then 1 else 0 end) class_INFO,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'DEPRECATED\' then 1 else 0 end) class_DEPRECATED,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'AppError\' then 1 else 0 end) class_AppError'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        }
+        $result = array();
+        while($row = $res->next()){
+            $result[] = $row;}
+            
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }    
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_basic($filter){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                                                     
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        } else {
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                                                     
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        }
+        $result = array();
+        while($row = $res->next()){
+            $result[] = $row;}
+            
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_request($filter){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
+                                        .'count(*) as count,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        } else {    
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        }
+        $result = array();
+        while($row = $res->next()){
+            $result[] = $row;}
+            
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_exception($filter){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
+                                        .'count(*) as count,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        } else {  
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        }
+        $result = array();
+        while($row = $res->next()){
+            $result[] = $row;}
+            
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_referer($filter){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        } else {
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        }
+        $result = array();
+        while($row = $res->next()){
+            $result[] = $row;}
+            
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_visitor($filter){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());        
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
+        } else {                        
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
         }
         $result = array();
         while($row = $res->next()){
@@ -115,7 +300,26 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
                                     .' LIMIT 30;');
-        } else {            
+        } else {
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'                                                                                
+                                        .'sum(case when not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\COUNTER\' and'
+                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' and'
+                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' and'
+                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' and'
+                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'EPRECATED\' '
+                                        .'then 1 else 0 end) class_fail,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' or '
+                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' or '
+                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' or '
+                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' or '
+                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'EPRECATED\' '
+                                        .'then 1 else 0 end) class_log,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\COUNTER\' then 1 else 0 end) class_sucess'                                        
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 30;');
         }
         $result = array();
         while($row = $res->next()){
@@ -138,159 +342,16 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                     .' ORDER BY day DESC'
                                     .' LIMIT 30;');
         } else {            
-        }
-        $result = array();
-        while($row = $res->next()){
-            $result[] = $row;}
-            
-        return \SYSTEM\LOG\JsonResult::toString($result);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_basic($filter){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'
-                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TRACE.') as trace_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_MESSAGE.') as text_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_unique,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
-                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
+            $res = $con->query('SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),'.$filter.')) as day,'
+                                        .'count(*) as count,'                                                                                
+                                        .'avg('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_avg,'
+                                        .'max('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_max,'
+                                        .'min('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_min,'
+                                        .'variance('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_var'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
                                     .' LIMIT 30;');
-        } else {            
-        }
-        $result = array();
-        while($row = $res->next()){
-            $result[] = $row;}
-            
-        return \SYSTEM\LOG\JsonResult::toString($result);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_request($filter){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'
-                                        //.'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TRACE.') as trace_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_MESSAGE.') as text_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_unique,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
-                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
-                                    .' GROUP BY day'
-                                    .' ORDER BY day DESC'
-                                    .' LIMIT 30;');
-        } else {            
-        }
-        $result = array();
-        while($row = $res->next()){
-            $result[] = $row;}
-            
-        return \SYSTEM\LOG\JsonResult::toString($result);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_exception($filter){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'
-                                        //.'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TRACE.') as trace_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_MESSAGE.') as text_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_unique,'                                        
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
-                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
-                                    .' GROUP BY day'
-                                    .' ORDER BY day DESC'
-                                    .' LIMIT 30;');
-        } else {            
-        }
-        $result = array();
-        while($row = $res->next()){
-            $result[] = $row;}
-            
-        return \SYSTEM\LOG\JsonResult::toString($result);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_referer($filter){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'
-                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TRACE.') as trace_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_MESSAGE.') as text_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_unique,'                                        
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
-                                        //.'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
-                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
-                                    .' GROUP BY day'
-                                    .' ORDER BY day DESC'
-                                    .' LIMIT 30;');
-        } else {            
-        }
-        $result = array();
-        while($row = $res->next()){
-            $result[] = $row;}
-            
-        return \SYSTEM\LOG\JsonResult::toString($result);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_visitor($filter){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());        
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'
-                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
-                                        //.'variance(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_var,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
-                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
-                                    .' GROUP BY day'
-                                    .' ORDER BY day DESC'
-                                    .' LIMIT 30;');
-        } else {            
         }
         $result = array();
         while($row = $res->next()){
