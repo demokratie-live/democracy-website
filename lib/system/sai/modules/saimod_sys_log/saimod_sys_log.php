@@ -102,7 +102,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                         ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_PG.
                                         ' ON '.\SYSTEM\DBD\system_log::NAME_PG.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
                                         ' = '.\SYSTEM\DBD\system_user::NAME_PG.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
-                                        ' WHERE '.\SYSTEM\DBD\system_log::NAME_PG.'.'.\SYSTEM\DBD\system_log::FIELD_ID.' = $1;',
+                                        ' WHERE '.\SYSTEM\DBD\system_log::NAME_PG.'."'.\SYSTEM\DBD\system_log::FIELD_ID.'" = $1;',
                                         array($error));
         } else {                
                 $res = $con->prepare(   'selectSysLogError',
