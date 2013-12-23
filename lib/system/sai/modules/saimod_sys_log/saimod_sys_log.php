@@ -52,7 +52,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                         .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'Exception\' then 1 else 0 end) class_Exception,'
                                         .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'RuntimeException\' then 1 else 0 end) class_RuntimeException,'
                                         .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ErrorException\' then 1 else 0 end) class_ErrorException'
-                                    .'FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
                                     .' LIMIT 365;');
@@ -119,14 +119,14 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_error.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = ""){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = ""){        
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         $res = null;                
         if($filter !== ""){
             if(\SYSTEM\system::isSystemDbInfoPG()){                
                 $res = $con->prepare(   'selectCountSysLogFilter',
-                                        'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_log::NAME_PG.'WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE $1;',
-                                        array(mysql_escape_string($filter)))->next();
+                                        'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_log::NAME_PG.' WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE $1;',
+                                        array($filter))->next();
                 $count = $res['count'];
                 $res = $con->prepare(   'selectSysLogFilter',
                                         'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_PG.
@@ -135,7 +135,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                         ' = '.\SYSTEM\DBD\system_user::NAME_PG.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
                                         ' WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE $1'.
                                         ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_TIME.' DESC LIMIT 100;',
-                                        array(mysql_escape_string($filter)));
+                                        array($filter));
             } else {
                 $res = $con->prepare(   'selectCountSysLogFilter',
                                         'SELECT COUNT(*) as count'.
