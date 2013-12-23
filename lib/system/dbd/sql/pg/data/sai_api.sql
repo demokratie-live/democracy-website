@@ -19,3 +19,10 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (36, 42, 2, 3, 'add', 'category', 'INT');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (40, 42, 3, 3, 'filter', 'filter', 'STRING');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (302, 42, 4, -1, NULL, '_lang', 'LANG');
+
+-- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (40, 42, 2, 3, 'upload', 'cat', 'STRING');
+-- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (41, 42, 2, 3, 'del', 'cat', 'STRING');
+-- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (42, 42, 2, 3, 'del', 'id', 'STRING');
+-- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (43, 42, 2, 3, 'rn', 'cat', 'STRING');
+-- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (44, 42, 2, 3, 'rn', 'id', 'STRING');
+-- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (45, 42, 2, 3, 'rn', 'newid', 'STRING');

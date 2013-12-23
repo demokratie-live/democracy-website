@@ -3,8 +3,7 @@
 namespace SYSTEM\LOG;
 
 class error_handler_jsonoutput extends \SYSTEM\LOG\error_handler {
-    //Only those who die!
-    public static function MASK(){ return \E_ALL;} //\E_ERROR | \E_USER_ERROR | \E_CORE_ERROR | \E_COMPILE_ERROR; }
+    //Only those who die!    
     public static function CALL(\Exception $E, $thrown){        
         if($thrown){     
             try{

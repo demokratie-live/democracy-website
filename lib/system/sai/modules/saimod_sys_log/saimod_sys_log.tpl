@@ -14,7 +14,7 @@
 </div>            
 
 <button id="refresh_error_table" class="btn" style="height: 32px; font-size: 13px; float: left">Refresh</button>
-<img id="loader" src="dasense/page/default_developer/img/ajax-loader.gif" style="margin-left: 10px; display: none;  float: left"/>
+<img id="loader" src="${PICPATH}ajax-loader.gif" style="margin-left: 10px; display: none;  float: left"/>
 <div id="filter-error" class="btn-group" style="left: 60px; float: left;">
     <button class="btn active" href="#" filter="">All</button>
     ${error_filter}
