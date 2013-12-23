@@ -39,7 +39,7 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
 	$error['code']      = $e->getCode();
 	$error['file']      = $e->getFile();
 	$error['line']      = $e->getLine();
-	$error['trace']     = array_slice(explode('#', $e->getTraceAsString()), 1, -1);;        
+	$error['trace']     = array_slice(explode('#', $e->getTraceAsString()), 1, -1);        
 
         return self::toString($error, self::JSONRESULT_ERROR);
     }

@@ -24,15 +24,15 @@ class Security {
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME_PG.
-                                    ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
-                                        .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
+            $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\system_user::NAME_PG.
+                                    ' ('.\SYSTEM\DBD\system_user::FIELD_USERNAME.','.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.','
+                                        .\SYSTEM\DBD\system_user::FIELD_EMAIL.','.\SYSTEM\DBD\system_user::FIELD_LOCALE.','.\SYSTEM\DBD\system_user::FIELD_ACCOUNT_FLAG.')'.
                                     ' VALUES ($1, $2, $3, $4, $5) RETURNING *;',
                                     array( $username , $password, $email, $locale, 1 ));
         } else {
-            $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\UserTable::NAME_MYS.
-                                    ' ('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.','.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.','
-                                        .\SYSTEM\DBD\UserTable::FIELD_EMAIL.','.\SYSTEM\DBD\UserTable::FIELD_LOCALE.','.\SYSTEM\DBD\UserTable::FIELD_ACCOUNT_FLAG.')'.
+            $result = $con->prepare('createAccountStmt','INSERT INTO '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                    ' ('.\SYSTEM\DBD\system_user::FIELD_USERNAME.','.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.','
+                                        .\SYSTEM\DBD\system_user::FIELD_EMAIL.','.\SYSTEM\DBD\system_user::FIELD_LOCALE.','.\SYSTEM\DBD\system_user::FIELD_ACCOUNT_FLAG.')'.
                                     ' VALUES (?, ?, ?, ?, ?);',
                                     array( $username , $password, $email, $locale, 1 ));
         }
@@ -49,9 +49,9 @@ class Security {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
                 $result = $con->prepare('',
-                                        'SELECT id FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
-                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2;',
+                                        'SELECT id FROM '.\SYSTEM\DBD\system_user::NAME_PG.
+                                        ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') LIKE lower($1)'.
+                                        ' AND '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = $2;',
                                         array($username, $password_sha_old) );     
                 
         }else{
@@ -67,8 +67,8 @@ class Security {
         $userID = $row['id'];
         if(\SYSTEM\system::isSystemDbInfoPG()){
                 $result = $con->prepare('', 
-                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.
-                                    ' SET "password_sha" = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2;',
+                                    'UPDATE '.\SYSTEM\DBD\system_user::NAME_PG.
+                                    ' SET "password_sha" = $1 WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = $2;',
                                      array($password_sha_new, $userID) );           
         }else{
             return 'MySQL Query not implemented!';
@@ -90,31 +90,31 @@ class Security {
         if(isset($password_md5)){      
             if(\SYSTEM\system::isSystemDbInfoPG()){
                 $result = $con->prepare('loginAccountStmt', 
-                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
-                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                        ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR 
-                                                '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $3 OR  '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = $4 );',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_user::NAME_PG.
+                                        ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') LIKE lower($1)'.
+                                        ' AND ('.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = $2 OR 
+                                                '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = $3 OR  '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_MD5.' = $4 );',
                                         array($username, $password_sha, $password_sha_new, $password_md5) );            
             } else {
                 $result = $con->prepare('loginAccountStmt', 
-                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
-                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower(?)'.
-                                        ' AND ('.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = ? OR '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_MD5.' = ? );',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                        ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') LIKE lower(?)'.
+                                        ' AND ('.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = ? OR '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_MD5.' = ? );',
                                         array($username, $password_sha, $password_md5) );
             }
         }else{
             if(\SYSTEM\system::isSystemDbInfoPG()){
                 $result = $con->prepare('loginAccountStmtSHA', 
-                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
-                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower($1)'.
-                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $2 OR 
-                                               '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $3 ;',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_user::NAME_PG.
+                                        ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') LIKE lower($1)'.
+                                        ' AND '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = $2 OR 
+                                               '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = $3 ;',
                                         array($username, $password_sha, $password_sha_new) );
             } else {
                 $result = $con->prepare('loginAccountStmtSHA', 
-                                        'SELECT * FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
-                                        ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') LIKE lower(?)'.
-                                        ' AND '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = ?;',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                        ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') LIKE lower(?)'.
+                                        ' AND '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = ?;',
                                         array($username, $password_sha) );
             }
         }
@@ -132,7 +132,7 @@ class Security {
             return self::LOGIN_FAIL;}        
         
         // set password_sha if it is empty or if it length is < 40 -> SHA1 Androidappbugfix
-        if(!$row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] || strlen($row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA]) < 40){
+        if(!$row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA] || strlen($row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA]) < 40){
             
             if($password_sha_new != NULL){
                 $pw = $password_sha_new;
@@ -142,32 +142,32 @@ class Security {
             unset($result);
             if(\SYSTEM\system::isSystemDbInfoPG()){
                 $res = $con->prepare(   'updatePasswordSHAStmt',  
-                                        'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.';', 
-                                        array($pw,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
+                                        'UPDATE '.\SYSTEM\DBD\system_user::NAME_PG.' SET '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = $1 WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.';', 
+                                        array($pw,$row[\SYSTEM\DBD\system_user::FIELD_ID]));
             }else{
                 $res = $con->prepare(   'updatePasswordSHAStmt',  
-                                        'UPDATE '.\SYSTEM\DBD\UserTable::NAME_MYS.' SET '.\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA.' = ? WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = ?'.';', 
-                                        array($pw,$row[\SYSTEM\DBD\UserTable::FIELD_ID]));
+                                        'UPDATE '.\SYSTEM\DBD\system_user::NAME_MYS.' SET '.\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA.' = ? WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = ?'.';', 
+                                        array($pw,$row[\SYSTEM\DBD\system_user::FIELD_ID]));
             }
             $res = $res->next();
-            $row[\SYSTEM\DBD\UserTable::FIELD_PASSWORD_SHA] = $pw;
+            $row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA] = $pw;
         }
             
         // set session variables
-        $_SESSION['user'] = new User(   $row[\SYSTEM\DBD\UserTable::FIELD_ID],
-                                        $row[\SYSTEM\DBD\UserTable::FIELD_USERNAME],
-                                        $row[\SYSTEM\DBD\UserTable::FIELD_EMAIL],
-                                        $row[\SYSTEM\DBD\UserTable::FIELD_JOINDATE],
+        $_SESSION['user'] = new User(   $row[\SYSTEM\DBD\system_user::FIELD_ID],
+                                        $row[\SYSTEM\DBD\system_user::FIELD_USERNAME],
+                                        $row[\SYSTEM\DBD\system_user::FIELD_EMAIL],
+                                        $row[\SYSTEM\DBD\system_user::FIELD_JOINDATE],
                                         time(),
                                         getenv('REMOTE_ADDR'),
                                         0,
                                         NULL,
-                                        $row[\SYSTEM\DBD\UserTable::FIELD_LOCALE]);
+                                        $row[\SYSTEM\DBD\system_user::FIELD_LOCALE]);
         
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
         // track succesful user login
-        self::trackLogins($row[\SYSTEM\DBD\UserTable::FIELD_ID]);        
+        self::trackLogins($row[\SYSTEM\DBD\system_user::FIELD_ID]);        
         return ($advancedResult ? $row : self::LOGIN_OK);
     }       
     
@@ -175,13 +175,13 @@ class Security {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());         
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $con->prepare(  'trackLoginAccountStmt', 
-                            'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= to_timestamp($1) '.
-                            'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2;',
+                            'UPDATE '.\SYSTEM\DBD\system_user::NAME_PG.' SET '.\SYSTEM\DBD\system_user::FIELD_LAST_ACTIVE.'= to_timestamp($1) '.
+                            'WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = $2;',
                             array(microtime(true), $userID));
         } else {
             $con->prepare(  'trackLoginAccountStmt', 
-                            'UPDATE '.\SYSTEM\DBD\UserTable::NAME_MYS.' SET '.\SYSTEM\DBD\UserTable::FIELD_LAST_ACTIVE.'= ? '.
-                            'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = ?;',
+                            'UPDATE '.\SYSTEM\DBD\system_user::NAME_MYS.' SET '.\SYSTEM\DBD\system_user::FIELD_LAST_ACTIVE.'= ? '.
+                            'WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = ?;',
                             array(microtime(true), $userID));
         }
     }
@@ -200,13 +200,13 @@ class Security {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare(   'availableStmt',  
-                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME_PG.
-                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower($1) ;',
+                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_user::NAME_PG.
+                                    ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') like lower($1) ;',
                                     array($username));
         } else {
             $res = $con->prepare(   'availableStmt',  
-                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\UserTable::NAME_MYS.
-                                    ' WHERE lower('.\SYSTEM\DBD\UserTable::FIELD_USERNAME.') like lower(?) ;',
+                                    'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                    ' WHERE lower('.\SYSTEM\DBD\system_user::FIELD_USERNAME.') like lower(?) ;',
                                     array($username));
         }
 
@@ -283,13 +283,13 @@ class Security {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare(   'updateUserLocaleStmt',
-                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_PG.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = $1 '.
-                                    'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.';', 
+                                    'UPDATE '.\SYSTEM\DBD\system_user::NAME_PG.' SET '.\SYSTEM\DBD\system_user::FIELD_LOCALE.' = $1 '.
+                                    'WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = $2'.' RETURNING '.\SYSTEM\DBD\system_user::FIELD_LOCALE.';', 
                                     array($lang, $user->id));
         }else{
             $res = $con->prepare(   'updateUserLocaleStmt',
-                                    'UPDATE '.\SYSTEM\DBD\UserTable::NAME_MYS.' SET '.\SYSTEM\DBD\UserTable::FIELD_LOCALE.' = ? '.
-                                    'WHERE '.\SYSTEM\DBD\UserTable::FIELD_ID.' = ?;', 
+                                    'UPDATE '.\SYSTEM\DBD\system_user::NAME_MYS.' SET '.\SYSTEM\DBD\system_user::FIELD_LOCALE.' = ? '.
+                                    'WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = ?;', 
                                     array($lang, $user->id));            
         }
         return true;

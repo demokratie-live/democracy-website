@@ -2,7 +2,7 @@
 
 namespace SYSTEM\DBD;
 
-class UserTable {
+class system_user {
 
     const NAME_PG = 'system.user';
     const NAME_MYS = 'system_user';   

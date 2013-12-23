@@ -5,75 +5,87 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_log extends \SYSTEM\SAI\SaiModule {    
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_truncate(){
-        if(\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
-            $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-            $res = $con->query('TRUNCATE system.sys_log;');
-            return true;
-        }
-        return false;          
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_truncate(){        
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $con->query('TRUNCATE '.\SYSTEM\DBD\system_log::NAME_PG.';');
+        } else {
+            $con->query('TRUNCATE '.\SYSTEM\DBD\system_log::NAME_MYS.';');}
+        return \SYSTEM\LOG\JsonResult::ok();
     }    
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
+        $vars = array();        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_stats.tpl'), $vars);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_admin(){
+        $vars = array();        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_admin.tpl'), $vars);
+    }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_visualization(){        
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT  time::date as day,
-                                        min(time) as time_min, max(time) as time_max,
-                                        count(*) as count,
-                                        avg(querytime) as querytime_avg,
-                                        max(querytime) as querytime_max,
-                                        min(querytime) as querytime_min, 	
-                                        count(distinct file) as file_unique,
-                                        count(distinct ip) as ip_unique,
-                                        count(distinct message) as text_unique,	
-                                        count(distinct class) as class_unique,
-                                        sum(case when class = \'INFO\' then 1 else 0 end) class_INFO,
-                                        sum(case when class = \'DEPRECATED\' then 1 else 0 end) class_DEPRECATED,
-                                        sum(case when class = \'WARNING\' then 1 else 0 end) class_WARNING,
-                                        sum(case when class = \'ERROR\' then 1 else 0 end) class_ERROR,
-                                        sum(case when class = \'AppError\' then 1 else 0 end) class_AppError,
-                                        sum(case when class = \'SYSTEM\LOG\INFO\' then 1 else 0 end) class_SYSTEM_LOG_INFO,
-                                        sum(case when class = \'SYSTEM\LOG\DEPRECATED\' then 1 else 0 end) class_SYSTEM_LOG_DEPRECATED,
-                                        sum(case when class = \'SYSTEM\LOG\WARNING\' then 1 else 0 end) class_SYSTEM_LOG_WARNING,
-                                        sum(case when class = \'SYSTEM\LOG\ERROR\' then 1 else 0 end) class_SYSTEM_LOG_ERROR,
-                                        sum(case when class = \'SYSTEM\LOG\ErrorException\' then 1 else 0 end) class_SYSTEM_LOG_ErrorException,
-                                        sum(case when class = \'SYSTEM\LOG\ShutdownException\' then 1 else 0 end) class_SYSTEM_LOG_ShutdownException,
-                                        sum(case when class = \'Exception\' then 1 else 0 end) class_Exception,
-                                        sum(case when class = \'RuntimeException\' then 1 else 0 end) class_RuntimeException,
-                                        sum(case when class = \'ErrorException\' then 1 else 0 end) class_ErrorException 	
-                                    from system.sys_log
-                                    group by day
-                                    order by day desc
-                                    limit 365;');
+            $res = $con->query('SELECT '.\SYSTEM\DBD\system_log::FIELD_TIME.'::date as day,'
+                                        .'min('.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_min,'
+                                        .'max('.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_max,'
+                                        .'count(*) as count,'
+                                        .'avg('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_avg,'
+                                        .'max('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_max,'
+                                        .'min('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_min,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_MESSAGE.') as text_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' then 1 else 0 end) class_INFO,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'DEPRECATED\' then 1 else 0 end) class_DEPRECATED,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'WARNING\' then 1 else 0 end) class_WARNING,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ERROR\' then 1 else 0 end) class_ERROR,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'AppError\' then 1 else 0 end) class_AppError,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' then 1 else 0 end) class_SYSTEM_LOG_INFO,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' then 1 else 0 end) class_SYSTEM_LOG_DEPRECATED,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\WARNING\' then 1 else 0 end) class_SYSTEM_LOG_WARNING,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\ERROR\' then 1 else 0 end) class_SYSTEM_LOG_ERROR,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\ERROR_EXCEPTION\' then 1 else 0 end) class_SYSTEM_LOG_ERROR_EXCEPTION,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\SHUTDOWN_EXCEPTION\' then 1 else 0 end) class_SYSTEM_LOG_SHUTDOWN_EXCEPTION,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'Exception\' then 1 else 0 end) class_Exception,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'RuntimeException\' then 1 else 0 end) class_RuntimeException,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ErrorException\' then 1 else 0 end) class_ErrorException'
+                                    .'FROM '.\SYSTEM\DBD\system_log::NAME_PG
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 365;');
         } else {
-            $res = $con->query('SELECT  DATE(time) as day,
-                                        min(time) as time_min, max(time) as time_max,
-                                        count(*) as count,
-                                        avg(querytime) as querytime_avg,
-                                        max(querytime) as querytime_max,
-                                        min(querytime) as querytime_min, 	
-                                        count(distinct file) as file_unique,
-                                        count(distinct ip) as ip_unique,
-                                        count(distinct message) as text_unique,	
-                                        count(distinct class) as class_unique,
-                                        sum(case when class = \'INFO\' then 1 else 0 end) class_INFO,
-                                        sum(case when class = \'DEPRECATED\' then 1 else 0 end) class_DEPRECATED,
-                                        sum(case when class = \'WARNING\' then 1 else 0 end) class_WARNING,
-                                        sum(case when class = \'ERROR\' then 1 else 0 end) class_ERROR,
-                                        sum(case when class = \'AppError\' then 1 else 0 end) class_AppError,
-                                        sum(case when class = \'SYSTEM\LOG\INFO\' then 1 else 0 end) class_SYSTEM_LOG_INFO,
-                                        sum(case when class = \'SYSTEM\LOG\DEPRECATED\' then 1 else 0 end) class_SYSTEM_LOG_DEPRECATED,
-                                        sum(case when class = \'SYSTEM\LOG\WARNING\' then 1 else 0 end) class_SYSTEM_LOG_WARNING,
-                                        sum(case when class = \'SYSTEM\LOG\ERROR\' then 1 else 0 end) class_SYSTEM_LOG_ERROR,
-                                        sum(case when class = \'SYSTEM\LOG\ErrorException\' then 1 else 0 end) class_SYSTEM_LOG_ErrorException,
-                                        sum(case when class = \'SYSTEM\LOG\ShutdownException\' then 1 else 0 end) class_SYSTEM_LOG_ShutdownException,
-                                        sum(case when class = \'Exception\' then 1 else 0 end) class_Exception,
-                                        sum(case when class = \'RuntimeException\' then 1 else 0 end) class_RuntimeException,
-                                        sum(case when class = \'ErrorException\' then 1 else 0 end) class_ErrorException 	
-                                    from system_log
-                                    group by day
-                                    order by day desc
-                                    limit 365;');
+            $res = $con->query('SELECT DATE('.\SYSTEM\DBD\system_log::FIELD_TIME.') as day,'
+                                        .'min('.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_min,'
+                                        .'max('.\SYSTEM\DBD\system_log::FIELD_TIME.') as time_max,'
+                                        .'count(*) as count,'
+                                        .'avg('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_avg,'
+                                        .'max('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_max,'
+                                        .'min('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_min,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_MESSAGE.') as text_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' then 1 else 0 end) class_INFO,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'DEPRECATED\' then 1 else 0 end) class_DEPRECATED,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'WARNING\' then 1 else 0 end) class_WARNING,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ERROR\' then 1 else 0 end) class_ERROR,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'AppError\' then 1 else 0 end) class_AppError,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' then 1 else 0 end) class_SYSTEM_LOG_INFO,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' then 1 else 0 end) class_SYSTEM_LOG_DEPRECATED,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\WARNING\' then 1 else 0 end) class_SYSTEM_LOG_WARNING,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\ERROR\' then 1 else 0 end) class_SYSTEM_LOG_ERROR,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\ERROR_EXCEPTION\' then 1 else 0 end) class_SYSTEM_LOG_ERROR_EXCEPTION,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\SHUTDOWN_EXCEPTION\' then 1 else 0 end) class_SYSTEM_LOG_SHUTDOWN_EXCEPTION,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'Exception\' then 1 else 0 end) class_Exception,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'RuntimeException\' then 1 else 0 end) class_RuntimeException,'
+                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'ErrorException\' then 1 else 0 end) class_ErrorException'
+                                    .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
+                                    .' GROUP BY day'
+                                    .' ORDER BY day DESC'
+                                    .' LIMIT 365;');
         }
         $result = array();
         while($row = $res->next()){
@@ -82,34 +94,92 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);    
     }
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_error($error){
+        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
+        if(\SYSTEM\system::isSystemDbInfoPG()){                
+                $res = $con->prepare(   'selectSysLogError',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_PG.
+                                        ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_PG.
+                                        ' ON '.\SYSTEM\DBD\system_log::NAME_PG.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
+                                        ' = '.\SYSTEM\DBD\system_user::NAME_PG.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
+                                        ' WHERE '.\SYSTEM\DBD\system_log::NAME_PG.'.'.\SYSTEM\DBD\system_log::FIELD_ID.' = $1;',
+                                        array($error));
+        } else {                
+                $res = $con->prepare(   'selectSysLogError',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_MYS.
+                                        ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                        ' ON '.\SYSTEM\DBD\system_log::NAME_MYS.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
+                                        ' = '.\SYSTEM\DBD\system_user::NAME_MYS.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
+                                        ' WHERE '.\SYSTEM\DBD\system_log::NAME_MYS.'.'.\SYSTEM\DBD\system_log::FIELD_ID.' = ?;',
+                                        array($error));
+        }
+        
+        $vars = $res->next();
+        $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_error.tpl'), $vars);
+    }
+    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = ""){
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         $res = null;                
         if($filter !== ""){
-            if(\SYSTEM\system::isSystemDbInfoPG()){
+            if(\SYSTEM\system::isSystemDbInfoPG()){                
+                $res = $con->prepare(   'selectCountSysLogFilter',
+                                        'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_log::NAME_PG.'WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE $1;',
+                                        array(mysql_escape_string($filter)))->next();
+                $count = $res['count'];
                 $res = $con->prepare(   'selectSysLogFilter',
-                                        'SELECT * FROM system.sys_log WHERE class ILIKE $1 ORDER BY time DESC LIMIT 100;',
-                                        array($filter));            
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_PG.
+                                        ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_PG.
+                                        ' ON '.\SYSTEM\DBD\system_log::NAME_PG.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
+                                        ' = '.\SYSTEM\DBD\system_user::NAME_PG.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
+                                        ' WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE $1'.
+                                        ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_TIME.' DESC LIMIT 100;',
+                                        array(mysql_escape_string($filter)));
             } else {
+                $res = $con->prepare(   'selectCountSysLogFilter',
+                                        'SELECT COUNT(*) as count'.
+                                        ' FROM '.\SYSTEM\DBD\system_log::NAME_MYS.
+                                        ' WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE ?;',
+                                        array(mysql_escape_string($filter)))->next();
+                $count = $res['count'];
                 $res = $con->prepare(   'selectSysLogFilter',
-                                        'SELECT * FROM system_log LEFT JOIN system_user ON system_log.user = system_user.id WHERE class LIKE ? ORDER BY time DESC LIMIT 100;',
+                                        'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_MYS.
+                                        ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                        ' ON '.\SYSTEM\DBD\system_log::NAME_MYS.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
+                                        ' = '.\SYSTEM\DBD\system_user::NAME_MYS.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
+                                        ' WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE ?'.
+                                        ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_TIME.' DESC LIMIT 100;',
                                         array(mysql_escape_string($filter)));
             }
         } else {
-            if(\SYSTEM\system::isSystemDbInfoPG()){
-                $res = $con->query('SELECT * FROM system.sys_log ORDER BY time DESC LIMIT 100;');                
+            if(\SYSTEM\system::isSystemDbInfoPG()){                
+                $res = $con->query('SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_log::NAME_PG)->next();
+                $count = $res['count'];
+                $res = $con->query( 'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_PG.
+                                    ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_PG.
+                                    ' ON '.\SYSTEM\DBD\system_log::NAME_PG.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
+                                    ' = '.\SYSTEM\DBD\system_user::NAME_PG.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
+                                    ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_TIME.
+                                    ' DESC LIMIT 100;');
             } else {
-                $res = $con->query('SELECT * FROM system_log LEFT JOIN system_user ON system_log.user = system_user.id ORDER BY time DESC LIMIT 100;');
+                $res = $con->query('SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_log::NAME_MYS)->next();
+                $count = $res['count'];
+                $res = $con->query( 'SELECT * FROM '.\SYSTEM\DBD\system_log::NAME_MYS.
+                                    ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_MYS.
+                                    ' ON '.\SYSTEM\DBD\system_log::NAME_MYS.'.'.\SYSTEM\DBD\system_log::FIELD_USER.
+                                    ' = '.\SYSTEM\DBD\system_user::NAME_MYS.'.'.\SYSTEM\DBD\system_user::FIELD_ID.
+                                    ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_TIME.
+                                    ' DESC LIMIT 100;');
             }
         }
         
         $now = microtime(true);
         
-        $result =   '<table class="table table-hover table-condensed">'.                    
-                    '<tr>'.'<th>'.'time ago'.'</th>'.'<th>'.'class'.'</th>'.'<th>'.'message'.'</th>'.'<th>'.'file'.'</th>'.'<th>'.'line'.'</th>'.'<th>'.'ip'.'</th>'.'<th>'.'url'.'</th>'.'<th>'.'user'.'</th>'.'<th>'.'querytime'.'</tr>';
+        $table='';
         while($r = $res->next()){     
             //print_r($r);
-            $result .=  '<tr class="sai_log_error '.self::tablerow_class($r['class']).'" error="'.$r['ID'].'">'.
+            $table .=  '<tr class="sai_log_error '.self::tablerow_class($r['class']).'" error="'.$r['ID'].'">'.
                             '<td>'.self::time_elapsed_string(strtotime($r['time'])).'</td>'.                            
                             '<td>'.$r['class'].'</td>'.
                             '<td style="word-break: break-all;">'.substr($r['message'],0,255).'</td>'.                            
@@ -120,11 +190,18 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                             '<td>'.$r['username'].'</td>'.
                             '<td>'.$r['querytime'].'</td>'.
                         '</tr>';                        
-        }
-        $result .= '</table>';
-        
-        return $result;
-        
+        }                                
+        $vars = array();
+        $vars['count'] = $count;
+        $vars['table'] = $table;
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table.tpl'), $vars);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_log(){
+        $vars = array();
+        $vars['table'] = self::sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter();        
+        $vars['error_filter'] = self::generate_error_filters();
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_filter.tpl'), $vars);
     }
     
     private static function time_elapsed_string($ptime){
@@ -150,33 +227,37 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     private static function generate_error_filters(){
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query("SELECT class FROM system.sys_log GROUP BY class ORDER BY class;");
+            $res = $con->query( 'SELECT '.\SYSTEM\DBD\system_log::FIELD_CLASS.
+                                ' FROM '.\SYSTEM\DBD\system_log::NAME_PG.
+                                ' GROUP BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.
+                                ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.';');
         }else{
-            $res = $con->query("SELECT class FROM system_log GROUP BY class ORDER BY class;");
+            $res = $con->query( 'SELECT '.\SYSTEM\DBD\system_log::FIELD_CLASS.
+                                ' FROM '.\SYSTEM\DBD\system_log::NAME_MYS.
+                                ' GROUP BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.
+                                ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.';');
         }
         
-        $result = "";
-        $i = 1;
+        $result = '';        
         while($row = $res->next()){
-            $result .= '<button class="btn" href="#" filter="'.$row['class'].'">'.$row['class'].'</button>'.(($i++ % 6 == 0) ? '</br>' : '');}
-        
+            $result .= '<li><a href="#" filter="'.$row['class'].'">'.$row['class'].'</a></li>';}        
         return $result;
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){      
-        $vars = array();
-        $vars['error_filter'] = self::generate_error_filters();
+        $vars = array();        
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log.tpl'), $vars);        
     }
     
     private static function tablerow_class($class){
         switch($class){
-            case 'SYSTEM\LOG\INFO': case 'INFO':
+            case 'SYSTEM\LOG\INFO': case 'INFO': case 'SYSTEM\LOG\COUNTER':
                 return 'success';
             case 'SYSTEM\LOG\DEPRECATED': case 'DEPRECATED':
                 return 'info';
-            case 'SYSTEM\LOG\ERROR': case 'ERROR':
+            case 'SYSTEM\LOG\ERROR': case 'ERROR': case 'Exception': case 'SYSTEM\LOG\ERROR_EXCEPTION':
+            case 'ErrorException': case 'SYSTEM\LOG\SHUTDOWN_EXCEPTION':
                 return 'error';
             case 'SYSTEM\LOG\WARNING': case 'WARNING':
                 return 'warning';
