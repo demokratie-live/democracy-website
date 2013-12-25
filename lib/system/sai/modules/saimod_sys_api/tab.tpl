@@ -1,5 +1,4 @@
 <div class="tab-pane ${active}" id="tab_${tab_id}">
-    <h3>Api Table for Group ${tab_id}</h3>
     <table class="table table-hover table-condensed" style="overflow: auto;">
         <tr>
             <th>ID</th>

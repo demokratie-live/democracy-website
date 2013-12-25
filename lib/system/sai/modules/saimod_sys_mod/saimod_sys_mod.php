@@ -3,26 +3,24 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     public static function html_content_sys(){
-        $result =   '<h3>Sys Mods</h3>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+        $result =   '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'Classname'.'</th>'.'<th>'.'Public'.'</th>'.'<th>'.'You can Access?'.'</th>'.'</tr>';
         
         $sys_mods = \SYSTEM\SAI\sai::getSysModules();
         foreach($sys_mods as $mod){            
-            $result .= '<tr>'.'<td>'.$mod.'</td>'.'<td>'.(\call_user_func(array($mod, 'right_public')) ? 'true' : 'false').'</td>'.'<td>'.(\call_user_func(array($mod, 'right_right')) ? 'true' : 'false').'</td>'.'</tr>';}
+            $result .= '<tr>'.'<td>'.$mod.'</td>'.'<td>'.(\call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'<td>'.(\call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'</tr>';}
         $result .= '</table>';
         
         return $result;
     }
     
     public static function html_content_project(){
-        $result =  '<h3>Project Mods</h3>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
-                    '<tr>'.'<th>'.'Classname'.'</th>'.'<th>'.'Public'.'</th>'.'<th>'.'You can Access?'.'</th>'.'</tr>';
+        $result =  '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+                   '<tr>'.'<th>'.'Classname'.'</th>'.'<th>'.'Public'.'</th>'.'<th>'.'You can Access?'.'</th>'.'</tr>';
         
         $mods = \SYSTEM\SAI\sai::getModules();
         foreach($mods as $mod){            
-            $result .= '<tr>'.'<td>'.$mod.'</td>'.'<td>'.(\call_user_func(array($mod, 'right_public')) ? 'true' : 'false').'</td>'.'<td>'.(\call_user_func(array($mod, 'right_right')) ? 'true' : 'false').'</td>'.'</tr>';}
+            $result .= '<tr>'.'<td>'.$mod.'</td>'.'<td>'.(\call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'<td>'.(\call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'</tr>';}
         $result .= '</table>';
         
         return $result;
