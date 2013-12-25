@@ -1,7 +1,5 @@
 <?php
-
 namespace SYSTEM\SAI;
-
 
 class saimod_sys_log extends \SYSTEM\SAI\SaiModule {    
     
@@ -94,6 +92,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_sucess($filter){
+        /*
+        $children  = array();
+        is_subclass_of
+        foreach(get_declared_classes() as $class){
+            if($class instanceof foo) $children[] = $class;
+        }
+        */
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
@@ -102,13 +107,15 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                                         .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' and'
                                         .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' and'
                                         .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' and'
-                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'EPRECATED\' '
+                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'DEPRECATED\' and '
+                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'PreprocessingLog\' '
                                         .'then 1 else 0 end) class_fail,'
                                         .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' or '
                                         .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' or '
                                         .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' or '
                                         .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' or '
-                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'EPRECATED\' '
+                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'DEPRECATED\' or '
+                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'PreprocessingLog\' '
                                         .'then 1 else 0 end) class_log,'
                                         .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\COUNTER\' then 1 else 0 end) class_sucess'                                        
                                     .' FROM '.\SYSTEM\DBD\system_log::NAME_PG

@@ -67,4 +67,28 @@ class autoload {
         
         return true;
     }
+    
+    private static function file_extension($filename){
+        $path_info = pathinfo($filename);
+        return array_key_exists('extension', $path_info) ? strtolower($path_info['extension']) : NULL;
+    }
+    
+    //for docu we need all classes actually declared
+    public static function autoload_all(){
+        foreach(self::$files as $file){            
+            require_once $file[2];}        
+        
+        foreach(self::$folders as $folder){                
+            if ($handle = opendir($folder[1])) {
+                while (false !== ($file = readdir($handle))) {
+                    if (    $file != "." && $file != ".." && 
+                            self::file_extension($file) == 'php' &&
+                            !class_exists($folder[0].'\\'.substr($file,0,count($file)-5),false)) {                                                
+                        require_once $folder[1].'/'.$file;                        
+                    }
+                }
+            }
+            closedir($handle);
+        }                    
+    }
 }
