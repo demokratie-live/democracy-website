@@ -270,10 +270,9 @@ class Security {
         self::startSession();
         return (isset($_SESSION['user']) && $_SESSION['user'] instanceof User);}
     private static function startSession(){
-        if(!isset($_SESSION)){
-            session_start();}
+        if(!isset($_SESSION) && !headers_sent()){
+            \session_start();}
     }
-        
     //This functions is called from \SYSTEM\locale::set()
     public static function _db_setLocale($lang){
         $user = self::getUser();

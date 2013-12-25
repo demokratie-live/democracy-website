@@ -7,15 +7,18 @@ class HEADER {
         $file = null;
         $line = null;
         if(headers_sent($file, $line)){
-            throw new \SYSTEM\LOG\ERROR('Header already sent @ '.$file.' line '.$line);}
+            new \SYSTEM\LOG\WARNING('Header already sent @ '.$file.' line '.$line);
+            return false;}
+        return true;
     }
     
     public static function JSON(){
-        self::checkHeader();
-        header('Access-Control-Allow-Origin: *');//allow cross domain calls
-        header('content-type: application/json');        
+        if(self::checkHeader()){
+            header('Access-Control-Allow-Origin: *');//allow cross domain calls
+            header('content-type: application/json');}
     }
     public static function PNG(){
-        self::checkHeader();
-        header('content-type:image/png;');}
+        if(self::checkHeader()){
+            header('content-type:image/png;');}
+    }
 }
