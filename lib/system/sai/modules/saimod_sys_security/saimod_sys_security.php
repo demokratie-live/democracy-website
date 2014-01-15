@@ -24,18 +24,21 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
     
-    public static function html_content_users(){
+    public static function html_content_users($search = null){
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system.user ORDER BY last_active DESC;');
+        if(\SYSTEM\system::isSystemDbInfoPG()){            
+            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system.user ORDER BY last_active DESC LIMIT 100;');
+            $res2 = $con->query('SELECT count(*) as count FROM system.user;');
         } else {
-            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system_user ORDER BY last_active DESC;');
-        }
+            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system_user ORDER BY last_active DESC LIMIT 100;');
+            $res2 = $con->query('SELECT count(*) as count FROM system.user;');
+        }                        
         
-        
-        $now = microtime(true);
-        
-        $result =   '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+        $pcount = $res2->next();
+        $count = $pcount['count'];
+        $result =   'Users: '.$count.
+                    '</br><input type="text" value="Search email or username" size="30"/>'.
+                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Username'.'</th>'.'<th>'.'E-Mail'.'</th>'.'<th>'.'JoinDate'.'</th>'.'<th>'.'Locale'.'</th>'.'<th>'.'Last Active'.'</th>'.'<th>'.'Flag'.'</th>'.'<th style="width: 110px;">'.'Rights'.'</th><th>reset password</th>'.'</tr>';
         while($r = $res->next()){
             if(\SYSTEM\system::isSystemDbInfoPG()){
