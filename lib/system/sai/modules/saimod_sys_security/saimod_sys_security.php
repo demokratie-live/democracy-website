@@ -31,7 +31,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             $res2 = $con->query('SELECT count(*) as count FROM system.user;');
         } else {
             $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system_user ORDER BY last_active DESC LIMIT 100;');
-            $res2 = $con->query('SELECT count(*) as count FROM system.user;');
+            $res2 = $con->query('SELECT count(*) as count FROM system_user;');
         }                        
         
         $pcount = $res2->next();
