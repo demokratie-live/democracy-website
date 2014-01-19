@@ -1,5 +1,4 @@
 <?php
-
 namespace SYSTEM\SAI;
 
 class saimod_sys_sai extends \SYSTEM\SAI\SaiModule {    

@@ -125,13 +125,6 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     }    
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_basic($filter){
-        /*
-        $children  = array();
-        is_subclass_of
-        foreach(get_declared_classes() as $class){
-            if($class instanceof foo) $children[] = $class;
-        }
-        */
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
@@ -209,10 +202,10 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique'                                        
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                      
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique'
                                     .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
@@ -239,11 +232,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'
-                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
+                                        .'count(*) as count,'                               
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_PORT.') as server_port_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_REQUEST_URI.') as request_uri_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_POST.') as post_unique'
                                     .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
@@ -272,8 +265,9 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
                                         .'count(*) as count,'
-                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
-                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique'
                                     .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
@@ -299,20 +293,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'                                                                                
-                                        .'sum(case when not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\COUNTER\' and'
-                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' and'
-                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' and'
-                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' and'
-                                        .' not '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'EPRECATED\' '
-                                        .'then 1 else 0 end) class_fail,'
-                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' or '
-                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\INFO\' or '
-                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'INFO\' or '
-                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\DEPRECATED\' or '
-                                        .\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'EPRECATED\' '
-                                        .'then 1 else 0 end) class_log,'
-                                        .'sum(case when '.\SYSTEM\DBD\system_log::FIELD_CLASS.' = \'SYSTEM\LOG\COUNTER\' then 1 else 0 end) class_sucess'                                        
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
                                     .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
@@ -349,11 +334,9 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % '.$filter.')) as day,'
-                                        .'count(*) as count,'                                                                                
-                                        .'avg('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_avg,'
-                                        .'max('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_max,'
-                                        .'min('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_min,'
-                                        .'variance('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_var'
+                                        .'count(*) as count,'
+                                        .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
+                                        .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
                                     .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
                                     .' GROUP BY day'
                                     .' ORDER BY day DESC'
@@ -462,17 +445,10 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $table='';
         while($r = $res->next()){     
             //print_r($r);
-            $table .=  '<tr class="sai_log_error '.self::tablerow_class($r['class']).'" error="'.$r['ID'].'">'.
-                            '<td>'.self::time_elapsed_string(strtotime($r['time'])).'</td>'.                            
-                            '<td>'.$r['class'].'</td>'.
-                            '<td style="word-break: break-all;">'.substr($r['message'],0,255).'</td>'.                            
-                            '<td style="word-break: break-all;">'.$r['file'].'</td>'.
-                            '<td>'.$r['line'].'</td>'.
-                            '<td>'.$r['ip'].'</td>'.
-                            '<td style="word-break: break-all;">'.$r['server_name'].':'.$r['server_port'].$r['request_uri'].'</td>'.
-                            '<td>'.$r['username'].'</td>'.
-                            '<td>'.$r['querytime'].'</td>'.
-                        '</tr>';                        
+            $r['class_row'] = self::tablerow_class($r['class']);
+            $r['time'] = self::time_elapsed_string(strtotime($r['time']));
+            $r['message'] = substr($r['message'],0,255);
+            $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table_row.tpl'),$r);                                         
         }                                
         $vars = array();
         $vars['count'] = $count;
