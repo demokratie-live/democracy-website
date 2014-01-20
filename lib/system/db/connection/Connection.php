@@ -9,8 +9,10 @@ class Connection extends ConnectionAbstr{
     //private $dbinfo = NULL;
 
     //Connects to DB, dependent on DBInfo a connection to a PG or MYS will be established
-    public function __construct(DBInfo $dbinfo){
+    public function __construct(DBInfo $dbinfo = null){
         //$this->dbinfo = $dbinfo;
+        if(!$dbinfo){
+            $dbinfo = \SYSTEM\system::getSystemDBInfo();}
 
         if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
             $this->connection = new \SYSTEM\DB\ConnectionPG($dbinfo);

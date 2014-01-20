@@ -5,11 +5,13 @@ namespace SYSTEM\DB;
 class ResultPostgres extends \SYSTEM\DB\Result{
 
     private $res = NULL;
-    private $current = NULL;    
+    private $current = NULL;
+    private $connection = NULL;
 
     //Result from mysql_query
-    public function __construct($res){
-        $this->res = $res;}
+    public function __construct($res,$connection){
+        $this->res = $res;
+        $this->connection = $connection;}
 
     public function __destruct(){
         $this->close();}

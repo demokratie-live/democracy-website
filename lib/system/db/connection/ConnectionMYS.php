@@ -38,7 +38,7 @@ class ConnectionMYS extends ConnectionAbstr {
         if(!mysqli_stmt_execute($prepStmt)){
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  \mysqli_stmt_error($prepStmt));}
 
-        return new ResultMysqliPrepare($prepStmt);
+        return new ResultMysqliPrepare($prepStmt,$this);
     }
 
     public function close(){

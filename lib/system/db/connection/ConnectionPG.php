@@ -38,7 +38,7 @@ class ConnectionPG extends ConnectionAbstr {
         if(!$result)
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  \pg_last_error($this->connection));             
 
-        return new ResultPostgres($result);
+        return new ResultPostgres($result,$this);
     }
 
     public function close(){

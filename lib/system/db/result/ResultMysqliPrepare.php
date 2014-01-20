@@ -7,10 +7,12 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
     private $res = NULL;    
     private $meta = NULL;
     private $binds = array();
+    private $connection = NULL;
     
     //Result from mysql_query
-    public function __construct($res){
+    public function __construct($res,$connection){        
         $this->res = $res;
+        $this->connection = $connection;
 
         $this->meta = \mysqli_stmt_result_metadata($this->res);
 

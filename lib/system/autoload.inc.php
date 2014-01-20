@@ -23,10 +23,12 @@ spl_autoload_register('__autoload_system');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/page','SYSTEM\PAGE');
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/dbd/tbl/','SYSTEM\DBD');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/dbd/qq/','SYSTEM\DBD');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/db','SYSTEM\DB');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/db/dbinfo','SYSTEM\DB');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/db/connection','SYSTEM\DB');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/db/result','SYSTEM\DB');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/db/qq','SYSTEM\DB');
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/security','SYSTEM\SECURITY');
 
