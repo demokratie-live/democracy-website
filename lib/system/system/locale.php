@@ -49,29 +49,29 @@ class locale {
             foreach($request as $strid){
                 if(!\preg_match("^[a-zA-Z0-9_]+$^", $strid) != 0){
                     throw new \Exception("Requested id contains inpropper symbols: ".$strid);}
-                 $where .= 'OR '.$q.\SYSTEM\DBD\locale_string::FIELD_ID.$q.' = $1 ';
+                 $where .= 'OR '.$q.\SYSTEM\DBD\system_locale_string::FIELD_ID.$q.' = $1 ';
             }
             $where = substr($where,2);
 
             $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-            $res = $con->prepare( 'localeArrStmt',  'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.$where,
+            $res = $con->prepare( 'localeArrStmt',  'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\system_locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\sytem_locale_string::NAME_MYS).' WHERE '.$where,
                                     $request);
 
             $result = array();
             while($r = $res->next()){
-                $result[$r[\SYSTEM\DBD\locale_string::FIELD_ID]] = $r[$lang];}
+                $result[$r[\SYSTEM\DBD\system_locale_string::FIELD_ID]] = $r[$lang];}
 
             return $result;
         } else if(\intval($request)){
             $cat = \intval($request);
 
             $con = new \SYSTEM\DB\Connection( \SYSTEM\system::getSystemDBInfo());            
-            $res = $con->prepare( 'localeStmt', 'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\locale_string::NAME_PG : \SYSTEM\DBD\locale_string::NAME_MYS).' WHERE '.\SYSTEM\DBD\locale_string::FIELD_CATEGORY.' = '.(\SYSTEM\system::isSystemDbInfoPG() ? '$1' : '?').';',
+            $res = $con->prepare( 'localeStmt', 'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\system_locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\system_locale_string::NAME_MYS).' WHERE '.\SYSTEM\DBD\system_locale_string::FIELD_CATEGORY.' = '.(\SYSTEM\system::isSystemDbInfoPG() ? '$1' : '?').';',
                                     array($cat));
 
             $result = array();
             while($r = $res->next()){                
-                $result[$r[\SYSTEM\DBD\locale_string::FIELD_ID]] = $r[$lang];}
+                $result[$r[\SYSTEM\DBD\system_locale_string::FIELD_ID]] = $r[$lang];}
 
             return $result;
         } 

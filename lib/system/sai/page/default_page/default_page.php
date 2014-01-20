@@ -58,7 +58,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE); //da_sense | Developer Center
         $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT); //&copy; <a href="http://www.da-sense.de" target="_blank">da_sense</a>, TU Darmstadt 2013
         
-        $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\locale_string::VALUE_CATEGORY_SYSTEM_SAI));
+        $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/default_page/sai.tpl'), $vars);        
     }
 }

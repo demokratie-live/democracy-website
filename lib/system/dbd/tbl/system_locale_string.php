@@ -2,7 +2,7 @@
 
 namespace SYSTEM\DBD;
 
-class locale_string {
+class system_locale_string {
     const NAME_PG  = 'system.locale_string';
     const NAME_MYS = 'system_locale_string';
 

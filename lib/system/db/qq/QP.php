@@ -26,6 +26,6 @@ class QP {
     
     //override this
     protected static function query(){
-        throw new \SYSTEM\LOG\ERROR('query function of your QQ Object not overritten!');}
+        throw new \SYSTEM\LOG\ERROR('query function of your QP Class not overwritten!');}
         //return new QQuery();}    
 }

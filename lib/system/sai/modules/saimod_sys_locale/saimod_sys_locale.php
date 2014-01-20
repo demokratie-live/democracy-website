@@ -12,9 +12,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
                                                                 
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT "category", COUNT(*) as "count" FROM system.locale_string GROUP BY "category" ORDER BY "category" ASC;');
+            $res = $con->query('SELECT "category", COUNT(*) as "count" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' GROUP BY "category" ORDER BY "category" ASC;');
         } else {
-            $res = $con->query('SELECT `category`, COUNT(*) as `count` FROM system_locale_string GROUP BY `category` ORDER BY `category` ASC;');
+            $res = $con->query('SELECT `category`, COUNT(*) as `count` FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' GROUP BY `category` ORDER BY `category` ASC;');
         }
                 
         $vars['tabopts'] = '';
@@ -27,9 +27,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         }       
                 
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM system.locale_string ORDER BY "category" ASC;');
+            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' ORDER BY "category" ASC;');
         } else {
-            $res = $con->query('SELECT * FROM system_locale_string ORDER BY category ASC;');
+            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' ORDER BY category ASC;');
         }
                 
         $langhead = '';
@@ -65,9 +65,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;         
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('newText' ,'UPDATE system.locale_string SET "'.$lang.'"=$1 WHERE id=$2;', array($newtext, $id));
+            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_PG.' SET "'.$lang.'"=$1 WHERE id=$2;', array($newtext, $id));
         } else {
-            $res = $con->prepare('newText' ,'UPDATE system_locale_string SET '.$lang.'=? WHERE id=?;', array($newtext, $id));
+            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' SET '.$lang.'=? WHERE id=?;', array($newtext, $id));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
@@ -76,9 +76,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('addText' ,'INSERT INTO system.locale_string (id, category) VALUES ($1, $2);', array($id, $category));
+            $res = $con->prepare('addText' ,'INSERT INTO '.\SYSTEM\DBD\system_locale_string::NAME_PG.' (id, category) VALUES ($1, $2);', array($id, $category));
         } else {
-            $res = $con->prepare('addText' ,'INSERT INTO system_locale_string (id, category) VALUES (?, ?);', array($id, $category));
+            $res = $con->prepare('addText' ,'INSERT INTO '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' (id, category) VALUES (?, ?);', array($id, $category));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added")) : \SYSTEM\LOG\JsonResult::ok();
     }
@@ -91,9 +91,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('deleteText' ,'DELETE FROM system.locale_string WHERE id=$1;', array($id));
+            $res = $con->prepare('deleteText' ,'DELETE FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE id=$1;', array($id));
         } else {
-            $res = $con->prepare('deleteText' ,'DELETE FROM system_locale_string WHERE id=?;', array($id));
+            $res = $con->prepare('deleteText' ,'DELETE FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE id=?;', array($id));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data")) : \SYSTEM\LOG\JsonResult::ok();
     }
@@ -103,11 +103,11 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         $res = null;
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->prepare(   'edit',
-                                    'SELECT * FROM system.locale_string WHERE id = $1 ORDER BY "category" ASC;',
+                                    'SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE id = $1 ORDER BY "category" ASC;',
                                     array($entry));
         } else {
             $res = $con->prepare(   'edit',
-                                    'SELECT * FROM system_locale_string WHERE id = ? ORDER BY "category" ASC;',
+                                    'SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE id = ? ORDER BY "category" ASC;',
                                     array($entry));
         }
         if(!$r = $res->next()){
