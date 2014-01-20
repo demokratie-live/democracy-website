@@ -24,6 +24,10 @@ class QP {
     public static function Q1($params,$params_mys = null){
         return self::QQ($params,$params_mys)->next();}
     
+    public static function QI($params,$params_mys = null){
+        $qq = self::QQ($params,$params_mys);
+        return $qq->affectedRows() != 0; 
+    }
     //override this
     protected static function query(){
         throw new \SYSTEM\LOG\ERROR('query function of your QP Class not overwritten!');}

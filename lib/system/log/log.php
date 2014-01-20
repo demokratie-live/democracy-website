@@ -19,7 +19,7 @@ class log {
         set_error_handler           ('\SYSTEM\LOG\log::__error_handler');
         set_exception_handler       ('\SYSTEM\LOG\log::__exception_handler');
         register_shutdown_function  ('\SYSTEM\LOG\log::__shutdown_handler' );                
-        ob_start                    ('\SYSTEM\LOG\log::__fatal_error_handler');
+        //ob_start                    ('\SYSTEM\LOG\log::__fatal_error_handler');
     }
     
     private static function call_handlers(\Exception $E, $thrown = true){                  

@@ -10,8 +10,8 @@ class Security {
         // check availability of username (in non-compatibility mode, otherwise it is already checked in DasenseAccount)
         if($checkAvailable && !self::available($username)){
             return self::FAIL;}                        
-        $result = \SYSTEM\DBD\SYS_SECURITY_CREATE::Q1(array( $username , $password, $email, $locale, 1 ));                
-        if( !$result || !self::login($username, $password, $locale)){
+        $result = \SYSTEM\DBD\SYS_SECURITY_CREATE::QI(array( $username , $password, $email, $locale, 1 )); //insert returns null - sucky implementation @ php/sql throws on error(or should maybe)
+        if(!$result || !self::login($username, $password, $locale)){            
                 return self::FAIL;}                 
         return ($advancedResult ? \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $password)) : self::OK);
     }
@@ -21,32 +21,25 @@ class Security {
         if(!$row){
             return self::FAIL;} // old password wrong                  
         $userID = $row['id'];        
-        \SYSTEM\DBD\SYS_SECURITY_UPDATE_PW::Q1(array($password_sha_new, $userID));        
-        return self::OK;
+        $result = \SYSTEM\DBD\SYS_SECURITY_UPDATE_PW::QI(array($password_sha_new, $userID));        
+        return $result ? self::OK : self::FAIL;
     }
              
     public static function login($username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false, $password_sha_new=NULL){
         self::startSession();        
-        if(!isset($password_sha)){
-            //self::trackLogins(NULL, self::FAIL);
-            $_SESSION['user'] = NULL;
-            return self::FAIL;}
+        $_SESSION['user'] = NULL;
+                
         //Database check
         if(isset($password_md5)){      
-            $result = \SYSTEM\DBD\SYS_SECURITY_LOGIN_MD5::QQ(array($username, $password_sha, $password_md5));
+            $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_MD5::Q1(array($username, $password_sha, $password_md5));
         }else{
-            $result = \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::QQ(array($username, $password_sha));}
-            
-        if(!$result){
-            new \SYSTEM\LOG\WARNING("Login Failed, Db result was not valid");            
-            $_SESSION['user'] = NULL;
-            return self::FAIL;}
-            
-        $row = $result->next();
+            $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $password_sha));}                    
+                    
         if(!$row){
-            new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");            
-            $_SESSION['user'] = NULL;            
+            new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");                        
             return self::FAIL;}
+            
+        //todo: move to da-sense    
         // set password_sha if it is empty or if it length is < 40 -> SHA1 Androidappbugfix
         if( !$row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA] ||
             strlen($row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA]) < 40){
@@ -55,9 +48,8 @@ class Security {
                 $pw = $password_sha_new;
             }else{
                 $pw = $password_sha;
-            }
-            unset($result);
-            \SYSTEM\DBD\SYS_SECURITY_UPDATE_PW::Q1(array($pw,$row[\SYSTEM\DBD\system_user::FIELD_ID]));            
+            }            
+            \SYSTEM\DBD\SYS_SECURITY_UPDATE_PW::QQ(array($pw,$row[\SYSTEM\DBD\system_user::FIELD_ID]));            
             $row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA] = $pw;
         }            
         // set session variables
@@ -77,8 +69,9 @@ class Security {
         return ($advancedResult ? $row : self::OK);
     }       
     
+    //todo: remove
     private static function trackLogins($userID){
-        \SYSTEM\DBD\SYS_SECURITY_TRACK_LOGINS::Q1(array(microtime(true), $userID));}
+        \SYSTEM\DBD\SYS_SECURITY_TRACK_LOGINS::QQ(array(microtime(true), $userID));}
 
     public static function getUser(){
         if(!self::isLoggedIn()){
