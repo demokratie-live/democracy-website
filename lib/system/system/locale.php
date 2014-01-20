@@ -8,9 +8,11 @@ class locale {
         if(!self::isLang($lang)){
             return false;}
 
-        \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);        
+        \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            \SYSTEM\SECURITY\Security::_db_setLocale($lang);}
+            $user = \SYSTEM\SECURITY\Security::getUser();            
+            \SYSTEM\DBD\SYS_LOCALE_SET_LOCALE::Q1(array($lang, $user->id));            
+        }
             
         return true;
     }
@@ -52,7 +54,9 @@ class locale {
                  $where .= 'OR '.$q.\SYSTEM\DBD\system_locale_string::FIELD_ID.$q.' = $1 ';
             }
             $where = substr($where,2);
-
+            //those querys cant be done with qq, since they are dynamic
+            //they sql string is generated and prepare does not cover all the required parameterization
+            //hence qq cant be used on this purpose!
             $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
             $res = $con->prepare( 'localeArrStmt',  'SELECT '.$q.$lang.$q.','.$q.\SYSTEM\DBD\system_locale_string::FIELD_ID.$q.' FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\sytem_locale_string::NAME_MYS).' WHERE '.$where,
                                     $request);
