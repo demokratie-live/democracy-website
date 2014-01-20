@@ -60,20 +60,7 @@ class api {
     }
     
     private static function getApiTree($group){        
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){            
-            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\system_api::NAME_PG .' WHERE "'.\SYSTEM\DBD\system_api::FIELD_GROUP.'" = '.$group.' ORDER BY "'.\SYSTEM\DBD\system_api::FIELD_ID.'"');
-        } else {            
-            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\system_api::NAME_MYS.' WHERE `'.\SYSTEM\DBD\system_api::FIELD_GROUP.'` = '.$group.' ORDER BY '.\SYSTEM\DBD\system_api::FIELD_ID);            
-        }        
-
-        if(!$res){
-            throw new \SYSTEM\LOG\ERROR('Database Error '.pg_last_error($con));}
-
-        $result = array();        
-        while($row = $res->next()){
-            $result[] = $row;}        
-
+        $result = \SYSTEM\DBD\SYS_API_TREE::QA(array($group));
         if(!isset($result) || !is_array($result) || count($result) <= 0){
             throw new \SYSTEM\LOG\ERROR("Database Tree for Api empty - cannot proced! GROUP: ".$group);}
             

@@ -21,6 +21,9 @@ class QQ {
         return $result;
     }
     
+    public static function Q1(){
+        return self::QQ()->next();}
+    
     //override this
     protected static function query(){
         throw new \SYSTEM\LOG\ERROR('query function of your QQ Object not overritten!');}

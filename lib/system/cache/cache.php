@@ -4,42 +4,27 @@ namespace SYSTEM\CACHE;
 
 class cache {
     
-    public static function get(\SYSTEM\DB\DBInfo $dbinfo, $cache_id, $ident){
-        $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'checkCache',
-                                'SELECT "data" FROM system.cache'.
-                                ' WHERE "CacheID" = $1 AND'.
-                                ' "Ident" = $2;',
-                                array($cache_id,$ident));
-        if(!($result = $res->next())){
+    public static function get($cache_id, $ident){
+        $result = \SYSTEM\DBD\SYS_CACHE_CHECK::Q1(array($cache_id,$ident));
+        if(!$result){
             return NULL;}
                                 
         return pg_unescape_bytea($result['data']);       
     }
     
-    public static function put(\SYSTEM\DB\DBInfo $dbinfo, $cache_id, $ident, $data, $fail_on_exist = false){        
-        if((self::get($dbinfo,$cache_id,$ident) != NULL)){
+    public static function put($cache_id, $ident, $data, $fail_on_exist = false){        
+        if((self::get($cache_id,$ident) != NULL)){
             if($fail_on_exist){
                 return false;}
-            self::del($dbinfo, $cache_id, $ident);
+            self::del($cache_id, $ident);
         }                
                         
-        $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'insertCache',
-                                'INSERT INTO system.cache ("CacheID", "Ident", "data")'.
-                                ' VALUES ($1,$2,$3);',
-                                array($cache_id,$ident,pg_escape_bytea($data)));        
-        return $res->next() ? $data : NULL;        
+        $result = \SYSTEM\DBD\SYS_CACHE_PUT::Q1(array($cache_id,$ident,$data));                
+        return $result ? $data : NULL;
     }
     
-    public static function del(\SYSTEM\DB\DBInfo $dbinfo, $cache_id, $ident){
-        $con = new \SYSTEM\DB\Connection($dbinfo);
-        $res = $con->prepare(   'deleteCache',
-                                'DELETE FROM system.cache'.
-                                ' WHERE "CacheID" = $1 AND'.
-                                ' "Ident" = $2;',
-                                array($cache_id,$ident));        
-            
-        return $res->next() ? true : false;
+    public static function del($cache_id, $ident){
+        $result = \SYSTEM\DBD\SYS_CACHE_DELETE::Q1(array($cache_id,$ident));                
+        return $result ? true : false;                                                          
     }
 }

@@ -61,8 +61,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_error.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
-        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::QQ(array(mysql_escape_string($filter)))->next();
-        $count = $res['count'];        
+        $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array(mysql_escape_string($filter)));         
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array(mysql_escape_string($filter)));                
         $now = microtime(true);        
         $table='';
@@ -74,7 +73,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table_row.tpl'),$r);                                         
         }                                
         $vars = array();
-        $vars['count'] = $count;
+        $vars['count'] = $count['count'];
         $vars['table'] = $table;
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table.tpl'), $vars);
     }
