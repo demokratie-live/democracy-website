@@ -5,10 +5,12 @@ class SYS_SAIMOD_LOG_BASIC_QUERYTIME extends \SYSTEM\DB\QP {
     protected static function query(){
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            
-'SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % $1)) as day,'
+'SELECT to_char(to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % $1)), \'YYYY/MM/DD HH24:MI:SS\') as day,'
     .'count(*) as count,'
-    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
-    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
+    .'avg('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_avg,'
+    .'max('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_max,'
+    .'min('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_min,'
+    .'variance('.\SYSTEM\DBD\system_log::FIELD_QUERYTIME.') as querytime_var'                                   
 .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
 .' GROUP BY day'
 .' ORDER BY day DESC'

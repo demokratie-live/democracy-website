@@ -5,11 +5,10 @@ class SYS_SAIMOD_LOG_BASIC_VISITOR extends \SYSTEM\DB\QP {
     protected static function query(){
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            
-'SELECT to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % $1)) as day,'
+'SELECT to_char(to_timestamp(extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int - (extract(epoch from '.\SYSTEM\DBD\system_log::FIELD_TIME.')::int % $1)), \'YYYY/MM/DD HH24:MI:SS\') as day,'
     .'count(*) as count,'
-    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_FILE.') as file_unique,'
-    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_LINE.') as line_unique,'
-    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_CLASS.') as class_unique'
+    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'
 .' FROM '.\SYSTEM\DBD\system_log::NAME_PG
 .' GROUP BY day'
 .' ORDER BY day DESC'
@@ -18,7 +17,7 @@ class SYS_SAIMOD_LOG_BASIC_VISITOR extends \SYSTEM\DB\QP {
 'SELECT FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\DBD\system_log::FIELD_TIME.'),?)) as day,'
     .'count(*) as count,'
     .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
-    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'                                        
+    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'
 .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
 .' GROUP BY day'
 .' ORDER BY day DESC'

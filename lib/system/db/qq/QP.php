@@ -5,7 +5,8 @@ class QP {
     public static function QQ($params,$params_mys = null){
         $query = static::query();        
         $con = new \SYSTEM\DB\Connection($query->dbinfo);                
-        if($is_pg = \SYSTEM\system::isSystemDbInfoPG() && $query->dbinfo){
+        $is_pg = \SYSTEM\system::isSystemDbInfoPG();
+        if($query->dbinfo){
             $is_pg = $query->dbinfo instanceof \SYSTEM\DB\DBInfoPG;}            
         if($is_pg){
             return $con->prepare($query->name,$query->sql_pg,$params);
