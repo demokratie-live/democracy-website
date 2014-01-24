@@ -3,13 +3,8 @@
 require_once dirname(__FILE__).'/system/path.php';
 require_once dirname(__FILE__).'/system/autoload.php';
 
-//autoload hook -> refers to autoload class singleton
-function __autoload_system($class_name) {
-    return system\autoload::autoload($class_name);
-}
-
 //Register autoload
-spl_autoload_register('__autoload_system');
+\SYSTEM\autoload::register_autoload();
 
 //Register system classes
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/system','SYSTEM');
@@ -42,3 +37,4 @@ spl_autoload_register('__autoload_system');
 
 require_once dirname(__FILE__).'/lib/autoload.inc.php';
 require_once dirname(__FILE__).'/docu/register_sys_docu.php';
+require_once dirname(__FILE__).'/sai/autoload.inc.php';

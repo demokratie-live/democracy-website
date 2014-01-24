@@ -1,5 +1,4 @@
 <?php
-
 namespace SYSTEM;
 
 class autoload {
@@ -9,15 +8,11 @@ class autoload {
 
     private static function getClassFromFile($file){
         $path_info = \pathinfo($file);
-
-        return $path_info['filename'];
-    }
+        return $path_info['filename'];}
 
     private static function getClassNamespaceFromClass($class){
         $path_info = \pathinfo($class);
-
         $lastslash = \strrpos($class, 92);
-
         //No Namespace found
         if(!$lastslash){
             return array($class, '');}
@@ -57,7 +52,10 @@ class autoload {
             throw new \SYSTEM\LOG\ERROR('Folder not found on registerFolder for Autoload: '.$folder);}
 
         self::$folders[] = array($namespace, $folder);
-    }    
+    }
+    
+    public static function register_autoload(){
+        spl_autoload_register('\SYSTEM\autoload::autoload');}
 
     public static function autoload($class){        
         $classns = self::getClassNamespaceFromClass($class);

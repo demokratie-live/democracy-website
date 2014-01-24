@@ -1,6 +1,6 @@
 <?php
 SYSTEM\autoload::registerFolder(dirname(__FILE__),'SYSTEM\SAI');
-SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_sai','SYSTEM\SAI');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saistart_sys_sai','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_login','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_log','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_security','SYSTEM\SAI');

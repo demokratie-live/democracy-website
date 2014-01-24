@@ -2,8 +2,7 @@
 <html>
     <head>
         <title>${title}</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
         <link rel="icon" type="image/png" href="${navimg}" />
         ${css}
         ${js}
@@ -17,6 +16,7 @@
                 </div>
                 <a class="brand" href="#" style="width: 159px;">SAI</a>
                 <ul class="nav">
+                    ${menu_start}
                     ${menu_sys}
                 </ul>
             </div>
