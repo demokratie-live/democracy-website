@@ -19,7 +19,7 @@ class cache {
             self::del($cache_id, $ident);
         }                
                         
-        $result = \SYSTEM\DBD\SYS_CACHE_PUT::Q1(array($cache_id,$ident,$data));                
+        $result = \SYSTEM\DBD\SYS_CACHE_PUT::Q1(array($cache_id,$ident, pg_escape_bytea($data)));                
         return $result ? $data : NULL;
     }
     
