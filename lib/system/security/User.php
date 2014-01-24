@@ -13,8 +13,9 @@ class User {
     public $passwordWrongCount = NULL;
     public $rights = NULL;
     public $locale = NULL;
+    public $base_url = NULL;
 
-    public function __construct($id, $username, $email, $creationDate, $lastLoginDate, $lastLoginIP, $passwordWrongCount, $rights, $locale){
+    public function __construct($id, $username, $email, $creationDate, $lastLoginDate, $lastLoginIP, $passwordWrongCount, $rights, $locale, $base_url){
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
@@ -24,5 +25,6 @@ class User {
         $this->passwordWrongCount = $passwordWrongCount;
         $this->rights = $rights;
         $this->locale = $locale;
+        $this->base_url = $base_url;
     }
 }

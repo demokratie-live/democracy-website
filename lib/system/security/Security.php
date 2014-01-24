@@ -61,7 +61,8 @@ class Security {
                                         getenv('REMOTE_ADDR'),
                                         0,
                                         NULL,
-                                        $row[\SYSTEM\DBD\system_user::FIELD_LOCALE]);        
+                                        $row[\SYSTEM\DBD\system_user::FIELD_LOCALE],
+                                        \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));        
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}
         // track succesful user login
@@ -121,7 +122,7 @@ class Security {
         
     public static function isLoggedIn(){
         self::startSession();
-        return (isset($_SESSION['user']) && $_SESSION['user'] instanceof User);}
+        return (isset($_SESSION['user']) && $_SESSION['user'] instanceof User && $_SESSION['user']->base_url === \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));}
         
     private static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
