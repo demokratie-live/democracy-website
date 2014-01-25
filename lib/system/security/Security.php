@@ -10,7 +10,7 @@ class Security {
         // check availability of username (in non-compatibility mode, otherwise it is already checked in DasenseAccount)
         if($checkAvailable && !self::available($username)){
             return self::FAIL;}                        
-        $result = \SYSTEM\DBD\SYS_SECURITY_CREATE::QI(array( $username , $password, $email, $locale, 1 )); //insert returns null - sucky implementation @ php/sql throws on error(or should maybe)
+        $result = \SYSTEM\DBD\SYS_SECURITY_CREATE::QI(array( $username , $password, $email, $locale, 1 ));
         if(!$result || !self::login($username, $password, $locale)){            
                 return self::FAIL;}                 
         return ($advancedResult ? \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $password)) : self::OK);
