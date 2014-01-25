@@ -1,7 +1,11 @@
 <?php
 namespace SYSTEM\DBD;
 
-class SYS_SECURITY_TRACK_LOGINS extends \SYSTEM\DB\QP {
+//using QI:
+//this does not return true nessecary,
+//since if called in a very short time twice
+//the affected row count could be zero and therefore return false!
+class SYS_SECURITY_UPDATE_LASTACTIVE extends \SYSTEM\DB\QP {
     protected static function query(){
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            

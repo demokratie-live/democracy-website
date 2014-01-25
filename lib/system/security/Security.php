@@ -64,15 +64,11 @@ class Security {
                                         $row[\SYSTEM\DBD\system_user::FIELD_LOCALE],
                                         \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));        
         if(isset($locale)){
-            \SYSTEM\locale::set($locale);}
-        // track succesful user login
-        //self::trackLogins($row[\SYSTEM\DBD\system_user::FIELD_ID]);        
+            \SYSTEM\locale::set($locale);}                
+        \SYSTEM\DBD\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array(microtime(true), $row[\SYSTEM\DBD\system_user::FIELD_ID]));
         return ($advancedResult ? $row : self::OK);
     }       
-    
-    //todo: remove
-    private static function trackLogins($userID){
-        \SYSTEM\DBD\SYS_SECURITY_TRACK_LOGINS::QQ(array(microtime(true), $userID));}
+        
 
     public static function getUser(){
         if(!self::isLoggedIn()){
@@ -122,7 +118,9 @@ class Security {
         
     public static function isLoggedIn(){
         self::startSession();
-        return (isset($_SESSION['user']) && $_SESSION['user'] instanceof User && $_SESSION['user']->base_url === \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));}
+        return (isset($_SESSION['user']) &&
+                $_SESSION['user'] instanceof User &&
+                $_SESSION['user']->base_url === \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));}
         
     private static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
