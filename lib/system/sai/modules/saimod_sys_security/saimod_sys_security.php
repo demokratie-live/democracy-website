@@ -3,10 +3,10 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
-    public static function html_content_groups(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_groups(){
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_groups.tpl'),array());}
     
-    public static function html_content_rights(){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_rights(){
         $rows = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
@@ -14,11 +14,11 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_rights.tpl'),array('rows' => $rows));
     }
     
-    public static function html_content_users($search = null){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($search = null){
         $search = '%'.$search.'%';
-        $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search));
+        $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search),array($search,$search));
         $rows = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search));                
+        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search),array($search,$search));                
         while($r = $res->next()){
             $r['class'] = self::tablerow_class($r['last_active']);
             $r['time_elapsed'] = self::time_elapsed_string($r['last_active']);
@@ -27,13 +27,8 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_users.tpl'),array('rows' => $rows, 'count' => $count['count']));
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
-        $vars = array();
-        $vars['content_users'] = self::html_content_users();
-        $vars['content_rights'] = self::html_content_rights();
-        $vars['content_groups'] = self::html_content_groups();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.tpl'), $vars);
-    }
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){       
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.tpl'), array());}
     
     private static function tablerow_class($last_active){
         $time = time() - strtotime($last_active);
