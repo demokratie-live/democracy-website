@@ -4,50 +4,27 @@ namespace SYSTEM\SAI;
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function html_content_groups(){
-        return "No Groups available yet.";
-    }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_groups.tpl'),array());}
     
     public static function html_content_rights(){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM system.rights ORDER BY "ID" ASC;');
-        } else {
-            $res = $con->query('SELECT * FROM system_rights ORDER BY ID ASC;');
-        }       
-        $result =   '<input type="submit" class="btn" value="New Right" newright="1"></br></br>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
-                    '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Name'.'</th>'.'<th>'.'Description'.'</th>'.'<th>'.'Action'.'</th>'.'</tr>';
+        $rows = '';
+        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
-            $result .= '<tr>'.'<td>'.$r['ID'].'</td>'.'<td>'.$r['name'].'</td>'.'<td>'.$r['description'].'</td>'.'<td>'.'<input type="submit" class="btn-danger" value="delete" delright="'.$r['ID'].'">'.'<input type="submit" class="btn" value="edit" editright="'.$r['ID'].'">'.'</td>'.'</tr>';
-        }
-        $result .= '</table>';
-        return $result;
+            $rows .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_right.tpl'),$r);}        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_rights.tpl'),array('rows' => $rows));
     }
     
     public static function html_content_users($search = null){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){            
-            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system.user ORDER BY last_active DESC LIMIT 100;');
-            $res2 = $con->query('SELECT count(*) as count FROM system.user;');
-        } else {
-            $res = $con->query('SELECT id,username,email,joindate,locale,last_active,account_flag FROM system_user ORDER BY last_active DESC LIMIT 100;');
-            $res2 = $con->query('SELECT count(*) as count FROM system_user;');
-        }                        
-        
-        $pcount = $res2->next();
-        $count = $pcount['count'];
-        $result =   'Users: '.$count.
-                    '</br><input type="text" value="Search email or username" size="30"/>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
-                    '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'Username'.'</th>'.'<th>'.'E-Mail'.'</th>'.'<th>'.'JoinDate'.'</th>'.'<th>'.'Locale'.'</th>'.'<th>'.'Last Active'.'</th>'.'<th>'.'Flag'.'</th>'.'<th style="width: 110px;">'.'Rights'.'</th><th>reset password</th>'.'</tr>';
+        $search = '%'.$search.'%';
+        $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search));
+        $rows = '';
+        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search));                
         while($r = $res->next()){
-            if(\SYSTEM\system::isSystemDbInfoPG()){
-                $result .= '<tr class="'.self::tablerow_class($r['last_active']).'">'.'<td>'.$r['id'].'</td>'.'<td>'.$r['username'].'</td>'.'<td>'.$r['email'].'</td>'.'<td>'.$r['joindate'].'</td>'.'<td>'.$r['locale'].'</td>'.'<td>'.self::time_elapsed_string(strtotime($r['last_active'])).'</td>'.'<td>'.$r['account_flag'].'</td>'.'<td>'.'<input type="submit" class="btn" value="edit" user="'.$r['id'].'" action="edit"><input type="submit" class="btn-danger" value="delete" user="'.$r['id'].'" action="delete"></td><td><button type="submit" class="btn" value="reset_password" user="'.$r['id'].'" email="'.$r['email'].'">send EMail</button>'.'</td>'.'</tr>';
-            } else {
-            $result .= '<tr class="'.self::tablerow_class($r['last_active']).'">'.'<td>'.$r['id'].'</td>'.'<td>'.$r['username'].'</td>'.'<td>'.$r['email'].'</td>'.'<td>'.$r['joindate'].'</td>'.'<td>'.$r['locale'].'</td>'.'<td>'.self::time_elapsed_string($r['last_active']).'</td>'.'<td>'.$r['account_flag'].'</td>'.'<td>'.'<input type="submit" class="btn" value="edit" user="'.$r['id'].'" action="edit"><input type="submit" class="btn-danger" value="delete" user="'.$r['id'].'" action="delete"></td><td><button type="submit" class="btn" value="reset_password" user="'.$r['id'].'" email="'.$r['email'].'">send EMail</button>'.'</td>'.'</tr>';}            
-        }
-        $result .= '</table>';
-        return $result;
+            $r['class'] = self::tablerow_class($r['last_active']);
+            $r['time_elapsed'] = self::time_elapsed_string($r['last_active']);
+            $rows .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_user.tpl'),$r);            
+        }        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_users.tpl'),array('rows' => $rows, 'count' => $count['count']));
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
@@ -55,7 +32,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['content_users'] = self::html_content_users();
         $vars['content_rights'] = self::html_content_rights();
         $vars['content_groups'] = self::html_content_groups();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/security.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.tpl'), $vars);
     }
     
     private static function tablerow_class($last_active){
