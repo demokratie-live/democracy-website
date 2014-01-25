@@ -55,7 +55,7 @@ class ConnectionPG extends ConnectionAbstr {
         if($result === TRUE){
             return TRUE;}
 
-        return new ResultPostgres($result);
+        return new ResultPostgres($result,$this);
     }
 
 }

@@ -31,7 +31,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.tpl'), array());}
     
     private static function tablerow_class($last_active){
-        $time = time() - strtotime($last_active);
+        $time = time() - $last_active;
         
         if($time <= 60*60){
             return 'success';}
