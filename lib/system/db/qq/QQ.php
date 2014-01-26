@@ -24,8 +24,8 @@ class QQ {
     
     public static function Q1(){
         return self::QQ()->next();}
-    public static function QI($params,$params_mys = null){
-        $qq = self::QQ($params,$params_mys);
+    public static function QI(){
+        $qq = self::QQ();
         return $qq->affectedRows() != (0||null);}
     //override this
     protected static function query(){
