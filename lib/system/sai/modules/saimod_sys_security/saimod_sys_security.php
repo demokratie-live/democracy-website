@@ -6,6 +6,9 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_groups(){
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_groups.tpl'),array());}
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_newright(){
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_newright.tpl'),array());}
+        
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_rights(){
         $rows = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
@@ -14,8 +17,32 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_rights.tpl'),array('rows' => $rows));
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($search = null){
-        $search = '%'.$search.'%';
+    private static function user_actions($userid){
+        $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_LOG_COUNT::Q1(array($userid));
+        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_LOG::QQ(array($userid));
+        $table='';
+        while($r = $res->next()){     
+            //print_r($r);
+            $r['class_row'] = \SYSTEM\SAI\saimod_sys_log::tablerow_class($r['class']);
+            $r['time'] = self::time_elapsed_string(strtotime($r['time']));
+            $r['message'] = substr($r['message'],0,255);
+            $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table_row.tpl'),$r);
+        }
+        $vars = array();
+        $vars['count'] = $count['count'];
+        $vars['table'] = $table;
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table.tpl'), $vars);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_user($username){        
+        $vars = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER::Q1(array($username));
+        $vars['time_elapsed'] = self::time_elapsed_string($vars['last_active']);
+        $vars['user_actions'] = self::user_actions($vars['id']);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_user_view.tpl'),$vars);
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($search = null){        
+        $search = '%'.$search.'%';        
         $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search),array($search,$search));
         $rows = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search),array($search,$search));                
@@ -27,8 +54,10 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security_users.tpl'),array('rows' => $rows, 'count' => $count['count']));
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){       
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.tpl'), array());}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
+        $vars = array();
+        $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/saimod_sys_security.tpl'), $vars);}
     
     private static function tablerow_class($last_active){
         $time = time() - $last_active;

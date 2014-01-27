@@ -3,11 +3,20 @@
     <li><a href="#" filter="2592000">30d</a></li>
     <li><a href="#" filter="1209600">14d</a></li>
     <li class="active"><a href="#" filter="604800">7d</a></li>
+    <li><a href="#" filter="172800">2d</a></li>
     <li><a href="#" filter="86400">1d</a></li>
     <li><a href="#" filter="43200">12h</a></li>
-    <li><a href="#" filter="21600">6h</a></li>
-    <li><a href="#" filter="3600">1h</a></li>    
+    <li><a href="#" filter="21600">6h</a></li>    
+    <li><a href="#" filter="14400">4h</a></li>    
+    <li><a href="#" filter="7200">2h</a></li>
+    <li><a href="#" filter="3600">1h</a></li>
+    <li><a href="#" filter="1800">30m</a></li>
+    <li><a href="#" filter="600">10m</a></li>
+    <li><a href="#" filter="300">5m</a></li>
     <li><a href="#" filter="60">1m</a></li>
+    <li><a href="#" filter="30">30s</a></li>
+    <li><a href="#" filter="10">10s</a></li>
+    <li><a href="#" filter="5">5s</a></li>
     <li><a href="#" filter="1">1s</a></li>
 </ul>
 

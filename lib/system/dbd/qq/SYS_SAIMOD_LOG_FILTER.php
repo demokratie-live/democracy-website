@@ -19,4 +19,3 @@ class SYS_SAIMOD_LOG_FILTER extends \SYSTEM\DB\QP {
 ' WHERE '.\SYSTEM\DBD\system_log::FIELD_CLASS.' LIKE ?'.
 ' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_TIME.' DESC LIMIT 100;'
 );}}
-

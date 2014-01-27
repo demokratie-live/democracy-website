@@ -1,7 +1,8 @@
-Users: ${count}
+<input class="input-medium search-query" id="user_search" type="text" placeholder="EMail or Username" size="30"/>
+<input class="btn" id="user_go" type="submit" value="Search"/>
 </br>
-<input type="text" value="Search email or username" size="30"/>
-
+</br>
+Users: ${count}
 <table class="table table-hover table-condensed" style="overflow: auto;">
     <tr>
         <th>ID</th>

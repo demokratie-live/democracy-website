@@ -1,4 +1,4 @@
-<tr class="${class}">
+<tr class="user_entry ${class}" username="${username}">
     <td>${id}</td>
     <td>${username}</td>
     <td>${email}</td>

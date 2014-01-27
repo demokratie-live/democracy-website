@@ -1,4 +1,4 @@
-<input type="submit" class="btn" value="New Right" newright="1">
+<input type="submit" class="btn" id="new_right" value="New Right">
 </br></br>
 <table class="table table-hover table-condensed" style="overflow: auto;">
     <tr>

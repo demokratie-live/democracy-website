@@ -62,8 +62,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
         $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array(mysql_escape_string($filter)));         
-        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array(mysql_escape_string($filter)));                
-        $now = microtime(true);        
+        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array(mysql_escape_string($filter)));                        
         $table='';
         while($r = $res->next()){     
             //print_r($r);
@@ -71,7 +70,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $r['time'] = self::time_elapsed_string(strtotime($r['time']));
             $r['message'] = substr($r['message'],0,255);
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_table_row.tpl'),$r);                                         
-        }                                
+        }
         $vars = array();
         $vars['count'] = $count['count'];
         $vars['table'] = $table;
@@ -113,13 +112,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){      
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){
         $vars = array();        
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log.tpl'), $vars);        
     }
     
-    private static function tablerow_class($class){
+    public static function tablerow_class($class){
         switch($class){
             case 'SYSTEM\LOG\INFO': case 'INFO': case 'SYSTEM\LOG\COUNTER':
                 return 'success';
