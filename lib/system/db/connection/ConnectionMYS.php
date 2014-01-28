@@ -9,7 +9,7 @@ class ConnectionMYS extends ConnectionAbstr {
     public function __construct(DBInfo $dbinfo, $new_link = false, $client_flag = 0){
         //$this->dbinfo = $dbinfo;
 
-        $this->connection = mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
+        $this->connection = @mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
         if(!$this->connection){
             throw new \SYSTEM\LOG\ERROR('Could not connect to Database. Check ur Database Settings');}
             

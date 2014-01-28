@@ -19,7 +19,7 @@ class saigui extends \SYSTEM\PAGE\Page {
                 \array_search($classname, $mods) !== false &&
                 (   \call_user_func(array($classname, 'right_public')) ||
                     \call_user_func(array($classname, 'right_right')))){                                        
-                    return \SYSTEM\API\api::run('\SYSTEM\API\verify', $classname , $pg, 42, false, false);
+                    return \SYSTEM\API\api::run('\SYSTEM\API\verify', $classname , $pg, 42, true, false);
                 } else {
                     return '<meta http-equiv="refresh" content="5">You are no longer logged in. Page reload in 5sec...';}
         } else {            

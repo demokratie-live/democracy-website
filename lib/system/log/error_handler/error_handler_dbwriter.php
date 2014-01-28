@@ -22,7 +22,7 @@ class error_handler_dbwriter extends \SYSTEM\LOG\error_handler {
                                                     ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown));                        
             if(\property_exists(get_class($E), 'logged')){
                 $E->logged = true;} //we just did log
-        } catch (\Exception $E){} //Error -> Ignore
+        } catch (\Exception $E){return false;} //Error -> Ignore
         
         return false; //We just log and do not handle the error!
     }    
