@@ -12,7 +12,7 @@ Users: ${count}
         <th>Locale</th>
         <th>Last Active</th>
         <th>Flag</th>
-        <th style="width: 110px;">Rights</th>
+        <!--<th style="width: 110px;">Rights</th>-->
         <th>reset password</th>
     </tr>
     ${rows}

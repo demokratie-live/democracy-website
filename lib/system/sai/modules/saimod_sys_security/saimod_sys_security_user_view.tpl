@@ -32,5 +32,9 @@
         <td>${account_flag}</td>
     </tr>
 </table>
+</br>
+<h4 class="text-info">Users Rights</h4>
+${user_rights}
+</br>
 <h4 class="text-info">Users Last Actions</h4>
 ${user_actions}

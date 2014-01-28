@@ -6,10 +6,10 @@
     <td>${locale}</td>
     <td>${time_elapsed}</td>
     <td>${account_flag}</td>
-    <td>
+    <!--<td>
         <input type="submit" class="btn" value="edit" user="${id}" action="edit">
         <input type="submit" class="btn-danger" value="delete" user="${id}" action="delete">
-    </td>
+    </td>-->
     <td>
         <button type="submit" class="btn" value="reset_password" user="${id}" email="${email}">send EMail</button>
     </td>
