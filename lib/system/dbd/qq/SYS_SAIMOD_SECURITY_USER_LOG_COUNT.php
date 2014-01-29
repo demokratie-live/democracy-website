@@ -6,7 +6,7 @@ class SYS_SAIMOD_SECURITY_USER_LOG_COUNT extends \SYSTEM\DB\QP {
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            
 'SELECT COUNT(*) as count FROM '.\SYSTEM\DBD\system_log::NAME_PG.
-' WHERE '.\SYSTEM\DBD\system_log::FIELD_USER.
+' WHERE "'.\SYSTEM\DBD\system_log::FIELD_USER.'"'.
 ' = $1;',
 //mys
 'SELECT COUNT(*) as count'.
