@@ -65,7 +65,7 @@ class Security {
                                         \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));        
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}                
-        \SYSTEM\DBD\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array(microtime(true), $row[\SYSTEM\DBD\system_user::FIELD_ID]));
+        \SYSTEM\DBD\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array($row[\SYSTEM\DBD\system_user::FIELD_ID]));
         return ($advancedResult ? $row : self::OK);
     }       
         

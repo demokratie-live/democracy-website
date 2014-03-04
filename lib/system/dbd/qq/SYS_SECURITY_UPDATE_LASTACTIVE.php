@@ -10,10 +10,10 @@ class SYS_SECURITY_UPDATE_LASTACTIVE extends \SYSTEM\DB\QP {
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            
 'UPDATE '.\SYSTEM\DBD\system_user::NAME_PG.
-' SET '.\SYSTEM\DBD\system_user::FIELD_LAST_ACTIVE.'= to_timestamp($1)'.
-' WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = $2;',
+' SET '.\SYSTEM\DBD\system_user::FIELD_LAST_ACTIVE.' = NOW()'.
+' WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = $1;',
 //mys
 'UPDATE '.\SYSTEM\DBD\system_user::NAME_MYS.
-' SET '.\SYSTEM\DBD\system_user::FIELD_LAST_ACTIVE.'= ?'.
+' SET '.\SYSTEM\DBD\system_user::FIELD_LAST_ACTIVE.' = NOW()'.
 ' WHERE '.\SYSTEM\DBD\system_user::FIELD_ID.' = ?;'
 );}}
