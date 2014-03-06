@@ -46,5 +46,5 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
 
     //Returns OK status
     public static function ok(){
-        return self::toString(array());}
+        return self::toString(NULL);}
 }
