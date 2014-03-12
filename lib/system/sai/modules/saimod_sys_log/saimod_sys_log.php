@@ -61,8 +61,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/saimod_sys_log_error.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
-        $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array(mysql_escape_string($filter)));         
-        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array(mysql_escape_string($filter)));                        
+        $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array($filter));         
+        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array($filter));                        
         $table='';
         while($r = $res->next()){     
             //print_r($r);
