@@ -56,7 +56,7 @@ class img {
 
     private static function getFolder($folder, $mask) {
         $files = array();
-        foreach (glob($folder . $mask) as $file) {
+        foreach (glob($folder . $mask,GLOB_BRACE) as $file) {
             $files[] = basename($file);
         }
         return $files;
