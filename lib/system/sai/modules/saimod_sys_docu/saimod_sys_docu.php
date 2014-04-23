@@ -19,9 +19,9 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
                 $tabs[$cat]['tab_id'] = str_replace(' ', '_', $cat);            
                 $tabs[$cat]['content'] = isset($tabs[$cat]['content']) ? $tabs[$cat]['content'] : '';
                 $tabs[$cat]['menu'] = isset($tabs[$cat]['menu']) ? $tabs[$cat]['menu'] : '';
-                //$tabs[$cat]['content'] .= \Michelf\Markdown::defaultTransform(file_get_contents($doc));
+                //$tabs[$cat]['content'] .= \Michelf\MarkdownExtra::defaultTransform(file_get_contents($doc));
                 $vars3 = array( 'active' => ($first2 ? 'active' : ''),
-                                'content' => \Michelf\Markdown::defaultTransform(file_get_contents($doc)),
+                                'content' => \Michelf\MarkdownExtra::defaultTransform(file_get_contents($doc)),
                                 'tab_id' => str_replace(array('.',' ','\\','/'), '_', $doc));                
                 $tabs[$cat]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tab2.tpl'), $vars3);
                 $vars3 = array( 'active' => ($first2 ? 'active' : ''),
