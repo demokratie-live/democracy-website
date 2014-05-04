@@ -21,12 +21,16 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
             //send Header
             \SYSTEM\HEADER::JSON();
             
-            return msgpack_pack($json);            
+            if($json = msgpack_pack($json)){
+                return $json;}
+            throw new \SYSTEM\LOG\ERROR('MSGPack could not be encoded');
         } else {
             //send Header
             \SYSTEM\HEADER::JSON();
-
-            return json_encode($json);
+            
+            if($json = json_encode($json)){
+                return $json;}
+            throw new \SYSTEM\LOG\ERROR('JSON could not be encoded');
         }
     }
 

@@ -30,10 +30,9 @@ class ConnectionMYS extends ConnectionAbstr {
         $binds = array($prepStmt,null);
         for($i =0; $i < \count($values);$i++){
             $types .= self::getPrepareValueType($values[$i]);
-            $binds[] = &$values[$i];
-        }
+            $binds[] = &$values[$i];}
         $binds[1] = $types;
-        \call_user_func_array('mysqli_stmt_bind_param', $binds);
+        \call_user_func_array('mysqli_stmt_bind_param', $binds); //you need 2 append the parameters - thats the right way to do that.
 
         if(!mysqli_stmt_execute($prepStmt)){
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  \mysqli_stmt_error($prepStmt));}

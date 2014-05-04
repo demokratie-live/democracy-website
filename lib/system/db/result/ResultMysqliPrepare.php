@@ -22,11 +22,11 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
             return;}
         
         while ($field = $this->meta->fetch_field() ) {
-            $this->binds[$field->name] = &$this->binds[$field->name];}
+            $this->binds[$field->table.'.'.$field->name] = &$this->binds[$field->table.'.'.$field->name];} //fix for ambiguous fieldnames
 
         \mysqli_free_result($this->meta);
-
-        call_user_func_array(array($this->res, 'bind_result'), $this->binds);
+        
+        call_user_func_array(array($this->res, 'bind_result'), $this->binds); //you need 2 append the parameters - thats the right way to do that.
     }
 
     public function  __destruct() {
@@ -48,7 +48,7 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
     public function next($object = false, $result_type = MYSQL_BOTH){        
         if(\mysqli_stmt_fetch($this->res)){
             foreach( $this->binds as $key=>$value ){
-                $row[ $key ] = $value;} 
+                $row[substr($key, strpos($key, '.')+1)] = $value;} //fix for ambiguous fieldnames
             return $row;}
         return NULL;       
     }

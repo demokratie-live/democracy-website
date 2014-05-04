@@ -60,7 +60,7 @@ class autoload {
     public static function autoload($class){        
         $classns = self::getClassNamespaceFromClass($class);
         
-        if(!self::autoload_($classns[0],$classns[1]) || !class_exists($class)){
+        if(!self::autoload_($classns[0],$classns[1]) || (!class_exists($class) && !interface_exists($class))){
             throw new \SYSTEM\LOG\ERROR("Class not found: ".$class);}
         
         return true;
