@@ -31,8 +31,8 @@ class saimod_sys_img extends \SYSTEM\SAI\SaiModule {
             $cat = \SYSTEM\IMG\img::get($name);
             $result .= "<h3>".$name."</h3>";
             $result .= '<form action="'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_BASEURL).'sai_mod=.SYSTEM.SAI.saimod_sys_img&action=upload&cat='.$name.'" method="post" enctype="multipart/form-data">'; 
-            $result .= '<input type="hidden" name="MAX_FILE_SIZE" value="3000000" />                        
-                        <input type="file" name="datei"><br>
+            $result .= //'<input type="hidden" name="MAX_FILE_SIZE" value="3000000" />                        
+                        '<input type="file" name="datei"><br>
                         <input type="submit" class="btn" value="Add">';
             $result .= "</form>";
             $result .= "<table><tr><th>Delete</th><th>Name</th><th>new name</th><th>Rename</th></tr>";            
