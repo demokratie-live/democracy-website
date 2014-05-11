@@ -9,13 +9,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){        
         $vars = array();                        
-                                                                
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT "category", COUNT(*) as "count" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' GROUP BY "category" ORDER BY "category" ASC;');
-        } else {
-            $res = $con->query('SELECT `category`, COUNT(*) as `count` FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' GROUP BY `category` ORDER BY `category` ASC;');
-        }
+
+        $res = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_CATEGORY::QQ();
                 
         $vars['tabopts'] = '';
         $first = true;
@@ -26,18 +21,13 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tabopt.tpl'), $vars2);
         }       
                 
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' ORDER BY "category" ASC;');
-        } else {
-            $res = $con->query('SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' ORDER BY category ASC;');
-        }
-                
         $langhead = '';
         foreach (self::getLanguages() as $lang){
             $langhead .= '<th>'.$lang.'</th>'; 
             $languages[] = $lang;
         }         
-        
+
+        $res = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_SELECT::QQ();
         $tabs = array();
         while($r = $res->next()){            
             $tabs[$r['category']]['tab_id'] = $r['category'];            
@@ -73,45 +63,19 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $category){
-         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-         $res = null;
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('addText' ,'INSERT INTO '.\SYSTEM\DBD\system_locale_string::NAME_PG.' (id, category) VALUES ($1, $2);', array($id, $category));
-        } else {
-            $res = $con->prepare('addText' ,'INSERT INTO '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' (id, category) VALUES (?, ?);', array($id, $category));
-        }
-        return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added")) : \SYSTEM\LOG\JsonResult::ok();
-    }
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $category){                
+        return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}
+        
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_addmode(){
          $vars = array();         
-         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/add.tpl'), $vars);         
-    }
+         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/add.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
-         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-         $res = null;
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('deleteText' ,'DELETE FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE id=$1;', array($id));
-        } else {
-            $res = $con->prepare('deleteText' ,'DELETE FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE id=?;', array($id));
-        }
-        return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data")) : \SYSTEM\LOG\JsonResult::ok();
-    }
+        return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_DEL::QI(array($id)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data"));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_editmode($entry){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        $res = null;
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare(   'edit',
-                                    'SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE id = $1 ORDER BY "category" ASC;',
-                                    array($entry));
-        } else {
-            $res = $con->prepare(   'edit',
-                                    'SELECT * FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE id = ? ORDER BY "category" ASC;',
-                                    array($entry));
-        }
-        if(!$r = $res->next()){
+        $r = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ID::Q1(array($entry));        
+        if(!$r){
             throw new \SYSTEM\LOG\ERROR("No such Entry found!");}
             
         $vars = array();
