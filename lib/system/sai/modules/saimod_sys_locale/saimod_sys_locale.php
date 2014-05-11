@@ -37,7 +37,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $langhead .= '<th>'.$lang.'</th>'; 
             $languages[] = $lang;
         }         
-                        
+        
+        $tabs = array();
         while($r = $res->next()){            
             $tabs[$r['category']]['tab_id'] = $r['category'];            
             $tabs[$r['category']]['content'] = isset($tabs[$r['category']]['content']) ? $tabs[$r['category']]['content'] : '';
