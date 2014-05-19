@@ -1,0 +1,16 @@
+CREATE TABLE `system_todo` (
+	`ID` INT(10) NOT NULL AUTO_INCREMENT,
+	`time` DATETIME NOT NULL,
+	`author` INT(11) NOT NULL,
+	`type` INT(11) NOT NULL,
+	`state` INT(11) NOT NULL,
+	`msg_1` TEXT NOT NULL,
+	`msg_2` TEXT NULL,
+	`msg_3` TEXT NULL,
+	`msg_4` TEXT NULL,
+	`msg_5` TEXT NULL,
+	PRIMARY KEY (`ID`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+AUTO_INCREMENT=5;
