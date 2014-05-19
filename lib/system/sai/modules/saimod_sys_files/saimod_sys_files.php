@@ -25,7 +25,6 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_files(){
         $result = array('tabopts' => '', 'tabs' => '');  
         $file_folders = \SYSTEM\FILES\files::get();
-        //$i = 0;
         $first = true;
         foreach($file_folders as $name=>$folder){
             $result['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/saimod_sys_files_tabopt.tpl'),array('name' => $name, 'active' => $first ? 'active' : ''));
@@ -41,7 +40,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
         $i = 0;
         foreach($cat as $file){
             $result .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/saimod_sys_files_tableentry.tpl'), array('i' => $i++, 'cat' => $name, 'name' => $file, 'extension' => substr($file,-3,3), 'url' => 'api.php?call=files&cat='.$name.'&id='.$file));}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/saimod_sys_files_tabfull.tpl'), array('content' => $result));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/saimod_sys_files_tabfull.tpl'), array('cat' => $name, 'content' => $result));}
     
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_files">Files</a></li>';}
     public static function right_public(){return false;}    

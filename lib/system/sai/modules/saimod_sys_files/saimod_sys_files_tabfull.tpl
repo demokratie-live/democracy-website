@@ -8,9 +8,9 @@
     ${content}
     <tr>
         <br>
-        <th><input type="file" name="datei"></th>
+        <th><form enctype="multipart/form-data"><input type="file" name="datei"></th>
         <th></th>
         <th></th>
-        <th><input type="submit" class="btn" value="Upload"></th>        
+        <th><input type="submit" class="btn" value="Upload" id="btn_upload" cat="${cat}"></form></th>        
     </tr>
 </table>
