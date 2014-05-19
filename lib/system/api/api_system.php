@@ -31,8 +31,8 @@ class api_system extends api_login{
     public static function call_locale($request,$lang){        
         return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\locale::getStrings($request, $lang));}
         
-    public static function call_img($cat,$id = null){
-        return \SYSTEM\IMG\img::get($cat, $id, true);}
+    public static function call_files($cat,$id = null){
+        return \SYSTEM\FILES\files::get($cat, $id, true);}
         
     public static function static__lang($lang){
         \SYSTEM\locale::set($lang);}        

@@ -5,7 +5,7 @@
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_config');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_api');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_locale');
-\SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_img');
+\SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_files');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_cache');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_todo');
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_docu');
