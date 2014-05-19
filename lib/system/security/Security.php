@@ -27,7 +27,7 @@ class Security {
              
     public static function login($username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false, $password_sha_new=NULL){
         self::startSession();        
-        $_SESSION['user'] = NULL;
+        $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] = NULL;
                 
         //Database check
         if(isset($password_md5)){      
@@ -53,7 +53,8 @@ class Security {
             $row[\SYSTEM\DBD\system_user::FIELD_PASSWORD_SHA] = $pw;
         }            
         // set session variables
-        $_SESSION['user'] = new User(   $row[\SYSTEM\DBD\system_user::FIELD_ID],
+        $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] =
+                            new User(   $row[\SYSTEM\DBD\system_user::FIELD_ID],
                                         $row[\SYSTEM\DBD\system_user::FIELD_USERNAME],
                                         $row[\SYSTEM\DBD\system_user::FIELD_EMAIL],
                                         $row[\SYSTEM\DBD\system_user::FIELD_JOINDATE],
@@ -73,7 +74,7 @@ class Security {
     public static function getUser(){
         if(!self::isLoggedIn()){
             return NULL;}
-        return $_SESSION['user'];}
+        return $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)];}
 
     // Determine if username exists
     public static function available($username){        
@@ -118,9 +119,8 @@ class Security {
         
     public static function isLoggedIn(){
         self::startSession();
-        return (isset($_SESSION['user']) &&
-                $_SESSION['user'] instanceof User &&
-                $_SESSION['user']->base_url === \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));}
+        return (isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&
+                $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User);}
         
     private static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
