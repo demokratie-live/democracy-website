@@ -9,7 +9,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         } else {
             $res = $con->query('SELECT * FROM system_todo LEFT JOIN system_user ON system_todo.author = system_user.ID ORDER BY state, time DESC;');
         }
-        $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+        $result =   '<div id="table-wrapper"><table class="table table-hover table-condensed sai_table" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'Time ago'.'</th>'.'<th>'.'Time'.'</th>'.'<th>'.'Reporttype'.'</th>'.'<th>'.'Message'.'</th>'.'<th>'.'Author'.'</th>'.'<th>'.'Volunteers'.'</th>'.'<th>'.'State'.'</th>'.'<th>'.'Action'.'</th>'.'</tr>';
         while($row = $res->next()){
             $result .=  '<tr class="'.self::trclassbytype($row['type']).'">'.

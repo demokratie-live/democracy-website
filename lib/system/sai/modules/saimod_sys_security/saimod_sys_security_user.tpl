@@ -1,4 +1,4 @@
-<tr class="user_entry ${class}" username="${username}">
+<tr class="user_entry ${class} sai_table" username="${username}">
     <td>${id}</td>
     <td>${username}</td>
     <td>${email}</td>
@@ -11,6 +11,6 @@
         <input type="submit" class="btn-danger" value="delete" user="${id}" action="delete">
     </td>-->
     <td>
-        <button type="submit" class="btn" value="reset_password" user="${id}" email="${email}">send EMail</button>
+        <button type="submit" class="btn-sm btn-success" value="reset_password" user="${id}" email="${email}">send EMail</button>
     </td>
 </tr>

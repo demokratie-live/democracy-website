@@ -1,5 +1,5 @@
 <h4>New Right</h4>
-<table class="table">
+<table class="table sai_table">
     <tr>
         <td>ID</td>
         <td><input id="addright_id" type="number" value="1"/></td>

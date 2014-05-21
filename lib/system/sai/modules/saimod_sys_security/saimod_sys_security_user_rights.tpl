@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table sai_table">
     <tr>
         <th>ID</td>
         <th>Name</th>

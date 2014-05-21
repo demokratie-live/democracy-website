@@ -1,3 +1,5 @@
+<h4>System API</h4>
+<hr>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="localetab">
         ${tabopts}

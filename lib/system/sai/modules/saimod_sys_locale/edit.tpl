@@ -1,4 +1,4 @@
-<h3>${entry}</h3>               
+<h4>${entry}</h4>               
 <table class="table table-hover table-condensed" style="overflow: auto;">
     <tr>${langhead}</tr>
     <tr>${content}</tr>

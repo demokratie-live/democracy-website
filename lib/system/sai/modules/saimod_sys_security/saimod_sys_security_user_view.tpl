@@ -2,7 +2,7 @@
     <h2 class="muted">Userinfo for User: ${username}</h2>
     <h4 class="text-info">Basics</h4>
 </div>
-<table class="table">
+<table class="table sai_table">
     <tr>
         <th>ID</th>
         <td>${id}</td>

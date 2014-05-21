@@ -3,8 +3,8 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
-        $result =   '<h3>Sys Config</h3>'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+        $result =   '<h4>System Config</h4><hr>'.
+                    '<table class="table table-hover table-condensed sai_table" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'Config ID'.'</th>'.'<th>'.'Config Name'.'</th>'.'<th>'.'Value'.'</th>'.'</tr>';
         
         $result .= '<tr>'.'<th>Basics</th>'.'<th></th><th></th>'.'</tr>';
