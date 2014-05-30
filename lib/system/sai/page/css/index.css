@@ -26,3 +26,15 @@
     width: 1200px;
     height: 650px;
 }
+
+.sai_p_modules {
+    border-left: 3px solid #1C569C;
+}
+.sai_p_modules:hover {
+    border-right: 3px solid #1C569C;
+    border-left: 0;
+}
+.sai_p_modules:active {
+    border-right: 3px solid #1C569C;
+    border-left: 0;
+}
