@@ -36,7 +36,8 @@ class default_page extends \SYSTEM\PAGE\Page {
 
     private function css(){        
         $result = '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
-                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/index.css').'" type="text/css" />';        
+                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/index.css').'" type="text/css" />'.
+                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_table.css').'" type="text/css" />';        
         return $result;
     }
 
