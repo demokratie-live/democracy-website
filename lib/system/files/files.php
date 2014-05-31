@@ -44,7 +44,8 @@ class files {
             throw new \SYSTEM\LOG\ERROR("No matching Cat '" . $cat . "' found.");}
         if(!file_exists(self::$folders[$cat].$id)){
             return false;}
-        return rename(self::$folders[$cat].$id, self::$folders[$cat].$newid); 
+        $ext = pathinfo(self::$folders[$cat].$id);
+        return rename(self::$folders[$cat].$id, self::$folders[$cat].$newid.'.'.$ext['extension']); 
     }
 
     private static function getFolder($folder) {
