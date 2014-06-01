@@ -16,13 +16,13 @@
         <h4 class="modal-title" id="modaltitle">${id}</h4>
       </div>
       <div class="modal-body">
-                <textarea id="contenttextarea" name="content" style="width:100%">
-                    
-                </textarea>
+        <textarea id="contenttextarea" name="content" style="width:100%"></textarea>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="changetext">Save changes</button>
+      <div class="modal-footer">          
+          <div id="modal_success" style="display: none;"><font color="green">Changes have been saved!</font></div>
+          <div id="modal_fail" style="display: none;"><font color="red">Changes could not be saved!</font></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="changetext">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
