@@ -2,7 +2,7 @@
 
 namespace SYSTEM\SAI;
 
-abstract class SaiModule extends \SYSTEM\API\api_system{
+class SaiModule extends \SYSTEM\API\api_system{
     public static function default_page(){
         $sai = new \SYSTEM\SAI\default_page();
         return $sai->html();}
