@@ -44,6 +44,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
+                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/lang_switcher.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
                   '<script src="https://maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>'.
                   '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
@@ -64,6 +65,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['navimg'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG);
         $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE); //da_sense | Developer Center
         $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT); //&copy; <a href="http://www.da-sense.de" target="_blank">da_sense</a>, TU Darmstadt 2013
+        $vars['PATH_LOCAL_IMG'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/img/');
         
         $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/sai.tpl'), $vars);        
