@@ -1,7 +1,7 @@
-<div class="tab-pane ${active}" id="tab_${tab_id}">
-    <table class="table table-hover table-condensed" style="overflow: auto;">
+<div class="tab-pane" id="tab_${lang}">
+    <table class="table table-hover table-condensed sai_table locale_table" style="overflow: auto;">
         <tr>
-            <th>ID</th><th>Category</th>${langhead}    
+            <th>ID</th><th>Category</th><th>${lang}</th>    
         </tr>
         ${content}
     </table>

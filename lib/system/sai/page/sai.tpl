@@ -22,7 +22,7 @@
             </div>
         </div>                
         <div id="project_navbar" style="width:224px; position: fixed; left: 0px; bottom: 0px; top: 38px;">
-            <ul class="nav nav-tabs nav-stacked">                
+            <ul class="nav nav-tabs nav-stacked sai_project_modules">                
                 ${menu_proj}
             </ul>       
         </div>    

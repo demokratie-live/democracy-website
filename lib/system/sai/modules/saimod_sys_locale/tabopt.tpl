@@ -1,1 +1,1 @@
-<li class="${active}"><a href="#tab_${tab_id}">Group ${tab_id}</a></li>
+<li class="${active}_groups groups" id="${tab_id}"><a href="#">Group ${tab_id}</a></li>
