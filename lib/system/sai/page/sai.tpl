@@ -15,8 +15,7 @@
                     <img src="${navimg}" height="24" width="24"/>
                 </div>
                 <a class="brand" href="#" style="width: 159px;">SAI</a>
-                <a href="javascript:switchLocale('deDE');"><img src="${PATH_LOCAL_IMG}flag_germany.png" alt="Deutsch"></a>
-                <a href="javascript:switchLocale('enUS');"><img src="${PATH_LOCAL_IMG}flag_usa.png" alt="English"></a>
+                ${lang_switcher}
                 <ul class="nav">
                     ${menu_start}
                     ${menu_sys}
