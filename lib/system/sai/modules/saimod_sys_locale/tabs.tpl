@@ -29,7 +29,7 @@
           <div id="modal_success" style="display: none;"><font color="green">Changes have been saved!</font></div>
           <div id="modal_fail" style="display: none;"><font color="red">Changes could not be saved!</font></div>
           <Button type="button" id="del_text" class="btn-small btn-danger" style="float: left;">Delete</button>
-          <button type="button" class="btn" data-dismiss="modal">Close</button>
+          <button type="button" class="btn" data-dismiss="modal" id="edit_close">Close</button>
           <button type="button" class="btn btn-primary" id="changetext">Save changes</button>
           <button type="button" class="btn btn-primary" id="newtext" style="display: none;">Save new text</button>
       </div>
