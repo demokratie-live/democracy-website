@@ -1,1 +1,1 @@
-<li id="${langs}" class="langli"><a href="#tab_content">${langs}</a></li>
+<li id="${langs}" class="langli"><a href="#">${langs}</a></li>

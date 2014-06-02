@@ -73,36 +73,10 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $category){                
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}
-        
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_addmode(){
-         $vars = array();         
-         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/add.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_DEL::QI(array($id)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data"));}
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_editmode($entry){
-        $r = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ID::Q1(array($entry));        
-        if(!$r){
-            throw new \SYSTEM\LOG\ERROR("No such Entry found!");}
-            
-        $vars = array();
-        $vars['entry'] = $entry;
-        $vars['langhead'] = '';
-                    
-        foreach (self::getLanguages() as $lang){
-            $vars['langhead'] .= '<th>'.$lang.'</th>';
-            $languages[] = $lang;
-        }                                                            
-        $vars['content'] = '';
-        foreach ($languages as $lang){
-            $r['lang'] = $lang;
-            $r['value'] = $r[$lang];
-            $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/edit_entry.tpl'), $r);}
-            
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/edit.tpl'), $vars);
-    }
-    
+      
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_locale">Text</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_LOCALE);}
