@@ -15,8 +15,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="modaltitle">${id}</h4>
-        <input type="text" value="Text ID" id="new_text_id" style="display: none;"> 
+        <input type="text" id="new_text_id" placeholder="new title here..." style="display: none;" /> 
       </div>
+        <div class="tabbable">
+            <ul class="nav nav-tabs" id="langtabs_">
+                ${langs}
+            </ul>
+        </div>
         <div class="modal-body" id="modaltextarea" style="display: none;">
         <textarea id="contenttextarea" name="content" style="width:100%"></textarea>
       </div>

@@ -26,7 +26,8 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         }    
         $langtab['langs'] = $langtab_;
         $langhead = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/langtabs.tpl'), $langtab);
-        $vars['tabs'] = $langhead; 
+        $vars['tabs'] = $langhead;
+        $vars['langs'] = $langtab_;
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tabs.tpl'), $vars);
                 //.\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/editmode.tpl'), $vars);
     }
