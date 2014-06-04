@@ -1,4 +1,4 @@
-<tr class="${tr_class}">
+<tr class="${tr_class} api_entries" id="${ID}" group="${group}" typ="${type}" parentID="${parentID}" parentValue="${parentValue}" name="${name}" verify="${verify}">
     <td>${ID}</td>
     <td>${group}</td>
     <td>${type}</td>
