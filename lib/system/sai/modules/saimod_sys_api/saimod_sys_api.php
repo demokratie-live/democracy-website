@@ -50,6 +50,13 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return $result;*/
     }
     
+    public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID){
+        new \SYSTEM\LOG\WARNING("api call added");
+        new \SYSTEM\LOG\WARNING(print_r($ID, true));
+        $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID));
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/delete_dialog.tpl'), $res);
+    }
+    
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         new \SYSTEM\LOG\WARNING("api call added");
         $res = \SYSTEM\DBD\SYS_SAIMOD_API_ADD::QI(array($ID,$group,$type,$parentID,$parentValue,$name,$verify));
