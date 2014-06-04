@@ -34,7 +34,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_load($lang, $group){
         $con = new \SYSTEM\DB\Connection();
-        $query = 'SELECT id, '.$lang.' FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE category='.$group.' ORDER BY category ASC;';
+        $query = 'SELECT id, "'.$lang.'" FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\system_locale_string::NAME_MYS).' WHERE category='.$group.' ORDER BY category ASC;';
             $res = $con->query($query);
             $entries = '';
             $temparr = array();
@@ -49,7 +49,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_singleload($id, $lang){
         $con = new \SYSTEM\DB\Connection();
         $result = "";
-        $query = 'SELECT `'.$lang.'` FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
+        $query = 'SELECT "'.$lang.'" FROM '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\system_locale_string::NAME_MYS).' WHERE id=\''.$id.'\' ORDER BY category ASC;';
         new \SYSTEM\LOG\WARNING($query);
             $res = $con->query($query);
             $entries = '';
@@ -65,9 +65,9 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;         
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_PG.' SET "'.$lang.'"=$1 WHERE category = $1 AND id=$2;', array($newtext, $category, $id));
+            $res = $con->prepare('newText' ,'UPDATE '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\system_locale_string::NAME_MYS).' SET "'.$lang.'"=$1 WHERE category = $1 AND id=$2;', array($newtext, $category, $id));
         } else {
-            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' SET '.$lang.'=? WHERE category = ? AND id=?;', array($newtext, $category, $id));
+            $res = $con->prepare('newText' ,'UPDATE '.(\SYSTEM\system::isSystemDbInfoPG() ? \SYSTEM\DBD\system_locale_string::NAME_PG : \SYSTEM\DBD\system_locale_string::NAME_MYS).' SET '.$lang.'=? WHERE category = ? AND id=?;', array($newtext, $category, $id));
         }
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
