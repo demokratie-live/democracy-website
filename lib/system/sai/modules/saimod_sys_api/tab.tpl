@@ -10,5 +10,5 @@
             <th>Verify</th>
         </tr>
         ${content}
-    </table>
+    </table>    
 </div>
