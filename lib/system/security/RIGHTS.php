@@ -13,6 +13,9 @@ class RIGHTS {
     const SYS_SAI_LOCALE                = 10;
     //Image Module
     const SYS_SAI_FILES                 = 15;
+    //Api Module
+    const SYS_SAI_API                   = 20;
+    const SYS_SAI_API_EDIT              = 21;
     
     //Reserve first 1000 ids.
     const RESERVED_SYS_0_999 = 999;
