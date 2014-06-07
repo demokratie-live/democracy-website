@@ -49,7 +49,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_singleload($id, $lang){
         $con = new \SYSTEM\DB\Connection();
         $result = "";
-        $query = 'SELECT `'.$lang.'` FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
+        $query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
         new \SYSTEM\LOG\WARNING($query);
             $res = $con->query($query);
             $entries = '';
