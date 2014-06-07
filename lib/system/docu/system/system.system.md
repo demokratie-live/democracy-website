@@ -154,7 +154,9 @@
   * E: 00:01:33: mmh ?
 
   - ##### A: 00:01:38:  s_algo
+
   - ##### A: 00:01:45: so soll die klasse heißen
+
   - ##### A: 00:01:56: s_algo.php
 
   * ##### * E: 00:01:58: ja so heißt sie
