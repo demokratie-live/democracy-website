@@ -1,0 +1,7 @@
+<?php
+namespace SYSTEM\CRON;
+
+class cronjob {
+    public static function run(){
+        new \RuntimeException("Unimplemented!");}
+}

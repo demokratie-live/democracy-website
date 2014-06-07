@@ -26,14 +26,12 @@ require_once dirname(__FILE__).'/system/autoload.php';
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/db/qq','SYSTEM\DB');
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/security','SYSTEM\SECURITY');
-
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/config','SYSTEM\CONFIG');
-
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/cache','SYSTEM\CACHE');
-
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/sai','SYSTEM\SAI');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/docu','SYSTEM\DOCU');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/files','SYSTEM\FILES');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/cron','SYSTEM\CRON');
 
 require_once dirname(__FILE__).'/lib/autoload.inc.php';
 require_once dirname(__FILE__).'/docu/register_sys_docu.php';

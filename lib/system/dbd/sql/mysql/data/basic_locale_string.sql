@@ -1,3 +1,4 @@
+DELETE FROM system_locale_string WHERE category = 1;
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_logout', 1, 'Logout', 'Ausloggen');
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_login', 1, 'Login', 'Einloggen');
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_register', 1, 'Register', 'Registrieren');

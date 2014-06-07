@@ -27,7 +27,10 @@ class api_system extends api_login{
         return \SYSTEM\SECURITY\Security::check($rightid);}
     public static function call_account_action_create($username, $password_sha, $email, $locale){
         return \SYSTEM\SECURITY\Security::create($username, $password_sha, $email, $locale);}*/
-        
+    
+    public static function call_cron(){
+        return \SYSTEM\CRON\cron::run();}
+    
     public static function call_locale($request,$lang){        
         return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\locale::getStrings($request, $lang));}
         
@@ -37,5 +40,5 @@ class api_system extends api_login{
     public static function static__lang($lang){
         \SYSTEM\locale::set($lang);}        
     public static function static__result($result){
-        \SYSTEM\CONFIG\config::set(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT, $result);}    
+        \SYSTEM\CONFIG\config::set(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT, $result);}
 }

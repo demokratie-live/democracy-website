@@ -51,21 +51,21 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID){
-        new \SYSTEM\LOG\WARNING("api call added");
-        new \SYSTEM\LOG\WARNING(print_r($ID, true));
         $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/delete_dialog.tpl'), $res);
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
-        new \SYSTEM\LOG\WARNING("api call added");
-        $res = \SYSTEM\DBD\SYS_SAIMOD_API_ADD::QI(array($ID,$group,$type,$parentID,$parentValue,$name,$verify));
+        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
+            throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
+        \SYSTEM\DBD\SYS_SAIMOD_API_ADD::QI(array($ID,$group,$type,$parentID,$parentValue,$name,$verify));
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID){
-        new \SYSTEM\LOG\WARNING("api call deleted");
-        $res = \SYSTEM\DBD\SYS_SAIMOD_API_DEL::QI(array($ID));
+        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
+            throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
+        \SYSTEM\DBD\SYS_SAIMOD_API_DEL::QI(array($ID));
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
@@ -91,7 +91,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_api">API</a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_api_flag_css(){
         return \SYSTEM\LOG\JsonResult::toString(

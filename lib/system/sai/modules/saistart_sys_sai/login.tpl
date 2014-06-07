@@ -9,7 +9,7 @@ ${basic_text_login}
                     size="30"
                     style="margin-bottom: 15px;"
                     id="bt_login_user"
-                    placeholder="${sai_placeholder_username}"
+                    placeholder="${basic_placeholder_username}"
                     minlength="3" data-validation-minlength-message="${sai_error_username_short}"
                     maxlength="16" data-validation-maxlength-message="${sai_error_username_long}"
                     required data-validation-required-message="${sai_error_username_miss}"/>
@@ -19,7 +19,7 @@ ${basic_text_login}
                     size="30"
                     style="margin-bottom: 15px;"
                     id="bt_login_password"
-                    placeholder="${sai_placeholder_password}"
+                    placeholder="${basic_placeholder_password}"
                     minlength="5" data-validation-minlength-message="${sai_error_password_short}"
                     maxlength="16" data-validation-maxlength-message="${sai_error_password_long}"
                     required data-validation-required-message="${sai_error_password_miss}"/>
