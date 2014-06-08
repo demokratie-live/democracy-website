@@ -12,3 +12,4 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_cache','SYSTEM\SA
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_docu','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_todo','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_files','SYSTEM\SAI');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_cron','SYSTEM\SAI');
