@@ -3,7 +3,7 @@
 <hr>
 <div id="cron_content">    
 <div class="tabbable">
-    <ul class="nav nav-tabs" id="localetab">
+    <ul class="nav nav-tabs" id="crontab">
         ${tabopts}
     </ul>
     <div class="tab-content">
