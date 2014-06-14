@@ -21,7 +21,10 @@ class files {
         if (!in_array($id, $folder)) {
             throw new \SYSTEM\LOG\ERROR("No matching ID '" . $id . "' found.");}
 
-        \SYSTEM\HEADER::PNG();
+        $ext = pathinfo(self::$folders[$cat].$id);
+        $ext = strtoupper(array_key_exists('extension', $ext) ? $ext['extension'] : '');
+        if(\SYSTEM\HEADER::available($ext)){
+            call_user_func('\SYSTEM\HEADER::'.$ext);}
         return file_get_contents(self::$folders[$cat].$id);
     }
 
