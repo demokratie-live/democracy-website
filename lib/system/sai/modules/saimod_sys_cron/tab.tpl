@@ -1,4 +1,4 @@
-<div class="tab-pane ${active}" id="tab_${tab_id}">
+<div class="tab-pane active" id="tab_cron">
     <table class="table table-hover table-condensed" style="overflow: auto;">
         <tr>
             <th>class</th>
