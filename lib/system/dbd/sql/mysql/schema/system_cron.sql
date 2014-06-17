@@ -1,0 +1,13 @@
+CREATE TABLE `system_cron` (
+	`class` CHAR(255) NOT NULL,
+	`min` INT(10) NULL DEFAULT NULL,
+	`hour` INT(10) NULL DEFAULT NULL,
+	`day` INT(10) NULL DEFAULT NULL,
+	`day_week` INT(10) NULL DEFAULT NULL,
+	`month` INT(10) NULL DEFAULT NULL,
+	`last_run` TIMESTAMP NULL DEFAULT NULL,
+	`status` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`class`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
