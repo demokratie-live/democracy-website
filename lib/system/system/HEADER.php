@@ -2,7 +2,6 @@
 namespace SYSTEM;
 
 class HEADER {
-    
     private static function checkHeader(){
         $file = null;
         $line = null;
@@ -28,6 +27,10 @@ class HEADER {
     public static function GIF(){
         if(self::checkHeader()){
             header('content-type:image/gif;');}}
+            
+    public static function FILE($filename){
+        header("Content-type: application/octet-stream");
+        header("Content-Disposition: attachment; filename=\"".$filename."\"");}
     
     public static function available($datatype){
         $datatype = strtoupper($datatype);

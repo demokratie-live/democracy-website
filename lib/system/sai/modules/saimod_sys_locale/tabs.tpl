@@ -10,12 +10,19 @@
     </div>
 </div>
 <div id="editfield">
-<div class="modal fade" id="modal" style="width: 700px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_main" style="width: 700px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="modaltitle">${id}</h4>
-        <input type="text" id="new_text_id" placeholder="new title here..." style="display: none;" /> 
+        <div id="new_category_id" style="display: none;">
+            <h5>Category ID</h5>
+            <input id="new_category_id_input" type="text" placeholder="New category ID here..."/>
+        </div>
+        <div id="new_text_id" style="display: none;">
+            <h5>Text ID</h5>
+            <input id="new_text_id_input" type="text" placeholder="New text ID here..."/>
+        </div>
       </div>
         <div id="addtext" style="display: none;">
         <div class="tabbable">
