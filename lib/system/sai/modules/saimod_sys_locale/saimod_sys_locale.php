@@ -74,7 +74,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $category){                
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}
-    
+  
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_DEL::QI(array($id)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data"));}
       
