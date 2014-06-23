@@ -31,7 +31,7 @@ class api_system extends api_login{
     public static function call_cron(){
         return \SYSTEM\CRON\cron::run();}
     
-    public static function call_locale($request,$lang){        
+    public static function call_text($request,$lang){        
         return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\locale::getStrings($request, $lang));}
         
     public static function call_files($cat,$id = null){
