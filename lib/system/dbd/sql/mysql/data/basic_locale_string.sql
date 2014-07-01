@@ -10,6 +10,7 @@ INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('b
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_locale', 1, 'Locale', 'Sprache');
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_admin_rights', 1, 'Admin Rights', 'Admin Rechte');
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_cancel', 1, 'Cancel', 'Abbrechen');
+INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_close', 1, 'Close', 'Schlie&szlig;en');
 
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_text_logout', 1, 'Logout before you leave!', 'Loggen Sie sie sich aus bevor Sie gehen!');
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('basic_text_login', 1, 'Login to your Website.', 'Loggen Sie sich in ihre Website ein.');
