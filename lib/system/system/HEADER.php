@@ -27,6 +27,9 @@ class HEADER {
     public static function GIF(){
         if(self::checkHeader()){
             header('content-type:image/gif;');}}
+    public static function JS(){
+        if(self::checkHeader()){
+            header('content-type:application/javascript;');}}
             
     public static function FILE($filename){
         header("Content-type: application/octet-stream");
