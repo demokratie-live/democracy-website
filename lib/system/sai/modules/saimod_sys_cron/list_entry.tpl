@@ -1,4 +1,4 @@
-<tr class="${tr_class} cron_entries">
+<tr class="${tr_class} cron_entries" cls="${class}">
     <td>${class}</td>
     <td>${min}</td>
     <td>${hour}</td>
