@@ -50,13 +50,11 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         $con = new \SYSTEM\DB\Connection();
         $result = "";
         $query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
-        new \SYSTEM\LOG\WARNING($query);
-            $res = $con->query($query);
-            $entries = '';
-            $temparr = array();
-            while($r = $res->next()){  
-                $entries .= $r[$lang];
-                }
+        $res = $con->query($query);
+        $entries = '';
+        $temparr = array();
+        while($r = $res->next()){  
+            $entries .= $r[$lang];}
         return $entries;
     }
     
