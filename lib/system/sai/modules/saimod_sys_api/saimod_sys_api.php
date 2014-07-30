@@ -58,6 +58,8 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
+        if($parentValue == ''){ $parentValue = NULL;}
+        if($verify      == ''){ $verify = NULL;}
         \SYSTEM\DBD\SYS_SAIMOD_API_ADD::QI(array($ID,$group,$type,$parentID,$parentValue,$name,$verify));
         return \SYSTEM\LOG\JsonResult::ok();
     }

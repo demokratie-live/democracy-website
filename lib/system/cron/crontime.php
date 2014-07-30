@@ -46,7 +46,7 @@ class crontime {
         return mktime($last_hour, $last_min, 0, $last_month, $last_day, $last_year);
     }
     public static function check($base_time,$last_run,$min,$hour,$day,$day_week,$month){
-        return crontime::next($last_run, $min, $hour, $day, $day_week, $month) < $base_time ? true : false;}
+        return self::next($last_run, $min, $hour, $day, $day_week, $month) < $base_time ? true : false;}
     public static function next_now($min,$hour,$day,$day_week,$month){
         self::next(time(),$min,$hour,$day,$day_week,$month);}
     public static function last_now($min,$hour,$day,$day_week,$month){

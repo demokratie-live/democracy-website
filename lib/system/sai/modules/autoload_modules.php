@@ -13,3 +13,5 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_docu','SYSTEM\SAI
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_todo','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_files','SYSTEM\SAI');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/saimod_sys_cron','SYSTEM\SAI');
+
+require_once dirname(__FILE__).'/register_modules.php';
