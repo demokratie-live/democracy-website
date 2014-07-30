@@ -9,3 +9,5 @@ INSERT INTO `system_rights` (`ID`, `name`, `description`) VALUES (15, 'SYS_SAI_I
 
 INSERT INTO `system_rights` (`ID`, `name`, `description`) VALUES (20, 'SYS_SAI_API', 'SAI API Access right');
 INSERT INTO `system_rights` (`ID`, `name`, `description`) VALUES (21, 'SYS_SAI_API_EDIT', 'SAI API Edit right');
+
+INSERT INTO `system_rights` (`ID`, `name`, `description`) VALUES (25, 'SYS_SAI_CRON', 'SAI Cron Access right');

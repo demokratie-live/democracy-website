@@ -1,26 +1,24 @@
-<div id="api_deletedialog">
-<h5>Api Call: ${ID}</h5>
+<div id="cron_deletedialog">
+<h5>Cron Job: ${class}</h5>
 <hr>
     <table class="table sai_table">
         <tr>
-            <th>ID</th>
-            <th>Group</th>
-            <th>Type</th>
-            <th>ParentID</th>
-            <th>ParentValue</th>
-            <th>Name</th>
-            <th>Verify</th>
+            <th>class</th>
+            <th>min</th>
+            <th>hour</th>
+            <th>day</th>
+            <th>day_week</th>
+            <th>month</th>
         </tr>
         <tr>
-            <td>${ID}</td>
-            <td>${group}</td>
-            <td>${type}</td>
-            <td>${parentID}</td>
-            <td>${parentValue}</td>
-            <td>${name}</td>
-            <td>${verify}</td>
+            <td>${class}</td>
+            <td>${min}</td>
+            <td>${hour}</td>
+            <td>${day}</td>
+            <td>${day_week}</td>
+            <td>${month}</td>
         </tr>
     </table>
 </div>
-<button type="button" class="btn btn-small btn-danger" id="del_api_del">Delete</button>
-<button type="button" class="btn btn-small" id="del_api_close">Close</button>
+<button type="button" class="btn btn-small btn-danger" cls="${class}" id="del_cron_del">Delete</button>
+<button type="button" class="btn btn-small" id="del_cron_close">Close</button>
