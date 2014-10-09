@@ -2,7 +2,7 @@
     <h4>System Cron</h4>
     <hr>
     <div id="cron_content">
-        <table class="table table-hover table-condensed" style="overflow: auto;">
+        <table class="table table-hover table-condensed sai_table" style="overflow: auto;">
             <tr>
                 <th>class</th>
                 <th>min</th>

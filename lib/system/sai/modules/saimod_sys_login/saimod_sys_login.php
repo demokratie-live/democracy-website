@@ -17,9 +17,9 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
                                     \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_BASIC));
         
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/logout.tpl'), $vars);        
+            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/logout.tpl'), $vars);        
         } else {
-            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/login.tpl'), $vars);}
+            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/login.tpl'), $vars);}
     }
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_logout(){
@@ -44,7 +44,7 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars = array_merge($vars,  \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI),
                                     \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI_ERROR),
                                     \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_BASIC));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/register.tpl'), $vars);}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/register.tpl'), $vars);}
 
     public static function html_li_menu(){return '</ul><ul class="nav pull-right"><li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_login" id="sai_login_loginmenuli">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? 'Logout' : 'Login').'</a></li>';}
     public static function right_public(){return true;}    

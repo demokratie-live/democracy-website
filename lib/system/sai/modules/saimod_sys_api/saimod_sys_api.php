@@ -19,7 +19,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
             $vars2 = array( 'active' => ($first ? 'active' : ''),
                             'tab_id' => $r['group']);
             $first = false;
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tabopt.tpl'), $vars2);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabopt.tpl'), $vars2);
         }      
         
         if(\SYSTEM\system::isSystemDbInfoPG()){
@@ -33,7 +33,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
             $tabs[$r['group']]['content'] = isset($tabs[$r['group']]['content']) ? $tabs[$r['group']]['content'] : '';
             $r['tr_class'] = self::tablerow_class($r['type']);
             $r['type'] = self::type_names($r['type']);
-            $tabs[$r['group']]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/list_entry.tpl'), $r);                        
+            $tabs[$r['group']]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/list_entry.tpl'), $r);                        
         }   
         
         $vars['tabs'] = '';
@@ -41,9 +41,9 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         foreach($tabs as $tab){
             $tab['active'] = ($first ? 'active' : '');
             $first = false;
-            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tab.tpl'), $tab);}
+            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tab.tpl'), $tab);}
                
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tabs.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabs.tpl'), $vars);
        
 /*        $result = "";
         $result .= '<tr class="'.self::tablerow_class($r['type']).'">'.'<td>'.$r['ID'].'</td>'.'<td>'.$r['group'].'</td>'.'<td>'.$r['type'].'</td>'.'<td>'.$r['parentID'].'</td>'.'<td>'.$r['parentValue'].'</td>'.'<td>'.$r['name'].'</td>'.'<td>'.$r['verify'].'</td>'.'</tr>';                                          
@@ -52,7 +52,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID){
         $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/delete_dialog.tpl'), $res);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/delete_dialog.tpl'), $res);
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){

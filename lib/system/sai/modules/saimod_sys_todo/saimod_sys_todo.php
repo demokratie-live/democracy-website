@@ -3,29 +3,17 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo(){
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM system.todo LEFT JOIN system.user ON system.todo.author = system.user.ID ORDER BY state, time DESC;');
-        } else {
-            $res = $con->query('SELECT * FROM system_todo LEFT JOIN system_user ON system_todo.author = system_user.ID ORDER BY state, time DESC;');
-        }
-        $result =   '<h4>ToDo</h4><hr><div id="table-wrapper"><table class="table table-hover table-condensed sai_table" style="overflow: auto;">'.                    
-                    '<tr>'.'<th>'.'Time ago'.'</th>'.'<th>'.'Time'.'</th>'.'<th>'.'Reporttype'.'</th>'.'<th>'.'Message'.'</th>'.'<th>'.'Author'.'</th>'.'<th>'.'Volunteers'.'</th>'.'<th>'.'State'.'</th>'.'<th>'.'Action'.'</th>'.'</tr>';
+        $result = '';
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ();
         while($row = $res->next()){
-            $result .=  '<tr class="'.self::trclassbytype($row['type']).'">'.
-                        '<td>'.self::time_elapsed_string(strtotime($row['time'])).'</td>'.'<td>'.$row['time'].'</td>'.
-                        '<td>'.self::reporttype($row['type']).'</td>'.
-                        '<td>'.$row['msg_1'].'</td>'.
-                        '<td>'.$row['username'].'</td>'.
-                        '<td>'.'I_S and many more'.'</td>'.
-                        '<td>'.self::state($row['state']).'</td>'.
-                        '<td>'. self::statebtn($row['state']).
-                                '<input type="submit" class="btn" value="edit">'.
-                                '<input type="submit" class="btn" value="assign">'.
-                                '<input type="submit" class="btn-danger" value="delete">'.'</td>'.'</tr>';
-        }                    
-        $result .= '</table>';
-        return $result;
+            $row['class_by_type'] = self::trclassbytype($row['type']);
+            $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
+            $row['report_type'] = self::reporttype($row['type']);
+            $row['state_string'] = self::state($row['state']);
+            $row['state_btn'] = self::statebtn($row['state']);
+            $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);            
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_list_elements' => $result));
     }   
     
     private static function time_elapsed_string($ptime)
