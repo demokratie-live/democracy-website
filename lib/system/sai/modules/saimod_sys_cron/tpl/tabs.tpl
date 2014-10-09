@@ -11,6 +11,7 @@
                 <th>day_week</th>
                 <th>month</th>
                 <th>last_run</th>
+                <th>next_run</th>
                 <th>status</th>
             </tr>
             ${content}

@@ -6,5 +6,6 @@
     <td>${day_week}</td>
     <td>${month}</td>
     <td>${last_run}</td>
+    <td>${next}</td>
     <td>${status}</td>
 </tr>

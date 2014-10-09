@@ -2,9 +2,9 @@
 namespace SYSTEM\CRON;
 
 class cron {    
-    private static function check($cron){
-        if( !\class_exists($cron) ||
-            !\is_array($parents = \class_parents($cron)) ||
+    public static function check($class){
+        if( !\class_exists($class) ||
+            !\is_array($parents = \class_parents($class)) ||
             !\array_search('SYSTEM\CRON\cronjob', $parents)){
             return false;}
         return true;}
@@ -17,7 +17,7 @@ class cron {
                 self::status($cron[\SYSTEM\DBD\system_cron::FIELD_CLASS], \SYSTEM\CRON\cronstatus::CRON_STATUS_FAIL_CLASS);
                 continue;}
             //time to execute?
-            if(!\SYSTEM\CRON\crontime::check_now(   time($cron[\SYSTEM\DBD\system_cron::FIELD_LAST_RUN]),
+            if(!\SYSTEM\CRON\crontime::check_now(   strtotime($cron[\SYSTEM\DBD\system_cron::FIELD_LAST_RUN]),
                                                     $cron[\SYSTEM\DBD\system_cron::FIELD_MIN],
                                                     $cron[\SYSTEM\DBD\system_cron::FIELD_HOUR],
                                                     $cron[\SYSTEM\DBD\system_cron::FIELD_DAY],
@@ -33,6 +33,19 @@ class cron {
             self::status($cron[\SYSTEM\DBD\system_cron::FIELD_CLASS], call_user_func(array($cron[\SYSTEM\DBD\system_cron::FIELD_CLASS],'run')));
         }
         return \SYSTEM\LOG\JsonResult::ok();
+    }
+    
+    public static function next($class){
+        $cron = \SYSTEM\DBD\SYS_CRON_GET::Q1(array($class));
+        //check module
+        if(!self::check($cron[\SYSTEM\DBD\system_cron::FIELD_CLASS])){
+            throw new \SYSTEM\LOG\ERROR("Given class is not a cronjob");}
+        //time
+        return \SYSTEM\CRON\crontime::next_now( $cron[\SYSTEM\DBD\system_cron::FIELD_MIN],
+                                                $cron[\SYSTEM\DBD\system_cron::FIELD_HOUR],
+                                                $cron[\SYSTEM\DBD\system_cron::FIELD_DAY],
+                                                $cron[\SYSTEM\DBD\system_cron::FIELD_DAY_WEEK],
+                                                $cron[\SYSTEM\DBD\system_cron::FIELD_MONTH]);
     }
     
     private static function status($class, $status){

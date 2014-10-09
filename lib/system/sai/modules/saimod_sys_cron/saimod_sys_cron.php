@@ -5,8 +5,9 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron(){
         $vars = array();
         $vars['content'] = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_CRON::QQ();        
+        $res = \SYSTEM\DBD\SYS_SAIMOD_CRON::QQ();
         while($r = $res->next()){
+            $r['next'] = date('Y-m-d H:i:s',\SYSTEM\CRON\cron::next($r['class']));
             $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/list_entry.tpl'), $r);}   
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/tabs.tpl'), $vars);
     }
