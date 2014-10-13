@@ -16,20 +16,20 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $vars2 = array( 'active' => ($first ? 'active' : ''),
                             'tab_id' => $r['category']);
             $first = false;
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tabopt.tpl'), $vars2);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/tabopt.tpl'), $vars2);
         }           
         $langtab_ = '';
         foreach (self::getLanguages() as $lang){
             $details['langs'] = $lang;
-            $langtab_ .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/langtabopt.tpl'), $details);
+            $langtab_ .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/langtabopt.tpl'), $details);
             $languages[] = $lang;
         }    
         $langtab['langs'] = $langtab_;
-        $langhead = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/langtabs.tpl'), $langtab);
+        $langhead = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/langtabs.tpl'), $langtab);
         $vars['tabs'] = $langhead;
         $vars['langs'] = $langtab_;
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tabs.tpl'), $vars);
-                //.\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/editmode.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/tabs.tpl'), $vars);
+                //.\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/editmode.tpl'), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_load($lang, $group){
@@ -41,7 +41,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             while($r = $res->next()){  
                 $temparr['lang'] = $r[$lang];
                 $temparr['id'] = $r['id'];
-                $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/entry.tpl'), $temparr);
+                $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/entry.tpl'), $temparr);
             }
         return $entries;
     }
@@ -50,13 +50,11 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         $con = new \SYSTEM\DB\Connection();
         $result = "";
         $query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
-        new \SYSTEM\LOG\WARNING($query);
-            $res = $con->query($query);
-            $entries = '';
-            $temparr = array();
-            while($r = $res->next()){  
-                $entries .= $r[$lang];
-                }
+        $res = $con->query($query);
+        $entries = '';
+        $temparr = array();
+        while($r = $res->next()){  
+            $entries .= $r[$lang];}
         return $entries;
     }
     

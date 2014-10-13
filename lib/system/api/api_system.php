@@ -14,6 +14,10 @@ class api_system extends api_login{
         
     public static function call_pagestates($group){
         return \SYSTEM\PAGE\State::get($group);}
+    public static function call_pagestates_flag_js($group){
+        return \SYSTEM\PAGE\State::get_js($group);}
+    public static function call_pagestates_flag_css($group){
+        return \SYSTEM\PAGE\State::get_css($group);}
         
     public static function static__lang($lang){
         \SYSTEM\locale::set($lang);}        

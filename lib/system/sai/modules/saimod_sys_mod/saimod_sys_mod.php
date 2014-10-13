@@ -29,7 +29,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         $vars=array();
         $vars['content_sys'] = self::html_content_sys();
         $vars['content_project'] = self::html_content_project();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/mods.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'), $vars);
                 
     }
     
