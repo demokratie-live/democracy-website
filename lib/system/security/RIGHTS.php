@@ -17,6 +17,8 @@ class RIGHTS {
     const SYS_SAI_API                   = 20;
     const SYS_SAI_API_EDIT              = 21;
     
+    const SYS_SAI_CRON                  = 25;
+    
     //Reserve first 1000 ids.
     const RESERVED_SYS_0_999 = 999;
 }
