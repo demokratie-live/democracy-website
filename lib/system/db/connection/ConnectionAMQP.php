@@ -28,12 +28,14 @@ class ConnectionAMQP extends ConnectionAbstr {
         $exchange->setFlags(AMQP_DURABLE);
         $exchange->setName('exchange2');
         $exchange->setType('direct');
-        $exchange->declare();
+        //$exchange->declare();
+        $exchange->declareExchange();
         
         $queue   = new \AMQPQueue($channel);
         $queue->setName('series');
         $queue->setFlags(AMQP_DURABLE | AMQP_AUTODELETE);
-        $queue->declare();
+        //$queue->declare();
+        $queue->declareQueue();
         $queue->bind('exchange2','series');
         
         $channel->startTransaction();
