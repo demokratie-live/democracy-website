@@ -13,7 +13,7 @@ class ConnectionPG extends ConnectionAbstr {
         $this->connection = pg_connect("host=".$dbinfo->m_host." port=".$dbinfo->m_port." dbname=".$dbinfo->m_database."
                                         user=".$dbinfo->m_user." password=".$dbinfo->m_password."");
         if(!$this->connection){
-            throw new \SYSTEM\LOG\ERROR('Could not connect to Database. Check ur Database Settings');}
+            throw new \Exception('Could not connect to Database. Check ur Database Settings');}
     }
 
     public function __destruct(){}

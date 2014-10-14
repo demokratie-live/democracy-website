@@ -18,7 +18,7 @@ class Connection extends ConnectionAbstr{
             $this->connection = new \SYSTEM\DB\ConnectionPG($dbinfo);
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoMYS){
             $this->connection = new \SYSTEM\DB\ConnectionMYS($dbinfo);
-        }  else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP){
+        } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP){
             $this->connection = new \SYSTEM\DB\ConnectionAMQP($dbinfo);
         } else {
             throw new \Exception('Could not understand Database Settings. Check ur Database Settings');}
