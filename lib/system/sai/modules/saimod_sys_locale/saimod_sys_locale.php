@@ -4,8 +4,7 @@ namespace SYSTEM\SAI;
 class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function getLanguages(){
-        return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);        
-    }
+        return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);}
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){        
         $vars = array();                        
@@ -34,22 +33,30 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_load($lang, $group){
         $con = new \SYSTEM\DB\Connection();
-        $query = 'SELECT id, '.$lang.' FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE category='.$group.' ORDER BY category ASC;';
-            $res = $con->query($query);
-            $entries = '';
-            $temparr = array();
-            while($r = $res->next()){  
-                $temparr['lang'] = $r[$lang];
-                $temparr['id'] = $r['id'];
-                $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/entry.tpl'), $temparr);
-            }
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $query = 'SELECT id, "'.$lang.'" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE category='.$group.' ORDER BY category ASC;';
+        } else {
+            $query = 'SELECT id, '.$lang.' FROM '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' WHERE category='.$group.' ORDER BY category ASC;';
+        }
+        $res = $con->query($query);
+        $entries = '';
+        $temparr = array();
+        while($r = $res->next()){  
+            $temparr['lang'] = $r[$lang];
+            $temparr['id'] = $r['id'];
+            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/entry.tpl'), $temparr);
+        }
         return $entries;
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_singleload($id, $lang){
         $con = new \SYSTEM\DB\Connection();
         $result = "";
-        $query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
+        if(\SYSTEM\system::isSystemDbInfoPG()){
+            $query = 'SELECT "'.$lang.'" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE id=\''.$id.'\' ORDER BY category ASC;';
+        } else {
+            $query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
+        }
         $res = $con->query($query);
         $entries = '';
         $temparr = array();
