@@ -23,6 +23,7 @@
                 <td><input type="text" id="new_cron_day_week" placeholder="day_week" style="width: 140px;"></td>
                 <td><input type="text" id="new_cron_month" placeholder="month" style="width: 140px;"></td>
                 <td></td>
+                <td></td>
                 <td><button type="button" class="btn-small btn-success" id="addcron">Add</button></td>
             </tr>    
         </table>
