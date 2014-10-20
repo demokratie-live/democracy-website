@@ -16,6 +16,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo.tpl'), $vars);
     }
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_new(){
+        $vars = array();        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_new.tpl'), $vars);
+    }
+    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist(){
         $result = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_LIST::QQ();
