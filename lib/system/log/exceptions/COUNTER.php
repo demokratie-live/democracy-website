@@ -1,5 +1,5 @@
 <?php
 namespace SYSTEM\LOG;
 
-class COUNTER extends \SYSTEM\LOG\INFO{}
+class COUNTER extends \SYSTEM\LOG\INFO {}
 

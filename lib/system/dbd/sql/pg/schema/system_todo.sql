@@ -19,7 +19,8 @@ CREATE TABLE system.todo
   "user" integer,
   thrown integer,
   "type" integer NOT NULL DEFAULT 0,
-  "count" integer NOT NULL DEFAULT 0,
+  "count" integer NOT NULL DEFAULT 1,
+  "state" integer NOT NULL DEFAULT 0,
   CONSTRAINT system_todo_pk_id PRIMARY KEY ("ID"),
   CONSTRAINT system_todo_fk_user FOREIGN KEY ("user")
       REFERENCES system."user" (id) MATCH SIMPLE

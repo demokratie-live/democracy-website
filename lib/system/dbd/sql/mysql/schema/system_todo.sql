@@ -18,7 +18,8 @@ CREATE TABLE `system_todo` (
 	`user` INT(10) UNSIGNED NOT NULL,
 	`thrown` BIT(1) NOT NULL,
 	`type` INT(11) NOT NULL DEFAULT '0',
-	`count` INT(11) NOT NULL DEFAULT '0',
+	`count` INT(11) NOT NULL DEFAULT '1',
+        `state` INT(11) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`ID`)
 )
 COLLATE='utf8_general_ci'

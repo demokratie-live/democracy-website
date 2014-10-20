@@ -1,16 +1,17 @@
-<h4>ToDo</h4>
-<hr>
 <div id="table-wrapper">
-    <table class="table table-hover table-condensed sai_table" style="overflow: auto;">
+    Rows: ${count}
+    <table class="table table-hover table-condensed">
         <tr>
-            <th>Time ago</th>
-            <th>Time</th>
-            <th>Reporttype</th>
-            <th>Message</th>
-            <th>Author</th>
-            <th>Volunteers</th>
-            <th>State</th>
-            <th>Action</th>
+            <th>time ago</th>
+            <th>class</th>
+            <th>message</th>
+            <th>file</th>
+            <th>line</th>
+            <th>ip</th>
+            <th>url</th>
+            <th>user</th>
+            <th>querytime</th>
+            <th>count</th>
         </tr>
         ${todo_list_elements}
     </table>

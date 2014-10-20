@@ -1,4 +1,4 @@
 <?php
 namespace SYSTEM\LOG;
 
-class WARNING extends \SYSTEM\LOG\SYSTEM_EXCEPTION {}
+class WARNING extends \SYSTEM\LOG\TODO {}
