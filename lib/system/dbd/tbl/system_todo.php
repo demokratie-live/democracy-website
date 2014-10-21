@@ -8,6 +8,7 @@ class system_todo {
     const FIELD_ID                  = 'ID';
     const FIELD_CLASS               = 'class';
     const FIELD_MESSAGE             = 'message';
+    const FIELD_MESSAGE_HASH        = 'message_hash';
     const FIELD_CODE                = 'code';
     const FIELD_FILE                = 'file';
     const FIELD_LINE                = 'line';
