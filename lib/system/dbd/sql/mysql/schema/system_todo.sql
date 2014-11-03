@@ -2,8 +2,9 @@ CREATE TABLE `system_todo` (
 	`ID` INT(10) NOT NULL AUTO_INCREMENT,
 	`class` TEXT NOT NULL,
 	`message` TEXT NOT NULL,
+	`message_hash` CHAR(40) NOT NULL,
 	`code` INT(10) UNSIGNED NOT NULL,
-	`file` TEXT NOT NULL,
+	`file` CHAR(255) NOT NULL,
 	`line` INT(11) NOT NULL,
 	`trace` TEXT NOT NULL,
 	`ip` TEXT NOT NULL,
@@ -19,9 +20,10 @@ CREATE TABLE `system_todo` (
 	`thrown` BIT(1) NOT NULL,
 	`type` INT(11) NOT NULL DEFAULT '0',
 	`count` INT(11) NOT NULL DEFAULT '1',
-        `state` INT(11) NOT NULL DEFAULT '0',
-	PRIMARY KEY (`ID`)
+	`state` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`ID`),
+	UNIQUE INDEX `file_line_message` (`file`, `line`, `message_hash`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=MyISAM
-AUTO_INCREMENT=5;
+AUTO_INCREMENT=92;
