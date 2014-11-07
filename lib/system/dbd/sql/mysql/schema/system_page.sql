@@ -1,4 +1,4 @@
-CREATE TABLE `system_pagestates` (
+CREATE TABLE `system_page` (
 	`group` INT(10) UNSIGNED NOT NULL,
 	`id` CHAR(50) NOT NULL,
 	`div` CHAR(50) NOT NULL,

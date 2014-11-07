@@ -1,9 +1,9 @@
 <?php
 namespace SYSTEM\DBD;
 
-class system_pagestates {
-    const NAME_PG                   = 'system.pagestates';
-    const NAME_MYS                  = 'system_pagestates';
+class system_page {
+    const NAME_PG                   = 'system.page';
+    const NAME_MYS                  = 'system_page';
 
     const FIELD_GROUP               = 'group';
     const FIELD_ID                  = 'id';

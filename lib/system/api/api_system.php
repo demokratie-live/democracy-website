@@ -12,12 +12,8 @@ class api_system extends api_login{
     public static function call_files($cat,$id = null){
         return \SYSTEM\FILES\files::get($cat, $id, true);}
         
-    public static function call_pagestates($group){
+    public static function call_pages($group){
         return \SYSTEM\PAGE\State::get($group);}
-    public static function call_pagestates_flag_js($group){
-        return \SYSTEM\PAGE\State::get_js($group);}
-    public static function call_pagestates_flag_css($group){
-        return \SYSTEM\PAGE\State::get_css($group);}
         
     public static function static__lang($lang){
         \SYSTEM\locale::set($lang);}        
