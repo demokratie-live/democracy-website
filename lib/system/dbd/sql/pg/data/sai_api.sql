@@ -110,16 +110,20 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 
 
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1000, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_todo', 'action', NULL);
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1001, 42, 2, 1000, 'todo', 'todo', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1002, 42, 2, 1000, 'open', 'todo', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1003, 42, 2, 1000, 'close', 'todo', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1004, 42, 2, 1000, 'add', 'todo', 'STRING');
 
 
 -- INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1100, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_docu', 'action', NULL);
 
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1200, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_cron', 'action', NULL);
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1201, 42, 2, 1200, 'add', 'cls', 'STRING');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1202, 42, 2, 1200, 'add', 'min', 'INT');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1203, 42, 2, 1200, 'add', 'hour', 'INT');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1204, 42, 2, 1200, 'add', 'day', 'INT');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1205, 42, 2, 1200, 'add', 'day_week', 'INT');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1206, 42, 2, 1200, 'add', 'month', 'INT');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1208, 42, 2, 1200, 'del', 'cls', 'STRING');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1209, 42, 2, 1200, 'deldialog', 'cls', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1200, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_cron', 'action', NULL);
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1201, 42, 2, 1200, 'add', 'cls', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1202, 42, 2, 1200, 'add', 'min', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1203, 42, 2, 1200, 'add', 'hour', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1204, 42, 2, 1200, 'add', 'day', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1205, 42, 2, 1200, 'add', 'day_week', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1206, 42, 2, 1200, 'add', 'month', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1208, 42, 2, 1200, 'del', 'cls', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1209, 42, 2, 1200, 'deldialog', 'cls', 'STRING');
