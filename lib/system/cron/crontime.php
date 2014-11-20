@@ -20,6 +20,9 @@ class crontime {
             $day_week = $day_week % 6; // 7 and 0 both mean Sunday
             $now_day_week = $now_day_week % 6; // 7 and 0 both mean Sunday
             $next_day += abs($day_week - $now_day_week);}
+        new \SYSTEM\LOG\INFO(print_r(array($base_time,$min,$hour,$day,$day_week,$month),true));
+        new \SYSTEM\LOG\INFO(print_r(array($now_min, $now_hour, $now_day, $now_month, $now_day_week),true));
+        new \SYSTEM\LOG\INFO(print_r(array($next_hour, $next_min, 0, $next_month, $next_day, $next_year),true));
         return mktime($next_hour, $next_min, 0, $next_month, $next_day, $next_year);
     }
     public static function last($base_time,$min,$hour,$day,$day_week,$month){

@@ -41,11 +41,12 @@ class cron {
         if(!self::check($cron[\SYSTEM\DBD\system_cron::FIELD_CLASS])){
             throw new \SYSTEM\LOG\ERROR("Given class is not a cronjob");}
         //time
-        return \SYSTEM\CRON\crontime::next_now( $cron[\SYSTEM\DBD\system_cron::FIELD_MIN],
-                                                $cron[\SYSTEM\DBD\system_cron::FIELD_HOUR],
-                                                $cron[\SYSTEM\DBD\system_cron::FIELD_DAY],
-                                                $cron[\SYSTEM\DBD\system_cron::FIELD_DAY_WEEK],
-                                                $cron[\SYSTEM\DBD\system_cron::FIELD_MONTH]);
+        return \SYSTEM\CRON\crontime::next( strtotime($cron[\SYSTEM\DBD\system_cron::FIELD_LAST_RUN]),
+                                            $cron[\SYSTEM\DBD\system_cron::FIELD_MIN],
+                                            $cron[\SYSTEM\DBD\system_cron::FIELD_HOUR],
+                                            $cron[\SYSTEM\DBD\system_cron::FIELD_DAY],
+                                            $cron[\SYSTEM\DBD\system_cron::FIELD_DAY_WEEK],
+                                            $cron[\SYSTEM\DBD\system_cron::FIELD_MONTH]);
     }
     
     private static function status($class, $status){
