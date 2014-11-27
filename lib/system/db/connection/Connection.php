@@ -20,6 +20,8 @@ class Connection extends ConnectionAbstr{
             $this->connection = new \SYSTEM\DB\ConnectionMYS($dbinfo);
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP){
             $this->connection = new \SYSTEM\DB\ConnectionAMQP($dbinfo);
+        } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoSQLite){
+            $this->connection = new \SYSTEM\DB\ConnectionSQLite($dbinfo);
         } else {
             throw new \Exception('Could not understand Database Settings. Check ur Database Settings');}
     }
@@ -39,4 +41,7 @@ class Connection extends ConnectionAbstr{
     //Query connected Database
     public function query($query){
         return $this->connection->query($query);}
+        
+    public function exec($query){
+        return $this->connection->exec($query);}
 }
