@@ -54,10 +54,34 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_list_elements' => $result, 'count' => $count));
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats(){
-        $todo = new \SYSTEM\LOG\TODO('Do ToDo Stats');
-        return 'Todo: Do ToDo Stats';
+    public static function statistics(){
+        /* COUNT(*);state;type
+         *  147;0;0
+         *  4;0;1
+         *  149;1;0
+         *  1;1;1
+         */
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT::QA();
+        $vars = array();
+        $vars['todo_count'] = $res[0]['count']+$res[1]['count'];
+        $vars['doto_count'] = $res[2]['count']+$res[3]['count'];
+        $vars['todo_perc'] = round(floatval($vars['todo_count']) / floatval($vars['todo_count']+$vars['doto_count']) * 100,2);
+        $vars['doto_perc'] = round(floatval($vars['doto_count']) / floatval($vars['todo_count']+$vars['doto_count']) * 100,2);
+        $vars['todo_gen_count'] = $res[0]['count'];
+        $vars['doto_gen_count'] = $res[2]['count'];
+        $vars['todo_gen_perc'] = round(floatval($vars['todo_gen_count']) / floatval($vars['todo_gen_count']+$vars['doto_gen_count']) * 100,2);
+        $vars['doto_gen_perc'] = round(floatval($vars['doto_gen_count']) / floatval($vars['todo_gen_count']+$vars['doto_gen_count']) * 100,2);
+        $vars['todo_user_count'] = $res[1]['count'];
+        $vars['doto_user_count'] = $res[3]['count'];
+        $vars['todo_user_perc'] = round(floatval($vars['todo_user_count']) / floatval($vars['todo_user_count']+$vars['doto_user_count']) * 100,2);
+        $vars['doto_user_perc'] = round(floatval($vars['doto_user_count']) / floatval($vars['todo_user_count']+$vars['doto_user_count']) * 100,2);;
+        
+        $vars['project_perc'] = round(floatval($vars['doto_gen_perc'])/2+floatval($vars['doto_user_perc'])/2,2);
+        return $vars;
     }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats(){
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), self::statistics());}
     
     private static function time_elapsed_string($ptime)
     {
@@ -127,7 +151,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_flag_css(){}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_flag_js(){return \SYSTEM\LOG\JsonResult::toString(
-            array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/saimod_sys_todo.js')));}
+            array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/js/saimod_sys_todo.js')));}
     
     public static function exception(\Exception $E, $thrown, $user = false){
         try{
