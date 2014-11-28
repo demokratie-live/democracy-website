@@ -16,22 +16,17 @@ class ConnectionSQLite extends ConnectionAbstr {
         $this->close();}
 
     public function prepare($stmtName, $stmt, $values){
-        $prepStmt = \sqlite_prepare($this->connection, $stmt,$error);
+        $prepStmt = $this->connection->prepare($stmt);
         if(!$prepStmt){
             throw new \SYSTEM\LOG\ERROR('Prepared Statement prepare fail: '. $error);}
 
-        $types = '';
-        $binds = array($prepStmt,null);
-        for($i =0; $i < \count($values);$i++){
-            $types .= self::getPrepareValueType($values[$i]);
-            $binds[] = &$values[$i];}
-        $binds[1] = $types;
-        \call_user_func_array('sqlite_stmt_bind_param', $binds); //you need 2 append the parameters - thats the right way to do that.
+        foreach($values as $key=>$val){
+            $prepStmt->bindParam($key,$val);}
 
-        if(!sqlite_stmt_execute($prepStmt,$error)){
+        if(!($result = $prepStmt->execute())){
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  $error);}
 
-        return new ResultSQLite($prepStmt,$this);
+        return new ResultSQLite($result,$this);
     }
 
     public function close(){

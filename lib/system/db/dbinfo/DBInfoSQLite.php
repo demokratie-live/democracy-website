@@ -9,8 +9,7 @@ class DBInfoSQLite extends \SYSTEM\DB\DBInfo {
         $this->m_host = $host;
         $this->m_port = $port;
 
-        if( $this->m_database == null ||
-            $this->m_user == null){
+        if( $this->m_database == null){
             throw new \Exception("DBInfo not correct, database, permissions are null");}
     }
 }

@@ -5,17 +5,19 @@ namespace SYSTEM\DB;
 class ResultSQLite extends \SYSTEM\DB\Result{
 
     private $res = NULL;
+    private $stmt = NULL;
     private $current = NULL;    
 
     //Result from mysql_query
-    public function __construct($res){
-        $this->res = $res;}
+    public function __construct($res,$stmt){
+        $this->res = $res;
+        $this->stmt = $stmt;}
 
     public function __destruct(){
         $this->close();}
 
     public function close(){
-       $this->res->finalize();}
+       $this->stmt->close();}
        
     public function count(){
         throw new Exception("Problem SQLite");
@@ -29,9 +31,10 @@ class ResultSQLite extends \SYSTEM\DB\Result{
      */
 
     public function affectedRows(){
+        throw new Exception("Problem SQLite");
         return mysqli_affected_rows($this->res);}
 
-    public function next($object = false, $result_type = SQLITE3_BOTH){        
+    public function next($object = false, $result_type = SQLITE3_ASSOC){        
         if($object){
             throw new Exception("Problem SQLite");
         } else {

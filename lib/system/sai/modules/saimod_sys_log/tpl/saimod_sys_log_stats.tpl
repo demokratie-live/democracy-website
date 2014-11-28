@@ -1,49 +1,43 @@
-<ul class="nav nav-pills" id="stats_filter" style="">
-    <!--<li><a href="#" filter="31536000">365d</a></li>-->
-    <li><a href="#" filter="2592000">30d</a></li>
-    <li><a href="#" filter="1209600">14d</a></li>
-    <li><a href="#" filter="604800">7d</a></li>
-    <li><a href="#" filter="172800">2d</a></li>
-    <li><a href="#" filter="86400">1d</a></li>
-    <li><a href="#" filter="43200">12h</a></li>
-    <li><a href="#" filter="21600">6h</a></li>    
-    <li><a href="#" filter="14400">4h</a></li>    
-    <li><a href="#" filter="7200">2h</a></li>
-    <li class="active"><a href="#" filter="3600">1h</a></li>
-    <li><a href="#" filter="1800">30m</a></li>
-    <li><a href="#" filter="600">10m</a></li>
-    <li><a href="#" filter="300">5m</a></li>
-    <li><a href="#" filter="60">1m</a></li>
-    <li><a href="#" filter="30">30s</a></li>
-    <li><a href="#" filter="10">10s</a></li>
-    <li><a href="#" filter="5">5s</a></li>
-    <li><a href="#" filter="1">1s</a></li>
-</ul>
-
 <div class="tabbable tabs-left" id="stats_tabs">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#basic_tab">Basics</a></li>
-        <li><a href="#class_tab">Class</a></li>
-        <li><a href="#unique_tab">Unique</a></li>
+        <li class="active" db=""><a href="#tab_stats">Current Month</a></li>
+        ${dbfile_entries}
     </ul>
     <div class="tab-content">
-        <div class="tab-pane active" id="basic_tab">            
-            <div class="visualisation" id="basic_visitor"></div>
-            <div class="visualisation" id="basic_sucess"></div>
-            <div class="visualisation" id="basic_querytime"></div>
-            </br>
-        </div>
-        <div class="tab-pane" id="class_tab">
-            <div class="visualisation" id="class_basic"></div>
-            <div class="visualisation" id="class_system"></div>
-            <div class="visualisation" id="class_other"></div>
-            </br>
-        </div>
-        <div class="tab-pane" id="unique_tab">
-            <div class="visualisation" id="unique_basic"></div>
-            <div class="visualisation" id="unique_exception"></div>
-            <div class="visualisation" id="unique_referer"></div>
-            </br>
+        <div class="tab-pane active" id="tab_stats">
+            <select id="vis_filter_time">
+                <option value="2592000">30d</option>
+                <option value="1209600">14d</option>
+                <option value="604800">7d</option>
+                <option value="172800">2d</option>
+                <option value="86400">1d</option>
+                <option value="43200">12h</option>
+                <option value="21600">6h</option>
+                <option value="14400">4h</option>
+                <option value="172800">2h</option>
+                <option value="3600">1h</option>
+                <option value="1800">30m</option>
+                <option value="600">10m</option>
+                <option value="300">5m</option>
+                <option value="60">1m</option>
+                <option value="30">30s</option>
+                <option value="10">10s</option>
+                <option value="5">5s</option>
+                <option value="1">1s</option>
+            </select>
+            <select id="vis_filter_type">
+                <option value="basic_visitor">basic_visitor</option>
+                <option value="basic_sucess">basic_sucess</option>
+                <option value="basic_querytime">basic_querytime</option>
+                <option value="unique_basic">unique_basic</option>
+                <option value="unique_request">unique_request</option>
+                <option value="unique_exception">unique_exception</option>
+                <option value="unique_referer">unique_referer</option>
+                <option value="class_system">class_system</option>
+                <option value="class_other">class_other</option>
+                <option value="class_basic">class_basic</option>
+            </select>
+            <div id="vis"></div>
         </div>
   </div>
 </div>
