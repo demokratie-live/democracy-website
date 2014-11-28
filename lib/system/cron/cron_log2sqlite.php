@@ -10,9 +10,9 @@ class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
             $oldest['month'] >= $now_month){
             return cronstatus::CRON_STATUS_SUCCESFULLY;}
             
-        $filename = '/home/web/webdir/mojotrollz/mojotrollz/files/log/'.$oldest['year'].'.'.$oldest['month'].'.db';
+        $filename = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH).$oldest['year'].'.'.$oldest['month'].'.db';
         //extract whole month to file
-        $con = new \SYSTEM\DB\Connection(new \SYSTEM\DB\DBInfoSQLite($filename,0666));
+        $con = new \SYSTEM\DB\Connection(new \SYSTEM\DB\DBInfoSQLite($filename));
         
         //create table
         $con->query('CREATE TABLE IF NOT EXISTS `system_log` ('.
@@ -36,7 +36,7 @@ class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
                     ' `thrown` BIT(1) NOT NULL,'.
                     ' PRIMARY KEY (`ID`)'.');');
         
-        //write data
+        //write data as trasaction
         $con->exec('begin transaction');
         $res = \SYSTEM\DBD\SYS_LOG_MONTH::QQ(array($oldest['month'],$oldest['year']));
         $i = 0;

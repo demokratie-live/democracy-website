@@ -48,10 +48,6 @@ class ConnectionSQLite extends ConnectionAbstr {
     }
     
     public function exec($query){
-        $result = false;
-        
-            $result = $this->connection->exec($query);
-        
-        return $result;
+        return $this->connection->exec($query);
     }
 }

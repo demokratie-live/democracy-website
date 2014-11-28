@@ -24,6 +24,8 @@ class config_ids {
     const SYS_CONFIG_LANGS                      = 21;
     const SYS_CONFIG_DEFAULT_LANG               = 22;
     
+    const SYS_CRON_LOG2SQLITE_PATH              = 30;
+    
     const SYS_SAI_CONFIG_BASEURL                = 50;
     const SYS_SAI_CONFIG_NAVIMG                 = 51;
     const SYS_SAI_CONFIG_TITLE                  = 52;
