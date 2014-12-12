@@ -26,7 +26,7 @@ class QQ {
         return self::QQ()->next();}
     public static function QI(){
         $qq = self::QQ();
-        return $qq->affectedRows() != (0||null);}
+        return $qq;}
     //override this
     protected static function query(){
         throw new \SYSTEM\LOG\ERROR('query function of your QQ Class not overwritten!');}

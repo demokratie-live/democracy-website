@@ -26,7 +26,7 @@ class ConnectionSQLite extends ConnectionAbstr {
         if(!($result = $prepStmt->execute())){
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  $error);}
 
-        return new ResultSQLite($result,$this);
+        return new ResultSQLite($result,$prepStmt);
     }
 
     public function close(){
@@ -39,7 +39,7 @@ class ConnectionSQLite extends ConnectionAbstr {
         if($result === TRUE){
             return TRUE;}
 
-        return new ResultSQLite($result);
+        return new ResultSQLite($result,null);
     }
     
     public function exec($query){

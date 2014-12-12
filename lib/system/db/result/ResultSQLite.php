@@ -17,7 +17,9 @@ class ResultSQLite extends \SYSTEM\DB\Result{
         $this->close();}
 
     public function close(){
-       $this->stmt->close();}
+        if($this->stmt){
+            $this->stmt->close();}
+    }
        
     public function count(){
         throw new Exception("Problem SQLite");

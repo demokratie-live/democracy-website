@@ -25,33 +25,41 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist(){
-        $result = '';
+        $result = $result_user = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_LIST::QQ();
         $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_COUNT::Q1()['count'];
         while($row = $res->next()){
-            $row['class_by_type'] = self::trclassbytype($row['type']);
+            $row['class_row'] = self::trclass($row['type'],$row['class']);
             $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
-            $row['report_type'] = self::reporttype($row['type']);
+            //$row['report_type'] = self::reporttype($row['type']);
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
-            $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);            
-        }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_list_elements' => $result, 'count' => $count));
+            if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
+                $row['message'] = str_replace("\r", '<br/>', $row['message']);
+                $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
+            } else {
+                $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
+            }}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_user_list_elements' => $result_user,'todo_list_elements' => $result, 'count' => $count));
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist(){
-        $result = '';
+        $result = $result_user = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_DOTO_LIST::QQ();
         $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_DOTO_COUNT::Q1()['count'];
         while($row = $res->next()){
-            $row['class_by_type'] = self::trclassbytype($row['type']);
+            $row['class_row'] = self::trclass($row['type'],$row['class']);
             $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
-            $row['report_type'] = self::reporttype($row['type']);
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
-            $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);            
+            if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
+                $row['message'] = str_replace("\r", '<br/>', $row['message']);
+                $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
+            } else {
+                $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
+            }
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_list_elements' => $result, 'count' => $count));
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_user_list_elements' => $result_user,'todo_list_elements' => $result, 'count' => $count));
     }
     
     public static function statistics(){
@@ -121,29 +129,38 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             return '<input type="submit" class="btn-danger" value="reopen">';}
         return '<input type="submit" class="btn-danger" value="close">';}
     
-    private static function reporttype($type){
-        switch($type){
-            case 0: return 'Feature Request';
-            case 1: return 'Error Report';
-            case 2: return 'Unasigned Category';            
-            default: return 'Note';
+    private static function trclass($type,$class){
+        if($type == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
+            return 'success';}
+        switch($class){
+            case 'SYSTEM\LOG\INFO': case 'INFO': case 'SYSTEM\LOG\COUNTER':
+                return 'success';
+            case 'SYSTEM\LOG\DEPRECATED': case 'DEPRECATED':
+                return 'info';
+            case 'SYSTEM\LOG\ERROR': case 'ERROR': case 'Exception': case 'SYSTEM\LOG\ERROR_EXCEPTION':
+            case 'ErrorException': case 'SYSTEM\LOG\SHUTDOWN_EXCEPTION':
+                return 'error';
+            case 'SYSTEM\LOG\WARNING': case 'WARNING':
+                return 'warning';
+            default:
+                return '';
         }
     }
     
-    private static function trclassbytype($type){
-        switch($type){
-            case 0: return 'info';
-            case 1: return 'error';
-            case 2: return 'warning';
-            case 3: return 'success';
-            default: return '';
-        }
-    }
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_close_all(){
+        \SYSTEM\DBD\SYS_SAIMOD_TODO_CLOSE_ALL::QI();
+        return \SYSTEM\LOG\JsonResult::ok();}
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_edit($todo, $message){
+        \SYSTEM\DBD\SYS_SAIMOD_TODO_EDIT::QI(array($message,$message,$todo));
+        return \SYSTEM\LOG\JsonResult::ok();}
+        
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
-        $vars = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO::QQ(array($todo))->next();
+        $vars = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO::Q1(array($todo));
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo.tpl'), $vars);}
+        return $vars[\SYSTEM\DBD\system_todo::FIELD_TYPE] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER ?
+               \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo_user.tpl'), $vars) :
+               \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo.tpl'), $vars);}
     
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_todo">ToDo</a></li>';}
     public static function right_public(){return false;}    
