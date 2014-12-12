@@ -9,19 +9,19 @@ class cronstatus {
     
     const CRON_STATUS_USER_STATES   = 99;
     
-    public static function decode($status){
+    public static function text($status){
         switch($status){
             case self::CRON_STATUS_SUCCESFULLY:
-                $status = 'CRON_STATUS_SUCCESFULLY';
+                $status = 'SUCCESFULLY';
                 break;
             case self::CRON_STATUS_RUNNING:
-                $status = 'CRON_STATUS_RUNNING';
+                $status = 'RUNNING';
                 break;
             case self::CRON_STATUS_FAIL:
-                $status = 'CRON_STATUS_FAIL';
+                $status = 'FAIL';
                 break;
             case self::CRON_STATUS_FAIL_CLASS:
-                $status = 'CRON_STATUS_FAIL_CLASS';
+                $status = 'FAIL_CLASS';
                 break;
         }
         return $status;

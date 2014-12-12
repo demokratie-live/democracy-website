@@ -5,9 +5,11 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron(){
         $vars = array();
         $vars['content'] = '';
+        $vars['last_visit'] = \SYSTEM\CRON\cron::last_visit();
         $res = \SYSTEM\DBD\SYS_SAIMOD_CRON::QQ();
         while($r = $res->next()){
             $r['next'] = date('Y-m-d H:i:s',\SYSTEM\CRON\cron::next($r['class']));
+            $r['status'] = \SYSTEM\CRON\cronstatus::text($r['status']);
             $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/list_entry.tpl'), $r);}   
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/tabs.tpl'), $vars);
     }

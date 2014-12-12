@@ -26,7 +26,7 @@ class cron {
                                                     continue;}
             //Status is ok?
             if($cron[\SYSTEM\DBD\system_cron::FIELD_STATUS] != \SYSTEM\CRON\cronstatus::CRON_STATUS_SUCCESFULLY){
-                new \SYSTEM\LOG\CRON('Cron for Class '.$cron[\SYSTEM\DBD\system_cron::FIELD_CLASS].' could not execute cuz Status aint good: '. \SYSTEM\CRON\cronstatus::decode($cron[\SYSTEM\DBD\system_cron::FIELD_STATUS]));
+                new \SYSTEM\LOG\CRON('Cron for Class '.$cron[\SYSTEM\DBD\system_cron::FIELD_CLASS].' could not execute cuz Status aint good: '. \SYSTEM\CRON\cronstatus::text($cron[\SYSTEM\DBD\system_cron::FIELD_STATUS]));
                 continue;}
             //set running
             self::status($cron[\SYSTEM\DBD\system_cron::FIELD_CLASS], \SYSTEM\CRON\cronstatus::CRON_STATUS_RUNNING);
@@ -50,6 +50,9 @@ class cron {
     }
     
     private static function status($class, $status){
-        new \SYSTEM\LOG\CRON('Cron Status for Class '.$class.' updated to: '. \SYSTEM\CRON\cronstatus::decode($status));
+        new \SYSTEM\LOG\CRON('Cron Status for Class '.$class.' updated to: '. \SYSTEM\CRON\cronstatus::text($status));
         return \SYSTEM\DBD\SYS_CRON_UPD::QI(array($status,time(),$class));}
+    
+    public static function last_visit(){
+        return \SYSTEM\DBD\SYS_CRON_LAST_VISIT::Q1()['time'];}
 }
