@@ -14,10 +14,6 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/tabs.tpl'), $vars);
     }
     
-    public static function sai_mod__system_sai_saimod_sys_cron_action_deldialog($cls){
-        $res = \SYSTEM\DBD\SYS_SAIMOD_CRON_SINGLE_SELECT::Q1(array($cls));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/delete_dialog.tpl'), $res);}
-    
     public static function sai_mod__system_sai_saimod_sys_cron_action_add($cls,$min,$hour,$day,$day_week,$month){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -37,8 +33,8 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron_flag_css(){
         return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/saimod_sys_cron.css')));}
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/css/saimod_sys_cron.css')));}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron_flag_js(){
         return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/saimod_sys_cron.js')));}    
+            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/js/saimod_sys_cron.js')));}    
 }
