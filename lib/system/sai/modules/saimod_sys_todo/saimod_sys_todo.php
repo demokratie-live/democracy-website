@@ -63,12 +63,6 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function statistics(){
-        /* COUNT(*);state;type
-         *  147;0;0
-         *  4;0;1
-         *  149;1;0
-         *  1;1;1
-         */
         $res = array();
         $res[0] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN::Q1();
         $res[1] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER::Q1();
