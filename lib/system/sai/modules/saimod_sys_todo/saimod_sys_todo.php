@@ -69,7 +69,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
          *  149;1;0
          *  1;1;1
          */
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT::QA();
+        $res = array();
+        $res[0] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN::Q1();
+        $res[1] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER::Q1();
+        $res[2] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN::Q1();
+        $res[3] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER::Q1();
         $vars = array();
         $vars['todo_count'] = $res[0]['count']+$res[1]['count'];
         $vars['doto_count'] = $res[2]['count']+$res[3]['count'];

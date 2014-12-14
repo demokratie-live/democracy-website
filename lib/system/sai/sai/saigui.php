@@ -6,6 +6,7 @@ define('SAI_MOD_POSTFIELD','sai_mod');
 class saigui extends \SYSTEM\PAGE\Page {
     
     public function html(){
+        \SYSTEM\SECURITY\Security::isLoggedIn(); // refresh session
         //Direct JSON Input
         $pg = json_decode(file_get_contents("php://input"), true);
         if(!$pg){
