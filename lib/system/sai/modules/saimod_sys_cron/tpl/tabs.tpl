@@ -20,11 +20,11 @@
             ${content}
             <tr>
                 <td><input type="text" id="input_cron_class" placeholder="class" style="width: 200px;"></td>
-                <td><input type="text" id="input_cron_min" placeholder="min" style="width: 40px;"></td>
-                <td><input type="text" id="input_cron_hour" placeholder="hour" style="width: 40px;"></td>
-                <td><input type="text" id="input_cron_day" placeholder="day" style="width: 40px;"></td>
-                <td><input type="text" id="input_cron_day_week" placeholder="day_week" style="width: 40px;"></td>
-                <td><input type="text" id="input_cron_month" placeholder="month" style="width: 40px;"></td>
+                <td><input type="text" id="input_cron_min" placeholder="min" value="0" style="width: 40px;"></td>
+                <td><input type="text" id="input_cron_hour" placeholder="hour" value="0" style="width: 40px;"></td>
+                <td><input type="text" id="input_cron_day" placeholder="day" value="0" style="width: 40px;"></td>
+                <td><input type="text" id="input_cron_day_week" placeholder="day_week" value="0" style="width: 40px;"></td>
+                <td><input type="text" id="input_cron_month" placeholder="month" value="0" style="width: 40px;"></td>
                 <td></td>
                 <td></td>
                 <td></td>

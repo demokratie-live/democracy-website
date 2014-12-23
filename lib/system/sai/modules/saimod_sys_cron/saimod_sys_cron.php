@@ -17,6 +17,8 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__system_sai_saimod_sys_cron_action_add($cls,$min,$hour,$day,$day_week,$month){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
+        if(!\SYSTEM\CRON\cron::check($cls)){
+            throw new \SYSTEM\LOG\ERROR("Given Class is not a CronJob");}
         \SYSTEM\DBD\SYS_SAIMOD_CRON_ADD::QI(array($cls,$min,$hour,$day,$day_week,$month));
         return \SYSTEM\LOG\JsonResult::ok();
     }

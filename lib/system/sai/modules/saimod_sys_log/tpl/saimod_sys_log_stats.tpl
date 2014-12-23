@@ -14,7 +14,7 @@
                 <option value="43200">12h</option>
                 <option value="21600">6h</option>
                 <option value="14400">4h</option>
-                <option value="172800">2h</option>
+                <option value="7200">2h</option>
                 <option value="3600">1h</option>
                 <option value="1800">30m</option>
                 <option value="600">10m</option>
