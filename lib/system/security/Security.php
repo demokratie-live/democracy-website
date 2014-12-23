@@ -122,7 +122,7 @@ class Security {
         return (isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&
                 $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User);}
         
-    private static function startSession(){
+    protected static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
             \session_start();}}    
 }
