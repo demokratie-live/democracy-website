@@ -7,11 +7,22 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         $vars['content'] = '';
         $vars['last_visit'] = \SYSTEM\CRON\cron::last_visit();
         $res = \SYSTEM\DBD\SYS_SAIMOD_CRON::QQ();
+        $i = 0;
         while($r = $res->next()){
+            $r['selected_0'] = $r['selected_1'] = $r['selected_2'] = $r['selected_3'] = '';
             $r['next'] = date('Y-m-d H:i:s',\SYSTEM\CRON\cron::next($r['class']));
-            $r['status'] = \SYSTEM\CRON\cronstatus::text($r['status']);
+            $r['selected_'.$r['status']] = 'selected';
+            $r['i'] = $i++;
             $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/list_entry.tpl'), $r);}   
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/tabs.tpl'), $vars);
+    }
+    
+    public static function sai_mod__system_sai_saimod_sys_cron_action_change($cls,$status){
+        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
+            throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
+        new \SYSTEM\LOG\INFO($cls.' '.$status);
+        \SYSTEM\DBD\SYS_SAIMOD_CRON_CHANGE::QI(array($status,$cls));
+        return \SYSTEM\LOG\JsonResult::ok();
     }
     
     public static function sai_mod__system_sai_saimod_sys_cron_action_add($cls,$min,$hour,$day,$day_week,$month){
