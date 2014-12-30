@@ -2,6 +2,19 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
+    private static $stats = array(); //only strings!
+    
+    private static function check_stats($stats){
+        if( !\class_exists($stats) ||
+            !\is_array($parents = \class_parents($stats)) ||
+            !\array_search('SYSTEM\SAI\todo_stats', $parents)){
+            return false;}
+        return true;}
+    
+    public static function register($stats){
+        if(!self::check_stats($stats)){
+            throw new \SYSTEM\LOG\ERROR('Problem with your TodoStats class: '.$stats);}
+        array_push(self::$stats,$stats);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_close($todo){
         \SYSTEM\DBD\SYS_SAIMOD_TODO_CLOSE::QI(array($todo));
@@ -63,31 +76,26 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function statistics(){
-        $res = array();
-        $res[0] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN::Q1();
-        $res[1] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER::Q1();
-        $res[2] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN::Q1();
-        $res[3] = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER::Q1();
-        $vars = array();
-        $vars['todo_count'] = $res[0]['count']+$res[1]['count'];
-        $vars['doto_count'] = $res[2]['count']+$res[3]['count'];
-        $vars['todo_perc'] = round(floatval($vars['todo_count']) / floatval($vars['todo_count']+$vars['doto_count']) * 100,2);
-        $vars['doto_perc'] = round(floatval($vars['doto_count']) / floatval($vars['todo_count']+$vars['doto_count']) * 100,2);
-        $vars['todo_gen_count'] = $res[0]['count'];
-        $vars['doto_gen_count'] = $res[2]['count'];
-        $vars['todo_gen_perc'] = round(floatval($vars['todo_gen_count']) / floatval($vars['todo_gen_count']+$vars['doto_gen_count']) * 100,2);
-        $vars['doto_gen_perc'] = round(floatval($vars['doto_gen_count']) / floatval($vars['todo_gen_count']+$vars['doto_gen_count']) * 100,2);
-        $vars['todo_user_count'] = $res[1]['count'];
-        $vars['doto_user_count'] = $res[3]['count'];
-        $vars['todo_user_perc'] = round(floatval($vars['todo_user_count']) / floatval($vars['todo_user_count']+$vars['doto_user_count']) * 100,2);
-        $vars['doto_user_perc'] = round(floatval($vars['doto_user_count']) / floatval($vars['todo_user_count']+$vars['doto_user_count']) * 100,2);;
-        
-        $vars['project_perc'] = round(floatval($vars['doto_gen_perc'])/2+floatval($vars['doto_user_perc'])/2,2);
-        return $vars;
+        $result = array();
+        $result['project'] = 0;
+        $result['data'] = array();
+        foreach(self::$stats as $stat){
+            $data = \call_user_func(array($stat, 'stats'));
+            $result['data'][] = $data;
+            $result['project'] += $data->perc;}
+        $result['project'] = round($result['project'] / (count($result['data'])),2);
+        return $result;
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), self::statistics());}
+        $vars = array();
+        $stats = self::statistics();
+        $vars['project'] = $stats['project'];
+        $vars['entries'] = '';
+        foreach($stats['data'] as $stat){
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_entry.tpl'), $stat);
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);}
     
     private static function time_elapsed_string($ptime)
     {

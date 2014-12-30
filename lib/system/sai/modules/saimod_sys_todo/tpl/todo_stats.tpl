@@ -1,42 +1,15 @@
 <table class="sai_table" style="width: 100%">
     <tr>
-        <th>Value</th>
+        <th>Name</th>
         <th>Count</th>
-        <th>%</th>
+        <th>All</th>
+        <th>Done</th>
     </tr>
-    <tr>
-        <td>ToDo_All</td>
-        <td>${todo_count}</td>
-        <td>${todo_perc}%</td>
-    </tr>
-    <tr>
-        <td>ToDo_Gen</td>
-        <td>${todo_gen_count}</td>
-        <td>${todo_gen_perc}%</td>
-    </tr>
-    <tr>
-        <td>ToDo_User</td>
-        <td>${todo_user_count}</td>
-        <td>${todo_user_perc}%</td>
-    </tr>
-    <tr>
-        <td>DoTo_All</td>
-        <td>${doto_count}</td>
-        <td>${doto_perc}%</td>
-    </tr>
-    <tr>
-        <td>DoTo_Gen</td>
-        <td>${doto_gen_count}</td>
-        <td>${doto_gen_perc}%</td>
-    </tr>
-    <tr>
-        <td>DoTo_User</td>
-        <td>${doto_user_count}</td>
-        <td>${doto_user_perc}%</td>
-    </tr>
+    ${entries}
     <tr>
         <td>Project</td>
         <td></td>
-        <td>${project_perc}%</td>
+        <td></td>
+        <td>${project}%</td>
     </tr>
 </table>
