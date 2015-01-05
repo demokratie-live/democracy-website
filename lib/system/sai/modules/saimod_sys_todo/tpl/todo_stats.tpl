@@ -8,8 +8,8 @@
     ${entries}
     <tr>
         <td>Project</td>
-        <td></td>
-        <td></td>
+        <td>${project_count}</td>
+        <td>${project_all}</td>
         <td>${project}%</td>
     </tr>
 </table>

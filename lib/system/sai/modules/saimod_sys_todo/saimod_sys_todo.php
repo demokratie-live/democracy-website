@@ -78,21 +78,24 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function statistics(){
         $result = array();
         $result['project'] = 0;
+        $result['project_count'] = 0;
+        $result['project_all'] = 0;
         $result['data'] = array();
         foreach(self::$stats as $stat){
             $data = \call_user_func(array($stat, 'stats'));
             $result['data'][] = $data;
-            $result['project'] += $data->perc;}
+            $result['project'] += $data->perc;
+            $result['project_count'] += $data->part;
+            $result['project_all'] += $data->whole;
+        }
         $result['project'] = round($result['project'] / (count($result['data'])),2);
         return $result;
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats(){
-        $vars = array();
-        $stats = self::statistics();
-        $vars['project'] = $stats['project'];
+        $vars = self::statistics();
         $vars['entries'] = '';
-        foreach($stats['data'] as $stat){
+        foreach($vars['data'] as $stat){
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_entry.tpl'), $stat);
         }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);}
