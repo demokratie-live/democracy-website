@@ -10,9 +10,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
         $vars = array();
         $vars['dbfile_entries'] = '';
-        $scanned_directory = array_diff(scandir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)), array('..', '.'));
-        foreach($scanned_directory as $file){
-            $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats_menu.tpl'), array('file' => $file));}
+        if(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)){
+            $scanned_directory = array_diff(scandir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)), array('..', '.'));
+            foreach($scanned_directory as $file){
+                $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats_menu.tpl'), array('file' => $file));}
+        }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db){
