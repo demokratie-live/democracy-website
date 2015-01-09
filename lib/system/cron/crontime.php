@@ -11,7 +11,7 @@ class crontime {
             if($day + $now_day> 31){ $next_month += 1;}
                 $next_day = ($now_day+$day)%31;}
         if($hour){
-            if(($hour + $now_hour)> 24){ $next_day += 1;}
+            if(($hour + $now_hour)>= 24){ $next_day += 1;}
                 $next_hour = ($now_hour+$hour)%24;}
         if($min){
             if(($min + $now_min)> 60){ $next_hour += 1;}
