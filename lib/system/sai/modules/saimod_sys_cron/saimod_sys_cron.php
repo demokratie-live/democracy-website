@@ -20,7 +20,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__system_sai_saimod_sys_cron_action_change($cls,$status){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
-        \SYSTEM\DBD\SYS_SAIMOD_CRON_CHANGE::QI(array($status,$cls));
+        \SYSTEM\DBD\SYS_SAIMOD_CRON_CHANGE::QI(array($status, $cls));
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
