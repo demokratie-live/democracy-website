@@ -40,35 +40,37 @@ class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
         $con->exec('begin transaction');
         $res = \SYSTEM\DBD\SYS_LOG_MONTH::QQ(array($oldest['month'],$oldest['year']));
         $i = 0;
+        $j = 0;
         while($row = $res->next()){
             set_time_limit(30);
-            $i++;
-            /*new \SYSTEM\LOG\INFO('INSERT OR IGNORE INTO '.\SYSTEM\DBD\system_log::NAME_MYS.
-                            '(`ID`, `class`, `message`, `code`, `file`, `line`, `trace`, `ip`, `querytime`, `time`,'.
-                            ' `server_name`, `server_port`, `request_uri`, `post`,'.
-                            ' `http_referer`, `http_user_agent`, `user`, `thrown`)'.
-                            'VALUES ('.$row['ID'].', \''.\SQLite3::escapeString($row['class']).'\', \''.\SQLite3::escapeString($row['message']).'\', '.
-                                       $row['code'].', \''.\SQLite3::escapeString($row['file']).'\', '.$row['line'].', \''.\SQLite3::escapeString($row['trace']).'\', \''.
-                                       $row['ip'].'\', '.$row['querytime'].', \''.$row['time'].'\', \''.
-                                       \SQLite3::escapeString($row['server_name']).'\', '.($row['server_port'] ? $row['server_port'] : 'NULL').', \''.\SQLite3::escapeString($row['request_uri']).'\', \''.\SQLite3::escapeString($row['post']).'\', \''.
-                                       \SQLite3::escapeString($row['http_referer']).'\', \''.\SQLite3::escapeString($row['http_user_agent']).'\', '.($row['user'] ? $row['user'] : 'NULL').','.true.');');*/
+            $i++; $j++;
+            $row['time'] = array_key_exists('time_pg', $row) ? $row['time_pg'] : '\''.$row['time'].'\'';
             if(!$con->exec('INSERT OR IGNORE INTO '.\SYSTEM\DBD\system_log::NAME_MYS.
                             '(`ID`, `class`, `message`, `code`, `file`, `line`, `trace`, `ip`, `querytime`, `time`,'.
                             ' `server_name`, `server_port`, `request_uri`, `post`,'.
                             ' `http_referer`, `http_user_agent`, `user`, `thrown`)'.
                             'VALUES ('.$row['ID'].', \''.\SQLite3::escapeString($row['class']).'\', \''.\SQLite3::escapeString($row['message']).'\', '.
                                        $row['code'].', \''.\SQLite3::escapeString($row['file']).'\', '.$row['line'].', \''.\SQLite3::escapeString($row['trace']).'\', \''.
-                                       $row['ip'].'\', '.$row['querytime'].', \''.$row['time'].'\', \''.
+                                       $row['ip'].'\', '.$row['querytime'].', '.$row['time'].', \''.
                                        \SQLite3::escapeString($row['server_name']).'\', '.($row['server_port'] ? $row['server_port'] : 'NULL').', \''.\SQLite3::escapeString($row['request_uri']).'\', \''.\SQLite3::escapeString($row['post']).'\', \''.
                                        \SQLite3::escapeString($row['http_referer']).'\', \''.\SQLite3::escapeString($row['http_user_agent']).'\', '.($row['user'] ? $row['user'] : 'NULL').','.true.');')){
                 new \SYSTEM\LOG\ERROR('failed to insert into log archiev');
                 return cronstatus::CRON_STATUS_FAIL;    
             }
+            if($j > 5000){
+                $j = 0;
+                set_time_limit(30);
+                if(!$con->exec('end transaction')){
+                    new \SYSTEM\LOG\ERROR('failed to insert into log archiev');
+                    return cronstatus::CRON_STATUS_FAIL;};
+                $con->exec('begin transaction');
+            }
         }
+        set_time_limit(30);
         if(!$con->exec('end transaction')){
             new \SYSTEM\LOG\ERROR('failed to insert into log archiev');
             return cronstatus::CRON_STATUS_FAIL;};
-            
+        set_time_limit(30);
         //delete from database
         if(!\SYSTEM\DBD\SYS_LOG_MONTH_DEL::QI(array($oldest['month'],$oldest['year']))){
             new \SYSTEM\LOG\ERROR('failed to delete log entries');
