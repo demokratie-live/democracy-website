@@ -4,7 +4,8 @@ CREATE TABLE `system_page` (
 	`div` CHAR(50) NOT NULL,
 	`url` TEXT NOT NULL,
 	`func` CHAR(50) NOT NULL,
+	`php_class` CHAR(50) NOT NULL,
 	PRIMARY KEY (`id`, `div`, `group`)
 )
-COLLATE='utf8_general_ci'
+COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB;
