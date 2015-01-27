@@ -63,17 +63,16 @@ class api {
         $result = \SYSTEM\DBD\SYS_API_TREE::QA(array($group));
         if(!isset($result) || !is_array($result) || count($result) <= 0){
             throw new \SYSTEM\LOG\ERROR("Database Tree for Api empty - cannot proced! GROUP: ".$group);}
-            
         return $result;
     }
     
     private static function do_statics($params,$tree,$apiclassname,$verifyclassname,$default){
         $statics = array();
         $parentid = self::ROOT_PARENTID;        
-        foreach($tree as $item){             
+        foreach($tree as $item){
             if( intval($item[\SYSTEM\DBD\system_api::FIELD_TYPE]) == \SYSTEM\DBD\system_api::VALUE_TYPE_STATIC &&
                 intval($item[\SYSTEM\DBD\system_api::FIELD_PARENTID]) == $parentid &&
-                isset($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){                                
+                isset($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
                 
                 $statics[] = array($item,$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]);
                 $call_funcname = 'static_'.$item[\SYSTEM\DBD\system_api::FIELD_NAME];                

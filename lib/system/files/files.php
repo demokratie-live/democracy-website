@@ -21,8 +21,16 @@ class files {
         if (!in_array($id, $folder)) {
             throw new \SYSTEM\LOG\ERROR("No matching ID '" . $id . "' found.");}
 
-        \SYSTEM\HEADER::PNG();
-        return file_get_contents(self::$folders[$cat].$id);
+        $ext = pathinfo(self::$folders[$cat].$id);
+        $ext = strtoupper(array_key_exists('extension', $ext) ? $ext['extension'] : '');
+        if(\SYSTEM\HEADER::available($ext)){
+            call_user_func('\SYSTEM\HEADER::'.$ext);
+        }else{
+            \SYSTEM\HEADER::FILE($id);}
+            
+        if(!self::file_get_contents_chunked(self::$folders[$cat].$id,4096,function($chunk,&$handle,$iteration){echo $chunk;})){
+            throw new \SYSTEM\LOG\ERROR("Could not transfere File.");}
+        return;
     }
 
     public static function put($cat, $id, $contents) {
@@ -44,7 +52,8 @@ class files {
             throw new \SYSTEM\LOG\ERROR("No matching Cat '" . $cat . "' found.");}
         if(!file_exists(self::$folders[$cat].$id)){
             return false;}
-        return rename(self::$folders[$cat].$id, self::$folders[$cat].$newid); 
+        $ext = pathinfo(self::$folders[$cat].$id);
+        return rename(self::$folders[$cat].$id, self::$folders[$cat].$newid.'.'.$ext['extension']); 
     }
 
     private static function getFolder($folder) {
@@ -56,4 +65,17 @@ class files {
 
     public static function getURL($cat, $id = null) {
         return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL) . 'api.php?call=files&cat=' . $cat . '&id=' . $id;}
+   
+    private static function file_get_contents_chunked($file,$chunk_size,$callback)
+    {
+        $handle = fopen($file, "r");
+        $i = 0;
+        while (!feof($handle))
+        {
+            call_user_func_array($callback,array(fread($handle,$chunk_size),&$handle,$i));
+            $i++;
+        }
+        fclose($handle);
+        return true;
+    }
 }

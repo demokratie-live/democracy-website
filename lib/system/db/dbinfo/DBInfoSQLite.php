@@ -1,0 +1,15 @@
+<?php
+namespace SYSTEM\DB;
+
+class DBInfoSQLite extends \SYSTEM\DB\DBInfo {
+    public function __construct($database , $user = null , $password = null, $host = null, $port = null){
+        $this->m_database = $database;
+        $this->m_user = $user;
+        $this->m_password = $password;
+        $this->m_host = $host;
+        $this->m_port = $port;
+
+        if( $this->m_database == null){
+            throw new \Exception("DBInfo not correct, database, permissions are null");}
+    }
+}

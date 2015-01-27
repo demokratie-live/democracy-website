@@ -22,4 +22,3 @@ CREATE TABLE `system_log` (
 COLLATE='utf8_general_ci'
 ENGINE=MyISAM
 AUTO_INCREMENT=1;
-

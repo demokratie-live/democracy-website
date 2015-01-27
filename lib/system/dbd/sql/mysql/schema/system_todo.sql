@@ -1,16 +1,29 @@
 CREATE TABLE `system_todo` (
 	`ID` INT(10) NOT NULL AUTO_INCREMENT,
+	`class` TEXT NOT NULL,
+	`message` TEXT NOT NULL,
+	`message_hash` CHAR(40) NOT NULL,
+	`code` INT(10) UNSIGNED NOT NULL,
+	`file` CHAR(255) NOT NULL,
+	`line` INT(11) NOT NULL,
+	`trace` TEXT NOT NULL,
+	`ip` TEXT NOT NULL,
+	`querytime` DOUBLE NOT NULL,
 	`time` DATETIME NOT NULL,
-	`author` INT(11) NOT NULL,
-	`type` INT(11) NOT NULL,
-	`state` INT(11) NOT NULL,
-	`msg_1` TEXT NOT NULL,
-	`msg_2` TEXT NULL,
-	`msg_3` TEXT NULL,
-	`msg_4` TEXT NULL,
-	`msg_5` TEXT NULL,
-	PRIMARY KEY (`ID`)
+	`server_name` CHAR(255) NOT NULL,
+	`server_port` INT(10) UNSIGNED NOT NULL,
+	`request_uri` CHAR(255) NOT NULL,
+	`post` TEXT NOT NULL,
+	`http_referer` CHAR(255) NOT NULL,
+	`http_user_agent` TEXT NOT NULL,
+	`user` INT(10) UNSIGNED NOT NULL,
+	`thrown` BIT(1) NOT NULL,
+	`type` INT(11) NOT NULL DEFAULT '0',
+	`count` INT(11) NOT NULL DEFAULT '1',
+	`state` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`ID`),
+	UNIQUE INDEX `file_line_message` (`file`, `line`, `message_hash`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=MyISAM
-AUTO_INCREMENT=5;
+AUTO_INCREMENT=92;

@@ -15,14 +15,15 @@
                     <img src="${navimg}" height="24" width="24"/>
                 </div>
                 <a class="brand" href="#" style="width: 159px;">SAI</a>
+                ${lang_switcher}
                 <ul class="nav">
                     ${menu_start}
                     ${menu_sys}
-                </ul>
+                </ul>                
             </div>
         </div>                
         <div id="project_navbar" style="width:224px; position: fixed; left: 0px; bottom: 0px; top: 38px;">
-            <ul class="nav nav-tabs nav-stacked">                
+            <ul class="nav nav-tabs nav-stacked sai_project_modules">                
                 ${menu_proj}
             </ul>       
         </div>    

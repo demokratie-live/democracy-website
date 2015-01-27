@@ -11,11 +11,11 @@ class ConnectionMYS extends ConnectionAbstr {
 
         $this->connection = @mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
         if(!$this->connection){
-            throw new \SYSTEM\LOG\ERROR('Could not connect to Database. Check ur Database Settings');}
+            throw new \Exception('Could not connect to Database. Check ur Database Settings');}
             
         if(!mysqli_select_db($this->connection, $dbinfo->m_database)){
             mysqli_close($this->connection);
-            throw new \SYSTEM\LOG\ERROR('Could not select Database. Check ur Database Settings: '.mysqli_error($this->connection));}
+            throw new \Exception('Could not select Database. Check ur Database Settings: '.mysqli_error($this->connection));}
     }
 
     public function __destruct(){

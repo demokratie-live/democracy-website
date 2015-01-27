@@ -1,4 +1,4 @@
 <?php
 namespace SYSTEM\LOG;
 
-class DEPRECATED extends \SYSTEM\LOG\SYSTEM_EXCEPTION {}
+class DEPRECATED extends \SYSTEM\LOG\TODO {}

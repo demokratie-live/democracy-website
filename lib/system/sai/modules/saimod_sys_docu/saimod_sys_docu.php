@@ -12,7 +12,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
                             'tab_id' => str_replace(' ', '_', $cat),
                             'tab_id_pretty' => $cat);
             $first = false;
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tabopt.tpl'), $vars2);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabopt.tpl'), $vars2);
             
             $first2 = true;
             foreach($docs as $doc){                
@@ -23,11 +23,11 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
                 $vars3 = array( 'active' => ($first2 ? 'active' : ''),
                                 'content' => \Michelf\MarkdownExtra::defaultTransform(file_get_contents($doc)),
                                 'tab_id' => str_replace(array('.',' ','\\','/'), '_', $doc));                
-                $tabs[$cat]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tab2.tpl'), $vars3);
+                $tabs[$cat]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tab2.tpl'), $vars3);
                 $vars3 = array( 'active' => ($first2 ? 'active' : ''),
                                 'tab_id' => str_replace(array('.',' ','\\','/'), '_', $doc),
                                 'tab_id_pretty' => basename($doc));
-                $tabs[$cat]['menu'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tabopt.tpl'), $vars3);
+                $tabs[$cat]['menu'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabopt.tpl'), $vars3);
                 $first2 = false;
         }   
         
@@ -36,9 +36,9 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         foreach($tabs as $tab){
             $tab['active'] = ($first ? 'active' : '');
             $first = false;
-            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tab.tpl'), $tab);}
+            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tab.tpl'), $tab);}
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tabs.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabs.tpl'), $vars);
     }    
     
     public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_docu">Docu</a></li>';}

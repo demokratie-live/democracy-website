@@ -12,9 +12,9 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
         
         $r = $res->next();
         
-        $result =   '<h3>Cache</h3>'.
+        $result =   '<h4>Cache</h4><hr>'.
                     'Entries: '.$r['count'].' showing 100'.
-                    '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
+                    '<table class="sai_table table table-hover table-condensed" style="overflow: auto;">'.                    
                     '<tr>'.'<th>'.'ID'.'</th>'.'<th>'.'CacheID'.'</th>'.'<th>'.'Ident'.'</th>'.'<th>'.'Data'.'</th>'.'</tr>';        
         
         
