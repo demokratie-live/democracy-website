@@ -29,7 +29,7 @@ class api {
             
         //Commands
         $commands = self::do_commands($params, $tree);          
-        if(count($commands) <= 0){            
+        if(count($commands) <= 0){      
             return self::do_default($default, $apiclassname);} //throws
             
         //Parameters        
@@ -85,7 +85,7 @@ class api {
                 if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\system_api::FIELD_VERIFY]) ||
                     !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
                     throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]);}                        
-                    
+                //throw new \SYSTEM\LOG\ERROR("yo ".$call_funcname.' '.$apiclassname);    
                 \call_user_func_array(array($apiclassname,$call_funcname),array($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]));
             }
         }                        
