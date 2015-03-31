@@ -17,7 +17,6 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_files_action_upload($cat){
-        new \SYSTEM\LOG\WARNING(print_r($_FILES,true));
         if(!\SYSTEM\FILES\files::put($cat, basename($_FILES['datei_'.$cat]['name']) , $_FILES['datei_'.$cat]['tmp_name'])){
             throw new \SYSTEM\LOG\ERROR("upload problem");}
         
