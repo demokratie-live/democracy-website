@@ -11,6 +11,10 @@ class State {
         $res = \SYSTEM\DBD\SYS_PAGE_GROUP::QQ(array($group,$state[0]));
         while($row = $res->next()){
             $row['url'] = \SYSTEM\PAGE\replace::replace($row['url'], $vars);
+            $row['url'] = \SYSTEM\PAGE\replace::clean($row['url']);
+            //clean url of empty variables
+            $row['url'] = preg_replace('/&.*?=(&|$)/', '&', $row['url']);
+            $row['url'] = preg_replace('/&$/', '', $row['url']);
             $row['css'] = $row['js'] = array();
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'css') && \is_callable($row['php_class'].'::css')){
                 $row['css'] = array_merge($row['css'], call_user_func($row['php_class'].'::css'));}
