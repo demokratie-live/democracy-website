@@ -1,9 +1,0 @@
-table.sai_table tr:nth-child(even) {
- background-color: #FFFFFF;
-}
-table.sai_table tr:nth-child(odd) {
- background-color: #EEEEEE;
-}
-table.sai_table tr:hover {
- background-color: #FFEFD5;
-}

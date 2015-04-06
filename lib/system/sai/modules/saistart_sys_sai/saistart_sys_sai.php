@@ -12,14 +12,8 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     
-    //public static function sai_mod__SYSTEM_SAI_saistart_sys_sai_flag_css(){}
-    /*public static function sai_mod__SYSTEM_SAI_saistart_sys_sai_flag_js(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/jqBootstrapValidation.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/saistart_sys_sai.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.md5.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.sha1.js')
-                 ));}    */
+    public static function css(){
+        return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/css/saistart_sys_sai.css'));}
     public static function js(){
         return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/jqBootstrapValidation.js'),
                         \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/js/saistart_sys_sai.js'),
@@ -28,7 +22,7 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     }
     
     protected static function html_content(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'), array());}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'), \SYSTEM\SAI\saimod_sys_todo::statistics());}
     
     protected static function html_login(){        
         return \SYSTEM\SECURITY\Security::isLoggedIn() ? \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/logout.tpl'), array()) : \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/login.tpl'), array());}

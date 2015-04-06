@@ -89,6 +89,6 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     
     //public static function css(){}
     public static function js(){
-        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js'),
+        return array( // \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js'),
                        \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/js/saimod_sys_text.js'));}
 }
