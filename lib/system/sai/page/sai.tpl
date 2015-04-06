@@ -7,7 +7,6 @@
         ${css}
         ${js}
     </head>
-    
     <body>
         <div id="sai_navbar" class="navbar navbar-fixed-top" style="height:40px;">
             <div class="navbar-inner">
@@ -27,8 +26,8 @@
                 ${menu_proj}
             </ul>       
         </div>    
-        <div id="content" style="overflow: auto; position: absolute; top: 40px; bottom: 0px; left: 224px; right: 0px; padding: 15px; min-width:1000px;">
-            <div id="content-wrapper" style="width:100%"></div>
+        <div id="content-wrapper" style="overflow: auto; position: absolute; top: 40px; bottom: 0px; left: 224px; right: 0px; padding: 15px; min-width:1000px;">
+            <div id="content" style="width:100%"></div>
             <hr>
             <div class="footer"><p>${copyright}</p></div>
          </div>

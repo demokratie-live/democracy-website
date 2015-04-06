@@ -1,8 +1,6 @@
 <?php
 namespace SYSTEM\SAI;
-
 class saimod_sys_log extends \SYSTEM\SAI\SaiModule {    
-    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_truncate(){        
         \SYSTEM\DBD\SYS_SAIMOD_LOG_TRUNCATE::QQ();
         return \SYSTEM\LOG\JsonResult::ok();}
@@ -344,12 +342,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }        
     }
     
-    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_log">Log</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#!log">Log</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_flag_css(){}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_flag_js(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/js/saimod_sys_log.js')));}
+    //public static function css(){}
+    public static function js(){
+        return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/js/saimod_sys_log.js'));}
 }

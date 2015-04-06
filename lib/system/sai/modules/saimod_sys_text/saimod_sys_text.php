@@ -1,12 +1,12 @@
 <?php
 namespace SYSTEM\SAI;
 
-class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     
     public static function getLanguages(){
         return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);}
 
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale(){        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text(){        
         $vars = array();                        
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_CATEGORY::QQ();
         $vars['tabopts'] = '';
@@ -15,23 +15,23 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
             $vars2 = array( 'active' => ($first ? 'active' : ''),
                             'tab_id' => $r['category']);
             $first = false;
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/tabopt.tpl'), $vars2);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $vars2);
         }           
         $langtab_ = '';
         foreach (self::getLanguages() as $lang){
             $details['langs'] = $lang;
-            $langtab_ .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/langtabopt.tpl'), $details);
+            $langtab_ .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/langtabopt.tpl'), $details);
             $languages[] = $lang;
         }    
         $langtab['langs'] = $langtab_;
-        $langhead = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/langtabs.tpl'), $langtab);
+        $langhead = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/langtabs.tpl'), $langtab);
         $vars['tabs'] = $langhead;
         $vars['langs'] = $langtab_;
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/tabs.tpl'), $vars);
-                //.\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/editmode.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabs.tpl'), $vars);
+                //.\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/editmode.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_load($lang, $group){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_load($lang, $group){
         $con = new \SYSTEM\DB\Connection();
         if(\SYSTEM\system::isSystemDbInfoPG()){
             $query = 'SELECT id, "'.$lang.'" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE category='.$group.' ORDER BY category ASC;';
@@ -44,12 +44,12 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){  
             $temparr['lang'] = $r[$lang];
             $temparr['id'] = $r['id'];
-            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tpl/entry.tpl'), $temparr);
+            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $temparr);
         }
         return $entries;
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_singleload($id, $lang){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_singleload($id, $lang){
         $con = new \SYSTEM\DB\Connection();
         $result = "";
         if(\SYSTEM\system::isSystemDbInfoPG()){
@@ -65,7 +65,7 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $entries;
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_edit($id, $lang, $category, $newtext){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edit($id, $lang, $category, $newtext){
          //$charset = 'utf-8';
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;         
@@ -77,18 +77,18 @@ class saimod_sys_locale extends \SYSTEM\SAI\SaiModule {
         return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_add($id, $category){                
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_add($id, $category){                
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}
   
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_action_delete($id){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id){
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_DEL::QI(array($id)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data"));}
       
-    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_locale">Text</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#!text">Text</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_LOCALE);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_css(){}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_locale_flag_js(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/saimod_sys_locale.js')));}
+    //public static function css(){}
+    public static function js(){
+        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js'),
+                       \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/js/saimod_sys_text.js'));}
 }

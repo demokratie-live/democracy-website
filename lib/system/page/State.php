@@ -20,6 +20,8 @@ class State {
                 $row['css'] = array_merge($row['css'], call_user_func($row['php_class'].'::css'));}
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'js') && \is_callable($row['php_class'].'::js')){
                 $row['js'] = array_merge($row['js'], call_user_func($row['php_class'].'::js'));}
-            $result[] = $row;}
+            $row['php_class'] = '';
+            $result[] = $row;
+        }
         return $returnasjson ? \SYSTEM\LOG\JsonResult::toString($result) : $result;}
 }

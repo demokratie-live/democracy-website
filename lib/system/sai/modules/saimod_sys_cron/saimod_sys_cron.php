@@ -39,14 +39,12 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_CRON_DEL::QI(array($cls));
         return \SYSTEM\LOG\JsonResult::ok();}
     
-    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_cron">Cron</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#!cron">Cron</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_cron_flag_css(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/css/saimod_sys_cron.css')));}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_cron_flag_js(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/js/saimod_sys_cron.js')));}    
+    public static function css(){
+        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/css/saimod_sys_cron.css'));}
+    public static function js(){
+        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/js/saimod_sys_cron.js'));}
 }

@@ -35,23 +35,24 @@ class default_page extends \SYSTEM\PAGE\Page {
         throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module haz a Problem - either it does not exist or it is not public - which is required!');}
 
     private static function css(){
-        $result = '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
-                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/index.css').'" type="text/css" />'.
-                  '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_table.css').'" type="text/css" />';        
+        $result =   '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
+                    '<link rel="stylesheet" href="./api.php?call=files&cat=sys&id=system.css" type="text/css" />'.
+                    '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
+                  //'<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_table.css').'" type="text/css" />';        
         return $result;
     }
 
     private static function js(){
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/tooltipster-master/js/jquery.tooltipster.min').'" type="text/javascript"></script>'.
+                  //'<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/tooltipster-master/js/jquery.tooltipster.min').'" type="text/javascript"></script>'.
+                  '<script type="text/javascript" language="JavaScript" src="./api.php?call=files&cat=sys&id=system.js"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/lang_switcher.js').'" type="text/javascript"></script>'.
+                  //'<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/lang_switcher.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
                   '<script src="https://maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>'.
-                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
-                  '<script type="text/javascript">var SAI_ENDPOINT = "'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_BASEURL).'";</script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/tinymce.min.js').'" type="text/javascript"></script>';
+                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';
+                  //'<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_locale/tinymce/tinymce.min.js').'" type="text/javascript"></script>';
         return $result;
     }
     
@@ -59,11 +60,11 @@ class default_page extends \SYSTEM\PAGE\Page {
         $result = '';
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         if(in_array('deDE', $langs)){
-            $result .= '<a href="javascript:switchLocale(\'deDE\');"><img src="${PATH_LOCAL_IMG}flag_germany.png" alt="Deutsch"></a>&nbsp;';
+            $result .= '<a href="javascript:system.language(\'deDE\');"><img src="${PATH_LOCAL_IMG}flag_germany.png" alt="Deutsch"></a>&nbsp;';
         }
         
         if(in_array('enUS', $langs)){
-            $result .= '<a href="javascript:switchLocale(\'enUS\');"><img src="${PATH_LOCAL_IMG}flag_usa.png" alt="English"></a>';
+            $result .= '<a href="javascript:system.language(\'enUS\');"><img src="${PATH_LOCAL_IMG}flag_usa.png" alt="English"></a>';
         }
         return $result;
     }

@@ -33,12 +33,11 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
                 
     }
     
-    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_mod">SAI Mods</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#!mod">SAI Mods</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_flag_css(){}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_flag_js(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/saimod_sys_mod.js')));}
+    //public static function css(){}
+    public static function js(){
+        return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/js/saimod_sys_mod.js'));}
 }

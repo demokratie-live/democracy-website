@@ -1,6 +1,5 @@
 <?php
 namespace SYSTEM\SAI;
-
 class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
         $result =   '<h4>System Config</h4><hr>'.
@@ -32,10 +31,10 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
         
         return $result;
     }
-    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_config">Config</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#!config">Config</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_config_flag_css(){}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_config_flag_js(){}
+    //public static function css(){}
+    //public static function js(){}
 }

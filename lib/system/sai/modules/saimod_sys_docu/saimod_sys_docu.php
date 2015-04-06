@@ -41,13 +41,12 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabs.tpl'), $vars);
     }    
     
-    public static function html_li_menu(){return '<li><a href="#" saimenu=".SYSTEM.SAI.saimod_sys_docu">Docu</a></li>';}
+    public static function html_li_menu(){return '<li><a href="#!docu">Docu</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_flag_css(){}
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_flag_js(){
-        return \SYSTEM\LOG\JsonResult::toString(
-            array(  \SYSTEM\WEBPATH(new \SYSTEM\PSYSTEM(),'lib/EpicEditor/js/epiceditor.min.js'),
-                    \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/saimod_sys_docu.js')));}
+    //public static function css(){}
+    public static function js(){
+        return array(   \SYSTEM\WEBPATH(new \SYSTEM\PSYSTEM(),'lib/EpicEditor/js/epiceditor.min.js'),
+                        \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/js/saimod_sys_docu.js'));}
 }

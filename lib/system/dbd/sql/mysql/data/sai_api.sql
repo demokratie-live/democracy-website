@@ -91,7 +91,7 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (609, 42, 2, 600, 'deletedialog', 'ID', 'INT');
 
 
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (700, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_locale', 'action', NULL);
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (700, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_text', 'action', NULL);
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (701, 42, 2, 700, 'load', 'id', 'LANG');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (702, 42, 2, 700, 'load', 'group', 'INT');
