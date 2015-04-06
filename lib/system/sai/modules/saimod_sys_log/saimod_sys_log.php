@@ -316,7 +316,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTERS::QQ();        
         $result = '';        
         while($row = $res->next()){
-            $result .= '<li><a href="#" filter="'.$row['class'].'">'.$row['class'].'</a></li>';}
+            $result .= '<li><a href="#!log" filter="'.$row['class'].'">'.$row['class'].'</a></li>';}
         return $result;
     }
     
