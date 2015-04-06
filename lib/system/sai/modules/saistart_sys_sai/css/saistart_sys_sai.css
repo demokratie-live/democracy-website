@@ -1,4 +1,23 @@
+#container_top .well{
+    height: 220px;
+}
 #project {
-    font-size: 22px;
-    margin: 15px;
+    float: left;
+    min-width: 250px;
+}
+#analytics {
+    margin-left: 20px;
+    float: left;
+    min-width: 250px;
+}
+#git {
+    margin-left: 20px;
+    float: left;
+    min-width: 250px;
+}
+#project {
+    float: left;
+}
+#todo {
+    clear: both;
 }

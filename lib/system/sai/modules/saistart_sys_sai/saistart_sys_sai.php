@@ -22,7 +22,14 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     }
     
     protected static function html_content(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'), \SYSTEM\SAI\saimod_sys_todo::statistics());}
+        if(!\SYSTEM\SECURITY\Security::isLoggedIn()){
+            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'));}
+        $vars = array();
+        $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
+        $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
+        $vars = array_merge($vars,\SYSTEM\SAI\saimod_sys_todo::statistics());
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content_loggedin.tpl'), $vars);
+    }
     
     protected static function html_login(){        
         return \SYSTEM\SECURITY\Security::isLoggedIn() ? \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/logout.tpl'), array()) : \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/login.tpl'), array());}

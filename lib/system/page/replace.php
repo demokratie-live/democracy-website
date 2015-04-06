@@ -1,7 +1,7 @@
 <?php
 namespace SYSTEM\PAGE;
 class replace {
-    public static function replace($text, $vars){
+    public static function replace($text, $vars = array()){
         if(!$vars){
             $vars = array();}
         $search = array();
@@ -14,8 +14,8 @@ class replace {
         }
         return @preg_replace($search, $replace, $text);
     }
-    public static function replaceFile($path, $vars){
-        $buffer = file_get_contents($path);            
+    public static function replaceFile($path, $vars = array()){
+        $buffer = file_get_contents($path);
         return self::replace($buffer, $vars);}
 
     //removes all Variable Handles

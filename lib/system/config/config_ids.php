@@ -30,4 +30,5 @@ class config_ids {
     const SYS_SAI_CONFIG_NAVIMG                 = 51;
     const SYS_SAI_CONFIG_TITLE                  = 52;
     const SYS_SAI_CONFIG_COPYRIGHT              = 53;
+    const SYS_SAI_CONFIG_PROJECT                = 54;
 }
