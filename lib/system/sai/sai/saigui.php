@@ -1,9 +1,7 @@
 <?php
 namespace SYSTEM\SAI;
-
-define('SAI_MOD_POSTFIELD','sai_mod');
-
 class saigui extends \SYSTEM\PAGE\Page {
+    const SAI_MOD_POSTFIELD = 'sai_mod';
     
     public function html(){
         \SYSTEM\SECURITY\Security::isLoggedIn(); // refresh session
@@ -11,9 +9,9 @@ class saigui extends \SYSTEM\PAGE\Page {
         $pg = json_decode(file_get_contents("php://input"), true);
         if(!$pg){
             $pg = array_merge($_POST,$_GET);}
-        if(isset($pg[SAI_MOD_POSTFIELD])){
-            $classname = \str_replace('.', '\\', $pg[SAI_MOD_POSTFIELD]);
-            $pg[SAI_MOD_POSTFIELD] = \str_replace('.', '_', $pg[SAI_MOD_POSTFIELD]);
+        if(isset($pg[self::SAI_MOD_POSTFIELD])){
+            $classname = \str_replace('.', '\\', $pg[self::SAI_MOD_POSTFIELD]);
+            $pg[self::SAI_MOD_POSTFIELD] = \str_replace('.', '_', $pg[self::SAI_MOD_POSTFIELD]);
                         
             $mods = \SYSTEM\SAI\sai::getAllModules();        
             if( $classname &&

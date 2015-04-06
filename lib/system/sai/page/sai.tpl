@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>${title}</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" type="image/png" href="${navimg}" />
         ${css}
         ${js}
@@ -30,6 +30,6 @@
             <div id="content" style="width:100%"></div>
             <hr>
             <div class="footer"><p>${copyright}</p></div>
-         </div>
+        </div>
     </body>
 </html>

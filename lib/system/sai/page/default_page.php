@@ -1,9 +1,6 @@
 <?php
-
 namespace SYSTEM\SAI;
-
 class default_page extends \SYSTEM\PAGE\Page {
-    
     private static function menu_sys(){                
         $result = '';
         
@@ -36,7 +33,7 @@ class default_page extends \SYSTEM\PAGE\Page {
 
     private static function css(){
         $result =   '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
-                    '<link rel="stylesheet" href="./api.php?call=files&cat=sys&id=system.css" type="text/css" />'.
+                    '<link rel="stylesheet" href="./api.php?call=files&amp;cat=sys&amp;id=system.css" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
                   //'<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_table.css').'" type="text/css" />';        
         return $result;
@@ -45,10 +42,10 @@ class default_page extends \SYSTEM\PAGE\Page {
     private static function js(){
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
-                  '<script type="text/javascript" language="JavaScript" src="./api.php?call=files&cat=sys&id=system.js"></script>'.
+                  '<script type="text/javascript" language="JavaScript" src="./api.php?call=files&amp;cat=sys&amp;id=system.js"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
-                  '<script src="https://maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>'.
+                  '<script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>'.
                   '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js').'" type="text/javascript"></script>';
         return $result;
@@ -67,19 +64,20 @@ class default_page extends \SYSTEM\PAGE\Page {
         return $result;
     }
 
-    public function html(){
-
+    public function html($_escaped_fragment_ = NULL){
         $vars = array();
-        $vars['css'] = $this->css();
-        $vars['js'] = $this->js();
-
+        $vars['css'] = self::css();
+        $vars['js'] = '';
+        if(!$_escaped_fragment_){
+            $vars['js'] = self::js();}
         $vars['menu_start'] = self::menu_start();
         $vars['menu_sys'] = self::menu_sys();
         $vars['menu_proj'] = self::menu_proj();
         $vars['navimg'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG);
         $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE);
         $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT);
-        $vars['lang_switcher'] = self::lang_switcher();
+        //$vars['lang_switcher'] = self::lang_switcher();
+        $vars['lang_switcher'] = '';
         $vars['PATH_LOCAL_IMG'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/img/');
         
         $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI));
