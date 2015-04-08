@@ -30,6 +30,9 @@ class HEADER {
     public static function JS(){
         if(self::checkHeader()){
             header('content-type:application/javascript;');}}
+    public static function CSS(){
+        if(self::checkHeader()){
+            header('content-type:text/css;');}}
             
     public static function FILE($filename){
         header("Content-type: application/octet-stream");
