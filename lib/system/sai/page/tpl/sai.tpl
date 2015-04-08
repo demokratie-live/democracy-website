@@ -3,6 +3,7 @@
     <head>
         <title>${title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="fragment" content="!start">
         <link rel="icon" type="image/png" href="./api.php?call=files&cat=saistart_sys_sai&id=logo.png"/>
         ${css}
         ${js}
