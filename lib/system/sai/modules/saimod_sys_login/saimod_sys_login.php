@@ -44,7 +44,7 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
                                     \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_BASIC));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/register.tpl'), $vars);}
 
-    public static function html_li_menu(){return '</ul><ul class="nav pull-right"><li><a href="#!login" id="sai_login_loginmenuli">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? 'Logout' : 'Login').'</a></li>';}
+    public static function html_li_menu(){return '</ul><ul class="nav pull-right"><li><a id="menu_login" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? 'Logout' : 'Login').'</a></li>';}
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     

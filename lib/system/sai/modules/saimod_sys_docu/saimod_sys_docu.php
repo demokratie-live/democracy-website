@@ -41,7 +41,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabs.tpl'), $vars);
     }    
     
-    public static function html_li_menu(){return '<li><a href="#!docu">Docu</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_docu" href="#!docu">Docu</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

@@ -30,7 +30,7 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
         
         return $result;
     }
-    public static function html_li_menu(){return '<li><a href="#!config">Config</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_config" href="#!config">Config</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

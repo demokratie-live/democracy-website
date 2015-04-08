@@ -1,4 +1,4 @@
-<table class="sai_table" style="width: 100%">
+<table class="table table-hover table-condensed sai_table" style="width: 100%">
     <tr>
         <th>Name</th>
         <th>Count</th>

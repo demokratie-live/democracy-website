@@ -171,7 +171,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo_user.tpl'), $vars) :
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo.tpl'), $vars);}
     
-    public static function html_li_menu(){return '<li><a href="#!todo">ToDo</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_todo" href="#!todo">ToDo</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

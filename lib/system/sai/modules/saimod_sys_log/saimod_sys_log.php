@@ -342,7 +342,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }        
     }
     
-    public static function html_li_menu(){return '<li><a href="#!log">Log</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_log" href="#!log">Log</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

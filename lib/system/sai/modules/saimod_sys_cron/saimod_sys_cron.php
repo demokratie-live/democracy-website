@@ -39,7 +39,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_CRON_DEL::QI(array($cls));
         return \SYSTEM\LOG\JsonResult::ok();}
     
-    public static function html_li_menu(){return '<li><a href="#!cron">Cron</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_cron" href="#!cron">Cron</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
     

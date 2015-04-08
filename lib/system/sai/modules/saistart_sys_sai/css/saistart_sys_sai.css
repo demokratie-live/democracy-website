@@ -1,21 +1,25 @@
+#content_saistart {
+    width: 1250px;
+}
+
 #container_top .well{
     height: 220px;
-    width: 21%;
+    min-width: 250px;
 }
 #project {
     float: left;
 }
 #analytics {
-    margin-left: 10px;
+    margin-left: 20px;
     float: left;
 }
 #git {
-    margin-left: 10px;
+    margin-left: 20px;
     float: left;
 }
 #logout {
-    margin-left: 10px;
-    float: right;
+    margin-left: 20px;
+    float: left;
 }
 #todo {
     clear: both;

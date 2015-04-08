@@ -33,7 +33,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
                 
     }
     
-    public static function html_li_menu(){return '<li><a href="#!mod">SAI Mods</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">SAI Mods</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

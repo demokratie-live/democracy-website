@@ -42,7 +42,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
             $result .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_tableentry.tpl'), array('i' => $i++, 'cat' => $name, 'name' => $file, 'extension' => substr($file,-3,3), 'url' => 'api.php?call=files&cat='.$name.'&id='.$file));}
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_tabfull.tpl'), array('cat' => $name, 'content' => $result));}
     
-    public static function html_li_menu(){return '<li><a href="#!files">Files</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_files" href="#!files">Files</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_FILES);}
     
