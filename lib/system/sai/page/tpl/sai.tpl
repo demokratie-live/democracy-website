@@ -3,7 +3,7 @@
     <head>
         <title>${title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="icon" type="image/png" href="${navimg}" />
+        <link rel="icon" type="image/png" href="./api.php?call=files&cat=saistart_sys_sai&id=logo.png"/>
         ${css}
         ${js}
     </head>
@@ -11,7 +11,7 @@
         <div id="sai_navbar" class="navbar navbar-fixed-top" style="height:40px;">
             <div class="navbar-inner">
                 <div class="brand-logo" style="padding-left: 10px;">
-                    <img src="${navimg}" height="24" width="24"/>
+                    <img src="./api.php?call=files&cat=saistart_sys_sai&id=logo.png" height="24" width="24"/>
                 </div>
                 <a class="brand" href="#" style="width: 159px;">SAI</a>
                 ${lang_switcher}
