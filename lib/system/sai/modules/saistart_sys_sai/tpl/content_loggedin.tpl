@@ -11,14 +11,7 @@
     </div>
     <div class="well" id="analytics">
         <h2 class="muted"><a href="#!log">Analytics</a></h2>
-        <b>IPs today:</b> ${ip_today}<br/>
-        <b>Users today:</b> ${user_today}<br/>
-        <br/>
-        <b>IPs this week:</b> ${ip_week}<br/>
-        <b>Users this week:</b> ${user_week}<br/>
-        <br/>
-        <b>IPs this month:</b> ${ip_month}<br/>
-        <b>Users this month:</b> ${user_month}
+        ${analytics}
     </div>
     <div class="well" id="git">
         <h2 class="muted">Git</h2>

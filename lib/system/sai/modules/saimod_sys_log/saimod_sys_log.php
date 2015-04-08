@@ -5,6 +5,23 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_LOG_TRUNCATE::QQ();
         return \SYSTEM\LOG\JsonResult::ok();}
     
+    public static function analytics(){
+        $vars = array();
+        $data = \SYSTEM\DBD\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(86400));
+        $vars['log_today'] = $data['count'];
+        $vars['ip_today'] = $data['ip_unique'];
+        $vars['user_today'] = $data['user_unique'];
+        $data = \SYSTEM\DBD\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(604800));
+        $vars['log_week'] = $data['count'];
+        $vars['ip_week'] = $data['ip_unique'];
+        $vars['user_week'] = $data['user_unique'];
+        $data = \SYSTEM\DBD\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(2692000));
+        $vars['log_month'] = $data['count'];
+        $vars['ip_month'] = $data['ip_unique'];
+        $vars['user_month'] = $data['user_unique'];
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_analytics.tpl'), $vars);
+    }    
+        
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
         $vars = array();
         $vars['dbfile_entries'] = '';
@@ -13,6 +30,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             foreach($scanned_directory as $file){
                 $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats_menu.tpl'), array('file' => $file));}
         }
+        //positioning problem
+        //$vars['analytics'] = self::analytics();
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db){
@@ -99,7 +118,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare('unique_basic',
                                 'SELECT datetime(strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.') - strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.')%:filter,"unixepoch", "localtime")  as day,'
                                     .'count(*) as count,'
-                                    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_USER.') as user_unique,'                                        
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                                                     
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique'
                                 .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
@@ -169,7 +188,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare('unique_referer',
                                 'SELECT datetime(strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.') - strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.')%:filter,"unixepoch", "localtime")  as day,'
                                     .'count(*) as count,'
-                                    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
+                                    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_USER.') as user_unique,'
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                        
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
@@ -193,7 +212,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare('basic_visitor',
                                 'SELECT datetime(strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.') - strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.')%:filter,"unixepoch", "localtime")  as day,'
                                     .'count(*) as count,'
-                                    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_USER.') as user_unique,'                                        
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'
                                 .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
                                 .' GROUP BY day'
