@@ -1,24 +1,48 @@
-/* 
-    Document   : index.css
-    Created on : 31.01.2013, 01:59:37
-    Author     : CHRIS MEURISCH
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-.brand-logo{ 
+#sai_logo {
+    padding-left: 10px;
     float: left;
     padding-top: 8px;
     padding-right: 10px;
 }
+#sai_brand{
+    width: 170px;
+}
 
-.footer{
+
+#sai_navbar{
+    height:40px;
+}
+
+#project_navbar{
+    width:224px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    top: 38px;
+}
+
+#content-wrapper{
+    overflow: auto;
+    position: absolute;
+    top: 40px;
+    bottom: 0px;
+    left: 224px;
+    right: 0px;
+    padding: 15px;
+    min-width:1000px;
+}
+
+#content{
+    width:100%
+}
+
+#footer{
     text-align: right;
     padding-right: 20px;
     color: #777;
 }
 
-.footer a{
+#footer a{
     color: #777;
 }
 

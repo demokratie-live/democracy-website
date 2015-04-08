@@ -13,4 +13,5 @@ require_once dirname(__FILE__).'/saimod_sys_cache/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_cron/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_todo/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_docu/autoload.inc';
+require_once dirname(__FILE__).'/saimod_sys_langswitcher/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_login/autoload.inc';

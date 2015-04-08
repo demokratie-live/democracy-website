@@ -48,14 +48,6 @@ class default_page extends \SYSTEM\PAGE\Page {
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js').'" type="text/javascript"></script>';
         return $result;
     }
-    
-    private static function lang_switcher(){
-        $result = '';
-        $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
-        foreach($langs as $lang){
-            $result .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/language.tpl'),array('lang' => $lang));}
-        return $result;
-    }
 
     public function html($_escaped_fragment_ = NULL){
         $vars = array();
@@ -68,7 +60,6 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['menu_proj'] = self::menu_proj();
         $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE);
         $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT);
-        $vars['lang_switcher'] = self::lang_switcher();
         
         $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/sai.tpl'), $vars);        

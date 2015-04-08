@@ -8,28 +8,27 @@
         ${js}
     </head>
     <body>
-        <div id="sai_navbar" class="navbar navbar-fixed-top" style="height:40px;">
+        <div id="sai_navbar" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="brand-logo" style="padding-left: 10px;">
-                    <img src="./api.php?call=files&cat=saistart_sys_sai&id=logo.png" height="24" width="24"/>
-                </div>
-                <a class="brand" href="#" style="width: 159px;">SAI</a>
-                ${lang_switcher}
                 <ul class="nav">
+                    <a id="sai_logo" class="brand-logo" href="#!start">
+                        <img src="./api.php?call=files&cat=saistart_sys_sai&id=logo.png" height="24" width="24"/>
+                        <a id="sai_brand" class="brand" >SAI</a>
+                    </a>
                     ${menu_start}
                     ${menu_sys}
-                </ul>                
+                </ul>
             </div>
         </div>                
-        <div id="project_navbar" style="width:224px; position: fixed; left: 0px; bottom: 0px; top: 38px;">
+        <div id="project_navbar">
             <ul class="nav nav-tabs nav-stacked sai_project_modules">                
                 ${menu_proj}
-            </ul>       
-        </div>    
-        <div id="content-wrapper" style="overflow: auto; position: absolute; top: 40px; bottom: 0px; left: 224px; right: 0px; padding: 15px; min-width:1000px;">
-            <div id="content" style="width:100%"></div>
+            </ul>
+        </div>
+        <div id="content-wrapper">
+            <div id="content"></div>
             <hr>
-            <div class="footer"><p>${copyright}</p></div>
+            <div id="footer"><p>${copyright}</p></div>
         </div>
     </body>
 </html>
