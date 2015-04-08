@@ -24,7 +24,6 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     protected static function html_content(){
         if(!\SYSTEM\SECURITY\Security::isLoggedIn()){
             $vars = array();
-            $vars['login'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/login.tpl'), array());
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'),$vars);
         }
         $vars = array();
@@ -33,7 +32,10 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars['todo_entries'] = \SYSTEM\SAI\saimod_sys_todo::sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist();
         $vars['log_entries'] = \SYSTEM\SAI\saimod_sys_log::sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter();
         $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
-        $vars['logout'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/logout.tpl'));
+        $user = \SYSTEM\SECURITY\Security::getUser();
+        $vars['username'] = $user->username;
+        $vars['locale'] = $user->locale;
+        $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
         $vars = array_merge($vars,\SYSTEM\SAI\saimod_sys_todo::statistics());
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content_loggedin.tpl'), $vars);
     }

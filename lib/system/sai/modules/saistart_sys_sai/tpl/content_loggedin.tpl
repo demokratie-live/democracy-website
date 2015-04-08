@@ -19,7 +19,29 @@
         <b>Current SYSTEM Version:</b> ${git_system}
     </div>
     <div class="well" id="logout">
-        ${logout}
+        <h2 class="muted"><a href="#!login">${basic_logout}</a></h2>
+        <table class="table table-hover table-condensed sai_table">
+            <tr>
+                <th>${basic_username}</th>
+                <td>${username}</td>
+            </tr>
+            <tr>
+               <th>${basic_locale}</th>
+               <td>${locale}</td>
+            </tr>
+            <tr>
+               <th>${basic_admin_rights}</th>
+               <td>${isadmin}</td>
+            </tr>
+        </table>
+        ${basic_text_logout}
+        <form class="textbox" style="" id="logout_form">
+            <div class="control-group">
+                <div class="help-block"></div>
+                <input type="hidden" />
+                <button class="btn-sm btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="logout_submit">${basic_logout}</button>
+            </div>
+        </form>
     </div>
 </div>
 <div class="well" id="todo">
