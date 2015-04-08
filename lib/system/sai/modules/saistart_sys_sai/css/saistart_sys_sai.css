@@ -1,23 +1,28 @@
 #container_top .well{
     height: 220px;
+    width: 21%;
 }
 #project {
     float: left;
-    min-width: 250px;
 }
 #analytics {
-    margin-left: 20px;
+    margin-left: 10px;
     float: left;
-    min-width: 250px;
 }
 #git {
-    margin-left: 20px;
+    margin-left: 10px;
     float: left;
-    min-width: 250px;
 }
-#project {
-    float: left;
+#logout {
+    margin-left: 10px;
+    float: right;
 }
 #todo {
     clear: both;
+}
+#login {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width:220px;
 }

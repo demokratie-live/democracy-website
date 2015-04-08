@@ -25,19 +25,18 @@
         <b>Current Project Version:</b> ${git_project}<br/>
         <b>Current SYSTEM Version:</b> ${git_system}
     </div>
+    <div class="well" id="logout">
+        ${logout}
+    </div>
 </div>
 <div class="well" id="todo">
     <h2 class="muted"><a href="#!todo">Todo</a></h2>
     <b>Status:</b> ${project_count}/${project_all}<br/>
     <b>Progress:</b> ${project}%
-    <h4 class="muted">5 Latest User Todos</h4>
-    ${todo_user_entries}
-    <h4 class="muted">5 Latest Generated Todos</h4>
-    ${todo_gen_entries}
+    ${todo_entries}
 </div>
 <div class="well" id="log">
     <h2 class="muted"><a href="#!log">Log</a></h2>
-    <b>Count:</b> ${log_count}
-    <h4 class="muted">10 Latest Log Entries</h4>
+    <h4 class="muted">100 Latest Log Entries</h4>
     ${log_entries}
 </div>

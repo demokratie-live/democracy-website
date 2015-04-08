@@ -3,7 +3,6 @@ namespace SYSTEM\SAI;
 class default_page extends \SYSTEM\PAGE\Page {
     private static function menu_sys(){                
         $result = '';
-        
         $mods = \SYSTEM\SAI\sai::getSysModules();
         foreach($mods as $mod){
             if(\call_user_func(array($mod, 'right_public')) ||
@@ -35,7 +34,6 @@ class default_page extends \SYSTEM\PAGE\Page {
         $result =   '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
                     '<link rel="stylesheet" href="./api.php?call=files&amp;cat=sys&amp;id=system.css" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
-                  //'<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_table.css').'" type="text/css" />';        
         return $result;
     }
 
@@ -54,13 +52,8 @@ class default_page extends \SYSTEM\PAGE\Page {
     private static function lang_switcher(){
         $result = '';
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
-        if(in_array('deDE', $langs)){
-            $result .= '<a href="javascript:system.language(\'deDE\');"><img src="${PATH_LOCAL_IMG}flag_germany.png" alt="Deutsch"></a>&nbsp;';
-        }
-        
-        if(in_array('enUS', $langs)){
-            $result .= '<a href="javascript:system.language(\'enUS\');"><img src="${PATH_LOCAL_IMG}flag_usa.png" alt="English"></a>';
-        }
+        foreach($langs as $lang){
+            $result .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/language.tpl'),array('lang' => $lang));}
         return $result;
     }
 
@@ -76,11 +69,9 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['navimg'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_NAVIMG);
         $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE);
         $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT);
-        //$vars['lang_switcher'] = self::lang_switcher();
-        $vars['lang_switcher'] = '';
-        $vars['PATH_LOCAL_IMG'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/img/');
+        $vars['lang_switcher'] = self::lang_switcher();
         
         $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/sai.tpl'), $vars);        
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/sai.tpl'), $vars);        
     }
 }
