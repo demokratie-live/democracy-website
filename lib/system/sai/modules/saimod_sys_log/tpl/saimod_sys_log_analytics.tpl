@@ -1,6 +1,6 @@
-<table class="table table-hover table-condensed sai_table">
+<table class="table table-hover table-condensed">
     <tr>
-        <th></th>
+        <th>PV: ${page_value}</th>
         <th>Today</th>
         <th>Week</th>
         <th>Month</th>

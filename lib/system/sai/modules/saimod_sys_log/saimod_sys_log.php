@@ -19,6 +19,9 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $vars['log_month'] = $data['count'];
         $vars['ip_month'] = $data['ip_unique'];
         $vars['user_month'] = $data['user_unique'];
+        $vars['page_value'] =   \round(  $vars['log_today']+$vars['ip_today']*10+$vars['user_today']*100+
+                                        ($vars['log_week']+$vars['ip_week']*10+$vars['user_week']*100)/7+
+                                        ($vars['log_month']+$vars['ip_month']*10+$vars['user_week']*100)/31,0);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_analytics.tpl'), $vars);
     }    
         

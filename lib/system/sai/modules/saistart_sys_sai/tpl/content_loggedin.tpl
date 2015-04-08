@@ -20,7 +20,7 @@
     </div>
     <div class="well" id="logout">
         <h2 class="muted"><a href="#!login">${basic_logout}</a></h2>
-        <table class="table table-hover table-condensed sai_table">
+        <table class="table table-hover table-condensed">
             <tr>
                 <th>${basic_username}</th>
                 <td>${username}</td>
