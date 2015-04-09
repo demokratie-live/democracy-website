@@ -48,10 +48,10 @@
     <h2 class="muted"><a href="#!todo">Todo</a></h2>
     <b>Status:</b> ${project_count}/${project_all}<br/>
     <b>Progress:</b> ${project}%
-    ${todo_entries}
+    <div id="todo_entries"></div>
 </div>
 <div class="well" id="log">
     <h2 class="muted"><a href="#!log">Log</a></h2>
     <h4 class="muted">100 Latest Log Entries</h4>
-    ${log_entries}
+    <div id="log_entries"></div>
 </div>

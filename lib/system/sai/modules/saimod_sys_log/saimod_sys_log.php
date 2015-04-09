@@ -298,7 +298,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             //print_r($r);
             $r['class_row'] = self::tablerow_class($r['class']);
             $r['time'] = self::time_elapsed_string(strtotime($r['time']));
-            $r['message'] = substr($r['message'],0,255);
+            $r['message'] = htmlspecialchars(substr($r['message'],0,255));
+            $r['request_uri'] = htmlspecialchars($r['request_uri']);
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);                                         
         }
         $vars = array();

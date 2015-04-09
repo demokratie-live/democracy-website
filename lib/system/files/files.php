@@ -28,6 +28,9 @@ class files {
         }else{
             \SYSTEM\HEADER::FILE($id);}
             
+        //Allow Caching for all files
+        header('Cache-Control: public;');
+        
         if(!self::file_get_contents_chunked(self::$folders[$cat].$id,4096,function($chunk,&$handle,$iteration){echo $chunk;})){
             throw new \SYSTEM\LOG\ERROR("Could not transfere File.");}
         return;

@@ -29,8 +29,6 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars = array();
         $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
         $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
-        $vars['todo_entries'] = \SYSTEM\SAI\saimod_sys_todo::sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist();
-        $vars['log_entries'] = \SYSTEM\SAI\saimod_sys_log::sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter();
         $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
         $user = \SYSTEM\SECURITY\Security::getUser();
         $vars['username'] = $user->username;
