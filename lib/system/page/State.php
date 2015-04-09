@@ -11,8 +11,8 @@ class State {
         $substate = self::parse_substate($substate);
         //vars
         $vars = array();
-        for($i=1;$i<count($state);$i++){
-            $var = \explode('.',$state[$i]);
+        for($i=1;$i<count($state_vars);$i++){
+            $var = \explode('.',$state_vars[$i]);
             $vars[$var[0]] = $var[1];}
         $result = array();
         $res = \SYSTEM\DBD\SYS_PAGE_GROUP::QQ(array($group,$state_name));
