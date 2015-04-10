@@ -74,7 +74,7 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (341, 42, 2, 300, 'deleterightuser', 'userid', 'UINT');
 
 
--- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (400, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_sai_mods', 'action', NULL);
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (400, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_mod', 'action', NULL);
 
 
 -- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (500, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_config', 'action', NULL);
