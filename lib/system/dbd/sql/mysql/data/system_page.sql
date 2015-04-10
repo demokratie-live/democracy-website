@@ -15,7 +15,10 @@ INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, 
 INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (73, 'error', 42, 'log', 70, 1, '#tab_log', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=error&error=${error}', '', '');
 
 INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (80, 'login', 42, 'login', -1, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_login', 'init_saimod_sys_login', '\\SYSTEM\\SAI\\saimod_sys_login');
+
 INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (90, 'mod', 42, 'mod', -1, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_mod', 'init_saimod_sys_mod', '\\SYSTEM\\SAI\\saimod_sys_mod');
+INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (91, 'system', 42, 'mod', 90, 0, '#tab_mod', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_mod&action=system', 'init_saimod_sys_mod_system', '\\SYSTEM\\SAI\\saimod_sys_mod');
+INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (92, 'project', 42, 'mod', 90, 1, '#tab_mod', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_mod&action=project', 'init_saimod_sys_mod_project', '\\SYSTEM\\SAI\\saimod_sys_mod');
 
 INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (100, 'security', 42, 'security', -1, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_security', 'init_saimod_sys_security', '\\SYSTEM\\SAI\\saimod_sys_security');
 INSERT INTO `system_page` (`id`, `name`, `group`, `state`, `parent_id`, `type`, `div`, `url`, `func`, `php_class`) VALUES (101, 'users', 42, 'security', 100, 0, '#tab_security', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_security&action=users&search=${search}', 'init_saimod_sys_security_users', '\\SYSTEM\\SAI\\saimod_sys_security');
