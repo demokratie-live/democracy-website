@@ -68,6 +68,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
+            $row['message'] = htmlspecialchars($row['message']);
             $row['request_uri'] = htmlspecialchars($row['request_uri']);
             $row['openclose'] = 'open';
             if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
