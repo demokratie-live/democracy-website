@@ -2,7 +2,7 @@
 <hr>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="tabs_todo">
-        <li class="active"><a href="#!todo" action="todolist">ToDo</a></li>
+        <li class="active"><a href="#!todo" id="menu_todolist">ToDo</a></li>
         <li><a href="#!todo(doto)" id="menu_doto">DoTo</a></li>
         <li><a href="#!todo(stats)" id="menu_stats">Statistics</a></li>
         <img id="img_loader" src="${PICPATH}ajax-loader.gif" style="margin-left: 10px; margin-top: 10px; display: none;  float: left"/>

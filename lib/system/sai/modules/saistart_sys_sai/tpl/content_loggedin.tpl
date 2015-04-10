@@ -10,7 +10,7 @@
         <b>Progress:</b> ${project}%
     </div>
     <div class="well" id="analytics">
-        <h2 class="muted"><a href="#!log">Analytics</a></h2>
+        <h2 class="muted"><a href="#!log(stats)">Analytics</a></h2>
         ${analytics}
     </div>
     <div class="well" id="git">
