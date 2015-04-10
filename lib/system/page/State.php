@@ -22,15 +22,27 @@ class State {
             $row['url'] = \SYSTEM\PAGE\replace::replace($row['url'], $vars);
             $row['url'] = \SYSTEM\PAGE\replace::clean($row['url']);
             //clean url of empty variables
-            $row['url'] = preg_replace('/&.*?=(&|$)/', '&', $row['url']);
-            $row['url'] = preg_replace('/&$/', '', $row['url']);
+            //$row['url'] = preg_replace('/&.*?=(&|$)/', '&', $row['url']);
+            $row['url'] = preg_replace('/[^=&]+=(&|$)/', '&', $row['url']);
+            $row['url'] = preg_replace('/&&$/', '', $row['url']);
             $row['css'] = $row['js'] = array();
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'css') && \is_callable($row['php_class'].'::css')){
                 $row['css'] = array_merge($row['css'], call_user_func($row['php_class'].'::css'));}
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'js') && \is_callable($row['php_class'].'::js')){
                 $row['js'] = array_merge($row['js'], call_user_func($row['php_class'].'::js'));}
             $row['php_class'] = '';
-            $result[] = $row;
+            
+            $skip = false;
+            for($i=0;$i<count($result);$i++){
+                if($result[$i]['div'] == $row['div']){
+                    $skip = true;
+                    if($row['type'] == 1){
+                        $result[$i] = $row;}
+                    break;
+                }
+            }
+            if(!$skip){
+                $result[] = $row;}
         }
         return $returnasjson ? \SYSTEM\LOG\JsonResult::toString($result) : $result;
     }

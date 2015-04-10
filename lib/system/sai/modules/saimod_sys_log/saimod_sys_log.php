@@ -290,6 +290,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
+        $filter_ = $filter;
         $filter = str_replace('\\', '\\\\', $filter);
         $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array($filter));
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array($filter));
@@ -305,14 +306,9 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $vars = array();
         $vars['count'] = $count['count'];
         $vars['table'] = $table;
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_log(){
-        $vars = array();
-        $vars['table'] = self::sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter();        
-        $vars['error_filter'] = self::generate_error_filters();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),
+                array(  'table' => \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars),
+                        'error_filter' => self::generate_error_filters($filter_)));
     }
     
     private static function time_elapsed_string($ptime){
@@ -335,11 +331,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }
     }
     
-    private static function generate_error_filters(){
+    private static function generate_error_filters($filter){
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTERS::QQ();        
         $result = '';        
         while($row = $res->next()){
-            $result .= '<li><a href="#!log" filter="'.$row['class'].'">'.$row['class'].'</a></li>';}
+            $result .= '<li'.($filter == $row['class'] ? ' class="active"' : '').'><a href="#!log;filter.'.$row['class'].'">'.$row['class'].'</a></li>';}
         return $result;
     }
     
