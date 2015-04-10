@@ -1,4 +1,4 @@
-<tr class="user_entry ${class} sai_table" username="${username}">
+<tr class="user_entry ${class} sai_table" onClick="system.load('security(user);username.${username}');">
     <td>${id}</td>
     <td>${username}</td>
     <td>${email}</td>

@@ -14,4 +14,4 @@
     </tr>
 </table>
 <input id="deleteright_confirm" class="btn-danger btn" right_id="${ID}" type="submit" value="Delete"/>
-<input id="deleteright_abort" class="btn" type="submit" value="Abort"/>
+<input id="deleteright_abort" onClick="system.load('security(rights)');" class="btn" type="submit" value="Abort"/>
