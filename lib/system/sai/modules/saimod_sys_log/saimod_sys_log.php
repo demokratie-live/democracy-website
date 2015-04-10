@@ -308,7 +308,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $vars['table'] = $table;
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),
                 array(  'table' => \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars),
-                        'error_filter' => self::generate_error_filters($filter_)));
+                        'error_filter' => self::generate_error_filters($filter_),
+                        'active' => $filter == '%' ? 'active' : ''));
     }
     
     private static function time_elapsed_string($ptime){
