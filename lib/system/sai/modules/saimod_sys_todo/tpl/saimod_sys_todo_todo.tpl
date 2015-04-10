@@ -21,6 +21,6 @@
     <tr><td>thrown</td><td>${thrown}</td></tr>    
     <tr><td>message</td><td>${message}</td></tr>
 </table>
-<button id="btn_back" class="btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;">Back</button>
+<button id="btn_back" onClick="system.load('todo');" class="btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;">Back</button>
 <button id="btn_close" class="btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Close</button>
 <button id="btn_open" class="btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Open</button>

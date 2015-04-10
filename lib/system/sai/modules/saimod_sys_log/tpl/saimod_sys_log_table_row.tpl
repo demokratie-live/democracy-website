@@ -1,4 +1,4 @@
-<tr class="sai_log_error ${class_row}" onClick="document.location = '#!log(error);error.${ID}';">
+<tr class="sai_log_error ${class_row}" onClick="system.load('log(error);error.${ID}');">
     <td>${time}</td>                            
     <td>${class}</td>
     <td style="word-break: break-all;">${message}</td>

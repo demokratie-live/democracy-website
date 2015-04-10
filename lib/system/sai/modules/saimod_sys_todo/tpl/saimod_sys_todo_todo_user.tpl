@@ -10,7 +10,7 @@
     <tr><td>user</td><td>${username}</td></tr>
     <tr><td>message</td><td><textarea id="ta_message" style="width: 80%; height: 400px;">${message}</textarea></td></tr>
 </table>
-<button id="btn_back" class="btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;">Back</button>
+<button id="btn_back" onClick="system.load('todo');" class="btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;">Back</button>
 <button id="btn_edit" class="btn-danger" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Edit</button>
 <button id="btn_close" class="btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Close</button>
 <button id="btn_open" class="btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Open</button>
