@@ -1,9 +1,7 @@
 <?php
 namespace SYSTEM\SAI;
-
 class saimod_sys_api extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_api(){
-        //$last_group = -1;
         $vars = array();
         
         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
@@ -16,13 +14,13 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         $vars['tabopts'] = '';
         $first = true;
         while($r = $res->next()){
-            $vars2 = array( 'active' => ($first ? 'active' : ''),
+            $vars2 = array( 'active' => ($first ? '' : ''),
                             'tab_id' => $r['group']);
             $first = false;
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabopt.tpl'), $vars2);
         }      
         
-        if(\SYSTEM\system::isSystemDbInfoPG()){
+        /*if(\SYSTEM\system::isSystemDbInfoPG()){
             $res = $con->query('SELECT * FROM system.api ORDER BY "group", "ID" ASC;');
         } else {
             $res = $con->query('SELECT * FROM system_api ORDER BY `group`, `ID` ASC;');
@@ -41,17 +39,27 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         foreach($tabs as $tab){
             $tab['active'] = ($first ? 'active' : '');
             $first = false;
-            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tab.tpl'), $tab);}
+            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tab.tpl'), $tab);}*/
                
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabs.tpl'), $vars);
-       
-/*        $result = "";
-        $result .= '<tr class="'.self::tablerow_class($r['type']).'">'.'<td>'.$r['ID'].'</td>'.'<td>'.$r['group'].'</td>'.'<td>'.$r['type'].'</td>'.'<td>'.$r['parentID'].'</td>'.'<td>'.$r['parentValue'].'</td>'.'<td>'.$r['name'].'</td>'.'<td>'.$r['verify'].'</td>'.'</tr>';                                          
-        return $result;*/
     }
     
-    public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID){
-        $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID));
+    public static function sai_mod__system_sai_saimod_sys_api_action_list($group=null){
+        $res = \SYSTEM\DBD\SYS_SAIMOD_API_GET::QQ();
+        $tab = array('content' => '');
+        while($r = $res->next()){            
+            if($group != null && $r['group'] != $group){
+                continue;}
+            $tab['tab_id'] = $r['group'];
+            $r['tr_class'] = self::tablerow_class($r['type']);
+            $r['type'] = self::type_names($r['type']);
+            $tab['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/list_entry.tpl'), $r);
+        }      
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tab.tpl'), $tab);
+    }
+    
+    public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID,$group){
+        $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID,$group));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/delete_dialog.tpl'), $res);
     }
     
@@ -64,10 +72,10 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID){
+    public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID,$group){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
-        \SYSTEM\DBD\SYS_SAIMOD_API_DEL::QI(array($ID));
+        \SYSTEM\DBD\SYS_SAIMOD_API_DEL::QI(array($ID,$group));
         return \SYSTEM\LOG\JsonResult::ok();
     }
     

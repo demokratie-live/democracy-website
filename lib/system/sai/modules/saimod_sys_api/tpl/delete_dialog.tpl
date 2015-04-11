@@ -22,5 +22,5 @@
         </tr>
     </table>
 </div>
-<button type="button" class="btn btn-small btn-danger" id="del_api_del">Delete</button>
-<button type="button" class="btn btn-small" id="del_api_close">Close</button>
+<button type="button" class="btn btn-small btn-danger" id="del_api_del" api_id="${ID}" api_group="${group}">Delete</button>
+<button type="button" class="btn btn-small" onClick="system.load('api;group.${group}');">Close</button>

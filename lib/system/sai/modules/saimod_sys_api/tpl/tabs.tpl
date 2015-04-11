@@ -1,16 +1,15 @@
-<div id="api_wrapper">
-<h4>System API</h4>
-<hr>
-<div id="api_content">    
-<div class="tabbable">
-    <ul class="nav nav-tabs" id="localetab">
-        ${tabopts}
-    </ul>
-    <div class="tab-content">
-        ${tabs}        
+    <h4>System API</h4>
+    <hr>  
+    <div class="tabbable">
+        <ul class="nav nav-tabs" id="tabs_api">
+            <li><a href="#!api" id="menu_all">All</a></li>
+            ${tabopts}
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_api"></div>       
+        </div>
     </div>
-</div>
- <table class="table table-hover table-condensed" style="overflow: auto;">
+    <table class="table table-hover table-condensed" style="overflow: auto;">
         <tr>
             <th>ID</th>
             <th>Group</th>
@@ -28,9 +27,6 @@
             <td><input type="text" id="new_call_parentvalue" placeholder="parent value" style="width: 140px;"></td>
             <td><input type="text" id="new_call_name" placeholder="name" style="width: 140px;"></td>
             <td><input type="text" id="new_call_verify" placeholder="verify" style="width: 140px;"></td>
-        </tr>
-        
+        </tr>        
     </table>
     <button type="button" class="btn-small btn-success" id="addcall">Add</button>
-</div><!-- /.modal -->
-</div>
