@@ -4,7 +4,7 @@
         <title>${title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="fragment" content="!start">
-        <link rel="icon" type="image/png" href="./api.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo.png"/>
+        <link rel="icon" type="image/png" href="./sai.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo.png"/>
         ${css}
         ${js}
     </head>
@@ -13,7 +13,7 @@
             <div class="navbar-inner">
                 <ul class="nav">
                     <a id="sai_logo" class="brand-logo" href="#!start">
-                        <img src="./api.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo.png" height="24" width="24"/>
+                        <img src="./sai.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo.png" height="24" width="24"/>
                     </a>
                     <a id="sai_brand" class="brand" >SAI</a>
                     ${menu_start}

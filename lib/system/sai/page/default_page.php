@@ -32,7 +32,7 @@ class default_page extends \SYSTEM\PAGE\Page {
 
     private static function css(){
         $result =   '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
-                    '<link rel="stylesheet" href="./api.php?call=files&amp;cat=sys&amp;id=system.css" type="text/css" />'.
+                    '<link rel="stylesheet" href="./sai.php?call=files&amp;cat=sys&amp;id=system.css" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
         return $result;
     }
@@ -40,7 +40,7 @@ class default_page extends \SYSTEM\PAGE\Page {
     private static function js(){
         $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
-                  '<script type="text/javascript" language="JavaScript" src="./api.php?call=files&amp;cat=sys&amp;id=system.js"></script>'.
+                  '<script type="text/javascript" language="JavaScript" src="./sai.php?call=files&amp;cat=sys&amp;id=system.js"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
                   '<script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>'.
