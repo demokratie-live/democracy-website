@@ -10,7 +10,7 @@ class saimod_sys_langswitcher extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
     public static function right_public(){return true;}    
-    public static function right_right(){}
+    public static function right_right(){return true;}
     
     //public static function css(){}
     //public static function js(){}

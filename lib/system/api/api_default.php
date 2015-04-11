@@ -23,7 +23,7 @@ abstract class api_default extends api_system {
                 //Load subpage css
                 foreach($row['css'] as $css){
                     $css_frag = new \DOMDocument();
-                    $css_frag->loadHTML('<link href="'.$css.'" rel="stylesheet">');
+                    $css_frag->loadHTML('<link href="'.$css.'" rel="stylesheet" type="text/css">');
                     $html->getElementsByTagName('head')[0]->appendChild($html->importNode($css_frag->documentElement,true));
                 }
             }
