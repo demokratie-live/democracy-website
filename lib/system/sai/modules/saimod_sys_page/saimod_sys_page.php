@@ -59,10 +59,9 @@ class saimod_sys_page extends \SYSTEM\SAI\SaiModule {
     
     private static function tablerow_class($flag){
         switch($flag){
-            case 0: return 'info';
-            case 1: return '';
-            case 4: return 'warning';
-            default: return 'success';
+            case 0: return 'success';
+            case 1: return 'info';
+            default: return '';
         }        
     }
     

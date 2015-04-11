@@ -1,5 +1,5 @@
 <div id="page_deletedialog">
-<h5>Page: ${id}</h5>
+<h5>Page: ${id} - ${name} - ${group} - ${state}</h5>
 <hr>
     <table class="table table-hover table-condensed" style="overflow: auto;">
         <tr>
