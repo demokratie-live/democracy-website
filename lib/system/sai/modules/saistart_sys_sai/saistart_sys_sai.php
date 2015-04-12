@@ -8,7 +8,7 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
                                     \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI),
                                     \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI_ERROR));
         return \SYSTEM\PAGE\replace::replaceFile(   \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/saistart.tpl'),$vars);}
-    public static function html_li_menu(){return '<li class="active"><a id="menu_start" href="#!start">'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE).'</a></li>';}
+    public static function html_li_menu(){return '<li class="active"><a id="menu_start" href="">'.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE).'</a></li>';}
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     
