@@ -10,7 +10,8 @@ class locale {
 
         \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            $user = \SYSTEM\SECURITY\Security::getUser();            
+            $user = \SYSTEM\SECURITY\Security::getUser();
+            $user->locale = $lang;
             \SYSTEM\DBD\SYS_LOCALE_SET_LOCALE::Q1(array($lang, $user->id));            
         }
             

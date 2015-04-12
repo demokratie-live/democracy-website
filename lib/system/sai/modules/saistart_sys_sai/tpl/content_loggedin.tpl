@@ -10,15 +10,8 @@
         <b>Progress:</b> ${project}%
     </div>
     <div class="well" id="analytics">
-        <h2 class="muted"><a href="#!log">Analytics</a></h2>
-        <b>IPs today:</b> ${ip_today}<br/>
-        <b>Users today:</b> ${user_today}<br/>
-        <br/>
-        <b>IPs this week:</b> ${ip_week}<br/>
-        <b>Users this week:</b> ${user_week}<br/>
-        <br/>
-        <b>IPs this month:</b> ${ip_month}<br/>
-        <b>Users this month:</b> ${user_month}
+        <h2 class="muted"><a href="#!log(stats)">Analytics</a></h2>
+        ${analytics}
     </div>
     <div class="well" id="git">
         <h2 class="muted">Git</h2>
@@ -26,17 +19,39 @@
         <b>Current SYSTEM Version:</b> ${git_system}
     </div>
     <div class="well" id="logout">
-        ${logout}
+        <h2 class="muted"><a href="#!login">${basic_logout}</a></h2>
+        <table class="table table-hover table-condensed">
+            <tr>
+                <th>${basic_username}</th>
+                <td>${username}</td>
+            </tr>
+            <tr>
+               <th>${basic_locale}</th>
+               <td>${locale}</td>
+            </tr>
+            <tr>
+               <th>${basic_admin_rights}</th>
+               <td>${isadmin}</td>
+            </tr>
+        </table>
+        ${basic_text_logout}
+        <form class="textbox" style="" id="logout_form">
+            <div class="control-group">
+                <div class="help-block"></div>
+                <input type="hidden" />
+                <button class="btn-sm btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="logout_submit">${basic_logout}</button>
+            </div>
+        </form>
     </div>
 </div>
 <div class="well" id="todo">
     <h2 class="muted"><a href="#!todo">Todo</a></h2>
     <b>Status:</b> ${project_count}/${project_all}<br/>
     <b>Progress:</b> ${project}%
-    ${todo_entries}
+    <div id="todo_entries"></div>
 </div>
 <div class="well" id="log">
     <h2 class="muted"><a href="#!log">Log</a></h2>
     <h4 class="muted">100 Latest Log Entries</h4>
-    ${log_entries}
+    <div id="log_entries"></div>
 </div>

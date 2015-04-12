@@ -2,36 +2,33 @@
 namespace SYSTEM\SAI;
 
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
-    public static function html_content_sys(){
-        $result =   '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
-                    '<tr>'.'<th>'.'Classname'.'</th>'.'<th>'.'Public'.'</th>'.'<th>'.'You can Access?'.'</th>'.'</tr>';
-        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
+        $vars = array('entries' => '');
         $sys_mods = \SYSTEM\SAI\sai::getSysModules();
-        foreach($sys_mods as $mod){            
-            $result .= '<tr>'.'<td>'.$mod.'</td>'.'<td>'.(\call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'<td>'.(\call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'</tr>';}
-        $result .= '</table>';
-        
-        return $result;
+        foreach($sys_mods as $mod){
+            $v = array();
+            $v['mod'] = $mod;
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
     }
     
-    public static function html_content_project(){
-        $result =  '<table class="table table-hover table-condensed" style="overflow: auto;">'.                    
-                   '<tr>'.'<th>'.'Classname'.'</th>'.'<th>'.'Public'.'</th>'.'<th>'.'You can Access?'.'</th>'.'</tr>';
-        
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
+        $vars = array('entries' => '');
         $mods = \SYSTEM\SAI\sai::getModules();
-        foreach($mods as $mod){            
-            $result .= '<tr>'.'<td>'.$mod.'</td>'.'<td>'.(\call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'<td>'.(\call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>').'</td>'.'</tr>';}
-        $result .= '</table>';
-        
-        return $result;
+        foreach($mods as $mod){
+            $v = array();
+            $v['mod'] = $mod;
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
     }
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
-        $vars=array();
-        $vars['content_sys'] = self::html_content_sys();
-        $vars['content_project'] = self::html_content_project();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'), $vars);
-                
-    }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'));}
     
     public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">SAI Mods</a></li>';}
     public static function right_public(){return false;}    

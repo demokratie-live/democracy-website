@@ -19,6 +19,11 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (27, 42, 2, 11, 'create', 'locale', 'LANG');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (30, 42, 2, 10, 'files', 'cat', 'STRING');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (31, 42, 3, 30, 'files', 'id', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (50, 42, 2, 10, 'pagestates', 'group', 'UINT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (51, 42, 1, 50, NULL, 'js', NULL);
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (52, 42, 2, 51, NULL, 'group', 'UINT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (55, 42, 1, 50, NULL, 'css', NULL);
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (56, 42, 2, 55, NULL, 'group', 'UINT');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (40, 42, 4, -1, NULL, '_lang', 'LANG');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (41, 42, 4, -1, NULL, '_result', 'RESULT');
 
@@ -43,6 +48,7 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 --
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (220, 42, 0, 200, 'stats', 'name', null);
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (221, 42, 3, 220, null, 'filter', 'UINT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (222, 42, 3, 220, null, 'db', 'STRING');
 
 
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (300, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_security', 'action', NULL);
@@ -70,7 +76,16 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 -- INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (500, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_config', 'action', NULL);
 
 
--- INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (600, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_api', 'action', NULL);
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (600, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_api', 'action', NULL);
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (601, 42, 2, 600, 'addcall', 'ID', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (602, 42, 2, 600, 'addcall', 'group', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (603, 42, 2, 600, 'addcall', 'type', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (604, 42, 2, 600, 'addcall', 'parentID', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (605, 42, 2, 600, 'addcall', 'parentValue', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (606, 42, 2, 600, 'addcall', 'name', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (607, 42, 2, 600, 'addcall', 'verify', 'ALL');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (608, 42, 2, 600, 'deletecall', 'ID', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (609, 42, 2, 600, 'deletedialog', 'ID', 'INT');
 
 
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (700, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_locale', 'action', NULL);
@@ -114,6 +129,8 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1002, 42, 2, 1000, 'open', 'todo', 'INT');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1003, 42, 2, 1000, 'close', 'todo', 'INT');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1004, 42, 2, 1000, 'add', 'todo', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1010, 42, 2, 1000, 'edit', 'todo', 'INT');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1011, 42, 2, 1000, 'edit', 'message', 'STRING');
 
 
 -- INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1100, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_docu', 'action', NULL);
@@ -127,3 +144,5 @@ INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, ve
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1206, 42, 2, 1200, 'add', 'month', 'INT');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1208, 42, 2, 1200, 'del', 'cls', 'STRING');
 INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1209, 42, 2, 1200, 'deldialog', 'cls', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1210, 42, 2, 1200, 'change', 'cls', 'STRING');
+INSERT INTO system.api ("ID", "group", type, "parentID", "parentValue", name, verify) VALUES (1211, 42, 2, 1200, 'change', 'status', 'INT');

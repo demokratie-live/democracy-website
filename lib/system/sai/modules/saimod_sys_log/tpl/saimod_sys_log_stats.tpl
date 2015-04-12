@@ -6,7 +6,7 @@
     <div class="tab-content">
         <div class="tab-pane active" id="tab_stats">
             <select id="vis_filter_time">
-                <option value="2592000">30d</option>
+                <option value="2692000">30d</option>
                 <option value="1209600">14d</option>
                 <option value="604800">7d</option>
                 <option value="172800">2d</option>

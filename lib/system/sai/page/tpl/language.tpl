@@ -1,1 +1,0 @@
-<a href="javascript:system.language('${lang}');"><img src="./api.php?call=files&cat=saistart_sys_sai&id=flag_${lang}.png" alt="${lang}"></a>&nbsp;

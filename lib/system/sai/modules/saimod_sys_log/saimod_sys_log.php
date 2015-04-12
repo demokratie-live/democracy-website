@@ -5,6 +5,26 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_LOG_TRUNCATE::QQ();
         return \SYSTEM\LOG\JsonResult::ok();}
     
+    public static function analytics(){
+        $vars = array();
+        $data = \SYSTEM\DBD\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(86400));
+        $vars['log_today'] = $data['count'];
+        $vars['ip_today'] = $data['ip_unique'];
+        $vars['user_today'] = $data['user_unique'];
+        $data = \SYSTEM\DBD\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(604800));
+        $vars['log_week'] = $data['count'];
+        $vars['ip_week'] = $data['ip_unique'];
+        $vars['user_week'] = $data['user_unique'];
+        $data = \SYSTEM\DBD\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(2692000));
+        $vars['log_month'] = $data['count'];
+        $vars['ip_month'] = $data['ip_unique'];
+        $vars['user_month'] = $data['user_unique'];
+        $vars['page_value'] =   \round(  $vars['log_today']+$vars['ip_today']*10+$vars['user_today']*100+
+                                        ($vars['log_week']+$vars['ip_week']*10+$vars['user_week']*100)/7+
+                                        ($vars['log_month']+$vars['ip_month']*10+$vars['user_week']*100)/31,0);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_analytics.tpl'), $vars);
+    }    
+        
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
         $vars = array();
         $vars['dbfile_entries'] = '';
@@ -13,6 +33,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             foreach($scanned_directory as $file){
                 $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats_menu.tpl'), array('file' => $file));}
         }
+        //positioning problem
+        //$vars['analytics'] = self::analytics();
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db){
@@ -99,7 +121,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare('unique_basic',
                                 'SELECT datetime(strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.') - strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.')%:filter,"unixepoch", "localtime")  as day,'
                                     .'count(*) as count,'
-                                    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_USER.') as user_unique,'                                        
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                                                     
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_SERVER_NAME.') as server_name_unique'
                                 .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
@@ -169,7 +191,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare('unique_referer',
                                 'SELECT datetime(strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.') - strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.')%:filter,"unixepoch", "localtime")  as day,'
                                     .'count(*) as count,'
-                                    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'
+                                    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_USER.') as user_unique,'
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique,'                                        
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_REFERER.') as http_referer_unique,'
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_HTTP_USER_AGENT.') as http_user_agent_unique'
@@ -193,7 +215,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $res = $con->prepare('basic_visitor',
                                 'SELECT datetime(strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.') - strftime("%s",'.\SYSTEM\DBD\system_log::FIELD_TIME.')%:filter,"unixepoch", "localtime")  as day,'
                                     .'count(*) as count,'
-                                    .'count(distinct "'.\SYSTEM\DBD\system_log::FIELD_USER.'") as user_unique,'                                        
+                                    .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_USER.') as user_unique,'                                        
                                     .'count(distinct '.\SYSTEM\DBD\system_log::FIELD_IP.') as ip_unique'
                                 .' FROM '.\SYSTEM\DBD\system_log::NAME_MYS
                                 .' GROUP BY day'
@@ -268,6 +290,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
+        $filter_ = $filter;
         $filter = str_replace('\\', '\\\\', $filter);
         $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array($filter));
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array($filter));
@@ -276,20 +299,17 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             //print_r($r);
             $r['class_row'] = self::tablerow_class($r['class']);
             $r['time'] = self::time_elapsed_string(strtotime($r['time']));
-            $r['message'] = substr($r['message'],0,255);
+            $r['message'] = htmlspecialchars(substr($r['message'],0,255));
+            $r['request_uri'] = htmlspecialchars($r['request_uri']);
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);                                         
         }
         $vars = array();
         $vars['count'] = $count['count'];
         $vars['table'] = $table;
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_log(){
-        $vars = array();
-        $vars['table'] = self::sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter();        
-        $vars['error_filter'] = self::generate_error_filters();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),
+                array(  'table' => \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars),
+                        'error_filter' => self::generate_error_filters($filter_),
+                        'active' => $filter == '%' ? 'active' : ''));
     }
     
     private static function time_elapsed_string($ptime){
@@ -312,11 +332,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }
     }
     
-    private static function generate_error_filters(){
+    private static function generate_error_filters($filter){
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTERS::QQ();        
         $result = '';        
         while($row = $res->next()){
-            $result .= '<li><a href="#!log" filter="'.$row['class'].'">'.$row['class'].'</a></li>';}
+            $result .= '<li'.($filter == $row['class'] ? ' class="active"' : '').'><a href="#!log;filter.'.$row['class'].'">'.$row['class'].'</a></li>';}
         return $result;
     }
     

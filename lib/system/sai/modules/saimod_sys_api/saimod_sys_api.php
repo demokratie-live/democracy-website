@@ -1,59 +1,37 @@
 <?php
 namespace SYSTEM\SAI;
-
 class saimod_sys_api extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_api(){
-        //$last_group = -1;
         $vars = array();
-        
-        $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT "group", count(*) as "count" FROM system.api GROUP BY "group" ORDER BY "group" ASC;');
-        } else {
-            $res = $con->query('SELECT `group`, count(*) as `count` FROM system_api GROUP BY `group` ORDER BY `group` ASC;');
-        }
-        
         $vars['tabopts'] = '';
-        $first = true;
+        
+        $res = \SYSTEM\DBD\SYS_SAIMOD_API_GROUPS::QQ();
+        
         while($r = $res->next()){
-            $vars2 = array( 'active' => ($first ? 'active' : ''),
-                            'tab_id' => $r['group']);
-            $first = false;
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabopt.tpl'), $vars2);
-        }      
-        
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->query('SELECT * FROM system.api ORDER BY "group", "ID" ASC;');
-        } else {
-            $res = $con->query('SELECT * FROM system_api ORDER BY `group`, `ID` ASC;');
-        }
-        
-        while($r = $res->next()){            
-            $tabs[$r['group']]['tab_id'] = $r['group'];            
-            $tabs[$r['group']]['content'] = isset($tabs[$r['group']]['content']) ? $tabs[$r['group']]['content'] : '';
-            $r['tr_class'] = self::tablerow_class($r['type']);
-            $r['type'] = self::type_names($r['type']);
-            $tabs[$r['group']]['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/list_entry.tpl'), $r);                        
-        }   
-        
-        $vars['tabs'] = '';
-        $first = true;                   
-        foreach($tabs as $tab){
-            $tab['active'] = ($first ? 'active' : '');
-            $first = false;
-            $vars['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tab.tpl'), $tab);}
-               
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabs.tpl'), $vars);
-       
-/*        $result = "";
-        $result .= '<tr class="'.self::tablerow_class($r['type']).'">'.'<td>'.$r['ID'].'</td>'.'<td>'.$r['group'].'</td>'.'<td>'.$r['type'].'</td>'.'<td>'.$r['parentID'].'</td>'.'<td>'.$r['parentValue'].'</td>'.'<td>'.$r['name'].'</td>'.'<td>'.$r['verify'].'</td>'.'</tr>';                                          
-        return $result;*/
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabopt.tpl'), array( 'tab_id' => $r['group']));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/saimod_sys_api.tpl'), $vars);
     }
     
-    public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID){
-        $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID));
+    public static function sai_mod__system_sai_saimod_sys_api_action_list($group=null){
+        $res = \SYSTEM\DBD\SYS_SAIMOD_API_GET::QQ();
+        $tab = array('content' => '');
+        while($r = $res->next()){            
+            if($group != null && $r['group'] != $group){
+                continue;}
+            $tab['tab_id'] = $r['group'];
+            $r['tr_class'] = self::tablerow_class($r['type']);
+            $r['type'] = self::type_names($r['type']);
+            $tab['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/list_entry.tpl'), $r);
+        }      
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/saimod_sys_api_list.tpl'), $tab);
+    }
+    
+    public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID,$group){
+        $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID,$group));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/delete_dialog.tpl'), $res);
     }
+    public static function sai_mod__system_sai_saimod_sys_api_action_newdialog(){
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/new_dialog.tpl'));}
     
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
@@ -64,10 +42,10 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID){
+    public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID,$group){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
-        \SYSTEM\DBD\SYS_SAIMOD_API_DEL::QI(array($ID));
+        \SYSTEM\DBD\SYS_SAIMOD_API_DEL::QI(array($ID,$group));
         return \SYSTEM\LOG\JsonResult::ok();
     }
     

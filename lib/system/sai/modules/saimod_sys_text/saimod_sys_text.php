@@ -70,7 +70,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
          $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
          $res = null;         
         if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_PG.' SET "'.$lang.'"=$1 WHERE category = $1 AND id=$2;', array($newtext, $category, $id));
+            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_PG.' SET "'.$lang.'"=$1 WHERE category = $2 AND id=$3;', array($newtext, $category, $id));
         } else {
             $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' SET '.$lang.'=? WHERE category = ? AND id=?;', array($newtext, $category, $id));
         }

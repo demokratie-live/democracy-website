@@ -47,6 +47,9 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             //$row['report_type'] = self::reporttype($row['type']);
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
+            $row['message'] = htmlspecialchars($row['message']);
+            $row['request_uri'] = htmlspecialchars($row['request_uri']);
+            $row['openclose'] = 'close';
             if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
                 $row['message'] = str_replace("\r", '<br/>', $row['message']);
                 $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
@@ -65,6 +68,9 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
+            $row['message'] = htmlspecialchars($row['message']);
+            $row['request_uri'] = htmlspecialchars($row['request_uri']);
+            $row['openclose'] = 'open';
             if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
                 $row['message'] = str_replace("\r", '<br/>', $row['message']);
                 $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);

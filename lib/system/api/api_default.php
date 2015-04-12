@@ -14,12 +14,16 @@ abstract class api_default extends api_system {
             parse_str(\parse_url($row['url'],PHP_URL_QUERY), $params);
             $class = static::get_class($params);
             if($class){
-                $frag->loadHTML(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, static::get_params($params), static::get_apigroup(), true, false));
+                \libxml_use_internal_errors(true);
+                $frag->loadHTML(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, static::get_params($params), static::get_apigroup(), true, false));                    
                 $html->getElementById(substr($row['div'], 1))->appendChild($html->importNode($frag->documentElement, true));
+                if($error = \libxml_get_last_error()){
+                    new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$html->saveHTML());}
+                \libxml_clear_errors();
                 //Load subpage css
                 foreach($row['css'] as $css){
                     $css_frag = new \DOMDocument();
-                    $css_frag->loadHTML('<link href="'.$css.'" rel="stylesheet">');
+                    $css_frag->loadHTML('<link href="'.$css.'" rel="stylesheet" type="text/css">');
                     $html->getElementsByTagName('head')[0]->appendChild($html->importNode($css_frag->documentElement,true));
                 }
             }
