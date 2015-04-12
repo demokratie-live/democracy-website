@@ -4,11 +4,8 @@ namespace SYSTEM\DB;
 
 class ConnectionMYS extends ConnectionAbstr {
     private $connection = NULL;
-    //private $dbinfo = NULL;
     
     public function __construct(DBInfo $dbinfo, $new_link = false, $client_flag = 0){
-        //$this->dbinfo = $dbinfo;
-
         $this->connection = @mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
         if(!$this->connection){
             throw new \Exception('Could not connect to Database. Check ur Database Settings');}
@@ -16,6 +13,8 @@ class ConnectionMYS extends ConnectionAbstr {
         if(!mysqli_select_db($this->connection, $dbinfo->m_database)){
             mysqli_close($this->connection);
             throw new \Exception('Could not select Database. Check ur Database Settings: '.mysqli_error($this->connection));}
+            
+        \mysqli_set_charset($this->connection, 'utf8');
     }
 
     public function __destruct(){
