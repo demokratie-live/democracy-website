@@ -5,8 +5,6 @@
       </ul>
       <div class="tab-content">
         ${content}
-        </br>
-        <div id="epiceditor"></div>
       </div>      
     </div>    
 </div>
