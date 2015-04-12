@@ -1,1 +1,1 @@
-<li class="${active}"><a href="#tab_${name}" tabname="${name}">${name}</a></li>
+<li><a href="#!files;folder.${name}" id="menu_folder_${name}">${name}</a></li>
