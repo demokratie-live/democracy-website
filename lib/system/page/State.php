@@ -19,6 +19,9 @@ class State {
         while($row = $res->next()){
             if(!self::is_loaded($row,$substate,$state_name) && $row['type'] == 1){
                 continue;}
+            if( ($row['login'] == 1 && !\SYSTEM\SECURITY\Security::isLoggedIn()) ||
+                ($row['login'] == 2 && \SYSTEM\SECURITY\Security::isLoggedIn())){
+                continue;}
             $row['url'] = \SYSTEM\PAGE\replace::replace($row['url'], $vars);
             $row['url'] = \SYSTEM\PAGE\replace::clean($row['url']);
             //clean url of empty variables

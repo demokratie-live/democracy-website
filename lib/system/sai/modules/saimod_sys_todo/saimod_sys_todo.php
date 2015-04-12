@@ -51,7 +51,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['request_uri'] = htmlspecialchars($row['request_uri']);
             $row['openclose'] = 'close';
             if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-                $row['message'] = str_replace("\r", '<br/>', $row['message']);
+                $row['message'] = str_replace("\n", '<br/>', $row['message']);
                 $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
             } else {
                 $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);

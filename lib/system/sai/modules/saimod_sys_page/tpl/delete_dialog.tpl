@@ -8,6 +8,7 @@
             <th>group</th>
             <th>state</th>
             <th>parent_id</th>
+            <th>login</th>
             <th>type</th>
             <th>div</th>
             <th>url</th>
@@ -20,6 +21,7 @@
             <td>${group}</td>
             <td>${state}</td>
             <td>${parent_id}</td>
+            <td>${login}</td>
             <td>${type}</td>
             <td>${div}</td>
             <td>${url}</td>

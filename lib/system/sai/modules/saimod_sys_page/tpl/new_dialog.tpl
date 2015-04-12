@@ -20,6 +20,10 @@
         <td><input type="text" id="new_page_parentid" placeholder="parent id" style="width: 140px;"></td>
     </tr>
     <tr>
+        <th>login</th>
+        <td><input type="text" id="new_page_login" placeholder="login" style="width: 140px;"></td>
+    </tr>
+    <tr>
         <th>type</th>
         <td><input type="text" id="new_page_type" placeholder="new type" style="width: 140px;"></td>
     </tr>

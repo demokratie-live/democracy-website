@@ -10,6 +10,7 @@ class system_page {
     const FIELD_GROUP               = 'group';
     const FIELD_STATE               = 'state';
     const FIELD_PARENT_ID           = 'parent_id';
+    const FIELD_LOGIN               = 'login';
     const FIELD_TYPE                = 'type';
     const FIELD_DIV                 = 'div';
     const FIELD_URL                 = 'url';
