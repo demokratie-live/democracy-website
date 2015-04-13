@@ -1,5 +1,5 @@
 <div class="tabbable">
-    <ul class="nav nav-tabs" id="langtabs">
+    <ul class="nav nav-tabs" id="tagtabs">
         ${langs}
     </ul>
 <div class="tab-content" >
