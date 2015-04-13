@@ -10,7 +10,6 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         $vars = array();                        
         $res = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_TAGS::QQ();
         $vars['tabopts'] = '';
-        
         $first = true;
         $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'),  array( 'active' => ($first ? 'active' : ''), 'tag' => 'All'));
         while($r = $res->next()){
@@ -33,24 +32,26 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
                 //.\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/editmode.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_load($lang){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_loadAll(){
         $con = new \SYSTEM\DB\Connection();
         if(\SYSTEM\system::isSystemDbInfoPG()){
             //$query = 'SELECT id, "'.$lang.'" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE category='.$group.' ORDER BY category ASC;';
         } else {
-            $query = 'SELECT * FROM system_text WHERE language=\''.$lang.'\';';
+            $query = 'SELECT * FROM system_text;';
             new \SYSTEM\LOG\WARNING($query);
         }
         $res = $con->query($query);
         $entries = '';
         $temparr = array();
+        $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/table_start.tpl'), array());
         while($r = $res->next()){  
-            $temparr['language'] = $lang;
             $temparr['id'] = $r['id'];
             $temparr['text'] = $r['text'];
             $temparr['author'] = $r['author'];
+            $temparr['language'] = $r['language'];
             $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $temparr);
         }
+        $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/table_end.tpl'), array());
         return $entries;
     }
     
@@ -67,38 +68,38 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){  
             $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $r);
         }
-        return $entries;
-            //$query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
-        
-        
+        return $entries;   
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_singleload($id, $lang){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = null){
+        if ($tag) {
+            $con = new \SYSTEM\DB\Connection();
+            $result = "";
+            $query = " 
+                SELECT system_text_tag.tag, system_text.* FROM system_text_tag
+                LEFT JOIN system_text ON system_text_tag.id = system_text.id
+                WHERE tag = '".$tag."'";
+
+            $res = $con->query($query);
+            $entries = '';
+            while($r = $res->next()){  
+                $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $r);
+            }
+            return $entries; 
+        } else {
+            return self::sai_mod__SYSTEM_SAI_saimod_sys_text_action_loadAll();
+        }
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($id, $lang){
         $con = new \SYSTEM\DB\Connection();
         $result = "";
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $query = 'SELECT "'.$lang.'" FROM '.\SYSTEM\DBD\system_locale_string::NAME_PG.' WHERE id=\''.$id.'\' ORDER BY category ASC;';
-        } else {
-            $query = 'SELECT '.$lang.' FROM `'.\SYSTEM\DBD\system_locale_string::NAME_MYS.'` WHERE id=\''.$id.'\' ORDER BY category ASC;';
-        }
-        $res = $con->query($query);
         $entries = '';
-        $temparr = array();
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXT::QQ(array($id));
         while($r = $res->next()){  
-            $entries .= $r[$lang];}
-        return $entries;
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edit($id, $lang, $category, $newtext){
-         //$charset = 'utf-8';
-         $con = new \SYSTEM\DB\Connection(\SYSTEM\system::getSystemDBInfo());
-         $res = null;         
-        if(\SYSTEM\system::isSystemDbInfoPG()){
-            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_PG.' SET "'.$lang.'"=$1 WHERE category = $2 AND id=$3;', array($newtext, $category, $id));
-        } else {
-            $res = $con->prepare('newText' ,'UPDATE '.\SYSTEM\DBD\system_locale_string::NAME_MYS.' SET '.$lang.'=? WHERE category = ? AND id=?;', array($newtext, $category, $id));
+            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/edit.tpl'), $r);
         }
-        return $res->affectedRows() == 0 ? \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no rows affected")) : \SYSTEM\LOG\JsonResult::ok();
+        return $entries; 
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_add($id, $category){                

@@ -1,1 +1,1 @@
-<li class="saimod_text_tagtab groups" id="saimod_text_tagtab_${tag}"><a href="#">Tag ${tag}</a></li>
+<li><a href="#!text;tag.${tag}" id="saimod_text_tagtab_${tag}">Tag ${tag}</a></li>

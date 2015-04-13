@@ -99,9 +99,13 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (701, 42, 2, 700, 'load', 'id', 'LANG');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (702, 42, 2, 700, 'load', 'group', 'INT');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (703, 42, 3, 700, 'tag', 'tag', 'STRING');
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (710, 42, 2, 700, 'singleload', 'id', 'ALL');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (711, 42, 2, 700, 'singleload', 'lang', 'ALL');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (712, 42, 2, 700, 'edittext', 'id', 'ALL');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (713, 42, 2, 700, 'loadByTag', 'lang', 'LANG');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (714, 42, 2, 700, 'edittext', 'lang', 'LANG');
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (720, 42, 2, 700, 'delete', 'id', 'ALL');
 --
