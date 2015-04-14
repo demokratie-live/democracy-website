@@ -37,13 +37,8 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         }
         $res = $con->query($query);
         $entries = '';
-        $temparr = array();
         while($r = $res->next()){  
-            $temparr['id'] = $r['id'];
-            $temparr['text'] = $r['text'];
-            $temparr['author'] = $r['author'];
-            $temparr['language'] = $r['language'];
-            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $temparr);
+            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $r);
         }
         
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/table.tpl'), array('entries' => $entries));
@@ -79,7 +74,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
             while($r = $res->next()){  
                 $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/entry.tpl'), $r);
             }
-            return $entries; 
+            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/table.tpl'), array('entries' => $entries)); 
         } else {
             return self::sai_mod__SYSTEM_SAI_saimod_sys_text_action_loadAll();
         }
@@ -104,7 +99,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/editor.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_add($id, $category){                
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $lang, $tags){                
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}
   
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id){
@@ -114,7 +109,8 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_LOCALE);}
     
-    //public static function css(){}
+    public static function css(){
+        return array( \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/css/saimod_sys_text.css'));}
     public static function js(){
         return array( // \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js'),
                        \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/js/saimod_sys_text.js'));}
