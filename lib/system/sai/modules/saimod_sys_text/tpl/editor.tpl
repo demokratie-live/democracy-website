@@ -1,0 +1,1 @@
+<textarea id="texteditor" name="texteditor" style="width:100%">${content}</textarea>
