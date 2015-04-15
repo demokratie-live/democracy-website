@@ -10,9 +10,9 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars['login_username_too_short'] = 'Username to short.';
         $vars['login_password_too_short'] = 'Password to short.';
         $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
-        $vars = array_merge($vars,  \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI),
-                                    \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI_ERROR),
-                                    \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_BASIC));
+        $vars = array_merge($vars,
+                            \SYSTEM\PAGE\text::tag('basic'),
+                            \SYSTEM\PAGE\text::tag('sys_sai'));
         
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/logout.tpl'), $vars);        
@@ -38,10 +38,8 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     }        
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_registerform(){
-        $vars = \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI);
-        $vars = array_merge($vars,  \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI),
-                                    \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI_ERROR),
-                                    \SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_BASIC));
+        $vars = array_merge(\SYSTEM\PAGE\text::tag('basic'),
+                            \SYSTEM\PAGE\text::tag('sys_sai'));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/register.tpl'), $vars);}
 
     public static function html_li_menu(){return '</ul><ul class="nav pull-right"><li><a id="menu_login" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? 'Logout' : 'Login').'</a></li>';}

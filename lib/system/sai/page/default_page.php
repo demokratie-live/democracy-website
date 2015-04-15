@@ -61,7 +61,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE);
         $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT);
         
-        $vars = array_merge($vars,\SYSTEM\locale::getStrings(\SYSTEM\DBD\system_locale_string::VALUE_CATEGORY_SYSTEM_SAI));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag('sys_sai'));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/sai.tpl'), $vars);        
     }
 }

@@ -1,12 +1,12 @@
 <table class="sai_table table table-hover table-condensed" style="overflow: auto;">
     <tr>
-        <th>id</th>
+        <th>ID</th>
+        <th>Language</th>
         <th>Text</th>
         <th>Author</th>
-        <th>author_edit</th>
-        <th>language</th>
-	<th>time_create</th>
-	<th>time_edit</th>
+        <th>Time_create</th>
+        <th>Author_edit</th>
+	<th>Time_edit</th>
     </tr>
     ${entries}
 </table>

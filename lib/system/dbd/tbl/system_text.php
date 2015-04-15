@@ -2,15 +2,14 @@
 
 namespace SYSTEM\DBD;
 
-class system_locale_string {
-    const NAME_PG  = 'system.locale_string';
-    const NAME_MYS = 'system_locale_string';
+class system_text {
+    const NAME_PG  = 'system.text';
+    const NAME_MYS = 'system_text';
 
     const FIELD_ID = 'id';
-    const FIELD_CATEGORY = 'category';
-    const FIELD_EN_US = 'enUS';
-    const FIELD_DE_DE = 'deDE';
+    const FIELD_TEXT = 'text';
 
+    //todo rename shit
     const VALUE_CATEGORY_BASIC                  = 1;
 
     const VALUE_CATEGORY_SYSTEM                 = 10;

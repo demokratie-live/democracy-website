@@ -11,15 +11,11 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = null){
-        $con = new \SYSTEM\DB\Connection();
         if ($tag) {
-            $query = "  SELECT system_text_tag.tag, system_text.* FROM system_text_tag
-                        LEFT JOIN system_text ON system_text_tag.id = system_text.id
-                        WHERE tag = '".$tag."'";
+            $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS::QQ(array($tag));
         } else {
-            $query = 'SELECT * FROM system_text;';}
+            $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS_ALL::QQ();}
 
-        $res = $con->query($query);
         $entries = '';
         while($r = $res->next()){  
             $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
@@ -45,7 +41,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         $vars = array();
         $vars['id'] = $id;
         $vars['lang'] = $lang;
-        $vars['content'] = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXT_LANG::Q1(array($id, $lang))['text'];
+        $vars['content'] = \SYSTEM\PAGE\text::get($id,$lang,false);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'), $vars);
     }
     

@@ -38,7 +38,7 @@ class locale {
      *
      * returns array or throws exception
      */
-    public static function getStrings($request, $lang = NULL) {
+    /*public static function getStrings($request, $lang = NULL) {
         if($lang == NULL){
             $lang = self::get();}
 
@@ -82,5 +82,5 @@ class locale {
         } 
 
         throw new \Exception("Could not understand given request: ".$request);
-    }
+    }*/
 }
