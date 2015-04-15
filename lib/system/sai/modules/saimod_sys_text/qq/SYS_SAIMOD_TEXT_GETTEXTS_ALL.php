@@ -11,5 +11,6 @@ class SYS_SAIMOD_TEXT_GETTEXTS_ALL extends \SYSTEM\DB\QQ {
                 FROM system_text_tag 
                 LEFT JOIN system_text ON system_text_tag.id = system_text.id
                 LEFT JOIN system_user as a ON system_text.author = a.id
-                LEFT JOIN system_user as ae ON system_text.author_edit = ae.id;'
+                LEFT JOIN system_user as ae ON system_text.author_edit = ae.id
+                GROUP BY id;'
 );}}

@@ -4,7 +4,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text(){        
         $vars = array();
         $vars['tabopts'] = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_LOCALE_TAGS::QQ();
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TAGS::QQ();
         while($r = $res->next()){
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $r);}           
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text.tpl'), $vars);

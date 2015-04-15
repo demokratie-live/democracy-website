@@ -1,7 +1,7 @@
 <?php
 namespace SYSTEM\DBD;
 
-class SYS_SAIMOD_LOCALE_TAGS extends \SYSTEM\DB\QQ {
+class SYS_SAIMOD_TEXT_TAGS extends \SYSTEM\DB\QQ {
     protected static function query(){
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            
