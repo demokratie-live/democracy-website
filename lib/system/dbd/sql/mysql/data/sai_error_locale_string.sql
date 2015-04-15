@@ -1,3 +1,4 @@
+//TODO convert
 DELETE FROM system_locale_string WHERE category = 43;
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('sai_error_username_short', 43, 'Username is too short', 'Nutzername ist zu kurz');
 INSERT INTO `system_locale_string` (`id`, `category`, `enUS`, `deDE`) VALUES ('sai_error_username_long', 43, 'Username is too long', 'Nutzername ist zu lang');
