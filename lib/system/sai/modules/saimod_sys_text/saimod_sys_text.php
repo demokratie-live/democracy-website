@@ -1,10 +1,13 @@
 <?php
 namespace SYSTEM\SAI;
 class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
+    const NEW_ENTRY = 'new_text_entry';
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text(){        
         $vars = array();
         $vars['tabopts'] = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TAGS::QQ();
+        $vars['new_id'] = self::NEW_ENTRY;
+        $vars['new_lang'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);
         while($r = $res->next()){
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $r);}           
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text.tpl'), $vars);
@@ -45,6 +48,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'), $vars);
     }
     
+    //Dont rename/save to id self::NEW_ENTRY
     /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_rename($id, $newid, $tags){}*/
     
     /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $lang, $tags){                
