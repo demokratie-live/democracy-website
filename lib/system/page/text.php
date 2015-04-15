@@ -1,6 +1,8 @@
 <?php
 namespace SYSTEM\PAGE;
 class text {
+    public static function id_tags($id){
+        return \SYSTEM\DBD\SYS_TEXT_GET_ID_TAGS::QA(array($id));}
     //return all text values with certain tag and lang - array(id => text)
     public static function tag($tag, $lang = NULL,$fallback = true) {
         if($lang == NULL){
@@ -20,7 +22,7 @@ class text {
             while($row = $res->next()){
                 $result2[$row['id']] = $row['text'];}
             if(count($result) < count($result2)){
-                new \SYSTEM\LOG\WARNING('Texts with tag: '.$tag.' '.(count($result2)-count($result)).' - ids not found for lang: '.$lang.' - fallback to default lang.');}
+                new \SYSTEM\LOG\WARNING('Texts with tag: '.$tag.' - '.(count($result2)-count($result)).' ids not found for lang: '.$lang.' - fallback to default lang.');}
             $result = array_merge($result2,$result);
         }
         return $result;

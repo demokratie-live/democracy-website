@@ -45,16 +45,19 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         $vars['id'] = $id;
         $vars['lang'] = $lang;
         $vars['content'] = \SYSTEM\PAGE\text::get($id,$lang,false);
+        $vars['tags'] = '';
+        $tags = \SYSTEM\PAGE\text::id_tags($id);
+        foreach($tags as $tag){
+            $vars['tags'] .= $tag['tag'].', ';
+        }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'), $vars);
     }
     
-    //Dont rename/save to id self::NEW_ENTRY
-    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_rename($id, $newid, $tags){}*/
-    
-    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $lang, $tags){                
+    //Dont save to id self::NEW_ENTRY
+    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $new_id, $lang, $tags){                
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}*/
   
-    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id){
+    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id, $lang = null){
         return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_DEL::QI(array($id)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data"));}*/
       
     public static function html_li_menu(){return '<li><a id="menu_text" href="#!text">Text</a></li>';}
