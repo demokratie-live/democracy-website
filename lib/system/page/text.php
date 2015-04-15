@@ -2,7 +2,7 @@
 namespace SYSTEM\PAGE;
 class text {
     //return all text values with certain tag and lang - array(id => text)
-    public static function tag($tag, $lang = NULL) {
+    public static function tag($tag, $lang = NULL,$fallback = true) {
         if($lang == NULL){
             $lang = \SYSTEM\locale::get();}
 
@@ -13,6 +13,16 @@ class text {
         $res = \SYSTEM\DBD\SYS_TEXT_GET_TAG::QQ(array($tag,$lang));
         while($row = $res->next()){
             $result[$row['id']] = $row['text'];}
+            
+        if($fallback){
+            $result2 = array();
+            $res = \SYSTEM\DBD\SYS_TEXT_GET_TAG::QQ(array($tag,\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG)));
+            while($row = $res->next()){
+                $result2[$row['id']] = $row['text'];}
+            if(count($result) < count($result2)){
+                new \SYSTEM\LOG\WARNING('Texts with tag: '.$tag.' '.(count($result2)-count($result)).' - ids not found for lang: '.$lang.' - fallback to default lang.');}
+            $result = array_merge($result2,$result);
+        }
         return $result;
     }
     //return textstring with certain id and lang
