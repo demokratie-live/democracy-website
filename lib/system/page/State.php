@@ -17,7 +17,7 @@ class State {
         $result = array();
         $res = \SYSTEM\DBD\SYS_PAGE_GROUP::QQ(array($group,$state_name));
         while($row = $res->next()){
-            if(!self::is_loaded($row,$substate,$state_name) && $row['type'] == 1){
+            if(!self::is_loaded($row,$substate,$state_name,$row['parent_id'])){
                 continue;}
             if( ($row['login'] == 1 && !\SYSTEM\SECURITY\Security::isLoggedIn()) ||
                 ($row['login'] == 2 && \SYSTEM\SECURITY\Security::isLoggedIn())){
@@ -30,9 +30,9 @@ class State {
             $row['url'] = preg_replace('/&&$/', '', $row['url']);
             $row['css'] = $row['js'] = array();
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'css') && \is_callable($row['php_class'].'::css')){
-                $row['css'] = array_merge($row['css'], call_user_func($row['php_class'].'::css'));}
+                $row['css'] = array_merge($row['css'], \call_user_func($row['php_class'].'::css'));}
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'js') && \is_callable($row['php_class'].'::js')){
-                $row['js'] = array_merge($row['js'], call_user_func($row['php_class'].'::js'));}
+                $row['js'] = array_merge($row['js'], \call_user_func($row['php_class'].'::js'));}
             $row['php_class'] = '';
             
             $skip = false;
@@ -56,16 +56,16 @@ class State {
         for($i=0;$i<count($substate);$i++){
             if($row['name'] == $state_name){
                 $substate[$i]['parent_id'] = $row['id'];}
-            if($substate[$i]['name'] == $row['name'] && $substate[$i]['parent_id'] == $row['parent_id']){
+            if($substate[$i]['name'] == $row['name']){
                 $substate[$i]['parent_id'] = $parent_id;
                 return true;
             }
             if(array_key_exists('parent_id', $substate[$i])){
-                if(self::is_loaded($row,$substate[$i]['sub'],$state_name,$substate[$i]['parent_id'])){
+                if(self::is_loaded($row,$substate[$i]['sub'],$substate[$i]['name'],$substate[$i]['parent_id'])){
                     return true;}
             }
         }
-        return false;
+        return $row['type'] == 0 ? true : false;
     }
 }
 
