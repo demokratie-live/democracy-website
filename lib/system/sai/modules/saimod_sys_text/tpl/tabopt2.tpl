@@ -1,0 +1,1 @@
+<li><a href="#!text(edittext);id.${id};lang.${lang}" class="${default}" id="menu_lang_${lang}">${lang}</a></li>
