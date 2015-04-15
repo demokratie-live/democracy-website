@@ -1,14 +1,14 @@
 <div class="masthead">
     <h3 class="muted">Design. Simple. Fast. Reliable. Innovative.</h3>
-    <h4 class="text-info">We write awesome code and we use <a href="https://github.com/ulfgebhardt/system">SYSTEM</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap.</a></h4>
+    <h4 class="text-info">We write awesome Software using <a href="https://github.com/ulfgebhardt/system">SYSTEM</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap.</a></h4>
 </div>
 <div id="myCarousel" class="carousel slide" style="margin-right: 300px;">    
     <div class="carousel-inner">        
         <div class="item active">
-            <img class="carousel-img" src="http://mojotrollz.eu/web/system/sai/modules/saistart_sys_sai/img/logo_sai.png" alt="">
+            <img class="carousel-img" src="./sai.php?call=files&cat=saistart_sys_sai&id=sai_loggedout_gallery_1.png" alt="">
             <div class="carousel-caption">
-                <h4>System features here as pictures</h4>
-                <p>Showing Dummy Logo</p>
+                <h4>Explore SAI yourself</h4>
+                <p>It will enable your to use System as a multiverse of toolsets to support your Projects.</p>
             </div>
         </div>      
     </div>        
