@@ -17,5 +17,6 @@ class SYS_SAIMOD_TEXT_GETTEXTS extends \SYSTEM\DB\QP {
                         WHERE tag = ?
                         ORDER BY time_edit DESC
                 ) AS sub
-                GROUP BY sub.id;'
+                GROUP BY sub.id
+                ORDER BY time_edit ASC;'
 );}}

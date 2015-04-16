@@ -16,5 +16,6 @@ class SYS_SAIMOD_TEXT_GETTEXTS_ALL extends \SYSTEM\DB\QQ {
                         LEFT JOIN system_user as ae ON system_text.author_edit = ae.id
                         ORDER BY time_edit DESC
                 ) AS sub
-                GROUP BY sub.id;'
+                GROUP BY sub.id
+                ORDER BY time_edit ASC;'
 );}}
