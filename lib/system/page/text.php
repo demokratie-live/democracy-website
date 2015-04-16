@@ -49,6 +49,8 @@ class text {
         //Insert
         if(!\SYSTEM\DBD\SYS_TEXT_SAVE::QI(array($id,$lang,$text,  \SYSTEM\SECURITY\Security::getUser()->id,\SYSTEM\SECURITY\Security::getUser()->id))){
             return false;}
+        //delete all tags
+        \SYSTEM\DBD\SYS_TEXT_DELETE_TAGS::QI(array($id));
         //Insert tags
         foreach($tags as $tag){
             if($tag){\SYSTEM\DBD\SYS_TEXT_SAVE_TAG::QI(array($id,$tag));}}

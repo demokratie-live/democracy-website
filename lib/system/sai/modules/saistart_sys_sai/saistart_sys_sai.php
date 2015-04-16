@@ -33,7 +33,9 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars['username'] = $user->username;
         $vars['locale'] = $user->locale;
         $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
-        $vars = array_merge($vars,\SYSTEM\SAI\saimod_sys_todo::statistics());
+        $vars = array_merge(    $vars,
+                                \SYSTEM\SAI\saimod_sys_todo::statistics(),
+                                \SYSTEM\PAGE\text::tag('sai'));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content_loggedin.tpl'), $vars);
     }
 }
