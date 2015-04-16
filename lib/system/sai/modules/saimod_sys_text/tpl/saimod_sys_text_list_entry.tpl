@@ -6,4 +6,5 @@
     <td class="contenttext">${time_create}</td>
     <td class="contenttext">${author_edit_name}</td>
     <td class="contenttext">${time_edit}</td>
+    <td class="contenttext">${count}</td>
 </tr>

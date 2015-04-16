@@ -7,7 +7,7 @@ class SYS_SAIMOD_TEXT_GETTEXTS_ALL extends \SYSTEM\DB\QQ {
             //pg            
             '',
             //mys
-            'SELECT * 
+            'SELECT *, count(sub.id) as count 
                 FROM (
                     SELECT system_text_tag.tag, system_text.*, a.username as author_name, ae.username as author_edit_name 
                         FROM system_text_tag 

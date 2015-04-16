@@ -7,6 +7,7 @@
         <th>Time_create</th>
         <th>Author_edit</th>
 	<th>Time_edit</th>
+        <th>Langs</th>
     </tr>
     ${entries}
 </table>
