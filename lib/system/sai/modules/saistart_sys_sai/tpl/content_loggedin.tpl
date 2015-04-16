@@ -1,13 +1,13 @@
 <div class="masthead">
-    <h3 class="muted">${basic_sai_welcome}</h3>
-    <h4 class="text-info">${basic_sai_welcome_description}</h4>
+    <h3 class="muted">${sai_start_welcome}</h3>
+    <h4 class="text-info">${sai_start_welcome_description}</h4>
 </div>
 <div id="container_top">
     <div class="well" id="project">
         <h2 class="muted"><a href="#!config">${basic_project}</a></h2>
-        <b>${basic_projectname}:</b> ${project_name}<br/>
-        <b>${basic_projectURL}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
-        <b>${basic_projectprogress}:</b> ${project}%
+        <b>${basic_name}:</b> ${project_name}<br/>
+        <b>${basic_URL}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
+        <b>${basic_progress}:</b> ${project}%
     </div>
     <div class="well" id="analytics">
         <h2 class="muted"><a href="#!log(stats)">${basic_analytics}</a></h2>
@@ -47,11 +47,11 @@
 <div class="well" id="todo">
     <h2 class="muted"><a href="#!todo">${basic_todo}</a></h2>
     <b>${basic_status}:</b> ${project_count}/${project_all}<br/>
-    <b>${basic_projectprogress}:</b> ${project}%
+    <b>${basic_progress}:</b> ${project}%
     <div id="todo_entries"></div>
 </div>
 <div class="well" id="log">
     <h2 class="muted"><a href="#!log">${basic_log}</a></h2>
-    <h4 class="muted">100 ${basic_latest_log_entries}</h4>
+    <h4 class="muted">100 ${sai_log_latest_entries}</h4>
     <div id="log_entries"></div>
 </div>
