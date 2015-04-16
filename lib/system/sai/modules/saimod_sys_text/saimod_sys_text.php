@@ -12,6 +12,15 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text.tpl'), $vars);
     }
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag(){
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS_NOTAG::QQ();
+        $entries = '';
+        while($r = $res->next()){  
+            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), array('entries' => $entries)); 
+    }
+    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = null){
         if ($tag) {
             $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS::QQ(array($tag));
