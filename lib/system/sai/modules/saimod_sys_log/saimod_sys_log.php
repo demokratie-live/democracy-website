@@ -341,7 +341,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){
-        $vars = array();        
+        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag('basic');
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log.tpl'), $vars);        
     }

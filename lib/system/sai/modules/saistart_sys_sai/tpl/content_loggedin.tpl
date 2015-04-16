@@ -1,16 +1,16 @@
 <div class="masthead">
-    <h3 class="muted">Welcome to the SYSTEM Admin Interface - short SAI.</h3>
-    <h4 class="text-info">From here you can control and manage your Website.</h4>
+    <h3 class="muted">${basic_sai_welcome}</h3>
+    <h4 class="text-info">${basic_sai_welcome_description}</h4>
 </div>
 <div id="container_top">
     <div class="well" id="project">
-        <h2 class="muted"><a href="#!config">Project</a></h2>
-        <b>Name:</b> ${project_name}<br/>
-        <b>URL:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
-        <b>Progress:</b> ${project}%
+        <h2 class="muted"><a href="#!config">${basic_project}</a></h2>
+        <b>${basic_projectname}:</b> ${project_name}<br/>
+        <b>${basic_projectURL}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
+        <b>${basic_projectprogress}:</b> ${project}%
     </div>
     <div class="well" id="analytics">
-        <h2 class="muted"><a href="#!log(stats)">Analytics</a></h2>
+        <h2 class="muted"><a href="#!log(stats)">${basic_analytics}</a></h2>
         ${analytics}
     </div>
     <div class="well" id="git">
@@ -45,13 +45,13 @@
     </div>
 </div>
 <div class="well" id="todo">
-    <h2 class="muted"><a href="#!todo">Todo</a></h2>
-    <b>Status:</b> ${project_count}/${project_all}<br/>
-    <b>Progress:</b> ${project}%
+    <h2 class="muted"><a href="#!todo">${basic_todo}</a></h2>
+    <b>${basic_status}:</b> ${project_count}/${project_all}<br/>
+    <b>${basic_projectprogress}:</b> ${project}%
     <div id="todo_entries"></div>
 </div>
 <div class="well" id="log">
-    <h2 class="muted"><a href="#!log">Log</a></h2>
-    <h4 class="muted">100 Latest Log Entries</h4>
+    <h2 class="muted"><a href="#!log">${basic_log}</a></h2>
+    <h4 class="muted">100 ${basic_latest_log_entries}</h4>
     <div id="log_entries"></div>
 </div>
