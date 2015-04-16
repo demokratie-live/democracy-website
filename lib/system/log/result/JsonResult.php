@@ -51,4 +51,6 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
     //Returns OK status
     public static function ok(){
         return self::toString(NULL);}
+    public static function fail(){
+        return self::toString(NULL,self::JSONRESULT_ERROR);}
 }

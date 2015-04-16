@@ -1,6 +1,7 @@
 <?php
 namespace SYSTEM\PAGE;
 class text {
+    const NEW_ENTRY = 'new_text_entry';
     public static function id_tags($id){
         return \SYSTEM\DBD\SYS_TEXT_GET_ID_TAGS::QA(array($id));}
     //return all text values with certain tag and lang - array(id => text)
@@ -40,5 +41,28 @@ class text {
             new \SYSTEM\LOG\WARNING('Text with id: '.$id.' not found for lang: '.$lang.' - fallback to default lang.');
             return self::get($id, \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG));}
         return $res ? $res['text'] : '';
+    }
+    
+    public static function save($id, $new_id, $lang, $tags, $text){
+        if($new_id == self::NEW_ENTRY){
+            return false;}
+        //Insert
+        if(!\SYSTEM\DBD\SYS_TEXT_SAVE::QI(array($id,$lang,$text,  \SYSTEM\SECURITY\Security::getUser()->id,\SYSTEM\SECURITY\Security::getUser()->id))){
+            return false;}
+        //Insert tags
+        foreach($tags as $tag){
+            if($tag){\SYSTEM\DBD\SYS_TEXT_SAVE_TAG::QI(array($id,$tag));}}
+        //Rename
+        \SYSTEM\DBD\SYS_TEXT_RENAME::QI(array($new_id,$id));
+        \SYSTEM\DBD\SYS_TEXT_RENAME_TAGS::QI(array($new_id,$id));
+        return true;
+    }
+  
+    public static function delete($id, $lang = null){
+        if(!\SYSTEM\DBD\SYS_TEXT_DELETE::QI(array($id,$lang))){
+            return false;}
+        if(\SYSTEM\DBD\SYS_TEXT_GET_ID_COUNT::Q1(array($id))['count'] == 0){
+            \SYSTEM\DBD\SYS_TEXT_DELETE_TAGS::QI(array($id));}
+        return true;
     }
 }

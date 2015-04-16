@@ -1,12 +1,11 @@
 <?php
 namespace SYSTEM\SAI;
 class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
-    const NEW_ENTRY = 'new_text_entry';
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text(){        
         $vars = array();
         $vars['tabopts'] = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TAGS::QQ();
-        $vars['new_id'] = self::NEW_ENTRY;
+        $vars['new_id'] = \SYSTEM\PAGE\text::NEW_ENTRY;
         $vars['new_lang'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);
         while($r = $res->next()){
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $r);}           
@@ -26,7 +25,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), array('entries' => $entries)); 
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($id, $lang){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($lang,$id){
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         $vars = array();
         $vars['tabopts'] = '';
@@ -53,12 +52,11 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'), $vars);
     }
     
-    //Dont save to id self::NEW_ENTRY
-    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $new_id, $lang, $tags){                
-        return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_ADD::QI(array($id, $category)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("no data added"));}*/
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $new_id, $lang, $tags, $text){
+        return \SYSTEM\PAGE\text::save($id, $new_id, $lang, \json_decode($tags), urldecode($text)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
   
-    /*public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id, $lang = null){
-        return \SYSTEM\DBD\SYS_SAIMOD_LOCALE_DEL::QI(array($id)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::error(new \SYSTEM\LOG\WARNING("could not delete the permitted data"));}*/
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id, $lang = null){
+        return \SYSTEM\PAGE\text::delete($id, $lang) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
       
     public static function html_li_menu(){return '<li><a id="menu_text" href="#!text">Text</a></li>';}
     public static function right_public(){return false;}    
