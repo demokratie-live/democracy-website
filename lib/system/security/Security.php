@@ -124,5 +124,10 @@ class Security {
         
     protected static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
-            \session_start();}}    
+            \session_start();}
+        //respect locale from db if not set(right place here?)
+        if( isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&
+            $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User){
+                $_SESSION['values'][\SYSTEM\locale::SESSION_KEY] = $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->locale;}
+    }    
 }
