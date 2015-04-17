@@ -3,7 +3,8 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
-        $vars = array('entries' => '');
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD);
+        $vars['entries'] = '';
         $sys_mods = \SYSTEM\SAI\sai::getSysModules();
         foreach($sys_mods as $mod){
             $v = array();
@@ -16,7 +17,8 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
-        $vars = array('entries' => '');
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD);
+        $vars['entries'] = '';
         $mods = \SYSTEM\SAI\sai::getModules();
         foreach($mods as $mod){
             $v = array();
@@ -28,9 +30,9 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
     }
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD));}
     
-    public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">SAI Mods</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">${sai_menu_mod}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

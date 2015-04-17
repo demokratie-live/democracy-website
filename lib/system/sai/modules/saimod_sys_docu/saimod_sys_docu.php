@@ -4,7 +4,7 @@ namespace SYSTEM\SAI;
 class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu(){
         $documents = \SYSTEM\DOCU\docu::getDocuments();
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_DOCU);
         $vars['tabopts'] = '';
         foreach($documents as $cat => $docs){
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabopt.tpl'), array( 'tab_id' => str_replace(' ', '_', $cat),'tab_id_pretty' => $cat));}
@@ -13,7 +13,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'System'){
         $documents = \SYSTEM\DOCU\docu::getDocuments()[$cat];
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_DOCU);
         $vars['tabopts'] = '';
         foreach($documents as $doc){
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabopt2.tpl'),
@@ -33,7 +33,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         return 'not found';
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_docu" href="#!docu">Docu</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_docu" href="#!docu">${sai_menu_docu}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

@@ -1,4 +1,4 @@
-<h4>System Admin Interface Mods</h4>
+<h4>${sai_mod_title}</h4>
 <hr>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="tabs_mod">

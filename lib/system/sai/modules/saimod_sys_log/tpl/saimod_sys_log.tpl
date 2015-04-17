@@ -1,3 +1,5 @@
+<h4>${sai_log_title}</h4>
+<hr>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="tabs_log">
         <li class="active"><a href="#!log" id="menu_loglist">${basic_log}</a></li>

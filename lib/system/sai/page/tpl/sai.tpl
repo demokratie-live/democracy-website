@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>${title}</title>
+        <title>${sai_title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="fragment" content="!start">
         <link rel="icon" type="image/png" href="./sai.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo.png"/>
@@ -29,7 +29,7 @@
         <div id="content-wrapper">
             <div id="content"></div>
             <hr>
-            <div id="footer"><p>${copyright}</p></div>
+            <div id="footer"><p>${sai_copyright}</p></div>
         </div>
     </body>
 </html>

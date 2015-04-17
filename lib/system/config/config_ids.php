@@ -26,7 +26,5 @@ class config_ids {
     
     const SYS_CRON_LOG2SQLITE_PATH              = 30;
     
-    const SYS_SAI_CONFIG_TITLE                  = 52;
-    const SYS_SAI_CONFIG_COPYRIGHT              = 53;
     const SYS_SAI_CONFIG_PROJECT                = 54;
 }

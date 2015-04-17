@@ -3,7 +3,7 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron(){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_CRON);
         $vars['content'] = '';
         $vars['last_visit'] = \SYSTEM\CRON\cron::last_visit();
         $res = \SYSTEM\DBD\SYS_SAIMOD_CRON::QQ();
@@ -39,7 +39,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_CRON_DEL::QI(array($cls));
         return \SYSTEM\LOG\JsonResult::ok();}
     
-    public static function html_li_menu(){return '<li><a id="menu_cron" href="#!cron">Cron</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_cron" href="#!cron">${sai_menu_cron}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
     

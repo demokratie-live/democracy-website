@@ -58,10 +58,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['menu_start'] = self::menu_start();
         $vars['menu_sys'] = self::menu_sys();
         $vars['menu_proj'] = self::menu_proj();
-        $vars['title'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE);
-        $vars['copyright'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT);
-        
-        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag('basic'),\SYSTEM\PAGE\text::tag('sai'));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_DEFAULT));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/sai.tpl'), $vars);        
     }
 }

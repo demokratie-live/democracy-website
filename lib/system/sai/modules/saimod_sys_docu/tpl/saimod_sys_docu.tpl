@@ -1,4 +1,4 @@
-<h4>System Documentation</h4>
+<h4>${sai_docu_title}</h4>
 <hr>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="tabs_docu">

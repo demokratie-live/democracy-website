@@ -1,4 +1,4 @@
-<h4>System Config</h4>
+<h4>${sai_config_title}</h4>
 <hr>
 <table class="table table-hover table-condensed sai_table" style="overflow: auto;">
     <tr>

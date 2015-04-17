@@ -4,13 +4,13 @@ namespace SYSTEM\SAI;
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_groups(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_groups.tpl'),array());}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_groups.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_newright(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_newright.tpl'),array());}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_newright.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));}
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_rights(){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
         $rows = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
@@ -67,14 +67,14 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             $r['message'] = substr($r['message'],0,255);
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);
         }
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
         $vars['count'] = $count['count'];
         $vars['table'] = $table;
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars);
     }
     
     private static function user_rights($userid){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
         
         $vars['user_rights_table'] = '';        
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHTS::QQ(array($userid));
@@ -104,7 +104,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_rights.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_stats(){
-         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_stats.tpl'),array());
+         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_stats.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_user($username){        
@@ -112,6 +112,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['time_elapsed'] = self::time_elapsed_string($vars['last_active']);
         $vars['user_rights'] = array_key_exists('id', $vars) ? self::user_rights($vars['id']) : '';
         $vars['user_actions'] = array_key_exists('id', $vars) ? self::user_actions($vars['id']) : '';
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_view.tpl'),$vars);
     }
     
@@ -124,12 +125,15 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             $r['class'] = self::tablerow_class($r['last_active']);
             $r['time_elapsed'] = self::time_elapsed_string($r['last_active']);
             $rows .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user.tpl'),$r);            
-        }        
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_users.tpl'),array('rows' => $rows, 'count' => $count['count']));
+        }
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
+        $vars['rows'] = $rows;
+        $vars['count'] = $count['count'];
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_users.tpl'),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security.tpl'), $vars);}
     
@@ -174,7 +178,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         }
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_security" href="#!security">Security</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_security" href="#!security">${sai_menu_security}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY);}
     

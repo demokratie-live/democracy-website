@@ -26,7 +26,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     }    
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG);
         $vars['dbfile_entries'] = '';
         if(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)){
             $scanned_directory = array_diff(scandir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)), array('..', '.'));
@@ -287,6 +287,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_error($error){
         $vars = \SYSTEM\DBD\SYS_SAIMOD_LOG_ERROR::QQ(array($error))->next();        
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
@@ -303,7 +304,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $r['request_uri'] = htmlspecialchars($r['request_uri']);
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);                                         
         }
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG);
         $vars['count'] = $count['count'];
         $vars['table'] = $table;
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),
@@ -341,10 +342,8 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){
-        $vars = array();
-        $vars = \SYSTEM\PAGE\text::tag('basic');
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG);
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('basic'),\SYSTEM\PAGE\text::tag('sai'));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log.tpl'), $vars);        
     }
     
@@ -364,7 +363,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }        
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_log" href="#!log">Log</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_log" href="#!log">${sai_menu_log}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

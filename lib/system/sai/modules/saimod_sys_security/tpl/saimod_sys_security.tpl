@@ -1,4 +1,4 @@
-<h4>System Security</h4>
+<h4>${sai_security_title}</h4>
 <hr>
 <div class="tabbable">
     <ul class="nav nav-tabs" id="securitytab">

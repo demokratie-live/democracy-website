@@ -27,13 +27,13 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo(){
-        $vars = array();        
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo.tpl'), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_new(){
-        $vars = array();        
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_new.tpl'), $vars);
     }
     
@@ -55,8 +55,13 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
             } else {
                 $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
-            }}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_user_list_elements' => $result_user,'todo_list_elements' => $result, 'count' => $count));
+            }    
+        }
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);
+        $vars['todo_user_list_elements'] = $result_user;
+        $vars['todo_list_elements'] = $result;
+        $vars['count'] = $count;
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist(){
@@ -78,7 +83,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
             }
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), array('todo_user_list_elements' => $result_user,'todo_list_elements' => $result, 'count' => $count));
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);
+        $vars['todo_user_list_elements'] = $result_user;
+        $vars['todo_list_elements'] = $result;
+        $vars['count'] = $count;
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
     }
     
     public static function statistics(){
@@ -100,6 +109,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats(){
         $vars = self::statistics();
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         $vars['entries'] = '';
         foreach($vars['data'] as $stat){
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_entry.tpl'), $stat);
@@ -172,12 +182,13 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
         $vars = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO::Q1(array($todo));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
         return $vars[\SYSTEM\DBD\system_todo::FIELD_TYPE] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER ?
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo_user.tpl'), $vars) :
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo.tpl'), $vars);}
     
-    public static function html_li_menu(){return '<li><a id="menu_todo" href="#!todo">ToDo</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_todo" href="#!todo">${sai_menu_todo}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

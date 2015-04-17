@@ -23,16 +23,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     public static function sai_mod__SYSTEM_SAI_saimod_sys_files(){
-        /*$result = array('tabopts' => '', 'tabs' => '');  
-        $file_folders = \SYSTEM\FILES\files::get();
-        $first = true;
-        foreach($file_folders as $name=>$folder){
-            $result['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_tabopt.tpl'),array('name' => $name, 'active' => $first ? 'active' : ''));
-            $result['tabs'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_tab.tpl'),array('name' => $name, 'active' => $first ? 'active' : '', 'content' => $first ? self::sai_mod__SYSTEM_SAI_saimod_sys_files_action_tab($name) : ''));
-            $first = false;
-        }        
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files.tpl'),$result);*/
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_FILES);
         $vars['tabopts'] = '';
         
         $res = \SYSTEM\FILES\files::get();
@@ -47,9 +38,12 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
         $i = 0;
         foreach($cat as $file){
             $result .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_list_entry.tpl'), array('i' => $i++, 'cat' => $name, 'name' => $file, 'extension' => substr($file,-3,3), 'url' => 'api.php?call=files&cat='.$name.'&id='.$file));}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_list.tpl'), array('cat' => $name, 'content' => $result));}
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_FILES);
+        $vars['cat'] = $name;
+        $vars['content'] = $result;
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_list.tpl'), $vars);}
     
-    public static function html_li_menu(){return '<li><a id="menu_files" href="#!files">Files</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_files" href="#!files">${sai_menu_files}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_FILES);}
     

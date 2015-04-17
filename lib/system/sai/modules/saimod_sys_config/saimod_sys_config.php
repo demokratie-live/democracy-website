@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_CONFIG);
         $vars['basics'] = $vars['database'] = $vars['sai'] = '';
         $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_tr.tpl'),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING,
@@ -62,17 +62,9 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
                         array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT,
                                 'name' =>'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT',
                                 'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT)));
-        $vars['sai'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_tr.tpl'),
-                        array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT,
-                                'name' =>'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT',
-                                'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_COPYRIGHT)));
-        $vars['sai'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_tr.tpl'),
-                        array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE,
-                                'name' =>'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE',
-                                'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_TITLE)));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config.tpl'),$vars);
     }
-    public static function html_li_menu(){return '<li><a id="menu_config" href="#!config">Config</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_config" href="#!config">${sai_menu_config}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

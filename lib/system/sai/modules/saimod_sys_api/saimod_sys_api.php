@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 class saimod_sys_api extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_api(){
-        $vars = array();
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_API);
         $vars['tabopts'] = '';
         
         $res = \SYSTEM\DBD\SYS_SAIMOD_API_GROUPS::QQ();
@@ -22,16 +22,18 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
             $r['tr_class'] = self::tablerow_class($r['type']);
             $r['type'] = self::type_names($r['type']);
             $tab['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/list_entry.tpl'), $r);
-        }      
+        }
+        $tab = array_merge($tab,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_API));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/saimod_sys_api_list.tpl'), $tab);
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID,$group){
         $res = \SYSTEM\DBD\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID,$group));
+        $res = array_merge($res,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_API));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/delete_dialog.tpl'), $res);
     }
     public static function sai_mod__system_sai_saimod_sys_api_action_newdialog(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/new_dialog.tpl'));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/new_dialog.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_API));}
     
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
@@ -69,7 +71,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         }        
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_api" href="#!api">API</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_api" href="#!api">${sai_menu_api}</a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API);}
     
