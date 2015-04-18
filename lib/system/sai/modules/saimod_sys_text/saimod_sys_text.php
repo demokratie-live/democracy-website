@@ -8,7 +8,11 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         $vars['new_id'] = \SYSTEM\PAGE\text::NEW_ENTRY;
         $vars['new_lang'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);
         while($r = $res->next()){
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $r);}           
+            //hide sai entries
+            $r['style'] = '';
+            if(substr($r['tag'],0,3) == 'sai'){
+                $r['style'] = 'display:none;';}
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $r);}
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text.tpl'), $vars);
     }
     

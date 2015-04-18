@@ -1,1 +1,1 @@
-<li><a href="#!text;tag.${tag}" id="menu_tag_${tag}">${tag}(${count})</a></li>
+<li style="${style}"><a href="#!text;tag.${tag}" id="menu_tag_${tag}">${tag}(${count})</a></li>
