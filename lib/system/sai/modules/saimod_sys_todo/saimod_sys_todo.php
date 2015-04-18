@@ -43,7 +43,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_COUNT::Q1()['count'];
         while($row = $res->next()){
             $row['class_row'] = self::trclass($row['type'],$row['class']);
-            $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
+            $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
             //$row['report_type'] = self::reporttype($row['type']);
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
@@ -57,10 +57,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
             }    
         }
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);
+        $vars = array();
         $vars['todo_user_list_elements'] = $result_user;
         $vars['todo_list_elements'] = $result;
         $vars['count'] = $count;
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
     }
     
@@ -70,7 +71,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_DOTO_COUNT::Q1()['count'];
         while($row = $res->next()){
             $row['class_row'] = self::trclass($row['type'],$row['class']);
-            $row['time_elapsed'] = self::time_elapsed_string(strtotime($row['time']));
+            $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
             $row['message'] = htmlspecialchars($row['message']);
@@ -83,10 +84,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
             }
         }
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);
+        $vars = array();
         $vars['todo_user_list_elements'] = $result_user;
         $vars['todo_list_elements'] = $result;
         $vars['count'] = $count;
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
     }
     
@@ -114,34 +116,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         foreach($vars['data'] as $stat){
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_entry.tpl'), $stat);
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);}
-    
-    private static function time_elapsed_string($ptime)
-    {
-        $etime = time() - $ptime;
-
-        if ($etime < 1)
-        {
-            return '0 seconds';
-        }
-
-        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
-                    30 * 24 * 60 * 60       =>  'month',
-                    24 * 60 * 60            =>  'day',
-                    60 * 60                 =>  'hour',
-                    60                      =>  'minute',
-                    1                       =>  'second'
-                    );
-
-        foreach ($a as $secs => $str)
-        {
-            $d = $etime / $secs;
-            if ($d >= 1)
-            {
-                $r = round($d);
-                return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago';
-            }
-        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);        
     }
     
     private static function state($state){

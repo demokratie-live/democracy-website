@@ -299,37 +299,18 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){     
             //print_r($r);
             $r['class_row'] = self::tablerow_class($r['class']);
-            $r['time'] = self::time_elapsed_string(strtotime($r['time']));
+            $r['time'] = \SYSTEM\time::time_ago_string(strtotime($r['time']));
             $r['message'] = htmlspecialchars(substr($r['message'],0,255));
             $r['request_uri'] = htmlspecialchars($r['request_uri']);
             $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);                                         
         }
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG);
+        $vars = array();
         $vars['count'] = $count['count'];
         $vars['error_filter'] = self::generate_error_filters($filter_);
         $vars['active'] = ($filter == '%' ? 'active' : '');
         $vars['table'] = $table;
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),$vars);
-    }
-    
-    private static function time_elapsed_string($ptime){
-        $etime = time() - $ptime;
-        if ($etime < 1){
-            return '0 seconds';}
-
-        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
-                    30 * 24 * 60 * 60       =>  'month',
-                    24 * 60 * 60            =>  'day',
-                    60 * 60                 =>  'hour',
-                    60                      =>  'minute',
-                    1                       =>  'second');
-
-        foreach ($a as $secs => $str){
-            $d = $etime / $secs;
-            if ($d >= 1){
-                $r = round($d);
-                return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago';}
-        }
     }
     
     private static function generate_error_filters($filter){
