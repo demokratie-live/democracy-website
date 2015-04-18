@@ -306,11 +306,10 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG);
         $vars['count'] = $count['count'];
+        $vars['error_filter'] = self::generate_error_filters($filter_);
+        $vars['active'] = ($filter == '%' ? 'active' : '');
         $vars['table'] = $table;
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),
-                array(  'table' => \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table.tpl'), $vars),
-                        'error_filter' => self::generate_error_filters($filter_),
-                        'active' => $filter == '%' ? 'active' : ''));
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),$vars);
     }
     
     private static function time_elapsed_string($ptime){
