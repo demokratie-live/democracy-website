@@ -27,5 +27,6 @@ class system_text {
     const TAG_SAI_SECURITY      = 'sai_security';
     const TAG_SAI_TEXT          = 'sai_text';
     const TAG_SAI_TODO          = 'sai_todo';
+    const TAG_SAI_GIT           = 'sai_git';
     
 }
