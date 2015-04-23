@@ -23,7 +23,7 @@ class ConnectionMYS extends ConnectionAbstr {
     public function prepare($stmtName, $stmt, $values){
         $prepStmt = \mysqli_prepare($this->connection, $stmt);
         if(!$prepStmt){
-            throw new \SYSTEM\LOG\ERROR('Prepared Statement prepare fail: '. \mysqli_error($this->connection));}
+            throw new \Exception('Prepared Statement prepare fail: '. \mysqli_error($this->connection));}
 
         $types = '';
         $binds = array($prepStmt,null);
@@ -45,7 +45,7 @@ class ConnectionMYS extends ConnectionAbstr {
     public function query($query){
         $result = mysqli_query($this->connection, $query);
         if(!$result){
-            throw new \SYSTEM\LOG\ERROR('Could not query Database. Check ur Query Syntax or required Rights: '.mysqli_error($this->connection));}
+            throw new \Exception('Could not query Database. Check ur Query Syntax or required Rights: '.mysqli_error($this->connection));}
 
         if($result === TRUE){
             return TRUE;}

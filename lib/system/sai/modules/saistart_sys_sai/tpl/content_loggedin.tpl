@@ -15,8 +15,8 @@
     </div>
     <div class="well" id="git">
         <h2 class="muted">Git</h2>
-        <b>Current Project Version:</b> ${git_project}<br/>
-        <b>Current SYSTEM Version:</b> ${git_system}
+        <b>${sai_git_project_version}:</b> ${git_project}<br>
+        <b>${sai_git_system_version}:</b> ${git_system}
     </div>
     <div class="well" id="logout">
         <h2 class="muted"><a href="#!login">${basic_logout}</a></h2>

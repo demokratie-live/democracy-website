@@ -20,10 +20,8 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     }
     
     protected static function html_content(){
-        if(!\SYSTEM\SECURITY\Security::isLoggedIn()){
-            $vars = array();
-            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'),$vars);
-        }
+        if(!\SYSTEM\SECURITY\Security::isLoggedIn() || !\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
+            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'));}
         $vars = array();
         $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
         $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
@@ -34,7 +32,8 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
         $vars = array_merge(    $vars,
                                 \SYSTEM\SAI\saimod_sys_todo::statistics(),
-                                \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_START));
+                                \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_START),
+                                \SYSTEM\SAI\saimod_sys_git::getGitInfo());
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content_loggedin.tpl'), $vars);
     }
 }
