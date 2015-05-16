@@ -1,12 +1,12 @@
 #content_saistart {
-    width: 1250px;
+/*    width: 1250px;*/
 }
 
 #container_top .well{
-    height: 220px;
-    min-width: 250px;
+/*    height: 220px;*/
+/*    min-width: 250px;*/
 }
-#project {
+/*#project {
     float: left;
 }
 #analytics {
@@ -20,13 +20,13 @@
 #logout {
     margin-left: 20px;
     float: left;
-}
-#todo {
+}*/
+/*#todo {
     clear: both;
-}
-#login {
+}*/
+/*#login {
     position: fixed;
     top: 80px;
     right: 20px;
     width:220px;
-}
+}*/
