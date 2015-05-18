@@ -37,6 +37,7 @@
             </table>
             ${basic_text_logout}
             <form class="textbox" id="logout_form">
+                
                 <div class="control-group">
                     <div class="help-block"></div>
                     <input type="hidden" />
