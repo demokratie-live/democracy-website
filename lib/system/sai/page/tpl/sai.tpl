@@ -10,21 +10,24 @@
     </head>
     <body>
         <nav id="sys_autocollapse" class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
-            </div>
-            <div id="navbar-collapse-1" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    ${menu_start}
-                    ${menu_sys}
-                </ul>
-            </div><!-- /.navbar-collapse -->
+            <div class="container-fluid">  
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
+                </div>
+                 <!-- Collect the nav links, forms, and other content for toggling -->
+                <div id="navbar-collapse-1" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        ${menu_start}
+                        ${menu_sys}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>  
         </nav>
         <div class="sai_wrapper">
             <div class="container-fluid">

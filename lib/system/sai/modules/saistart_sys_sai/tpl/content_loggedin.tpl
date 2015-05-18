@@ -4,22 +4,23 @@
         <h4 class="text-info">${sai_start_welcome_description}</h4>
     </div>
     <div class="clearfix row-same-height row-full-height">
-        <div class="col-xs-3 col-xs-height col-full-height well">
+        <div class="col-sm-6 col-xs-3 col-xs-height col-full-height well">
             <h2 class="muted"><a href="#!config">${basic_project}</a></h2>
             <b>${basic_name}:</b> ${project_name}<br/>
             <b>${basic_URL}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
             <b>${basic_progress}:</b> ${project}%
         </div>
-        <div class="col-xs-3 col-xs-height col-full-height well">
+        <div class="col-sm-6 col-xs-3 col-xs-height col-full-height well">
             <h2 class="muted"><a href="#!log(stats)">${basic_analytics}</a></h2>
             ${analytics}
         </div>
-        <div class="col-xs-3 col-xs-height col-full-height well">
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-sm-6 col-xs-3 col-xs-height col-full-height well">
             <h2 class="muted">Git</h2>
             <b>Current Project Version:</b> ${git_project}<br/>
             <b>Current SYSTEM Version:</b> ${git_system}
         </div>
-        <div class="col-xs-3 col-xs-height col-full-height well">
+        <div class="col-sm-6 col-xs-3 col-xs-height col-full-height well">
             <h2 class="muted"><a href="#!login">${basic_logout}</a></h2>
             <table class="table table-hover table-condensed">
                 <tr>
