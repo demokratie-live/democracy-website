@@ -12,8 +12,7 @@
         <nav id="sys_autocollapse" class="navbar navbar-default" role="navigation">
             <div class="container-fluid">  
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
@@ -21,7 +20,7 @@
                     <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
                 </div>
                  <!-- Collect the nav links, forms, and other content for toggling -->
-                <div id="navbar-collapse-1" class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse navHeaderCollapse">
                     <ul class="nav navbar-nav">
                         ${menu_start}
                         ${menu_sys}
