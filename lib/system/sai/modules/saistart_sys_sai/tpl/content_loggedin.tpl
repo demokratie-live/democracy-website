@@ -1,6 +1,6 @@
 <div class="container">
-        <h3 class="muted">${sai_start_welcome}</h3>
-        <h4 class="text-info">${sai_start_welcome_description}</h4><hr>
+    <h3 class="muted">${sai_start_welcome}</h3>
+    <h4 class="text-info">${sai_start_welcome_description}</h4><hr>
     <div class="row">
         <div class="col-md-6">
             <div id="project" class="panel panel-default sai_gridbox">
