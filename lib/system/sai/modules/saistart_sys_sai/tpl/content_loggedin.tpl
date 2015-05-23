@@ -3,8 +3,8 @@
         <h3 class="muted">${sai_start_welcome}</h3>
         <h4 class="text-info">${sai_start_welcome_description}</h4>
     </div>
-    <div class="row row-eq-height">
-        <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="row">
+        <div class="col-md-6">
             <div id="project" class="panel panel-default sai_gridbox">
                 <div class="panel-heading"><a href="#!config">${basic_project}</a></div>
                 <div class="panel-body">
@@ -14,8 +14,42 @@
                 </div>
             </div>   
         </div>
-        <div class="clearfix visible-xs-block"></div>
-        <div id="analytics" class="col-xs-12 col-sm-6 col-md-3">
+        <div class="col-md-6">
+            <div id="project" class="panel panel-default sai_gridbox">
+                <div class="panel-heading"><a href="#!config">${basic_logout}</a></div>
+                <div class="panel-body">
+                    <table class="table table-hover table-condensed">
+                        <tr>
+                            <th>${basic_username}</th>
+                            <td>${username}</td>
+                        </tr>
+                        <tr>
+                        <th>${basic_locale}</th>
+                            <td>${locale}</td>
+                        </tr>
+                        <tr>
+                            <th>${basic_admin_rights}</th>
+                            <td>${isadmin}</td>
+                        </tr>
+                    </table>
+                    ${basic_text_logout}
+                    <form class="textbox" id="logout_form">
+
+                        <div class="control-group">
+                            <div class="help-block"></div>
+                            <input type="hidden" />
+                            <button class="btn-sm btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="logout_submit">${basic_logout}</button>
+                        </div>
+                    </form>
+                </div>
+                 
+            </div> 
+            <h2 class="muted"><a href="#!login"></a></h2>
+            
+           
+        </div>
+        <div class="row">
+        <div id="analytics" class="col-md-6">
             <div class="panel panel-default sai_gridbox">
                 <div class="panel-heading"><a href="#!log(stats)">${basic_analytics}</a></div>
                 <div class="panel-body">
@@ -23,9 +57,7 @@
                 </div>
             </div> 
         </div>
-        <div class="clearfix visible-xs-block"></div>
-        <div class="clearfix visible-md-block"></div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="col-md-6">
             <div class="panel panel-default sai_gridbox">
                 <div class="panel-heading">Git</div>
                 <div class="panel-body">
@@ -34,33 +66,8 @@
                 </div>
             </div>
         </div>
-        <div class="clearfix visible-xs-block"></div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-                <h2 class="muted"><a href="#!login">${basic_logout}</a></h2>
-                <table class="table table-hover table-condensed">
-                    <tr>
-                        <th>${basic_username}</th>
-                        <td>${username}</td>
-                    </tr>
-                    <tr>
-                       <th>${basic_locale}</th>
-                       <td>${locale}</td>
-                    </tr>
-                    <tr>
-                       <th>${basic_admin_rights}</th>
-                       <td>${isadmin}</td>
-                    </tr>
-                </table>
-                ${basic_text_logout}
-                <form class="textbox" id="logout_form">
-
-                    <div class="control-group">
-                        <div class="help-block"></div>
-                        <input type="hidden" />
-                        <button class="btn-sm btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="logout_submit">${basic_logout}</button>
-                    </div>
-                </form>
-            </div>
+        </div>
+        
     </div>
     <div class="row">
         <div class="well" id="todo">
