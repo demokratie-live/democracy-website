@@ -31,7 +31,8 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
         return 'success';                
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_git" href="#!git">${sai_menu_git}</a></li>';}
+    //public static function html_li_menu(){return '<li><a id="menu_git" href="#!git"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span>${sai_menu_git}</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_git" href="#!git"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

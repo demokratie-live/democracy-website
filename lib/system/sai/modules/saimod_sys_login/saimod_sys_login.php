@@ -38,7 +38,8 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/register.tpl'), $vars);}
 
-    public static function html_li_menu(){return '<li><a id="menu_login" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '${sai_menu_logout}' : '${sai_menu_login}').'</a></li>';}
+    //public static function html_li_menu(){return '<li><a id="menu_login" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ${sai_menu_logout}' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> ${sai_menu_login}').'</a></li>';}
+        public static function html_li_menu(){return '<li><a id="menu_login" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>').'</a></li>';}
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     

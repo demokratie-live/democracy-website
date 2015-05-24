@@ -153,7 +153,8 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return 'error';
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_security" href="#!security">${sai_menu_security}</a></li>';}
+    //public static function html_li_menu(){return '<li><a id="menu_security" href="#!security">${sai_menu_security}</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_security" href="#!security"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY);}
     

@@ -6,7 +6,8 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars = array_merge(array(  'content' => self::html_content()),
                                     \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_START));
         return \SYSTEM\PAGE\replace::replaceFile(   \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/saistart.tpl'),$vars);}
-    public static function html_li_menu(){return '<li class="active"><a id="menu_start" href="#">${sai_menu_start}</a></li>';}
+    //public static function html_li_menu(){return '<li class="active"><a id="menu_start" href="#">${sai_menu_start}</a></li>';}
+    public static function html_li_menu(){return '<li class="active"><a id="menu_start" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     

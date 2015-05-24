@@ -39,7 +39,8 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
         return 'success';                
     }
     
-    public static function html_li_menu(){return '<li><a id="menu_cache" href="#!cache">${sai_menu_cache}</a></li>';}
+    //public static function html_li_menu(){return '<li><a id="menu_cache" href="#!cache">${sai_menu_cache}</a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_cache" href="#!cache"><span class="glyphicon glyphicon-level-up" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
