@@ -5,8 +5,8 @@
         <a href="${url}" target="_blank">${url}</a>
     </td>
     <td>
-        <input type="button" class="btn-danger imgdelbtn" style="margin: 1px; margin-right: 3px" value="Delete" cat="${cat}" id="${name}">
+        <button class="btn-danger btn btn-sm imgdelbtn" style="margin: 1px; margin-right: 3px" cat="${cat}" id="${name}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ${delete}</button>
         <input type="text" id="renametext_${cat}_${i}" class="form-control" style="width: 100px; margin:0;" placeholder="new name...">
-        <input type="submit" class="btn-warning imgrnbtn" style="margin: 1px;;" value="Rename" cat="${cat}" id="${name}" textfield="#renametext_${cat}_${i}">
+        <button type="submit" class="btn-warning btn btn-sm imgrnbtn" style="margin: 1px;;" cat="${cat}" id="${name}" textfield="#renametext_${cat}_${i}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ${rename}</button>
     </td>
 </tr>

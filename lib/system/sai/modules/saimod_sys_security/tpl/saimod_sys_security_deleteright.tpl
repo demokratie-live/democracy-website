@@ -13,5 +13,5 @@
         <td>${description}</td>
     </tr>
 </table>
-<input id="deleteright_confirm" class="btn-danger btn" right_id="${ID}" type="submit" value="Delete"/>
-<input id="deleteright_abort" onClick="system.load('security(rights)');" class="btn" type="submit" value="Abort"/>
+<button id="deleteright_confirm" class="btn-danger btn btn-sm" right_id="${ID}" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  ${delete}</button>
+<button id="deleteright_abort" onClick="system.load('security(rights)');" class="btn-default btn btn-sm" type="submit"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> ${abort}</button>

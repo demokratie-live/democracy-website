@@ -18,16 +18,16 @@ Last Visit: ${last_visit}<br/>
         </tr>
         ${content}
         <tr>
-            <td><input type="text" id="input_cron_class" placeholder="class" style="width: 200px;"></td>
-            <td><input type="text" id="input_cron_min" placeholder="min" value="0" style="width: 40px;"></td>
-            <td><input type="text" id="input_cron_hour" placeholder="hour" value="0" style="width: 40px;"></td>
-            <td><input type="text" id="input_cron_day" placeholder="day" value="0" style="width: 40px;"></td>
-            <td><input type="text" id="input_cron_day_week" placeholder="day_week" value="0" style="width: 40px;"></td>
-            <td><input type="text" id="input_cron_month" placeholder="month" value="0" style="width: 40px;"></td>
+            <td><input class="form-control" type="text" id="input_cron_class" placeholder="class" style="width: 200px;"></td>
+            <td><input class="form-control" type="text" id="input_cron_min" placeholder="min" value="0" style="width: 40px;"></td>
+            <td><input class="form-control" type="text" id="input_cron_hour" placeholder="hour" value="0" style="width: 40px;"></td>
+            <td><input class="form-control" type="text" id="input_cron_day" placeholder="day" value="0" style="width: 40px;"></td>
+            <td><input class="form-control" type="text" id="input_cron_day_week" placeholder="day_week" value="0" style="width: 40px;"></td>
+            <td><input class="form-control" type="text" id="input_cron_month" placeholder="month" value="0" style="width: 40px;"></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><button type="button" class="btn-small btn-success" id="btn_cron_add">Add</button></td>
+            <td><button type="button" class="btn-sm btn btn-success" id="btn_cron_add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${add}</button></td>
         </tr>    
     </table>
 </div>

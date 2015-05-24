@@ -5,8 +5,8 @@
         <li><a href="#!text" id="menu_tag_all">${basic_all}</a></li>
         <li><a href="#!text(notag)" id="menu_tag_notag">${basic_no_tag}</a></li>
         ${tabopts}
-        <input type="submit" value="${basic_add}" class="btn-small btn-success content_add" onClick="system.load('text(edittext(editor));id.${new_id};lang.${new_lang}');" style="margin-left: 15px; float: right;">
-        <input type="submit" value="${basic_show_all}" id="btn_show_all" class="btn-small btn-primary" style="margin-left: 15px; float: right;">
+        <button class="btn-sm btn btn-success content_add" onClick="system.load('text(edittext(editor));id.${new_id};lang.${new_lang}');" style="margin-left: 15px; float: right;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button>
+        <button type="submit" value="${basic_show_all}" id="btn_show_all" class="btn-sm btn btn-primary" style="margin-left: 15px; float: right;"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${basic_show_all}</button>
     </ul>
     <div class="tab-content" id="tab_content"></div>
 </div>
