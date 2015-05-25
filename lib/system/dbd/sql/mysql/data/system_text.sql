@@ -450,6 +450,7 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_config_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_config_title';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_config_title', 'deDE', 'System Config', 2, 2, '2015-04-17 19:29:05', '2015-04-17 19:29:05');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_config_title', 'enUS', 'System Config', 2, 2, '2015-04-17 19:29:05', '2015-04-17 19:29:05');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_config_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_config_title', 'sai_config');
@@ -655,18 +656,21 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_mod_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_mod_title';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_mod_title', 'deDE', 'System Plugins', 2, 2, '2015-04-17 19:28:45', '2015-04-17 19:28:45');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_mod_title', 'enUS', 'System Mods', 2, 2, '2015-04-17 19:28:45', '2015-04-17 19:28:45');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_mod_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_mod_title', 'sai_mod');
 
     DELETE FROM `system_text` WHERE id = 'sai_page_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_page_title';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_page_title', 'deDE', 'System Page', 2, 2, '2015-04-17 19:29:45', '2015-04-17 19:29:45');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_page_title', 'enUS', 'System Page', 2, 2, '2015-04-17 19:29:45', '2015-04-17 19:29:45');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_page_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_page_title', 'sai_page');
 
     DELETE FROM `system_text` WHERE id = 'sai_security_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_security_title';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_security_title', 'deDE', 'System Sicherheit', 2, 2, '2015-04-17 19:28:25', '2015-04-17 19:28:25');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_security_title', 'enUS', 'System Security', 2, 2, '2015-04-17 19:28:25', '2015-04-17 19:28:25');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_security_title', 'frFR', 'System Sécurité', 3, 3, '2015-04-20 19:17:16', '2015-04-20 19:17:16');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_security_title', 'sai');
@@ -749,6 +753,7 @@
 
     DELETE FROM `system_text` WHERE id = 'table_file';
     DELETE FROM `system_text_tag` WHERE id = 'table_file';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_file', 'deDE', 'Datei', 2, 2, '2015-04-18 14:43:20', '2015-04-18 14:43:20');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_file', 'enUS', 'File', 2, 2, '2015-04-18 14:43:20', '2015-04-18 14:43:20');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_file', 'frFR', 'Fichier', 3, 3, '2015-04-20 19:03:04', '2015-04-20 19:03:04');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_file', 'sai_log');
@@ -757,12 +762,14 @@
 
     DELETE FROM `system_text` WHERE id = 'table_http_referer';
     DELETE FROM `system_text_tag` WHERE id = 'table_http_referer';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_http_referer', 'deDE', 'HTTP Referer', 2, 2, '2015-04-18 13:54:18', '2015-04-18 13:54:18');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_http_referer', 'enUS', 'HTTP Referer', 2, 2, '2015-04-18 13:54:18', '2015-04-18 13:54:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_http_referer', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_http_referer', 'table');
 
     DELETE FROM `system_text` WHERE id = 'table_http_user_agent';
     DELETE FROM `system_text_tag` WHERE id = 'table_http_user_agent';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_http_user_agent', 'deDE', 'HTTP User Agent', 2, 2, '2015-04-18 13:54:48', '2015-04-18 13:54:48');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_http_user_agent', 'enUS', 'HTTP User Agent', 2, 2, '2015-04-18 13:54:48', '2015-04-18 13:54:48');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_http_user_agent', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_http_user_agent', 'table');
@@ -809,18 +816,21 @@
 
     DELETE FROM `system_text` WHERE id = 'table_post';
     DELETE FROM `system_text_tag` WHERE id = 'table_post';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_post', 'deDE', 'POST', 2, 2, '2015-04-18 13:53:55', '2015-04-18 13:53:55');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_post', 'enUS', 'POST', 2, 2, '2015-04-18 13:53:55', '2015-04-18 13:53:55');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_post', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_post', 'table');
 
     DELETE FROM `system_text` WHERE id = 'table_property';
     DELETE FROM `system_text_tag` WHERE id = 'table_property';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_property', 'deDE', 'Eigenschaft', 2, 2, '2015-04-18 13:56:35', '2015-04-18 13:56:35');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_property', 'enUS', 'Property', 2, 2, '2015-04-18 13:56:35', '2015-04-18 13:56:35');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_property', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_property', 'table');
 
     DELETE FROM `system_text` WHERE id = 'table_querytime';
     DELETE FROM `system_text_tag` WHERE id = 'table_querytime';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_querytime', 'deDE', 'Antwortzeit', 2, 2, '2015-04-18 14:44:18', '2015-04-18 14:44:18');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_querytime', 'enUS', 'Querytime', 2, 2, '2015-04-18 14:44:18', '2015-04-18 14:44:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_querytime', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_querytime', 'sai_security');
@@ -828,12 +838,14 @@
 
     DELETE FROM `system_text` WHERE id = 'table_request_uri';
     DELETE FROM `system_text_tag` WHERE id = 'table_request_uri';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_request_uri', 'deDE', 'Request URI', 2, 2, '2015-04-18 13:53:18', '2015-04-18 13:53:18');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_request_uri', 'enUS', 'Request URI', 2, 2, '2015-04-18 13:53:18', '2015-04-18 13:53:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_request_uri', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_request_uri', 'table');
 
     DELETE FROM `system_text` WHERE id = 'table_server_name';
     DELETE FROM `system_text_tag` WHERE id = 'table_server_name';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_server_name', 'deDE', 'Server Name', 2, 2, '2015-04-18 13:52:35', '2015-04-18 13:52:35');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_server_name', 'enUS', 'Server Name', 2, 2, '2015-04-18 13:52:35', '2015-04-18 13:52:35');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_server_name', 'frFR', 'Nom du serveur', 3, 3, '2015-04-20 19:00:09', '2015-04-20 19:00:09');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_server_name', 'sai_log');
@@ -841,6 +853,7 @@
 
     DELETE FROM `system_text` WHERE id = 'table_server_port';
     DELETE FROM `system_text_tag` WHERE id = 'table_server_port';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_server_port', 'deDE', 'Server Port', 2, 2, '2015-04-18 13:52:55', '2015-04-18 13:52:55');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_server_port', 'enUS', 'Server Port', 2, 2, '2015-04-18 13:52:55', '2015-04-18 13:52:55');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_server_port', 'frFR', 'Port du serveur<br>', 3, 3, '2015-04-20 19:08:14', '2015-04-20 19:08:14');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_server_port', 'sai_log');
@@ -902,6 +915,7 @@
 
     DELETE FROM `system_text` WHERE id = 'table_user';
     DELETE FROM `system_text_tag` WHERE id = 'table_user';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_user', 'deDE', 'Nutzer', 2, 2, '2015-04-18 14:44:09', '2015-04-18 14:44:09');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_user', 'enUS', 'User', 2, 2, '2015-04-18 14:44:09', '2015-04-18 14:44:09');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_user', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_user', 'sai_security');
