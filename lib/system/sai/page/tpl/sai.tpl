@@ -20,7 +20,7 @@
                     <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
                 </div>
                  <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navHeaderCollapse">
+                <div class="collapse navbar-collapse navHeaderCollapse pull-right">
                     <ul class="nav navbar-nav">
                         ${menu_start}
                         ${menu_sys}
