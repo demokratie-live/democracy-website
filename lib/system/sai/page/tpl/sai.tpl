@@ -9,36 +9,39 @@
         ${js}
     </head>
     <body>
-        <div class="container-fluid"> 
-            <nav id="sys_autocollapse" class="navbar navbar-default sai_navbar_top" role="navigation">
-                    <div class="col-md-2">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-md-2">
+                    <nav id="sys_autocollapse_" class="navbar sai_margin_bottom_off" role="navigation">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>
                             </button>
-                            <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
                         </div>
-                    </div>  
-                    <!-- div class="col-md-10 sai_menu_first sai_left_divider" -->
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="col-md-10">    
-                        <div class="collapse navbar-collapse navHeaderCollapse">
-                            <ul class="nav navbar-nav sai_menu_first sai_left_divider">
+                    </nav>    
+                </div>  
+                <!-- div class="col-md-10 sai_menu_first sai_left_divider" -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="col-md-10 sai_margin_left_off sai_padding_left_off sai_padding_right_off"> 
+                    <nav id="sys_autocollapse" class="navbar navbar-default sai_navbar_top sai_margin_bottom_off" role="navigation">
+                        <div class="collapse navbar-collapse navHeaderCollapse sai_margin_left_off sai_padding_left_off">
+                            <ul class="nav navbar-nav sai_menu_first">
                                    ${menu_start}
                                    ${menu_sys}
                             </ul>
                         </div><!-- /.navbar-collapse -->
-                    </div>
-            </nav>
+                    </nav>
+                </div>
+            </div>    
             <div class="row">
                 <div class="col-md-2">
                     <ul class="nav nav-tabs nav-stacked sai_project_modules">                
                         ${menu_proj}
                     </ul>
                 </div>
-                <div class="col-md-10 sai_left_divider">
+                <div class="col-md-10 sai_margin_left_off">
                     <div class="row">
                         <div id="content">
                         </div>
