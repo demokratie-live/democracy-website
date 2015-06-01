@@ -76,14 +76,12 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     }
     
     private static function user_rights($userid){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
-        
         $vars['user_rights_table'] = '';        
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHTS::QQ(array($userid));
         while($r = $res->next()){
             $r['user_id'] = $userid;
             $r['remove_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
-                                '<button type="submit" class="btn btn-sm btn-danger deleteuserright" right_id="'.$r['ID'].'" user_id="'.$userid.'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> delete</button>' :
+                                '<button type="submit" class="btn btn-sm btn-danger deleteuserright" right_id="'.$r['ID'].'" user_id="'.$userid.'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ${basic_delete}</button>' :
                                 '<font color="red">Missing Rights</font>';
             $vars['user_rights_table'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_right.tpl'), $r);}
         
@@ -102,7 +100,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             $v['right_options'] = $opts;
             $vars['user_rights_add'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_rights_add.tpl'), $v);
         }
-            
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));    
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_rights.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_stats(){

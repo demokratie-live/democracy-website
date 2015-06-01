@@ -27,7 +27,7 @@ Last Visit: ${last_visit}<br/>
             <td></td>
             <td></td>
             <td></td>
-            <td><button type="button" class="btn-sm btn btn-success" id="btn_cron_add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${add}</button></td>
+            <td><button type="button" class="btn-sm btn btn-success" id="btn_cron_add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button></td>
         </tr>    
     </table>
 </div>
