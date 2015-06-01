@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default sai_gridbox">
-                    <div class="panel-heading">Git</div>
+                    <div class="panel-heading"><a href="#!git">${basic_git}</a></div>
                     <div class="panel-body">
                         <div class="inner-page">
                             <b>Current Project Version:</b> ${git_project}<br/>
