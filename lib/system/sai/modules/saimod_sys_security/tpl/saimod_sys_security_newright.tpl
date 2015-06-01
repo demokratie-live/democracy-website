@@ -13,4 +13,4 @@
         <td><input id="addright_description" type="text"/></td>
     </tr>
 </table>
-<button id="addright" class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${add}</button>
+<button id="addright" class="btn btn-sm btn-default" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button>

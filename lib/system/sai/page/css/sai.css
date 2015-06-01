@@ -16,6 +16,16 @@
     color: #777;
 }
 
+#content {
+    padding-left: 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.sai_menu_no_right_margin {
+ 
+}
+
 .carousel-img{
     width: 1200px;
     height: 650px;
@@ -31,6 +41,24 @@
 .sai_p_modules:active {
     border-right: 3px solid #1C569C;
     border-left: 0;
+}
+
+.sys_top_padding {
+    padding-top: 10px;
+}
+
+.sai_menu_first {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.sai_left_divider {
+    border-left: 1px solid #e7e7e7;
+    box-sizing: border-box;
+}
+
+.sai_navbar_top {
+    margin-bottom: 0;
 }
 
 /* auto collapsing navbar */

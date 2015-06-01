@@ -1,5 +1,5 @@
-<div class="container">
-    <h3 class="muted">${sai_start_welcome}</h3>
+
+<h4 class="muted"><b>${sai_start_welcome}</b></h4>
     <h4 class="text-info">${sai_start_welcome_description}</h4><hr>
     <div class="row">
         <div class="col-md-6">
@@ -82,4 +82,3 @@
                 <h4 class="muted">100 ${sai_log_latest_entries}</h4>
                 <div id="log_entries"></div>
             </div>
-</div>

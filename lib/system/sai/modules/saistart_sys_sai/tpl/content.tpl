@@ -1,4 +1,4 @@
-<div class="container">
+
     <h3 class="muted">Design. Simple. Fast. Reliable. Innovative.</h3>
     <h4 class="text-info">We write awesome Software using <a href="https://github.com/ulfgebhardt/system">SYSTEM</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap.</a></h4><hr>
     <div clas="row">
@@ -58,4 +58,3 @@
                     </div>
         </div>
     </div>
-</div>
