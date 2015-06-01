@@ -502,8 +502,8 @@
     
     DELETE FROM `system_text` WHERE id = 'basic_close_all';
     DELETE FROM `system_text_tag` WHERE id = 'basic_close_all';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'deDE', 'Ändern', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'enUS', 'Change', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'deDE', 'Alle schließen', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'enUS', 'Close all', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close_all', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close_all', 'sai_todo');
 
