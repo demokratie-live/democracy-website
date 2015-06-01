@@ -39,7 +39,7 @@
                             <div class="control-group">
                                 <div class="help-block"></div>
                                 <input type="hidden" />
-                                <button class="btn-sm btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="logout_submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ${basic_logout}</button>
+                                <button class="btn btn-sm btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="logout_submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ${basic_logout}</button>
                             </div>
                         </form>
                     </div>

@@ -15,13 +15,13 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
             $r['right_edit_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
-                                    '<input type="submit" class="btn-danger right_delete" value="delete" onClick="system.load(\'security(delright);id.'.$r['ID'].'\');">
-                                    <input type="submit" class="btn right_edit" value="edit" right_id="'.$r['ID'].'">' :
+                                    '<button type="submit" class="btn btn-sm btn-danger right_delete" onClick="system.load(\'security(delright);id.'.$r['ID'].'\');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> delete</button>
+                                    <button type="submit" class="btn btn-sm btn-default right_edit" right_id="'.$r['ID'].'"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> edit</button>' :
                                     '<font color="red">Missing rights.</font>';
             $rows .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_right.tpl'),$r);}        
         $vars['rows'] = $rows;
         $vars['addright_btn'] = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
-                                '<input type="submit" onClick="system.load(\'security(newright)\');" class="btn" value="New Right">' :
+                                '<br><button type="submit" onClick="system.load(\'security(newright)\');" class="btn btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Right</button>' :
                                 '<font color="red">You are missing the required rights for adding or removing rights.</font>';
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_rights.tpl'),$vars);
     }
@@ -83,7 +83,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){
             $r['user_id'] = $userid;
             $r['remove_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
-                                '<input type="submit" class="btn btn-danger deleteuserright" value="delete" right_id="'.$r['ID'].'" user_id="'.$userid.'"/>' :
+                                '<button type="submit" class="btn btn-sm btn-danger deleteuserright" right_id="'.$r['ID'].'" user_id="'.$userid.'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> delete</button>' :
                                 '<font color="red">Missing Rights</font>';
             $vars['user_rights_table'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_right.tpl'), $r);}
         

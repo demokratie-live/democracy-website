@@ -10,7 +10,7 @@
     <tr><td>user</td><td>${username}</td></tr>
     <tr><td>message</td><td><textarea id="ta_message" style="width: 80%; height: 400px;">${message}</textarea></td></tr>
 </table>
-<button id="btn_back" onClick="system.load('todo');" class="btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;">Back</button>
-<button id="btn_edit" class="btn-danger" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Edit</button>
-<button id="btn_close" class="btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Close</button>
-<button id="btn_open" class="btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}">Open</button>
+<button id="btn_back" onClick="system.load('todo');" class="btn btn-sm btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back</button>
+<button id="btn_edit" class="btn btn-sm btn-danger" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+<button id="btn_close" class="btn btn-sm btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Close</button>
+<button id="btn_open" class="btn btn-sm btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Open</button>
