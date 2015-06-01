@@ -18,8 +18,6 @@
 
 #content {
     padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
     box-sizing: border-box;
 }
 
@@ -88,6 +86,10 @@
 
 .sai_right_divider {
     border-right: 1px solid #e7e7e7;
+}
+
+.sai_project_menu_box {
+    border: 1px solid #e7e7e7;
 }
 
 .sai_navbar_top {

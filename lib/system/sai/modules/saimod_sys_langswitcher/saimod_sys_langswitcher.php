@@ -3,7 +3,9 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_langswitcher extends \SYSTEM\SAI\SaiModule {    
     public static function html_li_menu(){
-        return self::lang_menu('./sai.php');}
+        //return self::lang_menu('./sai.php');
+        
+    }
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     
