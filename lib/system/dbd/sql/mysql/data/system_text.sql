@@ -46,6 +46,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_back', 'frFR', 'Retour', 3, 3, '2015-04-20 16:34:28', '2015-04-20 16:34:28');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'sai_text');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'sai_todo');
 
     DELETE FROM `system_text` WHERE id = 'basic_cancel';
     DELETE FROM `system_text_tag` WHERE id = 'basic_cancel';
@@ -62,6 +63,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close', 'frFR', 'Fermer', 3, 3, '2015-04-18 04:47:27', '2015-04-18 04:47:27');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close', 'jaJA', '閉める', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close', 'sai_todo');
 
     DELETE FROM `system_text` WHERE id = 'basic_delete';
     DELETE FROM `system_text_tag` WHERE id = 'basic_delete';
@@ -468,6 +470,7 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_edit', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_edit', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_edit', 'sai_cron');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_edit', 'sai_todo');
     
     DELETE FROM `system_text` WHERE id = 'basic_new_right';
     DELETE FROM `system_text_tag` WHERE id = 'basic_new_right';
@@ -499,8 +502,8 @@
     
     DELETE FROM `system_text` WHERE id = 'basic_close_all';
     DELETE FROM `system_text_tag` WHERE id = 'basic_close_all';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'deDE', 'Ändern', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'enUS', 'Change', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'deDE', 'Alle schließen', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'enUS', 'Close all', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close_all', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close_all', 'sai_todo');
 
