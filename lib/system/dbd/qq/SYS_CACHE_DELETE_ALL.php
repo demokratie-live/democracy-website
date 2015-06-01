@@ -5,6 +5,7 @@ class SYS_CACHE_DELETE_ALL extends \SYSTEM\DB\QQ {
     protected static function query(){
         return new \SYSTEM\DB\QQuery(get_class(),
 //pg            
-'DELETE FROM system.cache;'
+'DELETE FROM system.cache;',
 //mys
+'DELETE FROM system_cache;'
 );}}
