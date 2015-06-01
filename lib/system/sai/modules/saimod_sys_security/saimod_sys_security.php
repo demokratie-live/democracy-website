@@ -10,7 +10,6 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_newright.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));}
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_rights(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
         $rows = '';
         $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
@@ -23,6 +22,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['addright_btn'] = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
                                 '<br><button type="submit" onClick="system.load(\'security(newright)\');" class="btn btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_new_right}</button>' :
                                 '<font color="red">You are missing the required rights for adding or removing rights.</font>';
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_rights.tpl'),$vars);
     }
     
