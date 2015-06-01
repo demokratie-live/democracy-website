@@ -10,22 +10,28 @@
     </head>
     <body>
         <nav id="sys_autocollapse" class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">  
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
-                </div>
-                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navHeaderCollapse pull-right">
-                    <ul class="nav navbar-nav">
-                        ${menu_start}
-                        ${menu_sys}
-                    </ul>
-                </div><!-- /.navbar-collapse -->
+            <div class="container-fluid"> 
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                            <a id="sai_brand" class="navbar-brand" href="#!start">SAI</a>
+                        </div>
+                    </div>  
+                    <div class="col-md-10">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                       <div class="collapse navbar-collapse navHeaderCollapse">
+                           <ul class="nav navbar-nav">
+                               ${menu_start}
+                               ${menu_sys}
+                           </ul>
+                       </div><!-- /.navbar-collapse -->
+                    </div>
+                </div>    
             </div>  
         </nav>
         <div class="sai_wrapper">
