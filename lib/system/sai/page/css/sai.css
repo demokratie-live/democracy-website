@@ -1,101 +1,28 @@
 #project_navbar{
-/*    width:224px;*/
-/*    position: fixed;*/
     left: 0px;
     bottom: 0px;
     top: 38px;
 }
-
 #footer{
     text-align: right;
     padding-right: 20px;
     color: #777;
 }
-
 #footer a{
     color: #777;
 }
-
 #content {
     padding-top: 20px;
     box-sizing: border-box;
 }
-
-.sai_margin_left_off {
-    margin-left: 0;
-}
-
-.sai_margin_right_off {
-    margin-right: 0;
-}
-
-.sai_margin_top_off {
-    margin-top: 0;
-}
-
-.sai_margin_bottom_off {
-    margin-bottom: 0;
-}
-
-.sai_padding_left_off {
-    padding-left: 0;
-}
-
-.sai_padding_right_off {
-    padding-right: 0;
-}
-
-.sai_padding_top_off {
-    padding-top: 0;
-}
-
-.sai_padding_bottom_off {
-    padding-bottom: 0;
-}
-
-
 .carousel-img{
     width: 1200px;
     height: 650px;
 }
-
-.sai_p_modules {
-    border-left: 3px solid #1C569C;
-}
-.sai_p_modules:hover {
-    border-right: 3px solid #1C569C;
-    border-left: 0;
-}
-.sai_p_modules:active {
-    border-right: 3px solid #1C569C;
-    border-left: 0;
-}
-
-.sys_top_padding {
-    padding-top: 10px;
-}
-
 .sai_menu_first {
     padding-left: 0;
     margin-left: 0;
 }
-
-.sai_left_divider {
-    border-left: 1px solid #e7e7e7;
-}
-
-.sai_right_divider {
-    border-right: 1px solid #e7e7e7;
-}
-
-.sai_project_menu_box {
-    border: 1px solid #e7e7e7;
-}
-
-.sai_navbar_top {
-    margin-bottom: 0;
-}
-
 .sai_main_menu {
     border-radius: 3px 3px 3px 0;
 }

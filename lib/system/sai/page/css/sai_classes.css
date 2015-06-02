@@ -1,0 +1,76 @@
+/*
+    remove margins and paddings
+*/
+
+.sai_margin_left_off {
+    margin-left: 0;}
+.sai_margin_right_off {
+    margin-right: 0;}
+.sai_margin_top_off {
+    margin-top: 0;}
+.sai_margin_bottom_off {
+    margin-bottom: 0;}
+.sai_margin_off {
+    margin: 0;}
+.sai_padding_left_off {
+    padding-left: 0;}
+.sai_padding_right_off {
+    padding-right: 0;}
+.sai_padding_top_off {
+    padding-top: 0;}
+.sai_padding_bottom_off {
+    padding-bottom: 0;}
+.sai_padding_off {
+    padding: 0;}
+
+/* margins and paddings 10px */
+
+.sys_padding_top_10 {
+    padding-top: 10px;}
+.sys_padding_left_10 {
+    padding-left: 10px;}
+.sys_padding_right_10 {
+    padding-right: 10px;}
+.sys_padding_bottom_10 {
+    padding-bottom: 10px;}
+.sys_padding_10 {
+    padding: 10px;}
+.sys_margin_top_10 {
+    margin-top: 10px;}
+.sys_margin_left_10 {
+    margin-left: 10px;}
+.sys_margin_right_10 {
+    margin-right: 10px;}
+.sys_margin_bottom_10 {
+    margin-bottom: 10px;}
+.sys_margin_10 {
+    margin: 10px;}
+
+/* floatings */
+
+.sai_float_left {
+    float: left;}
+.sai_float_right {
+    float: right;}
+.sai_float_clear {
+    clear: both;}
+
+/* borders */
+
+.sai_divider_left {
+    border-left: 1px solid #e7e7e7;}
+.sai_divider_right {
+    border-right: 1px solid #e7e7e7;}
+
+/* borders modules */
+
+.sai_project_menu_box {
+    border: 1px solid #e7e7e7;}
+.sai_p_modules {
+    border-left: 3px solid #1C569C;}
+.sai_p_modules:hover {
+    border-right: 3px solid #1C569C;
+    border-left: 0;}
+.sai_p_modules:active {
+    border-right: 3px solid #1C569C;
+    border-left: 0;}

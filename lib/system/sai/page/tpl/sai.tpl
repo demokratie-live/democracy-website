@@ -17,7 +17,7 @@
                 <!-- div class="col-md-10 sai_menu_first sai_left_divider" -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="col-md-10 sai_margin_left_off sai_padding_left_off sai_padding_right_off"> 
-                    <nav id="sys_autocollapse" class="navbar navbar-default sai_navbar_top sai_margin_bottom_off" role="navigation">
+                    <nav id="sys_autocollapse" class="navbar navbar-default sai_margin_bottom_off" role="navigation">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                               <span class="icon-bar"></span>
