@@ -16,6 +16,12 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             throw new \SYSTEM\LOG\ERROR('Problem with your TodoStats class: '.$stats);}
         array_push(self::$stats,$stats);}
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_assign($todo){
+        \SYSTEM\DBD\SYS_SAIMOD_TODO_ASSIGN::QI(array($todo,\SYSTEM\SECURITY\Security::getUser()->id));
+        return \SYSTEM\LOG\JsonResult::ok();}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_deassign($todo){
+        \SYSTEM\DBD\SYS_SAIMOD_TODO_DEASSIGN::QI(array($todo,\SYSTEM\SECURITY\Security::getUser()->id));
+        return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_close($todo){
         \SYSTEM\DBD\SYS_SAIMOD_TODO_CLOSE::QI(array($todo));
         return \SYSTEM\LOG\JsonResult::ok();}
@@ -38,19 +44,23 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist(){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN);}
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist(){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED);}
+    
+    private static function generate_list($state){
         $result = $result_user = '';
         $userid = \SYSTEM\SECURITY\Security::getUser()->id;
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN,$userid));
-        $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_COUNT::Q1()['count'];
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$userid));
         while($row = $res->next()){
-            $row['class_row'] = self::trclass($row['type'],$row['class'],$row['asignee_id'],$userid);
+            $row['class_row'] = self::trclass($row['type'],$row['class'],$row['assignee_id'],$userid);
             $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
-            //$row['report_type'] = self::reporttype($row['type']);
             $row['state_string'] = self::state($row['count']);
             $row['state_btn'] = self::statebtn($row['count']);
             $row['message'] = htmlspecialchars($row['message']);
             $row['request_uri'] = htmlspecialchars($row['request_uri']);
-            $row['openclose'] = 'close';
+            $row['openclose'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'close' : 'open';
             if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
                 $row['message'] = str_replace("\n", '<br/>', $row['message']);
                 $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
@@ -58,33 +68,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
             }    
         }
-        $vars = array();
-        $vars['todo_user_list_elements'] = $result_user;
-        $vars['todo_list_elements'] = $result;
-        $vars['count'] = $count;
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist(){
-        $result = $result_user = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_DOTO_LIST::QQ();
-        $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_DOTO_COUNT::Q1()['count'];
-        while($row = $res->next()){
-            $row['class_row'] = self::trclass($row['type'],$row['class']);
-            $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
-            $row['state_string'] = self::state($row['count']);
-            $row['state_btn'] = self::statebtn($row['count']);
-            $row['message'] = htmlspecialchars($row['message']);
-            $row['request_uri'] = htmlspecialchars($row['request_uri']);
-            $row['openclose'] = 'open';
-            if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-                $row['message'] = str_replace("\r", '<br/>', $row['message']);
-                $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
-            } else {
-                $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
-            }
-        }
+        $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
         $vars = array();
         $vars['todo_user_list_elements'] = $result_user;
         $vars['todo_list_elements'] = $result;
@@ -130,10 +114,10 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             return '<input type="submit" class="btn-danger" value="reopen">';}
         return '<input type="submit" class="btn-danger" value="close">';}
     
-    private static function trclass($type,$class,$asignee,$userid){
+    private static function trclass($type,$class,$assignee,$userid){
         if($type == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-            if($asignee == $userid){ return 'danger';}
-            if($asignee){ return 'warning';}
+            if($assignee == $userid){ return 'danger';}
+            if($assignee){ return 'warning';}
             return 'success';
         }
         switch($class){
@@ -143,7 +127,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 return 'info';
             case 'SYSTEM\LOG\ERROR': case 'ERROR': case 'Exception': case 'SYSTEM\LOG\ERROR_EXCEPTION':
             case 'ErrorException': case 'SYSTEM\LOG\SHUTDOWN_EXCEPTION':
-                return 'error';
+                return 'danger';
             case 'SYSTEM\LOG\WARNING': case 'WARNING':
                 return 'warning';
             default:
@@ -160,14 +144,16 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();}
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
-        $vars = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO::Q1(array($todo));
+        $userid = \SYSTEM\SECURITY\Security::getUser()->id;
+        $vars = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO::Q1(array($todo,$userid));
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
+        $vars['display_assign'] = $vars['assignee_id'] != $userid ? '' : 'display: none;';
+        $vars['display_deassign'] = $vars['assignee_id'] == $userid ? '' : 'display: none;';
         return $vars[\SYSTEM\DBD\system_todo::FIELD_TYPE] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER ?
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo_user.tpl'), $vars) :
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo.tpl'), $vars);}
     
-    //public static function html_li_menu(){return '<li><a id="menu_todo" href="#!todo">${sai_menu_todo}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_todo" href="#!todo"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}

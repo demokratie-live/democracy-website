@@ -1,4 +1,4 @@
-CREATE TABLE `system_todo_asign` (
+CREATE TABLE `system_todo_assign` (
 	`todo` INT(10) NOT NULL,
 	`user` INT(10) UNSIGNED NOT NULL,
 	PRIMARY KEY (`todo`, `user`)

@@ -2,5 +2,5 @@
     <td>${time_elapsed}</td>                            
     <td style="word-break: break-all;">${message}</td>
     <td>${username}</td>
-    <td>${asignee}</td>
+    <td>${assignee}</td>
 </tr>
