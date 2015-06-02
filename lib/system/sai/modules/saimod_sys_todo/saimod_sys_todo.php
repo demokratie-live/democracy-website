@@ -116,9 +116,9 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     
     private static function trclass($type,$class,$assignee,$userid){
         if($type == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-            if($assignee == $userid){ return 'danger';}
-            if($assignee){ return 'warning';}
-            return 'success';
+            if($assignee == $userid){ return 'success';}
+            if($assignee){ return 'danger';}
+            return 'warning';
         }
         switch($class){
             case 'SYSTEM\LOG\INFO': case 'INFO': case 'SYSTEM\LOG\COUNTER':
