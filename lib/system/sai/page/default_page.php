@@ -55,7 +55,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars['js'] = '';
         if(!$_escaped_fragment_){
             $vars['js'] = self::js();}
-        $vars['menu_languages'] = \SYSTEM\SAI\saimod_sys_langswitcher::lang_menu();   
+        $vars['menu_languages'] = \SYSTEM\SAI\saimod_sys_langswitcher::lang_menu('./sai.php');   
         $vars['menu_start'] = self::menu_start();
         $vars['menu_sys'] = self::menu_sys();
         $vars['menu_proj'] = self::menu_proj();

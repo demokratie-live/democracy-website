@@ -506,6 +506,20 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_close_all', 'enUS', 'Close all', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close_all', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_close_all', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_git';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_git';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_git', 'deDE', 'Git', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_git', 'enUS', 'Git', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_git', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_git', 'sai_start');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_open';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_open';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_open', 'deDE', 'Öffnen', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_open', 'enUS', 'Open', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_open', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_open', 'sai_todo');
 
 -- SAI
     DELETE FROM `system_text` WHERE id = 'sai_api_title';
@@ -815,6 +829,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_class', 'deDE', 'Klasse(class)', 2, 2, '2015-04-23 01:58:51', '2015-04-23 01:58:51');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_class', 'enUS', 'Class', 2, 2, '2015-04-18 14:42:56', '2015-04-18 14:42:56');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'table');
 
@@ -824,6 +839,13 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_code', 'enUS', 'Code', 2, 2, '2015-04-18 13:50:05', '2015-04-18 13:50:05');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_code', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_code', 'table');
+    
+    DELETE FROM `system_text` WHERE id = 'table_count';
+    DELETE FROM `system_text_tag` WHERE id = 'table_count';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_count', 'deDE', '#Anzahl', 2, 2, '2015-04-18 14:43:20', '2015-04-18 14:43:20');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_count', 'enUS', '#Count', 2, 2, '2015-04-18 14:43:20', '2015-04-18 14:43:20');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_count', 'sai_todo');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_count', 'table');
 
     DELETE FROM `system_text` WHERE id = 'table_file';
     DELETE FROM `system_text_tag` WHERE id = 'table_file';
@@ -831,6 +853,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_file', 'enUS', 'File', 2, 2, '2015-04-18 14:43:20', '2015-04-18 14:43:20');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_file', 'frFR', 'Fichier', 3, 3, '2015-04-20 19:03:04', '2015-04-20 19:03:04');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_file', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_file', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_file', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_file', 'table');
 
@@ -861,6 +884,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_ip', 'deDE', 'IP', 2, 2, '2015-04-23 01:59:06', '2015-04-23 01:59:06');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_ip', 'enUS', 'IP', 2, 2, '2015-04-18 14:43:51', '2015-04-18 14:43:51');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_ip', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_ip', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_ip', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_ip', 'table');
 
@@ -878,6 +902,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_line', 'enUS', 'Line', 2, 2, '2015-04-18 14:43:31', '2015-04-18 14:43:31');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_line', 'frFR', 'Ligne', 3, 3, '2015-04-20 19:03:28', '2015-04-20 19:03:28');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_line', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_line', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_line', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_line', 'table');
 
@@ -886,6 +911,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_message', 'deDE', 'Nachricht(message)', 2, 2, '2015-04-23 01:57:28', '2015-04-23 01:57:28');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_message', 'enUS', 'Message', 2, 2, '2015-04-18 14:43:09', '2015-04-18 14:43:09');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_message', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_message', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_message', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_message', 'table');
 
@@ -908,6 +934,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_querytime', 'deDE', 'Antwortzeit', 2, 2, '2015-04-18 14:44:18', '2015-04-18 14:44:18');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_querytime', 'enUS', 'Querytime', 2, 2, '2015-04-18 14:44:18', '2015-04-18 14:44:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_querytime', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_querytime', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_querytime', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_querytime', 'table');
 
@@ -985,6 +1012,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_url', 'deDE', 'URL', 2, 2, '2015-04-23 01:59:19', '2015-04-23 01:59:19');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_url', 'enUS', 'URL', 2, 2, '2015-04-18 14:44:00', '2015-04-18 14:44:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_url', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_url', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_url', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_url', 'table');
 
@@ -993,6 +1021,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_user', 'deDE', 'Nutzer', 2, 2, '2015-04-18 14:44:09', '2015-04-18 14:44:09');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_user', 'enUS', 'User', 2, 2, '2015-04-18 14:44:09', '2015-04-18 14:44:09');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_user', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_user', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_user', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_user', 'table');
 
@@ -1011,6 +1040,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_ago', 'enUS', 'Time Ago', 2, 2, '2015-04-18 14:42:32', '2015-04-18 14:42:32');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_ago', 'frFR', 'temps passé', 3, 3, '2015-04-20 14:39:52', '2015-04-20 14:39:52');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago', 'time');
 

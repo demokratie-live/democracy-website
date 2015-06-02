@@ -3,9 +3,9 @@
     <h5>User ToDo's</h5>
     <table class="table table-hover table-condensed">
         <tr>
-            <th>time ago</th>
-            <th>message</th>
-            <th>user</th>
+            <th>${time_ago}</th>
+            <th>${table_message}</th>
+            <th>${table_user}</th>
         </tr>
         ${todo_user_list_elements}
     </table>
@@ -13,16 +13,16 @@
     <h5>Generated ToDo's</h5>
     <table class="table table-hover table-condensed">
         <tr>
-            <th>time ago</th>
-            <th>class</th>
-            <th>message</th>
-            <th>file</th>
-            <th>line</th>
-            <th>ip</th>
-            <th>url</th>
-            <th>user</th>
-            <th>querytime</th>
-            <th>count</th>
+            <th>${time_ago}</th>
+            <th>${table_class}</th>
+            <th>${table_message}</th>
+            <th>${table_file}</th>
+            <th>${table_line}</th>
+            <th>${table_ip}</th>
+            <th>${table_url}</th>
+            <th>${table_user}</th>
+            <th>${table_querytime}</th>
+            <th>${table_count}</th>
         </tr>
         ${todo_list_elements}
     </table>

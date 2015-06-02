@@ -42,7 +42,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($lang,$id){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($id,$lang){
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT);
         $vars['tabopts'] = '';
