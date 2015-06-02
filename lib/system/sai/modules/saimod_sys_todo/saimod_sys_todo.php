@@ -39,10 +39,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist(){
         $result = $result_user = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_LIST::QQ();
+        $userid = \SYSTEM\SECURITY\Security::getUser()->id;
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN,$userid));
         $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO_COUNT::Q1()['count'];
         while($row = $res->next()){
-            $row['class_row'] = self::trclass($row['type'],$row['class']);
+            $row['class_row'] = self::trclass($row['type'],$row['class'],$row['asignee_id'],$userid);
             $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
             //$row['report_type'] = self::reporttype($row['type']);
             $row['state_string'] = self::state($row['count']);
@@ -129,9 +130,12 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             return '<input type="submit" class="btn-danger" value="reopen">';}
         return '<input type="submit" class="btn-danger" value="close">';}
     
-    private static function trclass($type,$class){
+    private static function trclass($type,$class,$asignee,$userid){
         if($type == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-            return 'success';}
+            if($asignee == $userid){ return 'danger';}
+            if($asignee){ return 'warning';}
+            return 'success';
+        }
         switch($class){
             case 'SYSTEM\LOG\INFO': case 'INFO': case 'SYSTEM\LOG\COUNTER':
                 return 'success';

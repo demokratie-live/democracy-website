@@ -5,7 +5,8 @@
         <tr>
             <th>${time_ago}</th>
             <th>${table_message}</th>
-            <th>${table_user}</th>
+            <th>${table_author}</th>
+            <th>${table_asignee}</th>
         </tr>
         ${todo_user_list_elements}
     </table>
