@@ -9,8 +9,8 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         foreach($sys_mods as $mod){
             $v = array();
             $v['mod'] = $mod;
-            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
-            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
         }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
@@ -23,8 +23,8 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         foreach($mods as $mod){
             $v = array();
             $v['mod'] = $mod;
-            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
-            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="badge badge-success">true</span>' : '<span class="badge badge-important">false</span>';
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
         }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);

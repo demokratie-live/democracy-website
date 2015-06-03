@@ -23,28 +23,49 @@
 .sai_padding_off {
     padding: 0;}
 
-/* margins and paddings 10px */
+/* margins and paddings 10px and 20px */
 
-.sys_padding_top_10 {
+.sai_padding_top_10 {
     padding-top: 10px;}
-.sys_padding_left_10 {
+.sai_padding_left_10 {
     padding-left: 10px;}
-.sys_padding_right_10 {
+.sai_padding_right_10 {
     padding-right: 10px;}
-.sys_padding_bottom_10 {
+.sai_padding_bottom_10 {
     padding-bottom: 10px;}
-.sys_padding_10 {
+.sai_padding_10 {
     padding: 10px;}
-.sys_margin_top_10 {
+.sai_margin_top_10 {
     margin-top: 10px;}
-.sys_margin_left_10 {
+.sai_margin_left_10 {
     margin-left: 10px;}
-.sys_margin_right_10 {
+.sai_margin_right_10 {
     margin-right: 10px;}
-.sys_margin_bottom_10 {
+.sai_margin_bottom_10 {
     margin-bottom: 10px;}
-.sys_margin_10 {
+.sai_margin_10 {
     margin: 10px;}
+
+.sai_padding_top_20 {
+    padding-top: 20px;}
+.sai_padding_left_20 {
+    padding-left: 20px;}
+.sai_padding_right_20 {
+    padding-right: 20px;}
+.sai_padding_bottom_20 {
+    padding-bottom: 20px;}
+.sai_padding_20 {
+    padding: 20px;}
+.sai_margin_top_20 {
+    margin-top: 20px;}
+.sai_margin_left_20 {
+    margin-left: 20px;}
+.sai_margin_right_20 {
+    margin-right: 20px;}
+.sai_margin_bottom_20 {
+    margin-bottom: 20px;}
+.sai_margin_20 {
+    margin: 20px;}
 
 /* floatings */
 
@@ -74,3 +95,5 @@
 .sai_p_modules:active {
     border-right: 3px solid #1C569C;
     border-left: 0;}
+
+/* widthes and heights */
