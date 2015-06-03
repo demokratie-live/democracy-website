@@ -146,10 +146,15 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
         $userid = \SYSTEM\SECURITY\Security::getUser()->id;
         $vars = \SYSTEM\DBD\SYS_SAIMOD_TODO_TODO::Q1(array($todo,$userid));
-        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
         $vars['display_assign'] = $vars['assignee_id'] != $userid ? '' : 'display: none;';
         $vars['display_deassign'] = $vars['assignee_id'] == $userid ? '' : 'display: none;';
+        $vars['assignees'] = '';
+        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_ASSIGNEES::QQ(array($todo,$userid));
+        while($row = $res->next()){
+            $vars['assignees'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo_user_assignee.tpl'), $row);
+        }
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return $vars[\SYSTEM\DBD\system_todo::FIELD_TYPE] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER ?
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo_user.tpl'), $vars) :
                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_todo.tpl'), $vars);}
