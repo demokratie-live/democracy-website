@@ -9,7 +9,18 @@
                         <div class="inner-page">
                             <b>${basic_name}:</b> ${project_name}<br/>
                             <b>${basic_URL}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
-                            <b>${basic_progress}:</b> ${project}%
+                            <b>${basic_progress}:</b> ${project}%<br/>
+                            <br/>
+                            <table class="table table-hover table-condensed sai_table" style="width: 100%">
+                                <tr>
+                                    <th>${table_username}</th>
+                                    <th>${table_open}</th>
+                                    <th>${table_closed}</th>
+                                    <th>${table_percentage}</th>
+                                    <th>${table_all}</th>
+                                </tr>
+                                ${userstats}
+                            </table>
                         </div>
                 </div>
             </div>   

@@ -13,6 +13,10 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
             $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
         }
+        $mod = \SYSTEM\SAI\sai::getStartModule();
+        $vars['start_class'] = $mod;
+        $vars['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+        $vars['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
     }
     

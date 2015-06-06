@@ -101,6 +101,12 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         foreach($vars['data'] as $stat){
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_entry.tpl'), $stat);
         }
+        $vars['userstats'] = '';
+        $userstats = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_USERS::QQ();
+        while($stat = $userstats->next()){
+            $stat['perc'] = round($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']),2)*100;
+            $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'), $stat);
+        }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);        
     }
     

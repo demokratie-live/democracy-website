@@ -31,6 +31,12 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars['username'] = $user->username;
         $vars['locale'] = $user->locale;
         $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
+        $vars['userstats'] = '';
+        $userstats = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_USERS::QQ();
+        while($stat = $userstats->next()){
+            $stat['perc'] = round($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']),2)*100;
+            $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'), $stat);
+        }
         $vars = array_merge(    $vars,
                                 \SYSTEM\SAI\saimod_sys_todo::statistics(),
                                 \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_START),
