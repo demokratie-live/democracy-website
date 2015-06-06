@@ -15,4 +15,6 @@ abstract class lib {
             throw new \SYSTEM\LOG\ERROR('Function js_path not implemented in '.static::get_class());}
         return static::js_path();
     }
+    public static function version(){
+        return 'The library '.static::get_class().' did not specify a version';}
 }
