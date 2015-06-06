@@ -25,6 +25,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_doc($cat = 'System',$doc = '1_system_md'){
+        \LIB\lib_michelf::php();
         $document = \SYSTEM\DOCU\docu::getDocuments()[$cat];
         foreach($document as $docu){
             if(str_replace(array('.',' ','\\','/'), '_', basename($docu)) == $doc){

@@ -1,2 +1,3 @@
 <?php
-\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/Michelf','Michelf');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__),'LIB');
+require_once dirname(__FILE__).'/Michelf/autoload.inc';

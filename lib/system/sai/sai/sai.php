@@ -16,15 +16,15 @@ class sai {
         
     public static function register_start($module){
         if(!self::check_module($module)){
-            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module);}
+            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module.'; it might not be available or inherits from the wrong class!');}
         self::$module_start = $module;}    
     public static function register($module){
         if(!self::check_module($module)){
-            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module);}
+            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module.'; it might not be available or inherits from the wrong class!');}
         array_push(self::$modules,$module);}
     public static function register_sys($module){
         if(!self::check_module($module)){
-            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module);}
+            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module.'; it might not be available or inherits from the wrong class!');}
         array_push(self::$modules_sys,$module);}    
 
     public static function getStartModule(){
