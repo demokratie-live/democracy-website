@@ -32,7 +32,7 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
     }
     
     //public static function html_li_menu(){return '<li><a id="menu_git" href="#!git"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span>${sai_menu_git}</a></li>';}
-    public static function html_li_menu(){return '</ul><ul class="nav navbar-nav navbar-right sai_divider_left"><li><a id="menu_git" href="#!git"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span></a></li>';}
+    public static function html_li_menu(){return '</ul><ul class="nav navbar-nav navbar-right sai_divider_left"><li><a id="menu_git" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_git}" href="#!git"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     

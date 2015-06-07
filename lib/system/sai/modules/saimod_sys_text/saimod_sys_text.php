@@ -76,7 +76,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\text::delete($id, $lang) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
       
     //public static function html_li_menu(){return '<li><a id="menu_text" href="#!text">${sai_menu_text}</a></li>';}
-    public static function html_li_menu(){return '<li><a id="menu_text" href="#!text"><span class="glyphicon glyphicon-text-size" aria-hidden="true"></span></a></li>';}    
+    public static function html_li_menu(){return '<li><a id="menu_text" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_text}" href="#!text"><span class="glyphicon glyphicon-text-size" aria-hidden="true"></span></a></li>';}    
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_LOCALE);}
     

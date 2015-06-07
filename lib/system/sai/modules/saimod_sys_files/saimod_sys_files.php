@@ -44,7 +44,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_list.tpl'), $vars);}
     
     //public static function html_li_menu(){return '<li><a id="menu_files" href="#!files">${sai_menu_files}</a></li>';}
-    public static function html_li_menu(){return '<li><a id="menu_files" href="#!files"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a></li>';}    
+    public static function html_li_menu(){return '<li><a id="menu_files" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_files}" href="#!files"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a></li>';}    
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_FILES);}
     

@@ -65,7 +65,7 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config.tpl'),$vars);
     }
     //public static function html_li_menu(){return '<li><a id="menu_config" href="#!config">${sai_menu_config}</a></li>';}
-    public static function html_li_menu(){return '<li><a id="menu_config" href="#!config"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>';}
+    public static function html_li_menu(){return '<li><a id="menu_config" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_config}" href="#!config"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
