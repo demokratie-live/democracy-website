@@ -44,5 +44,5 @@
         <td><input type="text" id="new_page_php_class" placeholder="php class" style="width: 140px;"></td>
     </tr>
 </table>
-<button type="button" class="btn-small" onClick="system.load('page');">Back</button>
-<button type="button" class="btn-small btn-success" id="addpage" style="float: right;">Add</button>
+<button type="button" class="btn-sm btn btn-default" onClick="system.load('page');"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back</button>
+<button type="button" class="btn-sm btn btn-success" id="addpage" style="float: right;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>

@@ -1,5 +1,5 @@
 <h4>${sai_page_title}</h4>
-<hr>  
+<hr>   
 <div class="tabbable">
     <ul class="nav nav-tabs" id="tabs_page">
         <li><a href="#!page" id="menu_all">All</a></li>
