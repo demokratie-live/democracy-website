@@ -14,15 +14,17 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
         }
         $mod = \SYSTEM\SAI\sai::getStartModule();
-        $vars['start_class'] = $mod;
-        $vars['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-        $vars['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+        $start = array();
+        $start['start_class'] = $mod;
+        $start['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+        $start['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+        $vars['saistart'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/saistart.tpl'),$start);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD);
-        $vars['entries'] = '';
+        $vars['entries'] = $vars['saistart'] = '';
         $mods = \SYSTEM\SAI\sai::getModules();
         foreach($mods as $mod){
             $v = array();

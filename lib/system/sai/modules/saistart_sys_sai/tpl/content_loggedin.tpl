@@ -1,4 +1,3 @@
-
 <h4 class="muted"><b>${sai_start_welcome}</b></h4>
     <h4 class="text-info">${sai_start_welcome_description}</h4><hr>
     <div class="row">
@@ -16,8 +15,8 @@
                                     <th>${table_username}</th>
                                     <th>${table_open}</th>
                                     <th>${table_closed}</th>
-                                    <th>${table_percentage}</th>
                                     <th>${table_all}</th>
+                                    <th>${table_percentage}</th>
                                 </tr>
                                 ${userstats}
                             </table>
@@ -27,7 +26,7 @@
         </div>
         <div class="col-md-6">
             <div id="project" class="panel panel-default sai_gridbox">
-                <div class="panel-heading"><a href="#!config">${basic_logout}</a></div>
+                <div class="panel-heading"><a href="#!login">${basic_logout}</a></div>
                     <div class="panel-body">
                         <div class="inner-page"> 
                         <table class="table table-hover table-condensed">

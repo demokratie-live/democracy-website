@@ -19,8 +19,8 @@
         <th>${table_username}</th>
         <th>${table_open}</th>
         <th>${table_closed}</th>
-        <th>${table_percentage}</th>
         <th>${table_all}</th>
+        <th>${table_percentage}</th>
     </tr>
     ${userstats}
 </table>
