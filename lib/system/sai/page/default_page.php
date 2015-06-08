@@ -31,7 +31,7 @@ class default_page extends \SYSTEM\PAGE\Page {
         throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module haz a Problem - either it does not exist or it is not public - which is required!');}
 
     private static function css(){
-        $result =   '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/libs/bootstrap.min.css').'" type="text/css" />'.
+        $result =   '<link rel="stylesheet" href="'.\LIB\lib_bootstrap::css().'" type="text/css" />'.
                     '<link rel="stylesheet" href="./sai.php?call=files&amp;cat=sys&amp;id=system.css" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_classes.css').'" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
@@ -39,13 +39,15 @@ class default_page extends \SYSTEM\PAGE\Page {
     }
 
     private static function js(){
-        $result = '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/jquery.min.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/libs/bootstrap.min.js').'" type="text/javascript"></script>'.
-                  '<script src="'.\LIB\lib_tablesort::js().'" type="text/javascript"></script>'.
+        $result = '<script src="'.\LIB\lib_jquery::js().'" type="text/javascript"></script>'.
+                  '<script src="'.\LIB\lib_bootstrap::js().'" type="text/javascript"></script>'.
                   '<script type="text/javascript" language="JavaScript" src="./sai.php?call=files&amp;cat=sys&amp;id=system.js"></script>'.
+                  '<script src="'.\LIB\lib_tablesort::js().'" type="text/javascript"></script>'.
+                  '<script src="'.\LIB\lib_tablesort_numeric::js().'" type="text/javascript"></script>'.
+                  '<script src="'.\LIB\lib_tablesort_date::js().'" type="text/javascript"></script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
-                  '<script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>'.
+                  //'<script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>'.
                   '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tinymce/tinymce.min.js').'" type="text/javascript"></script>';
         return $result;
