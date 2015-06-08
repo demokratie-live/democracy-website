@@ -1,3 +1,6 @@
 [submodule "lib/jquery"]
 	path = lib/jquery
 	url = git@mojotrollz.eu:webcraft/lib_jquery.git
+[submodule "lib/bootstrap"]
+	path = lib/bootstrap
+	url = git@mojotrollz.eu:webcraft/lib_bootstrap.git
