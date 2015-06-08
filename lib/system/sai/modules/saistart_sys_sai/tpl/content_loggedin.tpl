@@ -83,7 +83,7 @@
         </div>
             <div class="well" id="todo">
                 <h2 class="muted"><a href="#!todo">${basic_todo}</a></h2>
-                <b>${basic_status}:</b> ${project_count}/${project_all}<br/>
+                <b>${basic_status}:</b> ${project_closed}/${project_all}<br/>
                 <b>${basic_progress}:</b> ${project}%
                 <div id="todo_entries"></div>
             </div>
