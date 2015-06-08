@@ -35,6 +35,26 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
     }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_lib(){
+        $table = '';
+        $libs = \LIB\lib_controll::all();
+        foreach($libs as $lib){
+            $vars = array();
+            $vars['lib'] = $lib;
+            $vars['version'] = \call_user_func($lib.'::version');
+            $parents = \class_parents($lib);
+            $vars['interface'] =    (\array_search('LIB\lib_php', $parents) ? 'php, ' : '').
+                                    (\array_search('LIB\lib_js', $parents) ? 'js, ' : '').
+                                    (\array_search('LIB\lib_css', $parents) ? 'css, ' : '').
+                                    (\array_search('LIB\lib_jscss', $parents) ? 'js, css, ' : '');
+            $vars['interface'] = \substr($vars['interface'],0,-2);
+            $table .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/lib_tr.tpl'),$vars);
+        }
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/lib_table.tpl'),array('entries' => $table));
+    }
+    
+    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD));}
     

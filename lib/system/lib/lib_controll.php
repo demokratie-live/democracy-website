@@ -14,4 +14,7 @@ class lib_controll {
             throw new \SYSTEM\LOG\ERROR('Problem with your lib class: '.$classname.'; it might not be available or inherits from the wrong class!');}
         array_push(self::$libs,$classname);
     }
+    
+    public static function all(){
+        return self::$libs;}
 }
