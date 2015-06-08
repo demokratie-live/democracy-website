@@ -80,15 +80,17 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function statistics(){
         $result = array();
         $result['project'] = 0;
-        $result['project_count'] = 0;
+        $result['project_closed'] = 0;
+        $result['project_open'] = 0;
         $result['project_all'] = 0;
         $result['data'] = array();
         foreach(self::$stats as $stat){
             $data = \call_user_func(array($stat, 'stats'));
             $result['data'][] = $data;
             $result['project'] += $data->perc;
-            $result['project_count'] += $data->part;
-            $result['project_all'] += $data->whole;
+            $result['project_open'] += $data->open;
+            $result['project_closed'] += $data->closed;
+            $result['project_all'] += $data->all;
         }
         $result['project'] = round($result['project'] / (count($result['data'])),2);
         return $result;
