@@ -1,4 +1,4 @@
-<table class="table table-hover table-condensed sai_table" style="width: 100%">
+<table class="table table-hover table-condensed sai_table sai_margin_top_10" style="width: 100%">
     <tr>
         <th>${table_name}</th>
         <th>${table_open}</th>
