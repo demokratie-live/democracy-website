@@ -1,4 +1,5 @@
- <table class="table table-hover table-condensed" style="overflow: auto;">
+ <table class="table table-hover table-condensed tablesorter" id="sai_mod_files_table" style="overflow: auto;">
+    <thead> 
     <tr>
         <th>Name</th>
         <th>Extension</th>
@@ -7,7 +8,10 @@
         <th></th>
         <th></th>
     </tr>
-    ${content}
+    </thead>
+    <tbody> 
+        ${content}
+    </tbody>     
     <tr>
         <br>
         <th><form enctype="multipart/form-data" id="form_${cat}"><input class="form-control" type="file" name="datei_${cat}"></th>
