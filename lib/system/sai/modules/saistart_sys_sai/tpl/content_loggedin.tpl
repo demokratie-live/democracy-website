@@ -29,7 +29,7 @@
                 <div class="panel-heading"><a href="#!login">${basic_logout}</a></div>
                     <div class="panel-body">
                         <div class="inner-page"> 
-                        <table class="table table-hover table-condensed">
+                        <table class="table sai_table table-hover table-condensed">
                             <tr>
                                 <th>${basic_username}</th>
                                 <td>${username}</td>

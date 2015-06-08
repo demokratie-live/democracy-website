@@ -1,4 +1,4 @@
-<table class="table table-hover table-condensed">
+<table class="table sai_table table-hover table-condensed">
     <tr>
         <th>${sai_log_page_value}: ${page_value}</th>
         <th>${basic_today}</th>
