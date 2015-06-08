@@ -1,5 +1,5 @@
-<table class="col-sm-12 table table-hover table-striped  table-condensed" style="overflow: auto;">
-    <thead class="cf">
+<table class="col-sm-12 table table-hover table-striped  table-condensed tablesorter" id="sai_mod_page_table" style="overflow: auto;">
+    <thead>
         <tr>
             <th>id</th>
             <th>name</th>
@@ -13,6 +13,8 @@
             <th>func</th>
             <th>php_class</th-->
         </tr>
-    </thead>    
-    ${content}
+    </thead> 
+    <tbody>
+        ${content}
+    </tbody>    
 </table>
