@@ -1,4 +1,4 @@
-<?php
+<?php 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__),'LIB');
 require_once dirname(__FILE__).'/system/autoload.inc';
 require_once dirname(__FILE__).'/markdown/autoload.inc';

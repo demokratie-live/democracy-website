@@ -79,5 +79,5 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     public static function css(){
         return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/css/saimod_sys_api.css'));}
     public static function js(){
-        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/js/saimod_sys_api.js'));}
+        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/js/saimod_sys_config.js'));}
 }

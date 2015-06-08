@@ -11,6 +11,8 @@ INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`,
 
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (30, 42, 'config', 'config', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_config', 'init_saimod_sys_config', '\\SYSTEM\\SAI\\saimod_sys_config');
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (31, 42, 'basics', 'config', 30, 0, 0, '#tab_config', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_config&action=basics', 'init_saimod_sys_config_basics', '\\SYSTEM\\SAI\\saimod_sys_config');
+INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (32, 42, 'database', 'config', 30, 0, 1, '#tab_config', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_config&action=database', 'init_saimod_sys_config_database', '\\SYSTEM\\SAI\\saimod_sys_config');
+INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (33, 42, 'sai', 'config', 30, 0, 1, '#tab_config', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_config&action=sai', 'init_saimod_sys_config_sai', '\\SYSTEM\\SAI\\saimod_sys_config');
 
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (40, 42, 'cron', 'cron', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_cron', 'init_saimod_sys_cron', '\\SYSTEM\\SAI\\saimod_sys_cron');
 
