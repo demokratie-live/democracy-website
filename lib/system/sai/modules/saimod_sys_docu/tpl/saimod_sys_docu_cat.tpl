@@ -1,5 +1,5 @@
 <div class="tabbable tabs-left" id="tabs2_docu">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-stacked nav-pills col-md-3">
         ${tabopts}
     </ul>
     <div class="tab-content">
