@@ -17,7 +17,7 @@
     <tr><td>post</td><td>${post}</td></tr>
     <tr><td>http_referer</td><td>${http_referer}</td></tr>
     <tr><td>http_user_agent</td><td>${http_user_agent}</td></tr>
-    <tr><td>user</td><td>${username}</td></tr>
+    <tr><td>user</td><td><a href="#!security(user);username.${username}">${username}</a></td></tr>
     <tr><td>thrown</td><td>${thrown}</td></tr>    
     <tr><td>message</td><td>${message}</td></tr>
 </table>
