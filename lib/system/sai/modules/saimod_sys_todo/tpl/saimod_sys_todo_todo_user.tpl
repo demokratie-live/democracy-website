@@ -7,7 +7,7 @@
     <tr><td>${table_time}</td><td>${time}</td></tr>
     <tr><td>${table_http_referer}</td><td>${http_referer}</td></tr>
     <tr><td>${table_http_user_agent}</td><td>${http_user_agent}</td></tr>
-    <tr><td>${table_author}</td><td>${username}</td></tr>
+    <tr><td>${table_author}</td><td><a href="#!security(user);username.${username}">${username}</a></td></tr>
     <tr><td>${table_message}</td><td><textarea id="ta_message" style="width: 80%; height: 400px;">${message}</textarea></td></tr>
     <tr>
         <td>${table_assignees}</td>
