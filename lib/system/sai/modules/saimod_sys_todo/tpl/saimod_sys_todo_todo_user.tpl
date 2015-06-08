@@ -20,8 +20,8 @@
     </tr>
 </table>
 <button id="btn_back" onClick="system.load('todo');" class="btn btn-sm btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> ${basic_back}</button>
-<button id="btn_edit" class="btn btn-sm btn-danger" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ${basic_edit}</button>
+<button id="btn_edit" class="btn btn-sm btn-warning" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ${basic_edit}</button>
 <button id="btn_close" class="btn btn-sm btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> ${basic_close}</button>
-<button id="btn_open" class="btn btn-sm btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> ${basic_open}</button>
+<button id="btn_open" class="btn btn-sm btn-primary" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> ${basic_open}</button>
 <button id="btn_assign" class="btn btn-sm btn-success" style="${display_assign} margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> ${basic_assign}</button>
 <button id="btn_deassign" class="btn btn-sm btn-danger" style="${display_deassign} margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> ${basic_deassign}</button>
