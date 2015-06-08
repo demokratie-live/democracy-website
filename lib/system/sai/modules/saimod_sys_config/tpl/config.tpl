@@ -1,27 +1,29 @@
 <h4>${sai_config_title}</h4>
 <hr>
-<table class="table table-hover table-condensed sai_table" style="overflow: auto;">
-    <tr class="sai_not_sortable">
-        <th onclick="sai_sort_tables(0)">Config ID</th>
-        <th onclick="sai_sort_tables(1)">Config Name</th>
-        <th onclick="sai_sort_tables(2)">Value</th>
+<div class="tabbable">
+    <ul class="nav nav-tabs" id="tabs_text">
+        <li><a href="#!config" id="menu_tag_all">Basics</a></li>
+        <li><a href="#!config" id="menu_tag_notag">Database</a></li>
+        <li><a href="#!config" id="menu_tag_notag">System Admin Interface</a></li>
+    </ul>
+    <div class="tab-content sai_margin_top_10" id="tab_config"></div>
+</div>
+    
+<!--table class="table table-hover table-condensed sai_table" style="overflow: auto;">
+    <tr>
+        <th onclick="sort_table()">Config ID</th>
+        <th>Config Name</th>
+        <th>Value</th>
     </tr>
-    <tr class="sai_not_sortable">
-        <th>Basics</th>
-        <th></th>
-        <th></th>
-    </tr>
-    ${basics}    
-    <tr class="sai_not_sortable">
-        <th>Database</th>
-        <th></th>
-        <th></th>
-    </tr>
-    ${database}
-    <tr class="sai_not_sortable">
-        <th>System Admin Interface</th>
-        <th></th>
-        <th></th>
-    </tr>
-    ${sai}
+</table> 
+<table id="sai_mod_config_table_basics" class="table table-hover table-condensed sai_table" style="overflow: auto;">   
+    ${basics} 
 </table>
+<label>Database</label>    
+<table id="sai_mod_config_table_database" class="table table-hover table-condensed sai_table" style="overflow: auto;">   
+    ${database} 
+</table> 
+<label>System Admin Interface</label>    
+<table id="sai_mod_config_table_sai" class="table table-hover table-condensed sai_table" style="overflow: auto;">   
+    ${sai} 
+</table--> 
