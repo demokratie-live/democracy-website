@@ -4,3 +4,6 @@
 [submodule "lib/bootstrap"]
 	path = lib/bootstrap
 	url = git@mojotrollz.eu:webcraft/lib_bootstrap.git
+[submodule "lib/markdown"]
+	path = lib/markdown
+	url = git@mojotrollz.eu:webcraft/lib_markdown.git
