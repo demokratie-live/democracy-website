@@ -1,3 +1,8 @@
+.tooltip-inner {
+  white-space:nowrap;
+  max-width:none;
+}
+
 #project_navbar{
     left: 0px;
     bottom: 0px;
