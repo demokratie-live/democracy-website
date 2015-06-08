@@ -844,6 +844,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_class', 'enUS', 'Class', 2, 2, '2015-04-18 14:42:56', '2015-04-18 14:42:56');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_todo');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_mod');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_class', 'table');
 
@@ -1133,6 +1134,20 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_done', 'enUS', 'Done', 2, 2, '2015-04-18 13:56:53', '2015-04-18 13:56:53');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_done', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_done', 'table');
+
+    DELETE FROM `system_text` WHERE id = 'table_version';
+    DELETE FROM `system_text_tag` WHERE id = 'table_version';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_version', 'deDE', 'Version', 2, 2, '2015-04-23 01:58:25', '2015-04-23 01:58:25');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_version', 'enUS', 'Version', 2, 2, '2015-04-18 13:56:53', '2015-04-18 13:56:53');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_version', 'sai_mod');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_version', 'table');
+
+    DELETE FROM `system_text` WHERE id = 'table_interface';
+    DELETE FROM `system_text_tag` WHERE id = 'table_interface';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_interface', 'deDE', 'Schnittstelle', 2, 2, '2015-04-23 01:58:25', '2015-04-23 01:58:25');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_interface', 'enUS', 'Interface', 2, 2, '2015-04-18 13:56:53', '2015-04-18 13:56:53');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_interface', 'sai_mod');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_interface', 'table');
 
 -- Time
 
