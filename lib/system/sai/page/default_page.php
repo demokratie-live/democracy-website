@@ -33,7 +33,7 @@ class default_page extends \SYSTEM\PAGE\Page {
     private static function css(){
         $result =   '<link rel="stylesheet" href="'.\LIB\lib_bootstrap::css().'" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\LIB\lib_system::css().'" type="text/css" />'.
-                    '<link rel="stylesheet" href="'.\LIB\lib_tablesorter_css::js().'" type="text/css" />'.
+                    '<link rel="stylesheet" href="'.\LIB\lib_tablesorter::css().'" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_classes.css').'" type="text/css" />'.
                     '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
         return $result;
