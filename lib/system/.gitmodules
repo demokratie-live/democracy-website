@@ -10,3 +10,6 @@
 [submodule "lib/tinymce"]
 	path = lib/tinymce
 	url = git@mojotrollz.eu:webcraft/lib_tinymce.git
+[submodule "lib/textillate"]
+	path = lib/textillate
+	url = git@mojotrollz.eu:webcraft/lib_textillate.git
