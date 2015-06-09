@@ -16,3 +16,6 @@
 [submodule "lib/lettering"]
 	path = lib/lettering
 	url = git@mojotrollz.eu:webcraft/lib_lettering.git
+[submodule "lib/animate"]
+	path = lib/animate
+	url = git@mojotrollz.eu:webcraft/lib_animate.git
