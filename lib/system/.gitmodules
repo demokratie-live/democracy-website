@@ -13,3 +13,6 @@
 [submodule "lib/textillate"]
 	path = lib/textillate
 	url = git@mojotrollz.eu:webcraft/lib_textillate.git
+[submodule "lib/lettering"]
+	path = lib/lettering
+	url = git@mojotrollz.eu:webcraft/lib_lettering.git
