@@ -32,4 +32,6 @@ class system_todo {
     const FIELD_STATE               = 'state';
         const FIELD_STATE_OPEN      = 0;
         const FIELD_STATE_CLOSED    = 1;
+    const FIELD_PRIORITY            = 'priority';
+    const FIELD_TIME_CLOSED         = 'time_closed';
 }

@@ -31,6 +31,12 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_add($todo){
         self::exception(new \Exception($todo), false, true);
         return \SYSTEM\LOG\JsonResult::ok();}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_priority_up($todo){
+        \SYSTEM\DBD\SYS_SAIMOD_TODO_PRIORITY::QI(array(+1,$todo));
+        return \SYSTEM\LOG\JsonResult::ok();}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_priority_down($todo){
+        \SYSTEM\DBD\SYS_SAIMOD_TODO_PRIORITY::QI(array(-1,$todo));
+        return \SYSTEM\LOG\JsonResult::ok();}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO);

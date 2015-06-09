@@ -7,4 +7,5 @@ class system_todo_assign {
 
     const FIELD_TODO                = 'todo';
     const FIELD_USER                = 'user';
+    const FIELD_TIME                = 'time';
 }

@@ -21,9 +21,12 @@ CREATE TABLE `system_todo` (
 	`type` INT(11) NOT NULL DEFAULT '0',
 	`count` INT(11) NOT NULL DEFAULT '1',
 	`state` INT(11) NOT NULL DEFAULT '0',
+	`priority` INT(11) NOT NULL DEFAULT '0',
+	`time_closed` DATETIME NULL DEFAULT NULL,
 	PRIMARY KEY (`ID`),
 	UNIQUE INDEX `file_line_message` (`file`, `line`, `message_hash`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=MyISAM
-AUTO_INCREMENT=92;
+AUTO_INCREMENT=0
+;

@@ -9,7 +9,7 @@ class SYS_SAIMOD_TODO_LIST extends \SYSTEM\DB\QP {
 //mys
 'SELECT * FROM('.
     ' SELECT todo.'.\SYSTEM\DBD\system_todo::FIELD_ID.' as todo_id,'.
-        ' todo.'.\SYSTEM\DBD\system_todo::FIELD_TYPE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_CLASS.', todo.'.\SYSTEM\DBD\system_todo::FIELD_TIME.', todo.'.\SYSTEM\DBD\system_todo::FIELD_COUNT.', todo.'.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_REQUEST_URI.', todo.'.\SYSTEM\DBD\system_todo::FIELD_FILE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_LINE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_SERVER_NAME.', todo.'.\SYSTEM\DBD\system_todo::FIELD_SERVER_PORT.', todo.'.\SYSTEM\DBD\system_todo::FIELD_QUERYTIME.', todo.'.\SYSTEM\DBD\system_todo::FIELD_IP.','.
+        ' todo.'.\SYSTEM\DBD\system_todo::FIELD_TYPE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_CLASS.', todo.'.\SYSTEM\DBD\system_todo::FIELD_TIME.', todo.'.\SYSTEM\DBD\system_todo::FIELD_COUNT.', todo.'.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_REQUEST_URI.', todo.'.\SYSTEM\DBD\system_todo::FIELD_FILE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_LINE.', todo.'.\SYSTEM\DBD\system_todo::FIELD_SERVER_NAME.', todo.'.\SYSTEM\DBD\system_todo::FIELD_SERVER_PORT.', todo.'.\SYSTEM\DBD\system_todo::FIELD_QUERYTIME.', todo.'.\SYSTEM\DBD\system_todo::FIELD_IP.', todo.'.\SYSTEM\DBD\system_todo::FIELD_PRIORITY.','.
         ' creator.'.\SYSTEM\DBD\system_user::FIELD_ID.' as creator_id,'.
         ' creator.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.','.
         ' assignee.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' as assignee,'.
@@ -23,5 +23,5 @@ class SYS_SAIMOD_TODO_LIST extends \SYSTEM\DB\QP {
     ' LIMIT 100'.
 ') as a'.
 ' GROUP BY a.todo_id'.
-' ORDER BY a.'.\SYSTEM\DBD\system_todo::FIELD_TYPE.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_COUNT.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_TIME.' DESC'
+' ORDER BY a.'.\SYSTEM\DBD\system_todo::FIELD_PRIORITY.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_TYPE.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_COUNT.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_TIME.' DESC'
 );}}
