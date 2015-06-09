@@ -1219,4 +1219,4 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago_year', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago_year', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago_year', 'sai_todo');
-    INSERT INTO `systemt_ext_tag` (`id`, `tag`) VALUES ('time_ago_year', 'time');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago_year', 'time');
