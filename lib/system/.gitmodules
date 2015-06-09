@@ -19,3 +19,6 @@
 [submodule "lib/animate"]
 	path = lib/animate
 	url = git@mojotrollz.eu:webcraft/lib_animate.git
+[submodule "lib/tablesorter"]
+	path = lib/tablesorter
+	url = git@mojotrollz.eu:webcraft/lib_tablesorter.git
