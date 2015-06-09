@@ -7,3 +7,6 @@ require_once dirname(__FILE__).'/tablesort/autoload.inc';
 require_once dirname(__FILE__).'/tablesorter/autoload.inc';
 require_once dirname(__FILE__).'/bootstrap/autoload.inc';
 require_once dirname(__FILE__).'/tinymce/autoload.inc';
+require_once dirname(__FILE__).'/textillate/autoload.inc';
+require_once dirname(__FILE__).'/animate/autoload.inc';
+require_once dirname(__FILE__).'/lettering/autoload.inc';
