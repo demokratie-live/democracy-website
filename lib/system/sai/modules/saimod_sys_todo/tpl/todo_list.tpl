@@ -10,8 +10,7 @@
         <button class="btn-sm btn btn-success" state="${state};filter.${filter};search." state2=";page.${page}" id="btn_search" type="submit" style="float: right; margin-left: 10px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ${basic_search}</button>
         <input class="input-medium search-query action-control" id="input_search" type="text" placeholder="${basic_placeholder_search}" size="20" style="float: right;" value="${search}"/>
     </ul>
-    Rows: ${count}
-    <h5>ToDo's</h5>
+    <h6>Rows: ${count} Page: ${page}</h6>
     <table class="table table-hover table-condensed">
         <tr>
             <th>${time_ago}</th>
