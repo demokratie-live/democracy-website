@@ -49,17 +49,18 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_new.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist($filter='all',$search=''){
-        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN,$filter,$search);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist($filter='all',$search='%',$page=0){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN,$filter,$search,$page);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist($filter='all',$search=''){
-        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED,$filter,$search);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist($filter='all',$search='%',$page=0){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED,$filter,$search,$page);}
     
-    private static function generate_list($state,$filter,$search){
+    private static function generate_list($state,$filter,$search,$page){
         $vars = array();
         $vars['filter'] = $filter;
         $vars['search'] = $search;
-        $search = '%'.$search.'%';
+        $vars['page'] = $page;
+        $search = $search;
         $vars['todo_list_elements'] = $vars['filter_mine'] =
             $vars['filter_free'] = $vars['filter_others'] = $vars['filter_gen'] =
             $vars['filter_user'] = $vars['filter_report'] = '';
@@ -102,7 +103,8 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 break;
         }
         $count_filtered = 0;
-        while($row = $res->next()){
+        $res->seek(100*$page);
+        while(($row = $res->next()) && ($count_filtered < 100)){
             $row['class_row'] = self::trclass($row['type'],$row['class'],$row['assignee_id'],$userid);
             $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
             $row['state_string'] = self::state($row['count']);
@@ -113,6 +115,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['message'] = str_replace("\n", '<br/>', $row['message']);
             $vars['todo_list_elements'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
             $count_filtered++;
+        }
+        $vars['pagination'] = '';
+        for($i=0;$i < ceil($count/100);$i++){
+            $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_pagination.tpl'), $data);
         }
         $vars['count'] = $count_filtered.'/'.$count;
         $vars['state'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'todo' : 'todo(doto)';

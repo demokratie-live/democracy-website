@@ -21,7 +21,6 @@ class SYS_SAIMOD_TODO_LIST_MINE extends \SYSTEM\DB\QP {
     ' WHERE todo.'.\SYSTEM\DBD\system_todo::FIELD_STATE.' = ?'.
     ' AND assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_USER.' = ?'.
     ' AND (todo.'.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.' LIKE ? OR creator.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ? OR  assignee.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ?)'.
-    ' LIMIT 100'.
 ') as a'.
 ' GROUP BY a.todo_id'.
 ' ORDER BY a.'.\SYSTEM\DBD\system_todo::FIELD_PRIORITY.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_TYPE.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_COUNT.' DESC, a.'.\SYSTEM\DBD\system_todo::FIELD_TIME.' DESC'

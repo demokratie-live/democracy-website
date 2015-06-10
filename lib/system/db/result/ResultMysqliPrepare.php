@@ -27,6 +27,7 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
         \mysqli_free_result($this->meta);
         
         call_user_func_array(array($this->res, 'bind_result'), $this->binds); //you need 2 append the parameters - thats the right way to do that.
+        $this->res->store_result();
     }
 
     public function  __destruct() {
