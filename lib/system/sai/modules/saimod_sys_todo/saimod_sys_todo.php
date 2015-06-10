@@ -66,30 +66,37 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         $userid = \SYSTEM\SECURITY\Security::getUser()->id;
         switch($filter){
             case 'mine':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_MINE::Q1(array($state,$userid,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_MINE::QQ(array($state,$userid,$search,$search,$search));
                 $vars['filter_mine'] = 'active';
                 break;
             case 'free':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_FREE::Q1(array($state,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_FREE::QQ(array($state,$search,$search,$search));
                 $vars['filter_free'] = 'active';
                 break;
             case 'others':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_OTHERS::Q1(array($state,$userid,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_OTHERS::QQ(array($state,$userid,$search,$search,$search));
                 $vars['filter_others'] = 'active';
                 break;
             case 'gen':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_TYPE::Q1(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION,$search,$search,$search,$userid));
                 $vars['filter_gen'] = 'active';
                 break;
             case 'user':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_TYPE::Q1(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_USER,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_USER,$search,$search,$search,$userid));
                 $vars['filter_user'] = 'active';
                 break;
             case 'report':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_TYPE::Q1(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT,$search,$search,$search,$userid));
                 $vars['filter_report'] = 'active';
                 break;
             default:
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$search,$search,$search,$userid));
                 $vars['filter_all'] = 'active';
                 break;
@@ -107,7 +114,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $vars['todo_list_elements'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
             $count_filtered++;
         }
-        $vars['count'] = $count_filtered.'/'.\SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
+        $vars['count'] = $count_filtered.'/'.$count;
         $vars['state'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'todo' : 'todo(doto)';
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
