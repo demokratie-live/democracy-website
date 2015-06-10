@@ -94,6 +94,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $vars['filter_all'] = 'active';
                 break;
         }
+        $count_filtered = 0;
         while($row = $res->next()){
             $row['class_row'] = self::trclass($row['type'],$row['class'],$row['assignee_id'],$userid);
             $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
@@ -104,8 +105,9 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['openclose'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'close' : 'open';
             $row['message'] = str_replace("\n", '<br/>', $row['message']);
             $vars['todo_list_elements'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
+            $count_filtered++;
         }
-        $vars['count'] = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
+        $vars['count'] = $count_filtered.'/'.\SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
         $vars['state'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'todo' : 'todo(doto)';
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
