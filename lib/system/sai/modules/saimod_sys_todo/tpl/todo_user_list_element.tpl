@@ -2,5 +2,5 @@
     <td>${time_elapsed}</td>                            
     <td style="word-break: break-all;">${message}</td>
     <td><a href="#!security(user);username.${username}">${username}</a></td>
-    <td><a href="#!security(user);username.${assignee}">${assignee}</a></td>
+    <td><a href="#!security(user);username.${assignee}">${assignee}</a><br/>${basic_priority}: ${priority}</td>
 </tr>
