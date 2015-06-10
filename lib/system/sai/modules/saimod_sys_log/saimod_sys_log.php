@@ -292,35 +292,39 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'), $vars);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%"){
-        $filter_ = $filter;
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%",$search="%",$page=0){
         $filter = str_replace('\\', '\\\\', $filter);
-        $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array($filter));
-        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array($filter));
-        $table='';
-        while($r = $res->next()){     
-            //print_r($r);
+        $count = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array($filter,$search,$search,$search))['count'];
+        $vars = array();
+        $vars['filter'] = $filter;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
+        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTER::QQ(array($filter,$search,$search,$search));
+        $vars['table'] = '';
+        $count_filtered = 0;
+        $res->seek(100*$page);
+        while(($r = $res->next()) && ($count_filtered < 100)){     
             $r['class_row'] = self::tablerow_class($r['class']);
             $r['time'] = \SYSTEM\time::time_ago_string(strtotime($r['time']));
             $r['message'] = htmlspecialchars(substr($r['message'],0,255));
             $r['request_uri'] = htmlspecialchars($r['request_uri']);
-            $table .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);                                         
+            $vars['table'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);
+            $count_filtered++;
         }
-        $vars = array();
-        $vars['count'] = $count['count'];
-        $vars['error_filter'] = self::generate_error_filters($filter_);
+        $vars['pagination'] = '';
+        for($i=0;$i < ceil($count/100);$i++){
+            $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_pagination.tpl'), $data);
+        }
+        $vars['count'] = $count_filtered.'/'.$count;
+        $vars['error_filter'] = '';
+        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTERS::QQ();
+        while($row = $res->next()){
+            $data = array('active' => ($filter == $row['class'] ? 'active' : ''), 'filter' => $row['class'], 'search' => $search);
+            $vars['error_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error_filter.tpl'),$data);}
         $vars['active'] = ($filter == '%' ? 'active' : '');
-        $vars['table'] = $table;
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOG));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),$vars);
-    }
-    
-    private static function generate_error_filters($filter){
-        $res = \SYSTEM\DBD\SYS_SAIMOD_LOG_FILTERS::QQ();        
-        $result = '';        
-        while($row = $res->next()){
-            $result .= '<li'.($filter == $row['class'] ? ' class="active"' : '').'><a href="#!log;filter.'.$row['class'].'">'.$row['class'].'</a></li>';}
-        return $result;
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){

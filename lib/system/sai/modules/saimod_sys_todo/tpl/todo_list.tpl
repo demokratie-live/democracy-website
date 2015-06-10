@@ -7,10 +7,10 @@
         <li class="${filter_gen}"><a href="#!${state};filter.gen;search.${search}">${basic_generated}</a></li>
         <li class="${filter_user}"><a href="#!${state};filter.user;search.${search}">${basic_user}</a></li>
         <li class="${filter_report}"><a href="#!${state};filter.report;search.${search}">${basic_report}</a></li>
-        <button class="btn-sm btn btn-success" state="${state};filter.${filter};search." state2=";page.${page}" id="btn_search" type="submit" style="float: right; margin-left: 10px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ${basic_search}</button>
+        <button class="btn-sm btn btn-success" state="${state};filter.${filter};search." id="btn_search" type="submit" style="float: right; margin-left: 10px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ${basic_search}</button>
         <input class="input-medium search-query action-control" id="input_search" type="text" placeholder="${basic_placeholder_search}" size="20" style="float: right;" value="${search}"/>
     </ul>
-    <h6>Rows: ${count} Page: ${page}</h6>
+    <h6>${basic_rows}: ${count} ${basic_page}: ${page}</h6>
     <table class="table table-hover table-condensed">
         <tr>
             <th>${time_ago}</th>
