@@ -26,6 +26,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_all', 'frFR', 'Tous', 3, 3, '2015-04-20 16:31:55', '2015-04-20 16:31:55');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_all', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_all', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_all', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_all', 'sai_text');
 
     DELETE FROM `system_text` WHERE id = 'basic_analytics';
@@ -259,6 +260,13 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_username', 'jaJA', 'peter / peter@world.org', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_username', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_username', 'basic');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_placeholder_search';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_search';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_search', 'deDE', 'Ich suche nach...', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_search', 'enUS', 'I\'m searching for...', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_search', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_search', 'sai_todo');
 
     DELETE FROM `system_text` WHERE id = 'basic_progress';
     DELETE FROM `system_text_tag` WHERE id = 'basic_progress';
@@ -454,6 +462,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_search', 'enUS', 'Search', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'sai_security');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'sai_todo');
     
     DELETE FROM `system_text` WHERE id = 'basic_send_email';
     DELETE FROM `system_text_tag` WHERE id = 'basic_send_email';
@@ -533,6 +542,48 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_deassign', 'enUS', 'I don\'t Do that', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_deassign', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_deassign', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_mine';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_mine';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_mine', 'deDE', 'Meine', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_mein', 'enUS', 'Mine', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_mine', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_mine', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_free';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_free';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_free', 'deDE', 'Frei', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_free', 'enUS', 'Free', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_free', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_free', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_others';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_others';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_others', 'deDE', 'Andere', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_others', 'enUS', 'Others', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_others', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_others', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_generated';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_generated';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_generated', 'deDE', 'Generiert', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_generated', 'enUS', 'Generated', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_generated', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_generated', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_user';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_user';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_user', 'deDE', 'Nutzer', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_user', 'enUS', 'User', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_user', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_user', 'sai_todo');
+    
+    DELETE FROM `system_text` WHERE id = 'basic_report';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_report';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_report', 'deDE', 'Report', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_report', 'enUS', 'Report', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_report', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_report', 'sai_todo');
 
 -- SAI
     DELETE FROM `system_text` WHERE id = 'sai_api_title';

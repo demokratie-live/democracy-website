@@ -49,16 +49,51 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_new.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist(){
-        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist($filter='all',$search=''){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN,$filter,$search);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist(){
-        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist($filter='all',$search=''){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED,$filter,$search);}
     
-    private static function generate_list($state){
-        $result = $result_user = '';
+    private static function generate_list($state,$filter,$search){
+        $vars = array();
+        $vars['filter'] = $filter;
+        $vars['search'] = $search;
+        $search = '%'.$search.'%';
+        $vars['todo_list_elements'] = $vars['filter_mine'] =
+            $vars['filter_free'] = $vars['filter_others'] = $vars['filter_gen'] =
+            $vars['filter_user'] = $vars['filter_report'] = '';
         $userid = \SYSTEM\SECURITY\Security::getUser()->id;
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$userid));
+        switch($filter){
+            case 'mine':
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_MINE::QQ(array($state,$userid,$search,$search,$search));
+                $vars['filter_mine'] = 'active';
+                break;
+            case 'free':
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_FREE::QQ(array($state,$search,$search,$search));
+                $vars['filter_free'] = 'active';
+                break;
+            case 'others':
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_OTHERS::QQ(array($state,$userid,$search,$search,$search));
+                $vars['filter_others'] = 'active';
+                break;
+            case 'gen':
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION,$search,$search,$search,$userid));
+                $vars['filter_gen'] = 'active';
+                break;
+            case 'user':
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_USER,$search,$search,$search,$userid));
+                $vars['filter_user'] = 'active';
+                break;
+            case 'report':
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT,$search,$search,$search,$userid));
+                $vars['filter_report'] = 'active';
+                break;
+            default:
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$search,$search,$search,$userid));
+                $vars['filter_all'] = 'active';
+                break;
+        }
         while($row = $res->next()){
             $row['class_row'] = self::trclass($row['type'],$row['class'],$row['assignee_id'],$userid);
             $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
@@ -67,18 +102,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['message'] = $row['message'];
             $row['request_uri'] = htmlspecialchars($row['request_uri']);
             $row['openclose'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'close' : 'open';
-            if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-                $row['message'] = str_replace("\n", '<br/>', $row['message']);
-                $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
-            } else {
-                $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
-            }    
+            $row['message'] = str_replace("\n", '<br/>', $row['message']);
+            $vars['todo_list_elements'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
         }
-        $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
-        $vars = array();
-        $vars['todo_user_list_elements'] = $result_user;
-        $vars['todo_list_elements'] = $result;
-        $vars['count'] = $count;
+        $vars['count'] = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
+        $vars['state'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'todo' : 'todo(doto)';
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
     }
