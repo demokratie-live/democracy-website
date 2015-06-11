@@ -312,6 +312,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $count_filtered++;
         }
         $vars['pagination'] = '';
+        $vars['page_last'] = ceil($count/100)-1;
         for($i=0;$i < ceil($count/100);$i++){
             $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
             $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_pagination.tpl'), $data);

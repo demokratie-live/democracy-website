@@ -117,6 +117,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $count_filtered++;
         }
         $vars['pagination'] = '';
+        $vars['page_last'] = ceil($count/100)-1;
         for($i=0;$i < ceil($count/100);$i++){
             $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
             $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_pagination.tpl'), $data);

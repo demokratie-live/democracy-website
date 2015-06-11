@@ -21,6 +21,8 @@
         ${table}
     </table>
     <ul class="pagination">
+        <li><a href="#!log;filter.${filter};search.${search};page.0">&laquo;</a></li>
         ${pagination}
+        <li><a href="#!log;filter.${filter};search.${search};page.${page_last}">&raquo;</a></li>
     </ul>
 </div>
