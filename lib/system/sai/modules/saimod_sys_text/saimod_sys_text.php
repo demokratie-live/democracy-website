@@ -27,18 +27,59 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = null){
-        if ($tag) {
-            $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS::QQ(array($tag));
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = 'all',$filter = "all",$search="%",$page=0){
+        if($tag == 'all'){
+            if($filter == 'all'){
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT::Q1(array($search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT::QQ(array($search,$search,$search));
+                
+            } else {
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_FILTER::Q1(array($filter,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_FILTER::QQ(array($filter,$search,$search,$search));
+            }
+        } elseif($tag == 'notag'){
+            if($filter == 'all'){
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_NOTAG::Q1(array($search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_NOTAG::QQ(array($search,$search,$search));
+                
+            } else {
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER::Q1(array($filter,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER::QQ(array($filter,$search,$search,$search));
+            }
         } else {
-            $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS_ALL::QQ();}
-
-        $entries = '';
-        while($r = $res->next()){  
-            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
+            if($filter == 'all'){
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_TAG::Q1(array($tag,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_TAG::QQ(array($tag,$search,$search,$search));
+            } else {
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_TAG_FILTER::Q1(array($tag,$filter,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_TAG_FILTER::QQ(array($tag,$filter,$search,$search,$search));
+            }
         }
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT);
-        $vars['entries'] = $entries;
+        $vars = array();
+        $vars['tag'] = $tag;
+        $vars['filter'] = $filter;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
+        $vars['entries'] = '';
+        $count_filtered = 0;
+        $res->seek(100*$page);
+        while(($r = $res->next()) && ($count_filtered < 100)){  
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
+            $count_filtered++;}
+        $vars['pagination'] = '';
+        $vars['page_last'] = ceil($count/100)-1;
+        for($i=0;$i < ceil($count/100);$i++){
+            $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '', 'tag' => $tag);
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_pagination.tpl'), $data);
+        }
+        $vars['count'] = $count_filtered.'/'.$count;
+        $vars['lang_filter'] = '';
+        $res = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
+        foreach($res as $lang){
+            $data = array('active' => ($filter == $lang ? 'active' : ''), 'filter' => $lang, 'search' => $search, 'name' => $lang, 'tag' => $tag);
+            $vars['lang_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_lang_filter.tpl'),$data);}
+        $vars['active'] = ($filter == 'all' ? 'active' : '');
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
     }
     

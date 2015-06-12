@@ -270,6 +270,7 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_search', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_search', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_search', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_search', 'sai_text');
 
     DELETE FROM `system_text` WHERE id = 'basic_progress';
     DELETE FROM `system_text_tag` WHERE id = 'basic_progress';
@@ -306,6 +307,7 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rows', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rows', 'sai_log');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rows', 'sai_todo');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rows', 'sai_text');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rows', 'sai_security');
 
     DELETE FROM `system_text` WHERE id = 'basic_save';
@@ -467,6 +469,7 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'sai_todo');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'sai_text');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_search', 'sai_log');
     
     DELETE FROM `system_text` WHERE id = 'basic_send_email';
@@ -604,6 +607,7 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_page', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_page', 'sai_todo');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_page', 'sai_log');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_page', 'sai_text');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_page', 'sai_security');
     
     DELETE FROM `system_text` WHERE id = 'basic_add_right';
