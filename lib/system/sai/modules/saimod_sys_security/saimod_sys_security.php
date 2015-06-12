@@ -116,19 +116,37 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_view.tpl'),$vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($search = null){        
-        $search = '%'.$search.'%';        
-        $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search),array($search,$search));
-        $rows = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search),array($search,$search));                
-        while($r = $res->next()){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($filter = "all",$search="%",$page=0){
+        $count = $filter == "all" ? \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search,$search))['count'] :
+                                    \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT_FILTER::Q1(array($search,$search,$filter))['count'];
+        $vars = array();
+        $vars['filter'] = $filter;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
+        $vars['table'] = '';
+        $res = $filter == "all" ? \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search),array($search,$search)) :
+                                  \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS_FILTER::QQ(array($search,$search,$filter));
+        $count_filtered = 0;
+        $res->seek(100*$page);
+        while(($r = $res->next()) && ($count_filtered < 100)){
             $r['class'] = self::tablerow_class($r['last_active']);
             $r['time_elapsed'] = \SYSTEM\time::time_ago_string($r['last_active']);
-            $rows .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user.tpl'),$r);            
+            $vars['table'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user.tpl'),$r);
+            $count_filtered++;
         }
-        $vars = array();
-        $vars['rows'] = $rows;
-        $vars['count'] = $count['count'];
+        $vars['pagination'] = '';
+        $vars['page_last'] = ceil($count/100)-1;
+        for($i=0;$i < ceil($count/100);$i++){
+            $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_pagination.tpl'), $data);
+        }
+        $vars['count'] = $count_filtered.'/'.$count;
+        $vars['right_filter'] = '';
+        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
+        while($row = $res->next()){
+            $data = array('active' => ($filter == $row['ID'] ? 'active' : ''), 'filter' => $row['ID'], 'search' => $search, 'name' => $row['name']);
+            $vars['right_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_right_filter.tpl'),$data);}
+        $vars['active'] = ($filter == 'all' ? 'active' : '');
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_users.tpl'),$vars);
     }

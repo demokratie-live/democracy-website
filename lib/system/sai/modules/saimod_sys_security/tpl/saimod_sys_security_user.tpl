@@ -5,11 +5,6 @@
     <td>${joindate}</td>
     <td>${locale}</td>
     <td>${time_elapsed}</td>
-    <td>${account_flag}</td>
-    <!--<td>
-        <input type="submit" class="btn" value="edit" user="${id}" action="edit">
-        <input type="submit" class="btn-danger" value="delete" user="${id}" action="delete">
-    </td>-->
     <td>
         <button type="submit" class="btn-sm btn btn-success" value="reset_password" user="${id}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  ${basic_send_email}</button>
     </td>
