@@ -44,7 +44,7 @@ class default_page extends \SYSTEM\PAGE\Page {
                   '<script src="'.\LIB\lib_bootstrap::js().'" type="text/javascript"></script>'.
                   '<script src="'.\LIB\lib_system::js().'" type="text/javascript"></script>'.
                   '<script src="'.\LIB\lib_tablesorter::js().'" type="text/javascript"></script>'.
-                  '<script src="'.\LIB\lib_growl_bootstrap::js().'" type="text/javascript"></script>'.  
+                  '<script src="'.\LIB\lib_bootstrap_growl::js().'" type="text/javascript"></script>'.  
                   '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
                   '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
                   //'<script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>'.
