@@ -29,7 +29,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_TODO_OPEN::QI(array($todo));
         return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_add($todo){
-        self::exception(new \Exception($todo), false, true);
+        self::exception(new \Exception($todo), false, \SYSTEM\DBD\system_todo::FIELD_TYPE_USER);
         return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_priority_up($todo){
         \SYSTEM\DBD\SYS_SAIMOD_TODO_PRIORITY::QI(array(+1,$todo));
@@ -226,41 +226,25 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function js(){
         return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/js/saimod_sys_todo.js'));}
     
-    public static function exception(\Exception $E, $thrown, $user = false){
+    public static function report($message,$data){
+        $_POST = $data; //save data in post
+        self::exception(new \Exception($message), false, \SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT);
+        return \SYSTEM\LOG\JsonResult::ok();}
+        
+    public static function exception(\Exception $E, $thrown, $type = \SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION){
         try{
             if(\property_exists(get_class($E), 'todo_logged') && $E->todo_logged){                
                 return false;} //alrdy logged(this prevents proper thrown value for every system exception)
-                if($user){
-                    \SYSTEM\DBD\SYS_SAIMOD_TODO_USER_EXCEPTION_INSERT::Q1(  array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                    getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),
-                                                                                    $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                    array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                    array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                    ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null, $thrown ? 1 : 0, sha1($E->getMessage())),
-                                                                            array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                    getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),date('Y-m-d H:i:s', microtime(true)),
-                                                                                    $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                    array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                    array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                    ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown,$E->getMessage()));
-                } else {
-                    \SYSTEM\DBD\SYS_SAIMOD_TODO_EXCEPTION_INSERT::Q1(   array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),
-                                                                                $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null, $thrown ? 1 : 0, sha1($E->getMessage())),
-                                                                        array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),date('Y-m-d H:i:s', microtime(true)),
-                                                                                $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown,$E->getMessage()));
-                }
+            
+            \SYSTEM\DBD\SYS_SAIMOD_TODO_EXCEPTION_INSERT::Q1(   array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
+                                                                        getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),date('Y-m-d H:i:s', microtime(true)),
+                                                                        $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
+                                                                        array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
+                                                                        array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
+                                                                        ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown,$E->getMessage(),$type));
             if(\property_exists(get_class($E), 'logged')){
                 $E->todo_logged = true;} //we just did log
         } catch (\Exception $E){return false;} //Error -> Ignore
-        
         return false; //We just log and do not handle the error!
     }
 }
