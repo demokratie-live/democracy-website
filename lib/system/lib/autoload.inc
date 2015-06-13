@@ -9,4 +9,4 @@ require_once dirname(__FILE__).'/tinymce/autoload.inc';
 require_once dirname(__FILE__).'/textillate/autoload.inc';
 require_once dirname(__FILE__).'/animate/autoload.inc';
 require_once dirname(__FILE__).'/lettering/autoload.inc';
-require_once dirname(__FILE__).'/bootstrap-growl/autoload.inc';
+require_once dirname(__FILE__).'/bootstrap_growl/autoload.inc';
