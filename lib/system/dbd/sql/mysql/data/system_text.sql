@@ -622,6 +622,9 @@
     DELETE FROM `system_text_tag` WHERE id = 'sai_api_title';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_api_title', 'deDE', 'System API', 2, 2, '2015-04-17 19:29:25', '2015-04-17 19:29:25');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_api_title', 'enUS', 'System API', 2, 2, '2015-04-17 19:29:25', '2015-04-17 19:29:25');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_api_title', 'frFR', 'System API', 2, 2, '2015-04-17 19:29:25', '2015-04-17 19:29:25');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_api_title', 'esES', 'System API', 2, 2, '2015-04-17 19:29:25', '2015-04-17 19:29:25');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_api_title', 'trTR', 'System API', 2, 2, '2015-04-17 19:29:25', '2015-04-17 19:29:25');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_api_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_api_title', 'sai_api');
 
@@ -643,6 +646,9 @@
     DELETE FROM `system_text_tag` WHERE id = 'sai_copyright';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'deDE', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'enUS', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'trTR', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'frFR', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'esES', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_copyright', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_copyright', 'sai_default');
 
@@ -697,6 +703,8 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_api', 'deDE', 'API', 1, 1, '2015-04-19 20:48:44', '2015-04-19 20:48:44');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_api', 'enUS', 'API', 2, 2, '2015-04-17 19:17:28', '2015-04-17 19:17:28');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_api', 'frFR', 'API', 3, 3, '2015-04-20 19:11:39', '2015-04-20 19:11:39');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_api', 'trTR', 'API', 3, 3, '2015-04-20 19:11:39', '2015-04-20 19:11:39');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_api', 'esES', 'API', 3, 3, '2015-04-20 19:11:39', '2015-04-20 19:11:39');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_api', 'jaJA', 'エーピーアイ', 1, 1, '2015-04-19 21:02:19', '2015-04-19 21:02:19');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_api', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_api', 'sai_default');
@@ -706,6 +714,8 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cache', 'deDE', 'Cache', 2, 2, '2015-04-17 19:18:07', '2015-04-17 19:18:07');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cache', 'enUS', 'Cache', 2, 2, '2015-04-17 19:18:07', '2015-04-17 19:18:07');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cache', 'frFR', 'Cache', 3, 3, '2015-04-20 19:14:00', '2015-04-20 19:14:00');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cache', 'esES', 'Cache', 3, 3, '2015-04-20 19:14:00', '2015-04-20 19:14:00');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cache', 'trTR', 'Cache', 3, 3, '2015-04-20 19:14:00', '2015-04-20 19:14:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cache', 'jaJA', 'キャッシュ', 1, 1, '2015-04-19 21:13:51', '2015-04-19 21:13:51');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_cache', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_cache', 'sai_default');
@@ -721,8 +731,11 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_menu_cron';
     DELETE FROM `system_text_tag` WHERE id = 'sai_menu_cron';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'deDE', 'Timer', 1, 1, '2015-04-19 21:17:24', '2015-04-19 21:17:24');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'deDE', 'Cron', 1, 1, '2015-04-19 21:17:24', '2015-04-19 21:17:24');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'enUS', 'Cron', 2, 2, '2015-04-17 19:18:22', '2015-04-17 19:18:22');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'esES', 'Cron', 2, 2, '2015-04-17 19:18:22', '2015-04-17 19:18:22');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'trTR', 'Cron', 2, 2, '2015-04-17 19:18:22', '2015-04-17 19:18:22');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'frFR', 'Cron', 2, 2, '2015-04-17 19:18:22', '2015-04-17 19:18:22');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_cron', 'jaJA', 'スケジューラ', 1, 1, '2015-04-19 21:17:04', '2015-04-19 21:17:04');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_cron', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_cron', 'sai_default');
@@ -732,6 +745,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_docu', 'deDE', 'Docu', 2, 2, '2015-04-17 19:18:38', '2015-04-17 19:18:38');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_docu', 'enUS', 'Docu', 2, 2, '2015-04-17 19:18:38', '2015-04-17 19:18:38');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_docu', 'frFR', 'Docu', 3, 3, '2015-04-20 19:11:20', '2015-04-20 19:11:20');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_docu', 'esES', 'Docu', 3, 3, '2015-04-20 19:11:20', '2015-04-20 19:11:20');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_docu', 'jaJA', 'ドキュメンテーション', 1, 1, '2015-04-19 21:00:25', '2015-04-19 21:00:25');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_docu', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_docu', 'sai_default');
@@ -749,6 +763,9 @@
     DELETE FROM `system_text_tag` WHERE id = 'sai_menu_git';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_git', 'deDE', 'Git', 2, 2, '2015-05-19 00:44:29', '2015-05-19 00:44:29');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_git', 'enUS', 'Git', 2, 2, '2015-05-19 00:44:20', '2015-05-19 00:44:20');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_git', 'frFR', 'Git', 2, 2, '2015-05-19 00:44:20', '2015-05-19 00:44:20');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_git', 'trTR', 'Git', 2, 2, '2015-05-19 00:44:20', '2015-05-19 00:44:20');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_git', 'esES', 'Git', 2, 2, '2015-05-19 00:44:20', '2015-05-19 00:44:20');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_git', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_git', 'sai_default');
 
@@ -827,14 +844,18 @@
     DELETE FROM `system_text_tag` WHERE id = 'sai_menu_todo';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_todo', 'deDE', 'To-do', 1, 2, '2015-04-20 01:39:54', '2015-04-20 01:39:54');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_todo', 'enUS', 'ToDo', 2, 2, '2015-04-17 19:19:37', '2015-04-17 19:19:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_todo', 'frFR', 'ToDo', 2, 2, '2015-04-17 19:19:37', '2015-04-17 19:19:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_todo', 'trTR', 'ToDo', 2, 2, '2015-04-17 19:19:37', '2015-04-17 19:19:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_todo', 'esES', 'ToDo', 2, 2, '2015-04-17 19:19:37', '2015-04-17 19:19:37');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_menu_todo', 'jaJA', 'ToDoリスト', 1, 1, '2015-04-19 21:05:14', '2015-04-19 21:05:14');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_todo', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_menu_todo', 'sai_default');
 
     DELETE FROM `system_text` WHERE id = 'sai_mod_login_text';
     DELETE FROM `system_text_tag` WHERE id = 'sai_mod_login_text';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_mod_login_text', 'deDE', 'Please login for developer access (if you are a developer).', 0, 2, '2015-04-17 20:34:48', '2015-04-17 20:34:48');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_mod_login_text', 'deDE', 'Für Entwicklerzugriff bitte einloggen (falls Sie Entwickler sind).', 0, 2, '2015-04-17 20:34:48', '2015-04-17 20:34:48');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_mod_login_text', 'enUS', 'Please login for developer access (if you are a developer).', 0, 0, '2015-04-16 20:27:32', '0000-00-00 00:00:00');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_mod_login_text', 'frFR', 'Connectez pour accès de développeur (si vous êtes un développeur).', 0, 0, '2015-04-16 20:27:32', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_mod_login_text', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_mod_login_text', 'sai_login');
 
@@ -899,6 +920,9 @@
     DELETE FROM `system_text_tag` WHERE id = 'sai_todo_title';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'deDE', 'System To-do', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'enUS', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'frFR', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'esES', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'trTR', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_todo_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_todo_title', 'sai_todo');
 
