@@ -82,7 +82,7 @@ class GitRepo {
 				$repo_path = $new_path;
 				if (is_dir($repo_path)) {
 					// Is this a work tree?
-					if (file_exists($repo_path."/.git") && is_dir($repo_path."/.git")) {
+					if (file_exists($repo_path."/.git") || is_dir($repo_path."/.git")) {
 						$this->repo_path = $repo_path;
 						$this->bare = false;
 					// Is this a bare repo?
