@@ -1,0 +1,1 @@
+<li class="${active}"><a href="#!log;filter.${filter};search.${search}">${filter}</a></li>

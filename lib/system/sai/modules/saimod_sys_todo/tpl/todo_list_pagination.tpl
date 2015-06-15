@@ -1,0 +1,1 @@
+<li class="${active}"><a href="#!${state};filter.all;search.${search};page.${page}">${page}</a></li>

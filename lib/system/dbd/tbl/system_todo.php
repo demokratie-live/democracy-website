@@ -29,6 +29,7 @@ class system_todo {
     const FIELD_TYPE                = 'type';
         const FIELD_TYPE_EXCEPTION  = 0;
         const FIELD_TYPE_USER       = 1;
+        const FIELD_TYPE_REPORT     = 2;
     const FIELD_STATE               = 'state';
         const FIELD_STATE_OPEN      = 0;
         const FIELD_STATE_CLOSED    = 1;

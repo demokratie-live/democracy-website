@@ -29,7 +29,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\DBD\SYS_SAIMOD_TODO_OPEN::QI(array($todo));
         return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_add($todo){
-        self::exception(new \Exception($todo), false, true);
+        self::exception(new \Exception($todo), false, \SYSTEM\DBD\system_todo::FIELD_TYPE_USER);
         return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_priority_up($todo){
         \SYSTEM\DBD\SYS_SAIMOD_TODO_PRIORITY::QI(array(+1,$todo));
@@ -49,17 +49,62 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/saimod_sys_todo_new.tpl'), $vars);
     }
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist(){
-        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist($filter='all',$search='%',$page=0){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_OPEN,$filter,$search,$page);}
     
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist(){
-        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED);}
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist($filter='all',$search='%',$page=0){
+        return self::generate_list(\SYSTEM\DBD\system_todo::FIELD_STATE_CLOSED,$filter,$search,$page);}
     
-    private static function generate_list($state){
-        $result = $result_user = '';
+    private static function generate_list($state,$filter,$search,$page){
+        $vars = array();
+        $vars['filter'] = $filter;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
+        $search = $search;
+        $vars['todo_list_elements'] = $vars['filter_mine'] =
+            $vars['filter_free'] = $vars['filter_others'] = $vars['filter_gen'] =
+            $vars['filter_user'] = $vars['filter_report'] = '';
         $userid = \SYSTEM\SECURITY\Security::getUser()->id;
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$userid));
-        while($row = $res->next()){
+        switch($filter){
+            case 'mine':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_MINE::Q1(array($state,$userid,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_MINE::QQ(array($state,$userid,$search,$search,$search));
+                $vars['filter_mine'] = 'active';
+                break;
+            case 'free':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_FREE::Q1(array($state,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_FREE::QQ(array($state,$search,$search,$search));
+                $vars['filter_free'] = 'active';
+                break;
+            case 'others':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_OTHERS::Q1(array($state,$userid,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_OTHERS::QQ(array($state,$userid,$search,$search,$search));
+                $vars['filter_others'] = 'active';
+                break;
+            case 'gen':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_TYPE::Q1(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION,$search,$search,$search,$userid));
+                $vars['filter_gen'] = 'active';
+                break;
+            case 'user':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_TYPE::Q1(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_USER,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_USER,$search,$search,$search,$userid));
+                $vars['filter_user'] = 'active';
+                break;
+            case 'report':
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT_TYPE::Q1(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT,$search,$search,$search))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST_TYPE::QQ(array($state,\SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT,$search,$search,$search,$userid));
+                $vars['filter_report'] = 'active';
+                break;
+            default:
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
+                $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$search,$search,$search,$userid));
+                $vars['filter_all'] = 'active';
+                break;
+        }
+        $count_filtered = 0;
+        $res->seek(100*$page);
+        while(($row = $res->next()) && ($count_filtered < 100)){
             $row['class_row'] = self::trclass($row['type'],$row['class'],$row['assignee_id'],$userid);
             $row['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($row['time']));
             $row['state_string'] = self::state($row['count']);
@@ -67,18 +112,18 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $row['message'] = $row['message'];
             $row['request_uri'] = htmlspecialchars($row['request_uri']);
             $row['openclose'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'close' : 'open';
-            if($row['type'] == \SYSTEM\DBD\system_todo::FIELD_TYPE_USER){
-                $row['message'] = str_replace("\n", '<br/>', $row['message']);
-                $result_user .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
-            } else {
-                $result .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_element.tpl'), $row);
-            }    
+            $row['message'] = str_replace("\n", '<br/>', $row['message']);
+            $vars['todo_list_elements'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_user_list_element.tpl'), $row);
+            $count_filtered++;
         }
-        $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
-        $vars = array();
-        $vars['todo_user_list_elements'] = $result_user;
-        $vars['todo_list_elements'] = $result;
-        $vars['count'] = $count;
+        $vars['pagination'] = '';
+        $vars['page_last'] = ceil($count/100)-1;
+        for($i=0;$i < ceil($count/100);$i++){
+            $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list_pagination.tpl'), $data);
+        }
+        $vars['count'] = $count_filtered.'/'.$count;
+        $vars['state'] = $state == \SYSTEM\DBD\system_todo::FIELD_STATE_OPEN ? 'todo' : 'todo(doto)';
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TODO));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_list.tpl'), $vars);
     }
@@ -181,41 +226,25 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function js(){
         return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/js/saimod_sys_todo.js'));}
     
-    public static function exception(\Exception $E, $thrown, $user = false){
+    public static function report($message,$data){
+        $_POST = $data; //save data in post
+        self::exception(new \Exception($message), false, \SYSTEM\DBD\system_todo::FIELD_TYPE_REPORT);
+        return \SYSTEM\LOG\JsonResult::ok();}
+        
+    public static function exception(\Exception $E, $thrown, $type = \SYSTEM\DBD\system_todo::FIELD_TYPE_EXCEPTION){
         try{
             if(\property_exists(get_class($E), 'todo_logged') && $E->todo_logged){                
                 return false;} //alrdy logged(this prevents proper thrown value for every system exception)
-                if($user){
-                    \SYSTEM\DBD\SYS_SAIMOD_TODO_USER_EXCEPTION_INSERT::Q1(  array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                    getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),
-                                                                                    $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                    array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                    array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                    ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null, $thrown ? 1 : 0, sha1($E->getMessage())),
-                                                                            array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                    getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),date('Y-m-d H:i:s', microtime(true)),
-                                                                                    $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                    array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                    array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                    ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown,$E->getMessage()));
-                } else {
-                    \SYSTEM\DBD\SYS_SAIMOD_TODO_EXCEPTION_INSERT::Q1(   array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),
-                                                                                $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null, $thrown ? 1 : 0, sha1($E->getMessage())),
-                                                                        array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
-                                                                                getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),date('Y-m-d H:i:s', microtime(true)),
-                                                                                $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
-                                                                                array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
-                                                                                array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                                ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown,$E->getMessage()));
-                }
+            
+            \SYSTEM\DBD\SYS_SAIMOD_TODO_EXCEPTION_INSERT::Q1(   array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
+                                                                        getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),date('Y-m-d H:i:s', microtime(true)),
+                                                                        $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
+                                                                        array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
+                                                                        array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
+                                                                        ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown,$E->getMessage(),$type));
             if(\property_exists(get_class($E), 'logged')){
                 $E->todo_logged = true;} //we just did log
         } catch (\Exception $E){return false;} //Error -> Ignore
-        
         return false; //We just log and do not handle the error!
     }
 }

@@ -27,6 +27,8 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (53, 42, 2, 51, NULL, 'group', 'UINT');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (55, 42, 1, 50, NULL, 'css', NULL);
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (56, 42, 2, 55, NULL, 'group', 'UINT');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (60, 42, 2, 10, 'bug', 'message', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (61, 42, 2, 10, 'bug', 'data', 'JSON');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (90, 42, 4, -1, NULL, '_lang', 'LANG');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (91, 42, 4, -1, NULL, '_result', 'RESULT');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (92, 42, 4, -1, NULL, '_escaped_fragment_', 'STRING');
@@ -47,6 +49,8 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (200, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_log', 'action', NULL);
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (201, 42, 3, 200, 'filter', 'filter', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (202, 42, 3, 200, 'filter', 'search', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (203, 42, 3, 200, 'filter', 'page', 'UINT0');
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (210, 42, 3, 200, 'error', 'error', 'INT');
 --
@@ -58,7 +62,9 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (300, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_security', 'action', NULL);
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (301, 42, 2, 300, 'user', 'username', 'STRING');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (302, 42, 3, 300, 'users', 'search', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (302, 42, 3, 300, 'users', 'filter', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (303, 42, 3, 300, 'users', 'search', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (304, 42, 3, 300, 'users', 'page', 'UINT0');
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (310, 42, 2, 300, 'addright', 'id', 'UINT');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (311, 42, 2, 300, 'addright', 'name', 'STRING');
@@ -98,7 +104,10 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (700, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_text', 'action', NULL);
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (703, 42, 3, 700, 'tag', 'tag', 'STRING');
-INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (705, 42, 2, 700, 'loadByTag', 'lang', 'LANG');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (704, 42, 3, 700, 'tag', 'filter', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (705, 42, 3, 700, 'tag', 'search', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (706, 42, 3, 700, 'tag', 'page', 'UINT0');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (710, 42, 2, 700, 'loadByTag', 'lang', 'LANG');
 --
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (712, 42, 2, 700, 'edittext', 'id', 'STRING');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (713, 42, 2, 700, 'edittext', 'lang', 'LANG');
@@ -144,6 +153,12 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1011, 42, 2, 1000, 'edit', 'message', 'STRING');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1015, 42, 2, 1000, 'priority_up', 'todo', 'INT');
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1016, 42, 2, 1000, 'priority_down', 'todo', 'INT');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1020, 42, 3, 1000, 'todolist', 'filter', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1021, 42, 3, 1000, 'todolist', 'search', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1022, 42, 3, 1000, 'todolist', 'page', 'UINT0');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1025, 42, 3, 1000, 'dotolist', 'filter', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1026, 42, 3, 1000, 'dotolist', 'search', 'STRING');
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1027, 42, 3, 1000, 'dotolist', 'page', 'UINT0');
 
 
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1100, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_docu', 'action', NULL);
