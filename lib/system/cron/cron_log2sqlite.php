@@ -9,6 +9,9 @@ class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
         if( $oldest['year'] >= $now_year &&
             $oldest['month'] >= $now_month){
             return cronstatus::CRON_STATUS_SUCCESFULLY;}
+        //create folder if required
+        if (!file_exists(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH))) {
+            mkdir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH), 0777, true);}
         $filename = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH).$oldest['year'].'.'.$oldest['month'].'.db';
         //extract whole month to file
         $con = new \SYSTEM\DB\Connection(new \SYSTEM\DB\DBInfoSQLite($filename));
