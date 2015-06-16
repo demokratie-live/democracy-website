@@ -25,3 +25,6 @@
 [submodule "lib/tablesorter"]
 	path = lib/tablesorter
 	url = git@mojotrollz.eu:webcraft/lib_tablesorter.git
+[submodule "lib/git"]
+	path = lib/git
+	url = git@mojotrollz.eu:webcraft/lib_git.git
