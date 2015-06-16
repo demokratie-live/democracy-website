@@ -12,14 +12,18 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
         $result = array('git_project' => '', 'git_system' => '');
         try{
             $repo = \SYSTEM\GIT\Git::open(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH));
-            $result['git_project'] = '<a href="http://www.mojotrollz.eu/git/hosting/commit/'.$repo->run('rev-parse HEAD').'" target="_blank">'.$repo->run('rev-parse --short HEAD').'</a>';
+            $result['git_project'] = '<a href="http://www.mojotrollz.eu/git/hosting/commit/'.$repo->run('rev-parse HEAD').'" target="_blank">'.$repo->run('rev-parse --short HEAD').'</a><br/>';
+            $result['git_project'] .= $repo->run('log -1 --pretty=%B');
+            
         } catch (\Exception $ex) {
             $result['git_project'] = $ex->getMessage();
         }
         
         try{
             $repo = \SYSTEM\GIT\Git::open(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH).\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL));
-            $result['git_system'] = '<a href="http://www.mojotrollz.eu/git/system/commit/'.$repo->run('rev-parse HEAD').'" target="_blank">'.$repo->run('rev-parse --short HEAD').'</a>';
+            $result['git_system'] .= '<li>';
+            $result['git_system'] = '<a href="http://www.mojotrollz.eu/git/system/commit/'.$repo->run('rev-parse HEAD').'" target="_blank">'.$repo->run('rev-parse --short HEAD').'</a><br/>';
+            $result['git_system'] .= $repo->run('log -1 --pretty=%B');
         } catch (\Exception $ex) {
             $result['git_system'] = $ex->getMessage();
         }
