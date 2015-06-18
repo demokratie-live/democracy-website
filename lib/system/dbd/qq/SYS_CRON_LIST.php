@@ -1,11 +1,11 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_CRON_LIST extends \SYSTEM\DB\QQ {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'SELECT * FROM '.\SYSTEM\DBD\system_cron::NAME_PG.';',
-//mys
-'SELECT * FROM '.\SYSTEM\DBD\system_cron::NAME_MYS.';'
-);}}
+    public static function get_class(){return \get_class();}
+    public static function pqsql(){return
+'SELECT * FROM '.\SYSTEM\DBD\system_cron::NAME_PG.';';
+    }
+    public static function mysql(){return
+'SELECT * FROM '.\SYSTEM\DBD\system_cron::NAME_MYS.';';
+    }
+}

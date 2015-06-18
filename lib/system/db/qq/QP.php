@@ -6,7 +6,6 @@ class QP {
         if(!$dbinfo){
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
         $con = new \SYSTEM\DB\Connection($dbinfo);
-        
         try{
             if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
                 return $con->prepare(static::get_class(),static::pgsql(),$params);

@@ -13,11 +13,11 @@ class Security {
         $result = \SYSTEM\DBD\SYS_SECURITY_CREATE::QI(array( $username , $password, $email, $locale, 1 ));
         if(!$result || !self::login($username, $password, $locale)){            
                 return self::FAIL;}                 
-        return ($advancedResult ? \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $password),array($username, $username, $password)) : self::OK);
+        return ($advancedResult ? \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $username, $password)) : self::OK);
     }
      
     public static function changePassword($username, $password_sha_old, $password_sha_new){        
-        $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $password_sha_old),array($username, $username, $password_sha_old));                        
+        $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $username, $password_sha_old));                        
         if(!$row){
             return self::FAIL;} // old password wrong                  
         $userID = $row['id'];        
@@ -31,9 +31,9 @@ class Security {
                 
         //Database check
         if(isset($password_md5)){      
-            $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_MD5::Q1(array($username, $password_sha, $password_md5),array($username, $username, $password_sha, $password_md5));
+            $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_MD5::Q1(array($username, $username, $password_sha, $password_md5));
         }else{
-            $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $password_sha),array($username, $username, $password_sha));}                    
+            $row = \SYSTEM\DBD\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $username, $password_sha));}                    
                     
         if(!$row){
             new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");                        
