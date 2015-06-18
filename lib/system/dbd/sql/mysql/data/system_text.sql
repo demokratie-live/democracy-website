@@ -918,13 +918,23 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_todo_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_todo_title';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'deDE', 'System To-do', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'deDE', 'System ToDo', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'enUS', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'frFR', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'esES', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'trTR', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_todo_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_todo_title', 'sai_todo');
+
+    DELETE FROM `system_text` WHERE id = 'sai_git_title';
+    DELETE FROM `system_text_tag` WHERE id = 'sai_git_title';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'deDE', 'System Git', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'enUS', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'frFR', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'esES', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'trTR', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_git_title', 'sai');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_git_title', 'sai_git');
 
 -- Table
 
