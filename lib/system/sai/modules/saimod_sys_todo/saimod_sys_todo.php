@@ -97,7 +97,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $vars['filter_report'] = 'active';
                 break;
             default:
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$search,$search,$search,$userid));
                 $vars['filter_all'] = 'active';
                 break;
