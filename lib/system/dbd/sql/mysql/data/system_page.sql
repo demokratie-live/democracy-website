@@ -29,6 +29,7 @@ INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`,
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (73, 42, 'error', 'log', 70, 0, 1, '#tab_log', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=error&error=${error}', '', '');
 
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (80, 42, 'login', 'login', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_login', 'init_saimod_sys_login', '\\SYSTEM\\SAI\\saimod_sys_login');
+INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (81, 42, 'register', 'login', 80, 0, 1, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_login&action=registerform', 'init_saimod_sys_register', '\\SYSTEM\\SAI\\saimod_sys_login');
 
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (90, 42, 'mod', 'mod', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_mod', 'init_saimod_sys_mod', '\\SYSTEM\\SAI\\saimod_sys_mod');
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (91, 42, 'system', 'mod', 90, 0, 0, '#tab_mod', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_mod&action=system', 'init_saimod_sys_mod_system', '\\SYSTEM\\SAI\\saimod_sys_mod');
