@@ -21,7 +21,7 @@
     <tr><td>thrown</td><td>${thrown}</td></tr>    
     <tr><td>message</td><td>${message}</td></tr>
 </table>
-<button id="btn_back" onClick="system.load('todo');" class="btn btn-sm btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> ${basic_back}</button>
+<button id="btn_back" onClick="system.back();" class="btn btn-sm btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: left;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> ${basic_back}</button>
 <button id="btn_prio_up" class="btn btn-sm btn-success" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
 <button id="btn_prio_down" class="btn btn-sm btn-danger" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>
 <button id="btn_close" class="btn btn-sm btn-danger" style="display: none; margin-right: 15px; height: 32px; font-size: 13px; float: right;" todo="${ID}"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> ${basic_close}</button>
