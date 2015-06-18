@@ -1,12 +1,8 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_TODO_COUNT_MINE extends \SYSTEM\DB\QP {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'todo',
-//mys
+    public static function get_class(){return \get_class();}
+    public static function mysql(){return
 'SELECT COUNT(*) as count'.
 ' FROM '.\SYSTEM\DBD\system_todo::NAME_MYS.' as todo'.
 ' LEFT JOIN '.\SYSTEM\DBD\system_todo_assign::NAME_MYS.' as assign ON todo.'.\SYSTEM\DBD\system_todo::FIELD_ID.'=assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_TODO.
@@ -14,5 +10,6 @@ class SYS_SAIMOD_TODO_COUNT_MINE extends \SYSTEM\DB\QP {
 ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_MYS.' as assignee ON assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_USER.'=assignee.'.\SYSTEM\DBD\system_user::FIELD_ID.
 ' WHERE '.\SYSTEM\DBD\system_todo::FIELD_STATE.'=?'.
 ' AND assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_USER.' = ?'.
-' AND (todo.'.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.' LIKE ? OR creator.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ? OR  assignee.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ?);'
-);}}
+' AND (todo.'.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.' LIKE ? OR creator.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ? OR  assignee.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ?);';
+    }
+}
