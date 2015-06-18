@@ -1,12 +1,11 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_LOG_TRUNCATE extends \SYSTEM\DB\QQ {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'TRUNCATE '.\SYSTEM\DBD\system_log::NAME_PG.';',
-//mys
-'TRUNCATE '.\SYSTEM\DBD\system_log::NAME_MYS.';'
-);}}
-
+    public static function get_class(){return \get_class();}
+    public static function pgsql(){return             
+'TRUNCATE '.\SYSTEM\DBD\system_log::NAME_PG.';';
+    }
+    public static function mysql(){return 
+'TRUNCATE '.\SYSTEM\DBD\system_log::NAME_MYS.';';
+    }
+}
