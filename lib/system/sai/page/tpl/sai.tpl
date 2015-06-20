@@ -36,7 +36,8 @@
             </div>    
             <div class="row">
                 <div class="col-md-2">
-                    <ul class="nav nav-tabs nav-stacked sai_project_modules">                
+                    ${basic_project_menu}
+                    <ul class="nav nav-pills nav-stacked ">                
                         ${menu_proj}
                     </ul>
                 </div>

@@ -31,6 +31,10 @@
 .sai_main_menu {
     border-radius: 3px 3px 3px 0;
 }
+
+.nav-tabs {
+    border: none;
+}
 /* auto collapsing navbar */
 #sys_autocollapse.collapsed .navbar-header {
   float: none;
