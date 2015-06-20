@@ -21,9 +21,15 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     }
     
     protected static function html_content(){
+        //create timestamp
+        $week_number = date("W", time());
+        $date = date("l M Y", time());
+        
         if(!\SYSTEM\SECURITY\Security::isLoggedIn() || !\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
             return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saistart_sys_sai/tpl/content.tpl'));}
         $vars = array();
+        $vars['week_number'] = $week_number;
+        $vars['date'] = $date;
         $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
         $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
         $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
