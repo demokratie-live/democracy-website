@@ -38,14 +38,13 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/register.tpl'), $vars);}
 
-    //public static function html_li_menu(){return '<li><a id="menu_login" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ${sai_menu_logout}' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> ${sai_menu_login}').'</a></li>';}
-        public static function html_li_menu(){return '<li class="sai_divider_left"><a id="menu_login" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_login}" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>').'</a></li>';}
+    public static function html_li_menu(){return '<li class="sai_divider_left"><a id="menu_login" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_login}" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>').'</a></li>';}
     public static function right_public(){return true;}    
     public static function right_right(){return true;}
     
     //public static function css(){}
     public static function js(){
-        return array(   \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/jqBootstrapValidation.js'),
+        return array(   \LIB\lib_jqbootstrapvalidation::js(),
                         \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/js/sai_sys_login_submit.js'),
                         \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.md5.js'),
                         \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.sha1.js'));

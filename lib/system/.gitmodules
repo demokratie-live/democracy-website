@@ -28,3 +28,6 @@
 [submodule "lib/git"]
 	path = lib/git
 	url = git@mojotrollz.eu:webcraft/lib_git.git
+[submodule "lib/jqbootstrapvalidation"]
+	path = lib/jqbootstrapvalidation
+	url = git@mojotrollz.eu:webcraft/lib_jqbootstrapvalidation.git

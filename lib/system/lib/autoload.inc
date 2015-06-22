@@ -11,3 +11,4 @@ require_once dirname(__FILE__).'/animate/autoload.inc';
 require_once dirname(__FILE__).'/lettering/autoload.inc';
 require_once dirname(__FILE__).'/bootstrap_growl/autoload.inc';
 require_once dirname(__FILE__).'/git/autoload.inc';
+require_once dirname(__FILE__).'/jqbootstrapvalidation/autoload.inc';
