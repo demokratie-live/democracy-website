@@ -4,7 +4,7 @@
         <title>${sai_title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="fragment" content="!start">
-        <link rel="icon" type="image/png" href="./sai.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo.png"/>
+        <link rel="icon" type="image/png" href="./sai.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo_sai.png"/>
         ${css}
         ${js}
     </head>
