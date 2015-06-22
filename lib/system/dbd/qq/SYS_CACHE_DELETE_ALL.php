@@ -1,11 +1,11 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_CACHE_DELETE_ALL extends \SYSTEM\DB\QQ {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'DELETE FROM system.cache;',
-//mys
-'DELETE FROM system_cache;'
-);}}
+    public static function get_class(){return \get_class();}
+    public static function pqsql(){return
+'DELETE FROM system.cache;';
+    }
+    public static function mysql(){return
+'DELETE FROM system_cache;';
+    }
+}

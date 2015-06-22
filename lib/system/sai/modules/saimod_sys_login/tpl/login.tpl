@@ -29,5 +29,5 @@
         <button class="btn-sm btn btn-primary" style="clear: left; height: 32px; font-size: 13px;" type="submit" id="login_submit"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> ${basic_login}</button>
     </div>
 </form>
-<a href="#" id="register_link">${basic_text_register}</a></br>
+<a href="#!login(register)" id="register_link">${basic_text_register}</a></br>
 <a href="#" id="password_link">${basic_text_password_miss}</a>

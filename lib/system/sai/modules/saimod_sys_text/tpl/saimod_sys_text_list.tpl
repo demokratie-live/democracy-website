@@ -6,17 +6,21 @@
 </ul>
 <div id="table_text">
     <h6>${basic_rows}: ${count} ${basic_page}: ${page}</h6>
-    <table class="sai_table table table-hover table-condensed tablesorter" id="sai_mod_text_table" style="overflow: auto;">
-        <tr>
-            <th>${table_id}</th>
-            <th>${table_lang}</th>
-            <th>${table_text}</th>
-            <th>${table_author}</th>
-            <th>${table_time_create}</th>
-            <th>${table_author_edit}</th>
-            <th>${table_time_edit}</th>
-        </tr>
-        ${entries}
+    <table class="table table-hover table-condensed sai_table tablesorter" id="sai_mod_text_table" style="overflow: auto;">
+        <thead>
+            <tr>
+                <th>${table_id}</th>
+                <th>${table_lang}</th>
+                <th>${table_text}</th>
+                <th>${table_author}</th>
+                <th>${table_time_create}</th>
+                <th>${table_author_edit}</th>
+                <th>${table_time_edit}</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${entries}
+        </tbody>    
     </table>
     <ul class="pagination">
         <li><a href="#!text;tag.${tag};filter.${filter};search.${search};page.0">&laquo;</a></li>

@@ -1,12 +1,8 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_TODO_ASSIGNEES extends \SYSTEM\DB\QP {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'TODO',
-//mys
+    public static function get_class(){return \get_class();}
+    public static function mysql(){return
 ' SELECT assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_TODO.' as todo_id,'.
     ' assignee.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' as assignee,'.
     ' assignee.'.\SYSTEM\DBD\system_user::FIELD_ID.' as assignee_id'.
@@ -14,5 +10,6 @@ class SYS_SAIMOD_TODO_ASSIGNEES extends \SYSTEM\DB\QP {
 ' LEFT JOIN '.\SYSTEM\DBD\system_user::NAME_MYS.' as assignee ON assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_USER.'=assignee.'.\SYSTEM\DBD\system_user::FIELD_ID.
 ' WHERE assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_TODO.' = ?'.
 ' ORDER BY case when assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_USER.' = ? then 1 else 2 end'.
-' LIMIT 10'
-);}}
+' LIMIT 10';
+    }
+}

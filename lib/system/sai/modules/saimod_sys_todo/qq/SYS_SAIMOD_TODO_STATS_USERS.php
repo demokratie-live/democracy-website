@@ -1,12 +1,8 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_TODO_STATS_USERS extends \SYSTEM\DB\QQ {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'TODO',
-//mys
+    public static function get_class(){return \get_class();}
+    public static function mysql(){return
 'SELECT *, state_closed/(state_open+state_closed) as best '.
 'FROM ('.
     'SELECT username,'.
@@ -19,5 +15,6 @@ class SYS_SAIMOD_TODO_STATS_USERS extends \SYSTEM\DB\QQ {
     'GROUP BY system_todo_assign.user '.
     'ORDER BY count DESC'.
 ') a '.
-'ORDER BY best DESC;'
-);}}
+'ORDER BY best DESC;';
+    }
+}

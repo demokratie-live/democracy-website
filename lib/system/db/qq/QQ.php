@@ -2,33 +2,37 @@
 namespace SYSTEM\DB;
 
 class QQ {                       
-    public static function QQ(){
-        $query = static::query();        
-        $con = new \SYSTEM\DB\Connection($query->dbinfo);                
-        $is_pg = \SYSTEM\system::isSystemDbInfoPG();
-        if($query->dbinfo){
-            $is_pg = $query->dbinfo instanceof \SYSTEM\DB\DBInfoPG;}            
-        if($is_pg){
-            return $con->query($query->sql_pg);
-        } else {
-            return $con->query($query->sql_mys);}
+    public static function QQ($dbinfo = null){
+        if(!$dbinfo){
+            $dbinfo = \SYSTEM\system::getSystemDBInfo();}
+        $con = new \SYSTEM\DB\Connection($dbinfo);
+        
+        try{
+            if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
+                return $con->query(static::pgsql());
+            } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoMYS){
+                return $con->query(static::mysql());
+            } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP){
+                return $con->query(static::amqp());
+            } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoSQLite){
+                return $con->query(static::sqlite());
+            }
+        } catch (\Exception $e){
+            throw new \SYSTEM\LOG\ERROR(static::get_class().' failed causing: '.$e->getMessage(),$e->getCode(),$e);}
+        
+        throw new \Exception('Could not understand Database Settings. Check ur Database Settings');
     }
     
-    public static function QA(){
-        $res = self::QQ();
+    public static function QA($dbinfo = null){
+        $res = self::QQ($dbinfo);
         $result = array();
         while($row = $res->next()){
             $result[] = $row;}
         return $result;
     }
     
-    public static function Q1(){
-        return self::QQ()->next();}
-    public static function QI(){
-        $qq = self::QQ();
-        return $qq;}
-    //override this
-    protected static function query(){
-        throw new \SYSTEM\LOG\ERROR('query function of your QQ Class not overwritten!');}
-        //return new QQuery();}    
+    public static function Q1($dbinfo = null){
+        return self::QQ($dbinfo)->next();}
+    public static function QI($dbinfo = null){
+        return self::QQ($dbinfo);}
 }

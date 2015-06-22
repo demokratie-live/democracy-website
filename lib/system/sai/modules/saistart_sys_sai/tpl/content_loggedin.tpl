@@ -1,6 +1,7 @@
 <h4 class="muted"><b>${sai_start_welcome}</b></h4>
     <h4 class="text-info">${sai_start_welcome_description}</h4><hr>
     <div class="row">
+        <div class="col-md-12 sai_margin_bottom_20" id="sai_datetime">Week of the year: <font style="color: orange;">${week_number}</font>, ${date}</div>
         <div class="col-md-6">
             <div id="project" class="panel panel-default sai_gridbox">
                     <div class="panel-heading"><a href="#!config">${basic_project}</a></div>

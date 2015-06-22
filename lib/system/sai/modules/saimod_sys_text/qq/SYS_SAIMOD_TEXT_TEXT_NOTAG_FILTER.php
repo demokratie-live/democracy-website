@@ -1,12 +1,8 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER extends \SYSTEM\DB\QP {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-            //pg            
-            'todo',
-            //mys
+    public static function get_class(){return \get_class();}
+    public static function mysql(){return 
 'SELECT system_text_tag.tag, system_text.*, a.username as author_name, ae.username as author_edit_name'.
 ' FROM system_text_tag'.
 ' LEFT JOIN system_text ON system_text_tag.id = system_text.id'.
@@ -19,5 +15,6 @@ class SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER extends \SYSTEM\DB\QP {
 '  FROM system_text_tag'.
 '  WHERE system_text_tag.id = system_text.id)'.
 ' GROUP BY id, lang'.
-' ORDER BY time_edit DESC;'
-);}}
+' ORDER BY time_edit DESC;';
+    }
+}

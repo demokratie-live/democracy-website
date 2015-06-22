@@ -56,6 +56,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_cancel', 'frFR', 'Annuler', 3, 3, '2015-04-18 04:46:32', '2015-04-18 04:46:32');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_cancel', 'jaJA', 'キャンシル', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_cancel', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_cancel', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_close';
     DELETE FROM `system_text_tag` WHERE id = 'basic_close';
@@ -213,6 +214,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_long', 'enUS', 'Password too long', 0, 0, '2015-04-18 13:16:18', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_long', 'frFR', 'Mot de passe trop long!', 3, 3, '2015-04-20 16:28:21', '2015-04-20 16:28:21');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_long', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_long', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_password_match';
     DELETE FROM `system_text_tag` WHERE id = 'basic_password_match';
@@ -220,6 +222,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_match', 'enUS', 'Passwords do not match!', 0, 0, '2015-04-18 13:16:33', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_match', 'frFR', 'Les mots de passe ne lui correspondent pas!', 3, 3, '2015-04-20 16:20:57', '2015-04-20 16:20:57');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_match', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_match', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_password_miss';
     DELETE FROM `system_text_tag` WHERE id = 'basic_password_miss';
@@ -227,6 +230,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_miss', 'enUS', 'Password required', 0, 0, '2015-04-18 13:16:46', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_miss', 'frFR', 'Mot de passe demandé!', 3, 3, '2015-04-20 16:18:30', '2015-04-20 16:18:30');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_miss', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_miss', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_password_short';
     DELETE FROM `system_text_tag` WHERE id = 'basic_password_short';
@@ -234,6 +238,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_short', 'enUS', 'Password too short', 0, 0, '2015-04-18 13:16:58', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_short', 'frFR', 'Mot de passe est trop court!', 3, 3, '2015-04-20 16:24:50', '2015-04-20 16:24:50');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_short', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_short', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_placeholder_email';
     DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_email';
@@ -244,6 +249,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_email', 'jaJA', 'peter@world.org', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_email', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_email', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_email', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_placeholder_password';
     DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_password';
@@ -251,6 +257,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_password', 'enUS', 'secret123', 0, 2, '2015-04-20 01:42:30', '2015-04-20 01:42:30');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_password', 'jaJA', '丸秘のパスワード', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_password', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_password', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_placeholder_username';
     DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_username';
@@ -261,6 +268,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_username', 'jaJA', 'peter / peter@world.org', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_username', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_username', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_username', 'sai_login');
     
     DELETE FROM `system_text` WHERE id = 'basic_placeholder_search';
     DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_search';
@@ -669,8 +677,8 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_files_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_files_title';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'deDE', 'System - Dateien', 3, 3, '2015-05-16 13:53:33', '2015-05-16 13:53:33');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'enUS', 'System - ファイル', 2, 1, '2015-04-20 16:18:27', '2015-04-20 16:18:27');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'deDE', 'System Dateien', 3, 3, '2015-05-16 13:53:33', '2015-05-16 13:53:33');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'enUS', 'System ファイル', 2, 1, '2015-04-20 16:18:27', '2015-04-20 16:18:27');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'frFR', 'System Fichiers', 3, 3, '2015-04-20 19:15:58', '2015-04-20 19:15:58');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_files_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_files_title', 'sai_files');
@@ -918,13 +926,23 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_todo_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_todo_title';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'deDE', 'System To-do', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'deDE', 'System ToDo', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'enUS', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'frFR', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'esES', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_todo_title', 'trTR', 'System ToDo', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_todo_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_todo_title', 'sai_todo');
+
+    DELETE FROM `system_text` WHERE id = 'sai_git_title';
+    DELETE FROM `system_text_tag` WHERE id = 'sai_git_title';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'deDE', 'System Git', 2, 2, '2015-04-23 01:53:37', '2015-04-23 01:53:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'enUS', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'frFR', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'esES', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_git_title', 'trTR', 'System Git', 2, 2, '2015-04-17 19:22:57', '2015-04-17 19:22:57');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_git_title', 'sai');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_git_title', 'sai_git');
 
 -- Table
 

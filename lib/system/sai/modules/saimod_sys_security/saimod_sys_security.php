@@ -124,7 +124,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['search'] = $search;
         $vars['page'] = $page;
         $vars['table'] = '';
-        $res = $filter == "all" ? \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search),array($search,$search)) :
+        $res = $filter == "all" ? \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search,$search)) :
                                   \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS_FILTER::QQ(array($search,$search,$filter));
         $count_filtered = 0;
         $res->seek(100*$page);

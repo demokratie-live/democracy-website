@@ -1,12 +1,8 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_TODO_COUNT_OTHERS extends \SYSTEM\DB\QP {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'todo',
-//mys
+    public static function get_class(){return \get_class();}
+    public static function mysql(){return
 'SELECT COUNT(*) as count FROM ('.
 ' SELECT todo.id'.
 ' FROM '.\SYSTEM\DBD\system_todo::NAME_MYS.' as todo'.
@@ -17,5 +13,6 @@ class SYS_SAIMOD_TODO_COUNT_OTHERS extends \SYSTEM\DB\QP {
 ' AND NOT assign.'.\SYSTEM\DBD\system_todo_assign::FIELD_USER.' = ?'.
 ' AND (todo.'.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.' LIKE ? OR creator.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ? OR  assignee.'.\SYSTEM\DBD\system_user::FIELD_USERNAME.' LIKE ?)'.
 ' GROUP BY todo.id'.
-') as a;'
-);}}
+') as a;';
+    }
+}

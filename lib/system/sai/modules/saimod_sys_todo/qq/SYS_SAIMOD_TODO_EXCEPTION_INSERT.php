@@ -1,12 +1,8 @@
 <?php
 namespace SYSTEM\DBD;
-
 class SYS_SAIMOD_TODO_EXCEPTION_INSERT extends \SYSTEM\DB\QP {
-    protected static function query(){
-        return new \SYSTEM\DB\QQuery(get_class(),
-//pg            
-'todo',
-//mys
+    public static function get_class(){return \get_class();}
+    public static function mysql(){return
 'INSERT INTO '.\SYSTEM\DBD\system_todo::NAME_MYS.
 '('.\SYSTEM\DBD\system_todo::FIELD_CLASS.','.\SYSTEM\DBD\system_todo::FIELD_MESSAGE.','.
     \SYSTEM\DBD\system_todo::FIELD_CODE.','.\SYSTEM\DBD\system_todo::FIELD_FILE.','.
@@ -35,5 +31,6 @@ class SYS_SAIMOD_TODO_EXCEPTION_INSERT extends \SYSTEM\DB\QP {
             \SYSTEM\DBD\system_todo::FIELD_HTTP_REFERER.'=VALUES('.\SYSTEM\DBD\system_todo::FIELD_HTTP_REFERER.'), '.
             \SYSTEM\DBD\system_todo::FIELD_HTTP_USER_AGENT.'=VALUES('.\SYSTEM\DBD\system_todo::FIELD_HTTP_USER_AGENT.'), '.
             \SYSTEM\DBD\system_todo::FIELD_USER.'=VALUES('.\SYSTEM\DBD\system_todo::FIELD_USER.'), '.
-            \SYSTEM\DBD\system_todo::FIELD_THROWN.'=VALUES('.\SYSTEM\DBD\system_todo::FIELD_THROWN.');'
-);}}
+            \SYSTEM\DBD\system_todo::FIELD_THROWN.'=VALUES('.\SYSTEM\DBD\system_todo::FIELD_THROWN.');';
+    }
+}

@@ -97,7 +97,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                 $vars['filter_report'] = 'active';
                 break;
             default:
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state))['count'];
+                $count = \SYSTEM\DBD\SYS_SAIMOD_TODO_COUNT::Q1(array($state,$search,$search,$search))['count'];
                 $res = \SYSTEM\DBD\SYS_SAIMOD_TODO_LIST::QQ(array($state,$search,$search,$search,$userid));
                 $vars['filter_all'] = 'active';
                 break;
@@ -157,7 +157,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         $vars['userstats'] = '';
         $userstats = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_USERS::QQ();
         while($stat = $userstats->next()){
-            $stat['perc'] = round($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']),2)*100;
+            $stat['perc'] = round(($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']))*100,2);
             $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'), $stat);
         }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);        

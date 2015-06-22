@@ -10,7 +10,7 @@
         <button id="btn_close_all" class="btn-danger btn btn-sm" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> ${basic_close_all}</button>
         <button id="btn_new" class="btn-success btn btn-sm" onClick="system.load('todo(new)');" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button>
     </ul>
-    <div class="tab-content">        
+    <div class="tab-content sai_margin_top_10">        
         <div class="tab-pane active" id="tab_todo"></div>
     </div>
 </div>
