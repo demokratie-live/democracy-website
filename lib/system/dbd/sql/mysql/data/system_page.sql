@@ -1,3 +1,5 @@
+DELETE FROM system_page WHERE `group` = 42;
+
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (0, 42, 'start', 'start', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saistart_sys_sai', 'init_saistart_sys_sai', '\\SYSTEM\\SAI\\saistart_sys_sai');
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (1, 42, 'todo', 'start', 0, 1, 0, '#todo_entries', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_todo&action=todolist', 'init_saistart_sys_sai_todo', '\\SYSTEM\\SAI\\saistart_sys_sai');
 INSERT INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (2, 42, 'log', 'start', 0, 1, 0, '#log_entries', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=filter', 'init_saistart_sys_sai_log', '\\SYSTEM\\SAI\\saistart_sys_sai');
