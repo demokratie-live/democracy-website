@@ -143,7 +143,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
             $result['project_closed'] += $data->closed;
             $result['project_all'] += $data->all;
         }
-        $result['project'] = round($result['project'] / (count($result['data'])),2);
+        $result['project'] = sprintf("%.2f",$result['project'] / (count($result['data'])),2);
         return $result;
     }
     
@@ -157,7 +157,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         $vars['userstats'] = '';
         $userstats = \SYSTEM\DBD\SYS_SAIMOD_TODO_STATS_USERS::QQ();
         while($stat = $userstats->next()){
-            $stat['perc'] = round(($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']))*100,2);
+            $stat['perc'] = sprintf("%.2f",($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']))*100);
             $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'), $stat);
         }
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_todo/tpl/todo_stats.tpl'), $vars);        

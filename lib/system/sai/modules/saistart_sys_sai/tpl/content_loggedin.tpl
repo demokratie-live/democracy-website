@@ -56,7 +56,6 @@
                     </div>
                </div>
             </div> 
-            <h2 class="muted"><a href="#!login"></a></h2>
         </div>
         </div>
         <div class="row">
