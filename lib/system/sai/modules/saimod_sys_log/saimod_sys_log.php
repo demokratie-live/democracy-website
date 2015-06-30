@@ -342,11 +342,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                 return 'info';
             case 'SYSTEM\LOG\ERROR': case 'ERROR': case 'Exception': case 'SYSTEM\LOG\ERROR_EXCEPTION':
             case 'ErrorException': case 'SYSTEM\LOG\SHUTDOWN_EXCEPTION':
-                return 'error';
+                return 'danger';
             case 'SYSTEM\LOG\WARNING': case 'WARNING':
                 return 'warning';
             default:
-                return '';
+                return 'danger';
         }        
     }
     

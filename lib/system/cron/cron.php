@@ -50,7 +50,7 @@ class cron {
     }
     
     private static function status($class, $status){
-        new \SYSTEM\LOG\CRON('Cron Status for Class '.$class.' updated to: '. \SYSTEM\CRON\cronstatus::text($status));
+        //new \SYSTEM\LOG\CRON('Cron Status for Class '.$class.' updated to: '. \SYSTEM\CRON\cronstatus::text($status));
         return \SYSTEM\DBD\SYS_CRON_UPD::QI(array($status,time(),$class));}
     
     public static function last_visit(){
