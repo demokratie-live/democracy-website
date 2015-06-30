@@ -258,6 +258,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_password', 'jaJA', '丸秘のパスワード', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_password', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_password', 'sai_login');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_password', 'sai_start');
 
     DELETE FROM `system_text` WHERE id = 'basic_placeholder_username';
     DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_username';
@@ -269,6 +270,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_placeholder_username', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', '0000-00-00 00:00:00');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_username', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_username', 'sai_login');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_placeholder_username', 'sai_start');
     
     DELETE FROM `system_text` WHERE id = 'basic_placeholder_search';
     DELETE FROM `system_text_tag` WHERE id = 'basic_placeholder_search';
