@@ -1,7 +1,5 @@
 <?php
-
 namespace SYSTEM\API;
-
 abstract class api_default extends api_system {
     //https://developers.google.com/webmasters/ajax-crawling/docs/getting-started
     //mojotrollz.eu:80/web/flingit/?_escaped_fragment_=start%3Bhash.ce5504f67533ab3d881a32e1dcdd330aaeb27f19

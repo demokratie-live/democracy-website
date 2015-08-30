@@ -1,7 +1,5 @@
 <?php
-
 namespace SYSTEM;
-
 class time {    
     private static $start_time;    
     
