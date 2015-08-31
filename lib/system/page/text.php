@@ -78,6 +78,9 @@ class text {
             return self::get_adv($id, \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG));}
         return $res;
     }
+    public static function search($search,$tag/*=null*/){
+        $search = '%'.$search.'%';
+        return \SYSTEM\DBD\SYS_TEXT_SEARCH_TAG::QA(array($tag,$search,$search,$search));}
     
     public static function save($id, $new_id, $lang, $tags, $text){
         if($new_id == self::NEW_ENTRY){
