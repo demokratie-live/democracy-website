@@ -11,6 +11,6 @@ class todo_stats_data {
         $this->open = $all-$closed;
         $this->closed = $closed;
         $this->all = $all;
-        $this->perc =  $this->all == 0 ? 1 : sprintf("%.2f", $this->closed / $this->all * 100);
+        $this->perc =  $this->all == 0 ? sprintf("%.2f",100) : sprintf("%.2f", $this->closed / $this->all * 100);
     }
 }
