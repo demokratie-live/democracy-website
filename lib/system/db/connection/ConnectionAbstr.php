@@ -13,7 +13,8 @@ abstract class ConnectionAbstr {
     abstract public function prepare($stmtName, $stmt, $values);
     //Query Database with normal Statement with $query = SQLString
     abstract public function query($query);
-
+    abstract public function commit();
+    abstract public function trans();
     //Convert Prepared Values to SQL Type identifiers
     protected static function getPrepareValueType($value){
         if(is_double($value)){

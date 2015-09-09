@@ -1,16 +1,11 @@
 <?php
-
 namespace SYSTEM\DB;
-
 class Connection extends ConnectionAbstr{
-
-    //The open Connection, either ConnectionPG or ConnectionMYS
+    //The open Connection
     private $connection = NULL;
-    //private $dbinfo = NULL;
 
-    //Connects to DB, dependent on DBInfo a connection to a PG or MYS will be established
+    //Connects to DB, dependent on DBInfo a connection will be established
     public function __construct(DBInfo $dbinfo = null){
-        //$this->dbinfo = $dbinfo;
         if(!$dbinfo){
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
 
@@ -44,4 +39,10 @@ class Connection extends ConnectionAbstr{
         
     public function exec($query){
         return $this->connection->exec($query);}
+        
+    public function trans(){
+        return $this->connection->trans();}
+    
+    public function commit(){
+        return $this->connection->commit();}
 }

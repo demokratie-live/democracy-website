@@ -29,6 +29,11 @@ class PLIB extends PATH {
         return C_ROOT.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'lib/'.C_SUBPATH;}
 }
 
+class PSQL extends PATH {
+    static public function getPath(){
+        return C_ROOT.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'dbd/'.C_SUBPATH;}
+}
+
 function SERVERPATH(\SYSTEM\PATH $basepath, $subpath = ''){
     return str_replace(    array(C_ROOT,C_SUBPATH),
                            array(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH),$subpath),

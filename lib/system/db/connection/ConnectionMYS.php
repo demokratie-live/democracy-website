@@ -1,7 +1,5 @@
 <?php
-
 namespace SYSTEM\DB;
-
 class ConnectionMYS extends ConnectionAbstr {
     private $connection = NULL;
     
@@ -43,13 +41,25 @@ class ConnectionMYS extends ConnectionAbstr {
         return mysqli_close($this->connection);}
 
     public function query($query){
-        $result = mysqli_query($this->connection, $query);
+        $result = \mysqli_query($this->connection, $query);
         if(!$result){
-            throw new \Exception('Could not query Database. Check ur Query Syntax or required Rights: '.mysqli_error($this->connection));}
+            throw new \Exception('Could not query Database. Check ur Query Syntax or required Rights: '.\mysqli_error($this->connection));}
 
         if($result === TRUE){
             return TRUE;}
 
         return new ResultMysqli($result);
+    }
+    
+    public function commit(){
+        if(!\mysqli_commit($this->connection)){
+            throw new \Exception('Could not start Transaction: '.\mysqli_error($this->connection));}
+        return true;
+    }
+    
+    public function trans(){
+        if(!\mysqli_begin_transaction($this->connection,MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT)){
+            throw new \Exception('Could not start Transaction: '.\mysqli_error($this->connection));}
+        return true;
     }
 }
