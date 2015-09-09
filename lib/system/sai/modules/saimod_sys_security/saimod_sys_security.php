@@ -109,7 +109,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_user($username){        
         $vars = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER::Q1(array($username));
-        $vars['time_elapsed'] = \SYSTEM\time::time_ago_string($vars['last_active']);
+        $vars['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($vars['last_active']));
         $vars['user_rights'] = array_key_exists('id', $vars) ? self::user_rights($vars['id']) : '';
         $vars['user_actions'] = array_key_exists('id', $vars) ? self::user_actions($vars['id']) : '';
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
