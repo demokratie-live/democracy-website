@@ -2,7 +2,7 @@
 
 namespace SYSTEM\DBD;
 
-class UserRightsTable {
+class system_user_to_rights {
 
     const NAME_PG = 'system.user_to_rights';
     const NAME_MYS = 'system_user_to_rights';
