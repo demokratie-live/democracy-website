@@ -1,5 +1,5 @@
 <?php
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 
 class system_log {
     const NAME_PG                   = 'system.log';

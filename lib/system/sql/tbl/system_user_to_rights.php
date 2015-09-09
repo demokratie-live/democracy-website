@@ -1,6 +1,6 @@
 <?php
 
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 
 class system_user_to_rights {
 

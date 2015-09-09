@@ -2,9 +2,9 @@
 namespace SYSTEM\SAI;
 class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text(){        
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['tabopts'] = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TAGS::QQ();
+        $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TAGS::QQ();
         $vars['new_id'] = \SYSTEM\PAGE\text::NEW_ENTRY;
         $vars['new_lang'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);
         while($r = $res->next()){
@@ -17,12 +17,12 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag(){
-        $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_GETTEXTS_NOTAG::QQ();
+        $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_GETTEXTS_NOTAG::QQ();
         $entries = '';
         while($r = $res->next()){  
             $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
         }
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['entries'] = $entries;
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
     }
@@ -30,29 +30,29 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = 'all',$filter = "all",$search="%",$page=0){
         if($tag == 'all'){
             if($filter == 'all'){
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT::Q1(array($search,$search,$search))['count'];
-                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT::QQ(array($search,$search,$search));
+                $count = \SYSTEM\SQL\SYS_SAIMOD_TEXT_COUNT::Q1(array($search,$search,$search))['count'];
+                $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TEXT::QQ(array($search,$search,$search));
                 
             } else {
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_FILTER::Q1(array($filter,$search,$search,$search))['count'];
-                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_FILTER::QQ(array($filter,$search,$search,$search));
+                $count = \SYSTEM\SQL\SYS_SAIMOD_TEXT_COUNT_FILTER::Q1(array($filter,$search,$search,$search))['count'];
+                $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TEXT_FILTER::QQ(array($filter,$search,$search,$search));
             }
         } elseif($tag == 'notag'){
             if($filter == 'all'){
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_NOTAG::Q1(array($search,$search,$search))['count'];
-                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_NOTAG::QQ(array($search,$search,$search));
+                $count = \SYSTEM\SQL\SYS_SAIMOD_TEXT_COUNT_NOTAG::Q1(array($search,$search,$search))['count'];
+                $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TEXT_NOTAG::QQ(array($search,$search,$search));
                 
             } else {
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER::Q1(array($filter,$search,$search,$search))['count'];
-                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER::QQ(array($filter,$search,$search,$search));
+                $count = \SYSTEM\SQL\SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER::Q1(array($filter,$search,$search,$search))['count'];
+                $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER::QQ(array($filter,$search,$search,$search));
             }
         } else {
             if($filter == 'all'){
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_TAG::Q1(array($tag,$search,$search,$search))['count'];
-                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_TAG::QQ(array($tag,$search,$search,$search));
+                $count = \SYSTEM\SQL\SYS_SAIMOD_TEXT_COUNT_TAG::Q1(array($tag,$search,$search,$search))['count'];
+                $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TEXT_TAG::QQ(array($tag,$search,$search,$search));
             } else {
-                $count = \SYSTEM\DBD\SYS_SAIMOD_TEXT_COUNT_TAG_FILTER::Q1(array($tag,$filter,$search,$search,$search))['count'];
-                $res = \SYSTEM\DBD\SYS_SAIMOD_TEXT_TEXT_TAG_FILTER::QQ(array($tag,$filter,$search,$search,$search));
+                $count = \SYSTEM\SQL\SYS_SAIMOD_TEXT_COUNT_TAG_FILTER::Q1(array($tag,$filter,$search,$search,$search))['count'];
+                $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_TEXT_TAG_FILTER::QQ(array($tag,$filter,$search,$search,$search));
             }
         }
         $vars = array();
@@ -79,13 +79,13 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
             $data = array('active' => ($filter == $lang ? 'active' : ''), 'filter' => $lang, 'search' => $search, 'name' => $lang, 'tag' => $tag);
             $vars['lang_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_lang_filter.tpl'),$data);}
         $vars['active'] = ($filter == 'all' ? 'active' : '');
-        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($id,$lang){
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['tabopts'] = '';
         foreach($langs as $l){
             $vars2 = array();
@@ -98,7 +98,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor($id, $lang){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_TEXT);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['id'] = $id;
         $vars['lang'] = $lang;
         $vars['content'] = \SYSTEM\PAGE\text::get($id,$lang,false);

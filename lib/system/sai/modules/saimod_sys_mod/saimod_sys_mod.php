@@ -3,7 +3,7 @@ namespace SYSTEM\SAI;
 
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = '';
         $sys_mods = \SYSTEM\SAI\sai::getSysModules();
         foreach($sys_mods as $mod){
@@ -23,7 +23,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = $vars['saistart'] = '';
         $mods = \SYSTEM\SAI\sai::getModules();
         foreach($mods as $mod){
@@ -37,7 +37,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_lib(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = '';
         $libs = \LIB\lib_controll::all();
         foreach($libs as $lib){
@@ -57,7 +57,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_MOD));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD));}
     
     //public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">${sai_menu_mod}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_mod" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_mod}" href="#!mod"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>';}    

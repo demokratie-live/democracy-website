@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_CONFIG);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
         $vars['basics'] = $vars['database'] = $vars['sai'] = '';
         $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_tr.tpl'),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING,
@@ -66,7 +66,7 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
     }
     //public static function html_li_menu(){return '<li><a id="menu_config" href="#!config">${sai_menu_config}</a></li>';}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_basics(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_CONFIG);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
         $vars['basics'] = $vars['database'] = $vars['sai'] = '';
         $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_tr.tpl'),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING,
@@ -100,7 +100,7 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_basics.tpl'),$vars);
     }
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_database(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_CONFIG);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
         $vars['database'] = '';
         $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_config/tpl/config_tr.tpl'),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE,

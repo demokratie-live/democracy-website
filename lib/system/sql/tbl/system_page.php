@@ -1,5 +1,5 @@
 <?php
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 
 class system_page {
     const NAME_PG                   = 'system.page';

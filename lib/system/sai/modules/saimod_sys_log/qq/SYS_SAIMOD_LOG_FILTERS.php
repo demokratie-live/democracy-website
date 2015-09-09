@@ -1,17 +1,17 @@
 <?php
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 class SYS_SAIMOD_LOG_FILTERS extends \SYSTEM\DB\QQ {
     public static function get_class(){return \get_class();}
     public static function pqsql(){return
-'SELECT '.\SYSTEM\DBD\system_log::FIELD_CLASS.
-' FROM '.\SYSTEM\DBD\system_log::NAME_PG.
-' GROUP BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.
-' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.';';
+'SELECT '.\SYSTEM\SQL\system_log::FIELD_CLASS.
+' FROM '.\SYSTEM\SQL\system_log::NAME_PG.
+' GROUP BY '.\SYSTEM\SQL\system_log::FIELD_CLASS.
+' ORDER BY '.\SYSTEM\SQL\system_log::FIELD_CLASS.';';
     }
     public static function mysql(){return
-'SELECT '.\SYSTEM\DBD\system_log::FIELD_CLASS.
-' FROM '.\SYSTEM\DBD\system_log::NAME_MYS.
-' GROUP BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.
-' ORDER BY '.\SYSTEM\DBD\system_log::FIELD_CLASS.';';
+'SELECT '.\SYSTEM\SQL\system_log::FIELD_CLASS.
+' FROM '.\SYSTEM\SQL\system_log::NAME_MYS.
+' GROUP BY '.\SYSTEM\SQL\system_log::FIELD_CLASS.
+' ORDER BY '.\SYSTEM\SQL\system_log::FIELD_CLASS.';';
     }
 }

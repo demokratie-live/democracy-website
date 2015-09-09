@@ -1,5 +1,5 @@
 <?php
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 class SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN extends \SYSTEM\DB\QQ {
     public static function get_class(){return \get_class();}
     public static function pqsql(){return

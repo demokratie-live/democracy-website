@@ -34,12 +34,12 @@ class api {
             
         //Parameters        
         $parentid = $commands[count($commands)-1][0];
-        $parentid = $parentid[\SYSTEM\DBD\system_api::FIELD_ID];
+        $parentid = $parentid[\SYSTEM\SQL\system_api::FIELD_ID];
         $parameters = self::do_parameters($params, $tree, $parentid, $commands[count($commands)-1][1],$verifyclassname); //throws
         
         //Opt Parameters        
         $parentid = $commands[count($commands)-1][0];
-        $parentid = $parentid[\SYSTEM\DBD\system_api::FIELD_ID];
+        $parentid = $parentid[\SYSTEM\SQL\system_api::FIELD_ID];
         $parameters_opt = self::do_parameters_opt($params, $tree, $parentid, $commands[count($commands)-1][1],$verifyclassname); //throws                      
         
         //strict check
@@ -60,7 +60,7 @@ class api {
     }
     
     private static function getApiTree($group){        
-        $result = \SYSTEM\DBD\SYS_API_TREE::QA(array($group));
+        $result = \SYSTEM\SQL\SYS_API_TREE::QA(array($group));
         if(!isset($result) || !is_array($result) || count($result) <= 0){
             throw new \SYSTEM\LOG\ERROR("Database Tree for Api empty - cannot proced! GROUP: ".$group);}
         return $result;
@@ -70,23 +70,23 @@ class api {
         $statics = array();
         $parentid = self::ROOT_PARENTID;        
         foreach($tree as $item){
-            if( intval($item[\SYSTEM\DBD\system_api::FIELD_TYPE]) == \SYSTEM\DBD\system_api::VALUE_TYPE_STATIC &&
-                intval($item[\SYSTEM\DBD\system_api::FIELD_PARENTID]) == $parentid &&
-                isset($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
+            if( intval($item[\SYSTEM\SQL\system_api::FIELD_TYPE]) == \SYSTEM\SQL\system_api::VALUE_TYPE_STATIC &&
+                intval($item[\SYSTEM\SQL\system_api::FIELD_PARENTID]) == $parentid &&
+                isset($params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
                 
-                $statics[] = array($item,$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]);
-                $call_funcname = 'static_'.$item[\SYSTEM\DBD\system_api::FIELD_NAME];                
+                $statics[] = array($item,$params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]]);
+                $call_funcname = 'static_'.$item[\SYSTEM\SQL\system_api::FIELD_NAME];                
                 
                 //verify func
                 if(!\method_exists($apiclassname, $call_funcname)){
                     return self::do_default($default, $apiclassname, $call_funcname);} //throws
                     
                 //verify parameter
-                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\system_api::FIELD_VERIFY]) ||
-                    !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
-                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]);}                        
+                if( !method_exists($verifyclassname, $item[\SYSTEM\SQL\system_api::FIELD_VERIFY]) ||
+                    !call_user_func(array($verifyclassname,$item[\SYSTEM\SQL\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\SQL\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\SQL\system_api::FIELD_VERIFY]);}                        
                 //throw new \SYSTEM\LOG\ERROR("yo ".$call_funcname.' '.$apiclassname);    
-                \call_user_func_array(array($apiclassname,$call_funcname),array($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]));
+                \call_user_func_array(array($apiclassname,$call_funcname),array($params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]]));
             }
         }                        
             
@@ -117,18 +117,18 @@ class api {
         $commands = array();
         $parentid = self::ROOT_PARENTID;        
         foreach($tree as $item){             
-            if( (intval($item[\SYSTEM\DBD\system_api::FIELD_TYPE]) == \SYSTEM\DBD\system_api::VALUE_TYPE_COMMAND ||
-                 intval($item[\SYSTEM\DBD\system_api::FIELD_TYPE]) == \SYSTEM\DBD\system_api::VALUE_TYPE_COMMAND_FLAG) &&
-                intval($item[\SYSTEM\DBD\system_api::FIELD_PARENTID]) == $parentid &&
-                isset($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
+            if( (intval($item[\SYSTEM\SQL\system_api::FIELD_TYPE]) == \SYSTEM\SQL\system_api::VALUE_TYPE_COMMAND ||
+                 intval($item[\SYSTEM\SQL\system_api::FIELD_TYPE]) == \SYSTEM\SQL\system_api::VALUE_TYPE_COMMAND_FLAG) &&
+                intval($item[\SYSTEM\SQL\system_api::FIELD_PARENTID]) == $parentid &&
+                isset($params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
                                 
                 //check parent value
-                if( isset($item[\SYSTEM\DBD\system_api::FIELD_PARENTVALUE]) &&
-                    $commands[count($commands)-1][1] != $item[\SYSTEM\DBD\system_api::FIELD_PARENTVALUE]){
+                if( isset($item[\SYSTEM\SQL\system_api::FIELD_PARENTVALUE]) &&
+                    $commands[count($commands)-1][1] != $item[\SYSTEM\SQL\system_api::FIELD_PARENTVALUE]){
                     continue;}
                 
-                $commands[] = array($item,$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]);
-                $parentid = intval($item[\SYSTEM\DBD\system_api::FIELD_ID]);                
+                $commands[] = array($item,$params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]]);
+                $parentid = intval($item[\SYSTEM\SQL\system_api::FIELD_ID]);                
             }
         }                        
             
@@ -138,24 +138,24 @@ class api {
     private static function do_parameters($params,$tree,$parentid,$lastcommandvalue,$verifyclassname){
         $parameters = array();        
         foreach($tree as $item){
-            if( intval($item[\SYSTEM\DBD\system_api::FIELD_TYPE]) == \SYSTEM\DBD\system_api::VALUE_TYPE_PARAM &&
-                intval($item[\SYSTEM\DBD\system_api::FIELD_PARENTID]) == $parentid){
+            if( intval($item[\SYSTEM\SQL\system_api::FIELD_TYPE]) == \SYSTEM\SQL\system_api::VALUE_TYPE_PARAM &&
+                intval($item[\SYSTEM\SQL\system_api::FIELD_PARENTID]) == $parentid){
                 
                 //check parent value
-                if( isset($item[\SYSTEM\DBD\system_api::FIELD_PARENTVALUE]) &&
-                    $lastcommandvalue != $item[\SYSTEM\DBD\system_api::FIELD_PARENTVALUE]){
+                if( isset($item[\SYSTEM\SQL\system_api::FIELD_PARENTVALUE]) &&
+                    $lastcommandvalue != $item[\SYSTEM\SQL\system_api::FIELD_PARENTVALUE]){
                     continue;}
 
                 //all parameters are required
-                if(!isset($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
-                    throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\SYSTEM\DBD\system_api::FIELD_NAME]);}
+                if(!isset($params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter missing: '.$item[\SYSTEM\SQL\system_api::FIELD_NAME]);}
 
                 //verify parameter
-                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\system_api::FIELD_VERIFY]) ||
-                    !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
-                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]);}
+                if( !method_exists($verifyclassname, $item[\SYSTEM\SQL\system_api::FIELD_VERIFY]) ||
+                    !call_user_func(array($verifyclassname,$item[\SYSTEM\SQL\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\SQL\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\SQL\system_api::FIELD_VERIFY]);}
 
-                $parameters[] = array($item, $params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]);
+                $parameters[] = array($item, $params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]]);
             }
         }
         
@@ -165,24 +165,24 @@ class api {
     private static function do_parameters_opt($params,$tree,$parentid,$lastcommandvalue,$verifyclassname){
         $parameters_opt = array();
         foreach($tree as $item){
-            if( intval($item[\SYSTEM\DBD\system_api::FIELD_TYPE]) == \SYSTEM\DBD\system_api::VALUE_TYPE_PARAM_OPT &&
-                intval($item[\SYSTEM\DBD\system_api::FIELD_PARENTID]) == $parentid){
+            if( intval($item[\SYSTEM\SQL\system_api::FIELD_TYPE]) == \SYSTEM\SQL\system_api::VALUE_TYPE_PARAM_OPT &&
+                intval($item[\SYSTEM\SQL\system_api::FIELD_PARENTID]) == $parentid){
                 
                 //check parent value
-                if( isset($item[\SYSTEM\DBD\system_api::FIELD_PARENTVALUE]) &&
-                    $lastcommandvalue != $item[\SYSTEM\DBD\system_api::FIELD_PARENTVALUE]){
+                if( isset($item[\SYSTEM\SQL\system_api::FIELD_PARENTVALUE]) &&
+                    $lastcommandvalue != $item[\SYSTEM\SQL\system_api::FIELD_PARENTVALUE]){
                     continue;}
 
                 //all parameters are NOT required - just continue
-                if(!isset($params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
+                if(!isset($params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
                     continue;}
 
                 //verify parameter
-                if( !method_exists($verifyclassname, $item[\SYSTEM\DBD\system_api::FIELD_VERIFY]) ||                    
-                    !call_user_func(array($verifyclassname,$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]])){
-                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\DBD\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\DBD\system_api::FIELD_VERIFY]);}
+                if( !method_exists($verifyclassname, $item[\SYSTEM\SQL\system_api::FIELD_VERIFY]) ||                    
+                    !call_user_func(array($verifyclassname,$item[\SYSTEM\SQL\system_api::FIELD_VERIFY]),$params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]])){
+                    throw new \SYSTEM\LOG\ERROR('Parameter type missmacht or Missing Verifier. Param: '.$item[\SYSTEM\SQL\system_api::FIELD_NAME].' Verifier: '.$item[\SYSTEM\SQL\system_api::FIELD_VERIFY]);}
 
-                $parameters_opt[] = array($item, $params[$item[\SYSTEM\DBD\system_api::FIELD_NAME]]);
+                $parameters_opt[] = array($item, $params[$item[\SYSTEM\SQL\system_api::FIELD_NAME]]);
             }
         }
         
@@ -195,10 +195,10 @@ class api {
             if(!\preg_match('^[0-9A-Za-z_]+$^', $com[1])){                
                 throw new \SYSTEM\LOG\ERROR('Call Command can only have letters! command: '.$com[0]['name'].'; value: '.$com[1]);}
 
-            if($com[0][\SYSTEM\DBD\system_api::FIELD_TYPE] == \SYSTEM\DBD\system_api::VALUE_TYPE_COMMAND_FLAG){
-                $call_funcname .= '_flag_'.$com[0][\SYSTEM\DBD\system_api::FIELD_NAME];
+            if($com[0][\SYSTEM\SQL\system_api::FIELD_TYPE] == \SYSTEM\SQL\system_api::VALUE_TYPE_COMMAND_FLAG){
+                $call_funcname .= '_flag_'.$com[0][\SYSTEM\SQL\system_api::FIELD_NAME];
             } else {
-                $call_funcname .= '_'.$com[0][\SYSTEM\DBD\system_api::FIELD_NAME].'_'.\strtolower($com[1]);}
+                $call_funcname .= '_'.$com[0][\SYSTEM\SQL\system_api::FIELD_NAME].'_'.\strtolower($com[1]);}
         }
         $call_funcname = substr($call_funcname, 1); //strip leading _
         

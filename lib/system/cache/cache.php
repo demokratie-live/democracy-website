@@ -5,7 +5,7 @@ namespace SYSTEM\CACHE;
 class cache {
     
     public static function get($cache_id, $ident){
-        $result = \SYSTEM\DBD\SYS_CACHE_CHECK::Q1(array($cache_id,$ident));
+        $result = \SYSTEM\SQL\SYS_CACHE_CHECK::Q1(array($cache_id,$ident));
         if(!$result){
             return NULL;}
                                 
@@ -19,12 +19,12 @@ class cache {
             self::del($cache_id, $ident);
         }                
                         
-        $result = \SYSTEM\DBD\SYS_CACHE_PUT::Q1(array($cache_id,$ident, pg_escape_bytea($data)));                
+        $result = \SYSTEM\SQL\SYS_CACHE_PUT::Q1(array($cache_id,$ident, pg_escape_bytea($data)));                
         return $result ? $data : NULL;
     }
     
     public static function del($cache_id, $ident){
-        $result = \SYSTEM\DBD\SYS_CACHE_DELETE::Q1(array($cache_id,$ident));                
+        $result = \SYSTEM\SQL\SYS_CACHE_DELETE::Q1(array($cache_id,$ident));                
         return $result ? true : false;                                                          
     }
 }

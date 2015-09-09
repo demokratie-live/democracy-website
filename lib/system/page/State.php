@@ -15,7 +15,7 @@ class State {
             $var = \explode('.',$state_vars[$i]);
             $vars[$var[0]] = $var[1];}
         $result = array();
-        $res = \SYSTEM\DBD\SYS_PAGE_GROUP::QQ(array($group,$state_name));
+        $res = \SYSTEM\SQL\SYS_PAGE_GROUP::QQ(array($group,$state_name));
         while($row = $res->next()){
             if(!self::is_loaded($row,$substate,$state_name,$row['parent_id'])){
                 continue;}

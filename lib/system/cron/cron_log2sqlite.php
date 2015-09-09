@@ -3,7 +3,7 @@ namespace SYSTEM\CRON;
 class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
     public static function run(){
         //find oldest value
-        $oldest = \SYSTEM\DBD\SYS_LOG_OLDEST::Q1();
+        $oldest = \SYSTEM\SQL\SYS_LOG_OLDEST::Q1();
         list( $now_month, $now_year ) = preg_split( "/ /", date("m Y"));
         //All fine -> abort
         if( $oldest['year'] >= $now_year &&
@@ -40,11 +40,11 @@ class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
         //write data as trasaction
         $con->exec('begin transaction');
         set_time_limit(30);
-        $res = \SYSTEM\DBD\SYS_LOG_MONTH::QQ(array($oldest['month'],$oldest['year']));
+        $res = \SYSTEM\SQL\SYS_LOG_MONTH::QQ(array($oldest['month'],$oldest['year']));
         while($row = $res->next()){
             set_time_limit(30);
             $row['time'] = array_key_exists('time_pg', $row) ? date("Y-m-d H:i:s", $row['time_pg']) : $row['time'];
-            if(!$con->exec('INSERT OR IGNORE INTO '.\SYSTEM\DBD\system_log::NAME_MYS.
+            if(!$con->exec('INSERT OR IGNORE INTO '.\SYSTEM\SQL\system_log::NAME_MYS.
                             '(`ID`, `class`, `message`, `code`, `file`, `line`, `trace`, `ip`, `querytime`, `time`,'.
                             ' `server_name`, `server_port`, `request_uri`, `post`,'.
                             ' `http_referer`, `http_user_agent`, `user`, `thrown`)'.
@@ -57,7 +57,7 @@ class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
                 return cronstatus::CRON_STATUS_FAIL;    
             }
             //Delete single
-            if(!\SYSTEM\DBD\SYS_LOG_DEL::QI(array($row['ID']))){
+            if(!\SYSTEM\SQL\SYS_LOG_DEL::QI(array($row['ID']))){
                 new \SYSTEM\LOG\ERROR('failed to delete log entries');
                 return cronstatus::CRON_STATUS_FAIL;}
         }

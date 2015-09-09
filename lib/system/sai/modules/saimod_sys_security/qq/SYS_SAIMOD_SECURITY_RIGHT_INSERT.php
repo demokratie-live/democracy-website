@@ -1,5 +1,5 @@
 <?php
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 class SYS_SAIMOD_SECURITY_RIGHT_INSERT extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 

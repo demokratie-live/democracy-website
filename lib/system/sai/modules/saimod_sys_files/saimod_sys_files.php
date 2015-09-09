@@ -28,7 +28,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
         $res = \SYSTEM\FILES\files::get();
         foreach($res as $name=>$folder){
             $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_tabopt.tpl'), array( 'name' => $name));}
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_FILES));    
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_FILES));    
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files.tpl'), $vars);
     }
     
@@ -40,7 +40,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
             $result .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_list_entry.tpl'), array('i' => $i++, 'cat' => $name, 'name' => $file, 'extension' => substr($file,-3,3), 'url' => 'api.php?call=files&cat='.$name.'&id='.$file));}
         $vars['cat'] = $name;
         $vars['content'] = $result;
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_FILES));    
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_FILES));    
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_files/tpl/saimod_sys_files_list.tpl'), $vars);}
     
     //public static function html_li_menu(){return '<li><a id="menu_files" href="#!files">${sai_menu_files}</a></li>';}

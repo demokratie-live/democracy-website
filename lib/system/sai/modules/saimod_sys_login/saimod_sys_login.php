@@ -2,7 +2,7 @@
 namespace SYSTEM\SAI;
 class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login(){              
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOGIN);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         $vars['login'] = 'Login';
         $vars['logout'] = 'Logout';
         $vars['loginUsername'] = 'Username';
@@ -35,7 +35,7 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     }        
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_registerform(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_LOGIN);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/register.tpl'), $vars);}
 
     public static function html_li_menu(){return '<li class="sai_divider_left"><a id="menu_login" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_login}" href="#!login">'.(\SYSTEM\SECURITY\Security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>').'</a></li>';}

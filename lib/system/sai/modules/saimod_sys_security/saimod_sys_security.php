@@ -4,14 +4,14 @@ namespace SYSTEM\SAI;
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_groups(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_groups.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_groups.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_newright(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_newright.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));}
+        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_newright.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));}
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_rights(){
         $rows = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
+        $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
             $r['right_edit_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
                                     '<button type="submit" class="btn btn-sm btn-danger right_delete" onClick="system.load(\'security(delright);id.'.$r['ID'].'\');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ${basic_delete}</button>
@@ -22,45 +22,45 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['addright_btn'] = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
                                 '<br><button type="submit" onClick="system.load(\'security(newright)\');" class="btn btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_new_right}</button>' :
                                 '<font color="red">You are missing the required rights for adding or removing rights.</font>';
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_rights.tpl'),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleterightuser($rightid,$userid){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK::Q1(array($rightid,$userid));
+        $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK::Q1(array($rightid,$userid));
         if(!$res || $res['count'] == 0){
             return false;}        
-        return \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE::QI(array($rightid,$userid));}
+        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE::QI(array($rightid,$userid));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_addrightuser($rightid,$userid){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK::Q1(array($rightid,$userid));
+        $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK::Q1(array($rightid,$userid));
         if(!$res || $res['count'] != 0){
             return false;}        
-        return \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT::QI(array($rightid,$userid));}
+        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT::QI(array($rightid,$userid));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_addright($id,$name,$description){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
-        return \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHT_INSERT::QI(array($id,$name,$description));}
+        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_INSERT::QI(array($id,$name,$description));}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleterightconfirm($id){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
-        $vars = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHT_CHECK::Q1(array($id));
+        $vars = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_CHECK::Q1(array($id));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_deleteright.tpl'),$vars);}
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleteright($id){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
-        return \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHT_DELETE::QI(array($id));}
+        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_DELETE::QI(array($id));}
 
     //Todo move to log
     private static function user_actions($userid){
-        $count = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_LOG_COUNT::Q1(array($userid));
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_LOG::QQ(array($userid));
+        $count = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_LOG_COUNT::Q1(array($userid));
+        $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_LOG::QQ(array($userid));
         $table='';
         while($r = $res->next()){            
             $r['class_row'] = \SYSTEM\SAI\saimod_sys_log::tablerow_class($r['class']);
@@ -71,13 +71,13 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars = array();
         $vars['count'] = $count['count'];
         $vars['table'] = $table;
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_actions.tpl'), $vars);
     }
     
     private static function user_rights($userid){
         $vars['user_rights_table'] = '';        
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_RIGHTS::QQ(array($userid));
+        $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHTS::QQ(array($userid));
         while($r = $res->next()){
             $r['user_id'] = $userid;
             $r['remove_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
@@ -88,7 +88,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['user_rights_add'] = '<font color="red">You are missing the required rights for adding or removing the rights of an user.</font>';
         if(\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             $opts = '';
-            $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
+            $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
             $b = true;
             while($r = $res->next()){            
                 $r['selected'] = $b ? 'selected="selected"' : '';
@@ -100,32 +100,32 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             $v['right_options'] = $opts;
             $vars['user_rights_add'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_rights_add.tpl'), $v);
         }
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));    
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));    
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_rights.tpl'), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_stats(){
-         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_stats.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
+         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_stats.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_user($username){        
-        $vars = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER::Q1(array($username));
+        $vars = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER::Q1(array($username));
         $vars['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($vars['last_active']));
         $vars['user_rights'] = array_key_exists('id', $vars) ? self::user_rights($vars['id']) : '';
         $vars['user_actions'] = array_key_exists('id', $vars) ? self::user_actions($vars['id']) : '';
-        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_view.tpl'),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($filter = "all",$search="%",$page=0){
-        $count = $filter == "all" ? \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search,$search))['count'] :
-                                    \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USER_COUNT_FILTER::Q1(array($search,$search,$filter))['count'];
+        $count = $filter == "all" ? \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search,$search))['count'] :
+                                    \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_COUNT_FILTER::Q1(array($search,$search,$filter))['count'];
         $vars = array();
         $vars['filter'] = $filter;
         $vars['search'] = $search;
         $vars['page'] = $page;
         $vars['table'] = '';
-        $res = $filter == "all" ? \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS::QQ(array($search,$search)) :
-                                  \SYSTEM\DBD\SYS_SAIMOD_SECURITY_USERS_FILTER::QQ(array($search,$search,$filter));
+        $res = $filter == "all" ? \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USERS::QQ(array($search,$search)) :
+                                  \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USERS_FILTER::QQ(array($search,$search,$filter));
         $count_filtered = 0;
         $res->seek(100*$page);
         while(($r = $res->next()) && ($count_filtered < 100)){
@@ -142,17 +142,17 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         }
         $vars['count'] = $count_filtered.'/'.$count;
         $vars['right_filter'] = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
+        $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
         while($row = $res->next()){
             $data = array('active' => ($filter == $row['ID'] ? 'active' : ''), 'filter' => $row['ID'], 'search' => $search, 'name' => $row['name']);
             $vars['right_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_right_filter.tpl'),$data);}
         $vars['active'] = ($filter == 'all' ? 'active' : '');
-        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY));
+        $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_users.tpl'),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\DBD\system_text::TAG_SAI_SECURITY);
+        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY);
         $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security.tpl'), $vars);}
     

@@ -1,5 +1,5 @@
 <?php
-namespace SYSTEM\DBD;
+namespace SYSTEM\SQL;
 
 class system_todo {
     const NAME_PG                   = 'system.todo';

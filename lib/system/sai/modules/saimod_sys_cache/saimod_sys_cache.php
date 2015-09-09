@@ -3,9 +3,9 @@ namespace SYSTEM\SAI;
 class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cache(){
         $vars = array();
-        $vars['count'] = \SYSTEM\DBD\SYS_SAIMOD_CACHE_COUNT::Q1()['count'];
+        $vars['count'] = \SYSTEM\SQL\SYS_SAIMOD_CACHE_COUNT::Q1()['count'];
         $vars['entries'] = '';
-        $res = \SYSTEM\DBD\SYS_SAIMOD_CACHE::QQ();
+        $res = \SYSTEM\SQL\SYS_SAIMOD_CACHE::QQ();
         while($r = $res->next()){
             $r['class'] = self::tablerow_class($r['CacheID']);
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cache/tpl/saimod_sys_cache_entry.tpl'), $r);}

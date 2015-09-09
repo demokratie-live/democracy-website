@@ -11,7 +11,7 @@ require_once dirname(__FILE__).'/system/autoload.inc';
 require_once dirname(__FILE__).'/log/autoload.inc';
 require_once dirname(__FILE__).'/api/autoload.inc';
 require_once dirname(__FILE__).'/page/autoload.inc';
-require_once dirname(__FILE__).'/dbd/autoload.inc';
+require_once dirname(__FILE__).'/sql/autoload.inc';
 require_once dirname(__FILE__).'/db/autoload.inc';
 require_once dirname(__FILE__).'/security/autoload.inc';
 require_once dirname(__FILE__).'/config/autoload.inc';
