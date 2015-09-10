@@ -24,7 +24,8 @@ class QI {
                     ' --execute="SOURCE ';
         $result = array();
         foreach($files as $file){
-            $result[] = shell_exec($command .$file. '"');}
-        return \SYSTEM\LOG\JsonResult::toString($result);
+            $output = shell_exec($command .$file. '"');
+            $result[] = array($file,$output);}
+        return $result;
     }
 }

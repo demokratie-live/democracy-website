@@ -31,7 +31,7 @@ class PLIB extends PATH {
 
 class PSQL extends PATH {
     static public function getPath(){
-        return C_ROOT.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'dbd/'.C_SUBPATH;}
+        return C_ROOT.\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL).'sql/'.C_SUBPATH;}
 }
 
 function SERVERPATH(\SYSTEM\PATH $basepath, $subpath = ''){
