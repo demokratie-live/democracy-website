@@ -21,6 +21,7 @@ class QI {
                     ' --user=' . $dbinfo->m_user.
                     ' --password=' . $dbinfo->m_password.
                     ' --database=' . $dbinfo->m_database.
+                    ' --default-character-set=utf8'.
                     ' --execute="SOURCE ';
         $result = array();
         foreach($files as $file){
