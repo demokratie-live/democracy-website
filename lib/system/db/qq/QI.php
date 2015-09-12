@@ -25,7 +25,7 @@ class QI {
                     ' --execute="SOURCE ';
         $result = array();
         foreach($files as $file){
-            $output = shell_exec($command .$file. '"');
+            $output = shell_exec($command .$file. '" 2>&1');
             $result[] = array($file,$output);}
         return $result;
     }
