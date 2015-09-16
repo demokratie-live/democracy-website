@@ -5,6 +5,7 @@ class autoload {
     
     private static $files = array();       // array(class, namespace, file)
     private static $folders = array();     // array(namespace, folder)   
+    private static $func = array();        // array(namespace, func)
 
     private static function getClassFromFile($file){
         $path_info = \pathinfo($file);
@@ -36,6 +37,11 @@ class autoload {
                 require_once $folder[1].'/'.$class.'.php';
                 return true;}
         }
+        
+        foreach(self::$func as $func){            
+            if(strtolower($func[0]) == strtolower($namespace) && call_user_func($func[1],$class)){
+                return true;}
+        }
 
         return false;
     }
@@ -52,6 +58,12 @@ class autoload {
             throw new \SYSTEM\LOG\ERROR('Folder not found on registerFolder for Autoload: '.$folder);}
 
         self::$folders[] = array($namespace, $folder);
+    }
+    
+    public static function registerFunc($func, $namespace = ''){        
+        /*if(!_exists($func)){
+            throw new \SYSTEM\LOG\ERROR('Function not found on registerFunc for Autoload: '.$func);}*/
+        self::$func[] = array($namespace, $func);
     }
     
     public static function register_autoload(){
