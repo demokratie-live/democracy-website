@@ -33,6 +33,9 @@ class HEADER {
     public static function CSS(){
         if(self::checkHeader()){
             header('content-type:text/css;');}}
+    public static function LESS(){
+        if(self::checkHeader()){
+            header('content-type:text/css;');}}
             
     public static function FILE($filename){
         header("Content-type: application/octet-stream");
