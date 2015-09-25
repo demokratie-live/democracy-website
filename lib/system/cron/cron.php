@@ -49,6 +49,20 @@ class cron {
                                             $cron[\SYSTEM\SQL\system_cron::FIELD_MONTH]);
     }
     
+    public static function last($class){
+        $cron = \SYSTEM\SQL\SYS_CRON_GET::Q1(array($class));
+        //check module
+        if(!self::check($cron[\SYSTEM\SQL\system_cron::FIELD_CLASS])){
+            throw new \SYSTEM\LOG\ERROR("Given class is not a cronjob");}
+        //time
+        return \SYSTEM\CRON\crontime::last( strtotime($cron[\SYSTEM\SQL\system_cron::FIELD_LAST_RUN]),
+                                            $cron[\SYSTEM\SQL\system_cron::FIELD_MIN],
+                                            $cron[\SYSTEM\SQL\system_cron::FIELD_HOUR],
+                                            $cron[\SYSTEM\SQL\system_cron::FIELD_DAY],
+                                            $cron[\SYSTEM\SQL\system_cron::FIELD_DAY_WEEK],
+                                            $cron[\SYSTEM\SQL\system_cron::FIELD_MONTH]);
+    }
+    
     private static function status($class, $status){
         //new \SYSTEM\LOG\CRON('Cron Status for Class '.$class.' updated to: '. \SYSTEM\CRON\cronstatus::text($status));
         return \SYSTEM\SQL\SYS_CRON_UPD::QI(array($status,time(),$class));}

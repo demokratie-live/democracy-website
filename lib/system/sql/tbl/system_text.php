@@ -3,13 +3,16 @@
 namespace SYSTEM\SQL;
 
 class system_text {
-    const NAME_PG  = 'system.text';
-    const NAME_MYS = 'system_text';
+    const NAME_PG               = 'system.text';
+    const NAME_MYS              = 'system_text';
 
-    const FIELD_ID = 'id';
-    const FIELD_TEXT = 'text';
+    const FIELD_ID              = 'id';
+    const FIELD_TEXT            = 'text';
 
     const TAG_BASIC             = 'basic';
+    const TAG_TIME              = 'time';
+    const TAG_TABLE             = 'table';
+    
     const TAG_SAI               = 'sai';
     const TAG_SAI_DEFAULT       = 'sai_default';
     const TAG_SAI_START         = 'sai_start';
