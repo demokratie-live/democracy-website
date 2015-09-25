@@ -35,8 +35,7 @@
                 </div>
             </div>    
             <div class="row">
-                <div class="col-md-2">
-                    ${basic_project_menu}
+                <div class="col-md-2" style="padding-top: 20px;">
                     <ul class="nav nav-pills nav-stacked ">                
                         ${menu_proj}
                     </ul>
