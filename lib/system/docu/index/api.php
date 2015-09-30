@@ -4,7 +4,7 @@ require_once 'system/autoload.inc.php';
 require_once 'dbd/autoload.inc.php';
 require_once 'dasense/autoload.inc.php';
 
-$call = new DBD\dasensedata();
+$call = new SQL\dasensedata();
 /*$call = array(  array(\SQL\APITable::FIELD_ID => 0,     \SQL\APITable::FIELD_FLAG =>0,  \SQL\APITable::FIELD_PARENTID =>-1,     \SQL\APITable::FIELD_PARENTVALUE =>NULL,            \SQL\APITable::FIELD_NAME =>'call',             \SQL\APITable::FIELD_ALLOWEDVALUES =>NULL),
                 array(\SQL\APITable::FIELD_ID => 45,    \SQL\APITable::FIELD_FLAG =>1,  \SQL\APITable::FIELD_PARENTID =>1,      \SQL\APITable::FIELD_PARENTVALUE =>'geopoint',      \SQL\APITable::FIELD_NAME =>'datatype',         \SQL\APITable::FIELD_ALLOWEDVALUES =>'ALL'),
                 array(\SQL\APITable::FIELD_ID => 120,   \SQL\APITable::FIELD_FLAG =>0,  \SQL\APITable::FIELD_PARENTID =>60,     \SQL\APITable::FIELD_PARENTVALUE =>'login',         \SQL\APITable::FIELD_NAME =>'compatibility',    \SQL\APITable::FIELD_ALLOWEDVALUES =>'FLAG'),

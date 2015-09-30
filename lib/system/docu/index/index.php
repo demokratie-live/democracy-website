@@ -8,7 +8,7 @@ require_once 'dasense/autoload.inc.php';
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE); // evtl. hilfreich
 
-$call = new DBD\dasensedata();
+$call = new SQL\dasensedata();
 /*$call = array(  array(\SQL\PAGETable::FIELD_ID=>6,  \SQL\PAGETable::FIELD_FLAG=>1,  \SQL\PAGETable::FIELD_PARENTID=>5,  \SQL\PAGETable::FIELD_PARENTVALUE=>'sensor',    \SQL\PAGETable::FIELD_NAME=>'sensorIDs',    \SQL\PAGETable::FIELD_ALLOWEDVALUES=>'ALL'),
                 array(\SQL\PAGETable::FIELD_ID=>5,  \SQL\PAGETable::FIELD_FLAG=>0,  \SQL\PAGETable::FIELD_PARENTID=>-1, \SQL\PAGETable::FIELD_PARENTVALUE=>NULL,        \SQL\PAGETable::FIELD_NAME=>'action',       \SQL\PAGETable::FIELD_ALLOWEDVALUES=>'ALL'),
                 array(\SQL\PAGETable::FIELD_ID=>0,  \SQL\PAGETable::FIELD_FLAG=>0,  \SQL\PAGETable::FIELD_PARENTID=>-1, \SQL\PAGETable::FIELD_PARENTVALUE=>NULL,        \SQL\PAGETable::FIELD_NAME=>'module',       \SQL\PAGETable::FIELD_ALLOWEDVALUES=>'ALL'),

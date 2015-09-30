@@ -154,7 +154,7 @@ class ApiClass extends \SYSTEM\API\apiloginclass {
 
     //DB hook for loginapi
     protected static function getUserDBInfo(){
-        return new DBD\dasenseuser();}
+        return new SQL\dasenseuser();}
 
     //#OLD
         //public static function call_account_flag_login(){}
