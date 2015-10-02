@@ -4,12 +4,19 @@ namespace SYSTEM;
 
 class system {
     //array( array(ID, VALUE), array(ID, VALUE))
-    public static function start($config){
-
+    public static function start($config,$short_exc=true,$short_res=true,$error_db=true,$error_json=true){
         \SYSTEM\CONFIG\config::setArray($config);
-        
         self::_start_time();        
-        self::_start_errorreporting();        
+        self::_start_errorreporting();
+        
+        if($short_exc){
+            \SYSTEM\system::include_ExceptionShortcut();} //allow ERROR() instead of \SYSTEM\LOG\ERROR()
+        if($short_res){
+            \SYSTEM\system::include_ResultShortcut();} //allow JsonResult() instead of \SYSTEM\LOG\JsonResult()
+        if($error_db){
+            \SYSTEM\system::register_errorhandler_dbwriter();} //write errors to database (must be first errorhandler to register)
+        if($error_json){
+            \SYSTEM\system::register_errorhandler_jsonoutput();} //print errors as json to caller (must be last errorhandler to register)
     }
     public static function _start_time(){
         \SYSTEM\time::start();}
