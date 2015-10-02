@@ -6,4 +6,5 @@
 \SYSTEM\SAI\sai::register_sys('\SYSTEM\SAI\saimod_sys_todo');
 \SYSTEM\SAI\saimod_sys_todo::register('\SYSTEM\SAI\todo_stats_gen');
 \SYSTEM\SAI\saimod_sys_todo::register('\SYSTEM\SAI\todo_stats_user');
+\SYSTEM\SAI\saimod_sys_todo::register('\SYSTEM\SAI\todo_stats_report');
 \SYSTEM\SAI\saimod_sys_todo::register('\SYSTEM\SAI\todo_stats_assign');
