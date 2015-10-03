@@ -18,7 +18,7 @@ class QQ {
                 return $con->query(static::sqlite());
             }
         } catch (\Exception $e){
-            throw new \SYSTEM\LOG\ERROR(static::get_class().' failed causing: '.$e->getMessage(),$e->getCode(),$e);}
+            throw new \Exception(static::get_class().' failed causing: '.$e->getMessage(),$e->getCode(),$e);}
         
         throw new \Exception('Could not understand Database Settings. Check ur Database Settings');
     }

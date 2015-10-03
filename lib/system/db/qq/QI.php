@@ -14,7 +14,7 @@ class QI {
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoSQLite){
             $files = static::files_sqlite();
         } else {
-            throw new \SYSTEM\LOG\ERROR(static::get_class().' Could not understand Database Settings. Check ur Database Settings');}
+            throw new \Exception(static::get_class().' Could not understand Database Settings. Check ur Database Settings');}
         
         $command =  'mysql'.
                     ' --host=' . $dbinfo->m_host.
