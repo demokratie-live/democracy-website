@@ -45,4 +45,10 @@ class ConnectionSQLite extends ConnectionAbstr {
     public function exec($query){
         return $this->connection->exec($query);
     }
+    
+    public function commit(){
+        throw new \Exception('Could not start Transaction: not implemented');}
+    
+    public function trans(){
+        throw new \Exception('Could not start Transaction: not implemented');}
 }
