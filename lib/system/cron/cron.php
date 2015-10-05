@@ -68,5 +68,5 @@ class cron {
         return \SYSTEM\SQL\SYS_CRON_UPD::QI(array($status,time(),$class));}
     
     public static function last_visit(){
-        return \SYSTEM\SQL\SYS_CRON_LAST_VISIT::Q1()['time'];}
+        return \SYSTEM\SQL\SYS_CRON_LAST_VISIT::Q1()['last_run'];}
 }

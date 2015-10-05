@@ -4,7 +4,7 @@ namespace SYSTEM\SAI;
 class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron(){
         $vars['content'] = '';
-        $vars['last_visit'] = \SYSTEM\CRON\cron::last_visit();
+        $vars['last_visit'] = \SYSTEM\time::time_ago_string(strtotime(\SYSTEM\CRON\cron::last_visit()));
         $res = \SYSTEM\SQL\SYS_SAIMOD_CRON::QQ();
         $i = 0;
         while($r = $res->next()){
@@ -13,7 +13,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
             $r['selected_'.$r['status']] = 'selected';
             $r['i'] = $i++;
             $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/list_entry.tpl'), $r);}   
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CRON));
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CRON), \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_TIME));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/tabs.tpl'), $vars);
     }
     
