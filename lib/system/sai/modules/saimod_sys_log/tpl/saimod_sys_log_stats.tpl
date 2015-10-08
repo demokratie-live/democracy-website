@@ -10,7 +10,7 @@
                 <option value="1209600">14d</option>
                 <option value="604800">7d</option>
                 <option value="172800">2d</option>
-                <option value="86400">1d</option>
+                <option value="86400" selected>1d</option>
                 <option value="43200">12h</option>
                 <option value="21600">6h</option>
                 <option value="14400">4h</option>
