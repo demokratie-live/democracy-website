@@ -1,0 +1,1 @@
+<font color="red">You are missing the required rights for adding or removing the rights of an user.</font>

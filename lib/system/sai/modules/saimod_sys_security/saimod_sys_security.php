@@ -14,14 +14,13 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
             $r['right_edit_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
-                                    '<button type="submit" class="btn btn-sm btn-danger right_delete" onClick="system.load(\'security(delright);id.'.$r['ID'].'\');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ${basic_delete}</button>
-                                    <button type="submit" class="btn btn-sm btn-default right_edit" right_id="'.$r['ID'].'"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ${basic_edit}</button>' :
-                                    '<font color="red">Missing rights.</font>';
+                                    \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/right_edit.tpl'),array('id' => $r['ID'])) :
+                                    \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/missing_edit_right.tpl'));
             $rows .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_right.tpl'),$r);}        
         $vars['rows'] = $rows;
         $vars['addright_btn'] = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
-                                '<br><button type="submit" onClick="system.load(\'security(newright)\');" class="btn btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_new_right}</button>' :
-                                '<font color="red">You are missing the required rights for adding or removing rights.</font>';
+                                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/right_add.tpl')):
+                                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/missing_remove_right.tpl'));
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
         return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_rights.tpl'),$vars);
     }
@@ -81,11 +80,11 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){
             $r['user_id'] = $userid;
             $r['remove_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
-                                '<button type="submit" class="btn btn-sm btn-danger deleteuserright" right_id="'.$r['ID'].'" user_id="'.$userid.'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ${basic_delete}</button>' :
-                                '<font color="red">Missing Rights</font>';
+                                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/right_remove.tpl'),array('id' => $r['ID'])) :
+                                \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/missing_edit_right.tpl'));
             $vars['user_rights_table'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/saimod_sys_security_user_right.tpl'), $r);}
         
-        $vars['user_rights_add'] = '<font color="red">You are missing the required rights for adding or removing the rights of an user.</font>';
+        $vars['user_rights_add'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_security/tpl/missing_add_right.tpl'));
         if(\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             $opts = '';
             $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
@@ -169,7 +168,6 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return 'error';
     }
     
-    //public static function html_li_menu(){return '<li><a id="menu_security" href="#!security">${sai_menu_security}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_security" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_security}" href="#!security"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY);}
