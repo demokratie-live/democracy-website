@@ -201,6 +201,14 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_edit($todo, $message){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_EDIT::QI(array($message,$message,$todo));
         return \SYSTEM\LOG\JsonResult::ok();}
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats_name_closed($filter){
+        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_CLOSED::QA(array($filter)));
+    }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats_name_assigned($filter){
+        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_ASSIGNED::QA(array($filter)));
+    }
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
         $userid = \SYSTEM\SECURITY\Security::getUser()->id;
