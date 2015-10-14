@@ -8,7 +8,7 @@ abstract class api_default extends api_system {
         $html = new \DOMDocument();
         $html->loadHTML(static::default_page($_escaped_fragment_));
         if($error = \libxml_get_last_error()){
-            new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$html->saveHTML());
+            //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$html->saveHTML());
             \libxml_clear_errors();}
         $state = \SYSTEM\PAGE\State::get(static::get_apigroup(), $_escaped_fragment_,false);
         foreach($state as $row){
@@ -18,7 +18,7 @@ abstract class api_default extends api_system {
             if($class){
                 $frag->loadHTML(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, static::get_params($params), static::get_apigroup(), true, false));
                 if($error = \libxml_get_last_error()){
-                    new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$frag->saveHTML());
+                    //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$frag->saveHTML());
                     \libxml_clear_errors();}
                 $html->getElementById(substr($row['div'], 1))->appendChild($html->importNode($frag->documentElement, true));
                 //Load subpage css
