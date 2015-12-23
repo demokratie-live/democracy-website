@@ -12,7 +12,7 @@
 	url = ../lib_tinymce.git
 [submodule "lib/bootstrap_growl"]
 	path = lib/bootstrap_growl
-	url = ../lib_bootstrap-growl.git
+	url = ../lib_bootstrap_growl.git
 [submodule "lib/textillate"]
 	path = lib/textillate
 	url = ../lib_textillate.git
