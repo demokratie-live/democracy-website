@@ -1,33 +1,33 @@
 [submodule "lib/jquery"]
 	path = lib/jquery
-	url = git@mojotrollz.eu:webcraft/lib_jquery.git
+	url = ../lib_jquery.git
 [submodule "lib/bootstrap"]
 	path = lib/bootstrap
-	url = git@mojotrollz.eu:webcraft/lib_bootstrap.git
+	url = ../lib_bootstrap.git
 [submodule "lib/markdown"]
 	path = lib/markdown
-	url = git@mojotrollz.eu:webcraft/lib_markdown.git
+	url = ../lib_markdown.git
 [submodule "lib/tinymce"]
 	path = lib/tinymce
-	url = git@mojotrollz.eu:webcraft/lib_tinymce.git
+	url = ../lib_tinymce.git
 [submodule "lib/bootstrap_growl"]
 	path = lib/bootstrap_growl
-	url = git@mojotrollz.eu:webcraft/lib_bootstrap-growl.git
+	url = ../lib_bootstrap-growl.git
 [submodule "lib/textillate"]
 	path = lib/textillate
-	url = git@mojotrollz.eu:webcraft/lib_textillate.git
+	url = ../lib_textillate.git
 [submodule "lib/lettering"]
 	path = lib/lettering
-	url = git@mojotrollz.eu:webcraft/lib_lettering.git
+	url = ../lib_lettering.git
 [submodule "lib/animate"]
 	path = lib/animate
-	url = git@mojotrollz.eu:webcraft/lib_animate.git
+	url = ../lib_animate.git
 [submodule "lib/tablesorter"]
 	path = lib/tablesorter
-	url = git@mojotrollz.eu:webcraft/lib_tablesorter.git
+	url = ../lib_tablesorter.git
 [submodule "lib/git"]
 	path = lib/git
-	url = git@mojotrollz.eu:webcraft/lib_git.git
+	url = ../lib_git.git
 [submodule "lib/jqbootstrapvalidation"]
 	path = lib/jqbootstrapvalidation
-	url = git@mojotrollz.eu:webcraft/lib_jqbootstrapvalidation.git
+	url = ../lib_jqbootstrapvalidation.git
