@@ -2,15 +2,16 @@
 namespace SYSTEM\API;
 abstract class api_default extends api_system {
     //https://developers.google.com/webmasters/ajax-crawling/docs/getting-started
+    //https://developers.google.com/webmasters/ajax-crawling/docs/specification#pages-without-hash-fragments
     //mojotrollz.eu:80/web/flingit/?_escaped_fragment_=start%3Bhash.ce5504f67533ab3d881a32e1dcdd330aaeb27f19
     public static function static__escaped_fragment_($_escaped_fragment_){
         \libxml_use_internal_errors(true);
         $html = new \DOMDocument();
-        $html->loadHTML(static::default_page($_escaped_fragment_));
+        $html->loadHTML(static::default_page($_escaped_fragment_ ? $_escaped_fragment_ : true));
         if($error = \libxml_get_last_error()){
             //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$html->saveHTML());
             \libxml_clear_errors();}
-        $state = \SYSTEM\PAGE\State::get(static::get_apigroup(), $_escaped_fragment_,false);
+        $state = \SYSTEM\PAGE\State::get(static::get_apigroup(), $_escaped_fragment_ ? $_escaped_fragment_ : static::get_default_state(),false);
         foreach($state as $row){
             $frag = new \DOMDocument();
             parse_str(\parse_url($row['url'],PHP_URL_QUERY), $params);
@@ -39,6 +40,8 @@ abstract class api_default extends api_system {
         return self::class;}
     public static function get_params($params){
         return $params;}
+    public static function get_default_state(){
+        throw new \RuntimeException("Unimplemented");}
     
     public static function default_page($_escaped_fragment_ = null){
         throw new \RuntimeException("Unimplemented");}
