@@ -17,15 +17,19 @@ class HEADER {
             header('content-type: application/json');}}
     public static function PNG(){
         if(self::checkHeader()){
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60))); // 1 hour
             header('content-type:image/png;');}}
     public static function JPG(){
         if(self::checkHeader()){
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60))); // 1 hour
             header('content-type:image/jpeg;');}}
     public static function JPEG(){
         if(self::checkHeader()){
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60))); // 1 hour
             header('content-type:image/jpeg;');}}
     public static function GIF(){
         if(self::checkHeader()){
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60))); // 1 hour
             header('content-type:image/gif;');}}
     public static function JS(){
         if(self::checkHeader()){
