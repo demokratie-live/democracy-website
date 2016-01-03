@@ -2,7 +2,7 @@
 namespace SYSTEM\SQL;
 class SYS_LOG_INSERT extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
-    public static function pqsql(){return
+    public static function pgsql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_log::NAME_PG.
 '("'.\SYSTEM\SQL\system_log::FIELD_CLASS.'","'.\SYSTEM\SQL\system_log::FIELD_MESSAGE.'","'.
     \SYSTEM\SQL\system_log::FIELD_CODE.'","'.\SYSTEM\SQL\system_log::FIELD_FILE.'","'.
@@ -25,6 +25,6 @@ class SYS_LOG_INSERT extends \SYSTEM\DB\QP {
     \SYSTEM\SQL\system_log::FIELD_POST.','.\SYSTEM\SQL\system_log::FIELD_HTTP_REFERER.','.
     \SYSTEM\SQL\system_log::FIELD_HTTP_USER_AGENT.','.\SYSTEM\SQL\system_log::FIELD_USER.','.
     \SYSTEM\SQL\system_log::FIELD_THROWN.')'.
-'VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+'VALUES(?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?);';
     }
 }

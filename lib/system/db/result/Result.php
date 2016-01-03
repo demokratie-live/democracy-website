@@ -8,7 +8,7 @@ abstract class Result {
 
     public abstract function affectedRows();
 
-    public abstract function next($object = false, $result_type = MYSQL_BOTH);
+    public abstract function next($object = false);
 
     public abstract function seek($row_number);
 

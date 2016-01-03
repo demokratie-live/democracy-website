@@ -25,7 +25,7 @@ class ResultPostgres extends \SYSTEM\DB\Result{
     public function affectedRows(){
         return pg_affected_rows($this->res);}
 
-    public function next($object = false, $result_type = MYSQL_BOTH){        
+    public function next($object = false){        
         if($object){
             $this->current = pg_fetch_object($this->res);
         } else {
