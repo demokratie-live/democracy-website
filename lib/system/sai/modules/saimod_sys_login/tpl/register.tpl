@@ -14,8 +14,8 @@
                                     style="margin-bottom: 15px; float: left;"
                                     id="register_username"
                                     placeholder="${basic_placeholder_username}"
-                                    minlength="3" data-validation-minlength-message="${sai_error_username_short}"
-                                    required data-validation-required-message="${sai_error_username_miss}"/>
+                                    minlength="3" data-validation-minlength-message="${basic_username_short}"
+                                    required data-validation-required-message="${basic_username_miss}"/>
                             <br/>
                             <div id="register-help-block-username" class="help-block" style="float: left; margin-top: 3px;"></div>
                         </div>
@@ -30,8 +30,8 @@
                                     style="margin-bottom: 15px; float: left;"
                                     id="register_email"
                                     placeholder="${basic_placeholder_email}"
-                                    data-validation-email-message="${sai_error_email_wrong}"
-                                    required data-validation-required-message="${sai_error_email_miss}"/>
+                                    data-validation-email-message="${basic_email_wrong}"
+                                    required data-validation-required-message="${basic_email_miss}"/>
                             <br/>
                             <div id="register-help-block-email" class="help-block" style="float: left; margin-top: 3px;"></div>
                         </div>
@@ -48,8 +48,8 @@
                                           id="user_register_password1"
                                           name="user_register_password1"
                                           placeholder="${basic_placeholder_password}"
-                                          minlength="5" data-validation-minlength-message="${sai_error_password_short}"
-                                          required data-validation-required-message="${sai_error_password_miss}"/>
+                                          minlength="5" data-validation-minlength-message="${basic_password_short}"
+                                          required data-validation-required-message="${basic_password_miss}"/>
                                   <br/>
                                   <div class="help-block" style="float: left; margin-top: 3px;"></div>
                               </div>
@@ -61,7 +61,7 @@
                                           name="user_register_password2"
                                           placeholder="${basic_placeholder_password}"
                                           data-validation-matches-match="user_register_password1"
-                                          data-validation-matches-message="${sai_error_password_match}"/>
+                                          data-validation-matches-message="${basic_password_match}"/>
                                   <br/>
                                   <div class="help-block" style="float: left; margin-top: 3px;"></div>
                               </div>
