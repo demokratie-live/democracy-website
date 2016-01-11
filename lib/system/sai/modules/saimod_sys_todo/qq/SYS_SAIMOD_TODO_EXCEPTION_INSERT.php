@@ -14,7 +14,7 @@ class SYS_SAIMOD_TODO_EXCEPTION_INSERT extends \SYSTEM\DB\QP {
     \SYSTEM\SQL\system_todo::FIELD_HTTP_USER_AGENT.',"'.\SYSTEM\SQL\system_todo::FIELD_USER.'",'.
     \SYSTEM\SQL\system_todo::FIELD_THROWN.','.\SYSTEM\SQL\system_todo::FIELD_MESSAGE_HASH.','.
     \SYSTEM\SQL\system_todo::FIELD_TYPE.')'.
-'VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, digest($18, \'sha1\'),$19)';
+'VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, encode(digest($18, \'sha1\'), \'hex\'),$19)';
     }
     public static function mysql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_todo::NAME_MYS.
