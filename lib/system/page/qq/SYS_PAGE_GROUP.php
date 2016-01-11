@@ -2,7 +2,7 @@
 namespace SYSTEM\SQL;
 class SYS_PAGE_GROUP extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
-    public static function pqsql(){return
+    public static function pgsql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_page::NAME_PG
 .' WHERE "'.\SYSTEM\SQL\system_page::FIELD_GROUP.'" = $1'
 .' AND "'.\SYSTEM\SQL\system_page::FIELD_STATE.'" = $2'
