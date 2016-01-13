@@ -35,5 +35,5 @@ class ResultPostgres extends \SYSTEM\DB\Result{
     }
 
     public function seek($row_number){
-        return pg_data_seek($this->res,$row_number);}
+        return pg_result_seek($this->res,$row_number);}
 }
