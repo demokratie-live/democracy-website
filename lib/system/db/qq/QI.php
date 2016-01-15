@@ -6,9 +6,21 @@ class QI {
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
         
         if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
-            $files = static::files_pg();
+            $files = static::files_pgsql();
+            $command =  'psql'.
+                        ' -U ' . $dbinfo->m_user.
+                        ' -d ' . $dbinfo->m_database.
+                        ' -a '.
+                        ' -f ${file} 2>&1';
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoMYS){
             $files = static::files_mysql();
+            $command =  'mysql'.
+                        ' --host=' . $dbinfo->m_host.
+                        ' --user=' . $dbinfo->m_user.
+                        ' --password=' . $dbinfo->m_password.
+                        ' --database=' . $dbinfo->m_database.
+                        ' --default-character-set=utf8'.
+                        ' --execute="SOURCE ${file}" 2>&1';
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP){
             $files = static::files_amqp();
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoSQLite){
@@ -16,16 +28,10 @@ class QI {
         } else {
             throw new \Exception(static::get_class().' Could not understand Database Settings. Check ur Database Settings');}
         
-        $command =  'mysql'.
-                    ' --host=' . $dbinfo->m_host.
-                    ' --user=' . $dbinfo->m_user.
-                    ' --password=' . $dbinfo->m_password.
-                    ' --database=' . $dbinfo->m_database.
-                    ' --default-character-set=utf8'.
-                    ' --execute="SOURCE ';
+        
         $result = array();
         foreach($files as $file){
-            $output = shell_exec($command .$file. '" 2>&1');
+            $output = shell_exec(str_replace('${file}', $file, $command));
             $result[] = array($file,$output);}
         return $result;
     }

@@ -57,5 +57,11 @@ class ConnectionPG extends ConnectionAbstr {
 
         return new ResultPostgres($result,$this);
     }
+    
+    public function trans(){
+        return $this->connection->trans();}
+    
+    public function commit(){
+        return $this->connection->commit();}
 
 }
