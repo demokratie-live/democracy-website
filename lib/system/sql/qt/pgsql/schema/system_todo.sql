@@ -22,6 +22,8 @@ CREATE TABLE system.todo
   "type" integer NOT NULL DEFAULT 0,
   "count" integer NOT NULL DEFAULT 1,
   "state" integer NOT NULL DEFAULT 0,
+  "priority" integer NOT NULL DEFAULT 0,
+  "time_closed" timestamp with time zone DEFAULT NULL,
   CONSTRAINT system_todo_pk_id PRIMARY KEY ("ID"),
   CONSTRAINT system_todo_fk_user FOREIGN KEY ("user")
       REFERENCES system."user" (id) MATCH SIMPLE
