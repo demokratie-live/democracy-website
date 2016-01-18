@@ -34,3 +34,6 @@
 [submodule "lib/scssphp"]
 	path = lib/scssphp
 	url = ../lib_scssphp
+[submodule "lib/minify"]
+	path = lib/minify
+	url = ../lib_minify.git
