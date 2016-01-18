@@ -31,3 +31,6 @@
 [submodule "lib/jqbootstrapvalidation"]
 	path = lib/jqbootstrapvalidation
 	url = ../lib_jqbootstrapvalidation.git
+[submodule "lib/scssphp"]
+	path = lib/scssphp
+	url = ../lib_scssphp
