@@ -10,6 +10,9 @@ class cache_scss {
         return sha1($file.';'.filemtime($file));
     }
     public static function url($file){
+        if(!\SYSTEM\CACHE\cache_scss::get($file)){
+            \LIB\lib_scssphp::php();
+            \SYSTEM\CACHE\cache_scss::put($file, (new \Leafo\ScssPhp\Compiler())->compile(file_get_contents($file)));}
         return './api.php?call=cache&id='.self::CACHE_SCSS.'&ident='.self::ident($file);
     }
 }

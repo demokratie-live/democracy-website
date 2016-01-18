@@ -19,6 +19,9 @@ class api_system extends api_login{
         \SYSTEM\locale::set($lang);}        
     public static function static__result($result){
         \SYSTEM\CONFIG\config::set(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT, $result);}
+    public static function static__($_){
+        //cache avoidance
+    }
         
     public static function call_bug($message,$data){
         return \SYSTEM\SAI\saimod_sys_todo::report($message,$data);}
