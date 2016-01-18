@@ -12,7 +12,7 @@ class SYS_SAIMOD_TODO_STATS_USERS extends \SYSTEM\DB\QQ {
     'FROM system.todo_assign '.
     'LEFT JOIN system.todo ON system.todo_assign.todo = system.todo."ID" '.
     'LEFT JOIN system.user ON system.todo_assign.user = system.user.id '.
-    'GROUP BY system.todo_assign.user '.
+    'GROUP BY system.user.username '.
     'ORDER BY count DESC'.
 ') a '.
 'ORDER BY best DESC;';
