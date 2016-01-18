@@ -22,4 +22,7 @@ class api_system extends api_login{
         
     public static function call_bug($message,$data){
         return \SYSTEM\SAI\saimod_sys_todo::report($message,$data);}
+        
+    public static function call_cache($id,$ident){
+        return \SYSTEM\CACHE\cache::get($id, $ident,true);}
 }

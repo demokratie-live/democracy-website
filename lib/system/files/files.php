@@ -10,7 +10,7 @@ class files {
     public static function get($cat = null, $id = null, $returnasjson = false) {
         if (!$cat) {
             return $returnasjson ? \SYSTEM\LOG\JsonResult::toString(self::$folders) : self::$folders;}
-
+            
         if (!array_key_exists($cat, self::$folders)) {
             throw new \SYSTEM\LOG\ERROR("No matching Cat '" . $cat . "' found.");}
 

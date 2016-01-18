@@ -31,6 +31,14 @@ class State {
             $row['css'] = $row['js'] = array();
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'css') && \is_callable($row['php_class'].'::css')){
                 $row['css'] = array_merge($row['css'], \call_user_func($row['php_class'].'::css'));}
+            \LIB\lib_scssphp::php();
+            if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'scss') && \is_callable($row['php_class'].'::scss')){
+                $scss = \call_user_func($row['php_class'].'::scss');
+                foreach($scss as $s){
+                    if(!\SYSTEM\CACHE\cache_scss::get($s)){
+                        \SYSTEM\CACHE\cache_scss::put($s, (new \Leafo\ScssPhp\Compiler())->compile(file_get_contents($s)));}
+                    $row['css'][] = \SYSTEM\CACHE\cache_scss::url($s);}
+            }
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'js') && \is_callable($row['php_class'].'::js')){
                 $row['js'] = array_merge($row['js'], \call_user_func($row['php_class'].'::js'));}
             $row['php_class'] = '';
