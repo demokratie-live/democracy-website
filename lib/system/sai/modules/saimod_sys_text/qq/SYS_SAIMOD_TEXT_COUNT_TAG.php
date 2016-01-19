@@ -2,6 +2,15 @@
 namespace SYSTEM\SQL;
 class SYS_SAIMOD_TEXT_COUNT_TAG extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
+    public static function pgsql(){return 
+'SELECT COUNT(*) as count'.
+' FROM system.text_tag'.
+' LEFT JOIN system.text ON system.text_tag.id = system.text.id'.
+' LEFT JOIN system.user as a ON system.text.author = a.id'.
+' LEFT JOIN system.user as ae ON system.text.author_edit = ae.id'.
+' WHERE tag = $1'.
+' AND (a.username LIKE $2 OR ae.username LIKE $3 OR text LIKE $4);';
+    }
     public static function mysql(){return 
 'SELECT COUNT(*) as `count`'.
 ' FROM system_text_tag'.

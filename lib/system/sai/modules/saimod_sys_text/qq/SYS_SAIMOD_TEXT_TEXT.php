@@ -3,13 +3,13 @@ namespace SYSTEM\SQL;
 class SYS_SAIMOD_TEXT_TEXT extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 
-'SELECT system.text_tag.tag, system.text.*, a.username as author_name, ae.username as author_edit_name'.
+'SELECT MAX(system.text_tag.tag), system.text.*, MAX(a.username) as author_name, MAX(ae.username) as author_edit_name'.
 ' FROM system.text_tag'.
 ' LEFT JOIN system.text ON system.text_tag.id = system.text.id'.
 ' LEFT JOIN system.user as a ON system.text.author = a.id'.
 ' LEFT JOIN system.user as ae ON system.text.author_edit = ae.id'.
 ' WHERE (a.username LIKE $1 OR ae.username LIKE $2 OR text LIKE $3)'.
-' GROUP BY id, lang'.
+' GROUP BY system.text.id, lang'.
 ' ORDER BY time_edit DESC;';
     }
     public static function mysql(){return 
