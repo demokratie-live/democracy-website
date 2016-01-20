@@ -12,19 +12,19 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
             $r['style'] = '';
             if(substr($r['tag'],0,3) == 'sai'){
                 $r['style'] = 'display:none;';}
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt.tpl'), $r);}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text.tpl'), $vars);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/tabopt.tpl'))->SERVERPATH(), $r);}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag(){
         $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_GETTEXTS_NOTAG::QQ();
         $entries = '';
         while($r = $res->next()){  
-            $entries .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
+            $entries .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'))->SERVERPATH(), $r);
         }
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['entries'] = $entries;
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'))->SERVERPATH(), $vars); 
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = 'all',$filter = "all",$search="%",$page=0){
@@ -64,23 +64,23 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         $count_filtered = 0;
         $res->seek(100*$page);
         while(($r = $res->next()) && ($count_filtered < 100)){  
-            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'), $r);
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'))->SERVERPATH(), $r);
             $count_filtered++;}
         $vars['pagination'] = '';
         $vars['page_last'] = ceil($count/100)-1;
         for($i=0;$i < ceil($count/100);$i++){
             $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '', 'tag' => $tag);
-            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_pagination.tpl'), $data);
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_pagination.tpl'))->SERVERPATH(), $data);
         }
         $vars['count'] = $count_filtered.'/'.$count;
         $vars['lang_filter'] = '';
         $res = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         foreach($res as $lang){
             $data = array('active' => ($filter == $lang ? 'active' : ''), 'filter' => $lang, 'search' => $search, 'name' => $lang, 'tag' => $tag);
-            $vars['lang_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_lang_filter.tpl'),$data);}
+            $vars['lang_filter'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_lang_filter.tpl'))->SERVERPATH(),$data);}
         $vars['active'] = ($filter == 'all' ? 'active' : '');
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'), $vars); 
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'))->SERVERPATH(), $vars); 
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($id,$lang){
@@ -92,9 +92,9 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
             $vars2['id'] = $id;
             $vars2['lang'] = $l;
             $vars2['default'] = ($l == $lang ? 'menu_lang_default' : '');
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/tabopt2.tpl'), $vars2);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/tabopt2.tpl'))->SERVERPATH(), $vars2);
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_edit_langs.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_edit_langs.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor($id, $lang){
@@ -107,7 +107,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         foreach($tags as $tag){
             $vars['tags'] .= $tag['tag'].', ';
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $new_id, $lang, $tags, $text){
@@ -122,7 +122,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_LOCALE);}
     
     public static function css(){
-        return array( \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/css/saimod_sys_text.css'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_text/css/saimod_sys_text.css'));}
     public static function js(){
-        return array( \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_text/js/saimod_sys_text.js'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_text/js/saimod_sys_text.js'));}
 }

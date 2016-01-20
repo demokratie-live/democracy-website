@@ -7,8 +7,8 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_DOCU);
         $vars['tabopts'] = '';
         foreach($documents as $cat => $docs){
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabopt.tpl'), array( 'tab_id' => str_replace(' ', '_', $cat),'tab_id_pretty' => $cat));}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/saimod_sys_docu.tpl'), $vars);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/tabopt.tpl'))->SERVERPATH(), array( 'tab_id' => str_replace(' ', '_', $cat),'tab_id_pretty' => $cat));}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu.tpl'))->SERVERPATH(), $vars);
     }  
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'System'){
@@ -16,12 +16,12 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_DOCU);
         $vars['tabopts'] = '';
         foreach($documents as $doc){
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/tabopt2.tpl'),
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/tabopt2.tpl'))->SERVERPATH(),
                                 array(  'tab_id' => str_replace(' ', '_', $cat),
                                         'doc_id' => str_replace(array('.',' '), '_', basename($doc)),
                                         'doc_id_pretty' => basename($doc)));
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/tpl/saimod_sys_docu_cat.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_cat.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_doc($cat = 'System',$doc = '1_system_md'){
@@ -41,5 +41,5 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     
     //public static function css(){}
     public static function js(){
-        return array(   \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_docu/js/saimod_sys_docu.js'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_docu/js/saimod_sys_docu.js'));}
 }

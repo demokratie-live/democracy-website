@@ -12,9 +12,9 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
         
         if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/logout.tpl'), $vars);        
+            return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/logout.tpl'))->SERVERPATH(), $vars);        
         } else {
-            return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/tpl/login.tpl'), $vars);}
+            return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/login.tpl'))->SERVERPATH(), $vars);}
     }
 
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_logout(){
@@ -45,8 +45,8 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     //public static function css(){}
     public static function js(){
         return array(   \LIB\lib_jqbootstrapvalidation::js(),
-                        \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_login/js/sai_sys_login_submit.js'),
-                        \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.md5.js'),
-                        \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'js/crypto/jquery.sha1.js'));
+                        new \SYSTEM\PSAI('modules/saimod_sys_login/js/sai_sys_login_submit.js'),
+                        new \SYSTEM\PSAI('js/crypto/jquery.md5.js'),
+                        new \SYSTEM\PSAI('js/crypto/jquery.sha1.js'));
     }
 }
