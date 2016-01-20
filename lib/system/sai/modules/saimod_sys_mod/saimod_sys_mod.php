@@ -11,15 +11,15 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
             $v['mod'] = $mod;
             $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
             $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_tr.tpl'))->SERVERPATH(),$v);
         }
         $mod = \SYSTEM\SAI\sai::getStartModule();
         $start = array();
         $start['start_class'] = $mod;
         $start['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
         $start['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-        $vars['saistart'] = \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/saistart.tpl'),$start);
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
+        $vars['saistart'] = \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/saistart.tpl'))->SERVERPATH(),$start);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
@@ -31,9 +31,9 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
             $v['mod'] = $mod;
             $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
             $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_tr.tpl'),$v);
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_tr.tpl'))->SERVERPATH(),$v);
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mod_table.tpl'),$vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_lib(){
@@ -50,14 +50,14 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
                                     (\array_search('LIB\lib_css', $parents) ? 'css, ' : '').
                                     (\array_search('LIB\lib_jscss', $parents) ? 'js, css, ' : '');
             $vars2['interface'] = \substr($vars2['interface'],0,-2);
-            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/lib_tr.tpl'),$vars2);
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/lib_tr.tpl'))->SERVERPATH(),$vars2);
         }
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/lib_table.tpl'),$vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/lib_table.tpl'))->SERVERPATH(),$vars);
     }
     
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/tpl/mods.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD));}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mods.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD));}
     
     //public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">${sai_menu_mod}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_mod" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_mod}" href="#!mod"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>';}    
@@ -66,5 +66,5 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     
     //public static function css(){}
     public static function js(){
-        return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/js/saimod_sys_mod.js'));}
+        return array(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/js/saimod_sys_mod.js');}
 }

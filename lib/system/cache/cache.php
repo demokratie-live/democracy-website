@@ -11,7 +11,7 @@ class cache {
             }else{
                 \SYSTEM\HEADER::FILE($ident);}
         }
-        return $result['data'];
+        return $result['cache'] == \SYSTEM\CACHE\cache_filemask::CACHE_FILEMASK ? \file_get_contents($result['data']) : $result['data'];
     }
     
     public static function put($cache, $ident, $type, $data, $fail_on_exist = false){        

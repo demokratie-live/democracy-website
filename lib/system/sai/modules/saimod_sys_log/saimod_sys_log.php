@@ -22,7 +22,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $vars['page_value'] =   \round(  $vars['log_today']+$vars['ip_today']*10+$vars['user_today']*100+
                                         ($vars['log_week']+$vars['ip_week']*10+$vars['user_week']*100)/7+
                                         ($vars['log_month']+$vars['ip_month']*10+$vars['user_week']*100)/31,0);
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_analytics.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_analytics.tpl'))->SERVERPATH(), $vars);
     }    
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
@@ -32,11 +32,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             file_exists(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH))){
             $scanned_directory = array_diff(scandir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)), array('..', '.'));
             foreach($scanned_directory as $file){
-                $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats_menu.tpl'), array('file' => $file));}
+                $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_stats_menu.tpl'))->SERVERPATH(), array('file' => $file));}
         }
         //positioning problem
         //$vars['analytics'] = self::analytics();
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_stats.tpl'), $vars);}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_stats.tpl'))->SERVERPATH(), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db){
         $result = array();
@@ -309,30 +309,30 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
             $r['time'] = \SYSTEM\time::time_ago_string(strtotime($r['time']));
             $r['message'] = htmlspecialchars(substr($r['message'],0,255));
             $r['request_uri'] = htmlspecialchars($r['request_uri']);
-            $vars['table'] .=  \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'),$r);
+            $vars['table'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_table_row.tpl'))->SERVERPATH(),$r);
             $count_filtered++;
         }
         $vars['pagination'] = '';
         $vars['page_last'] = ceil($count/100)-1;
         for($i=0;$i < ceil($count/100);$i++){
             $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
-            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_pagination.tpl'), $data);
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_pagination.tpl'))->SERVERPATH(), $data);
         }
         $vars['count'] = $count_filtered.'/'.$count;
         $vars['error_filter'] = '';
         $res = \SYSTEM\SQL\SYS_SAIMOD_LOG_FILTERS::QQ();
         while($row = $res->next()){
             $data = array('active' => ($filter == $row['class'] ? 'active' : ''), 'filter' => $row['class'], 'search' => $search);
-            $vars['error_filter'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error_filter.tpl'),$data);}
+            $vars['error_filter'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_error_filter.tpl'))->SERVERPATH(),$data);}
         $vars['active'] = ($filter == '%' ? 'active' : '');
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOG));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'),$vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_filter.tpl'))->SERVERPATH(),$vars);
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOG);
-        $vars['PICPATH'] = \SYSTEM\WEBPATH(new \SYSTEM\PSAI(), 'modules/saimod_sys_log/img/');
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log.tpl'), $vars);        
+        $vars['PICPATH'] = (new \SYSTEM\PSAI('modules/saimod_sys_log/img/'))->WEBPATH(false);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log.tpl'))->SERVERPATH(), $vars);        
     }
     
     public static function tablerow_class($class){
@@ -358,5 +358,5 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
     
     //public static function css(){}
     public static function js(){
-        return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/js/saimod_sys_log.js'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_log/js/saimod_sys_log.js'));}
 }

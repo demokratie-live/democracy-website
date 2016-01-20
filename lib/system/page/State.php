@@ -39,7 +39,7 @@ class State {
             $row['css'] = count($row['css']) > 0 ? array(\SYSTEM\CACHE\cache_css::url($row['css'])) : array();
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'js') && \is_callable($row['php_class'].'::js')){
                 $row['js'] = array_merge($row['js'], \call_user_func($row['php_class'].'::js'));}
-            //$row['js'] = count($row['css']) > 0 ? array(\SYSTEM\CACHE\cache_js::url($row['js'])) : array();
+            $row['js'] = count($row['css']) > 0 ? array(\SYSTEM\CACHE\cache_js::url($row['js'])) : array();
             unset($row['php_class']);
             
             $skip = false;

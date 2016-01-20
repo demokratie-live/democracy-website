@@ -1,7 +1,7 @@
 <?php
 namespace SYSTEM\CACHE;
 class cache_scss {
-    const CACHE_SCSS = 10;
+    const CACHE_SCSS = 1;
     public static function put($file,$data){
         return \SYSTEM\CACHE\cache::put(self::CACHE_SCSS, self::ident($file), 'css', $data);}
     public static function get($file,$header = false){
