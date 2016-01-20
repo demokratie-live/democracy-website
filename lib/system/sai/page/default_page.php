@@ -44,7 +44,7 @@ class default_page extends \SYSTEM\PAGE\Page {
                 \SYSTEM\HTML\html::script(\LIB\lib_bootstrap::js()->WEBPATH()).
                 \SYSTEM\HTML\html::script(\LIB\lib_tablesorter::js()->WEBPATH()).
                 \SYSTEM\HTML\html::script(\LIB\lib_bootstrap_growl::js()->WEBPATH()).
-                \SYSTEM\HTML\html::script(\LIB\lib_tinymce::js()->WEBPATH()).
+                \SYSTEM\HTML\html::script(\LIB\lib_tinymce::js()->WEBPATH(false)).
                 \SYSTEM\HTML\html::script(  \SYSTEM\CACHE\cache_js::url(
                                             array(  \LIB\lib_system::js(),
                                                     new \SYSTEM\PSAI('page/js/sai.js')))).
