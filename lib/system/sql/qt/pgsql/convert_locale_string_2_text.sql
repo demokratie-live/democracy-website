@@ -19,6 +19,8 @@ INSERT INTO system.text(id,text,lang)
 INSERT INTO system.text(id,text,lang)
     SELECT id, "deDE" , 'deDE' FROM system.locale_string WHERE category = 118;
 INSERT INTO system.text(id,text,lang)
+    SELECT id, "deDE" , 'deDE' FROM system.locale_string WHERE category = 119;
+INSERT INTO system.text(id,text,lang)
     SELECT id, "deDE" , 'deDE' FROM system.locale_string WHERE category = 120;
 INSERT INTO system.text(id,text,lang)
     SELECT id, "deDE" , 'deDE' FROM system.locale_string WHERE category = 121;
@@ -63,6 +65,8 @@ INSERT INTO system.text(id,text,lang)
     SELECT id, "enUS" , 'enUS' FROM system.locale_string WHERE category = 117;
 INSERT INTO system.text(id,text,lang)
     SELECT id, "enUS" , 'enUS' FROM system.locale_string WHERE category = 118;
+INSERT INTO system.text(id,text,lang)
+    SELECT id, "enUS" , 'enUS' FROM system.locale_string WHERE category = 119;
 INSERT INTO system.text(id,text,lang)
     SELECT id, "enUS" , 'enUS' FROM system.locale_string WHERE category = 120;
 INSERT INTO system.text(id,text,lang)

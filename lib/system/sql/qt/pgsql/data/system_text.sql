@@ -93,6 +93,14 @@
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_wrong', 'enUS', 'Invalid EMail!', 0, 0, '2015-04-18 13:15:58', '0000-00-00 00:00:00');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_wrong', 'frFR', 'Adresse courriel&nbsp;non valide!', 3, 3, '2015-04-20 16:23:48', '2015-04-20 16:23:48');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_wrong', 'basic');
+    INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_wrong', 'sai_login');
+
+    DELETE FROM system.text WHERE id = 'basic_email_miss';
+    DELETE FROM system.text_tag WHERE id = 'basic_email_miss';
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_miss', 'deDE', 'EMail fehlt!', 0, 2, '2015-04-18 13:15:58', '2015-04-18 13:15:58');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_miss', 'enUS', 'EMail missing!', 0, 0, '2015-04-18 13:15:58', '0000-00-00 00:00:00');
+    INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_miss', 'basic');
+    INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_miss', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_error';
     DELETE FROM system.text_tag WHERE id = 'basic_error';
@@ -208,13 +216,13 @@
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password', 'sai_login');
 
-    DELETE FROM system.text WHERE id = 'basic_password_long';
-    DELETE FROM system.text_tag WHERE id = 'basic_password_long';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'deDE', 'Passwort zu lang', 0, 2, '2015-04-18 13:16:18', '2015-04-18 13:16:18');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'enUS', 'Password too long', 0, 0, '2015-04-18 13:16:18', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'frFR', 'Mot de passe trop long!', 3, 3, '2015-04-20 16:28:21', '2015-04-20 16:28:21');
-    INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_long', 'basic');
-    INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_long', 'sai_login');
+    -- DELETE FROM system.text WHERE id = 'basic_password_long';
+    -- DELETE FROM system.text_tag WHERE id = 'basic_password_long';
+    -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'deDE', 'Passwort zu lang', 0, 2, '2015-04-18 13:16:18', '2015-04-18 13:16:18');
+    -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'enUS', 'Password too long', 0, 0, '2015-04-18 13:16:18', '0000-00-00 00:00:00');
+    -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'frFR', 'Mot de passe trop long!', 3, 3, '2015-04-20 16:28:21', '2015-04-20 16:28:21');
+    -- INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_long', 'basic');
+    -- INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_long', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_password_match';
     DELETE FROM system.text_tag WHERE id = 'basic_password_match';
