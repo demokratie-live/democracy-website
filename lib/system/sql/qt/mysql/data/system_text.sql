@@ -688,10 +688,18 @@
     DELETE FROM `system_text` WHERE id = 'sai_files_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_files_title';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'deDE', 'System Dateien', 3, 3, '2015-05-16 13:53:33', '2015-05-16 13:53:33');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'enUS', 'System ファイル', 2, 1, '2015-04-20 16:18:27', '2015-04-20 16:18:27');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'enUS', 'System Files', 2, 1, '2015-04-20 16:18:27', '2015-04-20 16:18:27');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'jaJA', 'System ファイル', 2, 1, '2015-04-20 16:18:27', '2015-04-20 16:18:27');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title', 'frFR', 'System Fichiers', 3, 3, '2015-04-20 19:15:58', '2015-04-20 19:15:58');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_files_title', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_files_title', 'sai_files');
+
+    DELETE FROM `system_text` WHERE id = 'sai_files_title_warning';
+    DELETE FROM `system_text_tag` WHERE id = 'sai_files_title_warning';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title_warning', 'deDE', 'Bitte verkleinern Sie Bilder bevor Sie diese auf Ihrer Seite einbinden!', 3, 3, '2015-05-16 13:53:33', '2015-05-16 13:53:33');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_files_title_warning', 'enUS', 'Please minify pictures before you embed them in your page.', 2, 1, '2015-04-20 16:18:27', '2015-04-20 16:18:27');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_files_title_warning', 'sai');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_files_title_warning', 'sai_files');
 
     DELETE FROM `system_text` WHERE id = 'sai_log_latest_entries';
     DELETE FROM `system_text_tag` WHERE id = 'sai_log_latest_entries';
