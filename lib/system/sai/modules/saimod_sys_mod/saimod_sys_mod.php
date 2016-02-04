@@ -1,6 +1,5 @@
 <?php
 namespace SYSTEM\SAI;
-
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
@@ -66,5 +65,5 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     
     //public static function css(){}
     public static function js(){
-        return array(new \SYSTEM\PSAI(),'modules/saimod_sys_mod/js/saimod_sys_mod.js');}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_mod/js/saimod_sys_mod.js'));}
 }
