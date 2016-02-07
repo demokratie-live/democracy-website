@@ -3,9 +3,9 @@ namespace SYSTEM\SQL;
 class DATA_SYSTEM_TEXT extends \SYSTEM\DB\QI {
     public static function get_class(){return \get_class();}
     public static function files_pgsql(){
-        return array(   \SYSTEM\SERVERPATH(new \SYSTEM\PSQL(),'/qt/pgsql/data/system_text.sql'));
+        return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_text.sql'))->SERVERPATH());
     }
     public static function files_mysql(){
-        return array(   \SYSTEM\SERVERPATH(new \SYSTEM\PSQL(),'/qt/mysql/data/system_text.sql'));
+        return array(   (new \SYSTEM\PSQL('/qt/mysql/data/system_text.sql'))->SERVERPATH());
     }    
 }
