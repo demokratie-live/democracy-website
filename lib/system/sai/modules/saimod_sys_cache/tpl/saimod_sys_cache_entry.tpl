@@ -2,5 +2,5 @@
     <td>${cache}</td>
     <td>${ident}</td>
     <td>${type}</td>
-    <td><img src="data:image/png;base64,'.${encode}"></td>
+    <td><a href="./api.php?call=cache&id=${cache}&ident=${ident}" target="blank">Link</a></td>
 </tr>
