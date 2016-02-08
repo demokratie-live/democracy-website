@@ -17,7 +17,7 @@ class cache {
     public static function put($cache, $ident, $type, $data, $fail_on_exist = false){        
         if(($fail_on_exist && self::get($cache,$ident) != NULL)){
             return false;}
-                        
+
         $result = \SYSTEM\SQL\SYS_CACHE_PUT::Q1(array($cache,$ident, $type, $data));                
         return $result ? $data : NULL;
     }
