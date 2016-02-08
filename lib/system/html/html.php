@@ -5,4 +5,6 @@ class html{
         return '<link href="'.$href.'" rel="'.$rel.'" type="'.$type.'"/>';}
     public static function script($src,$type = 'text/javascript',$rel = 'stylesheet', $language = 'JavaScript', $script = ''){
         return '<script src="'.$src.'" language="'.$language.'" type="'.$type.'">'.$script.'</script>';}
+    public static function style($style){
+        return '<style> '.$style.'</style>';}
 }

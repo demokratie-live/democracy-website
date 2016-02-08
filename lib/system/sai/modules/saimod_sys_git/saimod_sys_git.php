@@ -5,7 +5,7 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_git(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_GIT);
         $vars = array_merge($vars,self::getGitInfo());
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_git/tpl/saimod_sys_git.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_git/tpl/saimod_sys_git.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function getGitInfo(){

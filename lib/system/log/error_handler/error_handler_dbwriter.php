@@ -9,7 +9,7 @@ class error_handler_dbwriter extends \SYSTEM\LOG\error_handler {
         try{
             if(\property_exists(get_class($E), 'logged') && $E->logged){                
                 return false;} //alrdy logged(this prevents proper thrown value for every system exception)
-            \SYSTEM\SQL\SYS_LOG_INSERT::Q1( /*array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
+            $result = \SYSTEM\SQL\SYS_LOG_INSERT::QI( /*array(  get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
                                                     getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),
                                                     $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
                                                     array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
@@ -20,10 +20,14 @@ class error_handler_dbwriter extends \SYSTEM\LOG\error_handler {
                                                     $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
                                                     array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
                                                     array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                    ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown ? 1 : 0));                        
+                                                    ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown ? 1 : 0));
+            
             if(\property_exists(get_class($E), 'logged')){
                 $E->logged = true;} //we just did log
-        } catch (\Exception $E){return false;} //Error -> Ignore
+        } catch (\Exception $E){
+            //Dump the Error
+            echo \SYSTEM\LOG\JsonResult::toString((array)$E);
+            return false;} //Error -> Ignore
         
         return false; //We just log and do not handle the error!
     }    

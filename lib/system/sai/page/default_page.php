@@ -31,26 +31,25 @@ class default_page extends \SYSTEM\PAGE\Page {
         throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module haz a Problem - either it does not exist or it is not public - which is required!');}
 
     private static function css(){
-        $result =   '<link rel="stylesheet" href="'.\LIB\lib_bootstrap::css().'" type="text/css" />'.
-                    '<link rel="stylesheet" href="'.\LIB\lib_system::css().'" type="text/css" />'.
-                    '<link rel="stylesheet" href="'.\LIB\lib_tablesorter::css().'" type="text/css" />'.
-                    '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai_classes.css').'" type="text/css" />'.
-                    '<link rel="stylesheet" href="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/css/sai.css').'" type="text/css" />';
-        return $result;
+        return  \SYSTEM\HTML\html::link(\LIB\lib_bootstrap::css()->WEBPATH(false)).
+                \SYSTEM\HTML\html::link(\LIB\lib_tablesorter::css()->WEBPATH(false)).
+                \SYSTEM\HTML\html::link(\SYSTEM\CACHE\cache_css::url(
+                                        array( \LIB\lib_system::css(),
+                                                new \SYSTEM\PSAI('page/css/sai_classes.css'),
+                                                new \SYSTEM\PSAI('page/css/sai.css'))));
     }
 
     private static function js(){
-        $result = '<script src="'.\LIB\lib_jquery::js().'" type="text/javascript"></script>'.
-                  '<script src="'.\LIB\lib_bootstrap::js().'" type="text/javascript"></script>'.
-                  '<script src="'.\LIB\lib_system::js().'" type="text/javascript"></script>'.
-                  '<script src="'.\LIB\lib_tablesorter::js().'" type="text/javascript"></script>'.
-                  '<script src="'.\LIB\lib_bootstrap_growl::js().'" type="text/javascript"></script>'.  
-                  '<script src="'.\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'page/js/sai.js').'" type="text/javascript"></script>'.
-                  '<script src="https://www.google.com/jsapi" type="text/javascript"></script>'.
-                  //'<script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>'.
-                  '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>'.
-                  '<script src="'.\LIB\lib_tinymce::js().'" type="text/javascript"></script>';
-        return $result;
+        return  \SYSTEM\HTML\html::script(\LIB\lib_jquery::js()->WEBPATH()).
+                \SYSTEM\HTML\html::script(\LIB\lib_bootstrap::js()->WEBPATH()).
+                \SYSTEM\HTML\html::script(\LIB\lib_tablesorter::js()->WEBPATH()).
+                \SYSTEM\HTML\html::script(\LIB\lib_bootstrap_growl::js()->WEBPATH()).
+                \SYSTEM\HTML\html::script(\LIB\lib_tinymce::js()->WEBPATH(false)).
+                \SYSTEM\HTML\html::script(  \SYSTEM\CACHE\cache_js::url(
+                                            array(  \LIB\lib_system::js(),
+                                                    new \SYSTEM\PSAI('page/js/sai.js')))).
+                \SYSTEM\HTML\html::script('https://www.google.com/jsapi').
+                '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';
     }
 
     public function html($_escaped_fragment_ = NULL){
@@ -66,6 +65,6 @@ class default_page extends \SYSTEM\PAGE\Page {
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_DEFAULT),
                             array(  'project' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT),
                                     'project_url' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'page/tpl/sai.tpl'), $vars);        
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('page/tpl/sai.tpl'))->SERVERPATH(), $vars);        
     }
 }

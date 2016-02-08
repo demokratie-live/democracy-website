@@ -12,9 +12,9 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
             $r['next'] = date('Y-m-d H:i:s',\SYSTEM\CRON\cron::next($r['class']));
             $r['selected_'.$r['status']] = 'selected';
             $r['i'] = $i++;
-            $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/list_entry.tpl'), $r);}   
+            $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/list_entry.tpl'))->SERVERPATH(), $r);}   
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CRON), \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_TIME));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/tpl/tabs.tpl'), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/tabs.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function sai_mod__system_sai_saimod_sys_cron_action_change($cls,$status){
@@ -45,7 +45,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
     
     public static function css(){
-        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/css/saimod_sys_cron.css'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_cron/css/saimod_sys_cron.css'));}
     public static function js(){
-        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cron/js/saimod_sys_cron.js'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_cron/js/saimod_sys_cron.js'));}
 }

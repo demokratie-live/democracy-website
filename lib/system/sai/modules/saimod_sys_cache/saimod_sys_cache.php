@@ -7,9 +7,9 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
         $vars['entries'] = '';
         $res = \SYSTEM\SQL\SYS_SAIMOD_CACHE::QQ();
         while($r = $res->next()){
-            $r['class'] = self::tablerow_class($r['CacheID']);
-            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cache/tpl/saimod_sys_cache_entry.tpl'), $r);}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_cache/tpl/saimod_sys_cache.tpl'), $vars);
+            $r['class'] = self::tablerow_class($r['cache']);
+            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cache/tpl/saimod_sys_cache_entry.tpl'))->SERVERPATH(), $r);}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cache/tpl/saimod_sys_cache.tpl'))->SERVERPATH(), $vars);
     }
     
     private static function tablerow_class($cacheID){

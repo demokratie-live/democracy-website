@@ -8,8 +8,8 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         $res = \SYSTEM\SQL\SYS_SAIMOD_API_GROUPS::QQ();
         
         while($r = $res->next()){
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/tabopt.tpl'), array( 'tab_id' => $r['group']));}
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/saimod_sys_api.tpl'), $vars);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/tabopt.tpl'))->SERVERPATH(), array( 'tab_id' => $r['group']));}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/saimod_sys_api.tpl'))->SERVERPATH(), $vars);
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_list($group=null){
@@ -21,19 +21,19 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
             $tab['tab_id'] = $r['group'];
             $r['tr_class'] = self::tablerow_class($r['type']);
             $r['type'] = self::type_names($r['type']);
-            $tab['content'] .= \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/list_entry.tpl'), $r);
+            $tab['content'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/list_entry.tpl'))->SERVERPATH(), $r);
         }
         $tab = array_merge($tab,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/saimod_sys_api_list.tpl'), $tab);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/saimod_sys_api_list.tpl'))->SERVERPATH(), $tab);
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID,$group){
         $res = \SYSTEM\SQL\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID,$group));
         $res = array_merge($res,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/delete_dialog.tpl'), $res);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/delete_dialog.tpl'))->SERVERPATH(), $res);
     }
     public static function sai_mod__system_sai_saimod_sys_api_action_newdialog(){
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/tpl/new_dialog.tpl'),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/new_dialog.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));}
     
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
@@ -77,7 +77,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API);}
     
     public static function css(){
-        return array(\SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/css/saimod_sys_api.css'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_api/css/saimod_sys_api.css'));}
     public static function js(){
-        return array(  \SYSTEM\WEBPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_api/js/saimod_sys_api.js'));}
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_api/js/saimod_sys_api.js'));}
 }

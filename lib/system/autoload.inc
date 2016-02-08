@@ -1,6 +1,6 @@
 <?php
 //include autoload class
-require_once dirname(__FILE__).'/system/path.php';
+require_once dirname(__FILE__).'/path/path.php';
 require_once dirname(__FILE__).'/system/autoload.php';
 
 //Register autoload
