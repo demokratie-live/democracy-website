@@ -9,8 +9,12 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){
             $r['class'] = self::tablerow_class($r['cache']);
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cache/tpl/saimod_sys_cache_entry.tpl'))->SERVERPATH(), $r);}
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CACHE));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cache/tpl/saimod_sys_cache.tpl'))->SERVERPATH(), $vars);
     }
+    
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_cache_action_clear(){
+        return \SYSTEM\SQL\SYS_SAIMOD_CACHE_CLEAR::QI() ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
     
     private static function tablerow_class($cacheID){
         if($cacheID == 1){
@@ -22,5 +26,6 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
     public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     //public static function css(){}
-    //public static function js(){}
+    public static function js(){
+        return array(new \SYSTEM\PSAI('modules/saimod_sys_cache/js/saimod_sys_cache.js'));}
 }

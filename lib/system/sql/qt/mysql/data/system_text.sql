@@ -635,6 +635,13 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_add_right', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_add_right', 'sai_security');
 
+    DELETE FROM `system_text` WHERE id = 'basic_clear';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_clear';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_clear', 'deDE', 'Leeren', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_clear', 'enUS', 'Clear', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_clear', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_clear', 'sai_cache');
+
 -- SAI
     DELETE FROM `system_text` WHERE id = 'sai_api_title';
     DELETE FROM `system_text_tag` WHERE id = 'sai_api_title';

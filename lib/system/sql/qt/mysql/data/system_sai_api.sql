@@ -141,7 +141,7 @@ INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `nam
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (830, 42, 3, 800, 'tab', 'name', 'STRING');
 
 
--- INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (900, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_cache', 'action', NULL);
+INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (900, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_cache', 'action', NULL);
 
 
 INSERT INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1000, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_todo', 'action', NULL);
