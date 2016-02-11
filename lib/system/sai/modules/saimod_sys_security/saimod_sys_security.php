@@ -80,7 +80,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         while($r = $res->next()){
             $r['user_id'] = $userid;
             $r['remove_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
-                                \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/right_remove.tpl'))->SERVERPATH(),array('id' => $r['ID'])) :
+                                \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/right_remove.tpl'))->SERVERPATH(),array('id' => $r['ID'], 'userid' => $userid)) :
                                 \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/missing_edit_right.tpl'))->SERVERPATH());
             $vars['user_rights_table'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_user_right.tpl'))->SERVERPATH(), $r);}
         
