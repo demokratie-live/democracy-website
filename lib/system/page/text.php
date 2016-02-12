@@ -78,6 +78,9 @@ class text {
             return self::get_adv($id, \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG));}
         return $res;
     }
+    public static function get_tags($id,$limit){
+        return \SYSTEM\SQL\SYS_TEXT_GET_TAGS::QA(array($id,$limit));}
+        
     public static function get_latest($tag, $limit){
         return \SYSTEM\SQL\SYS_TEXT_GET_LATEST::QA(array($tag, $limit));
     }
