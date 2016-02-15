@@ -291,7 +291,7 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         $vars = \SYSTEM\SQL\SYS_SAIMOD_LOG_ERROR::QQ(array($error))->next();        
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOG));
-        return \SYSTEM\PAGE\replace::replaceFile(\SYSTEM\SERVERPATH(new \SYSTEM\PSAI(),'modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'), $vars);}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'))->SERVERPATH(), $vars);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%",$search="%",$page=0){
         $filter = str_replace('\\', '\\\\', $filter);
