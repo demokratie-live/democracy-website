@@ -12,7 +12,7 @@ class SYS_SAIMOD_TODO_LIST_TYPE extends \SYSTEM\DB\QP {
         ' assignee.'.\SYSTEM\SQL\system_user::FIELD_ID.' as assignee_id'.
     ' FROM '.\SYSTEM\SQL\system_todo::NAME_PG.' as todo'.
     ' LEFT JOIN '.\SYSTEM\SQL\system_todo_assign::NAME_PG.' as assign ON todo."'.\SYSTEM\SQL\system_todo::FIELD_ID.'"=assign.'.\SYSTEM\SQL\system_todo_assign::FIELD_TODO.
-    ' LEFT JOIN '.\SYSTEM\SQL\system_user::NAME_PG.' as creator ON todo.'.\SYSTEM\SQL\system_todo::FIELD_USE.'=creator.'.\SYSTEM\SQL\system_user::FIELD_ID.
+    ' LEFT JOIN '.\SYSTEM\SQL\system_user::NAME_PG.' as creator ON todo.'.\SYSTEM\SQL\system_todo::FIELD_USER.'=creator.'.\SYSTEM\SQL\system_user::FIELD_ID.
     ' LEFT JOIN '.\SYSTEM\SQL\system_user::NAME_PG.' as assignee ON assign.'.\SYSTEM\SQL\system_todo_assign::FIELD_USER.'=assignee.'.\SYSTEM\SQL\system_user::FIELD_ID.
     ' WHERE todo.'.\SYSTEM\SQL\system_todo::FIELD_STATE.' = $1'.
     ' AND todo.'.\SYSTEM\SQL\system_todo::FIELD_TYPE.' = $2'.

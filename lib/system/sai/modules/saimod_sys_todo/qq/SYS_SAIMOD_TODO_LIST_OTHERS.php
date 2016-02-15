@@ -17,7 +17,6 @@ class SYS_SAIMOD_TODO_LIST_OTHERS extends \SYSTEM\DB\QP {
     ' WHERE todo.'.\SYSTEM\SQL\system_todo::FIELD_STATE.' = $1'.
     ' AND NOT assign.'.\SYSTEM\SQL\system_todo_assign::FIELD_USER.' = $2'.
     ' AND (todo.'.\SYSTEM\SQL\system_todo::FIELD_MESSAGE.' LIKE $3 OR creator.'.\SYSTEM\SQL\system_user::FIELD_USERNAME.' LIKE $4 OR  assignee.'.\SYSTEM\SQL\system_user::FIELD_USERNAME.' LIKE $5)'.
-    ' ORDER BY case when assign.'.\SYSTEM\SQL\system_todo_assign::FIELD_USER.' = $6 then 1 else 2 end'.
 ') as a';
     //' ORDER BY a.'.\SYSTEM\SQL\system_todo::FIELD_PRIORITY.' DESC, a.'.\SYSTEM\SQL\system_todo::FIELD_TYPE.' DESC, a.'.\SYSTEM\SQL\system_todo::FIELD_COUNT.' DESC, a.'.\SYSTEM\SQL\system_todo::FIELD_TIME.' DESC';
     //sorry postgres but ur rly bad!
