@@ -32,10 +32,10 @@
 
     DELETE FROM system.text WHERE id = 'basic_analytics';
     DELETE FROM system.text_tag WHERE id = 'basic_analytics';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_analytics', 'deDE', 'Statistik', 0, 0, '2015-04-16 14:13:25', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_analytics', 'deDE', 'Statistik', 0, 0, '2015-04-16 14:13:25', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_analytics', 'enUS', 'Analytics', 2, 2, '2015-04-17 19:20:19', '2015-04-17 19:20:19');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_analytics', 'frFR', 'Statistique', 3, 3, '2015-04-20 14:20:35', '2015-04-20 14:20:35');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_analytics', 'jaJA', '統計', 0, 0, '2015-04-16 14:32:45', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_analytics', 'jaJA', '統計', 0, 0, '2015-04-16 14:32:45', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_analytics', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_analytics', 'sai_log');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_analytics', 'sai_start');
@@ -51,19 +51,19 @@
 
     DELETE FROM system.text WHERE id = 'basic_cancel';
     DELETE FROM system.text_tag WHERE id = 'basic_cancel';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'deDE', 'Abbrechen', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'enUS', 'Cancel', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'deDE', 'Abbrechen', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'enUS', 'Cancel', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'frFR', 'Annuler', 3, 3, '2015-04-18 04:46:32', '2015-04-18 04:46:32');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'jaJA', 'キャンシル', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_cancel', 'jaJA', 'キャンシル', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_cancel', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_cancel', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_close';
     DELETE FROM system.text_tag WHERE id = 'basic_close';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'deDE', 'Schlie&szlig;en', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'enUS', 'Close', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'deDE', 'Schlie&szlig;en', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'enUS', 'Close', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'frFR', 'Fermer', 3, 3, '2015-04-18 04:47:27', '2015-04-18 04:47:27');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'jaJA', '閉める', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_close', 'jaJA', '閉める', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_close', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_close', 'sai_todo');
 
@@ -81,16 +81,16 @@
     DELETE FROM system.text WHERE id = 'basic_email';
     DELETE FROM system.text_tag WHERE id = 'basic_email';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email', 'deDE', 'E-Mail', 0, 2, '2015-04-17 20:30:52', '2015-04-17 20:30:52');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email', 'enUS', 'EMail', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email', 'enUS', 'EMail', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email', 'frFR', 'éMail', 3, 3, '2015-04-20 14:21:33', '2015-04-20 14:21:33');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email', 'jaJA', 'メール', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email', 'jaJA', 'メール', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_email_wrong';
     DELETE FROM system.text_tag WHERE id = 'basic_email_wrong';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_wrong', 'deDE', 'Invalid EMail!', 0, 2, '2015-04-18 13:15:58', '2015-04-18 13:15:58');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_wrong', 'enUS', 'Invalid EMail!', 0, 0, '2015-04-18 13:15:58', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_wrong', 'enUS', 'Invalid EMail!', 0, 0, '2015-04-18 13:15:58', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_wrong', 'frFR', 'Adresse courriel&nbsp;non valide!', 3, 3, '2015-04-20 16:23:48', '2015-04-20 16:23:48');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_wrong', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_wrong', 'sai_login');
@@ -98,7 +98,7 @@
     DELETE FROM system.text WHERE id = 'basic_email_miss';
     DELETE FROM system.text_tag WHERE id = 'basic_email_miss';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_miss', 'deDE', 'EMail fehlt!', 0, 2, '2015-04-18 13:15:58', '2015-04-18 13:15:58');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_miss', 'enUS', 'EMail missing!', 0, 0, '2015-04-18 13:15:58', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_email_miss', 'enUS', 'EMail missing!', 0, 0, '2015-04-18 13:15:58', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_miss', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_email_miss', 'sai_login');
 
@@ -113,7 +113,7 @@
     DELETE FROM system.text WHERE id = 'basic_example';
     DELETE FROM system.text_tag WHERE id = 'basic_example';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_example', 'deDE', '<h1><img style="float: right;" title="TinyMCE Logo" src="http://www.tinymce.com/tryit/img/tlogo.png" alt="TinyMCE Logo" width="92" height="80" data-mce-src="http://www.tinymce.com/tryit/img/tlogo.png" data-mce-style="float: right;">Welcome to the TinyMCE editor demo!</h1><p>Feel free to try out the different features that are provided, please note that the <strong>MoxieManager</strong> specific functionality is part of our commercial offering. The demo is to show the integration.</p><h2>Got questions or need help?</h2><p>If you have questions or need help, feel free to visit our <a href="forum/index.php" data-mce-href="forum/index.php">community forum</a>! We also offer Enterprise <a href="enterprise/support.php" data-mce-href="enterprise/support.php">support</a> solutions. Also do not miss out on the <a href="wiki.php" data-mce-href="wiki.php">documentation</a>, its a great resource wiki for understanding how TinyMCE works and integrates.</p><h2>Found a bug?</h2><p>If you think you have found a bug, you can use the <a href="develop/bugtracker.php" data-mce-href="develop/bugtracker.php">Bug Tracker</a> to report bugs to the developers.</p><p>And here is a simple table for you to play with.</p><table class="mce-item-table" border="0"><tbody><tr><td><strong>Product</strong></td><td><strong>Cost</strong></td><td><strong>Really?</strong></td></tr><tr><td>TinyMCE</td><td>Free</td><td>YES!</td></tr><tr><td>Plupload</td><td>Free</td><td>YES!</td></tr></tbody></table><p>Enjoy our software and create great content!</p><p>Oh, and by the way, don''t forget to check out our other product called <a href="http://www.plupload.com" target="_blank" data-mce-href="http://www.plupload.com">Plupload</a>, your ultimate upload solution with HTML5 upload support!</p>', 0, 2, '2015-04-18 13:31:15', '2015-04-18 13:31:15');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_example', 'enUS', '<h1><img style="float: right;" title="TinyMCE Logo" src="http://www.tinymce.com/tryit/img/tlogo.png" alt="TinyMCE Logo" width="92" height="80" />Welcome to the TinyMCE editor demo!</h1>\n<p>Feel free to try out the different features that are provided, please note that the <strong>MoxieManager</strong> specific functionality is part of our commercial offering. The demo is to show the integration.</p>\n<h2>Got questions or need help?</h2>\n<p>If you have questions or need help, feel free to visit our <a href="forum/index.php">community forum</a>! We also offer Enterprise <a href="enterprise/support.php">support</a> solutions. Also do not miss out on the <a href="wiki.php">documentation</a>, its a great resource wiki for understanding how TinyMCE works and integrates.</p>\n<h2>Found a bug?</h2>\n<p>If you think you have found a bug, you can use the <a href="develop/bugtracker.php">Bug Tracker</a> to report bugs to the developers.</p>\n<p>And here is a simple table for you to play with.</p>\n<table border="0">\n<tbody>\n<tr>\n<td><strong>Product</strong></td>\n<td><strong>Cost</strong></td>\n<td><strong>Really?</strong></td>\n</tr>\n<tr>\n<td>TinyMCE</td>\n<td>Free</td>\n<td>YES!</td>\n</tr>\n<tr>\n<td>Plupload</td>\n<td>Free</td>\n<td>YES!</td>\n</tr>\n</tbody>\n</table>\n<p>Enjoy our software and create great content!</p>\n<p>Oh, and by the way, don''t forget to check out our other product called <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution with HTML5 upload support!</p>', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_example', 'enUS', '<h1><img style="float: right;" title="TinyMCE Logo" src="http://www.tinymce.com/tryit/img/tlogo.png" alt="TinyMCE Logo" width="92" height="80" />Welcome to the TinyMCE editor demo!</h1>\n<p>Feel free to try out the different features that are provided, please note that the <strong>MoxieManager</strong> specific functionality is part of our commercial offering. The demo is to show the integration.</p>\n<h2>Got questions or need help?</h2>\n<p>If you have questions or need help, feel free to visit our <a href="forum/index.php">community forum</a>! We also offer Enterprise <a href="enterprise/support.php">support</a> solutions. Also do not miss out on the <a href="wiki.php">documentation</a>, its a great resource wiki for understanding how TinyMCE works and integrates.</p>\n<h2>Found a bug?</h2>\n<p>If you think you have found a bug, you can use the <a href="develop/bugtracker.php">Bug Tracker</a> to report bugs to the developers.</p>\n<p>And here is a simple table for you to play with.</p>\n<table border="0">\n<tbody>\n<tr>\n<td><strong>Product</strong></td>\n<td><strong>Cost</strong></td>\n<td><strong>Really?</strong></td>\n</tr>\n<tr>\n<td>TinyMCE</td>\n<td>Free</td>\n<td>YES!</td>\n</tr>\n<tr>\n<td>Plupload</td>\n<td>Free</td>\n<td>YES!</td>\n</tr>\n</tbody>\n</table>\n<p>Enjoy our software and create great content!</p>\n<p>Oh, and by the way, don''t forget to check out our other product called <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution with HTML5 upload support!</p>', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_example', 'example');
 
     DELETE FROM system.text WHERE id = 'basic_ips';
@@ -126,34 +126,34 @@
     DELETE FROM system.text WHERE id = 'basic_join_date';
     DELETE FROM system.text_tag WHERE id = 'basic_join_date';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_join_date', 'deDE', 'Beitrittsdatum', 0, 2, '2015-04-17 20:32:44', '2015-04-17 20:32:44');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_join_date', 'enUS', 'Joindate', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_join_date', 'enUS', 'Joindate', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_join_date', 'frFR', 'Date de l''affiliation<a href="http://dict.leo.org/frde/index_de.html#/search=affiliation&amp;searchLoc=0&amp;resultOrder=basic&amp;multiwordShowSingle=on" data-mce-href="http://dict.leo.org/frde/index_de.html#/search=affiliation&amp;searchLoc=0&amp;resultOrder=basic&amp;multiwordShowSingle=on"><br></a>', 3, 3, '2015-04-20 14:31:49', '2015-04-20 14:31:49');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_join_date', 'jaJA', 'メンバになりましたの日', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_join_date', 'jaJA', 'メンバになりましたの日', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_join_date', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_join_date', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_last_active';
     DELETE FROM system.text_tag WHERE id = 'basic_last_active';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_last_active', 'deDE', 'Zuletzt aktiv', 0, 2, '2015-04-17 20:31:03', '2015-04-17 20:31:03');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_last_active', 'enUS', 'Last active', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_last_active', 'enUS', 'Last active', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_last_active', 'frFR', 'en dernier actif', 3, 3, '2015-04-20 14:26:17', '2015-04-20 14:26:17');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_last_active', 'jaJA', '前のログイン', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_last_active', 'jaJA', '前のログイン', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_last_active', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_last_active', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_locale';
     DELETE FROM system.text_tag WHERE id = 'basic_locale';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_locale', 'deDE', 'Sprache', 0, 2, '2015-04-17 20:31:27', '2015-04-17 20:31:27');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_locale', 'enUS', 'Locale', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_locale', 'enUS', 'Locale', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_locale', 'frFR', 'Langue', 3, 3, '2015-04-20 16:35:18', '2015-04-20 16:35:18');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_locale', 'jaJA', '言葉', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_locale', 'jaJA', '言葉', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_locale', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_locale', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_locale', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_log';
     DELETE FROM system.text_tag WHERE id = 'basic_log';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_log', 'deDE', 'Log', 0, 0, '2015-04-16 14:27:44', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_log', 'deDE', 'Log', 0, 0, '2015-04-16 14:27:44', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_log', 'enUS', 'Log', 2, 2, '2015-04-17 19:20:04', '2015-04-17 19:20:04');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_log', 'frFR', 'Log', 3, 3, '2015-04-20 14:19:53', '2015-04-20 14:19:53');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_log', 'jaJA', '報告', 2, 2, '2015-04-23 01:44:00', '2015-04-23 01:44:00');
@@ -164,9 +164,9 @@
     DELETE FROM system.text WHERE id = 'basic_login';
     DELETE FROM system.text_tag WHERE id = 'basic_login';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_login', 'deDE', 'Einloggen', 0, 2, '2015-04-21 03:38:29', '2015-04-21 03:38:29');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_login', 'enUS', 'Login', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_login', 'enUS', 'Login', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_login', 'frFR', 'Connecter', 1, 1, '2015-04-19 20:57:06', '2015-04-19 20:57:06');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_login', 'jaJA', 'ログイン', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_login', 'jaJA', 'ログイン', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_login', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_login', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_login', 'sai_start');
@@ -174,9 +174,9 @@
     DELETE FROM system.text WHERE id = 'basic_logout';
     DELETE FROM system.text_tag WHERE id = 'basic_logout';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_logout', 'deDE', 'Ausloggen', 0, 2, '2015-04-17 20:30:25', '2015-04-17 20:30:25');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_logout', 'enUS', 'Logout', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_logout', 'enUS', 'Logout', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_logout', 'frFR', 'Déconnecter', 3, 3, '2015-04-20 14:20:59', '2015-04-20 14:20:59');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_logout', 'jaJA', 'ログアウト', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_logout', 'jaJA', 'ログアウト', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_logout', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_logout', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_logout', 'sai_start');
@@ -192,10 +192,10 @@
 
     DELETE FROM system.text WHERE id = 'basic_name';
     DELETE FROM system.text_tag WHERE id = 'basic_name';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_name', 'deDE', 'Name', 0, 0, '2015-04-16 23:15:33', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_name', 'deDE', 'Name', 0, 0, '2015-04-16 23:15:33', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_name', 'enUS', 'Name', 2, 1, '2015-04-16 23:15:33', '2015-04-16 23:15:33');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_name', 'frFR', 'Nom', 3, 3, '2015-04-18 04:54:38', '2015-04-18 04:54:38');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_name', 'jaJA', '計画名前', 0, 0, '2015-04-16 23:15:33', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_name', 'jaJA', '計画名前', 0, 0, '2015-04-16 23:15:33', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_name', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_name', 'sai_start');
 
@@ -210,16 +210,16 @@
     DELETE FROM system.text WHERE id = 'basic_password';
     DELETE FROM system.text_tag WHERE id = 'basic_password';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password', 'deDE', 'Passwort', 0, 2, '2015-04-17 20:31:17', '2015-04-17 20:31:17');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password', 'enUS', 'Password', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password', 'enUS', 'Password', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password', 'frFR', 'Mot de passe', 3, 3, '2015-04-20 16:34:46', '2015-04-20 16:34:46');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password', 'jaJA', 'パスワード', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password', 'jaJA', 'パスワード', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password', 'sai_login');
 
     -- DELETE FROM system.text WHERE id = 'basic_password_long';
     -- DELETE FROM system.text_tag WHERE id = 'basic_password_long';
     -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'deDE', 'Passwort zu lang', 0, 2, '2015-04-18 13:16:18', '2015-04-18 13:16:18');
-    -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'enUS', 'Password too long', 0, 0, '2015-04-18 13:16:18', '0000-00-00 00:00:00');
+    -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'enUS', 'Password too long', 0, 0, '2015-04-18 13:16:18', NULL);
     -- INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_long', 'frFR', 'Mot de passe trop long!', 3, 3, '2015-04-20 16:28:21', '2015-04-20 16:28:21');
     -- INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_long', 'basic');
     -- INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_long', 'sai_login');
@@ -227,7 +227,7 @@
     DELETE FROM system.text WHERE id = 'basic_password_match';
     DELETE FROM system.text_tag WHERE id = 'basic_password_match';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_match', 'deDE', 'Passwords do not match!', 0, 2, '2015-04-18 13:16:33', '2015-04-18 13:16:33');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_match', 'enUS', 'Passwords do not match!', 0, 0, '2015-04-18 13:16:33', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_match', 'enUS', 'Passwords do not match!', 0, 0, '2015-04-18 13:16:33', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_match', 'frFR', 'Les mots de passe ne lui correspondent pas!', 3, 3, '2015-04-20 16:20:57', '2015-04-20 16:20:57');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_match', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_match', 'sai_login');
@@ -235,7 +235,7 @@
     DELETE FROM system.text WHERE id = 'basic_password_miss';
     DELETE FROM system.text_tag WHERE id = 'basic_password_miss';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_miss', 'deDE', 'Passwort erforderlich', 0, 2, '2015-04-18 13:16:46', '2015-04-18 13:16:46');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_miss', 'enUS', 'Password required', 0, 0, '2015-04-18 13:16:46', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_miss', 'enUS', 'Password required', 0, 0, '2015-04-18 13:16:46', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_miss', 'frFR', 'Mot de passe demandé!', 3, 3, '2015-04-20 16:18:30', '2015-04-20 16:18:30');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_miss', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_miss', 'sai_login');
@@ -243,19 +243,19 @@
     DELETE FROM system.text WHERE id = 'basic_password_short';
     DELETE FROM system.text_tag WHERE id = 'basic_password_short';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_short', 'deDE', 'Passwort zu kurz', 0, 2, '2015-04-18 13:16:58', '2015-04-18 13:16:58');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_short', 'enUS', 'Password too short', 0, 0, '2015-04-18 13:16:58', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_short', 'enUS', 'Password too short', 0, 0, '2015-04-18 13:16:58', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_password_short', 'frFR', 'Mot de passe est trop court!', 3, 3, '2015-04-20 16:24:50', '2015-04-20 16:24:50');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_short', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_password_short', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_placeholder_email';
     DELETE FROM system.text_tag WHERE id = 'basic_placeholder_email';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'deDE', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'enUS', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'esES', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'frFR', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'jaJA', 'peter@world.org', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'deDE', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'enUS', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'esES', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'frFR', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'jaJA', 'peter@world.org', 0, 0, '2015-04-15 18:41:22', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_email', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_email', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_email', 'sai_login');
 
@@ -263,27 +263,27 @@
     DELETE FROM system.text_tag WHERE id = 'basic_placeholder_password';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_password', 'deDE', 'geheim23', 0, 2, '2015-04-21 03:39:39', '2015-04-21 03:39:39');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_password', 'enUS', 'secret123', 0, 2, '2015-04-20 01:42:30', '2015-04-20 01:42:30');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_password', 'jaJA', '丸秘のパスワード', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_password', 'jaJA', '丸秘のパスワード', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_password', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_password', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_password', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_placeholder_username';
     DELETE FROM system.text_tag WHERE id = 'basic_placeholder_username';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'deDE', 'peter / peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'enUS', 'peter / peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'esES', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'frFR', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'jaJA', 'peter / peter@world.org', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'deDE', 'peter / peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'enUS', 'peter / peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'esES', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'frFR', 'peter@world.org', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'jaJA', 'peter / peter@world.org', 0, 0, '2015-04-15 18:41:22', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_username', 'trTR', 'peter@world.org', 0, 0, '2015-04-15 18:29:17', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_username', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_username', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_username', 'sai_start');
     
     DELETE FROM system.text WHERE id = 'basic_placeholder_search';
     DELETE FROM system.text_tag WHERE id = 'basic_placeholder_search';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_search', 'deDE', 'Ich suche nach...', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_search', 'enUS', 'I''m searching for...', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_search', 'deDE', 'Ich suche nach...', 0, 0, '2015-04-15 18:29:16', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_placeholder_search', 'enUS', 'I''m searching for...', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_search', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_search', 'sai_todo');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_placeholder_search', 'sai_security');
@@ -292,28 +292,28 @@
 
     DELETE FROM system.text WHERE id = 'basic_progress';
     DELETE FROM system.text_tag WHERE id = 'basic_progress';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_progress', 'deDE', 'Fortschritt', 0, 0, '2015-04-16 23:14:43', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_progress', 'deDE', 'Fortschritt', 0, 0, '2015-04-16 23:14:43', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_progress', 'enUS', 'Progress', 2, 1, '2015-04-16 23:14:43', '2015-04-16 23:14:43');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_progress', 'frFR', 'Progès', 3, 3, '2015-04-20 14:07:33', '2015-04-20 14:07:33');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_progress', 'jaJA', '進展', 0, 0, '2015-04-16 23:14:43', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_progress', 'jaJA', '進展', 0, 0, '2015-04-16 23:14:43', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_progress', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_progress', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_project';
     DELETE FROM system.text_tag WHERE id = 'basic_project';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_project', 'deDE', 'Projekt', 0, 0, '2015-04-16 14:06:30', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_project', 'deDE', 'Projekt', 0, 0, '2015-04-16 14:06:30', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_project', 'enUS', 'Project', 2, 1, '2015-04-16 23:06:03', '2015-04-16 23:06:03');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_project', 'frFR', 'Projet', 3, 3, '2015-04-20 14:07:00', '2015-04-20 14:07:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_project', 'jaJA', 'インフォメーション', 0, 0, '2015-04-16 14:06:30', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_project', 'jaJA', 'インフォメーション', 0, 0, '2015-04-16 14:06:30', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_project', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_project', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_register';
     DELETE FROM system.text_tag WHERE id = 'basic_register';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_register', 'deDE', 'Registrieren', 0, 2, '2015-04-17 20:33:14', '2015-04-17 20:33:14');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_register', 'enUS', 'Register', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_register', 'enUS', 'Register', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_register', 'frFR', 'Enregistrer', 3, 3, '2015-04-20 14:32:22', '2015-04-20 14:32:22');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_register', 'jaJA', 'サインオン', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_register', 'jaJA', 'サインオン', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_register', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_register', 'sai_login');
 
@@ -347,26 +347,26 @@
     DELETE FROM system.text WHERE id = 'basic_state_login';
     DELETE FROM system.text_tag WHERE id = 'basic_state_login';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_state_login', 'deDE', 'Du bist eingeloggt', 0, 2, '2015-04-17 20:32:08', '2015-04-17 20:32:08');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_state_login', 'enUS', 'You are logged in.', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_state_login', 'enUS', 'You are logged in.', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_state_login', 'frFR', 'Tu es connecté!', 3, 3, '2015-04-20 14:30:21', '2015-04-20 14:30:21');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_state_login', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_state_login', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_status';
     DELETE FROM system.text_tag WHERE id = 'basic_status';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_status', 'deDE', 'Status', 0, 0, '2015-04-16 14:16:32', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_status', 'deDE', 'Status', 0, 0, '2015-04-16 14:16:32', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_status', 'enUS', 'Status', 2, 1, '2015-04-16 23:27:32', '2015-04-16 23:27:32');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_status', 'frFR', 'Statut', 3, 3, '2015-04-20 14:19:07', '2015-04-20 14:19:07');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_status', 'jaJA', 'ステイタス', 0, 0, '2015-04-16 14:16:32', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_status', 'jaJA', 'ステイタス', 0, 0, '2015-04-16 14:16:32', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_status', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_status', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_text_login';
     DELETE FROM system.text_tag WHERE id = 'basic_text_login';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_login', 'deDE', 'Logge Dich in deine Website ein.', 0, 2, '2015-04-17 20:33:54', '2015-04-17 20:33:54');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_login', 'enUS', 'Login to your Website.', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_login', 'enUS', 'Login to your Website.', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_login', 'frFR', 'Connecte sur ton site Web', 3, 3, '2015-04-18 04:52:46', '2015-04-18 04:52:46');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_login', 'jaJA', 'ログインする', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_login', 'jaJA', 'ログインする', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_login', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_login', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_login', 'sai_start');
@@ -374,27 +374,27 @@
     DELETE FROM system.text WHERE id = 'basic_text_logout';
     DELETE FROM system.text_tag WHERE id = 'basic_text_logout';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_logout', 'deDE', 'Logge Dich aus bevor Du gehst!', 0, 1, '2015-04-16 23:24:12', '2015-04-16 23:24:12');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_logout', 'enUS', 'Logout before you leave!', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_logout', 'enUS', 'Logout before you leave!', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_logout', 'frFR', 'Déconnecter avant partir!', 3, 3, '2015-04-20 14:16:21', '2015-04-20 14:16:21');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_logout', 'jaJA', '出て前にログアウトを忘れないでください。', 0, 0, '2015-04-16 14:41:25', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_logout', 'jaJA', '出て前にログアウトを忘れないでください。', 0, 0, '2015-04-16 14:41:25', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_logout', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_logout', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_text_password_miss';
     DELETE FROM system.text_tag WHERE id = 'basic_text_password_miss';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_password_miss', 'deDE', 'Can''t really remember your Password?', 0, 2, '2015-04-17 20:34:38', '2015-04-17 20:34:38');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_password_miss', 'enUS', 'Can''t really remember your Password?', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_password_miss', 'enUS', 'Can''t really remember your Password?', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_password_miss', 'frFR', 'Tu te ne rappelles pas ton mot de passe?', 3, 3, '2015-04-20 16:22:13', '2015-04-20 16:22:13');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_password_miss', 'jaJA', 'パスワードを忘れた', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_password_miss', 'jaJA', 'パスワードを忘れた', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_password_miss', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_password_miss', 'sai_login');
 
     DELETE FROM system.text WHERE id = 'basic_text_register';
     DELETE FROM system.text_tag WHERE id = 'basic_text_register';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_register', 'deDE', 'Registriere einen Account', 0, 3, '2015-04-20 14:33:03', '2015-04-20 14:33:03');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_register', 'enUS', 'Register an Account', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_register', 'enUS', 'Register an Account', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_register', 'frFR', 'Enregistrer un compte', 3, 3, '2015-04-20 14:33:42', '2015-04-20 14:33:42');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_register', 'jaJA', 'サインオン', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_text_register', 'jaJA', 'サインオン', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_register', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_text_register', 'sai_login');
 
@@ -409,7 +409,7 @@
 
     DELETE FROM system.text WHERE id = 'basic_todo';
     DELETE FROM system.text_tag WHERE id = 'basic_todo';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_todo', 'deDE', 'Todo', 0, 0, '2015-04-16 14:16:32', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_todo', 'deDE', 'Todo', 0, 0, '2015-04-16 14:16:32', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_todo', 'enUS', 'Todo', 2, 1, '2015-04-16 23:25:06', '2015-04-16 23:25:06');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_todo', 'jaJA', 'ToDoリスト', 2, 2, '2015-04-23 01:47:28', '2015-04-23 01:47:28');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_todo', 'basic');
@@ -419,16 +419,16 @@
     DELETE FROM system.text_tag WHERE id = 'basic_URL';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_URL', 'deDE', 'URL', 0, 2, '2015-04-16 23:17:13', '2015-04-16 20:20:50');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_URL', 'enUS', 'URL', 2, 1, '2015-04-16 23:17:13', '2015-04-16 23:17:13');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_URL', 'jaJA', 'URL', 0, 0, '2015-04-16 23:17:13', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_URL', 'jaJA', 'URL', 0, 0, '2015-04-16 23:17:13', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_URL', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_URL', 'sai_start');
 
     DELETE FROM system.text WHERE id = 'basic_username';
     DELETE FROM system.text_tag WHERE id = 'basic_username';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username', 'deDE', 'Username', 0, 2, '2015-04-17 20:31:39', '2015-04-17 20:31:39');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username', 'enUS', 'Username', 0, 0, '2015-04-15 18:29:16', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username', 'enUS', 'Username', 0, 0, '2015-04-15 18:29:16', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username', 'frFR', 'Nom d''usager', 3, 3, '2015-04-20 16:35:03', '2015-04-20 16:35:03');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username', 'jaJA', '名前', 0, 0, '2015-04-15 18:41:22', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username', 'jaJA', '名前', 0, 0, '2015-04-15 18:41:22', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_username', 'basic');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_username', 'sai_login');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_username', 'sai_start');
@@ -436,21 +436,21 @@
     DELETE FROM system.text WHERE id = 'basic_username_long';
     DELETE FROM system.text_tag WHERE id = 'basic_username_long';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_long', 'deDE', 'Nutzername ist zu lang', 0, 2, '2015-04-18 13:17:11', '2015-04-18 13:17:11');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_long', 'enUS', 'Username is too long', 0, 0, '2015-04-18 13:17:11', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_long', 'enUS', 'Username is too long', 0, 0, '2015-04-18 13:17:11', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_long', 'frFR', 'Nom d''utilisateur trop long!', 3, 3, '2015-04-20 16:26:21', '2015-04-20 16:26:21');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_username_long', 'basic');
 
     DELETE FROM system.text WHERE id = 'basic_username_miss';
     DELETE FROM system.text_tag WHERE id = 'basic_username_miss';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_miss', 'deDE', 'Nutzername benötigt', 0, 2, '2015-04-21 03:40:25', '2015-04-21 03:40:25');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_miss', 'enUS', 'Username required', 0, 0, '2015-04-18 13:17:25', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_miss', 'enUS', 'Username required', 0, 0, '2015-04-18 13:17:25', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_miss', 'frFR', 'Nom d''utilisateur est nécessaire!', 2, 2, '2015-04-21 03:40:34', '2015-04-21 03:40:34');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_username_miss', 'basic');
 
     DELETE FROM system.text WHERE id = 'basic_username_short';
     DELETE FROM system.text_tag WHERE id = 'basic_username_short';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_short', 'deDE', 'Nutzername zu kurz', 0, 2, '2015-04-21 03:38:57', '2015-04-21 03:38:57');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_short', 'enUS', 'Username is too short', 0, 0, '2015-04-18 13:17:37', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_short', 'enUS', 'Username is too short', 0, 0, '2015-04-18 13:17:37', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('basic_username_short', 'frFR', 'Nom d''utilisateur trop court!', 2, 2, '2015-04-21 03:39:06', '2015-04-21 03:39:06');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('basic_username_short', 'basic');
 
@@ -695,7 +695,7 @@
 
     DELETE FROM system.text WHERE id = 'sai_log_latest_entries';
     DELETE FROM system.text_tag WHERE id = 'sai_log_latest_entries';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_log_latest_entries', 'deDE', 'letzten Log Einträge', 0, 0, '2015-04-16 23:26:52', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_log_latest_entries', 'deDE', 'letzten Log Einträge', 0, 0, '2015-04-16 23:26:52', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_log_latest_entries', 'enUS', 'latest log entries', 2, 1, '2015-04-16 23:31:20', '2015-04-16 23:31:20');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_log_latest_entries', 'frFR', 'Entrées récammentes', 3, 3, '2015-04-20 16:37:57', '2015-04-20 16:37:57');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('sai_log_latest_entries', 'sai');
@@ -872,8 +872,8 @@
     DELETE FROM system.text WHERE id = 'sai_mod_login_text';
     DELETE FROM system.text_tag WHERE id = 'sai_mod_login_text';
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_mod_login_text', 'deDE', 'Für Entwicklerzugriff bitte einloggen (falls Sie Entwickler sind).', 0, 2, '2015-04-17 20:34:48', '2015-04-17 20:34:48');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_mod_login_text', 'enUS', 'Please login for developer access (if you are a developer).', 0, 0, '2015-04-16 20:27:32', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_mod_login_text', 'frFR', 'Connectez pour accès de développeur (si vous êtes un développeur).', 0, 0, '2015-04-16 20:27:32', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_mod_login_text', 'enUS', 'Please login for developer access (if you are a developer).', 0, 0, '2015-04-16 20:27:32', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_mod_login_text', 'frFR', 'Connectez pour accès de développeur (si vous êtes un développeur).', 0, 0, '2015-04-16 20:27:32', NULL);
     INSERT INTO system.text_tag ("id", "tag") VALUES ('sai_mod_login_text', 'sai');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('sai_mod_login_text', 'sai_login');
 
@@ -901,7 +901,7 @@
 
     DELETE FROM system.text WHERE id = 'sai_start_welcome';
     DELETE FROM system.text_tag WHERE id = 'sai_start_welcome';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome', 'deDE', 'Willkommen im SYSTEM Admin Interface - kurz SAI', 0, 0, '2015-04-16 22:59:29', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome', 'deDE', 'Willkommen im SYSTEM Admin Interface - kurz SAI', 0, 0, '2015-04-16 22:59:29', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome', 'enUS', '<p>Welcome to the SYSTEM Admin Interface - short SAI.</p>', 0, 1, '2015-04-16 22:59:29', '2015-04-16 22:59:29');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome', 'frFR', 'Accueillir en System Admin Interface - court: SAI.', 3, 3, '2015-04-20 16:40:27', '2015-04-20 16:40:27');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome', 'jaJA', '<p>SYSTEM-Admin-Interface、SAIて言う、へようこそ。</p>', 1, 2, '2015-04-16 22:59:29', '2015-04-16 19:16:02');
@@ -910,8 +910,8 @@
 
     DELETE FROM system.text WHERE id = 'sai_start_welcome_description';
     DELETE FROM system.text_tag WHERE id = 'sai_start_welcome_description';
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome_description', 'deDE', 'Hier erhalten Sie eine Übersicht über Funktionen und Statistiken ihres Web-Projekts', 0, 0, '2015-04-16 22:56:37', '0000-00-00 00:00:00');
-    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome_description', 'enUS', 'From here you can control and manage your Website.', 0, 0, '2015-04-16 22:56:37', '0000-00-00 00:00:00');
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome_description', 'deDE', 'Hier erhalten Sie eine Übersicht über Funktionen und Statistiken ihres Web-Projekts', 0, 0, '2015-04-16 22:56:37', NULL);
+    INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome_description', 'enUS', 'From here you can control and manage your Website.', 0, 0, '2015-04-16 22:56:37', NULL);
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome_description', 'frFR', 'D''ici tu peux contrôler ton site Web.', 3, 3, '2015-04-20 16:41:46', '2015-04-20 16:41:46');
     INSERT INTO system.text ("id", "lang", "text", "author", "author_edit", "time_create", "time_edit") VALUES ('sai_start_welcome_description', 'jaJA', '<p>SAIはあなたにプロジェクトのコントロールを挙げます。見渡しは下です。</p>', 1, 1, '2015-04-16 22:56:37', '2015-04-16 22:56:37');
     INSERT INTO system.text_tag ("id", "tag") VALUES ('sai_start_welcome_description', 'sai');
