@@ -8,12 +8,20 @@ class QP {
         $con = new \SYSTEM\DB\Connection($dbinfo);
         try{
             if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
+                if(!\is_callable(static::get_class().'::pgsql')){
+                    throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no pgsql implementation present.');}
                 return $con->prepare(static::get_class(),static::pgsql(),$params);
             } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoMYS){
+                if(!\is_callable(static::get_class().'::mysql')){
+                    throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no mysql implementation present.');}
                 return $con->prepare(static::get_class(),static::mysql(),$params);
-            } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP){
+            } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP && is_callable(static::amqp())){
+                if(!\is_callable(static::get_class().'::amqp')){
+                    throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no amqp implementation present.');}
                 return $con->prepare(static::get_class(),static::amqp(),$params);
             } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoSQLite){
+                if(!\is_callable(static::get_class().'::sqlite')){
+                    throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no sqlite implementation present.');}
                 return $con->prepare(static::get_class(),static::sqlite(),$params);
             }
         } catch (\Exception $e){

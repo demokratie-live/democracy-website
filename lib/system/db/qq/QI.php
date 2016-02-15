@@ -6,6 +6,8 @@ class QI {
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
         
         if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
+            if(!\is_callable(static::get_class().'::files_pgsql')){
+                    throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no files_pgsql implementation present.');}
             $files = static::files_pgsql();
             $command =  'psql'.
                         ' -U ' . $dbinfo->m_user.
@@ -13,6 +15,8 @@ class QI {
                         ' -a '.
                         ' -f ${file} 2>&1';
         } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoMYS){
+            if(!\is_callable(static::get_class().'::files_mysql')){
+                    throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no files_mysql implementation present.');}
             $files = static::files_mysql();
             $command =  'mysql'.
                         ' --host=' . $dbinfo->m_host.
