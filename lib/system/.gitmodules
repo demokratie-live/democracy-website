@@ -37,3 +37,6 @@
 [submodule "lib/minify"]
 	path = lib/minify
 	url = ../lib_minify.git
+[submodule "lib/phpdocumentor"]
+	path = lib/phpdocumentor
+	url = ../lib_phpdocumentor.git
