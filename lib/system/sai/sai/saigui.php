@@ -4,6 +4,29 @@ class saigui extends \SYSTEM\PAGE\Page {
     const SAI_MOD_POSTFIELD = 'sai_mod';
     
     public function html(){
+        //register docu here, we require path so system must be started
+        \SYSTEM\DOCU\docu::register(array(  'id' => 'system',
+                                            'inpath' => new \SYSTEM\PSYSTEM(),
+                                            'outpath' => new \SYSTEM\PSYSTEM('docu/system/'),
+                                            'cachepath' => new \SYSTEM\PSYSTEM('docu/system/cache/'),
+                                            'ignore' => array(  'lib/animate/*',
+                                                                'lib/bootstrap/*',
+                                                                'lib/bootstrap_growl/*',
+                                                                'lib/git/*',
+                                                                'lib/jqbootstrapvalidation/*',
+                                                                'lib/jquery/*',
+                                                                'lib/lettering/*',
+                                                                'lib/markdown/*',
+                                                                'lib/minify/*',
+                                                                'lib/phpdocumentor/*',
+                                                                'lib/scssphp/*',
+                                                                'lib/tablesorter/*',
+                                                                'lib/texttilate/*',
+                                                                'lib/tinymce/*'),
+                                            'sourcecode' => true,
+                                            'parseprivate' => false,
+                                            'title' => 'SYSTEM - PHP Framework'));
+        
         \SYSTEM\SECURITY\Security::isLoggedIn(); // refresh session
         //Direct JSON Input
         $pg = json_decode(file_get_contents("php://input"), true);

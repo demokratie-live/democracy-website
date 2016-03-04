@@ -14,9 +14,10 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         \LIB\lib_phpdocumentor::php();
         $configs = \SYSTEM\DOCU\docu::getAll();
         foreach($configs as $config){
-            \phpdocumentor::run(    $config['inpath']->SERVERPATH(),
-                                    $config['outpath']->SERVERPATH(),
-                                    $config['cachepath']->SERVERPATH(),
+            \phpdocumentor::run(    $config['inpath'],
+                                    $config['outpath'],
+                                    $config['cachepath'],
+                                    $config['ignore'],
                                     $config['title'],
                                     $config['sourcecode'],
                                     $config['parseprivate']);}
@@ -24,17 +25,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'system'){
         $vars = array('iframesrc' => \SYSTEM\DOCU\docu::get($cat)['outpath']->WEBPATH(false));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_cat.tpl'))->SERVERPATH(), $vars);
-    }
-    
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_doc($cat = 'System',$doc = '1_system_md'){
-        /*\LIB\lib_markdown::php();
-        $document = \SYSTEM\DOCU\docu::getDocuments()[$cat];
-        foreach($document as $docu){
-            if(str_replace(array('.',' ','\\','/'), '_', basename($docu)) == $doc){
-                return \Michelf\MarkdownExtra::defaultTransform(file_get_contents($docu));}
-        }*/
-        return 'not found';
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_iframe.tpl'))->SERVERPATH(), $vars);
     }
     
     //public static function html_li_menu(){return '<li><a id="menu_docu" href="#!docu"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ${sai_menu_docu}</a></li>';}
