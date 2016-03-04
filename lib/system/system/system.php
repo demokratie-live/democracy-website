@@ -17,6 +17,15 @@ class system {
             \SYSTEM\system::register_errorhandler_dbwriter();} //write errors to database (must be first errorhandler to register)
         if($error_json){
             \SYSTEM\system::register_errorhandler_jsonoutput();} //print errors as json to caller (must be last errorhandler to register)
+            
+        //register docu here, we require path
+        \SYSTEM\DOCU\docu::register(array(  'id' => 'system',
+                                            'inpath' => new \SYSTEM\PSYSTEM(),
+                                            'outpath' => new \SYSTEM\PSYSTEM('docu/system/'),
+                                            'cachepath' => new \SYSTEM\PSYSTEM('docu/system/cache/'),
+                                            'sourcecode' => true,
+                                            'parseprivate' => false,
+                                            'title' => 'SYSTEM - PHP Framework'));
     }
     public static function _start_time(){
         \SYSTEM\time::start();}

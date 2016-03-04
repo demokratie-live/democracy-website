@@ -1,9 +1,1 @@
-<div class="tabbable tabs-left" id="tabs2_docu">
-    <ul class="nav nav-stacked nav-pills col-md-3 sai_margin_top_10">
-        ${tabopts}
-    </ul>
-    <div class="tab-content col-md-9">
-        <div class="tab-pane active" id="tab2_docu">
-        </div>      
-    </div>
-</div>
+<iframe src="${iframesrc}" style="width: 100%; min-height: 700px;"></iframe>
