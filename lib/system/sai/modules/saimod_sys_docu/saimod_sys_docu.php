@@ -23,6 +23,11 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
                                     $config['parseprivate']);}
     }
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate_md(){
+        \LIB\lib_phpdoc_md::php();
+        
+    }
+    
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'system'){
         $vars = array('iframesrc' => \SYSTEM\DOCU\docu::get($cat)['outpath']->WEBPATH(false));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_iframe.tpl'))->SERVERPATH(), $vars);
