@@ -46,3 +46,6 @@
 [submodule "docu/system_wiki"]
 	path = docu/system_wiki
 	url = ../system.wiki.git
+[submodule "lib/phpdoc_md"]
+	path = lib/phpdoc_md
+	url = ../lib_phpdoc_md.git
