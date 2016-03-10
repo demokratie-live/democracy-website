@@ -8,6 +8,8 @@ class saigui extends \SYSTEM\PAGE\Page {
         \SYSTEM\DOCU\docu::register(array(  'id' => 'system',
                                             'inpath' => new \SYSTEM\PSYSTEM(),
                                             'outpath' => new \SYSTEM\PSYSTEM('docu/system/'),
+                                            'inpath_md' => new \SYSTEM\PSYSTEM('docu/system/structure.xml'),
+                                            'outpath_md' => new \SYSTEM\PSYSTEM('docu/system_wiki/'),
                                             'cachepath' => new \SYSTEM\PSYSTEM('docu/system/cache/'),
                                             'ignore' => array(  'lib/animate/*',
                                                                 'lib/bootstrap/*',

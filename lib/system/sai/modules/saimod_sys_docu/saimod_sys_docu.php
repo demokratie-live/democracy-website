@@ -25,7 +25,10 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate_md(){
         \LIB\lib_phpdoc_md::php();
-        
+        $configs = \SYSTEM\DOCU\docu::getAll();
+        foreach($configs as $config){
+            \phpdoc_md::run(    $config['inpath_md'],
+                                $config['outpath_md']);}
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'system'){
