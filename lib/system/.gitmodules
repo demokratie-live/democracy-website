@@ -40,3 +40,6 @@
 [submodule "lib/phpdocumentor"]
 	path = lib/phpdocumentor
 	url = ../lib_phpdocumentor.git
+[submodule "docu/system"]
+	path = docu/system
+	url = ../docu_system.git
