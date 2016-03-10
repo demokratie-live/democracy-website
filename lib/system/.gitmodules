@@ -43,3 +43,6 @@
 [submodule "docu/system"]
 	path = docu/system
 	url = ../docu_system.git
+[submodule "docu/system_wiki"]
+	path = docu/system_wiki
+	url = ../system.wiki.git
