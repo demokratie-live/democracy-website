@@ -49,3 +49,6 @@
 [submodule "lib/phpdoc_md"]
 	path = lib/phpdoc_md
 	url = ../lib_phpdoc_md.git
+[submodule "lib/jstree"]
+	path = lib/jstree
+	url = ../lib_jstree.git
