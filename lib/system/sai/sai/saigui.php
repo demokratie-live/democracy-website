@@ -24,7 +24,9 @@ class saigui extends \SYSTEM\PAGE\Page {
                                                                 'lib/scssphp/*',
                                                                 'lib/tablesorter/*',
                                                                 'lib/texttilate/*',
-                                                                'lib/tinymce/*'),
+                                                                'lib/tinymce/*',
+                                                                'lib/jstree/*',
+                                                                'lib/phpdoc_md/*'),
                                             'sourcecode' => true,
                                             'parseprivate' => false,
                                             'title' => 'SYSTEM - PHP Framework'));
