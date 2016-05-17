@@ -40,6 +40,10 @@ class State {
             if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'js') && \is_callable($row['php_class'].'::js')){
                 $row['js'] = array_merge($row['js'], \call_user_func($row['php_class'].'::js'));}
             $row['js'] = count($row['js']) > 0 ? array(\SYSTEM\CACHE\cache_js::url($row['js'])) : array();
+            if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'title') && \is_callable($row['php_class'].'::title')){
+                $row['title'] = \call_user_func($row['php_class'].'::title');}
+            if(\class_exists($row['php_class']) && \method_exists($row['php_class'], 'meta') && \is_callable($row['php_class'].'::meta')){
+                $row['meta'] = \call_user_func($row['php_class'].'::meta');}
             unset($row['php_class']);
             
             $skip = false;

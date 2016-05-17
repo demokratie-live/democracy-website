@@ -30,6 +30,25 @@ abstract class api_default extends api_system {
                 }
             }
         }
+        //Title
+        if(array_key_exists('title', $state[0])){
+            $html->getElementsByTagName('title')[0]->nodeValue = $state[0]['title'];}
+        //Meta
+        if(array_key_exists('meta', $state[0])){
+            $meta = $html->getElementsByTagName('meta');//[0]->nodeValue = $state[0]['title'];
+            foreach($state[0]['meta'] as $metaname=>$metavalue){
+                $found = false;
+                for ($i = 0; $i < $meta->length; $i++) {
+                    if($meta->item($i)->getAttribute('name') == $metaname){
+                        $found = true;
+                        $meta->item($i)->setAttribute('content',$metavalue);}
+                }
+                if(!$found){
+                    $node = $head->appendChild($html->createElement('meta'));
+                    $node->setAttribute($metaname, $metavalue);}
+            }
+        }
+        //print_r($state);
         echo $html->saveHTML();
         new \SYSTEM\LOG\COUNTER("API was called sucessfully.");
         die();
