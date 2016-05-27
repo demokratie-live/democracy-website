@@ -38,14 +38,16 @@ abstract class api_default extends api_system {
             $meta = $html->getElementsByTagName('meta');//[0]->nodeValue = $state[0]['title'];
             foreach($state[0]['meta'] as $metaname=>$metavalue){
                 $found = false;
+                $key = explode('_',$metaname);
+                $key = end($key);
                 for ($i = 0; $i < $meta->length; $i++) {
-                    if($meta->item($i)->getAttribute('name') == $metaname){
+                    if($meta->item($i)->getAttribute('name') == $key){
                         $found = true;
                         $meta->item($i)->setAttribute('content',$metavalue);}
                 }
                 if(!$found){
                     $node = $head->appendChild($html->createElement('meta'));
-                    $node->setAttribute($metaname, $metavalue);}
+                    $node->setAttribute($key, $metavalue);}
             }
         }
         //print_r($state);
