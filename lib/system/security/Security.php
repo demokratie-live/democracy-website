@@ -77,8 +77,12 @@ class Security {
         return $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)];}
 
     // Determine if username exists
-    public static function available($username){        
-        $res = \SYSTEM\SQL\SYS_SECURITY_AVAILABLE::Q1(array($username));
+    public static function available($username,$email=null){
+        if($email){
+            $res = \SYSTEM\SQL\SYS_SECURITY_AVAILABLE_EMAIL::Q1(array($username,$email));
+        } else {
+            $res = \SYSTEM\SQL\SYS_SECURITY_AVAILABLE::Q1(array($username));}
+            
         if(!$res){
             throw new \SYSTEM\LOG\ERRROR("Cannot determine the availability of username!");}        
         if($res['count'] != 0){
