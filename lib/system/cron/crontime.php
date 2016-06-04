@@ -8,7 +8,7 @@ class crontime {
             if(($month + $now_month)> 12){ $next_year += 1;}
                 $next_month = ($now_month+$month)%12;}
         if($day){
-            if($day + $now_day> 31){ $next_month += 1;}
+            if($day + $now_day>= 31){ $next_month += 1;}
                 $next_day = ($now_day+$day)%31;}
         if($hour){
             if(($hour + $now_hour)>= 24){ $next_day += 1;}
@@ -32,7 +32,7 @@ class crontime {
             if(($now_month - $month)< 12){ $last_year -= 1;}
                 $last_month = ($now_month-$month)%12;}
         if($day){
-            if(($now_day - $day)> 31){ $last_month -= 1;}
+            if(($now_day - $day)>= 31){ $last_month -= 1;}
                 $last_day = ($now_day-$day)%31;}
         if($hour){
             if(($now_hour - $hour)> 24){ $last_day -= 1;}
