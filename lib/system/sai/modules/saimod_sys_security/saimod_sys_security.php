@@ -108,6 +108,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_user($username){        
         $vars = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER::Q1(array($username));
+        $vars['email_confirmed'] = $vars['email_confirmed'] == 1 ? 'Yes' : 'No';
         $vars['time_elapsed'] = \SYSTEM\time::time_ago_string(strtotime($vars['last_active']));
         $vars['user_rights'] = array_key_exists('id', $vars) ? self::user_rights($vars['id']) : '';
         $vars['user_actions'] = array_key_exists('id', $vars) ? self::user_actions($vars['id']) : '';
@@ -128,6 +129,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $count_filtered = 0;
         $res->seek(100*$page);
         while(($r = $res->next()) && ($count_filtered < 100)){
+            $r['email_confirmed'] = $r['email_confirmed'] == 1 ? 'Yes' : 'No';
             $r['class'] = self::tablerow_class($r['last_active']);
             $r['time_elapsed'] = \SYSTEM\time::time_ago_string($r['last_active']);
             $vars['table'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_user.tpl'))->SERVERPATH(),$r);

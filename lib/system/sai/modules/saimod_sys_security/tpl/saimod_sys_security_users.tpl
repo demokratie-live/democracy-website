@@ -14,7 +14,7 @@
             <th>${table_join_date}</th>
             <th>${table_language}</th>
             <th>${table_last_active}</th>
-            <th>${table_reset_password}</th>
+            <th>${table_email_confirmed}</th>
         </tr>
         ${table}
     </table>
