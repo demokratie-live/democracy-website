@@ -8,7 +8,7 @@ CREATE TABLE system."user"
   joindate timestamp with time zone NOT NULL DEFAULT now(),
   locale character varying(6) NOT NULL DEFAULT 'enUS'::character varying,
   last_active timestamp with time zone NOT NULL DEFAULT now(),
-  account_flag integer,
+  email_confirmed integer DEFAULT NULL,
   CONSTRAINT system_user_pk_id PRIMARY KEY (id)
 )
 WITH (

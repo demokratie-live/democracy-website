@@ -519,6 +519,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_rename', 'enUS', 'Rename', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rename', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rename', 'sai_files');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_rename', 'sai_security');
     
     DELETE FROM `system_text` WHERE id = 'basic_upload';
     DELETE FROM `system_text_tag` WHERE id = 'basic_upload';
@@ -648,6 +649,62 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_generate', 'enUS', 'Generate', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_generate', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_generate', 'sai_docu');
+
+    DELETE FROM `system_text` WHERE id = 'basic_confirm_email';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_confirm_email';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_confirm_email', 'deDE', 'EMail bestätigen', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_confirm_email', 'enUS', 'Confirm EMail', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_confirm_email', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_confirm_email', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_change_password';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_change_password';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_change_password', 'deDE', 'Password ändern', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_change_password', 'enUS', 'Change Password', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_change_password', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_change_password', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_reset_password';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_reset_password';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_reset_password', 'deDE', 'Password zurücksetzen', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_reset_password', 'enUS', 'Reset Password', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_reset_password', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_reset_password', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_change_email';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_change_email';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_change_email', 'deDE', 'EMail ändern', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_change_email', 'enUS', 'Change EMail', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_change_email', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_change_email', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_password_old';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_password_old';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_old', 'deDE', 'Altes Passwort', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_old', 'enUS', 'Old Password', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_old', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_old', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_password_new';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_password_new';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_new', 'deDE', 'Neues Passwort', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_password_new', 'enUS', 'New Password', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_new', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_password_new', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_email_new';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_email_new';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_email_new', 'deDE', 'Neue Email', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_email_new', 'enUS', 'New Email', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_email_new', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_email_new', 'sai_security');
+
+    DELETE FROM `system_text` WHERE id = 'basic_username_new';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_username_new';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_new', 'deDE', 'Neuer Username', 1, 1, '2015-04-16 23:11:18', '2015-04-16 16:48:36');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_new', 'enUS', 'New Username', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_new', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_new', 'sai_security');
 
 -- SAI
     DELETE FROM `system_text` WHERE id = 'sai_api_title';
@@ -1230,6 +1287,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_action', 'deDE', 'Aktion', 2, 2, '2015-04-23 01:58:25', '2015-04-23 01:58:25');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_action', 'enUS', 'Action', 2, 2, '2015-04-18 13:56:53', '2015-04-18 13:56:53');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_action', 'sai_todo');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_action', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_action', 'table');
 
     DELETE FROM `system_text` WHERE id = 'table_username';
@@ -1349,6 +1407,11 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_reset_password', 'enUS', 'Reset Password', 2, 2, '2015-04-18 13:56:53', '2015-04-18 13:56:53');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_reset_password', 'sai_security');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('table_reset_password', 'table');
+
+    REPLACE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_email_confirmed', 'deDE', 'Email bestätigt', 10, 10, '2016-06-01 15:49:43', '2016-06-01 15:49:43');
+    REPLACE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('table_email_confirmed', 'enUS', 'Email Confirmed', 10, 10, '2016-06-01 15:49:28', '2016-06-01 15:49:28');
+    REPLACE INTO `system_text_tag` (`id`, `tag`) VALUES ('table_email_confirmed', 'sai_security');
+    REPLACE INTO `system_text_tag` (`id`, `tag`) VALUES ('table_email_confirmed', 'table');
 
 -- Time
 

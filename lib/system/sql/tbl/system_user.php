@@ -15,5 +15,5 @@ class system_user {
     const FIELD_JOINDATE = 'joindate';
     const FIELD_LOCALE = 'locale';
     const FIELD_LAST_ACTIVE = 'last_active';
-    const FIELD_ACCOUNT_FLAG = 'account_flag';
+    const FIELD_EMAIL_CONFIRMED = 'email_confirmed';
 }

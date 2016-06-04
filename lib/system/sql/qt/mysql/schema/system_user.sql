@@ -6,8 +6,8 @@ CREATE TABLE `system_user` (
 	`email` CHAR(255) NOT NULL,
 	`joindate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`locale` CHAR(6) NOT NULL DEFAULT 'enUS',
-	`last_active` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
-	`account_flag` INT(10) NULL DEFAULT NULL,
+	`last_active` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `email_confirmed` INT(11) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
 COLLATE='utf8_general_ci'
