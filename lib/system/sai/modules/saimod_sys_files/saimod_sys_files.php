@@ -46,7 +46,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
     //public static function html_li_menu(){return '<li><a id="menu_files" href="#!files">${sai_menu_files}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_files" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_files}" href="#!files"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a></li>';}    
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_FILES);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_FILES);}
     
     //public static function css(){}
     public static function js(){

@@ -92,7 +92,7 @@ class text {
         if($new_id == self::NEW_ENTRY){
             return false;}
         //Insert
-        if(!\SYSTEM\SQL\SYS_TEXT_SAVE::QI(array($id,$lang,$text,  \SYSTEM\SECURITY\Security::getUser()->id,\SYSTEM\SECURITY\Security::getUser()->id))){
+        if(!\SYSTEM\SQL\SYS_TEXT_SAVE::QI(array($id,$lang,$text,  \SYSTEM\SECURITY\security::getUser()->id,\SYSTEM\SECURITY\security::getUser()->id))){
             return false;}
         //delete all tags
         \SYSTEM\SQL\SYS_TEXT_DELETE_TAGS::QI(array($id));

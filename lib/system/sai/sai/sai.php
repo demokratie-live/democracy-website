@@ -1,5 +1,4 @@
 <?php
-
 namespace SYSTEM\SAI;
 
 class sai {

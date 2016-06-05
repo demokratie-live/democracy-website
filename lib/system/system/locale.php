@@ -8,9 +8,9 @@ class locale {
         if(!self::isLang($lang)){
             return false;}
 
-        \SYSTEM\SECURITY\Security::save(self::SESSION_KEY, $lang);
-        if(\SYSTEM\SECURITY\Security::isLoggedIn()){
-            $user = \SYSTEM\SECURITY\Security::getUser();
+        \SYSTEM\SECURITY\security::save(self::SESSION_KEY, $lang);
+        if(\SYSTEM\SECURITY\security::isLoggedIn()){
+            $user = \SYSTEM\SECURITY\security::getUser();
             $user->locale = $lang;
             \SYSTEM\SQL\SYS_LOCALE_SET_LOCALE::Q1(array($lang, $user->id));            
         }
@@ -19,7 +19,7 @@ class locale {
     }
 
     public static function get(){
-        $value = \SYSTEM\SECURITY\Security::load(self::SESSION_KEY);
+        $value = \SYSTEM\SECURITY\security::load(self::SESSION_KEY);
         if($value == NULL){
             return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);}
 

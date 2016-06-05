@@ -9,8 +9,7 @@ class system_user {
 
     const FIELD_ID = 'id';
     const FIELD_USERNAME = 'username';
-    const FIELD_PASSWORD_SHA = 'password_sha';
-    const FIELD_PASSWORD_MD5 = 'password_md5';
+    const FIELD_PASSWORD_SHA = 'password_sha1';
     const FIELD_EMAIL = 'email';
     const FIELD_JOINDATE = 'joindate';
     const FIELD_LOCALE = 'locale';

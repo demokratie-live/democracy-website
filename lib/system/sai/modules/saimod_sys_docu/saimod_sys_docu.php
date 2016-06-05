@@ -39,7 +39,7 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     //public static function html_li_menu(){return '<li><a id="menu_docu" href="#!docu"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ${sai_menu_docu}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_docu" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_docu}" href="#!docu"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     //public static function css(){}
     public static function js(){

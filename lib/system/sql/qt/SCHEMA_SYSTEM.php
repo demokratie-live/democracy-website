@@ -27,6 +27,7 @@ class SCHEMA_SYSTEM extends \SYSTEM\DB\QI {
                         (new \SYSTEM\PSQL('/qt/mysql/schema/system_text_tag.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/mysql/schema/system_todo.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/mysql/schema/system_todo_assign.sql'))->SERVERPATH(),
+                        (new \SYSTEM\PSQL('/qt/mysql/schema/system_token.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/mysql/schema/system_user.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/mysql/schema/system_user_to_rights.sql'))->SERVERPATH());
     }    

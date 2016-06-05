@@ -68,17 +68,6 @@
                          </div>
                    </td>
                 </tr>
-                <tr>
-                   <th>${basic_locale}</th>
-                   <td>
-                       <div id="change_user_locale">
-                           <select size="1" id="register_locale_select">
-                                <option value="deDE">deDE</option>
-                                <option value="enUS">enUS</option>
-                            </select>
-                       </div>
-                   </td>
-                </tr>
            </tbody>
         </table>
         <button class="btn-sm btn-primary" type="submit"><i class="icon-ok icon-white"></i> ${basic_register}</button>

@@ -25,7 +25,7 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $week_number = date("W", time());
         $date = date("l M Y", time());
         
-        if(!\SYSTEM\SECURITY\Security::isLoggedIn() || !\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
+        if(!\SYSTEM\SECURITY\security::isLoggedIn() || !\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
             return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content.tpl'))->SERVERPATH());}
         $vars = array();
         $vars['week_number'] = $week_number;
@@ -33,10 +33,10 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
         $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
         $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
         $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
-        $user = \SYSTEM\SECURITY\Security::getUser();
+        $user = \SYSTEM\SECURITY\security::getUser();
         $vars['username'] = $user->username;
         $vars['locale'] = $user->locale;
-        $vars['isadmin']  = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
+        $vars['isadmin']  = \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
         $vars['userstats'] = '';
         $userstats = \SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_USERS::QQ();
         while($stat = $userstats->next()){

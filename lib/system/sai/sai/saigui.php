@@ -31,7 +31,7 @@ class saigui extends \SYSTEM\PAGE\Page {
                                             'parseprivate' => false,
                                             'title' => 'SYSTEM - PHP Framework'));
         
-        \SYSTEM\SECURITY\Security::isLoggedIn(); // refresh session
+        \SYSTEM\SECURITY\security::isLoggedIn(); // refresh session
         //Direct JSON Input
         $pg = json_decode(file_get_contents("php://input"), true);
         if(!$pg){

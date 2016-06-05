@@ -19,8 +19,8 @@ class State {
         while($row = $res->next()){
             if(!self::is_loaded($row,$substate,$state_name,$row['parent_id'])){
                 continue;}
-            if( ($row['login'] == 1 && !\SYSTEM\SECURITY\Security::isLoggedIn()) ||
-                ($row['login'] == 2 && \SYSTEM\SECURITY\Security::isLoggedIn())){
+            if( ($row['login'] == 1 && !\SYSTEM\SECURITY\security::isLoggedIn()) ||
+                ($row['login'] == 2 && \SYSTEM\SECURITY\security::isLoggedIn())){
                 continue;}
             $row['url'] = \SYSTEM\PAGE\replace::replace($row['url'], $vars);
             $row['url'] = \SYSTEM\PAGE\replace::clean($row['url']);

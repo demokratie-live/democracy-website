@@ -1,57 +1,26 @@
 <?php
 namespace SYSTEM\SECURITY;
-
-class Security {
-    const FAIL = false;
-    const OK = true;   
-    
-    public static function create($username, $password, $email, $locale, $advancedResult=false, $checkAvailable = true){
+class security { 
+    public static function create($username, $password_sha1, $email, $locale = 'enUS',$json_result = false){
         self::startSession();
-        // check availability of username (in non-compatibility mode, otherwise it is already checked in DasenseAccount)
-        if($checkAvailable && !self::available($username)){
-            return self::FAIL;}                        
-        $result = \SYSTEM\SQL\SYS_SECURITY_CREATE::QI(array( $username , $password, $email, $locale, 1 ));
-        if(!$result || !self::login($username, $password, $locale)){            
-                return self::FAIL;}                 
-        return ($advancedResult ? \SYSTEM\SQL\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $username, $password)) : self::OK);
-    }
-     
-    public static function changePassword($username, $password_sha_old, $password_sha_new){        
-        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $username, $password_sha_old));                        
-        if(!$row){
-            return self::FAIL;} // old password wrong                  
-        $userID = $row['id'];        
-        $result = \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($password_sha_new, $userID));        
-        return $result ? self::OK : self::FAIL;
+        if(!self::available($username)){
+            throw new \SYSTEM\LOG\ERROR("Username unavailable");}                        
+        $result = \SYSTEM\SQL\SYS_SECURITY_CREATE::QI(array( $username , $password_sha1, $email, $locale));
+        $row = true;
+        if(!$result || !($row = self::login($username, $password_sha1, $locale))){            
+            throw new \SYSTEM\LOG\ERROR("Error during Registration process.");}                 
+        return $json_result ? \SYSTEM\LOG\JsonResult::ok() : $row;
     }
              
-    public static function login($username, $password_sha, $password_md5, $locale=NULL, $advancedResult=false, $password_sha_new=NULL){
-        self::startSession();        
+    public static function login($username, $password_sha1, $locale=NULL,$json_result = false){
+        self::startSession();
         $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] = NULL;
                 
         //Database check
-        if(isset($password_md5)){      
-            $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_MD5::Q1(array($username, $username, $password_sha, $password_md5));
-        }else{
-            $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_SHA1::Q1(array($username, $username, $password_sha));}                    
-                    
+        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_EMAIL_SHA1::Q1(array($username, $username, $password_sha1));         
         if(!$row){
-            new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");                        
-            return self::FAIL;}
-            
-        //todo: move to da-sense    
-        // set password_sha if it is empty or if it length is < 40 -> SHA1 Androidappbugfix
-        if( !$row[\SYSTEM\SQL\system_user::FIELD_PASSWORD_SHA] ||
-            strlen($row[\SYSTEM\SQL\system_user::FIELD_PASSWORD_SHA]) < 40){
-            
-            if($password_sha_new != NULL){
-                $pw = $password_sha_new;
-            }else{
-                $pw = $password_sha;
-            }            
-            \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QQ(array($pw,$row[\SYSTEM\SQL\system_user::FIELD_ID]));            
-            $row[\SYSTEM\SQL\system_user::FIELD_PASSWORD_SHA] = $pw;
-        }            
+            throw new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");}
+           
         // set session variables
         $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] =
                             new User(   $row[\SYSTEM\SQL\system_user::FIELD_ID],
@@ -67,49 +36,91 @@ class Security {
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}                
         \SYSTEM\SQL\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array($row[\SYSTEM\SQL\system_user::FIELD_ID]));
-        return ($advancedResult ? $row : self::OK);
+        return $json_result ? \SYSTEM\LOG\JsonResult::ok() : $row;
     }       
         
-
-    public static function getUser(){
-        if(!self::isLoggedIn()){
-            return NULL;}
-        return $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)];}
-
     // Determine if username exists
-    public static function available($username,$email=null){
+    public static function available($username,$email=null,$json_result=false){
         if($email){
             $res = \SYSTEM\SQL\SYS_SECURITY_AVAILABLE_EMAIL::Q1(array($username,$email));
         } else {
             $res = \SYSTEM\SQL\SYS_SECURITY_AVAILABLE::Q1(array($username));}
-            
         if(!$res){
-            throw new \SYSTEM\LOG\ERRROR("Cannot determine the availability of username!");}        
+            if($json_result){
+                throw new \SYSTEM\LOG\ERRROR("Cannot determine the availability of username!");
+            } else{ return false;}
+        }
         if($res['count'] != 0){
-            return self::FAIL;}
-        return self::OK;
+            if($json_result){
+                throw new \SYSTEM\LOG\ERRROR("Username or Email is not avilable.");
+            } else{ return false;}
+        }
+        return $json_result ? \SYSTEM\LOG\JsonResult::ok() : true;
     }
 
     //checks for a right for a logged in user
-    public static function check($rightid){
+    public static function check($rightid,$json_result=false){
         //Not logged in? Go away.
         //If you think you need rights for your guests ur doing smth wrong ;-)
         $user = null;
         if(!($user = self::getUser())){
-            return false;}
+            return $json_result ? \SYSTEM\LOG\JsonResult::fail() : false;}
         $res = \SYSTEM\SQL\SYS_SECURITY_CHECK::Q1(array($user->id, $rightid));
-        if(!$res){
-            throw new \SYSTEM\LOG\ERROR("Cannot determine if you have the required rights!");}        
-        if($res['count'] == 0){
-            return false;}
-        return true;
+        if(!$res || $res['count'] == 0){
+            return $json_result ? \SYSTEM\LOG\JsonResult::fail() : false;}
+        return $json_result ? \SYSTEM\LOG\JsonResult::ok() : true;
+    }
+    
+    public static function change_password($username,$old_password_sha1,$new_password_sha1){        
+        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_EMAIL_SHA1::Q1(array($username, $username, $old_password_sha1));                        
+        if(!$row){
+            throw new \SYSTEM\LOG\ERROR("No such User Password combination.");}        
+        $result = \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id']));        
+        return $result ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
+    }
+    public static function change_email($username, $new_email) {
+        $vars = array();
+        //find all userdata
+        
+        //generate token
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_change_email', $new_email);
+        
+        //mail
+    }
+    public static function reset_password($username) {
+        $vars = array();
+        //find all userdata
+        
+        //generate token
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_reset_password', $new_pw_generated);
+        
+        //mail
+    }
+    public static function confirm_email($username) {
+        $vars = array();
+        //find all userdata
+        
+        //generate token
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_confirm_email');
+        
+        //mail
+    }
+    public static function confirm($token,$json_result = false) {
+        return \SYSTEM\TOKEN\token::confirm($token) ? 
+                ($json_result ? \SYSTEM\LOG\JsonResult::ok() : true) :
+                ($json_result ? \SYSTEM\LOG\JsonResult::fail() : false);}
+    
+    public static function getUser(){
+        if(!self::isLoggedIn(false)){
+            return NULL;}
+        return $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)];
     }
 
     //Session
-    public static function logout(){
+    public static function logout($json_result = false){
         self::startSession();
         session_destroy();
-        return self::OK;}
+        return $json_result ? \SYSTEM\LOG\JsonResult::ok() : true;}
         
     public static function save($key,$value){
         self::startSession();
@@ -121,10 +132,11 @@ class Security {
             return NULL;}
         return $_SESSION['values'][$key];}
         
-    public static function isLoggedIn(){
+    public static function isLoggedIn($json_result = false){
         self::startSession();
         return (isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&
-                $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User);}
+                $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User) ?
+                ($json_result ? \SYSTEM\LOG\JsonResult::ok() : true) : ($json_result ? \SYSTEM\LOG\JsonResult::fail() : false);}
         
     protected static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
@@ -133,5 +145,5 @@ class Security {
         if( isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&
             $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User){
                 $_SESSION['values'][\SYSTEM\locale::SESSION_KEY] = $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->locale;}
-    }    
+    }
 }

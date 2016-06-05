@@ -13,12 +13,12 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $rows = '';
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
         while($r = $res->next()){
-            $r['right_edit_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
+            $r['right_edit_btn'] =  \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
                                     \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/right_edit.tpl'))->SERVERPATH(),array('id' => $r['ID'])) :
                                     \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/missing_edit_right.tpl'))->SERVERPATH());
             $rows .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_right.tpl'))->SERVERPATH(),$r);}        
         $vars['rows'] = $rows;
-        $vars['addright_btn'] = \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
+        $vars['addright_btn'] = \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ?
                                 \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/right_add.tpl'))->SERVERPATH()):
                                 \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/missing_remove_right.tpl'))->SERVERPATH());
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
@@ -26,7 +26,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleterightuser($rightid,$userid){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK::Q1(array($rightid,$userid));
         if(!$res || $res['count'] == 0){
@@ -34,7 +34,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE::QI(array($rightid,$userid));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_addrightuser($rightid,$userid){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK::Q1(array($rightid,$userid));
         if(!$res || $res['count'] != 0){
@@ -42,17 +42,17 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT::QI(array($rightid,$userid));}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_addright($id,$name,$description){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_INSERT::QI(array($id,$name,$description));}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleterightconfirm($id){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         $vars = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_CHECK::Q1(array($id));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_deleteright.tpl'))->SERVERPATH(),$vars);}
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleteright($id){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_DELETE::QI(array($id));}
 
@@ -79,13 +79,13 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHTS::QQ(array($userid));
         while($r = $res->next()){
             $r['user_id'] = $userid;
-            $r['remove_btn'] =  \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
+            $r['remove_btn'] =  \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT) ? 
                                 \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/right_remove.tpl'))->SERVERPATH(),array('id' => $r['ID'], 'userid' => $userid)) :
                                 \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/missing_edit_right.tpl'))->SERVERPATH());
             $vars['user_rights_table'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_user_right.tpl'))->SERVERPATH(), $r);}
         
         $vars['user_rights_add'] = \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/missing_add_right.tpl'))->SERVERPATH());
-        if(\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             $opts = '';
             $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();
             $b = true;
@@ -172,7 +172,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function html_li_menu(){return '<li><a id="menu_security" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_security}" href="#!security"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY);}
     
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_security/css/saimod_sys_security.css'));}

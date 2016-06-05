@@ -1,12 +1,36 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     system_api
+ */
+
 namespace SYSTEM\API;
 
+/**
+ * API Class provided by System for Smart API's.
+ */
 class api {
     const ROOT_PARENTID     = -1;
     const DEFAULT_GROUP     = 0;
     const DEFAULT_STRICT    = true;
     const DEFAULT_DEFAULT   = false;    
-        
+    
+    /**
+     * Run the API Mechanism with your Data.
+     *
+     * @param Class $verifyclassname
+     * @param Class $apiclassname
+     * @param array $params
+     * @param int   $group
+     * @param bool  $strict
+     * @param bool  $default
+     */
     public static function run( $verifyclassname,$apiclassname,
                                 $params,$group = self::DEFAULT_GROUP,
                                 $strict = self::DEFAULT_STRICT,$default = self::DEFAULT_DEFAULT){

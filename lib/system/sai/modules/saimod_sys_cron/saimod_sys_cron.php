@@ -18,14 +18,14 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__system_sai_saimod_sys_cron_action_change($cls,$status){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
         \SYSTEM\SQL\SYS_SAIMOD_CRON_CHANGE::QI(array($status, $cls));
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
     public static function sai_mod__system_sai_saimod_sys_cron_action_add($cls,$min,$hour,$day,$day_week,$month){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
         if(!\SYSTEM\CRON\cron::check($cls)){
             throw new \SYSTEM\LOG\ERROR("Given Class is not a CronJob");}
@@ -34,7 +34,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__system_sai_saimod_sys_cron_action_del($cls){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
         \SYSTEM\SQL\SYS_SAIMOD_CRON_DEL::QI(array($cls));
         return \SYSTEM\LOG\JsonResult::ok();}
@@ -42,7 +42,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
     //public static function html_li_menu(){return '<li><a id="menu_cron" href="#!cron">${sai_menu_cron}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_cron" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cron}" href="#!cron"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a></li>';}    
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
     
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_cron/css/saimod_sys_cron.css'));}

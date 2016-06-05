@@ -23,7 +23,7 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
     
     public static function html_li_menu(){return '<li><a id="menu_cache" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cache}" href="#!cache"><span class="glyphicon glyphicon-level-up" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     //public static function css(){}
     public static function js(){

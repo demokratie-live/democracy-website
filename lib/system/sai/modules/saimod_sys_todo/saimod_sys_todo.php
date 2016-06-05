@@ -17,10 +17,10 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         array_push(self::$stats,$stats);}
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_assign($todo){
-        \SYSTEM\SQL\SYS_SAIMOD_TODO_ASSIGN::QI(array($todo,\SYSTEM\SECURITY\Security::getUser()->id));
+        \SYSTEM\SQL\SYS_SAIMOD_TODO_ASSIGN::QI(array($todo,\SYSTEM\SECURITY\security::getUser()->id));
         return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_deassign($todo){
-        \SYSTEM\SQL\SYS_SAIMOD_TODO_DEASSIGN::QI(array($todo,\SYSTEM\SECURITY\Security::getUser()->id));
+        \SYSTEM\SQL\SYS_SAIMOD_TODO_DEASSIGN::QI(array($todo,\SYSTEM\SECURITY\security::getUser()->id));
         return \SYSTEM\LOG\JsonResult::ok();}
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_close($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_CLOSE::QI(array($todo));
@@ -64,7 +64,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         $vars['todo_list_elements'] = $vars['filter_mine'] =
             $vars['filter_free'] = $vars['filter_others'] = $vars['filter_gen'] =
             $vars['filter_user'] = $vars['filter_report'] = '';
-        $userid = \SYSTEM\SECURITY\Security::getUser()->id;
+        $userid = \SYSTEM\SECURITY\security::getUser()->id;
         switch($filter){
             case 'mine':
                 $count = \SYSTEM\SQL\SYS_SAIMOD_TODO_COUNT_MINE::Q1(array($state,$userid,$search,$search,$search))['count'];
@@ -211,7 +211,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     }
         
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
-        $userid = \SYSTEM\SECURITY\Security::getUser()->id;
+        $userid = \SYSTEM\SECURITY\security::getUser()->id;
         $vars = \SYSTEM\SQL\SYS_SAIMOD_TODO_TODO::Q1(array($todo,$userid));
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
         $vars['display_assign'] = $vars['assignee_id'] != $userid ? '' : 'display: none;';
@@ -228,7 +228,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     
     public static function html_li_menu(){return '<li><a id="menu_todo" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_todo}" href="#!todo"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
     //public static function css(){}
     public static function js(){
@@ -248,7 +248,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
                                                                         $_SERVER["SERVER_NAME"],$_SERVER["SERVER_PORT"],$_SERVER['REQUEST_URI'], serialize($_POST),
                                                                         array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
                                                                         array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
-                                                                        ($user = \SYSTEM\SECURITY\Security::getUser()) ? $user->id : null,$thrown ? 1 : 0,$E->getMessage(),$type));
+                                                                        ($user = \SYSTEM\SECURITY\security::getUser()) ? $user->id : null,$thrown ? 1 : 0,$E->getMessage(),$type));
             if(\property_exists(get_class($E), 'logged')){
                 $E->todo_logged = true;} //we just did log
         } catch (\Exception $E){return false;} //Error -> Ignore

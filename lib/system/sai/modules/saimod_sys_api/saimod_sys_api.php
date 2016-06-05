@@ -36,7 +36,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/new_dialog.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));}
     
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
         if($parentValue == ''){ $parentValue = NULL;}
         if($verify      == ''){ $verify = NULL;}
@@ -45,7 +45,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     }
     
     public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID,$group){
-        if(!\SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
         \SYSTEM\SQL\SYS_SAIMOD_API_DEL::QI(array($ID,$group));
         return \SYSTEM\LOG\JsonResult::ok();
@@ -74,7 +74,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
     //public static function html_li_menu(){return '<li><a id="menu_api" href="#!api">${sai_menu_api}</a></li>';}
     public static function html_li_menu(){return '<li><a id="menu_api" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_api}" href="#!api"><span class="glyphicon glyphicon-console" aria-hidden="true"></span></a></li>';}
     public static function right_public(){return false;}    
-    public static function right_right(){return \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\Security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API);}
+    public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API);}
     
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_api/css/saimod_sys_api.css'));}
