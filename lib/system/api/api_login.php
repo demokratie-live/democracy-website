@@ -18,9 +18,9 @@ class api_login {
         return \SYSTEM\SECURITY\security::confirm($token);}
     
     public static function call_account_action_reset_password($username){
-        return \SYSTEM\SECURITY\security::resetpassword($username);}
+        return \SYSTEM\SECURITY\security::reset_password($username);}
     public static function call_account_action_change_password($username,$old_password_sha1,$new_password_sha1){
-        return \SYSTEM\SECURITY\security::changepassword($username,$old_password_sha1,$new_password_sha1);}
+        return \SYSTEM\SECURITY\security::change_password($username,$old_password_sha1,$new_password_sha1);}
     public static function call_account_action_change_email($username,$new_email){
-        return \SYSTEM\SECURITY\security::changeemail($username,$new_email);}
+        return \SYSTEM\SECURITY\security::change_email($username,$new_email);}
 }

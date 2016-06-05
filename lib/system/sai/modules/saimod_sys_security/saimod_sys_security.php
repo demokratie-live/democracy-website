@@ -157,6 +157,17 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['PICPATH'] = (new \SYSTEM\PSAI('modules/saimod_sys_log/img/'))->WEBPATH(false);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security.tpl'))->SERVERPATH(), $vars);}
     
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_renameaccount($username,$new_username){
+        if(!\SYSTEM\SECURITY\security::available($new_username)){
+            throw new \SYSTEM\LOG\ERROR("Username not available");}
+        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RENAME_USER::QI(array($new_username,$username)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
+    }
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleteaccount($id){
+        \SYSTEM\SQL\SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS::QI(array($id));
+        \SYSTEM\SQL\SYS_SAIMOD_SECURITY_DELETE_USER::QI(array($id));
+        return \SYSTEM\LOG\JsonResult::ok();
+    }
+        
     private static function tablerow_class($last_active){
         $time = time() - $last_active;
         

@@ -9,6 +9,9 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 -- system_api
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (10, 42, 0, -1, NULL, 'call', NULL);
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (11, 42, 0, 10, NULL, 'action', NULL);
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (13, 42, 2, 11, 'change_password', 'username', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (14, 42, 2, 11, 'change_password', 'old_password_sha1', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (15, 42, 3, 11, 'change_password', 'new_password_sha1', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (20, 42, 2, 11, 'login', 'username', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (21, 42, 2, 11, 'login', 'password_sha1', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (22, 42, 3, 11, 'login', 'locale', 'LANG');
@@ -81,6 +84,10 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 --
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (340, 42, 2, 300, 'deleterightuser', 'rightid', 'UINT');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (341, 42, 2, 300, 'deleterightuser', 'userid', 'UINT');
+--
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (350, 42, 2, 300, 'renameaccount', 'username', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (351, 42, 2, 300, 'renameaccount', 'new_username', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (355, 42, 2, 300, 'deleteaccount', 'id', 'UINT');
 
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (400, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_mod', 'action', NULL);

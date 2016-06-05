@@ -9,7 +9,7 @@ class SYS_SECURITY_LOGIN_USER_SHA1 extends \SYSTEM\DB\QP {
     }
     public static function mysql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_user::NAME_MYS.
-' WHERE (UPPER('.\SYSTEM\SQL\system_user::FIELD_USERNAME.') LIKE UPPER(?)'.
+' WHERE UPPER('.\SYSTEM\SQL\system_user::FIELD_USERNAME.') LIKE UPPER(?)'.
 ' AND '.\SYSTEM\SQL\system_user::FIELD_PASSWORD_SHA.' = ?;';
     }
 }

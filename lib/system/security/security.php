@@ -72,7 +72,7 @@ class security {
     }
     
     public static function change_password($username,$old_password_sha1,$new_password_sha1){        
-        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_EMAIL_SHA1::Q1(array($username, $username, $old_password_sha1));                        
+        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_SHA1::Q1(array($username, $old_password_sha1));                        
         if(!$row){
             throw new \SYSTEM\LOG\ERROR("No such User Password combination.");}        
         $result = \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id']));        

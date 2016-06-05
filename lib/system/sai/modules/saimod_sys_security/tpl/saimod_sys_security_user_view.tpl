@@ -38,23 +38,23 @@
                 <tr>
                     <td></td>
                     <td>
-                        <button style="width: 100%;" type="submit" id="btn_confirm_email" class="btn-sm btn btn-success" user="${id}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;${basic_confirm_email}</button>
+                        <button style="width: 100%;" type="submit" id="btn_confirm_email" class="btn-sm btn btn-success" user="${username}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;${basic_confirm_email}</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input class="input-medium" id="input_pw_old" type="text" placeholder="${basic_password_old}" size="20"/>
-                        <input class="input-medium" id="input_pw_new1" type="text" placeholder="${basic_password_new}" size="20"/>
-                        <input class="input-medium" id="input_pw_new2" type="text" placeholder="${basic_password_new}" size="20"/>
+                        <input class="input-medium" id="input_pw_old" type="password" placeholder="${basic_password_old}" size="20"/>
+                        <input class="input-medium" id="input_pw_new1" type="password" placeholder="${basic_password_new}" size="20"/>
+                        <input class="input-medium" id="input_pw_new2" type="password" placeholder="${basic_password_new}" size="20"/>
                     </td>
                     <td>
-                        <button style="width: 100%;" type="submit" id="btn_change_password" class="btn-sm btn btn-success" user="${id}" email="${email}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;${basic_change_password}</button>
+                        <button style="width: 100%;" type="submit" id="btn_change_password" class="btn-sm btn btn-success" user="${username}" email="${email}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;${basic_change_password}</button>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <button style="width: 100%;" type="submit" id="btn_reset_password" class="btn-sm btn btn-warning" user="${id}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;${basic_reset_password}</button>
+                        <button style="width: 100%;" type="submit" id="btn_reset_password" class="btn-sm btn btn-warning" user="${username}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;${basic_reset_password}</button>
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +62,7 @@
                         <input class="input-medium" id="input_new_email" type="text" placeholder="${basic_email_new}" size="20"/>
                     </td>
                     <td>
-                        <button style="width: 100%;" type="submit" id="btn_change_email" class="btn-sm btn btn-warning" user="${id}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;${basic_change_email}</button>
+                        <button style="width: 100%;" type="submit" id="btn_change_email" class="btn-sm btn btn-warning" user="${username}" email="${email}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;${basic_change_email}</button>
                     </td>
                 </tr>
                 <tr>
@@ -70,7 +70,7 @@
                         <input class="input-medium" id="input_new_user" type="text" placeholder="${basic_username_new}" size="20"/>
                     </td>
                     <td>
-                        <button style="width: 100%;" type="submit" id="btn_rename_account" class="btn-sm btn btn-danger" user="${id}" email="${email}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;${basic_rename}</button>
+                        <button style="width: 100%;" type="submit" id="btn_rename_account" class="btn-sm btn btn-danger" user="${username}" email="${email}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;${basic_rename}</button>
                     </td>
                 </tr>
                 <tr>

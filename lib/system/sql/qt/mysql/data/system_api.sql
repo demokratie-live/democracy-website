@@ -1,6 +1,10 @@
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (10, 0, 0, -1, NULL, 'call', NULL);
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (11, 0, 0, 10, NULL, 'action', NULL);
 
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (13, 0, 2, 11, 'change_password', 'username', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (14, 0, 2, 11, 'change_password', 'old_password_sha1', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (15, 0, 3, 11, 'change_password', 'new_password_sha1', 'STRING');
+
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (20, 0, 2, 11, 'login', 'username', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (21, 0, 2, 11, 'login', 'password_sha1', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (22, 0, 3, 11, 'login', 'locale', 'LANG');
