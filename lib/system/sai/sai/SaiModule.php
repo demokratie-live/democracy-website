@@ -4,6 +4,8 @@ namespace SYSTEM\SAI;
 class SaiModule extends \SYSTEM\API\api_default{
     public static function get_apigroup(){
         return 42;}
+    public static function get_default_state(){
+        return 'start';}
     public static function get_class($params = NULL){
         if(isset($params[\SYSTEM\SAI\saigui::SAI_MOD_POSTFIELD])){
             $classname = \str_replace('.', '\\', $params[\SYSTEM\SAI\saigui::SAI_MOD_POSTFIELD]);

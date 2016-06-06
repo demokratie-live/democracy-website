@@ -1,9 +1,26 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     system_api
+ */
 namespace SYSTEM\API;
+
+/**
+ * API Default class providing defaulting capabilities and Hashbang-Crawling-Scheme.
+ */
 abstract class api_default extends api_system {
-    //https://developers.google.com/webmasters/ajax-crawling/docs/getting-started
-    //https://developers.google.com/webmasters/ajax-crawling/docs/specification#pages-without-hash-fragments
-    //mojotrollz.eu:80/web/flingit/?_escaped_fragment_=start%3Bhash.ce5504f67533ab3d881a32e1dcdd330aaeb27f19
+    /**
+     * Static Call handler for Hashbang-Crawling Requests
+     *
+     * @param string $_escaped_fragment_ Hashbang-Encoded State
+     * @return string Returns your API-HTML result as HTML-Snapshot
+     */
     public static function static__escaped_fragment_($_escaped_fragment_){
         \libxml_use_internal_errors(true);
         $html = new \DOMDocument();
@@ -15,9 +32,9 @@ abstract class api_default extends api_system {
         foreach($state as $row){
             $frag = new \DOMDocument();
             parse_str(\parse_url($row['url'],PHP_URL_QUERY), $params);
-            $class = static::get_class($params);
+            $class = static::get_class();
             if($class){
-                $frag->loadHTML(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, static::get_params($params), static::get_apigroup(), true, false));
+                $frag->loadHTML(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, $params, static::get_apigroup(), true, false));
                 if($error = \libxml_get_last_error()){
                     //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$frag->saveHTML());
                     \libxml_clear_errors();}
@@ -31,10 +48,10 @@ abstract class api_default extends api_system {
             }
         }
         //Title
-        if(array_key_exists('title', $state[0])){
+        if((count($state)>=1) && array_key_exists('title', $state[0])){
             $html->getElementsByTagName('title')[0]->nodeValue = $state[0]['title'];}
         //Meta
-        if(array_key_exists('meta', $state[0])){
+        if((count($state)>=1) && array_key_exists('meta', $state[0])){
             $meta = $html->getElementsByTagName('meta');//[0]->nodeValue = $state[0]['title'];
             foreach($state[0]['meta'] as $metaname=>$metavalue){
                 $found = false;
@@ -55,15 +72,33 @@ abstract class api_default extends api_system {
         new \SYSTEM\LOG\COUNTER("API was called sucessfully.");
         die();
     }
-    public static function get_apigroup(){
-        throw new \RuntimeException("Unimplemented");}
-    public static function get_class($params = null){
-        return self::class;}
-    public static function get_params($params){
-        return $params;}
-    public static function get_default_state(){
-        throw new \RuntimeException("Unimplemented");}
     
-    public static function default_page($_escaped_fragment_ = null){
-        throw new \RuntimeException("Unimplemented");}
+    /**
+     * API Group function - implement this function and return the Groupnumber
+     *
+     * @return int Returns your API-Group number
+     */
+    public abstract static function get_apigroup();
+    
+    /**
+     * API Class function - implement this function and return the Classname
+     *
+     * @return string Returns your API-Class name
+     */
+    public static function get_class(){
+        return self::class;}
+        
+    /**
+     * API Default State function - implement this function and return the String of the default-state
+     *
+     * @return string Returns your API-Default-State
+     */
+    public abstract static function get_default_state();
+    
+    /**
+     * API Default Page function - implement this function and return the Default Page
+     *
+     * @return string Returns your API-Default-State
+     */
+    public abstract static function default_page($_escaped_fragment_ = null);
 }

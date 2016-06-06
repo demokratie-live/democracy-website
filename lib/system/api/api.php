@@ -9,27 +9,31 @@
  * @link        https://github.com/webcraftmedia/system
  * @package     system_api
  */
-
 namespace SYSTEM\API;
 
 /**
  * API Class provided by System for Smart API's.
  */
 class api {
+    /** int Root Node ID */
     const ROOT_PARENTID     = -1;
+    /** int Default API Group */
     const DEFAULT_GROUP     = 0;
+    /** bool Default parse strict setting */
     const DEFAULT_STRICT    = true;
+    /** bool Default parse to default setting */
     const DEFAULT_DEFAULT   = false;    
     
     /**
      * Run the API Mechanism with your Data.
      *
-     * @param Class $verifyclassname
-     * @param Class $apiclassname
-     * @param array $params
-     * @param int   $group
-     * @param bool  $strict
-     * @param bool  $default
+     * @param string $verifyclassname Your class on which the parameter restriction is parsed upon
+     * @param string $apiclassname Your class which provides your API
+     * @param array $params Parameters given to the API
+     * @param int $group API Group to be used to parse Call
+     * @param bool $strict Parse the API in a strict way
+     * @param bool $default Defaulting to default_page setting
+     * @return mixed Returns your API result or an JSON Error
      */
     public static function run( $verifyclassname,$apiclassname,
                                 $params,$group = self::DEFAULT_GROUP,
@@ -83,6 +87,12 @@ class api {
         return \call_user_func_array(array($apiclassname,$call_funcname),$call_funcparam);
     }
     
+    /**
+     * Internal API function to retrive the Databasetree for requested API
+     *
+     * @param int $group API Group to be read
+     * @return array Array of API rules
+     */
     private static function getApiTree($group){        
         $result = \SYSTEM\SQL\SYS_API_TREE::QA(array($group));
         if(!isset($result) || !is_array($result) || count($result) <= 0){
@@ -90,6 +100,16 @@ class api {
         return $result;
     }
     
+    /**
+     * Internal API function to parse statics for requested API
+     *
+     * @param array $params Array of Params given to the API
+     * @param array $tree Array of Rules for given API
+     * @param string $apiclassname Classname of the users API class
+     * @param string $verifyclassname Classname of the users Verify Class
+     * @param bool $default Defaulting to default_page setting
+     * @return array Array of static API rules
+     */
     private static function do_statics($params,$tree,$apiclassname,$verifyclassname,$default){
         $statics = array();
         $parentid = self::ROOT_PARENTID;        
@@ -117,6 +137,14 @@ class api {
         return $statics;
     }
     
+    /**
+     * Internal API function to parse default redirect for requested API
+     *
+     * @param bool $default Defaulting to default_page setting
+     * @param string $apiclassname Classname of the users API class
+     * @param string $call_funcname Functionname which was called
+     * @return array Array of static API rules
+     */
     private static function do_default($default, $apiclassname, $call_funcname = null){
         if($default){ //should we call the default function or throw an error?
             return \call_user_func(array($apiclassname,'default_page'));}        
@@ -125,6 +153,17 @@ class api {
         throw new \SYSTEM\LOG\ERROR("API call is not implemented in API: ".$call_funcname);
     }
     
+    /**
+     * Internal API function to strict parse the API 
+     *
+     * @param bool $strict Strict settings
+     * @param array $params Parameters given to the API
+     * @param array $statics Array with API statics
+     * @param array $commands Array with API commands
+     * @param array $parameters Array with API parameters
+     * @param array $parameters_opt Array with API optional parameters
+     * @return null Returns nothing or throws an Strict Error
+     */
     private static function do_strict($strict, $params, $statics, $commands, $parameters, $parameters_opt){
         if( $strict &&
             count($params) != (count($statics) + count($parameters) + count($commands) + count($parameters_opt))){            
@@ -137,6 +176,13 @@ class api {
                                             '; url: ' .$_SERVER["REQUEST_URI"]);}
     }
     
+    /**
+     * Internal API function to parse commands for requested API
+     *
+     * @param array $params Parameters given to the API
+     * @param array $tree Array with API rules
+     * @return array Returns array with parsed Commands
+     */
     private static function do_commands($params,$tree){
         $commands = array();
         $parentid = self::ROOT_PARENTID;        
@@ -159,6 +205,16 @@ class api {
         return $commands;
     }
     
+    /**
+     * Internal API function to parse parameters for requested API
+     *
+     * @param array $params Parameters given to the API
+     * @param array $tree Array with API rules
+     * @param int $parentid Parentid of last Tree Element
+     * @param string $lastcommandvalue Last value of last Command
+     * @param string $verifyclassname Verify Class given to the API
+     * @return array Returns array with parsed Parameters
+     */
     private static function do_parameters($params,$tree,$parentid,$lastcommandvalue,$verifyclassname){
         $parameters = array();        
         foreach($tree as $item){
@@ -186,6 +242,16 @@ class api {
         return $parameters;
     }
     
+    /**
+     * Internal API function to parse optional parameters for requested API
+     *
+     * @param array $params Parameters given to the API
+     * @param array $tree Array with API rules
+     * @param int $parentid Parentid of last Tree Element
+     * @param string $lastcommandvalue Last value of last Command
+     * @param string $verifyclassname Verify Class given to the API
+     * @return array Returns array with parsed optional Parameters
+     */
     private static function do_parameters_opt($params,$tree,$parentid,$lastcommandvalue,$verifyclassname){
         $parameters_opt = array();
         foreach($tree as $item){
@@ -213,6 +279,12 @@ class api {
         return $parameters_opt;
     }
     
+    /**
+     * Internal API function to build function name for requested API
+     *
+     * @param array $commands Array of all Commands for the given API call
+     * @return string Returns Function name
+     */
     private static function do_func_name($commands){
         $call_funcname = '';       
         foreach($commands as $com){                        
@@ -229,6 +301,13 @@ class api {
         return $call_funcname;
     }
     
+    /**
+     * Internal API function to build function paramters for requested API
+     *
+     * @param array $parameters Array of all Paramters for the given API call
+     * @param array $parameters_opt Array of all optional Paramters for the given API call
+     * @return array Returns array with Paramters
+     */
     private static function do_func_params($parameters,$parameters_opt){
         $call_funcparam = array();
         foreach($parameters as $param){
