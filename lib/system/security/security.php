@@ -32,7 +32,8 @@ class security {
                                         0,
                                         NULL,
                                         $row[\SYSTEM\SQL\system_user::FIELD_LOCALE],
-                                        \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL));        
+                                        \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL),
+                                        $row[\SYSTEM\SQL\system_user::FIELD_EMAIL_CONFIRMED]);        
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}                
         \SYSTEM\SQL\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array($row[\SYSTEM\SQL\system_user::FIELD_ID]));

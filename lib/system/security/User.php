@@ -14,8 +14,9 @@ class User {
     public $rights = NULL;
     public $locale = NULL;
     public $base_url = NULL;
+    public $email_confirmed = NULL;
 
-    public function __construct($id, $username, $email, $creationDate, $lastLoginDate, $lastLoginIP, $passwordWrongCount, $rights, $locale, $base_url){
+    public function __construct($id, $username, $email, $creationDate, $lastLoginDate, $lastLoginIP, $passwordWrongCount, $rights, $locale, $base_url, $email_confirmed){
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
@@ -26,5 +27,6 @@ class User {
         $this->rights = $rights;
         $this->locale = $locale;
         $this->base_url = $base_url;
+        $this->email_confirmed = $email_confirmed;
     }
 }
