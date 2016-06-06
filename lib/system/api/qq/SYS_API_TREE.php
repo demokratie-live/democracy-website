@@ -12,7 +12,7 @@
 namespace SYSTEM\SQL;
 
 /**
- * SQL to get System Api Tree by group
+ * QQ to get System Api Tree by group
  */
 class SYS_API_TREE extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
