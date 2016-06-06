@@ -79,31 +79,70 @@ class security {
         return $result ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
     }
     public static function change_email($username, $new_email) {
-        $vars = array();
+        if(!self::isLoggedIn() || (self::getUser()->username !== $username && self::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT))){
+            throw new \SYSTEM\LOG\ERROR("You need to be logged in to trigger this function on your account.");}
         //find all userdata
-        
-        //generate token
-        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_change_email', $new_email);
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
+        if(!$vars || $vars['email_confirmed'] !== 1){
+            throw new \SYSTEM\LOG\ERROR("Username not found or Email unconfirmed.");}
+            
+        //generate pw & token
+        $vars['email'] = $new_email;
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_change_email',array('user' => $vars['id'],'email' => $vars['email']));
+        $vars['base_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
+        $vars['newline'] = "\r\n";
         
         //mail
+        $to     = $vars['email'];
+        $subject= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_change_email_subject'), $vars);
+        $message= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_change_email'), $vars);
+        $header = 'From: '. \SYSTEM\PAGE\text::get('mail_change_email_from')."\r\n" .
+                  'Reply-To: '.\SYSTEM\PAGE\text::get('mail_change_email_replyto');
+
+        return \mail($to, $subject, $message, $header) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
     }
     public static function reset_password($username) {
-        $vars = array();
         //find all userdata
-        
-        //generate token
-        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_reset_password', $new_pw_generated);
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
+        if(!$vars){
+            throw new \SYSTEM\LOG\ERROR("Username not found.");}
+            
+        //generate pw & token
+        $vars['pw'] = substr(sha1(time().rand(0, 4000)), 1,10);
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_reset_password',array('user' => $vars['id'],'pw_sha1' => sha1($vars['pw'])));
+        $vars['base_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
+        $vars['newline'] = "\r\n";
         
         //mail
+        $to     = $vars['email'];
+        $subject= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_reset_password_subject'), $vars);
+        $message= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_reset_password'), $vars);
+        $header = 'From: '. \SYSTEM\PAGE\text::get('mail_reset_password_from')."\r\n" .
+                  'Reply-To: '.\SYSTEM\PAGE\text::get('mail_reset_password_replyto');
+
+        return \mail($to, $subject, $message, $header) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
     }
     public static function confirm_email($username) {
-        $vars = array();
+        if(!self::isLoggedIn() || (self::getUser()->username !== $username && self::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT))){
+            throw new \SYSTEM\LOG\ERROR("You need to be logged in to trigger this function on your account.");}
         //find all userdata
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
+        if(!$vars || $vars['email_confirmed'] == 1){
+            throw new \SYSTEM\LOG\ERROR("Username not found or already confirmed.");}
         
         //generate token
-        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_confirm_email');
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_confirm_email',array('user' => $vars['id']));
+        $vars['base_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
+        $vars['newline'] = "\r\n";
         
         //mail
+        $to     = $vars['email'];
+        $subject= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_confirm_email_subject'), $vars);
+        $message= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_confirm_email'), $vars);
+        $header = 'From: '. \SYSTEM\PAGE\text::get('mail_confirm_email_from')."\r\n" .
+                  'Reply-To: '.\SYSTEM\PAGE\text::get('mail_confirm_email_replyto');
+
+        return \mail($to, $subject, $message, $header) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
     }
     public static function confirm($token,$json_result = false) {
         return \SYSTEM\TOKEN\token::confirm($token) ? 

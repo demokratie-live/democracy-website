@@ -15,7 +15,7 @@ class api_login {
     public static function call_account_action_confirm_email($username){
         return \SYSTEM\SECURITY\security::confirm_email($username);}
     public static function call_account_action_confirm($token){
-        return \SYSTEM\SECURITY\security::confirm($token);}
+        return \SYSTEM\SECURITY\security::confirm($token,true);}
     
     public static function call_account_action_reset_password($username){
         return \SYSTEM\SECURITY\security::reset_password($username);}

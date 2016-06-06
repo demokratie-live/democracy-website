@@ -16,5 +16,6 @@ class verify {
     public static function ARY      ($param)    {return \is_array($param);}
     public static function LANG     ($param)    {return \SYSTEM\locale::isLang($param);}
     public static function RESULT   ($param)    {return ($param == 'json' || $param == 'msgpack');}
+    public static function EMAIL    ($param)    {return filter_var($param, FILTER_VALIDATE_EMAIL);}
     
 };

@@ -21,4 +21,5 @@ require_once dirname(__FILE__).'/files/autoload.inc';
 require_once dirname(__FILE__).'/cron/autoload.inc';
 require_once dirname(__FILE__).'/sai/autoload.inc';
 require_once dirname(__FILE__).'/html/autoload.inc';
+require_once dirname(__FILE__).'/token/autoload.inc';
 require_once dirname(__FILE__).'/lib/autoload.inc';
