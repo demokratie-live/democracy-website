@@ -1,7 +1,26 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\CRON
+ */
 namespace SYSTEM\CRON;
 
-class cron {    
+/**
+ * Cron Class provided by System for Tasks occurring repeateadly.
+ */
+class cron {
+    /**
+     * Check if given Class is a compatible Cronjob
+     *
+     * @param class $class Cronclass extending cronjob
+     * @return bool Returns true or false
+     */
     public static function check($class){
         if( !\class_exists($class) ||
             !\is_array($parents = \class_parents($class)) ||
@@ -9,6 +28,11 @@ class cron {
             return false;}
         return true;}
     
+    /**
+     * Run all registered Cronjobs if its time to do so.
+     *
+     * @return JSON Returns Json::ok()
+     */
     public static function run(){
         $crons = \SYSTEM\SQL\SYS_CRON_LIST::QQ();
         while($cron = $crons->next()){
@@ -35,6 +59,12 @@ class cron {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Determine next run of a given Cronjob
+     *
+     * @param class $class Cronjob class
+     * @return time Returns the requested time
+     */
     public static function next($class){
         $cron = \SYSTEM\SQL\SYS_CRON_GET::Q1(array($class));
         //check module
@@ -49,6 +79,12 @@ class cron {
                                             $cron[\SYSTEM\SQL\system_cron::FIELD_MONTH]);
     }
     
+    /**
+     * Determine last run of a given Cronjob
+     *
+     * @param class $class Cronjob class
+     * @return time Returns the requested time
+     */
     public static function last($class){
         $cron = \SYSTEM\SQL\SYS_CRON_GET::Q1(array($class));
         //check module
@@ -63,10 +99,21 @@ class cron {
                                             $cron[\SYSTEM\SQL\system_cron::FIELD_MONTH]);
     }
     
+    /**
+     * Updates the Status of a Cronjob 
+     *
+     * @param class $class Cronjob class
+     * @param int $status Status to be written 
+     * @return bool Returns true or false
+     */
     private static function status($class, $status){
-        //new \SYSTEM\LOG\CRON('Cron Status for Class '.$class.' updated to: '. \SYSTEM\CRON\cronstatus::text($status));
         return \SYSTEM\SQL\SYS_CRON_UPD::QI(array($status,time(),$class));}
     
+    /**
+     * Determines the time when the System-Cronjobs were executed the last time.
+     *
+     * @return time Returns the time last visited
+     */
     public static function last_visit(){
         return \SYSTEM\SQL\SYS_CRON_LAST_VISIT::Q1()['last_run'];}
 }

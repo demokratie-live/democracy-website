@@ -7,7 +7,7 @@
  * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
  * @license     http://www.opensource.org/licenses/mit-license.php MIT
  * @link        https://github.com/webcraftmedia/system
- * @package     system_cache
+ * @package     SYSTEM\CACHE
  */
 namespace SYSTEM\CACHE;
 
