@@ -1,41 +1,75 @@
 <?php
-
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\DB
+ */
 namespace SYSTEM\DB;
 
+/**
+ * Result Class provided by System to hold Database Query Result Ressources of SQLite File Querys.
+ */
 class ResultSQLite extends \SYSTEM\DB\Result{
-
+    /** ressource Variable to store Database Result-ressource */
     private $res = NULL;
+    /** ressource Variable to store query statement */
     private $stmt = NULL;
+    /** ressource Variable to store current Line either as array or object */
     private $current = NULL;    
 
-    //Result from mysql_query
+    /**
+     * Construct the Resultset with a database ressource
+     */
     public function __construct($res,$stmt){
         $this->res = $res;
         $this->stmt = $stmt;}
 
+    /**
+     * Close Resultset upon destruction
+     */
     public function __destruct(){
         $this->close();}
 
+    /**
+     * Closes the Resultset
+     *
+     * @return null Returns null
+     */
     public function close(){
         /*if($this->stmt){
             $this->stmt->close();}*/
     }
        
+    /**
+     * Counts the Lines in the Resultset
+     *
+     * @return int Returns number of lines in the result
+     */
     public function count(){
         throw new Exception("Problem SQLite");
         return mysqli_num_rows($this->res);}
-    /*
-     * if ($res->numColumns() && $res->columnType(0) != SQLITE3_NULL) { 
-    // have rows 
-} else { 
-    // zero rows 
-} 
-     */
 
+    /**
+     * Counts the affected lines in the Resultset
+     *
+     * @return int Returns number of affected lines in the result
+     */
     public function affectedRows(){
         throw new Exception("Problem SQLite");
         return mysqli_affected_rows($this->res);}
 
+    /**
+     * Returns the next line in the Resultset
+     *
+     * @param bool $object Determines if the result will be an object or array
+     * @param int $result_type SQLITE Fetch result Type
+     * @return array Returns an array(object) containing the next line
+     */
     public function next($object = false, $result_type = SQLITE3_ASSOC){        
         if($object){
             throw new Exception("Problem SQLite");
@@ -44,37 +78,13 @@ class ResultSQLite extends \SYSTEM\DB\Result{
         }
         return $this->current;
     }
-    
-    /*
-     * function fetchObject($sqlite3result, $objectType = NULL) { 
-    $array = $sqlite3result->fetchArray(); 
 
-    if(is_null($objectType)) { 
-        $object = new stdClass(); 
-    } else { 
-        // does not call this class' constructor 
-        $object = unserialize(sprintf('O:%d:"%s":0:{}', strlen($objectType), $objectType)); 
-    } 
-    
-    $reflector = new ReflectionObject($object); 
-    for($i = 0; $i < $sqlite3result->numColumns(); $i++) { 
-        $name = $sqlite3result->columnName($i); 
-        $value = $array[$name]; 
-        
-        try { 
-            $attribute = $reflector->getProperty($name); 
-            
-            $attribute->setAccessible(TRUE); 
-            $attribute->setValue($object, $value); 
-        } catch (ReflectionException $e) { 
-            $object->$name = $value; 
-        } 
-    } 
-    
-    return $object; 
-} 
+    /**
+     * Seeks an amount of lines within the Resultset
+     *
+     * @param int $row_number Lines to seek over
+     * @return bool Returns true or false
      */
-
     public function seek($row_number){
         throw new Exception("Problem SQLite");
         return mysqli_data_seek($this->res,$row_number);}

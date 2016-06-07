@@ -1,10 +1,28 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\DB
+ */
 namespace SYSTEM\DB;
+
+/**
+ * Connection Class provided by System to open a Connection to a Database.
+ */
 class Connection extends ConnectionAbstr{
-    //The open Connection
+    /** ressource Variable to store then open Connection */
     private $connection = NULL;
 
-    //Connects to DB, dependent on DBInfo a connection will be established
+    /**
+     * Connect to the DB upon Construction.
+     *
+     * @param DBINFO $dbinfo Database Information Object or Null for default Connection
+     */
     public function __construct(DBInfo $dbinfo = null){
         if(!$dbinfo){
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
@@ -21,28 +39,62 @@ class Connection extends ConnectionAbstr{
             throw new \Exception('Could not understand Database Settings. Check ur Database Settings');}
     }
     
-    //Destruct connection object.
+    /**
+     * Destruct the Database Connection upon Destruction.
+     */
     public function __destruct(){
         unset($this->connection);}
 
-    //Query connected Database with prepared statements, $stmt = sql string with ?; $values = array of values
+    /**
+     * Close the Database Connection.
+     * 
+     * @return bool Returns true or false depending on success
+     */
+    public function close(){
+        return $this->connection->close();}    
+        
+    /**
+     * Query the Connection using Prepare Statement
+     *
+     * @param string $stmtName Name of the Statement - espec for PostgreSQL important
+     * @param string $stmt SQL string of the Statement
+     * @param array $values Array of Prepare Values
+     * @return Result Returns Database Query Result.
+     */
     public function prepare($stmtName, $stmt, $values){
         return $this->connection->prepare($stmtName, $stmt, $values);}
-
-    //Close Connection
-    public function close(){
-        return $this->connection->close();}
         
-    //Query connected Database
+    /**
+     * Query the Connection using normal Query Statement
+     *
+     * @param string $query SQL string of the Statement
+     * @return Result Returns Database Query Result.
+     */
     public function query($query){
         return $this->connection->query($query);}
-        
+    
+    /**
+     * Exec Query on Database
+     *
+     * @param string $query SQL string of the Statement
+     * @return Result Returns Database Query Result.
+     */
     public function exec($query){
         return $this->connection->exec($query);}
         
+    /**
+     * Open a Transaction on the Database Connection
+     *
+     * @return bool Returns true or false depending on success.
+     */
     public function trans(){
         return $this->connection->trans();}
     
+    /**
+     * Commit a Transaction on the Database Connection
+     *
+     * @return bool Returns true or false depending on success.
+     */
     public function commit(){
         return $this->connection->commit();}
 }

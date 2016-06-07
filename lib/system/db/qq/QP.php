@@ -1,7 +1,27 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\DB
+ */
 namespace SYSTEM\DB;
 
+/**
+ * QQ Class provided by System to execute quick prepare statements.
+ */
 class QP {
+    /**
+     * Executes stored action and return Database Object
+     *
+     * @param array $params Parameter passed to the prepare-query
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return Result Returns Database Result Object
+     */
     public static function QQ($params,$dbinfo = null){
         if(!$dbinfo){
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
@@ -29,6 +49,13 @@ class QP {
         throw new \Exception('Could not understand Database Settings. Check ur Database Settings');
     }
     
+    /**
+     * Executes stored action and return all Data found
+     *
+     * @param array $params Parameter passed to the prepare-query
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return array Returns array with all lines of Database Query
+     */
     public static function QA($params,$dbinfo = null){
         $res = self::QQ($params,$dbinfo);
         $result = array();
@@ -37,9 +64,24 @@ class QP {
         return $result;
     }
     
+    /**
+     * Executes stored action and return one line of Data found
+     *
+     * @param array $params Parameter passed to the prepare-query
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return array Returns array with all field of one lines of the Database Query
+     */
     public static function Q1($params,$dbinfo = null){
         return self::QQ($params,$dbinfo)->next();}
     
+    /**
+     * Executes stored action and return Database Result Object.
+     * Use this function if the Result is either true or false (update/delete/insert)
+     *
+     * @param array $params Parameter passed to the prepare-query
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return bool Returns true or false (or Result if used incorrectly)
+     */
     public static function QI($params,$dbinfo = null){
         $qq = self::QQ($params,$dbinfo);
         return $qq->affectedRows() != (0||null);}

@@ -1,6 +1,27 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\DB
+ */
 namespace SYSTEM\DB;
-class QI {                       
+
+/**
+ * QI Class provided by System to execute quick installation statements.
+ */
+class QI {
+    /**
+     * Executes stored action by calling either files_pgsql() or files_mysql()
+     * of inherting class
+     *
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return array Returns array with Files and execution results
+     */
     public static function QI($dbinfo = null){
         if(!$dbinfo){
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}

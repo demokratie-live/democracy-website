@@ -1,7 +1,26 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\DB
+ */
 namespace SYSTEM\DB;
 
-class QQ {                       
+/**
+ * QQ Class provided by System to execute quick query statements.
+ */
+class QQ {
+    /**
+     * Executes stored action and return Database Object
+     *
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return Result Returns Database Result Object
+     */
     public static function QQ($dbinfo = null){
         if(!$dbinfo){
             $dbinfo = \SYSTEM\system::getSystemDBInfo();}
@@ -31,6 +50,12 @@ class QQ {
         throw new \Exception('Could not understand Database Settings. Check ur Database Settings');
     }
     
+    /**
+     * Executes stored action and return all Data found
+     *
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return array Returns array with all lines of Database Query
+     */
     public static function QA($dbinfo = null){
         $res = self::QQ($dbinfo);
         $result = array();
@@ -39,8 +64,22 @@ class QQ {
         return $result;
     }
     
+    /**
+     * Executes stored action and return one line of Data found
+     *
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return array Returns array with all field of one lines of the Database Query
+     */
     public static function Q1($dbinfo = null){
         return self::QQ($dbinfo)->next();}
+        
+    /**
+     * Executes stored action and return Database Result Object.
+     * Use this function if the Result is either true or false (update/delete/insert)
+     *
+     * @param DBINFO $dbinfo Database Info or Null for Default DB
+     * @return bool Returns true or false (or Result if used incorrectly)
+     */
     public static function QI($dbinfo = null){
         return self::QQ($dbinfo);}
 }
