@@ -23,8 +23,7 @@ class cron {
      */
     public static function check($class){
         if( !\class_exists($class) ||
-            !\is_array($parents = \class_parents($class)) ||
-            !\array_search('SYSTEM\CRON\cronjob', $parents)){
+            !((new $class) instanceof \SYSTEM\CRON\cronjob)){
             return false;}
         return true;}
     

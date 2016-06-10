@@ -14,11 +14,11 @@ namespace SYSTEM\CRON;
 /**
  * Conjob Class provided by System to derive from for custom Cronjobs.
  */
-abstract class cronjob{
+interface cronjob{
     /**
      * Run the Cronjob and execute its task
      *
      * @return int Return a Cronstatus for the Cron Class to update the db.
      */
-    public abstract static function run();
+    public static function run();
 }

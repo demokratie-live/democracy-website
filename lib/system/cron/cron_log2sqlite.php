@@ -14,7 +14,7 @@ namespace SYSTEM\CRON;
 /**
  * Conjob Class provided by System to extract Logentries into sqlite files.
  */
-class cron_log2sqlite extends \SYSTEM\CRON\cronjob{
+class cron_log2sqlite implements \SYSTEM\CRON\cronjob{
     /**
      * Run the Cronjob and extract Data from log, write it to sqlite files
      *

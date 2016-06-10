@@ -14,7 +14,7 @@ namespace SYSTEM\CRON;
 /**
  * Conjob Class provided by System to delete System Cache.
  */
-class cron_cache_delete extends \SYSTEM\CRON\cronjob{
+class cron_cache_delete implements \SYSTEM\CRON\cronjob{
     /**
      * Run the Cronjob and delete all Cache entries.
      *
