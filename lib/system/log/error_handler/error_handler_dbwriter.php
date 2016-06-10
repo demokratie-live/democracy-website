@@ -15,7 +15,7 @@ namespace SYSTEM\LOG;
  * Error handler Class provided by System to log to the database.
  * Register this before every other handler, cuz this will need to handle every single error.
  */
-class error_handler_dbwriter extends \SYSTEM\LOG\error_handler {
+class error_handler_dbwriter implements \SYSTEM\LOG\error_handler {
     /**
      * Call function to handle exceptions
      *

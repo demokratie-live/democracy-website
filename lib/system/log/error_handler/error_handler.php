@@ -12,9 +12,9 @@
 namespace SYSTEM\LOG;
 
 /**
- * Error handler Class provided by System to derive your own loghandlers from.
+ * Error handler Interface provided by System to derive your own loghandlers from.
  */
-class error_handler {
+interface error_handler {
     /**
      * Call function to handle exceptions
      *
@@ -22,5 +22,5 @@ class error_handler {
      * @param bool $thrown Was the Exception thrown?
      * @return bool Returns true or false.
      */
-    public static function CALL(\Exception $E, $thrown){}
+    static function CALL(\Exception $E, $thrown);
 }

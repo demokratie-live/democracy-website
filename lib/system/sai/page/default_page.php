@@ -1,6 +1,6 @@
 <?php
 namespace SYSTEM\SAI;
-class default_page extends \SYSTEM\PAGE\Page {
+class default_page implements \SYSTEM\PAGE\DefaultPage {
     private static function menu_sys(){                
         $result = '';
         $mods = \SYSTEM\SAI\sai::getSysModules();
@@ -30,7 +30,7 @@ class default_page extends \SYSTEM\PAGE\Page {
             return \call_user_func(array($mod, 'html_li_menu'));}        
         throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module haz a Problem - either it does not exist or it is not public - which is required!');}
 
-    private static function css(){
+    public static function css(){
         return  \SYSTEM\HTML\html::link(\LIB\lib_bootstrap::css()->WEBPATH(false)).
                 \SYSTEM\HTML\html::link(\LIB\lib_tablesorter::css()->WEBPATH(false)).
                 \SYSTEM\HTML\html::link(\SYSTEM\CACHE\cache_css::url(
@@ -39,7 +39,7 @@ class default_page extends \SYSTEM\PAGE\Page {
                                                 new \SYSTEM\PSAI('page/css/sai.css'))));
     }
 
-    private static function js(){
+    public static function js(){
         return  \SYSTEM\HTML\html::script(\LIB\lib_jquery::js()->WEBPATH()).
                 \SYSTEM\HTML\html::script(\LIB\lib_bootstrap::js()->WEBPATH()).
                 \SYSTEM\HTML\html::script(\LIB\lib_tablesorter::js()->WEBPATH()).

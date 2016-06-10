@@ -1,6 +1,6 @@
 <?php
 namespace SYSTEM\SAI;
-class saigui extends \SYSTEM\PAGE\Page {
+class saigui {
     const SAI_MOD_POSTFIELD = 'sai_mod';
     
     public function html(){

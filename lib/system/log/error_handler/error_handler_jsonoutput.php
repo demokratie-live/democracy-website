@@ -15,7 +15,7 @@ namespace SYSTEM\LOG;
  * Error handler Class provided by System to return the Error as JSON.
  * Register this Handler as last one
  */
-class error_handler_jsonoutput extends \SYSTEM\LOG\error_handler {
+class error_handler_jsonoutput implements \SYSTEM\LOG\error_handler {
     /**
      * Call function to handle exceptions
      *

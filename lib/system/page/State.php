@@ -1,6 +1,28 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\PAGE
+ */
 namespace SYSTEM\PAGE;
+
+/**
+ * State Class provided by System to get State information.
+ */
 class State {
+    /**
+     * Get a State
+     *
+     * @param int $group Group ID of the State requested.
+     * @param string $state Name of the state(including all substates and params.
+     * @param bool $returnasjson Return the result as Json or Array
+     * @return json Returns JSON or array with stateinfos.
+     */
     public static function get($group,$state,$returnasjson=true){
         //seperate state from vars
         $state_vars = \explode(';', $state);
@@ -60,9 +82,26 @@ class State {
         }
         return $returnasjson ? \SYSTEM\LOG\JsonResult::toString($result) : $result;
     }
-    public static function parse_substate($substate){
-        return (new ParensParser())->parse($substate);
-    }
+    
+    /**
+     * Get Substates out of State string
+     *
+     * @param string $substate Substate string.
+     * @return array Returns array with substates.
+     */
+    private static function parse_substate($substate){
+        return (new \SYSTEM\PAGE\ParensParser())->parse($substate);}
+        
+    /**
+     * Is the substate loaded alrdy(for result set)
+     * (recursive)
+     *
+     * @param array $row Substate Database row.
+     * @param array $substate Array with substates
+     * @param string $state_name Name of the main state
+     * @param int $parent_id Id of parent
+     * @return bool Returns true or false.
+     */
     private static function is_loaded($row,&$substate,$state_name,$parent_id = -1){
         for($i=0;$i<count($substate);$i++){
             if($row['name'] == $state_name){
@@ -77,85 +116,5 @@ class State {
             }
         }
         return $row['type'] == 0 ? true : false;
-    }
-}
-
-class ParensParser
-{
-    // something to keep track of parens nesting
-    protected $stack = null;
-    // current level
-    protected $current = null;
-
-    // input string to parse
-    protected $string = null;
-    // current character offset in string
-    protected $position = null;
-    // start of text-buffer
-    protected $buffer_start = null;
-
-    public function parse($string)
-    {
-        if (!$string) {
-            // no string, no data
-            return array();
-        }
-
-        if ($string[0] == '(') {
-            // killer outer parens, as they're unnecessary
-            $string = substr($string, 1, -1);
-        }
-
-        $this->current = array();
-        $this->stack = array();
-
-        $this->string = $string;
-        $this->length = strlen($this->string);
-        // look at each character
-        for ($this->position=0; $this->position < $this->length; $this->position++) {
-            switch ($this->string[$this->position]) {
-                case '(':
-                    $this->push();
-                    // push current scope to the stack an begin a new scope
-                    array_push($this->stack, $this->current);
-                    $this->current = array();
-                    break;
-
-                case ')':
-                    $this->push();
-                    // save current scope
-                    $t = $this->current;
-                    // get the last scope from stack
-                    $this->current = array_pop($this->stack);
-                    // add just saved scope to current scope
-                    $this->current[count($this->current)-1]['sub'] = $t;
-                    break; 
-                case '|':
-                    // make each word its own token
-                    $this->push();
-                    break;
-                default:
-                    // remember the offset to do a string capture later
-                    // could've also done $buffer .= $string[$position]
-                    // but that would just be wasting resources…
-                    if ($this->buffer_start === null) {
-                        $this->buffer_start = $this->position;
-                    }
-            }
-        }
-        $this->push();
-        return $this->current;
-    }
-
-    protected function push()
-    {
-        if ($this->buffer_start !== null) {
-            // extract string from buffer start to current position
-            $buffer = substr($this->string, $this->buffer_start, $this->position - $this->buffer_start);
-            // clean buffer
-            $this->buffer_start = null;
-            // throw token into current scope
-            $this->current[] = array('name' => $buffer);
-        }
     }
 }
