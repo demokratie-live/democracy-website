@@ -1,5 +1,19 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\SQL
+ */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to find all long entries for this month, limited by 10000
+ */
 class SYS_LOG_MONTH extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
     public static function pgsql(){return

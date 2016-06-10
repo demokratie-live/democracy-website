@@ -1,14 +1,29 @@
 <?php
-
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\LOG
+ */
 namespace SYSTEM\LOG;
 
-class JsonResult extends \SYSTEM\LOG\AbstractResult {
-
-    const JSONRESULT_OK     = true;
-    const JSONRESULT_ERROR  = false;
-	
-    public static function toString($json_array, $status = self::JSONRESULT_OK, $start_time = NULL){        
-
+/**
+ * JsonResult Class provided by System to return Data as JSON or MSGPACK.
+ */
+class JsonResult{
+    /**
+     * Retun JsonResult with data given by array
+     *
+     * @param array $json_array Data which should be included in the JSOn Result.
+     * @param bool $status true or false depending on success
+     * @param int $start_time To calculate Querytime - if Null System time is used.
+     * @return string Returns json string.
+     */
+    public static function toString($json_array, $status = true, $start_time = NULL){
         if($start_time == NULL){
             $start_time = \SYSTEM\time::getStartTime();}
         
@@ -34,23 +49,36 @@ class JsonResult extends \SYSTEM\LOG\AbstractResult {
         }
     }
 
-    //Return Exception as string
+    /**
+     * Retun JsonResult for given Exception
+     *
+     * @param \Exception $e Exception to be convered.
+     * @return string Returns json string.
+     */
     public static function error(\Exception $e){        
         $error = array();        
-        
 	$error['class']     = get_class($e);
 	$error['message']   = $e->getMessage();
 	$error['code']      = $e->getCode();
 	$error['file']      = $e->getFile();
 	$error['line']      = $e->getLine();
-	$error['trace']     = array_slice(explode('#', $e->getTraceAsString()), 1, -1);        
-
-        return self::toString($error, self::JSONRESULT_ERROR);
+	$error['trace']     = array_slice(explode('#', $e->getTraceAsString()), 1, -1);
+        return self::toString($error, false);
     }
 
-    //Returns OK status
+    /**
+     * Retun JsonResult with success status
+     *
+     * @return string Returns json string.
+     */
     public static function ok(){
         return self::toString(NULL);}
+        
+    /**
+     * Retun JsonResult with failure status
+     *
+     * @return string Returns json string.
+     */
     public static function fail(){
-        return self::toString(NULL,self::JSONRESULT_ERROR);}
+        return self::toString(NULL,false);}
 }
