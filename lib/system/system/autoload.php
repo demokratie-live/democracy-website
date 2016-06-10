@@ -1,11 +1,26 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM
+ */
 namespace SYSTEM;
 
+/**
+ * autoload Class provided by System to Autoload Classes
+ */
 class autoload {
-    
-    private static $files = array();       // array(class, namespace, file)
-    private static $folders = array();     // array(namespace, folder)   
-    private static $func = array();        // array(namespace, func)
+    /** array Registered Files Format array(class, namespace, file) */
+    private static $files = array();
+    /** array Registered Folders Format array(class, namespace, folder) */
+    private static $folders = array();   
+    /** string Registered Func Format array(namespace, func) */
+    private static $func = array();
 
     private static function getClassFromFile($file){
         $path_info = \pathinfo($file);
@@ -66,39 +81,25 @@ class autoload {
         self::$func[] = array($namespace, $func);
     }
     
+    /**
+     * Registers the Autoload Handler against the PHP Environment
+     *
+     * @return null Returns null
+     */
     public static function register_autoload(){
         spl_autoload_register('\SYSTEM\autoload::autoload');}
 
+    /**
+     * Autoloads a class. This function is registered against the PHP Environment.
+     * It is called from PHP if a new class is required.
+     *
+     * @param string $class Class to be autoloaded
+     * @return bool Returns true if successfull.
+     */
     public static function autoload($class){        
         $classns = self::getClassNamespaceFromClass($class);
-        
         if(!self::autoload_($classns[0],$classns[1]) || (!class_exists($class) && !interface_exists($class))){
             throw new \SYSTEM\LOG\ERROR("Class not found: ".$class);}
-        
         return true;
-    }
-    
-    private static function file_extension($filename){
-        $path_info = pathinfo($filename);
-        return array_key_exists('extension', $path_info) ? strtolower($path_info['extension']) : NULL;
-    }
-    
-    //for docu we need all classes actually declared
-    public static function autoload_all(){
-        foreach(self::$files as $file){            
-            require_once $file[2];}        
-        
-        foreach(self::$folders as $folder){                
-            if ($handle = opendir($folder[1])) {
-                while (false !== ($file = readdir($handle))) {
-                    if (    $file != "." && $file != ".." && 
-                            self::file_extension($file) == 'php' &&
-                            !class_exists($folder[0].'\\'.substr($file,0,count($file)-5),false)) {                                                
-                        require_once $folder[1].'/'.$file;                        
-                    }
-                }
-            }
-            closedir($handle);
-        }                    
     }
 }

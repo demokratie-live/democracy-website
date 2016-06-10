@@ -1,6 +1,19 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM
+ */
 namespace SYSTEM;
 
+/**
+ * HEADER Class provided by System Send HTML Headers
+ */
 class HEADER {
     private static function checkHeader(){
         $file = null;
