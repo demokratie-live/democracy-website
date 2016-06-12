@@ -1,5 +1,19 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\SQL
+ */
 namespace SYSTEM\SQL;
+
+/**
+ * SCHEMA_SYSTEM Class provided by System to install the Database Schema for system
+ */
 class SCHEMA_SYSTEM extends \SYSTEM\DB\QI {
     public static function get_class(){return \get_class();}
     public static function files_pgsql(){
