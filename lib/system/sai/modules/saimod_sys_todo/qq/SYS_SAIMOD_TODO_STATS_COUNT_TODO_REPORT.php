@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get count of all open report system_todo entrys
+ */
 class SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT extends \SYSTEM\DB\QQ {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT COUNT(*) as count FROM system.todo WHERE state = 0 AND type = 2';

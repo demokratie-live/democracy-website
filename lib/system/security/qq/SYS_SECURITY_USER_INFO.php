@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to get a usernames infos
  */
 class SYS_SECURITY_USER_INFO extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT id,username,email,joindate,locale,last_active,email_confirmed FROM '.\SYSTEM\SQL\system_user::NAME_PG.

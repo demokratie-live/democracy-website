@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get all system_todo_assign entrys for a todo
+ */
 class SYS_SAIMOD_TODO_ASSIGNEES extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 ' SELECT assign.'.\SYSTEM\SQL\system_todo_assign::FIELD_TODO.' as todo_id,'.

@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to delete a system_user entry
+ */
 class SYS_SAIMOD_SECURITY_DELETE_USER extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return 
 'DELETE FROM system_user WHERE id = ?;';

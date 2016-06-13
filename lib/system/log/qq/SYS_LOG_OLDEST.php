@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to find the month of the oldest log entry
  */
 class SYS_LOG_OLDEST extends \SYSTEM\DB\QQ {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT EXTRACT(MONTH FROM time)::INTEGER as month, EXTRACT(YEAR FROM time)::INTEGER as year FROM '.\SYSTEM\SQL\system_log::NAME_PG.' ORDER BY time ASC LIMIT 1';

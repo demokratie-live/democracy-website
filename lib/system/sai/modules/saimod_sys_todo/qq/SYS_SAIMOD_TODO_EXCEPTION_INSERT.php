@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to log a execption to system_todo
+ */
 class SYS_SAIMOD_TODO_EXCEPTION_INSERT extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_todo::NAME_PG.

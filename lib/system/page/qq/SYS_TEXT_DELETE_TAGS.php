@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to delete tags of a certain text
  */
 class SYS_TEXT_DELETE_TAGS extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return
 'DELETE FROM `system_text_tag` WHERE id = ?;';

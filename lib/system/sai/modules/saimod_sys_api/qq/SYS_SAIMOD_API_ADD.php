@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to add a system_api entry
+ */
 class SYS_SAIMOD_API_ADD extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_api::NAME_PG.' (ID, group, type, parentID, parentValue, name, verify) VALUES ($1, $2, $3, $4, $5, $6, $7);';

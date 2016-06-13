@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to save a tag for a text
  */
 class SYS_TEXT_SAVE_TAG extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return
 'INSERT IGNORE `system_text_tag` (`id`, `tag`)

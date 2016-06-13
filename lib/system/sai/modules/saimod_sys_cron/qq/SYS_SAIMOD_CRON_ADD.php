@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to add a system_cron entry
+ */
 class SYS_SAIMOD_CRON_ADD extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 
 'INSERT INTO '.\SYSTEM\SQL\system_cron::NAME_PG.' (class, min, hour, day, day_week, month) VALUES ($1, $2, $3, $4, $5, $6);';

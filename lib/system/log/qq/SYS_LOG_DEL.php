@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to delete a log entry by id
  */
 class SYS_LOG_DEL extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'DELETE FROM '.\SYSTEM\SQL\system_log::NAME_PG.' WHERE "ID" = $1;';

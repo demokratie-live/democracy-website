@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to find all long entries for this month, limited by 10000
  */
 class SYS_LOG_MONTH extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_log::NAME_PG.' WHERE EXTRACT(MONTH FROM time)::INTEGER = $1 AND EXTRACT(YEAR FROM time)::INTEGER = $2 ORDER BY time ASC LIMIT 10000;';

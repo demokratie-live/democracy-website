@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get all system_user entrys with filter
+ */
 class SYS_SAIMOD_SECURITY_USERS_FILTER extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return 
 'SELECT id,username,email,joindate,locale,unix_timestamp(last_active)as last_active, account_flag'.

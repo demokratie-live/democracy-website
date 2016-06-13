@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to write data into the cache
  */
 class SYS_CACHE_PUT extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return           
 'WITH upsert AS (UPDATE system.cache SET type=$3, data=$4 WHERE cache = $1 AND ident = $2 RETURNING *) '.

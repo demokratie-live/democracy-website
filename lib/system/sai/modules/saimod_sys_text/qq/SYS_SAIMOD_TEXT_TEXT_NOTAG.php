@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get all system_text entrys with filter and no tag
+ */
 class SYS_SAIMOD_TEXT_TEXT_NOTAG extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 
 'SELECT system.text.*, MAX(a.username) as author_name, MAX(ae.username) as author_edit_name'.

@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * DATA_SYSTEM_RIGHTS Class provided by System to install the System rights to the Database
  */
 class DATA_SYSTEM_RIGHTS extends \SYSTEM\DB\QI {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function files_pgsql(){
         return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_rights.sql'))->SERVERPATH());}

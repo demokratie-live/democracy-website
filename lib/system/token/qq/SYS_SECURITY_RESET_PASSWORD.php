@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to reset Password of an account
  */
 class SYS_SECURITY_RESET_PASSWORD extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return 
 'UPDATE system_user SET password_sha1 = ? WHERE id = ?;';

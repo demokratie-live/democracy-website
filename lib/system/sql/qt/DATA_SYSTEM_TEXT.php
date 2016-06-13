@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * DATA_SYSTEM_TEXT Class provided by System to install the System texts to the Database(includes Tags)
  */
 class DATA_SYSTEM_TEXT extends \SYSTEM\DB\QI {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function files_pgsql(){
         return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_text.sql'))->SERVERPATH());}

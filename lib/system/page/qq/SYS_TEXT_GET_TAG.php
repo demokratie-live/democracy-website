@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to get texts by tag and language
  */
 class SYS_TEXT_GET_TAG extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT system.text.id,text FROM system.text

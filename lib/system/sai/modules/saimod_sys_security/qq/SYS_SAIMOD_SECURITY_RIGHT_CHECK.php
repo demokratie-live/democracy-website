@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to check the existance of a system_rights entry
+ */
 class SYS_SAIMOD_SECURITY_RIGHT_CHECK extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return            
 'SELECT * FROM system.rights'.

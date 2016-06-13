@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to rename tags-text-id of a text
  */
 class SYS_TEXT_RENAME_TAGS extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return
 'UPDATE system_text_tag SET id = ? WHERE id = ?;';

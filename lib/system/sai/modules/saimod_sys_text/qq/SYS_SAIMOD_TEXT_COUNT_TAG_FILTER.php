@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to count all system_text_tag entrys of a tag with filter and language
+ */
 class SYS_SAIMOD_TEXT_COUNT_TAG_FILTER extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return 
 'SELECT COUNT(*) as `count`'.

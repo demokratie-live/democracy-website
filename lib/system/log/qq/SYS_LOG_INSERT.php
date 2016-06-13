@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to insert a new log entry
  */
 class SYS_LOG_INSERT extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_log::NAME_PG.

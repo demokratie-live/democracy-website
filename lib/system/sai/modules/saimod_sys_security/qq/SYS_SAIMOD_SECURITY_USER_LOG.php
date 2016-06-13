@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get all system_log entrys for a user
+ */
 class SYS_SAIMOD_SECURITY_USER_LOG extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 
 'SELECT * FROM '.\SYSTEM\SQL\system_log::NAME_PG.

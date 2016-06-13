@@ -10,7 +10,15 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+/**
+ * QQ to check a system_user_to_rights entry for existance
+ */
 class SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 
 'SELECT COUNT(*) as count FROM system.user_to_rights WHERE "rightID" = $1 AND "userID" = $2 LIMIT 1;';

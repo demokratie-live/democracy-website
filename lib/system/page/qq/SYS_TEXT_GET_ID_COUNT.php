@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to get amount of texts by id
  */
 class SYS_TEXT_GET_ID_COUNT extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return
 'SELECT count(*) as count FROM system_text

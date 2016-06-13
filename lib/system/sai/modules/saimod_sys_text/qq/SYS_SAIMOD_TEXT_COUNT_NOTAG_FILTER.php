@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to count all system_text entrys with no tag + filter
+ */
 class SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return
 'SELECT COUNT(*) as `count`'.

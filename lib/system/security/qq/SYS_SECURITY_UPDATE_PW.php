@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to change a user password
  */
 class SYS_SECURITY_UPDATE_PW extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pqsql(){return
 'UPDATE '.\SYSTEM\SQL\system_user::NAME_PG.

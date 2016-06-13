@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get amount of api entrys of system_api by group
+ */
 class SYS_SAIMOD_API_GROUPS extends \SYSTEM\DB\QQ {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT "group", count(*) as "count" FROM system.api GROUP BY "group" ORDER BY "group" ASC;';

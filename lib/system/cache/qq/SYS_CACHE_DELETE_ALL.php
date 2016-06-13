@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to delete all cache entries
  */
 class SYS_CACHE_DELETE_ALL extends \SYSTEM\DB\QQ {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'DELETE FROM system.cache;';

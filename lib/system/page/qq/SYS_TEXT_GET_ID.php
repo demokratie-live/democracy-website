@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to get a text by id and language
  */
 class SYS_TEXT_GET_ID extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT id,text FROM system.text WHERE id = $1 and lang = $2;';

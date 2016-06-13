@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get all system_rights entrys of a user
+ */
 class SYS_SAIMOD_SECURITY_USER_RIGHTS extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return 
 'SELECT * FROM system.rights LEFT JOIN system.user_to_rights ON system.rights."ID" = system.user_to_rights."rightID" WHERE system.user_to_rights."userID" = $1 ORDER BY system.rights."ID" ASC;';

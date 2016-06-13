@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to delete a system_page entry
+ */
 class SYS_SAIMOD_PAGE_DEL extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return           
 'DELETE FROM '.\SYSTEM\SQL\system_page::NAME_PG.' WHERE `ID` = $1 AND group = $2;';

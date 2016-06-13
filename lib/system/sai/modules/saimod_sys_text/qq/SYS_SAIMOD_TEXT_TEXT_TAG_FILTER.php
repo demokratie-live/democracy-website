@@ -10,7 +10,16 @@
  * @package     SYSTEM\SQL
  */
 namespace SYSTEM\SQL;
+
+/**
+ * QQ to get all system_text entrys with filter, language and tag
+ */
 class SYS_SAIMOD_TEXT_TEXT_TAG_FILTER extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function mysql(){return 
 'SELECT system_text_tag.tag, system_text.*, a.username as author_name, ae.username as author_edit_name'.

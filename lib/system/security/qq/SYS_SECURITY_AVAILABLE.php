@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to check for usernames availibility
  */
 class SYS_SECURITY_AVAILABLE extends \SYSTEM\DB\QP {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT COUNT(*) as count FROM '.\SYSTEM\SQL\system_user::NAME_PG.

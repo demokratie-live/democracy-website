@@ -15,6 +15,11 @@ namespace SYSTEM\SQL;
  * QQ to find the cronjob which had ben run the most reacent
  */
 class SYS_CRON_LAST_VISIT extends \SYSTEM\DB\QQ {
+    /**
+     * Get Classname of the QQ
+     * 
+     * @return string Returns classname
+     */
     public static function get_class(){return \get_class();}
     public static function pgsql(){return
 'SELECT last_run FROM '.\SYSTEM\SQL\system_cron::NAME_PG.' ORDER BY last_run DESC LIMIT 1;';
