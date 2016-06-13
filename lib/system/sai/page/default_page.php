@@ -1,6 +1,25 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\SAI
+ */
 namespace SYSTEM\SAI;
+
+/**
+ * Sai default_page Class provided by System to construct the Sai Environment
+ */
 class default_page implements \SYSTEM\PAGE\DefaultPage {
+    /**
+     * Get the System Saimod Menu
+     *
+     * @return string Returns html of the System Saimod Menu.
+     */
     private static function menu_sys(){                
         $result = '';
         $mods = \SYSTEM\SAI\sai::getSysModules();
@@ -12,6 +31,11 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
         return $result;        
     }
     
+    /**
+     * Get the Users Saimod Menu
+     *
+     * @return string Returns html of the Users Saimod Menu.
+     */
     private static function menu_proj(){
         $result = '';        
         $mods = \SYSTEM\SAI\sai::getModules();
@@ -23,13 +47,23 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
         return $result;        
     }
     
+    /**
+     * Get the Start Saimod Menu
+     *
+     * @return string Returns html of the Start Saimod Menu.
+     */
     private static function menu_start(){
         $mod = \SYSTEM\SAI\sai::getStartModule();        
         if(\call_user_func(array($mod, 'right_public')) ||
             \call_user_func(array($mod, 'right_right'))){
             return \call_user_func(array($mod, 'html_li_menu'));}        
-        throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module haz a Problem - either it does not exist or it is not public - which is required!');}
+        throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module has a Problem - either it does not exist or it is not public - which is required!');}
 
+    /**
+     * Get css links for the Default Page
+     *
+     * @return string Returns html of the Sai css includes
+     */
     public static function css(){
         return  \SYSTEM\HTML\html::link(\LIB\lib_bootstrap::css()->WEBPATH(false)).
                 \SYSTEM\HTML\html::link(\LIB\lib_tablesorter::css()->WEBPATH(false)).
@@ -39,6 +73,11 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                                                 new \SYSTEM\PSAI('page/css/sai.css'))));
     }
 
+    /**
+     * Get js links for the Default Page
+     *
+     * @return string Returns html of the Sai js includes
+     */
     public static function js(){
         return  \SYSTEM\HTML\html::script(\LIB\lib_jquery::js()->WEBPATH()).
                 \SYSTEM\HTML\html::script(\LIB\lib_bootstrap::js()->WEBPATH()).
@@ -52,6 +91,11 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                 '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';
     }
 
+    /**
+     * Get Sai Default Page HTML
+     *
+     * @return string Returns html of the Sai Default Page
+     */
     public function html($_escaped_fragment_ = NULL){
         $vars = array();
         $vars['css'] = self::css();

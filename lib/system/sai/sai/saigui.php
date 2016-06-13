@@ -1,8 +1,28 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\SAI
+ */
 namespace SYSTEM\SAI;
+
+/**
+ * saigui Class provided by System to handle sai userinterface. Invoke (new saigui)->html()
+ */
 class saigui {
+    /** string field in post or get to be read as saimod modifier */
     const SAI_MOD_POSTFIELD = 'sai_mod';
     
+    /**
+     * Generate the HTML for the SAI Userinterface
+     *
+     * @return html Returns html of sai defaultpage.
+     */
     public function html(){
         //register docu here, we require path so system must be started
         \SYSTEM\DOCU\docu::register(array(  'id' => 'system',
