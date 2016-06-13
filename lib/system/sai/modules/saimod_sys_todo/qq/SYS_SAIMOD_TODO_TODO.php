@@ -21,6 +21,12 @@ class SYS_SAIMOD_TODO_TODO extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT DISTINCT ON ("'.\SYSTEM\SQL\system_todo::FIELD_ID.'") * FROM('.
     ' SELECT todo.*, assignee.'.\SYSTEM\SQL\system_user::FIELD_ID.' as assignee_id, assignee.'.\SYSTEM\SQL\system_user::FIELD_USERNAME.' as assignee, creator.'.\SYSTEM\SQL\system_user::FIELD_USERNAME.' as username'.
@@ -32,6 +38,12 @@ class SYS_SAIMOD_TODO_TODO extends \SYSTEM\DB\QP {
     ' ORDER BY case when assign.'.\SYSTEM\SQL\system_todo_assign::FIELD_USER.' = $2 then 1 else 2 end'.
 ') as a';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT * FROM('.
     ' SELECT todo.*, assignee.'.\SYSTEM\SQL\system_user::FIELD_ID.' as assignee_id, assignee.'.\SYSTEM\SQL\system_user::FIELD_USERNAME.' as assignee, creator.'.\SYSTEM\SQL\system_user::FIELD_USERNAME.' as username'.

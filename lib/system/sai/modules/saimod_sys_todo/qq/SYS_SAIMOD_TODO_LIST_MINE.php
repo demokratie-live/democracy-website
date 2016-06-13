@@ -21,6 +21,12 @@ class SYS_SAIMOD_TODO_LIST_MINE extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT DISTINCT ON (todo_id) * FROM('.
     ' SELECT todo."'.\SYSTEM\SQL\system_todo::FIELD_ID.'" as todo_id,'.
@@ -40,6 +46,12 @@ class SYS_SAIMOD_TODO_LIST_MINE extends \SYSTEM\DB\QP {
     //' ORDER BY a.'.\SYSTEM\SQL\system_todo::FIELD_PRIORITY.' DESC, a.'.\SYSTEM\SQL\system_todo::FIELD_TYPE.' DESC, a.'.\SYSTEM\SQL\system_todo::FIELD_COUNT.' DESC, a.'.\SYSTEM\SQL\system_todo::FIELD_TIME.' DESC';
     //sorry postgres but ur rly bad!
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT * FROM('.
     ' SELECT todo.'.\SYSTEM\SQL\system_todo::FIELD_ID.' as todo_id,'.

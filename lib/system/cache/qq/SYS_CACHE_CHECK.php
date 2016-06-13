@@ -21,10 +21,22 @@ class SYS_CACHE_CHECK extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return          
 'SELECT * FROM system.cache'.
 ' WHERE cache = $1 AND ident = $2;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return          
 'SELECT * FROM system_cache'.
 ' WHERE cache = ? AND ident = ?;';

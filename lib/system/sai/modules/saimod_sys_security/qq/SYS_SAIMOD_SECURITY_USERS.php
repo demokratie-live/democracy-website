@@ -21,12 +21,24 @@ class SYS_SAIMOD_SECURITY_USERS extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return 
 'SELECT id,username,email,joindate,locale, EXTRACT(EPOCH FROM last_active) as last_active, email_confirmed'.
 ' FROM system.user'.
 ' WHERE username LIKE $1 OR email LIKE $2'.
 ' ORDER BY last_active DESC;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'SELECT id,username,email,joindate,locale,unix_timestamp(last_active)as last_active, email_confirmed'.
 ' FROM system_user'.

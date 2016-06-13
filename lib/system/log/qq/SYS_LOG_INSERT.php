@@ -21,6 +21,12 @@ class SYS_LOG_INSERT extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_log::NAME_PG.
 '("'.\SYSTEM\SQL\system_log::FIELD_CLASS.'","'.\SYSTEM\SQL\system_log::FIELD_MESSAGE.'","'.
@@ -33,6 +39,12 @@ class SYS_LOG_INSERT extends \SYSTEM\DB\QP {
     \SYSTEM\SQL\system_log::FIELD_USER.'","'.\SYSTEM\SQL\system_log::FIELD_THROWN.'")'.
 'VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_log::NAME_MYS.
 '('.\SYSTEM\SQL\system_log::FIELD_CLASS.','.\SYSTEM\SQL\system_log::FIELD_MESSAGE.','.

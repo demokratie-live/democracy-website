@@ -21,9 +21,21 @@ class SYS_SAIMOD_LOG_TRUNCATE extends \SYSTEM\DB\QQ {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return             
 'TRUNCATE '.\SYSTEM\SQL\system_log::NAME_PG.';';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'TRUNCATE '.\SYSTEM\SQL\system_log::NAME_MYS.';';
     }

@@ -21,10 +21,22 @@ class SYS_SAIMOD_SECURITY_RIGHT_INSERT extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return 
 'INSERT INTO system.rights ("ID", name, description)'.
 ' VALUES($1, $2, $3);';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'INSERT IGNORE INTO system_rights (ID, name, description)'.
 ' VALUES(?, ?, ?);';

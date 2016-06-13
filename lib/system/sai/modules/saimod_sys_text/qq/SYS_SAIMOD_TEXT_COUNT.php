@@ -21,6 +21,12 @@ class SYS_SAIMOD_TEXT_COUNT extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return 
 'SELECT COUNT(*) as count'.
 ' FROM system.text'.
@@ -28,6 +34,12 @@ class SYS_SAIMOD_TEXT_COUNT extends \SYSTEM\DB\QP {
 ' LEFT JOIN system.user as ae ON system.text.author_edit = ae.id'.                
 ' WHERE (a.username LIKE $1 OR ae.username LIKE $2 OR text LIKE $3);';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'SELECT COUNT(*) as `count`'.
 ' FROM system_text'.

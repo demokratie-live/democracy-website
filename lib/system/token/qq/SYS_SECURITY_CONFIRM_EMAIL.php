@@ -21,6 +21,12 @@ class SYS_SECURITY_CONFIRM_EMAIL extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'UPDATE system_user SET email_confirmed = 1 WHERE id = ?;';
     }

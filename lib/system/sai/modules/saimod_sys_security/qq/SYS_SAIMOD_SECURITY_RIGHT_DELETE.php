@@ -21,10 +21,22 @@ class SYS_SAIMOD_SECURITY_RIGHT_DELETE extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'DELETE FROM system.rights'.
 ' WHERE "ID" = $1;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'DELETE FROM system_rights'.
 ' WHERE ID = ?;';

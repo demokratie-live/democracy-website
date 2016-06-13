@@ -21,9 +21,21 @@ class SYS_CRON_LAST_VISIT extends \SYSTEM\DB\QQ {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT last_run FROM '.\SYSTEM\SQL\system_cron::NAME_PG.' ORDER BY last_run DESC LIMIT 1;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT last_run FROM '.\SYSTEM\SQL\system_cron::NAME_MYS.' ORDER BY last_run DESC LIMIT 1';
     }

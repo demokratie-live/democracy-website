@@ -21,9 +21,21 @@ class SYS_SAIMOD_CACHE_CLEAR extends \SYSTEM\DB\QQ {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'DELETE FROM system.cache;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'DELETE FROM system_cache;';
     }

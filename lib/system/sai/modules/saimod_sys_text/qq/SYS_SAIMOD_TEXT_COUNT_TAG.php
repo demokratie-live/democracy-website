@@ -21,6 +21,12 @@ class SYS_SAIMOD_TEXT_COUNT_TAG extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return 
 'SELECT COUNT(*) as count'.
 ' FROM system.text_tag'.
@@ -30,6 +36,12 @@ class SYS_SAIMOD_TEXT_COUNT_TAG extends \SYSTEM\DB\QP {
 ' WHERE tag = $1'.
 ' AND (a.username LIKE $2 OR ae.username LIKE $3 OR text LIKE $4);';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'SELECT COUNT(*) as `count`'.
 ' FROM system_text_tag'.

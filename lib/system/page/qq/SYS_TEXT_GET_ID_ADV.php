@@ -21,6 +21,12 @@ class SYS_TEXT_GET_ID_ADV extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT system_text.*, a.username as author_name, ae.username as author_edit_name FROM system_text'.
 ' LEFT JOIN system_user AS a ON system_text.author = a.id'.

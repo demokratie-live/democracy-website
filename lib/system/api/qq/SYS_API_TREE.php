@@ -21,11 +21,23 @@ class SYS_API_TREE extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_api::NAME_PG
 .' WHERE "'.\SYSTEM\SQL\system_api::FIELD_GROUP.'" = $1'
 .' ORDER BY "'.\SYSTEM\SQL\system_api::FIELD_ID.'"';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_api::NAME_MYS
 .' WHERE `'.\SYSTEM\SQL\system_api::FIELD_GROUP.'` = ?'

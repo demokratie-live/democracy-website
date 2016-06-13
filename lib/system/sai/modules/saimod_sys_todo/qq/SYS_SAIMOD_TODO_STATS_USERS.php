@@ -21,6 +21,12 @@ class SYS_SAIMOD_TODO_STATS_USERS extends \SYSTEM\DB\QQ {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT *, state_closed/(state_open+state_closed) as best '.
 'FROM ('.
@@ -36,6 +42,12 @@ class SYS_SAIMOD_TODO_STATS_USERS extends \SYSTEM\DB\QQ {
 ') a '.
 'ORDER BY best DESC;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT *, state_closed/(state_open+state_closed) as best '.
 'FROM ('.

@@ -21,9 +21,21 @@ class SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER extends \SYSTEM\DB\QQ {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT COUNT(*) as count FROM system.todo WHERE state = 1 AND type = 1';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT COUNT(*) as `count` FROM system_todo WHERE state = 1 AND `type` = 1';
     }

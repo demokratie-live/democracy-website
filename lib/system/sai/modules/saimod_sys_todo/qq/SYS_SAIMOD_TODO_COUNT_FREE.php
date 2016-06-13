@@ -21,6 +21,12 @@ class SYS_SAIMOD_TODO_COUNT_FREE extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT COUNT(*) as count FROM('.
 'SELECT todo."ID" FROM '.\SYSTEM\SQL\system_todo::NAME_PG.' as todo'.
@@ -33,6 +39,12 @@ class SYS_SAIMOD_TODO_COUNT_FREE extends \SYSTEM\DB\QP {
 ' GROUP BY todo."ID"'.
 ') as a;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT COUNT(*) as count FROM('.
 'SELECT todo.id FROM '.\SYSTEM\SQL\system_todo::NAME_MYS.' as todo'.

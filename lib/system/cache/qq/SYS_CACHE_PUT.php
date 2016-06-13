@@ -21,11 +21,23 @@ class SYS_CACHE_PUT extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return           
 'WITH upsert AS (UPDATE system.cache SET type=$3, data=$4 WHERE cache = $1 AND ident = $2 RETURNING *) '.
 ' INSERT INTO system.cache ("cache", "ident", "type", "data")'.
 ' SELECT $1,$2,$3,$4 WHERE NOT EXISTS (SELECT * FROM upsert);';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return           
 'REPLACE INTO system_cache (cache, ident, type, data)'.
 ' VALUES (?,?,?,?);';

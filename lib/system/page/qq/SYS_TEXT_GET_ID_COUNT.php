@@ -21,6 +21,12 @@ class SYS_TEXT_GET_ID_COUNT extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT count(*) as count FROM system_text
  WHERE id = ?;';

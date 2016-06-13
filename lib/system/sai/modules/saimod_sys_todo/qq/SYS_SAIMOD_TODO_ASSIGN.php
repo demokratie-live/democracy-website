@@ -21,11 +21,23 @@ class SYS_SAIMOD_TODO_ASSIGN extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_todo_assign::NAME_PG.
 ' ('.\SYSTEM\SQL\system_todo_assign::FIELD_TODO.',"'.\SYSTEM\SQL\system_todo_assign::FIELD_USER.'",'.\SYSTEM\SQL\system_todo_assign::FIELD_TIME.')'.
 ' VALUES($1,$2, NOW());';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'INSERT INTO '.\SYSTEM\SQL\system_todo_assign::NAME_MYS.
 ' ('.\SYSTEM\SQL\system_todo_assign::FIELD_TODO.','.\SYSTEM\SQL\system_todo_assign::FIELD_USER.','.\SYSTEM\SQL\system_todo_assign::FIELD_TIME.')'.

@@ -21,6 +21,12 @@ class SYS_SAIMOD_LOG_FILTER extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_log::NAME_PG.
 ' LEFT JOIN '.\SYSTEM\SQL\system_user::NAME_PG.
@@ -30,6 +36,12 @@ class SYS_SAIMOD_LOG_FILTER extends \SYSTEM\DB\QP {
 ' AND ('.\SYSTEM\SQL\system_log::FIELD_MESSAGE.' LIKE $2 OR '.\SYSTEM\SQL\system_log::FIELD_FILE.' LIKE $3 OR '.\SYSTEM\SQL\system_log::FIELD_IP.' LIKE $4)'.
 ' ORDER BY '.\SYSTEM\SQL\system_log::FIELD_TIME.' DESC, '.\SYSTEM\SQL\system_log::NAME_PG.'."'.\SYSTEM\SQL\system_log::FIELD_ID.'" DESC;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'SELECT * FROM '.\SYSTEM\SQL\system_log::NAME_MYS.
 ' LEFT JOIN '.\SYSTEM\SQL\system_user::NAME_MYS.

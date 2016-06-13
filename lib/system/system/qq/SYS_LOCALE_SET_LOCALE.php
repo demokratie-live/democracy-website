@@ -21,11 +21,23 @@ class SYS_LOCALE_SET_LOCALE extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs PostgreSQL Query String
+     * 
+     * @return string Returns PostgreSQL Query String
+     */
     public static function pgsql(){return           
 'UPDATE '.\SYSTEM\SQL\system_user::NAME_PG.
 ' SET '.\SYSTEM\SQL\system_user::FIELD_LOCALE.' = $1'.
 ' WHERE '.\SYSTEM\SQL\system_user::FIELD_ID.' = $2;';
     }
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return
 'UPDATE '.\SYSTEM\SQL\system_user::NAME_MYS.
 ' SET '.\SYSTEM\SQL\system_user::FIELD_LOCALE.' = ? '.

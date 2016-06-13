@@ -21,6 +21,12 @@ class SYS_SAIMOD_TODO_STATS_CLOSED extends \SYSTEM\DB\QP {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get QQs MYSQL Query String
+     * 
+     * @return string Returns MYSQL Query String
+     */
     public static function mysql(){return 
 'SELECT DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP('.\SYSTEM\SQL\system_todo::FIELD_TIME.') - MOD(UNIX_TIMESTAMP('.\SYSTEM\SQL\system_todo::FIELD_TIME.'),?)),"%Y/%m/%d %H:%i:%s") as day,'
     .'count(*) as count,'                                                                                
