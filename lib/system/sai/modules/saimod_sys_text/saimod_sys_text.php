@@ -10,7 +10,16 @@
  * @package     SYSTEM\SAI
  */
 namespace SYSTEM\SAI;
+
+/**
+ * saimod_sys_text Class provided by System as saimod to manage the system_text, system_text_tag table
+ */
 class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text(){        
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['tabopts'] = '';
@@ -126,13 +135,40 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id, $lang = null){
         return \SYSTEM\PAGE\text::delete($id, $lang) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
       
-    //public static function html_li_menu(){return '<li><a id="menu_text" href="#!text">${sai_menu_text}</a></li>';}
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_text" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_text}" href="#!text"><span class="glyphicon glyphicon-text-size" aria-hidden="true"></span></a></li>';}    
-    public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return false;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_LOCALE);}
     
+    /**
+     * Get all css System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods css
+     */
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_text/css/saimod_sys_text.css'));}
+        
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_text/js/saimod_sys_text.js'));}
 }

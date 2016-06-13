@@ -26,6 +26,9 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
     
     /**
      * Construct the Resultset with a database ressource
+     * 
+     * @param ressource $res Ressource of the Database Result-Set
+     * @param ressource $connection Connection on which the Result-Set was returned
      */
     public function __construct($res,$connection){        
         $this->res = $res;

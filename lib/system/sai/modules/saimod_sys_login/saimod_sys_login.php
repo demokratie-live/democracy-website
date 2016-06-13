@@ -10,7 +10,16 @@
  * @package     SYSTEM\SAI
  */
 namespace SYSTEM\SAI;
+
+/**
+ * saimod_sys_login Class provided by System as saimod to provide login/register functionality
+ */
 class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login(){              
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         $vars['login'] = 'Login';
@@ -42,11 +51,32 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/register.tpl'))->SERVERPATH(), $vars);}
 
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li class="sai_divider_left"><a id="menu_login" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_login}" href="#!login">'.(\SYSTEM\SECURITY\security::isLoggedIn() ? '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>').'</a></li>';}
-    public static function right_public(){return true;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return true;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return true;}
     
-    //public static function css(){}
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(   \LIB\lib_jqbootstrapvalidation::js(),
                         new \SYSTEM\PSAI('modules/saimod_sys_login/js/sai_sys_login_submit.js'),

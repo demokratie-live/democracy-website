@@ -112,6 +112,7 @@ class HEADER {
     /**
      * Send FILE(download) Headers, if Header was not sent yet
      * 
+     * @param string $filename Filename which should be transmitted with the Filetransfere
      * @return null Returns null
      */
     public static function FILE($filename){

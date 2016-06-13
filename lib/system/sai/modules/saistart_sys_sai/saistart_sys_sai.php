@@ -11,18 +11,54 @@
  */
 namespace SYSTEM\SAI;
 
-class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {    
+/**
+ * saimod_sys_sai Class provided by System as start saimod to display an overview over the Project
+ */
+class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saistart_sys_sai(){
         $vars = array_merge(array(  'content' => self::html_content()),
                                     \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/saistart.tpl'))->SERVERPATH(),$vars);}
-    //public static function html_li_menu(){return '<li class="active"><a id="menu_start" href="#">${sai_menu_start}</a></li>';}
+    
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li class="active sai_menu_first"><a id="menu_start" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_start}" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>';}
-    public static function right_public(){return true;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return true;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return true;}
     
+    /**
+     * Get all css System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods css
+     */
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saistart_sys_sai/css/saistart_sys_sai.css'));}
+        
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(   new \SYSTEM\PSAI('modules/saistart_sys_sai/js/saistart_sys_sai.js'),
                         new \SYSTEM\PSAI('js/crypto/jquery.md5.js'),

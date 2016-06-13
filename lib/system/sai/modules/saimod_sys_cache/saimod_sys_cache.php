@@ -10,7 +10,16 @@
  * @package     SYSTEM\SAI
  */
 namespace SYSTEM\SAI;
-class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {    
+
+/**
+ * saimod_sys_cache Class provided by System as saimod to manage the system_cache table
+ */
+class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cache(){
         $vars = array();
         $vars['count'] = \SYSTEM\SQL\SYS_SAIMOD_CACHE_COUNT::Q1()['count'];
@@ -31,11 +40,32 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
             return 'info';}
         return 'success';}
     
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_cache" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cache}" href="#!cache"><span class="glyphicon glyphicon-level-up" aria-hidden="true"></span></a></li>';}
-    public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return false;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    //public static function css(){}
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_cache/js/saimod_sys_cache.js'));}
 }

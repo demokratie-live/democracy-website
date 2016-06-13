@@ -43,7 +43,7 @@ class saigui {
                                                                 'lib/phpdocumentor/*',
                                                                 'lib/scssphp/*',
                                                                 'lib/tablesorter/*',
-                                                                'lib/texttilate/*',
+                                                                'lib/textillate/*',
                                                                 'lib/tinymce/*',
                                                                 'lib/jstree/*',
                                                                 'lib/phpdoc_md/*'),

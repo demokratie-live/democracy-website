@@ -24,6 +24,9 @@ class ResultSQLite extends \SYSTEM\DB\Result{
 
     /**
      * Construct the Resultset with a database ressource
+     * 
+     * @param ressource $res Ressource of the Database Result-Set
+     * @param string $stmt Query Statement which produced the result set
      */
     public function __construct($res,$stmt){
         $this->res = $res;

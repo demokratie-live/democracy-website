@@ -10,7 +10,16 @@
  * @package     SYSTEM\SAI
  */
 namespace SYSTEM\SAI;
-class saimod_sys_config extends \SYSTEM\SAI\SaiModule {    
+
+/**
+ * saimod_sys_config Class provided by System as saimod to display the config
+ */
+class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
         $vars['basics'] = $vars['database'] = $vars['sai'] = '';
@@ -149,10 +158,33 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
     
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_database.tpl'))->SERVERPATH(),$vars);
     }
+    
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_config" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_config}" href="#!config"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>';}
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
     public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_config/js/saimod_sys_config.js'));}
-    //public static function css(){}
 }

@@ -10,7 +10,16 @@
  * @package     SYSTEM\SAI
  */
 namespace SYSTEM\SAI;
-class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {    
+
+/**
+ * saimod_sys_docu Class provided by System as saimod to display the code documentation
+ */
+class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu(){
         $phpdocconfigs = \SYSTEM\DOCU\docu::getAll();
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_DOCU);
@@ -46,12 +55,32 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_iframe.tpl'))->SERVERPATH(), $vars);
     }
     
-    //public static function html_li_menu(){return '<li><a id="menu_docu" href="#!docu"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ${sai_menu_docu}</a></li>';}
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_docu" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_docu}" href="#!docu"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></li>';}
-    public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return false;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    //public static function css(){}
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_docu/js/saimod_sys_docu.js'));}
 }

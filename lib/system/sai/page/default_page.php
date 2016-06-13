@@ -94,6 +94,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
     /**
      * Get Sai Default Page HTML
      *
+     * @param string $_escaped_fragment_ Fragment from Hashbang Crawling - if this is present no js will be included
      * @return string Returns html of the Sai Default Page
      */
     public function html($_escaped_fragment_ = NULL){

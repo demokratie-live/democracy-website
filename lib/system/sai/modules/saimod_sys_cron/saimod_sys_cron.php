@@ -11,7 +11,15 @@
  */
 namespace SYSTEM\SAI;
 
-class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {    
+/**
+ * saimod_sys_cron Class provided by System as saimod to manage the system_cron table
+ */
+class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cron(){
         $vars['content'] = '';
         $vars['last_visit'] = \SYSTEM\time::time_ago_string(strtotime(\SYSTEM\CRON\cron::last_visit()));
@@ -50,13 +58,40 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         \SYSTEM\SQL\SYS_SAIMOD_CRON_DEL::QI(array($cls));
         return \SYSTEM\LOG\JsonResult::ok();}
     
-    //public static function html_li_menu(){return '<li><a id="menu_cron" href="#!cron">${sai_menu_cron}</a></li>';}
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_cron" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cron}" href="#!cron"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a></li>';}    
-    public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return false;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON);}
     
+    /**
+     * Get all css System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods css
+     */
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_cron/css/saimod_sys_cron.css'));}
+        
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_cron/js/saimod_sys_cron.js'));}
 }

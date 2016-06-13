@@ -22,6 +22,8 @@ class ResultAMQP extends \SYSTEM\DB\Result{ // < maybe not ? check if amqpchanne
 
     /**
      * Construct the Resultset with a database ressource
+     * 
+     * @param ressource $res Ressource of the Database Result-Set
      */
     public function __construct($res){
         $this->res = $res;}

@@ -11,6 +11,9 @@
  */
 namespace SYSTEM\SAI;
 
+/**
+ * saimod_sys_security Class provided by System as saimod to manage the system_user, system_rights, system_user_to_rights table
+ */
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_groups(){
@@ -162,6 +165,11 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_users.tpl'))->SERVERPATH(),$vars);
     }
     
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY);
         $vars['PICPATH'] = (new \SYSTEM\PSAI('modules/saimod_sys_log/img/'))->WEBPATH(false);
@@ -191,12 +199,40 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return 'error';
     }
     
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_security" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_security}" href="#!security"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>';}
-    public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return false;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) && \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY);}
     
+    /**
+     * Get all css System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods css
+     */
     public static function css(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_security/css/saimod_sys_security.css'));}
+    
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_security/js/saimod_sys_security.js'));}
 }

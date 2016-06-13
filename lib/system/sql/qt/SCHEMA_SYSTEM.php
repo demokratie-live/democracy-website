@@ -21,6 +21,12 @@ class SCHEMA_SYSTEM extends \SYSTEM\DB\QI {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get paths of PostgreSQL compatible sql files
+     * 
+     * @return array Returns paths of PostgreSQL compatible sql files
+     */
     public static function files_pgsql(){
         return array(   (new \SYSTEM\PSQL('/qt/pgsql/schema/system_api.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/pgsql/schema/system_cache.sql'))->SERVERPATH(),
@@ -34,7 +40,13 @@ class SCHEMA_SYSTEM extends \SYSTEM\DB\QI {
                         (new \SYSTEM\PSQL('/qt/pgsql/schema/system_todo_assign.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/pgsql/schema/system_user.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/pgsql/schema/system_user_to_rights.sql'))->SERVERPATH());
-    } 
+    }
+    
+    /**
+     * Get paths of MYSQL compatible sql files
+     * 
+     * @return array Returns paths of MYSQL compatible sql files
+     */
     public static function files_mysql(){
         return array(   (new \SYSTEM\PSQL('/qt/mysql/schema/system_api.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/mysql/schema/system_cache.sql'))->SERVERPATH(),

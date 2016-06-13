@@ -98,6 +98,7 @@ abstract class api_default extends api_system {
     /**
      * API Default Page function - implement this function and return the Default Page
      *
+     * @param string $_escaped_fragment_ Fragment from Hashbang Crawling
      * @return string Returns your API-Default-State
      */
     public abstract static function default_page($_escaped_fragment_ = null);

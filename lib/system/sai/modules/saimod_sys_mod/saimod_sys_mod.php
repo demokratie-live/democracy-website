@@ -10,6 +10,10 @@
  * @package     SYSTEM\SAI
  */
 namespace SYSTEM\SAI;
+
+/**
+ * saimod_sys_mod Class provided by System as saimod to display all registered saimods & libraries
+ */
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
@@ -64,16 +68,40 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/lib_table.tpl'))->SERVERPATH(),$vars);
     }
     
-    
+    /**
+     * Generate the HTML for the Saimods startpage
+     * 
+     * @return string Returns HTML for the Saimods startpage
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mods.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD));}
     
-    //public static function html_li_menu(){return '<li><a id="menu_mod" href="#!mod">${sai_menu_mod}</a></li>';}
+    /**
+     * Generate <li> Menu for the Saimod
+     * 
+     * @return string Returns <li> Menu for the Saimod
+     */
     public static function html_li_menu(){return '<li><a id="menu_mod" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_mod}" href="#!mod"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>';}    
-    public static function right_public(){return false;}    
+    
+    /**
+     * Returns if the Saimod is public(access for everyone)
+     * 
+     * @return boolean Returns if the Saimod is public(true) or not(false)
+     */
+    public static function right_public(){return false;}
+    
+    /**
+     * Returns if the requesting user has the required rights to access the Saimod
+     * 
+     * @return boolean Returns true if the user can access
+     */
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
     
-    //public static function css(){}
+    /**
+     * Get all js System Paths required for this Saimod
+     * 
+     * @return array Returns array of Pathobjects pointing to the saimods js
+     */
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_mod/js/saimod_sys_mod.js'));}
 }

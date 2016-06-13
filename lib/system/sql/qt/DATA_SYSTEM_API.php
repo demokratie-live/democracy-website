@@ -21,11 +21,23 @@ class DATA_SYSTEM_API extends \SYSTEM\DB\QI {
      * @return string Returns classname
      */
     public static function get_class(){return \get_class();}
+    
+    /**
+     * Get paths of PostgreSQL compatible sql files
+     * 
+     * @return array Returns paths of PostgreSQL compatible sql files
+     */
     public static function files_pgsql(){
         return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_api.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/pgsql/data/system_api_default.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/pgsql/data/system_sai_api.sql'))->SERVERPATH());
     }
+    
+    /**
+     * Get paths of MYSQL compatible sql files
+     * 
+     * @return array Returns paths of MYSQL compatible sql files
+     */
     public static function files_mysql(){
         return array(   (new \SYSTEM\PSQL('/qt/mysql/data/system_api.sql'))->SERVERPATH(),
                         (new \SYSTEM\PSQL('/qt/mysql/data/system_api_default.sql'))->SERVERPATH(),

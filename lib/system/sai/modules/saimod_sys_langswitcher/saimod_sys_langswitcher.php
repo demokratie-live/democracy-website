@@ -11,7 +11,11 @@
  */
 namespace SYSTEM\SAI;
 
-class saimod_sys_langswitcher extends \SYSTEM\SAI\SaiModule {    
+/**
+ * saimod_sys_langswitcher Class provided by System as saimod to display langswitching functionality
+ * @todo Remove as saimod
+ */
+class saimod_sys_langswitcher extends \SYSTEM\SAI\SaiModule {
     public static function html_li_menu(){
         //return self::lang_menu('./sai.php');
         

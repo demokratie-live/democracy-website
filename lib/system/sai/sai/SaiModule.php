@@ -32,6 +32,7 @@ class SaiModule extends \SYSTEM\API\api_default{
     /**
      * Get the Classname of this class or derived registered saimod
      *
+     * @param array $params Parameters with which the Saimodule was called
      * @return string Returns name of the class this api operates on.
      */
     public static function get_class($params = NULL){
