@@ -15,6 +15,11 @@ namespace SYSTEM\SAI;
  * saimod_sys_mod Class provided by System as saimod to display all registered saimods & libraries
  */
 class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Generate the HTML for the System Page
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = '';
@@ -35,6 +40,11 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
     }
     
+    /**
+     * Generate the HTML for the Project Page
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = $vars['saistart'] = '';
@@ -49,6 +59,11 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
     }
     
+    /**
+     * Generate the HTML for the Lib Page
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_lib(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = '';

@@ -15,13 +15,28 @@ namespace SYSTEM\SAI;
  * saimod_sys_security Class provided by System as saimod to manage the system_user, system_rights, system_user_to_rights table
  */
 class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
-    
+    /**
+     * Generate HTML for the Security Groups(Menu)
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_groups(){
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_groups.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));}
     
+    /**
+     * Generate HTML for the new right dialog
+     * 
+     * @param int $id ID of the right
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_newright(){
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_newright.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));}
-        
+    
+    /**
+     * Generate HTML for the list of rights
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_rights(){
         $rows = '';
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHTS::QQ();                
@@ -38,6 +53,13 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_rights.tpl'))->SERVERPATH(),$vars);
     }
     
+    /**
+     * Delete a Right of a User
+     * 
+     * @param int $rightid ID of the Right
+     * @param int $userid ID of the User
+     * @return bool Returns true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleterightuser($rightid,$userid){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
@@ -46,6 +68,13 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             return false;}        
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE::QI(array($rightid,$userid));}
     
+    /**
+     * Add a Right to a User
+     * 
+     * @param int $rightid ID of the Right
+     * @param int $userid ID of the User
+     * @return bool Returns true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_addrightuser($rightid,$userid){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
@@ -54,22 +83,48 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
             return false;}        
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT::QI(array($rightid,$userid));}
     
+    /**
+     * Add a Right
+     * 
+     * @param int $id ID of the Right
+     * @param string $name Name of the Right
+     * @param string $description Description of the Right
+     * @return bool Returns true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_addright($id,$name,$description){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_INSERT::QI(array($id,$name,$description));}
+        
+    /**
+     * Generate HTML for the delete right confirm dialog
+     * 
+     * @param int $id ID of the right
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleterightconfirm($id){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         $vars = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_CHECK::Q1(array($id));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_deleteright.tpl'))->SERVERPATH(),$vars);}
-        
+    
+    /**
+     * Delete a Right
+     * 
+     * @param int $id ID of the Right
+     * @return bool Returns true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleteright($id){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return false;}
         return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RIGHT_DELETE::QI(array($id));}
 
-    //Todo move to log
+    /**
+     * Internal Function to generate HTML for the actions of a User
+     * 
+     * @param int $userid Id of the User
+     * @return string Returns HTML
+     */
     private static function user_actions($userid){
         $count = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_LOG_COUNT::Q1(array($userid));
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_LOG::QQ(array($userid));
@@ -87,6 +142,12 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_user_actions.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Internal Function to generate HTML for the rights of a User
+     * 
+     * @param int $userid Id of the User
+     * @return string Returns HTML
+     */
     private static function user_rights($userid){
         $vars['user_rights_table'] = '';        
         $res = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_RIGHTS::QQ(array($userid));
@@ -115,10 +176,20 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));    
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_user_rights.tpl'))->SERVERPATH(), $vars);}
     
+    /**
+     * Generate HTML for the Analytics
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_stats(){
-         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_stats.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));
-    }
+         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_stats.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY));}
     
+    /**
+     * Generate HTML for a User
+     * 
+     * @param string $username Username
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_user($username){        
         $vars = \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER::Q1(array($username));
         $vars['email_confirmed'] = $vars['email_confirmed'] == 1 ? 'Yes' : 'No';
@@ -129,6 +200,14 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security_user_view.tpl'))->SERVERPATH(),$vars);
     }
     
+    /**
+     * Generate HTML for the Users List
+     * 
+     * @param string $filter Filter by right
+     * @param string $search Filter by user
+     * @param int $page Page of the List (displays only 100)
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_users($filter = "all",$search="%",$page=0){
         $count = $filter == "all" ? \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_COUNT::Q1(array($search,$search))['count'] :
                                     \SYSTEM\SQL\SYS_SAIMOD_SECURITY_USER_COUNT_FILTER::Q1(array($search,$search,$filter))['count'];
@@ -175,17 +254,40 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
         $vars['PICPATH'] = (new \SYSTEM\PSAI('modules/saimod_sys_log/img/'))->WEBPATH(false);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security.tpl'))->SERVERPATH(), $vars);}
     
+    /**
+     * Rename an Account
+     * 
+     * @param string $username Username of the Account
+     * @param string $new_username New Username
+     * @return json Returns json with status true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_renameaccount($username,$new_username){
+        if(\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+            return \SYSTEM\LOG\JsonResult::fail();}
         if(!\SYSTEM\SECURITY\security::available($new_username)){
             throw new \SYSTEM\LOG\ERROR("Username not available");}
-        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RENAME_USER::QI(array($new_username,$username)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
-    }
+        return \SYSTEM\SQL\SYS_SAIMOD_SECURITY_RENAME_USER::QI(array($new_username,$username)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
+    
+    /**
+     * Delete an Account
+     * 
+     * @param int $id Id of the Account
+     * @return json Returns json with status true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleteaccount($id){
+        if(\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+            return \SYSTEM\LOG\JsonResult::fail();}
         \SYSTEM\SQL\SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS::QI(array($id));
         \SYSTEM\SQL\SYS_SAIMOD_SECURITY_DELETE_USER::QI(array($id));
-        return \SYSTEM\LOG\JsonResult::ok();
-    }
-        
+        return \SYSTEM\LOG\JsonResult::ok();}
+    
+    /**
+     * Internal Function to generate the Tablerow class(color) string according
+     * to last time active
+     * 
+     * @param int $last_active Unixtimestamp
+     * @return string Returns table row class string
+     */
     private static function tablerow_class($last_active){
         $time = time() - $last_active;
         

@@ -36,6 +36,11 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
             return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/login.tpl'))->SERVERPATH(), $vars);}
     }
 
+    /**
+     * Returns Users Info or NULL if not logged in
+     * 
+     * @return json Returns json with userinfo or null
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_userinfo(){
         $user = \SYSTEM\SECURITY\security::getUser();
         if(!$user){
@@ -46,7 +51,12 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
                                     'locale' => $user->locale,
                                     'last_active' => $user->lastLoginDate));        
     }        
-        
+    
+    /**
+     * Generate the HTML for the Registerform
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_registerform(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/register.tpl'))->SERVERPATH(), $vars);}

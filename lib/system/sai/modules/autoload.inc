@@ -17,5 +17,3 @@ require_once dirname(__FILE__).'/saimod_sys_todo/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_git/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_docu/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_login/autoload.inc';
-//Project Mod
-require_once dirname(__FILE__).'/saimod_sys_langswitcher/autoload.inc';

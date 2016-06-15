@@ -23,9 +23,13 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_git(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_GIT);
         $vars = array_merge($vars,self::getGitInfo());
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_git/tpl/saimod_sys_git.tpl'))->SERVERPATH(), $vars);
-    }
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_git/tpl/saimod_sys_git.tpl'))->SERVERPATH(), $vars);}
     
+    /**
+     * Read Git Information
+     * 
+     * @return array Returns Array with Git Information
+     */
     public static function getGitInfo(){
         \LIB\lib_git::php();
         $result = array('git_project' => '', 'git_system' => '');
@@ -47,13 +51,6 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
             $result['git_system'] = $ex->getMessage();
         }
         return $result;
-    }
-    
-    private static function tablerow_class($cacheID){
-        if($cacheID == 1){
-            return 'info';}
-            
-        return 'success';                
     }
     
     /**

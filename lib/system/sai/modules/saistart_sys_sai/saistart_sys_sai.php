@@ -21,9 +21,34 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
      * @return string Returns HTML for the Saimods startpage
      */
     public static function sai_mod__SYSTEM_SAI_saistart_sys_sai(){
-        $vars = array_merge(array(  'content' => self::html_content()),
-                                    \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/saistart.tpl'))->SERVERPATH(),$vars);}
+        if(!\SYSTEM\SECURITY\security::isLoggedIn() || !\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
+            return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START));}
+        //create timestamp
+        $week_number = date("W", time());
+        $date = date("l M Y", time());
+        
+        $vars = array();
+        $vars['week_number'] = $week_number;
+        $vars['date'] = $date;
+        $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
+        $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
+        $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
+        $user = \SYSTEM\SECURITY\security::getUser();
+        $vars['username'] = $user->username;
+        $vars['locale'] = $user->locale;
+        $vars['isadmin']  = \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
+        $vars['userstats'] = '';
+        $userstats = \SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_USERS::QQ();
+        while($stat = $userstats->next()){
+            $stat['perc'] = round($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']),2)*100;
+            $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'))->SERVERPATH(), $stat);
+        }
+        $vars = array_merge(    $vars,
+                                \SYSTEM\SAI\saimod_sys_todo::statistics(),
+                                \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START),
+                                \SYSTEM\SAI\saimod_sys_git::getGitInfo());
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content_loggedin.tpl'))->SERVERPATH(), $vars);
+    }
     
     /**
      * Generate <li> Menu for the Saimod
@@ -64,35 +89,5 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
                         new \SYSTEM\PSAI('js/crypto/jquery.md5.js'),
                         new \SYSTEM\PSAI('js/crypto/jquery.sha1.js'),
                         \LIB\lib_jqbootstrapvalidation::js());
-    }
-    
-    protected static function html_content(){
-        //create timestamp
-        $week_number = date("W", time());
-        $date = date("l M Y", time());
-        
-        if(!\SYSTEM\SECURITY\security::isLoggedIn() || !\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
-            return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content.tpl'))->SERVERPATH());}
-        $vars = array();
-        $vars['week_number'] = $week_number;
-        $vars['date'] = $date;
-        $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
-        $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
-        $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
-        $user = \SYSTEM\SECURITY\security::getUser();
-        $vars['username'] = $user->username;
-        $vars['locale'] = $user->locale;
-        $vars['isadmin']  = \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI) ? "yes" : "no";
-        $vars['userstats'] = '';
-        $userstats = \SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_USERS::QQ();
-        while($stat = $userstats->next()){
-            $stat['perc'] = round($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']),2)*100;
-            $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'))->SERVERPATH(), $stat);
-        }
-        $vars = array_merge(    $vars,
-                                \SYSTEM\SAI\saimod_sys_todo::statistics(),
-                                \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START),
-                                \SYSTEM\SAI\saimod_sys_git::getGitInfo());
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content_loggedin.tpl'))->SERVERPATH(), $vars);
     }
 }

@@ -36,6 +36,13 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/tabs.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Change Status of a Cron Entry
+     * 
+     * @param string $cls Classname of the Cron
+     * @param int $status New Status
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_cron_action_change($cls,$status){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -43,6 +50,17 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Add a new Cron Entry
+     * 
+     * @param string $cls Classname of the Cron
+     * @param int $min Minute Value
+     * @param int $hour Hour Value
+     * @param int $day Day Value
+     * @param int $day_week Day of the Week Value
+     * @param int $month Month Value
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_cron_action_add($cls,$min,$hour,$day,$day_week,$month){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -52,6 +70,12 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Delete a Cron Entry
+     * 
+     * @param string $cls Classname of the Cron
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_cron_action_del($cls){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}

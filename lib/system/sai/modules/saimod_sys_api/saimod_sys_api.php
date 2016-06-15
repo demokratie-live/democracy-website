@@ -31,6 +31,12 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/saimod_sys_api.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generate the HTML for the List of API Entries
+     * 
+     * @param int $group Group Filter of the List
+     * @return string Returns HTML
+     */
     public static function sai_mod__system_sai_saimod_sys_api_action_list($group=null){
         $res = \SYSTEM\SQL\SYS_SAIMOD_API_GET::QQ();
         $tab = array('content' => '');
@@ -46,14 +52,39 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/saimod_sys_api_list.tpl'))->SERVERPATH(), $tab);
     }
     
+    /**
+     * Generate the HTML for the Delete Dialog of a API Entry
+     * 
+     * @param int $ID ID of the Entry
+     * @param int $group Group id of the Entry
+     * @return string Returns HTML
+     */
     public static function sai_mod__system_sai_saimod_sys_api_action_deletedialog($ID,$group){
         $res = \SYSTEM\SQL\SYS_SAIMOD_API_SINGLE_SELECT::Q1(array($ID,$group));
         $res = array_merge($res,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/delete_dialog.tpl'))->SERVERPATH(), $res);
     }
+    
+    /**
+     * Generate the HTML for the New Dialog for a API Entry
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__system_sai_saimod_sys_api_action_newdialog(){
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/new_dialog.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_API));}
     
+    /**
+     * Add a new API Entry
+     * 
+     * @param int $ID ID of the Entry
+     * @param int $group Group id of the Entry
+     * @param int $type Type of the new Entry
+     * @param int $parentID Parent id of the new Entry
+     * @param string $parentValue Parent Valze of the new Entry
+     * @param string $name Name of the new Entry
+     * @param string $verify Verifiername of the new Entry
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_api_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -63,6 +94,13 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Delete a API Entry
+     * 
+     * @param int $ID ID of the Entry
+     * @param int $group Group id of the Entry
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_api_action_deletecall($ID,$group){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -70,6 +108,12 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Internal Function to decode Types to Strings
+     * 
+     * @param int $type Type of the Page Entry
+     * @return string Returns string representing the type
+     */
     private static function type_names($type){
         switch($type){
             case 0: return 'COMMAND';
@@ -81,6 +125,12 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
         }   
     }
     
+    /**
+     * Internal Function to generate api row classes
+     * 
+     * @param int $flag Flag of the API Entry
+     * @return string Returns string representing the flag
+     */
     private static function tablerow_class($flag){
         switch($flag){
             case 0: return 'info';

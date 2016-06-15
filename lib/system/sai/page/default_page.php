@@ -103,7 +103,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
         $vars['js'] = '';
         if(!$_escaped_fragment_){
             $vars['js'] = self::js();}
-        $vars['menu_languages'] = \SYSTEM\SAI\saimod_sys_langswitcher::lang_menu('./sai.php');   
+        $vars['menu_languages'] = self::lang_menu('./sai.php');   
         $vars['menu_start'] = self::menu_start();
         $vars['menu_sys'] = self::menu_sys();
         $vars['menu_proj'] = self::menu_proj();
@@ -111,5 +111,19 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                             array(  'project' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT),
                                     'project_url' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('page/tpl/sai.tpl'))->SERVERPATH(), $vars);        
+    }
+    
+    /**
+     * generate the HTML for the Language Menu
+     *
+     * @param string $endpoint Endpoint for the Language Menu
+     * @return string Returns HTML
+     */
+    public static function lang_menu($endpoint = './api.php'){
+        $result = '';
+        $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
+        foreach($langs as $lang){
+            $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('page/tpl/language.tpl'))->SERVERPATH(),array('lang' => $lang,'endpoint' => $endpoint));}
+        return $result;
     }
 }

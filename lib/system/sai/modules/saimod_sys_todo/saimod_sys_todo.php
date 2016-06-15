@@ -15,38 +15,99 @@ namespace SYSTEM\SAI;
  * saimod_sys_todo Class provided by System as saimod to manage the system_todo, system_todo_assign table
  */
 class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
+    /** array Variable to store all registred todo_stats*/
     private static $stats = array(); //only strings!
     
+    /**
+     * Check if a todo_stats is valid
+     *
+     * @param string $stats Classname of the todo_stats
+     * @return bool Returns true or false.
+     */
     private static function check_stats($stats){
         if( !\class_exists($stats) ||
-            !\is_array($parents = \class_parents($stats)) ||
-            !\array_search('SYSTEM\SAI\todo_stats', $parents)){
+            !((new $stats) instanceof \SYSTEM\SAI\todo_stats)){
             return false;}
         return true;}
     
+    /**
+     * Register a todo_stats
+     *
+     * @param string $stats Classname of the todo_stats
+     * @return null Returns null.
+     */
     public static function register($stats){
         if(!self::check_stats($stats)){
             throw new \SYSTEM\LOG\ERROR('Problem with your TodoStats class: '.$stats);}
         array_push(self::$stats,$stats);}
     
+    /**
+     * Assign a Todo to the User
+     * 
+     * @param int $todo Id of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_assign($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_ASSIGN::QI(array($todo,\SYSTEM\SECURITY\security::getUser()->id));
         return \SYSTEM\LOG\JsonResult::ok();}
+    
+    /**
+     * Deassign a Todo from the User
+     * 
+     * @param int $todo Id of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_deassign($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_DEASSIGN::QI(array($todo,\SYSTEM\SECURITY\security::getUser()->id));
         return \SYSTEM\LOG\JsonResult::ok();}
+        
+        
+    /**
+     * Close a Todo
+     * 
+     * @param int $todo Id of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_close($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_CLOSE::QI(array($todo));
         return \SYSTEM\LOG\JsonResult::ok();}
+        
+    /**
+     * Open a Todo
+     * 
+     * @param int $todo Id of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_open($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_OPEN::QI(array($todo));
         return \SYSTEM\LOG\JsonResult::ok();}
+        
+    /**
+     * Add a new Todo
+     * 
+     * @param string $todo text of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_add($todo){
         self::exception(new \Exception($todo), false, \SYSTEM\SQL\system_todo::FIELD_TYPE_USER);
         return \SYSTEM\LOG\JsonResult::ok();}
+        
+    /**
+     * Increase the Priority of a Todo
+     * 
+     * @param int $todo Id of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_priority_up($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_PRIORITY::QI(array(+1,$todo));
         return \SYSTEM\LOG\JsonResult::ok();}
+        
+    /**
+     * Decrease the Priority of a Todo
+     * 
+     * @param int $todo Id of the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_priority_down($todo){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_PRIORITY::QI(array(-1,$todo));
         return \SYSTEM\LOG\JsonResult::ok();}
@@ -62,17 +123,47 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/saimod_sys_todo.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generate the HTML for the form to add a new Todo
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_new(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TODO);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/saimod_sys_todo_new.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generate the HTML for the list of open Todos
+     * 
+     * @param string $filter Category Filter
+     * @param string $search Search Parameter
+     * @param int $page Page Number (returns only 100)
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todolist($filter='all',$search='%',$page=0){
         return self::generate_list(\SYSTEM\SQL\system_todo::FIELD_STATE_OPEN,$filter,$search,$page);}
     
+    /**
+     * Generate the HTML for the list of closed Todos
+     * 
+     * @param string $filter Category Filter
+     * @param string $search Search Parameter
+     * @param int $page Page Number (returns only 100)
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_dotolist($filter='all',$search='%',$page=0){
         return self::generate_list(\SYSTEM\SQL\system_todo::FIELD_STATE_CLOSED,$filter,$search,$page);}
     
+    /**
+     * Internal Function to generate the HTML for the todo list
+     * 
+     * @param int $state Todo State
+     * @param string $filter Category Filter
+     * @param string $search Search Parameter
+     * @param int $page Page Number (returns only 100)
+     * @return string Returns HTML
+     */
     private static function generate_list($state,$filter,$search,$page){
         $vars = array();
         $vars['filter'] = $filter;
@@ -146,6 +237,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/todo_list.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generates an array with values from all registered Todo Stats and Summary
+     *
+     * @return array Returns array with todo stats
+     */
     public static function statistics(){
         $result = array();
         $result['project'] = 0;
@@ -165,6 +261,11 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return $result;
     }
     
+    /**
+     * Generate the HTML for the statistics of the ToDos
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats(){
         $vars = self::statistics();
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TODO));
@@ -181,16 +282,37 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/todo_stats.tpl'))->SERVERPATH(), $vars);        
     }
     
+    /**
+     * Internal Function to generate the text for Todo Status Open & Closed
+     * 
+     * @param int $state State of the Todo
+     * @return string Returns open or closed string
+     */
     private static function state($state){
         if($state == 1){
             return 'Closed';}
         return 'Open';}
     
+    /**
+     * Internal Function to generate the Buttons for Todo Status Open & Closed
+     * 
+     * @param int $state State of the Todo
+     * @return string Returns the HTML of the open clase buttons
+     */
     private static function statebtn($state){
         if($state == 1){
             return '<input type="submit" class="btn-danger" value="reopen">';}
         return '<input type="submit" class="btn-danger" value="close">';}
     
+    /**
+     * Internal Function to generate the Trclass(color) for the Todo
+     * 
+     * @param int $type Type of the Todo
+     * @param string $class Class of the Todo
+     * @param int $assignee Userid of the assigned for this Todo
+     * @param int $userid Userid of the Current logged in User
+     * @return string Returns the HTML of the open clase buttons
+     */
     private static function trclass($type,$class,$assignee,$userid){
         if($type == \SYSTEM\SQL\system_todo::FIELD_TYPE_USER){
             if($assignee == $userid){ return 'success';}
@@ -212,22 +334,50 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
         }
     }
     
+    /**
+     * Close all Generated ToDos
+     * 
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_close_all(){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_CLOSE_ALL::QI();
         return \SYSTEM\LOG\JsonResult::ok();}
     
+    /**
+     * Edit the message of a Todo
+     * 
+     * @param int $todo Id of the Todo
+     * @param string $message Message for the Todo
+     * @return JSON Returns Json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_edit($todo, $message){
         \SYSTEM\SQL\SYS_SAIMOD_TODO_EDIT::QI(array($message,$message,$todo));
         return \SYSTEM\LOG\JsonResult::ok();}
     
+    /**
+     * Calculate the Stats of closed ToDos
+     * 
+     * @param string $filter Filter for the Calculation
+     * @return JSON Returns Json with stats data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats_name_closed($filter){
-        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_CLOSED::QA(array($filter)));
-    }
+        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_CLOSED::QA(array($filter)));}
     
+    /**
+     * Calculate the Stats of assigned ToDos
+     * 
+     * @param string $filter Filter for the Calculation
+     * @return JSON Returns Json with stats data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_stats_name_assigned($filter){
-        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_ASSIGNED::QA(array($filter)));
-    }
+        return \SYSTEM\LOG\JsonResult::toString(\SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_ASSIGNED::QA(array($filter)));}
         
+    /**
+     * Returns the HTML for a ToDo
+     * 
+     * @param int $todo Id of the Todo
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo_action_todo($todo){
         $userid = \SYSTEM\SECURITY\security::getUser()->id;
         $vars = \SYSTEM\SQL\SYS_SAIMOD_TODO_TODO::Q1(array($todo,$userid));
@@ -273,11 +423,27 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
     public static function js(){
         return array(new \SYSTEM\PSAI('modules/saimod_sys_todo/js/saimod_sys_todo.js'));}
     
+    /**
+     * Save a Report to the ToDo Database
+     * 
+     * @param string $message Message of the Report
+     * @param array/JSON $data Data for the Report
+     * @return JSON Returns json with status true
+     */
     public static function report($message,$data){
         $_POST = $data; //save data in post
         self::exception(new \Exception($message), false, \SYSTEM\SQL\system_todo::FIELD_TYPE_REPORT);
         return \SYSTEM\LOG\JsonResult::ok();}
         
+    /**
+     * Save a Exception as ToDo in the Database
+     * This is used as Errorhandler in some form.
+     * 
+     * @param \Exception $E Exception to be saved
+     * @param bool $thrown Was the Exception thrown?
+     * @param int $type Type of the Todo(Exception)
+     * @return bool Returns false
+     */
     public static function exception(\Exception $E, $thrown, $type = \SYSTEM\SQL\system_todo::FIELD_TYPE_EXCEPTION){
         try{
             if(\property_exists(get_class($E), 'todo_logged') && $E->todo_logged){                

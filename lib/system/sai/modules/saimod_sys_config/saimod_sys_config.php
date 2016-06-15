@@ -83,7 +83,12 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
                                 'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT)));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config.tpl'))->SERVERPATH(),$vars);
     }
-    //public static function html_li_menu(){return '<li><a id="menu_config" href="#!config">${sai_menu_config}</a></li>';}
+    
+    /**
+     * Generate HTML for Menu Basics
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_basics(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
         $vars['basics'] = $vars['database'] = $vars['sai'] = '';
@@ -118,6 +123,12 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
     
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_basics.tpl'))->SERVERPATH(),$vars);
     }
+    
+    /**
+     * Generate HTML for Menu Database
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_database(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
         $vars['database'] = '';
@@ -148,6 +159,12 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
     
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_database.tpl'))->SERVERPATH(),$vars);
     }
+    
+    /**
+     * Generate HTML for Menu SAI
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_sai(){
         $vars['sai'] = '';
         $vars['sai'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),

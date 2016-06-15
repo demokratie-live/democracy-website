@@ -35,6 +35,11 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generate the HTML for the Texts with no Tag
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag(){
         $res = \SYSTEM\SQL\SYS_SAIMOD_TEXT_GETTEXTS_NOTAG::QQ();
         $entries = '';
@@ -46,6 +51,15 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'))->SERVERPATH(), $vars); 
     }
     
+    /**
+     * Generate the HTML for the Texts with a Tag
+     * 
+     * @param string $tag Tag Filter
+     * @param string $filter Language Filter
+     * @param string $search Search Filter
+     * @param int $page Page (Displays 100)
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag($tag = 'all',$filter = "all",$search="%",$page=0){
         if($tag == 'all'){
             if($filter == 'all'){
@@ -102,6 +116,13 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list.tpl'))->SERVERPATH(), $vars); 
     }
     
+    /**
+     * Generate the HTML to edit a text
+     * 
+     * @param string $id Text ID
+     * @param string $lang Language Filter
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext($id,$lang){
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
@@ -116,6 +137,13 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_edit_langs.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generate the HTML for the Editor
+     * 
+     * @param string $id Text ID
+     * @param string $lang Language Filter
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor($id, $lang){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TEXT);
         $vars['id'] = $id;
@@ -129,9 +157,26 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_edit_editor.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Save a Text into the Database
+     * 
+     * @param string $id Text ID
+     * @param string $new_id New Text ID
+     * @param string $lang Language of the Text
+     * @param json $tags Json with tags
+     * @param string $text New text
+     * @return json Retuns json with status true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_save($id, $new_id, $lang, $tags, $text){
         return \SYSTEM\PAGE\text::save($id, $new_id, $lang, \json_decode($tags), urldecode($text)) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
   
+    /**
+     * Delete a Text from the Database
+     * 
+     * @param string $id Text ID
+     * @param string $lang Language of the Text
+     * @return json Retuns json with status true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete($id, $lang = null){
         return \SYSTEM\PAGE\text::delete($id, $lang) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
       

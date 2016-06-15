@@ -30,6 +30,12 @@ class saimod_sys_page extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_page/tpl/saimod_sys_page.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Generate the HTML for the List of Page Entries
+     * 
+     * @param int $group Group Filter of the List
+     * @return string Returns HTML
+     */
     public static function sai_mod__system_sai_saimod_sys_page_action_list($group=null){
         $res = \SYSTEM\SQL\SYS_SAIMOD_PAGE_GET::QQ();
         $tab = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_PAGE);
@@ -45,14 +51,39 @@ class saimod_sys_page extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_page/tpl/saimod_sys_page_list.tpl'))->SERVERPATH(), $tab);
     }
     
+    /**
+     * Generate the HTML for the Delete Dialog of a Page Entry
+     * 
+     * @param int $ID ID of the Entry
+     * @param int $group Group id of the Entry
+     * @return string Returns HTML
+     */
     public static function sai_mod__system_sai_saimod_sys_page_action_deletedialog($ID,$group){
         $res = \SYSTEM\SQL\SYS_SAIMOD_PAGE_SINGLE_SELECT::Q1(array($ID,$group));
         $res = array_merge($res,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_PAGE));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_page/tpl/delete_dialog.tpl'))->SERVERPATH(), $res);
     }
+    
+    /**
+     * Generate the HTML for the New Dialog for a Page Entry
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__system_sai_saimod_sys_page_action_newdialog(){
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_page/tpl/new_dialog.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_PAGE));}
     
+    /**
+     * Add a new Page Entry
+     * 
+     * @param int $ID ID of the Entry
+     * @param int $group Group id of the Entry
+     * @param int $type Type of the new Entry
+     * @param int $parentID Parent id of the new Entry
+     * @param string $parentValue Parent Valze of the new Entry
+     * @param string $name Name of the new Entry
+     * @param string $verify Verifiername of the new Entry
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_page_action_addcall($ID,$group,$type,$parentID,$parentValue,$name,$verify){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -62,6 +93,13 @@ class saimod_sys_page extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Delete a Page Entry
+     * 
+     * @param int $ID ID of the Entry
+     * @param int $group Group id of the Entry
+     * @return JSON Returns json with status true of error
+     */
     public static function sai_mod__system_sai_saimod_sys_page_action_deletecall($ID,$group){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_API)){
             throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
@@ -69,6 +107,12 @@ class saimod_sys_page extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Internal Function to decode Types to Strings
+     * 
+     * @param int $type Type of the Page Entry
+     * @return string Returns string representing the type
+     */
     private static function type_names($type){
         switch($type){
             case 0: return 'STATIC';
@@ -77,6 +121,12 @@ class saimod_sys_page extends \SYSTEM\SAI\SaiModule {
         }   
     }
     
+    /**
+     * Internal Function to generate page row classes
+     * 
+     * @param int $flag Flag of the Page Entry
+     * @return string Returns string representing the flag
+     */
     private static function tablerow_class($flag){
         switch($flag){
             case 0: return 'success';

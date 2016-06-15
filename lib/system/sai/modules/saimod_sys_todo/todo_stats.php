@@ -11,7 +11,14 @@
  */
 namespace SYSTEM\SAI;
 
-class todo_stats {
-    public static function stats() {
-        return new \SYSTEM\SAI\todo_stats_data();}
+/**
+ * todo_statsn Interface provided by System to calculate ToDo stats.
+ */
+interface todo_stats {
+    /**
+     * Calculate Function
+     * 
+     * @return \SYSTEM\SAI\todo_stats_data Returns todo_stats_data object
+     */
+    public static function stats();
 }

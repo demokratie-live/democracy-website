@@ -1,7 +1,25 @@
 <?php
+/**
+ * System - PHP Framework
+ *
+ * PHP Version 5.6
+ *
+ * @copyright   2016 Ulf Gebhardt (http://www.webcraft-media.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ * @link        https://github.com/webcraftmedia/system
+ * @package     SYSTEM\SAI
+ */
 namespace SYSTEM\SAI;
 
-class todo_stats_gen extends todo_stats {
+/**
+ * todo_stats_gen Class provided by System to calculate generated ToDo stats.
+ */
+class todo_stats_gen implements todo_stats {
+    /**
+     * Calculate the Generated Todos Stats for the closed and open todos.
+     * 
+     * @return \SYSTEM\SAI\todo_stats_data Returns todo_stats_data object
+     */
     public static function stats() {
         $res = array();
         $res[0] = \SYSTEM\SQL\SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN::Q1();

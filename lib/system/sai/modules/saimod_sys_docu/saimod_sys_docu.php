@@ -29,6 +29,11 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu.tpl'))->SERVERPATH(), $vars);
     }  
     
+    /**
+     * Generate the HTML Documentation
+     * 
+     * @return null Returns null
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate(){
         \LIB\lib_phpdocumentor::php();
         $configs = \SYSTEM\DOCU\docu::getAll();
@@ -42,6 +47,11 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
                                     $config['parseprivate']);}
     }
     
+    /**
+     * Generate the MD Documentation based on the HTML Documentation
+     * 
+     * @return null Returns null
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate_md(){
         \LIB\lib_phpdoc_md::php();
         $configs = \SYSTEM\DOCU\docu::getAll();
@@ -50,10 +60,15 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
                                 $config['outpath_md']);}
     }
     
+    /**
+     * Generate the HTML for the Iframe of the selected Category
+     * 
+     * @param string $cat Category of the Documentation to be presented
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'system'){
         $vars = array('iframesrc' => \SYSTEM\DOCU\docu::get($cat)['outpath']->WEBPATH(false));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_iframe.tpl'))->SERVERPATH(), $vars);
-    }
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_iframe.tpl'))->SERVERPATH(), $vars);}
     
     /**
      * Generate <li> Menu for the Saimod

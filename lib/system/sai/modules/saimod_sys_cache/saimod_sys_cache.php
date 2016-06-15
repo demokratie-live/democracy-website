@@ -32,9 +32,20 @@ class saimod_sys_cache extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cache/tpl/saimod_sys_cache.tpl'))->SERVERPATH(), $vars);
     }
     
+    /**
+     * Clear the Cache
+     * 
+     * @return json Returns json with status true or false
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_cache_action_clear(){
         return \SYSTEM\SQL\SYS_SAIMOD_CACHE_CLEAR::QI() ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();}
     
+    /**
+     * internal function to map CacheID to a tr class(color)
+     * 
+     * @param int $cacheID Id of the Cache
+     * @return string Returns table row class
+     */
     private static function tablerow_class($cacheID){
         if($cacheID == 1){
             return 'info';}

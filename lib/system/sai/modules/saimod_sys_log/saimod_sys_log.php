@@ -14,11 +14,21 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_log Class provided by System as saimod to manage the system_log table
  */
-class saimod_sys_log extends \SYSTEM\SAI\SaiModule {    
+class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
+    /**
+     * Deletes the Log Entries
+     * 
+     * @return json Returns json with status ok
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_truncate(){        
         \SYSTEM\SQL\SYS_SAIMOD_LOG_TRUNCATE::QQ();
         return \SYSTEM\LOG\JsonResult::ok();}
     
+    /**
+     * Generates HTML for one Log Analytics Entry
+     *
+     * @return string Returns HTML
+     */
     public static function analytics(){
         $vars = array();
         $data = \SYSTEM\SQL\SYS_SAIMOD_LOG_ANALYTICS::Q1(array(86400));
@@ -39,6 +49,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_analytics.tpl'))->SERVERPATH(), $vars);
     }    
         
+    /**
+     * Generates HTML for the Log Analytics
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOG);
         $vars['dbfile_entries'] = '';
@@ -52,6 +67,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         //$vars['analytics'] = self::analytics();
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_stats.tpl'))->SERVERPATH(), $vars);}
     
+    /**
+     * Get Log Analytics Data for class system
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db){
         $result = array();
         if(!$db){
@@ -79,6 +101,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);    
     }
     
+    /**
+     * Get Log Analytics Data for class other
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_other($filter,$db){
         $result = array();
         if(!$db){
@@ -102,6 +131,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for class basic
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_basic($filter,$db){
         $result = array();
         if(!$db){
@@ -127,6 +163,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for unique basic
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_basic($filter,$db){
         $result = array();
         if(!$db){
@@ -150,6 +193,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for unique request
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_request($filter,$db){
         $result = array();
         if(!$db){
@@ -174,6 +224,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for unqiue exception
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_exception($filter,$db){
         $result = array();
         if(!$db){
@@ -197,6 +254,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for unique referer
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_referer($filter,$db){
         $result = array();
         if(!$db){
@@ -221,6 +285,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for basic visitor
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_visitor($filter,$db){
         $result = array();
         if(!$db){
@@ -243,6 +314,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
+    /**
+     * Get Log Analytics Data for basic success
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_sucess($filter,$db){
         $result = array();
         if(!$db){
@@ -279,6 +357,13 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }
         return \SYSTEM\LOG\JsonResult::toString($result);}
     
+        /**
+     * Get Log Analytics Data for basic querytime
+     * 
+     * @param int $filter Timeiterval in seconds to cluster upon
+     * @param string $db DB to operate on
+     * @return json Returns json with data
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_querytime($filter,$db){
         $result = array();
         if(!$db){
@@ -301,12 +386,26 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }
         return \SYSTEM\LOG\JsonResult::toString($result);}
     
+    /**
+     * Generates HTML for a Log Entry
+     * 
+     * @param int $error ID of the Error
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_error($error){
         $vars = \SYSTEM\SQL\SYS_SAIMOD_LOG_ERROR::QQ(array($error))->next();        
         $vars['trace'] = implode('</br>', array_slice(explode('#', $vars['trace']), 1, -1));
         $vars = array_merge($vars,\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOG));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_error.tpl'))->SERVERPATH(), $vars);}
     
+    /**
+     * Generates HTML for the Log List
+     * 
+     * @param string $filter Classfilter
+     * @param string $search SearchFilter
+     * @param int $page Page of the List(100 are displayed)
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_filter($filter = "%",$search="%",$page=0){
         $filter = str_replace('\\', '\\\\', $filter);
         $count = \SYSTEM\SQL\SYS_SAIMOD_LOG_FILTER_COUNT::Q1(array($filter,$search,$search,$search))['count'];
@@ -354,6 +453,12 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log.tpl'))->SERVERPATH(), $vars);        
     }
     
+    /**
+     * Internal function to map log class to a tr class(color)
+     * 
+     * @param string $class Name of a Class
+     * @return string Returns table row class
+     */
     public static function tablerow_class($class){
         switch($class){
             case 'SYSTEM\LOG\INFO': case 'INFO': case 'SYSTEM\LOG\COUNTER':
