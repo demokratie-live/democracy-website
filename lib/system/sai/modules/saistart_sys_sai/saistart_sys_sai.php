@@ -86,8 +86,6 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
      */
     public static function js(){
         return array(   new \SYSTEM\PSAI('modules/saistart_sys_sai/js/saistart_sys_sai.js'),
-                        new \SYSTEM\PSAI('js/crypto/jquery.md5.js'),
-                        new \SYSTEM\PSAI('js/crypto/jquery.sha1.js'),
                         \LIB\lib_jqbootstrapvalidation::js());
     }
 }

@@ -89,8 +89,6 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
      */
     public static function js(){
         return array(   \LIB\lib_jqbootstrapvalidation::js(),
-                        new \SYSTEM\PSAI('modules/saimod_sys_login/js/sai_sys_login_submit.js'),
-                        new \SYSTEM\PSAI('js/crypto/jquery.md5.js'),
-                        new \SYSTEM\PSAI('js/crypto/jquery.sha1.js'));
+                        new \SYSTEM\PSAI('modules/saimod_sys_login/js/sai_sys_login_submit.js'));
     }
 }
