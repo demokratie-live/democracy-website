@@ -11,10 +11,35 @@
  */
 namespace SYSTEM\API;
 
+interface api_default_interface {
+    /**
+     * API Group function - implement this function and return the Groupnumber
+     *
+     * @return int Returns your API-Group number
+     */
+    static function get_apigroup();
+        
+    /**
+     * API Default State function - implement this function and return the String of the default-state
+     *
+     * @return string Returns your API-Default-State
+     */
+    static function get_default_state();
+    
+    /**
+     * API Default Page function - implement this function and return the Default Page
+     *
+     * @param string $_escaped_fragment_ Fragment from Hashbang Crawling
+     * @return string Returns your API-Default-State
+     */
+    static function default_page($_escaped_fragment_ = null);
+}
+
+
 /**
  * API Default class providing defaulting capabilities and Hashbang-Crawling-Scheme.
  */
-abstract class api_default extends api_system {
+abstract class api_default extends api_system implements api_default_interface {
     /**
      * Static Call handler for Hashbang-Crawling Requests
      *
@@ -74,32 +99,10 @@ abstract class api_default extends api_system {
     }
     
     /**
-     * API Group function - implement this function and return the Groupnumber
-     *
-     * @return int Returns your API-Group number
-     */
-    public abstract static function get_apigroup();
-    
-    /**
      * API Class function - implement this function and return the Classname
      *
      * @return string Returns your API-Class name
      */
     public static function get_class(){
         return self::class;}
-        
-    /**
-     * API Default State function - implement this function and return the String of the default-state
-     *
-     * @return string Returns your API-Default-State
-     */
-    public abstract static function get_default_state();
-    
-    /**
-     * API Default Page function - implement this function and return the Default Page
-     *
-     * @param string $_escaped_fragment_ Fragment from Hashbang Crawling
-     * @return string Returns your API-Default-State
-     */
-    public abstract static function default_page($_escaped_fragment_ = null);
 }
