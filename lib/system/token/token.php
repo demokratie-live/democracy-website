@@ -26,7 +26,7 @@ class token{
      */
     private static function check_handler($handler){
         if( !\class_exists($handler) ||
-            !\is_array($parents = \class_parents($handler)) ||
+            !\is_array($parents = \class_implements($handler)) ||
             !\array_search('SYSTEM\TOKEN\token_handler', $parents)){
             return false;}
         return true;}   
