@@ -14,7 +14,7 @@ namespace SYSTEM\TOKEN;
 /**
  * Confirm Email Token handler Class provided by System to provide a email-confirmation mechanism.
  */
-class token_confirm_email extends token_handler{
+class token_confirm_email implements token_handler{
     /**
      * Generate the Token
      *

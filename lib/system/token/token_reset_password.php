@@ -14,7 +14,7 @@ namespace SYSTEM\TOKEN;
 /**
  * Reset Password Token handler Class provided by System to provide a reset-password mechanism.
  */
-class token_reset_password extends token_handler{
+class token_reset_password implements token_handler{
     /**
      * Generate the Token
      *

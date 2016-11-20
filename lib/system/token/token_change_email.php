@@ -14,7 +14,7 @@ namespace SYSTEM\TOKEN;
 /**
  * Email Change Token handler Class provided by System to provide a email-change mechanism.
  */
-class token_change_email extends token_handler{
+class token_change_email implements token_handler{
     /**
      * Generate the Token
      *

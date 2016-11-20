@@ -14,20 +14,20 @@ namespace SYSTEM\TOKEN;
 /**
  * Abstract token_handler Class provided by System to provide API for any token mechanism.
  */
-abstract class token_handler {
+interface token_handler {
     /**
      * Generate the Token
      *
      * @return string Returns token string.
      */
-    abstract public static function token();
+    static function token();
     
     /**
      * Expiredate when the Token expires
      *
      * @return int Returns unixtimestamp when the token expires.
      */
-    abstract public static function expire();
+    static function expire();
     
     /**
      * Token confirm processing for the token_handler
@@ -35,5 +35,5 @@ abstract class token_handler {
      * @param array Token data from db
      * @return bool Returns true or false.
      */
-    abstract public static function confirm($token_data);
+    static function confirm($token_data);
 }
