@@ -22,13 +22,17 @@ class SYS_TOKEN_INSERT extends \SYSTEM\DB\QP {
      */
     public static function get_class(){return \get_class();}
     
+    public static function types(){return
+'ssssis';
+    }
+    
     /**
      * Get QQs MYSQL Query String
      * 
      * @return string Returns MYSQL Query String
      */
     public static function mysql(){return
-'INSERT INTO system_token (token, class, expire, data, request_user)'.
-' VALUES (?, ?, FROM_UNIXTIME(?), ?, ?);';
+'INSERT INTO system_token (token, class, expire, data, request_user, post_script)'.
+' VALUES (?, ?, FROM_UNIXTIME(?), ?, ?, ?);';
     }    
 }

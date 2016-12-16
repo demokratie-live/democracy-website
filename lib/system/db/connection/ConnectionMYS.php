@@ -59,17 +59,17 @@ class ConnectionMYS extends ConnectionAbstr {
      * @param array $values Array of Prepare Values
      * @return Result Returns Database Query Result.
      */
-    public function prepare($stmtName, $stmt, $values){
+    public function prepare($stmtName, $stmt, $values, $types = null){
         $prepStmt = \mysqli_prepare($this->connection, $stmt);
         if(!$prepStmt){
             throw new \Exception('Prepared Statement prepare fail: '. \mysqli_error($this->connection));}
 
-        $types = '';
+        $types_ = '';
         $binds = array($prepStmt,null);
         for($i =0; $i < \count($values);$i++){
-            $types .= self::getPrepareValueType($values[$i]);
+            $types_ .= self::getPrepareValueType($values[$i]);
             $binds[] = &$values[$i];}
-        $binds[1] = $types;
+        $binds[1] = $types ? $types : $types_;
         \call_user_func_array('mysqli_stmt_bind_param', $binds); //you need 2 append the parameters - thats the right way to do that.
 
         if(!mysqli_stmt_execute($prepStmt)){

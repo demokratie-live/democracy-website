@@ -102,7 +102,7 @@ class ConnectionAMQP extends ConnectionAbstr {
      * @param array $values Array of Prepare Values
      * @return Result Returns Database Query Result.
      */
-    public function prepare($stmtName, $stmt, $values){
+    public function prepare($stmtName, $stmt, $values, $types = null){
         throw new \Exception('Could not start Transaction: not implemented');}
 
     /**

@@ -36,4 +36,8 @@ interface token_handler {
      * @return bool Returns true or false.
      */
     static function confirm($token_data);
+    
+    static function text_success($token_data);
+    
+    static function text_fail($token_data);
 }

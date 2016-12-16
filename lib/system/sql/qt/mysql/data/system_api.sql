@@ -1,13 +1,17 @@
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (10, 0, 0, -1, NULL, 'call', NULL);
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (11, 0, 0, 10, NULL, 'action', NULL);
 
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (12, 0, 2, 11, 'reset_password', 'username', 'STRING');
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (13, 0, 2, 11, 'change_password', 'username', 'STRING');
+-- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (12, 0, 2, 11, 'reset_password', 'username', 'STRING');
+DELETE FROM `system_api` WHERE `ID` = 12 AND `group` = 0;
+-- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (13, 0, 2, 11, 'change_password', 'username', 'STRING');
+DELETE FROM `system_api` WHERE `ID` = 13 AND `group` = 0;
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (14, 0, 2, 11, 'change_password', 'old_password_sha1', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (15, 0, 3, 11, 'change_password', 'new_password_sha1', 'STRING');
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (16, 0, 2, 11, 'confirm_email', 'username', 'STRING');
+-- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (16, 0, 2, 11, 'confirm_email', 'username', 'STRING');
+DELETE FROM `system_api` WHERE `ID` = 16 AND `group` = 0;
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (17, 0, 2, 11, 'confirm', 'token', 'STRING');
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (18, 0, 2, 11, 'change_email', 'username', 'STRING');
+-- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (18, 0, 2, 11, 'change_email', 'username', 'STRING');
+DELETE FROM `system_api` WHERE `ID` = 18 AND `group` = 0;
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (19, 0, 2, 11, 'change_email', 'new_email', 'EMAIL');
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (20, 0, 2, 11, 'login', 'username', 'STRING');
@@ -18,7 +22,7 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (24, 0, 2, 11, 'create', 'username', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (25, 0, 2, 11, 'create', 'password_sha1', 'STRING');
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (26, 0, 2, 11, 'create', 'email', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (26, 0, 2, 11, 'create', 'email', 'EMAIL');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (27, 0, 2, 11, 'create', 'locale', 'LANG');
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (30, 0, 2, 10, 'files', 'cat', 'STRING');

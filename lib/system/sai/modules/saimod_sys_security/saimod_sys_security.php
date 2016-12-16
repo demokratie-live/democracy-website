@@ -262,7 +262,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
      * @return json Returns json with status true or false
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_renameaccount($username,$new_username){
-        if(\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return \SYSTEM\LOG\JsonResult::fail();}
         if(!\SYSTEM\SECURITY\security::available($new_username)){
             throw new \SYSTEM\LOG\ERROR("Username not available");}
@@ -275,12 +275,59 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
      * @return json Returns json with status true or false
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_deleteaccount($id){
-        if(\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return \SYSTEM\LOG\JsonResult::fail();}
         \SYSTEM\SQL\SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS::QI(array($id));
         \SYSTEM\SQL\SYS_SAIMOD_SECURITY_DELETE_USER::QI(array($id));
         return \SYSTEM\LOG\JsonResult::ok();}
     
+    /**
+     * Request EMail confirmation for the given Account
+     * 
+     * @param int $user Username of the Account
+     * @return json Returns json with status true or false
+     */
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_confirmemail($user){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+            return \SYSTEM\LOG\JsonResult::fail();}
+        return \SYSTEM\SECURITY\security::confirm_email_admin($user);
+    }
+    
+    /**
+     * Change the Password for the given Account
+     * 
+     * @param int $user Username of the Account
+     * @param string $new_password_sha1 New Password's SHA1-Hash
+     * @return json Returns json with status true or false
+     */
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_changepassword($user,$new_password_sha1){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+            return \SYSTEM\LOG\JsonResult::fail();}
+        $row = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user));
+        if(!$row){
+            throw new \SYSTEM\LOG\ERROR("No such User.");}
+        return \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id'])) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
+    }
+    
+    /**
+     * Change the EMail for the given Account
+     * 
+     * Does not send an EMail for authorisation!
+     * Does not send an EMail for confirmation!
+     * 
+     * @param int $user Username of the Account
+     * @param string $new_email New EMail
+     * @return json Returns json with status true or false
+     */
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_changeemail($user,$new_email){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
+            return \SYSTEM\LOG\JsonResult::fail();}
+        $row = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user));
+        if(!$row){
+            throw new \SYSTEM\LOG\ERROR("No such User.");}
+        return \SYSTEM\SQL\SYS_SECURITY_CHANGE_EMAIL::QI(array($new_email,$row['id'])) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
+    }
+        
     /**
      * Internal Function to generate the Tablerow class(color) string according
      * to last time active

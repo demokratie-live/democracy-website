@@ -42,7 +42,7 @@ abstract class ConnectionAbstr {
      * @param array $values Array of Prepare Values
      * @return Result Returns Database Query Result.
      */
-    abstract public function prepare($stmtName, $stmt, $values);
+    abstract public function prepare($stmtName, $stmt, $values, $types = null);
     
     /**
      * Query the Connection using normal Query Statement

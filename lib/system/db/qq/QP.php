@@ -30,19 +30,19 @@ class QP {
             if($dbinfo instanceof \SYSTEM\DB\DBInfoPG){
                 if(!\is_callable(static::get_class().'::pgsql')){
                     throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no pgsql implementation present.');}
-                return $con->prepare(static::get_class(),static::pgsql(),$params);
+                return $con->prepare(static::get_class(),static::pgsql(),$params, \is_callable(static::get_class().'::types') ? static::types() : null);
             } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoMYS){
                 if(!\is_callable(static::get_class().'::mysql')){
                     throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no mysql implementation present.');}
-                return $con->prepare(static::get_class(),static::mysql(),$params);
+                return $con->prepare(static::get_class(),static::mysql(),$params, \is_callable(static::get_class().'::types') ? static::types() : null);
             } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoAMQP && is_callable(static::amqp())){
                 if(!\is_callable(static::get_class().'::amqp')){
                     throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no amqp implementation present.');}
-                return $con->prepare(static::get_class(),static::amqp(),$params);
+                return $con->prepare(static::get_class(),static::amqp(),$params, \is_callable(static::get_class().'::types') ? static::types() : null);
             } else if ($dbinfo instanceof \SYSTEM\DB\DBInfoSQLite){
                 if(!\is_callable(static::get_class().'::sqlite')){
                     throw new \SYSTEM\LOG\ERROR(static::get_class().' failed: no sqlite implementation present.');}
-                return $con->prepare(static::get_class(),static::sqlite(),$params);
+                return $con->prepare(static::get_class(),static::sqlite(),$params, \is_callable(static::get_class().'::types') ? static::types() : null);
             }
         } catch (\Exception $e){
             throw new \Exception(static::get_class().' failed causing: '.$e->getMessage(),$e->getCode(),$e);}

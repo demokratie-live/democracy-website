@@ -41,4 +41,13 @@ class token_change_email implements token_handler{
     public static function confirm($token_data){
         $data = \json_decode($token_data['data'],true);
         return \SYSTEM\SQL\SYS_SECURITY_CHANGE_EMAIL::QI(array($data['email'],$data['user'])) ? true : false;}
+
+    public static function text_fail($token_data) {
+        $data = \json_decode($token_data['data'],true);
+        return 'Could NOT change your Account\'s EMail-Address to '.$data['email'].'. Token is expired or invalid.';}
+
+    public static function text_success($token_data) {
+        $data = \json_decode($token_data['data'],true);
+        return 'Changed your Account\'s EMail-Address to '.$data['email'].'.';}
+
 }

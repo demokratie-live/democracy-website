@@ -51,7 +51,7 @@ class ConnectionPG extends ConnectionAbstr {
      * @param array $values Array of Prepare Values
      * @return Result Returns Database Query Result.
      */
-    public function prepare($stmtName, $stmt, $values){        
+    public function prepare($stmtName, $stmt, $values, $types = null){        
         $result = pg_query_params($this->connection, 'SELECT name FROM pg_prepared_statements WHERE name = $1', array($stmtName));
         //var_dump($stmt);
         //var_dump($values);

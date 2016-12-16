@@ -7,6 +7,7 @@ CREATE TABLE `system_token` (
 	`request_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`confirm_user` INT(11) NULL DEFAULT NULL,
 	`confirm_time` TIMESTAMP NULL DEFAULT NULL,
+	`post_script` VARCHAR(255) NULL DEFAULT NULL,
 	PRIMARY KEY (`token`)
 )
 COLLATE='utf8_general_ci'

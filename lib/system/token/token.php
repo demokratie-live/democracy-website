@@ -49,7 +49,7 @@ class token{
      * @param array $data Data sved to Database for the token_handler on confirm
      * @return string Returns token string.
      */
-    public static function request($class,$data=array()){
+    public static function request($class,$data=array(),$post_script=null){
         if(!\in_array($class, self::$type_handlers)){
             throw new \SYSTEM\LOG\ERROR("Token_handler class not known to Token class. Please register it first.");}
             
@@ -57,7 +57,8 @@ class token{
         $res = \SYSTEM\SQL\SYS_TOKEN_INSERT::QI( array( $token, $class,
                                                         \call_user_func(array($class, 'expire')),
                                                         json_encode($data),
-                                                        \SYSTEM\SECURITY\security::isLoggedIn() ? \SYSTEM\SECURITY\security::getUser()->id : null));
+                                                        \SYSTEM\SECURITY\security::isLoggedIn() ? \SYSTEM\SECURITY\security::getUser()->id : null,
+                                                        $post_script));
         return $token;
     }
     
@@ -69,15 +70,39 @@ class token{
      */
     public static function confirm($token){
         $res = self::get($token);
-        if(!$res){
+        /*if(!$res){
             throw new \SYSTEM\LOG\ERROR('Token invalid.');}
         if(!$res['expire'] || strtotime($res['expire']) < time()){
-            throw new \SYSTEM\LOG\ERROR('Token has expired!');}
+            throw new \SYSTEM\LOG\ERROR('Token has expired!');}*/
+        if(!$res || !$res['expire'] || strtotime($res['expire']) < time()){
+            return false;}
+            
         if(!\in_array($res['class'], self::$type_handlers)){
             throw new \SYSTEM\LOG\ERROR('Token_handler class not known to Token class. Please register it first.');}
+        
+        if(\array_key_exists('post_script',$res) && $res['post_script']){
+            if(!\is_callable($res['post_script'])){
+                throw new \SYSTEM\LOG\ERROR('Post Script required, but could not find it!');}
+            if(!\call_user_func($res['post_script'], $res)){
+                throw new \SYSTEM\LOG\ERROR('Post Script did not execute successfully');}
+        }
         if(!\call_user_func_array(array($res['class'], 'confirm'),array($res))){
             throw new \SYSTEM\LOG\ERROR('Token_handler rejected Token.');}
         return \SYSTEM\SQL\SYS_TOKEN_CONFIRM::QI(array( \SYSTEM\SECURITY\security::isLoggedIn() ? \SYSTEM\SECURITY\security::getUser()->id : null, $token));
+    }
+    
+    public static function text_success($token){
+        $res = self::get($token);
+        if(!\in_array($res['class'], self::$type_handlers)){
+            throw new \SYSTEM\LOG\ERROR('Token_handler class not known to Token class. Please register it first.');}
+        return \call_user_func_array(array($res['class'], 'text_success'),array($res));
+    }
+    
+    public static function text_fail($token){
+        $res = self::get($token);
+        if(!\in_array($res['class'], self::$type_handlers)){
+            throw new \SYSTEM\LOG\ERROR('Token_handler class not known to Token class. Please register it first.');}
+        return \call_user_func_array(array($res['class'], 'text_fail'),array($res));
     }
     
     /**

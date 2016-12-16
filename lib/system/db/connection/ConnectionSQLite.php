@@ -52,7 +52,7 @@ class ConnectionSQLite extends ConnectionAbstr {
      * @param array $values Array of Prepare Values
      * @return Result Returns Database Query Result.
      */
-    public function prepare($stmtName, $stmt, $values){
+    public function prepare($stmtName, $stmt, $values, $types = null){
         $prepStmt = $this->connection->prepare($stmt);
         if(!$prepStmt){
             throw new \SYSTEM\LOG\ERROR('Prepared Statement prepare fail: '. $error);}

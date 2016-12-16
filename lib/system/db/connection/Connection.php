@@ -61,8 +61,8 @@ class Connection extends ConnectionAbstr{
      * @param array $values Array of Prepare Values
      * @return Result Returns Database Query Result.
      */
-    public function prepare($stmtName, $stmt, $values){
-        return $this->connection->prepare($stmtName, $stmt, $values);}
+    public function prepare($stmtName, $stmt, $values, $types = null){
+        return $this->connection->prepare($stmtName, $stmt, $values, $types);}
         
     /**
      * Query the Connection using normal Query Statement

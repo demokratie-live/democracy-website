@@ -43,7 +43,6 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="input-medium" id="input_pw_old" type="password" placeholder="${basic_password_old}" size="20"/>
                         <input class="input-medium" id="input_pw_new1" type="password" placeholder="${basic_password_new}" size="20"/>
                         <input class="input-medium" id="input_pw_new2" type="password" placeholder="${basic_password_new}" size="20"/>
                     </td>

@@ -69,8 +69,8 @@ class api_login {
      * @param string $username Username
      * @return JSON Returns JSON result with success/failure status
      */
-    public static function call_account_action_confirm_email($username){
-        return \SYSTEM\SECURITY\security::confirm_email($username);}
+    public static function call_account_action_confirm_email(){
+        return \SYSTEM\SECURITY\security::confirm_email();}
         
     /**
      * System Account Confirm Tokens
@@ -79,7 +79,7 @@ class api_login {
      * @return JSON Returns JSON result with success/failure status
      */
     public static function call_account_action_confirm($token){
-        return \SYSTEM\SECURITY\security::confirm($token,true);}
+        return \SYSTEM\SECURITY\security::confirm($token);}
 
     /**
      * System Account Request Reset Password Token
@@ -87,8 +87,8 @@ class api_login {
      * @param string $username Username
      * @return JSON Returns JSON result with success/failure status
      */
-    public static function call_account_action_reset_password($username){
-        return \SYSTEM\SECURITY\security::reset_password($username);}
+    public static function call_account_action_reset_password(){
+        return \SYSTEM\SECURITY\security::reset_password();}
         
     /**
      * System Account Change Password
@@ -98,8 +98,8 @@ class api_login {
      * @param sha1 $new_password_sha1 Users New Password SHA1 String
      * @return JSON Returns JSON result with success/failure status
      */
-    public static function call_account_action_change_password($username,$old_password_sha1,$new_password_sha1){
-        return \SYSTEM\SECURITY\security::change_password($username,$old_password_sha1,$new_password_sha1);}
+    public static function call_account_action_change_password($old_password_sha1,$new_password_sha1){
+        return \SYSTEM\SECURITY\security::change_password($old_password_sha1,$new_password_sha1);}
         
     /**
      * System Account Request Change EMail Token
@@ -108,6 +108,6 @@ class api_login {
      * @param email $new_email Users new EMail Address
      * @return JSON Returns JSON result with success/failure status
      */
-    public static function call_account_action_change_email($username,$new_email){
-        return \SYSTEM\SECURITY\security::change_email($username,$new_email);}
+    public static function call_account_action_change_email($new_email){
+        return \SYSTEM\SECURITY\security::change_email($new_email);}
 }

@@ -117,53 +117,58 @@ class security {
     }
     
     /**
-     * Change users Password
+     * Change logged in users Password
      *
-     * @param string $username Username whos subject to the passwordchange
      * @param string $old_password_sha1 Users old hashed Password
      * @param string $new_password_sha1 Users new hashed Password
      * @return json Returns json with status true or false
      */
-    public static function change_password($username,$old_password_sha1,$new_password_sha1){        
-        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_SHA1::Q1(array($username, $old_password_sha1));                        
+    public static function change_password($old_password_sha1,$new_password_sha1){
+        if(!\SYSTEM\SECURITY\security::isLoggedIn()){
+            throw new \SYSTEM\LOG\ERROR("You need to be logged in to change your Password!");}
+        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_SHA1::Q1(array(\SYSTEM\SECURITY\security::getUser()->username, $old_password_sha1));                        
         if(!$row){
-            throw new \SYSTEM\LOG\ERROR("No such User Password combination.");}        
-        $result = \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id']));        
-        return $result ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
+            throw new \SYSTEM\LOG\ERROR("No such User Password combination.");}
+        return \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id'])) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
     }
     
     /**
-     * Change users Email.
+     * Change logged in users Email.
+     * 
      * This will facilitate the @see \SYSTEM\TOKEN\token utility to generate
-     * a token and send it to the users email using php mailinc function.
+     * a token and send it to the logged in users email using php mailinc function.
      * 
      * This function can only be invoked if the user is logged in and uses the
-     * function on himself or \SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT
-     * is present for the invoking user.
+     * function on himself.
      * 
      * This function will fail if the Email of the user is unconfirmed. You can
      * only change the email of a confirmed account.
      *
-     * @param string $username Username whos subject to the emailchange
-     * @param string $new_email New Email for the given Username
+     * @param string $new_email New Email for the logged in User
+     * @param string $post_script Function to be executed AFTER clicking the EMail Link, BEFORE updating the EMail
+     * @param string $post_script_data Additional Data for the Postscript
      * @return bool Returns true or false
      */
-    public static function change_email($username, $new_email) {
-        if(!self::isLoggedIn() || (self::getUser()->username !== $username && self::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT))){
-            throw new \SYSTEM\LOG\ERROR("You need to be logged in to trigger this function on your account.");}
+    public static function change_email($new_email,$post_script=null,$post_script_data=null) {
+        if(!\SYSTEM\SECURITY\security::isLoggedIn()){
+            throw new \SYSTEM\LOG\ERROR("You need to be logged in to change your EMail!");}
         //find all userdata
-        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array(\SYSTEM\SECURITY\security::getUser()->username));
         if(!$vars || $vars['email_confirmed'] !== 1){
             throw new \SYSTEM\LOG\ERROR("Username not found or Email unconfirmed.");}
-            
+        $old_email = $vars['email'];
+        $data = array('user' => $vars['id'],'email' => $new_email);
+        if($post_script){
+             $data['post_script_data'] = $post_script_data;}
+
         //generate pw & token
         $vars['email'] = $new_email;
-        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_change_email',array('user' => $vars['id'],'email' => $vars['email']));
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_change_email',$data,$post_script);
         $vars['base_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
         $vars['newline'] = "\r\n";
         
         //mail
-        $to     = $vars['email'];
+        $to     = $old_email;
         $subject= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_change_email_subject'), $vars);
         $message= \SYSTEM\PAGE\replace::replace(\SYSTEM\PAGE\text::get('mail_change_email'), $vars);
         $header = 'From: '. \SYSTEM\PAGE\text::get('mail_change_email_from')."\r\n" .
@@ -173,24 +178,33 @@ class security {
     }
     
     /**
-     * Reset users Password.
+     * Reset given users Password.
+     * 
      * This will facilitate the @see \SYSTEM\TOKEN\token utility to generate
      * a token and send it to the users email using php mailinc function.
      * A new password is generated on invoke and sent with the email.
      * After confirming the token the new password given in the email is valid.
      *
-     * @param string $username Username whos subject to the password reset
+     * @param string Username subject to Password reset
+     * @param string $post_script Function to be executed AFTER clicking the EMail Link, BEFORE updating the Password
+     * @param string $post_script_data Additional Data for the Postscript
      * @return bool Returns true or false
      */
-    public static function reset_password($username) {
+    public static function reset_password($username,$post_script=null,$post_script_data=null) {
+        if(!\SYSTEM\SECURITY\security::isLoggedIn()){
+            throw new \SYSTEM\LOG\ERROR("You need to be logged in to reset your Password!");}
         //find all userdata
         $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
         if(!$vars){
             throw new \SYSTEM\LOG\ERROR("Username not found.");}
-            
+        
         //generate pw & token
         $vars['pw'] = substr(sha1(time().rand(0, 4000)), 1,10);
-        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_reset_password',array('user' => $vars['id'],'pw_sha1' => sha1($vars['pw'])));
+        $data = array('user' => $vars['id'],'pw_sha1' => sha1($vars['pw']));
+        if($post_script){
+            $data['post_script_data'] = $post_script_data;}
+            
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_reset_password',$data,$post_script);
         $vars['base_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
         $vars['newline'] = "\r\n";
         
@@ -205,27 +219,47 @@ class security {
     }
     
     /**
-     * Request an Confirm-Email for given Username.
+     * Request an Confirm-Email for logged in User.
+     * 
      * This will facilitate the @see \SYSTEM\TOKEN\token utility to generate
      * a token and send it to the users email using php mailinc function.
      * 
      * This function can only be invoked if the user is logged in and uses the
-     * function on himself or \SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT
-     * is present for the invoking user.
+     * function on himself.
      *
-     * @param string $username Username whos subject to the email confirm request
+     * @param string $post_script Function to be executed AFTER clicking the EMail Link, BEFORE updating the Confirmation Status
+     * @param string $post_script_data Additional Data for the Postscript
      * @return bool Returns true or false
      */
-    public static function confirm_email($username) {
-        if(!self::isLoggedIn() || (self::getUser()->username !== $username && self::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT))){
-            throw new \SYSTEM\LOG\ERROR("You need to be logged in to trigger this function on your account.");}
+    public static function confirm_email($post_script=null,$post_script_data=null) {
+        if(!\SYSTEM\SECURITY\security::isLoggedIn()){
+            throw new ERROR("You need to be logged in to confirm your EMail!");}
+        return self::confirm_email_admin(\SYSTEM\SECURITY\security::getUser()->username, $post_script, $post_script_data);
+    }
+    
+    /**
+     * Request an Confirm-Email for an User.
+     * 
+     * This will facilitate the @see \SYSTEM\TOKEN\token utility to generate
+     * a token and send it to the users email using php mailinc function..
+     *
+     * @param string Username of the Account
+     * @param string $post_script Function to be executed AFTER clicking the EMail Link, BEFORE updating the Confirmation Status
+     * @param string $post_script_data Additional Data for the Postscript
+     * @return bool Returns true or false
+     */
+    public static function confirm_email_admin($user, $post_script=null,$post_script_data=null) {
         //find all userdata
-        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user));
         if(!$vars || $vars['email_confirmed'] == 1){
             throw new \SYSTEM\LOG\ERROR("Username not found or already confirmed.");}
         
+        $data = array('user' => $vars['id']);
+        if($post_script){
+            $data['post_script_data'] = $post_script_data;}
+            
         //generate token
-        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_confirm_email',array('user' => $vars['id']));
+        $vars['token'] = \SYSTEM\TOKEN\token::request('\SYSTEM\TOKEN\token_confirm_email',$data,$post_script);
         $vars['base_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
         $vars['newline'] = "\r\n";
         
@@ -247,10 +281,8 @@ class security {
      * @param bool $json_result Return data as JSON or Array
      * @return bool Returns json with status true or false or a bool
      */
-    public static function confirm($token,$json_result = false) {
-        return \SYSTEM\TOKEN\token::confirm($token) ? 
-                ($json_result ? \SYSTEM\LOG\JsonResult::ok() : true) :
-                ($json_result ? \SYSTEM\LOG\JsonResult::fail() : false);}
+    public static function confirm($token) {
+        return \SYSTEM\TOKEN\token::confirm($token) ? \SYSTEM\TOKEN\token::text_success($token) : \SYSTEM\TOKEN\token::text_fail($token);}
     
     /**
      * Get Userinfo stored in the current Session.
