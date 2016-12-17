@@ -1,8 +1,7 @@
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (10, 0, 0, -1, NULL, 'call', NULL);
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (11, 0, 0, 10, NULL, 'action', NULL);
 
--- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (12, 0, 2, 11, 'reset_password', 'username', 'STRING');
-DELETE FROM `system_api` WHERE `ID` = 12 AND `group` = 0;
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (12, 0, 2, 11, 'reset_password', 'username', 'STRING');
 -- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (13, 0, 2, 11, 'change_password', 'username', 'STRING');
 DELETE FROM `system_api` WHERE `ID` = 13 AND `group` = 0;
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (14, 0, 2, 11, 'change_password', 'old_password_sha1', 'STRING');

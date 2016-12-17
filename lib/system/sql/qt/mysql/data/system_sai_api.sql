@@ -9,8 +9,7 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 -- system_api
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (10, 42, 0, -1, NULL, 'call', NULL);
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (11, 42, 0, 10, NULL, 'action', NULL);
--- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (12, 42, 2, 11, 'reset_password', 'username', 'STRING');
-DELETE FROM `system_api` WHERE `ID` = 12 AND `group` = 42;
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (12, 42, 2, 11, 'reset_password', 'username', 'STRING');
 -- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (13, 42, 2, 11, 'change_password', 'username', 'STRING');
 DELETE FROM `system_api` WHERE `ID` = 13 AND `group` = 42;
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (14, 42, 2, 11, 'change_password', 'old_password_sha1', 'STRING');

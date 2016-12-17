@@ -87,8 +87,8 @@ class api_login {
      * @param string $username Username
      * @return JSON Returns JSON result with success/failure status
      */
-    public static function call_account_action_reset_password(){
-        return \SYSTEM\SECURITY\security::reset_password();}
+    public static function call_account_action_reset_password($username){
+        return \SYSTEM\SECURITY\security::reset_password($username);}
         
     /**
      * System Account Change Password

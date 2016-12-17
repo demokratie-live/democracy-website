@@ -29,7 +29,7 @@ class SYS_SECURITY_USER_INFO extends \SYSTEM\DB\QP {
      */
     public static function pgsql(){return
 'SELECT id,username,email,joindate,locale,last_active,email_confirmed FROM '.\SYSTEM\SQL\system_user::NAME_PG.
-' WHERE UPPER('.\SYSTEM\SQL\system_user::FIELD_USERNAME.') like UPPER($1);';
+' WHERE UPPER('.\SYSTEM\SQL\system_user::FIELD_USERNAME.') = UPPER($1) OR UPPER('.\SYSTEM\SQL\system_user::FIELD_EMAIL.') = UPPER($2);';
     }
     
     /**
@@ -39,6 +39,6 @@ class SYS_SECURITY_USER_INFO extends \SYSTEM\DB\QP {
      */
     public static function mysql(){return
 'SELECT id,username,email,joindate,locale,last_active,email_confirmed FROM '.\SYSTEM\SQL\system_user::NAME_MYS.
-' WHERE UPPER('.\SYSTEM\SQL\system_user::FIELD_USERNAME.') like UPPER(?);';
+' WHERE UPPER('.\SYSTEM\SQL\system_user::FIELD_USERNAME.') = UPPER(?) OR UPPER('.\SYSTEM\SQL\system_user::FIELD_EMAIL.') = UPPER(?);';
     }
 }

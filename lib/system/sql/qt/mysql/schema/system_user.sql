@@ -6,8 +6,11 @@ CREATE TABLE `system_user` (
 	`joindate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`locale` CHAR(6) NOT NULL DEFAULT 'enUS',
 	`last_active` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`session_id` VARCHAR(40) NULL DEFAULT NULL,
 	`email_confirmed` INT(11) NULL DEFAULT NULL,
-	PRIMARY KEY (`id`)
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `email` (`email`),
+	UNIQUE INDEX `username` (`username`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB

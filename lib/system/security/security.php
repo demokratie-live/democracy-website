@@ -50,7 +50,7 @@ class security {
         $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] = NULL;
                 
         //Database check
-        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_EMAIL_SHA1::Q1(array($username, $username, $password_sha1));         
+        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_SHA1::Q1(array($username, $username, $password_sha1));         
         if(!$row){
             throw new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");}
            
@@ -126,7 +126,8 @@ class security {
     public static function change_password($old_password_sha1,$new_password_sha1){
         if(!\SYSTEM\SECURITY\security::isLoggedIn()){
             throw new \SYSTEM\LOG\ERROR("You need to be logged in to change your Password!");}
-        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_SHA1::Q1(array(\SYSTEM\SECURITY\security::getUser()->username, $old_password_sha1));                        
+        $username = \SYSTEM\SECURITY\security::getUser()->username;
+        $row = \SYSTEM\SQL\SYS_SECURITY_LOGIN_USER_SHA1::Q1(array($username, $username, $old_password_sha1));                        
         if(!$row){
             throw new \SYSTEM\LOG\ERROR("No such User Password combination.");}
         return \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id'])) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
@@ -151,11 +152,16 @@ class security {
      */
     public static function change_email($new_email,$post_script=null,$post_script_data=null) {
         if(!\SYSTEM\SECURITY\security::isLoggedIn()){
-            throw new \SYSTEM\LOG\ERROR("You need to be logged in to change your EMail!");}
+            throw new \SYSTEM\LOG\ERROR('You need to be logged in to change your EMail!');}
+        $res = \SYSTEM\SQL\SYS_SECURITY_AVAILABLE_EMAIL::Q1(array($new_email,$new_email));
+        if(!$res || $res['count'] != 0){
+            throw new \SYSTEM\LOG\ERROR('The EMail '.$new_email.' is already registered!');}
         //find all userdata
-        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array(\SYSTEM\SECURITY\security::getUser()->username));
+        $username = \SYSTEM\SECURITY\security::getUser()->username;
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username,$username));
         if(!$vars || $vars['email_confirmed'] !== 1){
-            throw new \SYSTEM\LOG\ERROR("Username not found or Email unconfirmed.");}
+            throw new \SYSTEM\LOG\ERROR('Username not found or Email unconfirmed.');}
+            
         $old_email = $vars['email'];
         $data = array('user' => $vars['id'],'email' => $new_email);
         if($post_script){
@@ -191,12 +197,10 @@ class security {
      * @return bool Returns true or false
      */
     public static function reset_password($username,$post_script=null,$post_script_data=null) {
-        if(!\SYSTEM\SECURITY\security::isLoggedIn()){
-            throw new \SYSTEM\LOG\ERROR("You need to be logged in to reset your Password!");}
         //find all userdata
-        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username));
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($username,$username));
         if(!$vars){
-            throw new \SYSTEM\LOG\ERROR("Username not found.");}
+            throw new \SYSTEM\LOG\ERROR("Username or EMail could not be found.");}
         
         //generate pw & token
         $vars['pw'] = substr(sha1(time().rand(0, 4000)), 1,10);
@@ -250,7 +254,7 @@ class security {
      */
     public static function confirm_email_admin($user, $post_script=null,$post_script_data=null) {
         //find all userdata
-        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user));
+        $vars = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user,$user));
         if(!$vars || $vars['email_confirmed'] == 1){
             throw new \SYSTEM\LOG\ERROR("Username not found or already confirmed.");}
         

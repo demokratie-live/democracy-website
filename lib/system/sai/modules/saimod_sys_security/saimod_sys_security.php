@@ -303,7 +303,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_changepassword($user,$new_password_sha1){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return \SYSTEM\LOG\JsonResult::fail();}
-        $row = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user));
+        $row = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user,$user));
         if(!$row){
             throw new \SYSTEM\LOG\ERROR("No such User.");}
         return \SYSTEM\SQL\SYS_SECURITY_UPDATE_PW::QI(array($new_password_sha1, $row['id'])) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
@@ -322,7 +322,7 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security_action_changeemail($user,$new_email){
         if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_SECURITY_RIGHTS_EDIT)){
             return \SYSTEM\LOG\JsonResult::fail();}
-        $row = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user));
+        $row = \SYSTEM\SQL\SYS_SECURITY_USER_INFO::Q1(array($user,$user));
         if(!$row){
             throw new \SYSTEM\LOG\ERROR("No such User.");}
         return \SYSTEM\SQL\SYS_SECURITY_CHANGE_EMAIL::QI(array($new_email,$row['id'])) ? \SYSTEM\LOG\JsonResult::ok() : \SYSTEM\LOG\JsonResult::fail();
