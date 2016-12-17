@@ -34,6 +34,8 @@ class system_user {
     const FIELD_LOCALE = 'locale';
     /** string Fieldname for field last_active */
     const FIELD_LAST_ACTIVE = 'last_active';
+    /** string Fieldname for field session_id */
+    const FIELD_SESSION_ID = 'session_id';
     /** string Fieldname for field email_confirmed */
     const FIELD_EMAIL_CONFIRMED = 'email_confirmed';
 }

@@ -40,7 +40,12 @@ class token_confirm_email implements token_handler{
      */
     public static function confirm($token_data){
         $data = \json_decode($token_data['data'],true);
-        return \SYSTEM\SQL\SYS_SECURITY_CONFIRM_EMAIL::QI(array($data['user'])) ? true : false;}
+        $result = \SYSTEM\SQL\SYS_SECURITY_CONFIRM_EMAIL::QI(array($data['user'])) ? true : false;
+        if($result){
+            $res = \SYSTEM\SQL\SYS_SECURITY_USER_SESSIONID::Q1(array($data['user']));
+            \SYSTEM\SECURITY\security::update_session_data(array('email_confirmed' => 1), $res['session_id']);}
+        return $result;
+    }
         
     public static function text_fail($token_data) {
         return 'Could NOT confirm your EMail-Address. Token is expired or invalid.';}

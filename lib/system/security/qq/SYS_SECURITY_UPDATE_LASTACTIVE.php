@@ -22,6 +22,10 @@ class SYS_SECURITY_UPDATE_LASTACTIVE extends \SYSTEM\DB\QP {
      */
     public static function get_class(){return \get_class();}
     
+    public static function types(){return
+'si';
+    }
+    
     /**
      * Get QQs PostgreSQL Query String
      * 
@@ -29,8 +33,8 @@ class SYS_SECURITY_UPDATE_LASTACTIVE extends \SYSTEM\DB\QP {
      */
     public static function pgsql(){return
 'UPDATE '.\SYSTEM\SQL\system_user::NAME_PG.
-' SET '.\SYSTEM\SQL\system_user::FIELD_LAST_ACTIVE.' = NOW()'.
-' WHERE '.\SYSTEM\SQL\system_user::FIELD_ID.' = $1;';
+' SET '.\SYSTEM\SQL\system_user::FIELD_LAST_ACTIVE.' = NOW(), '.\SYSTEM\SQL\system_user::FIELD_SESSION_ID.' = $1'.
+' WHERE '.\SYSTEM\SQL\system_user::FIELD_ID.' = $2;';
     }
     
     /**
@@ -40,7 +44,7 @@ class SYS_SECURITY_UPDATE_LASTACTIVE extends \SYSTEM\DB\QP {
      */
     public static function mysql(){return
 'UPDATE '.\SYSTEM\SQL\system_user::NAME_MYS.
-' SET '.\SYSTEM\SQL\system_user::FIELD_LAST_ACTIVE.' = NOW()'.
+' SET '.\SYSTEM\SQL\system_user::FIELD_LAST_ACTIVE.' = NOW(), '.\SYSTEM\SQL\system_user::FIELD_SESSION_ID.' = ?'.
 ' WHERE '.\SYSTEM\SQL\system_user::FIELD_ID.' = ?;';
     }
 }

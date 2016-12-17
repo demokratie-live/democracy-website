@@ -55,19 +55,19 @@ class security {
             throw new \SYSTEM\LOG\WARNING("Login Failed, User was not found in db");}
            
         // set session variables
-        $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] =
-                            new User(   $row[\SYSTEM\SQL\system_user::FIELD_ID],
-                                        $row[\SYSTEM\SQL\system_user::FIELD_USERNAME],
-                                        $row[\SYSTEM\SQL\system_user::FIELD_EMAIL],
-                                        $row[\SYSTEM\SQL\system_user::FIELD_JOINDATE],
-                                        time(),
-                                        getenv('REMOTE_ADDR'),0,NULL,
-                                        $row[\SYSTEM\SQL\system_user::FIELD_LOCALE],
-                                        \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL),
-                                        $row[\SYSTEM\SQL\system_user::FIELD_EMAIL_CONFIRMED]);        
+        self::update_session_data(array(
+            'id' => $row[\SYSTEM\SQL\system_user::FIELD_ID],
+            'username' => $row[\SYSTEM\SQL\system_user::FIELD_USERNAME],
+            'email' => $row[\SYSTEM\SQL\system_user::FIELD_EMAIL],
+            'joindate' => $row[\SYSTEM\SQL\system_user::FIELD_JOINDATE],
+            'last_active' => time(),
+            'locale' => $row[\SYSTEM\SQL\system_user::FIELD_LOCALE],
+            'email_confirmed' => $row[\SYSTEM\SQL\system_user::FIELD_EMAIL_CONFIRMED]
+        ));
+
         if(isset($locale)){
             \SYSTEM\locale::set($locale);}                
-        \SYSTEM\SQL\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array($row[\SYSTEM\SQL\system_user::FIELD_ID]));
+        \SYSTEM\SQL\SYS_SECURITY_UPDATE_LASTACTIVE::QI(array(\session_id(),$row[\SYSTEM\SQL\system_user::FIELD_ID]));
         return $json_result ? \SYSTEM\LOG\JsonResult::ok() : $row;
     }       
         
@@ -307,6 +307,9 @@ class security {
      */
     public static function logout($json_result = false){
         self::startSession();
+        $user = self::getUser();
+        if($user && $user->id){
+            \SYSTEM\SQL\SYS_SECURITY_UPDATE_LASTACTIVE::Q1(array(NULL,$user->id));}
         session_destroy();
         return $json_result ? \SYSTEM\LOG\JsonResult::ok() : true;}
     
@@ -357,5 +360,34 @@ class security {
         if( isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&
             $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof User){
                 $_SESSION['values'][\SYSTEM\locale::SESSION_KEY] = $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->locale;}
+    }
+    
+    public static function update_session_data($data,$session_id = null){
+        $old_session_id = \session_id();
+        if($session_id){
+            \session_write_close();
+            \session_id($session_id);
+            \session_start();} 
+            
+        if( !isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) ||
+            !$_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] instanceof \SYSTEM\SECURITY\User){
+            $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)] = new \SYSTEM\SECURITY\User();}
+            
+        foreach(\array_keys($data) as $key){
+            switch($key){
+                case 'id': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->id = $data['id']; break;
+                case 'username': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->username = $data['username']; break;
+                case 'email': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->email = $data['email']; break;
+                case 'joindate': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->joindate = $data['joindate']; break;
+                case 'last_active': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->last_active = $data['last_active']; break;
+                case 'locale': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->locale = $data['locale']; break;
+                case 'email_confirmed': $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->email_confirmed = $data['email_confirmed']; break;
+            }
+        }
+        
+        if($old_session_id){
+            \session_write_close();
+            \session_id($old_session_id);
+            \session_start();}
     }
 }

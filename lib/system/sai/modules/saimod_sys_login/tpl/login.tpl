@@ -30,4 +30,4 @@
     </div>
 </form>
 <a href="#!login(register)" id="register_link">${basic_text_register}</a><br/>
-<a href="#" id="password_link">${basic_text_password_miss}</a>
+<a href="#!login(resetpassword)" id="password_link">${basic_text_password_miss}</a>

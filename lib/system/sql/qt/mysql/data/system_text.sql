@@ -48,6 +48,7 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'sai_text');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'sai_todo');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_back', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_cancel';
     DELETE FROM `system_text_tag` WHERE id = 'basic_cancel';
@@ -670,6 +671,7 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_reset_password', 'enUS', 'Reset Password', 2, 1, '2015-04-16 23:11:18', '2015-04-16 23:11:18');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_reset_password', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_reset_password', 'sai_security');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_reset_password', 'sai_login');
 
     DELETE FROM `system_text` WHERE id = 'basic_change_email';
     DELETE FROM `system_text_tag` WHERE id = 'basic_change_email';
