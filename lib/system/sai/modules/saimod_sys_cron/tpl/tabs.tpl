@@ -16,6 +16,7 @@ Last Visit: ${last_visit}<br/>
                 <th>next_run</th>
                 <th>status</th>
                 <th></th>
+                <th></th>
                 <th>action</th>
                 <th></th>
             </tr>
@@ -30,6 +31,7 @@ Last Visit: ${last_visit}<br/>
             <td><input class="form-control" type="text" id="input_cron_day" placeholder="day" value="0" style="width: 40px;"></td>
             <td><input class="form-control" type="text" id="input_cron_day_week" placeholder="day_week" value="0" style="width: 40px;"></td>
             <td><input class="form-control" type="text" id="input_cron_month" placeholder="month" value="0" style="width: 40px;"></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

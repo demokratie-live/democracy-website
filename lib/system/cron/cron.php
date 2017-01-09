@@ -58,6 +58,33 @@ class cron {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    public static function run_class($class){
+        $cron = \SYSTEM\SQL\SYS_SAIMOD_CRON_SINGLE_SELECT::Q1(array($class));
+        if(!$cron){
+            return \SYSTEM\LOG\JsonResult::fail();}
+        //check module
+        if(!self::check($cron[\SYSTEM\SQL\system_cron::FIELD_CLASS])){
+            self::status($cron[\SYSTEM\SQL\system_cron::FIELD_CLASS], \SYSTEM\CRON\cronstatus::CRON_STATUS_FAIL_CLASS);
+            return \SYSTEM\LOG\JsonResult::fail();}
+        //time to execute?
+        if(!\SYSTEM\CRON\crontime::check_now(   strtotime($cron[\SYSTEM\SQL\system_cron::FIELD_LAST_RUN]),
+                                                $cron[\SYSTEM\SQL\system_cron::FIELD_MIN],
+                                                $cron[\SYSTEM\SQL\system_cron::FIELD_HOUR],
+                                                $cron[\SYSTEM\SQL\system_cron::FIELD_DAY],
+                                                $cron[\SYSTEM\SQL\system_cron::FIELD_DAY_WEEK],
+                                                $cron[\SYSTEM\SQL\system_cron::FIELD_MONTH])){
+                                                return \SYSTEM\LOG\JsonResult::fail();}
+        //Status is ok?
+        if($cron[\SYSTEM\SQL\system_cron::FIELD_STATUS] != \SYSTEM\CRON\cronstatus::CRON_STATUS_SUCCESFULLY){
+            new \SYSTEM\LOG\CRON('Cron for Class '.$cron[\SYSTEM\SQL\system_cron::FIELD_CLASS].' could not execute cuz Status aint good: '. \SYSTEM\CRON\cronstatus::text($cron[\SYSTEM\SQL\system_cron::FIELD_STATUS]));
+            return \SYSTEM\LOG\JsonResult::fail();}
+        //set running
+        self::status($cron[\SYSTEM\SQL\system_cron::FIELD_CLASS], \SYSTEM\CRON\cronstatus::CRON_STATUS_RUNNING);
+        self::status($cron[\SYSTEM\SQL\system_cron::FIELD_CLASS], call_user_func(array($cron[\SYSTEM\SQL\system_cron::FIELD_CLASS],'run')));
+        
+        return \SYSTEM\LOG\JsonResult::ok();
+    }
+    
     /**
      * Determine next run of a given Cronjob
      *

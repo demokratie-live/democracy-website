@@ -50,6 +50,12 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    public static function sai_mod__system_sai_saimod_sys_cron_action_run($cls){
+        if(!\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI_CRON)){
+            throw new \SYSTEM\LOG\ERROR("You dont have edit Rights - Cant proceeed");}
+        return \SYSTEM\CRON\cron::run_class($cls);
+    }
+    
     /**
      * Add a new Cron Entry
      * 
