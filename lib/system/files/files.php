@@ -52,6 +52,7 @@ class files {
 
         $ext = pathinfo(self::$folders[$cat].$id);
         $ext = strtoupper(array_key_exists('extension', $ext) ? $ext['extension'] : '');
+        header("Last-Modified: " . gmdate('D, d M Y H:i:s \G\M\T', filemtime(self::$folders[$cat].$id)));
         if(\SYSTEM\HEADER::available($ext)){
             call_user_func('\SYSTEM\HEADER::'.$ext);
         }else{
