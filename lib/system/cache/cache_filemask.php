@@ -28,7 +28,7 @@ class cache_filemask {
     public static function put($file){
         $ext = pathinfo($file);
         $ext = strtoupper(array_key_exists('extension', $ext) ? $ext['extension'] : '');
-        return \SYSTEM\CACHE\cache::put(self::CACHE_FILEMASK, self::ident($file), $ext ,$file);}
+        return \SYSTEM\CACHE\cache::put(self::CACHE_FILEMASK, self::ident($file), $ext ,file_get_contents($file));}
         
     /**
      * Get Data from Cache

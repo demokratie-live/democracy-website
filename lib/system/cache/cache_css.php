@@ -57,7 +57,24 @@ class cache_css {
      * @param array $files List of Files to be cached into one Cacheentry
      * @return url Returns the requested Cache-URL
      */
-    public static function url($files){
+    /*public static function url($files){
+        $ident = self::ident($files);
+        if(!\SYSTEM\CACHE\cache_css::get($ident)){
+            \LIB\lib_minify::php();
+            $minifier = new \MatthiasMullie\Minify\CSS();
+            foreach($files as $f){
+                $minifier->add($f->SERVERPATH());}
+            \SYSTEM\CACHE\cache_css::put($ident, $minifier->minify());}
+        return './api.php?call=cache&id='.self::CACHE_CSS.'&ident='.$ident;
+    }*/
+    
+    /**
+     * Minify CSS and calculate URL from it
+     *
+     * @param array $files List of Files to be cached into one Cacheentry
+     * @return url Returns the requested Cache-URL
+     */
+    public static function minify($files){
         $ident = self::ident($files);
         if(!\SYSTEM\CACHE\cache_css::get($ident)){
             \LIB\lib_minify::php();

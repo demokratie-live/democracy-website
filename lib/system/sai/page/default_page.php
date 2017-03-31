@@ -66,9 +66,9 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
      */
     public static function css(){
         return  \SYSTEM\HTML\html::link(\LIB\lib_bootstrap::css()->WEBPATH(false)).
-                \SYSTEM\HTML\html::link(\LIB\lib_tablesorter::css()->WEBPATH(false)).
-                \SYSTEM\HTML\html::link(\SYSTEM\CACHE\cache_css::url(
-                                        array( \LIB\lib_system::css(),
+                \SYSTEM\HTML\html::link(\SYSTEM\CACHE\cache_css::minify(
+                                        array(  \LIB\lib_tablesorter::css(),
+                                                \LIB\lib_system::css(),
                                                 new \SYSTEM\PSAI('page/css/sai_classes.css'),
                                                 new \SYSTEM\PSAI('page/css/sai.css'))));
     }
@@ -79,13 +79,13 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
      * @return string Returns html of the Sai js includes
      */
     public static function js(){
-        return  \SYSTEM\HTML\html::script(\LIB\lib_jquery::js()->WEBPATH()).
-                \SYSTEM\HTML\html::script(\LIB\lib_bootstrap::js()->WEBPATH()).
-                \SYSTEM\HTML\html::script(\LIB\lib_tablesorter::js()->WEBPATH()).
-                \SYSTEM\HTML\html::script(\LIB\lib_bootstrap_growl::js()->WEBPATH()).
-                \SYSTEM\HTML\html::script(\LIB\lib_tinymce::js()->WEBPATH(false)).
-                \SYSTEM\HTML\html::script(  \SYSTEM\CACHE\cache_js::url(
-                                            array(  \LIB\lib_system::js(),
+        return  \SYSTEM\HTML\html::script(  \SYSTEM\CACHE\cache_js::minify(
+                                            array(  \LIB\lib_jquery::js(),
+                                                    \LIB\lib_bootstrap::js(),
+                                                    \LIB\lib_tablesorter::js(),
+                                                    \LIB\lib_bootstrap_growl::js(),
+                                                    \LIB\lib_tinymce::js(),
+                                                    \LIB\lib_system::js(),
                                                     new \SYSTEM\PSAI('page/js/sai.js')))).
                 \SYSTEM\HTML\html::script('https://www.google.com/jsapi').
                 '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';

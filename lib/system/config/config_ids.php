@@ -56,6 +56,10 @@ class config_ids {
     
     /** int Logextraction path used by the Application */
     const SYS_CRON_LOG2SQLITE_PATH              = 30;
+    
+    /** int Cache path used by the Application */
+    const SYS_CONFIG_PATH_CACHE                 = 31;
+    
     /** int Projectname of the Application */
     const SYS_SAI_CONFIG_PROJECT                = 54;
 }

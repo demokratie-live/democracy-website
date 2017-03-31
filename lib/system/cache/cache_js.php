@@ -57,7 +57,24 @@ class cache_js {
      * @param array $files List of Files to be cached into one Cacheentry
      * @return url Returns the requested Cache-URL
      */
-    public static function url($files){
+    /*public static function url($files){
+        $ident = self::ident($files);
+        if(!\SYSTEM\CACHE\cache_js::get($ident)){
+            \LIB\lib_minify::php();
+            $minifier = new \MatthiasMullie\Minify\JS();
+            foreach($files as $f){
+                $minifier->add($f->SERVERPATH());}
+            \SYSTEM\CACHE\cache_js::put($ident, $minifier->minify());}
+        return './api.php?call=cache&id='.self::CACHE_JS.'&ident='.$ident;
+    }*/
+    
+    /**
+     * Minify JS files and calculate URL for it
+     *
+     * @param array $files List of Files to be cached into one Cacheentry
+     * @return url Returns the requested Cache-URL
+     */
+    public static function minify($files){
         $ident = self::ident($files);
         if(!\SYSTEM\CACHE\cache_js::get($ident)){
             \LIB\lib_minify::php();

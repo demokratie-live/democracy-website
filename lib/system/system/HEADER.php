@@ -92,6 +92,7 @@ class HEADER {
      */
     public static function JS(){
         if(self::checkHeader()){
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
             header('content-type:application/javascript;');}}
     /**
      * Send CSS Headers, if Header was not sent yet
