@@ -82,6 +82,6 @@ class cache_js {
             foreach($files as $f){
                 $minifier->add($f->SERVERPATH());}
             \SYSTEM\CACHE\cache_js::put($ident, $minifier->minify());}
-        return './api.php?call=cache&id='.self::CACHE_JS.'&ident='.$ident;
+        return './cache/'.self::CACHE_JS.'/'.$ident;
     }
 }

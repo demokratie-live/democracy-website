@@ -82,6 +82,6 @@ class cache_css {
             foreach($files as $f){
                 $minifier->add($f->SERVERPATH());}
             \SYSTEM\CACHE\cache_css::put($ident, $minifier->minify());}
-        return './api.php?call=cache&id='.self::CACHE_CSS.'&ident='.$ident;
+        return './cache/'.self::CACHE_CSS.'/'.$ident;
     }
 }

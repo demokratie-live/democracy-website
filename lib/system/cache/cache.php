@@ -35,6 +35,7 @@ class cache {
                 call_user_func('\SYSTEM\HEADER::'.$result['type']);
             }else{
                 \SYSTEM\HEADER::FILE($ident);}
+            header("Last-Modified: " . gmdate('D, d M Y H:i:s \G\M\T', filemtime($result['data'])));
         }
         return \file_get_contents($result['data']);
     }

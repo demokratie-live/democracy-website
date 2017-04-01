@@ -36,8 +36,8 @@ class html{
      * @param string $script script contents
      * @return string Returns script tag string.
      */
-    public static function script($src,$type = 'text/javascript',$rel = 'stylesheet', $language = 'JavaScript', $script = ''){
-        return '<script src="'.$src.'" language="'.$language.'" type="'.$type.'">'.$script.'</script>';}
+    public static function script($src,$type = 'text/javascript',$rel = 'stylesheet', $script = ''){
+        return '<script src="'.$src.'" type="'.$type.'">'.$script.'</script>';}
         
     /**
      * Generate <style> tag

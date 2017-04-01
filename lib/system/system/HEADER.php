@@ -57,7 +57,7 @@ class HEADER {
     public static function PNG(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:image/png;');}}
+            header('content-type:image/png');}}
     /**
      * Send JPG Headers, if Header was not sent yet
      * 
@@ -66,7 +66,7 @@ class HEADER {
     public static function JPG(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:image/jpeg;');}}
+            header('content-type:image/jpg');}}
     /**
      * Send JPEG Headers, if Header was not sent yet
      * 
@@ -75,7 +75,7 @@ class HEADER {
     public static function JPEG(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:image/jpeg;');}}   
+            header('content-type:image/jpeg');}}   
     /**
      * Send GIF Headers, if Header was not sent yet
      * 
@@ -84,7 +84,7 @@ class HEADER {
     public static function GIF(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:image/gif;');}}  
+            header('content-type:image/gif');}}  
     /**
      * Send JS Headers, if Header was not sent yet
      * 
@@ -93,7 +93,7 @@ class HEADER {
     public static function JS(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:application/javascript;');}}
+            header('content-type:application/javascript');}}
     /**
      * Send CSS Headers, if Header was not sent yet
      * 
@@ -102,7 +102,7 @@ class HEADER {
     public static function CSS(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:text/css;');}}
+            header('content-type:text/css');}}
     /**
      * Send LESS Headers, if Header was not sent yet
      * 
@@ -110,7 +110,8 @@ class HEADER {
      */
     public static function LESS(){
         if(self::checkHeader()){
-            header('content-type:text/css;');}}
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
+            header('content-type:text/css');}}
     /**
      * Send FILE(download) Headers, if Header was not sent yet
      * 
