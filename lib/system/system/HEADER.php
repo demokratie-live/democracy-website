@@ -66,7 +66,7 @@ class HEADER {
     public static function JPG(){
         if(self::checkHeader()){
             header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
-            header('content-type:image/jpg');}}
+            header('content-type:image/jpeg');}}
     /**
      * Send JPEG Headers, if Header was not sent yet
      * 
