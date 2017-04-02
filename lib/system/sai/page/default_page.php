@@ -84,9 +84,9 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                                                     \LIB\lib_bootstrap::js(),
                                                     \LIB\lib_tablesorter::js(),
                                                     \LIB\lib_bootstrap_growl::js(),
-                                                    \LIB\lib_tinymce::js(),
                                                     \LIB\lib_system::js(),
                                                     new \SYSTEM\PSAI('page/js/sai.js')))).
+                \SYSTEM\HTML\html::script(  \LIB\lib_tinymce::js()->WEBPATH(false)).
                 \SYSTEM\HTML\html::script('https://www.google.com/jsapi').
                 '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';
     }
