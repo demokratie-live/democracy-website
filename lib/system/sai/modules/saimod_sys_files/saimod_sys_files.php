@@ -78,7 +78,7 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
      * @param string $name Name of the Files Directory
      * @return string Returns HTML
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_files_action_tab($name = 'sys'){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_files_action_tab($name = 'saistart_sys_sai'){
         $result = '';
         $cat = \SYSTEM\FILES\files::get($name);
         $i = 0;
