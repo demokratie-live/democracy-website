@@ -59,7 +59,7 @@ abstract class api_default extends api_system implements api_default_interface {
             parse_str(\parse_url($row['url'],PHP_URL_QUERY), $params);
             $class = static::get_class();
             if($class){
-                $frag->loadHTML(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, $params, static::get_apigroup(), true, false));
+                $frag->loadHTML(mb_convert_encoding(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, $params, static::get_apigroup(), true, false),'HTML-ENTITIES', 'UTF-8'));
                 if($error = \libxml_get_last_error()){
                     //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$frag->saveHTML());
                     \libxml_clear_errors();}
