@@ -21,76 +21,113 @@ git@github.com:webcraftmedia/demo_basic.git and follow instructions there.
 Features
 ========
 
-    Ecapsulation of Code
+SYSTEM offers diferent Features - a few are described in this readme
+
+Ecapsulation of Code
+--------------------
     
 Seperation by Language, Seperation by Access, Seperation by Meaning.
 System ecapsulates the following languages in different Files:
     
-    PHP
-    SQL
-    JS
-    HTML
-    CSS
+* PHP
+* SQL
+* JS
+* HTML
+* CSS
 
-Depending on how you access the Page you are redirectd in diferent Parts of a Project.
+Depending on how you access the Page you are redirectd to diferent Endpoints of your Project.
 System distiquishes between
     
-    index.php - serve webpages
-    api.php - returns json results, ajax-calls normally go here
-    sai.php - serves a secure extendable environment to administer your Page
+* index.php - serve webpages
+* api.php - returns json results, ajax-calls normally go to this endpoint
+* sai.php - serves a secure extendable environment to administer your Page
 
 The Autoload-Feature which is used within System allows you to seperate your Project
-further into several subfolders - normally one for every single page you server.   
+further into several subfolders - normally one for every single page you serve.   
 
-Feature API
-    Url parameter mapping to php classes in a modern way
+API
+---
 
-Feature Cache
-    Cache any data into the database to server content without recalculating it.
-    By default its cleaned once a day via cronjob. Write your own Cache handler
-    to put and pull from cache
+Url parameter mapping to php classes in a modern way. Calls to your Page or API are
+directly mapped to a class of your choice, serving the diferent calls you implement.
 
-Feature Config
-    Extendable config, by default contains paths, default database connection,
-    project name & language etc.
+Cache
+-----
 
-Feature Cron
-    Php Cron processing. Needs to be pinged by the systems cron job.
-    Allows as many cronjobs as needed.
+Cache any data you want to cache. Typical things cached are Javascript and CSS.
+By default the cache is cleaned once a day via internal cronjob mechanism.
+Write your own Cache handler to put and pull from cache.
 
-Feature DB
-    Persistent Database Connection, multiple Connections, SQL Ecapsulation,
-    Automatic Injection Protection, Easy access, almost zero code
+Config
+------
 
-Feature Docu
-    Documentation system relying on markdown
+Extendable config, by default contains paths, default database connection, project name & language etc.
 
-Feature Files
-    Serve Files from where you want, dont expose your server structure.
+Cron
+----
 
-Feature Html
-    Html definitions(minimal)
+Php Cron processing. Needs to be called by the underlying systems cron job.
+Allows as many cronjobs as needed, with just one cronjob registered in the
+Operating System.
 
-Feature Lib
-    Includes Several Libs, Lib Interface to bind your Projcts libs easily
+DB
+--
 
-Feature log
-    Log from anywhere in your Project, Analysis of Log, Easy debugging
+Persistent Database Connection, multiple Connections, SQL Ecapsulation,
+Automatic Injection Protection, Easy access, almost zero code, one class per
+Query and therefore high reusability.
 
-Feature page
-    Simple Template system, able to replace ${var} placeholders in text and files.
-    Hashbang compatibility, Modern ajax technologies to not relog the page,
-    but load content on demand.
+Docu
+----
 
-Feature sai
-    Admin Interface reachable under sai.php, extenable, many system Modules to
-    manage system features from a webui.
+Integrated PHPDocumentor including HTML and MD output. Register what code you want
+to document and a button will generate you your documentation.
 
-Feature security
-    Login, Register etc in a secure manner. Not SAML compatible yet.
+Files
+-----
 
-Feature sql
-    Extendable Installtion System, to run sql scripts for the Project.
+Serve Files from where you want, dont expose your server file structure.
+
+Html
+----
+
+Html definitions(minimal)
+
+Lib
+---
+
+Includes Several Libs, Minimal Lib Interface to bind your Projcts libraries easily
+
+Log
+---
+
+Log from anywhere in your Project, Analysis of Log, Easy debugging, Visitor statistics
+
+Page
+----
+
+Simple Template system, able to replace ${var} placeholders in text and files.
+Hashbang compatibility, Modern ajax technologies to not reload the page,
+but load content on demand including a caching meachanism to not load content
+twice.
+
+SAI
+---
+
+Admin Interface to manage SYSTEM features of your Page from a webui.  SAI is extenable,
+so you can write your own Modules to manage your Page-Content as you prefere to do it.
+
+Security
+--------
+
+Login, Register etc in a secure manner via API. Includes Password-Reset via
+EMail Confirmation.
+
+SQL
+---
+
+Extendable Database Installtion System, to run sql scripts for the Project upon
+update or install.
 
 License
 =======
