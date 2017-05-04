@@ -735,11 +735,11 @@
 
     DELETE FROM `system_text` WHERE id = 'sai_copyright';
     DELETE FROM `system_text_tag` WHERE id = 'sai_copyright';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'deDE', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'enUS', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'trTR', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'frFR', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'esES', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2015', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'deDE', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2017', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'enUS', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2017', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'trTR', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2017', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'frFR', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2017', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('sai_copyright', 'esES', '<a href="${project_url}" target="_blank" data-mce-href="${project_url}">${project}</a> © WebCraft Media 2017', 2, 2, '2015-04-17 19:15:03', '2015-04-17 19:15:03');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_copyright', 'sai');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('sai_copyright', 'sai_default');
 
