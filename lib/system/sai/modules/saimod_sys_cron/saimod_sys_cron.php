@@ -27,7 +27,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
         $i = 0;
         while($r = $res->next()){
             $r['selected_0'] = $r['selected_1'] = $r['selected_2'] = $r['selected_3'] = '';
-            $r['next'] = \SYSTEM\time::time_ago_string(\SYSTEM\CRON\cron::next($r['class']));
+            $r['next'] = \SYSTEM\time::time_in_string(\SYSTEM\CRON\cron::next($r['class']));
             $r['last_run'] = \SYSTEM\time::time_ago_string(\strtotime($r['last_run']));
             $r['selected_'.$r['status']] = 'selected';
             $r['i'] = $i++;

@@ -60,5 +60,25 @@ class time {
                 $r = round($d);
                 return $r . ' ' . $str;}
         }
-    }    
+    }
+    
+    public static function time_in_string($time){
+        $etime = $time - time();
+        if ($etime < 1){
+            return '${time_in} 0 ${time_in_second}';}
+
+        $a = array( 12 * 30 * 24 * 60 * 60  =>  '${time_in_year}',
+                    30 * 24 * 60 * 60       =>  '${time_in_month}',
+                    24 * 60 * 60            =>  '${time_in_day}',
+                    60 * 60                 =>  '${time_in_hour}',
+                    60                      =>  '${time_in_minute}',
+                    1                       =>  '${time_in_second}');
+
+        foreach ($a as $secs => $str){
+            $d = $etime / $secs;
+            if ($d >= 1){
+                $r = round($d);
+                return '${time_in}' . ' ' . $r . ' ' . $str;}
+        }
+    }
 }

@@ -1488,6 +1488,55 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_ago_year', 'time');
 
 
+    DELETE FROM `system_text` WHERE id = 'time_in';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in', 'deDE', 'in', 2, 2, '2015-04-20 01:39:10', '2015-04-20 01:39:10');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in', 'enUS', 'in', 2, 2, '2015-04-18 14:42:32', '2015-04-18 14:42:32');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in', 'frFR', 'en', 3, 3, '2015-04-20 14:39:52', '2015-04-20 14:39:52');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in', 'time');
+
+    DELETE FROM `system_text` WHERE id = 'time_in_day';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in_day';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_day', 'deDE', 'Tage(n)', 2, 3, '2015-04-20 14:43:03', '2015-04-20 14:43:03');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_day', 'enUS', 'day(s)', 2, 2, '2015-04-18 14:36:07', '2015-04-18 14:36:07');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_day', 'frFR', 'jour(s)', 3, 3, '2015-04-20 14:43:09', '2015-04-20 14:43:09');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in_day', 'time');
+
+    DELETE FROM `system_text` WHERE id = 'time_in_hour';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in_hour';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_hour', 'deDE', 'Stunde(n)', 2, 3, '2015-04-20 14:42:41', '2015-04-20 14:42:41');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_hour', 'enUS', 'hour(s)', 2, 2, '2015-04-18 14:35:37', '2015-04-18 14:35:37');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_hour', 'frFR', 'heure(s)', 3, 3, '2015-04-20 14:42:48', '2015-04-20 14:42:48');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in_hour', 'time');
+
+    DELETE FROM `system_text` WHERE id = 'time_in_minute';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in_minute';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_minute', 'deDE', 'Minute(n)', 2, 3, '2015-04-20 14:44:58', '2015-04-20 14:44:58');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_minute', 'enUS', 'minute(s)', 2, 2, '2015-04-18 14:35:32', '2015-04-18 14:35:32');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_minute', 'frFR', 'minutes(s)', 3, 3, '2015-04-20 14:42:23', '2015-04-20 14:42:23');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in_minute', 'time');
+
+    DELETE FROM `system_text` WHERE id = 'time_in_month';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in_month';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_month', 'deDE', 'Monat(e)', 2, 3, '2015-04-20 14:43:58', '2015-04-20 14:43:58');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_month', 'enUS', 'month(s)', 2, 2, '2015-04-18 14:35:52', '2015-04-18 14:35:52');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_month', 'frFR', 'mois', 3, 3, '2015-04-20 14:44:04', '2015-04-20 14:44:04');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in_month', 'time');
+
+    DELETE FROM `system_text` WHERE id = 'time_in_second';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in_second';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_second', 'deDE', 'Sekunde(n)', 2, 2, '2015-04-20 01:36:54', '2015-04-20 01:36:54');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_second', 'enUS', 'second(s)', 2, 2, '2015-04-18 14:35:25', '2015-04-18 14:35:25');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_second', 'frFR', 'seconde(s)', 3, 3, '2015-04-20 14:38:47', '2015-04-20 14:38:47');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in_second', 'time');
+
+    DELETE FROM `system_text` WHERE id = 'time_in_year';
+    DELETE FROM `system_text_tag` WHERE id = 'time_in_year';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_year', 'deDE', 'Jahr(en)', 2, 3, '2015-04-20 14:43:34', '2015-04-20 14:43:34');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_year', 'enUS', 'year(s)', 2, 2, '2015-04-18 14:35:46', '2015-04-18 14:35:46');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('time_in_year', 'frFR', 'an(s)', 3, 3, '2015-04-20 14:43:40', '2015-04-20 14:43:40');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('time_in_year', 'time');
+
 -- mail
 
     REPLACE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('mail_change_email', 'enUS', 'Hello ${username}${newline}${newline}follow this link to change your Accounts Email-Address to ${email}${newline}${base_url}api.php?call=account&action=confirm&token=${token}${newline}${newline}Sincerely your Admin Team', 10, 10, '2016-06-06 03:32:41', '2016-06-06 03:17:53');
