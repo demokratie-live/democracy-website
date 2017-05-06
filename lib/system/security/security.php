@@ -25,10 +25,11 @@ class security {
      * @param bool $json_result Return data as JSON or Array
      * @return mixed Returns json with status true or Error or Array with userinfo.
      */
-    public static function create($username, $password_sha1, $email, $locale = 'enUS',$json_result = false){
+    public static function create($username, $password_sha1, $email, $locale = null,$json_result = false){
         self::startSession();
         if(!self::available($username)){
-            throw new \SYSTEM\LOG\ERROR("Username unavailable");}                        
+            throw new \SYSTEM\LOG\ERROR("Username unavailable");}
+        $locale = $locale ? $locale : \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);
         $result = \SYSTEM\SQL\SYS_SECURITY_CREATE::QI(array( $username , $password_sha1, $email, $locale));
         $row = true;
         if(!$result || !($row = self::login($username, $password_sha1, $locale))){            

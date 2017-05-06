@@ -57,10 +57,10 @@ class api_login {
      * @param string $username Username
      * @param sha1 $password_sha1 User Password SHA1 String
      * @param email $email Email of the new User
-     * @param lang $locale Locale which the User wants to register
+     * @param lang $locale Locale which the User wants to register or null for default language
      * @return JSON Returns JSON result with success/failure status
      */
-    public static function call_account_action_create($username, $password_sha1, $email, $locale){
+    public static function call_account_action_create($username, $password_sha1, $email, $locale = null){
         return \SYSTEM\SECURITY\security::create($username, $password_sha1, $email, $locale,true);}
     
     /**
