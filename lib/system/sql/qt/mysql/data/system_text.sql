@@ -416,13 +416,13 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_todo', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_todo', 'sai_start');
 
-    DELETE FROM `system_text` WHERE id = 'basic_URL';
-    DELETE FROM `system_text_tag` WHERE id = 'basic_URL';
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_URL', 'deDE', 'URL', 0, 2, '2015-04-16 23:17:13', '2015-04-16 20:20:50');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_URL', 'enUS', 'URL', 2, 1, '2015-04-16 23:17:13', '2015-04-16 23:17:13');
-    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_URL', 'jaJA', 'URL', 0, 0, '2015-04-16 23:17:13', '0000-00-00 00:00:00');
-    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_URL', 'basic');
-    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_URL', 'sai_start');
+    DELETE FROM `system_text` WHERE id = 'basic_url';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_url';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_url', 'deDE', 'URL', 0, 2, '2015-04-16 23:17:13', '2015-04-16 20:20:50');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_url', 'enUS', 'URL', 2, 1, '2015-04-16 23:17:13', '2015-04-16 23:17:13');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_url', 'jaJA', 'URL', 0, 0, '2015-04-16 23:17:13', '0000-00-00 00:00:00');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_url', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_url', 'sai_start');
 
     DELETE FROM `system_text` WHERE id = 'basic_username';
     DELETE FROM `system_text_tag` WHERE id = 'basic_username';

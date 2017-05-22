@@ -8,7 +8,7 @@
                         <div class="panel-body">
                         <div class="inner-page">
                             <b>${basic_name}:</b> ${project_name}<br/>
-                            <b>${basic_URL}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
+                            <b>${basic_url}:</b> <a href="${project_url}" target="_blank">${project_url}</a><br/>
                             <b>${basic_progress}:</b> ${project}%<br/>
                             <br/>
                             <table class="table table-hover table-condensed sai_table" style="width: 100%">
