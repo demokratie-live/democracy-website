@@ -12,9 +12,9 @@
 namespace SYSTEM\SQL;
 
 /**
- * DATA_SYSTEM_RIGHTS Class provided by System to install the System rights to the Database
+ * DATA_SYSTEM_PAGE Class provided by System to install the System pages to the Database
  */
-class DATA_SYSTEM_RIGHTS extends \SYSTEM\DB\QI {
+class DATA_SYSTEM_PAGE extends \SYSTEM\DB\QI {
     /**
      * Get Classname of the QQ
      * 
@@ -28,13 +28,13 @@ class DATA_SYSTEM_RIGHTS extends \SYSTEM\DB\QI {
      * @return array Returns paths of PostgreSQL compatible sql files
      */
     public static function files_pgsql(){
-        return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_rights.sql'))->SERVERPATH());}
-        
+        return array(   (new \SYSTEM\PSQL('/pgsql/data/system_page.sql'))->SERVERPATH());}
+    
     /**
      * Get paths of MYSQL compatible sql files
      * 
      * @return array Returns paths of MYSQL compatible sql files
      */
     public static function files_mysql(){
-        return array(   (new \SYSTEM\PSQL('/qt/mysql/data/system_rights.sql'))->SERVERPATH());}
+        return array(   (new \SYSTEM\PSQL('/mysql/data/system_page.sql'))->SERVERPATH());}    
 }

@@ -12,9 +12,9 @@
 namespace SYSTEM\SQL;
 
 /**
- * DATA_SYSTEM_TEXT Class provided by System to install the System texts to the Database(includes Tags)
+ * DATA_SYSTEM_TEXT Class provided by System to install the Page Defaults e.g meta tags to the Database(includes Tags)
  */
-class DATA_SYSTEM_TEXT extends \SYSTEM\DB\QI {
+class DATA_DEFAULT extends \SYSTEM\DB\QI {
     /**
      * Get Classname of the QQ
      * 
@@ -28,7 +28,7 @@ class DATA_SYSTEM_TEXT extends \SYSTEM\DB\QI {
      * @return array Returns paths of PostgreSQL compatible sql files
      */
     public static function files_pgsql(){
-        return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_text.sql'))->SERVERPATH());}
+        return array(   (new \SYSTEM\PSQL('/pgsql/data/default.sql'))->SERVERPATH());}
         
     /**
      * Get paths of MYSQL compatible sql files
@@ -36,5 +36,5 @@ class DATA_SYSTEM_TEXT extends \SYSTEM\DB\QI {
      * @return array Returns paths of MYSQL compatible sql files
      */
     public static function files_mysql(){
-        return array(   (new \SYSTEM\PSQL('/qt/mysql/data/system_text.sql'))->SERVERPATH());}
+        return array(   (new \SYSTEM\PSQL('/qt/mysql/data/default.sql'))->SERVERPATH());}
 }

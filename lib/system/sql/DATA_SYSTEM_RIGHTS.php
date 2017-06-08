@@ -12,9 +12,9 @@
 namespace SYSTEM\SQL;
 
 /**
- * DATA_SYSTEM_CRON Class provided by System to install the System crons to the Database
+ * DATA_SYSTEM_RIGHTS Class provided by System to install the System rights to the Database
  */
-class DATA_SYSTEM_CRON extends \SYSTEM\DB\QI {
+class DATA_SYSTEM_RIGHTS extends \SYSTEM\DB\QI {
     /**
      * Get Classname of the QQ
      * 
@@ -28,7 +28,7 @@ class DATA_SYSTEM_CRON extends \SYSTEM\DB\QI {
      * @return array Returns paths of PostgreSQL compatible sql files
      */
     public static function files_pgsql(){
-        return array(   (new \SYSTEM\PSQL('/qt/pgsql/data/system_cron.sql'))->SERVERPATH());}
+        return array(   (new \SYSTEM\PSQL('/pgsql/data/system_rights.sql'))->SERVERPATH());}
         
     /**
      * Get paths of MYSQL compatible sql files
@@ -36,5 +36,5 @@ class DATA_SYSTEM_CRON extends \SYSTEM\DB\QI {
      * @return array Returns paths of MYSQL compatible sql files
      */
     public static function files_mysql(){
-        return array(   (new \SYSTEM\PSQL('/qt/mysql/data/system_cron.sql'))->SERVERPATH());}    
+        return array(   (new \SYSTEM\PSQL('/mysql/data/system_rights.sql'))->SERVERPATH());}
 }
