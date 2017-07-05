@@ -36,5 +36,5 @@ class DATA_DEFAULT extends \SYSTEM\DB\QI {
      * @return array Returns paths of MYSQL compatible sql files
      */
     public static function files_mysql(){
-        return array(   (new \SYSTEM\PSQL('/qt/mysql/data/default.sql'))->SERVERPATH());}
+        return array(   (new \SYSTEM\PSQL('/mysql/data/default.sql'))->SERVERPATH());}
 }
