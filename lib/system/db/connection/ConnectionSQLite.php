@@ -27,7 +27,7 @@ class ConnectionSQLite extends ConnectionAbstr {
         $error = null;
         $this->connection = new \SQLite3($dbinfo->m_database);
         if(!$this->connection){
-            throw new \Exception('Could not connect to Database. Check ur Database Settings: '.$error);}
+            die('Could not connect to Database. Check ur Database Settings: '.$error);}
     }
 
     /**

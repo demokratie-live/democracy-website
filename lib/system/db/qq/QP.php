@@ -45,7 +45,7 @@ class QP {
                 return $con->prepare(static::get_class(),static::sqlite(),$params, \is_callable(static::get_class().'::types') ? static::types() : null);
             }
         } catch (\Exception $e){
-            throw new \Exception(static::get_class().' failed causing: '.$e->getMessage(),$e->getCode(),$e);}
+            throw new \SYSTEM\LOG\ERROR(static::get_class().' failed causing: '.$e->getMessage(),$e->getCode(),$e);}
         throw new \Exception('Could not understand Database Settings. Check ur Database Settings');
     }
     
