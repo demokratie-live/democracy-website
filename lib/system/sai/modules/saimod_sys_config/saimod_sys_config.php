@@ -181,7 +181,7 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return '<li><a id="menu_config" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_config}" href="#!config"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>';}
+    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/menu.tpl'))->SERVERPATH());}
     
     /**
      * Returns if the Saimod is public(access for everyone)

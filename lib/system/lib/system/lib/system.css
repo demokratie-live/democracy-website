@@ -7,3 +7,35 @@ table.sai_table tr:nth-child(odd) {
 table.sai_table tr:hover {
  background-color: #FFEFD5;
 }
+table.sai_table {
+    word-break: break-all;
+}
+
+a.active{
+    background-color: #e7e7e7;
+}
+
+#menu_start {
+    height: 50px;
+    font-size: 20px;
+    padding-top: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
+    color: #777;
+}
+
+#menu_start:hover{
+    text-decoration: none;
+    color: #555;
+}
+
+#menu_start:focus{
+    text-decoration: none;
+    color: #555;
+}
+
+#menu_start:active{
+    text-decoration: none;
+    color: #555;
+}

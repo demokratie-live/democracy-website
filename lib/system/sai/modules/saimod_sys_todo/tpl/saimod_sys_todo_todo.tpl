@@ -1,5 +1,5 @@
 <h3>ToDo ${ID}</h3>
-<table class="table table-hover table-condensed">
+<table class="table table-hover table-condensed" style="word-break: break-all;">
     <tr><th>Property</th><th>Value</th></tr>
     <tr><td>ID</td><td>${ID}</td></tr>
     <tr><td>class</td><td>${class}</td></tr>    

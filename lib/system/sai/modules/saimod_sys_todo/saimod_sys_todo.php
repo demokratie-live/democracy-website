@@ -399,7 +399,7 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return '<li><a id="menu_todo" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_todo}" href="#!todo"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a></li>';}
+    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/menu.tpl'))->SERVERPATH());}
     
     /**
      * Returns if the Saimod is public(access for everyone)

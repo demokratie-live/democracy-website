@@ -6,7 +6,7 @@
 </ul>
 <div id="table_log">
     <h6>${basic_rows}: ${count} ${basic_page}: ${page}</h6>
-    <table class="table table-hover table-condensed tablesorter" id="sai_mod_log_table">       
+    <table class="table table-hover table-condensed tablesorter" style="word-break: break-all;" id="sai_mod_log_table">       
         <tr>
             <th>${time_ago}</th>
             <th>${table_class}</th>

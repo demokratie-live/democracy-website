@@ -145,7 +145,7 @@ class saimod_sys_api extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return '<li><a id="menu_api" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_api}" href="#!api"><span class="glyphicon glyphicon-console" aria-hidden="true"></span></a></li>';}
+    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_api/tpl/menu.tpl'))->SERVERPATH());}
     
     /**
      * Returns if the Saimod is public(access for everyone)

@@ -3,8 +3,8 @@
     <head>
         <title>${sai_title}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="fragment" content="!start">
-        <link rel="icon" type="image/png" href="./sai.php?call=files&amp;cat=saistart_sys_sai&amp;id=logo_sai.png"/>
+        <meta name="fragment" content="!">
+        <link rel="icon" type="image/png" href="./files/saistart_sys_sai/logo_sai.png"/>
         ${css}
         ${js}
     </head>
@@ -17,20 +17,21 @@
                 <!-- div class="col-md-10 sai_menu_first sai_left_divider" -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="col-md-10 sai_margin_left_off sai_padding_left_off sai_padding_right_off"> 
-                    <nav id="sys_autocollapse" class="navbar navbar-default sai_margin_bottom_off" role="navigation">
+                    <nav class="navbar navbar-default sai_margin_bottom_off">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
+                            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false" style="margin-left: 5px;">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
                             </button>
+                            ${menu_start}
                         </div>
-                        <div class="collapse navbar-collapse navHeaderCollapse sai_margin_left_off sai_padding_left_off">
+                        <div class="collapse navbar-collapse navHeaderCollapse sai_margin_left_off sai_padding_left_off" id="menu-collapse">
                             <ul class="nav navbar-nav sai_menu_first">
-                                   ${menu_start}
-                                   ${menu_sys}
+                                ${menu_sys}
                             </ul>
-                        </div><!-- /.navbar-collapse -->
+                        </div>
                     </nav>
                 </div>
             </div>    

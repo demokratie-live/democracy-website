@@ -1,5 +1,5 @@
 <h3>${basic_error} ${ID}</h3>
-<table class="table table-hover table-condensed">
+<table class="table table-hover table-condensed" style="word-break: break-all">
     <tr><th>${table_property}</th><th>${table_value}</th></tr>
     <tr><td>${table_id}</td><td>${ID}</td></tr>
     <tr><td>${table_class}</td><td>${class}</td></tr>    

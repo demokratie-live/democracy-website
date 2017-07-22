@@ -1,4 +1,4 @@
- <table class="table table-hover table-condensed tablesorter" id="sai_mod_files_table" style="overflow: auto;">
+ <table class="table table-hover table-condensed tablesorter sai_table" id="sai_mod_files_table" style="overflow: auto;">
     <thead> 
     <tr>
         <th>Name</th>

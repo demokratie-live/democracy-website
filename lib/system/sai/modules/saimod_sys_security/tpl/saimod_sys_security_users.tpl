@@ -6,7 +6,7 @@
 </ul>
 <div id="table_security">
     <h6>${basic_rows}: ${count} ${basic_page}: ${page}</h6>
-    <table class="sai_table table table-hover table-condensed tablesorter" id="sai_mod_security_table" style="overflow: auto;">
+    <table class="sai_table table table-hover table-condensed tablesorter" id="sai_mod_security_table" style="word-break: break-all;">
         <tr>
             <th>${table_id}</th>
             <th>${table_username}</th>

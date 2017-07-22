@@ -1,4 +1,4 @@
-<table class="table table-hover table-condensed tablesorter" id="sai_mod_api_table" style="overflow: auto;">
+<table class="table table-hover table-condensed tablesorter" id="sai_mod_api_table" style="word-break: break-all;">
     <thead>
         <tr>
             <th>ID</th>

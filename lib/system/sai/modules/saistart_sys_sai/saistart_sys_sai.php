@@ -22,7 +22,7 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
      */
     public static function sai_mod__SYSTEM_SAI_saistart_sys_sai(){
         if(!\SYSTEM\SECURITY\security::isLoggedIn() || !\SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI)){
-            return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START));}
+            return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content_loggedout.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START));}
         //create timestamp
         $week_number = date("W", time());
         $date = date("l M Y", time());
@@ -51,11 +51,11 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
     }
     
     /**
-     * Generate <li> Menu for the Saimod
+     * Generate Menu-Link for the Saimod
      * 
-     * @return string Returns <li> Menu for the Saimod
+     * @return string Returns Html Menu for the Saimod
      */
-    public static function html_li_menu(){return '<li class="active sai_menu_first"><a id="menu_start" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_start}" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>';}
+    public static function html_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/menu.tpl'))->SERVERPATH());}
     
     /**
      * Returns if the Saimod is public(access for everyone)

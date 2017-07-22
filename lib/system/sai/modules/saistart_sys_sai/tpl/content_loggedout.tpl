@@ -1,22 +1,14 @@
-
-    <h3 class="muted">Design. Simple. Fast. Reliable. Innovative.</h3>
-    <h4 class="text-info">We write awesome Software using <a href="https://github.com/ulfgebhardt/system">SYSTEM</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap.</a></h4><hr>
-    <div clas="row">
-        <div class="col-md-8">
-            <div id="myCarousel" class="carousel slide" style="margin-right: 300px;">    
-                <div class="carousel-inner">        
-                    <div class="item active">
-                        <img class="carousel-img" src="./sai.php?call=files&cat=saistart_sys_sai&id=sai_loggedout_gallery_1.png" alt="">
-                        <div class="carousel-caption">
-                            <h4>Explore SAI yourself</h4>
-                            <p>It will enable your to use System as a multiverse of toolsets to support your Projects.</p>
-                        </div>
-                    </div>      
-                </div>        
-                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-            </div>
-        </div>
+<div clas="row-fluid">
+    <div class="col-md-12">
+        <h3 class="muted">Design. Simple. Fast. Reliable. Innovative.</h3>
+    </div>
+</div>
+<div clas="row-fluid">
+    <div class="col-md-12">
+        <h4 class="text-info">We write awesome Software using <a href="https://github.com/ulfgebhardt/system">SYSTEM</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap.</a></h4><hr>
+    </div>
+</div>
+    <div clas="row-fluid">
         <div class="col-md-4">
             <div id="project" class="panel panel-default sai_gridbox">
                     <div class="panel-heading"><a href="#!login">${basic_login}</a></div>

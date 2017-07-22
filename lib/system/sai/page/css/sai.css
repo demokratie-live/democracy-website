@@ -35,28 +35,3 @@
 .nav-tabs {
     border: none;
 }
-/* auto collapsing navbar */
-#sys_autocollapse.collapsed .navbar-header {
-  float: none;
-}
-#sys_autocollapse.collapsed .navbar-toggle {
-  display: block;
-}
-#sys_autocollapse.collapsed .navbar-collapse {
-  border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-}
-#sys_autocollapse.collapsed .navbar-collapse.collapse {
-  display: none!important;
-}
-#sys_autocollapse.collapsed .navbar-nav {
-  float: none!important;
-  margin: 7.5px -15px;
-}
-#sys_autocollapse.collapsed .navbar-nav>li {
-  float: none;
-}
-#sys_autocollapse.collapsed .navbar-nav>li>a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}

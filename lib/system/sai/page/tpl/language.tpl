@@ -1,1 +1,1 @@
-<a href="javascript:system.language('${lang}');"><img src="${endpoint}?call=files&amp;cat=saistart_sys_sai&amp;id=flag_${lang}.png" alt="${lang}" width="16" height="11"></a>&nbsp;
+<a href="javascript:system.language('${lang}');"><img src="./files/saistart_sys_sai/flag_${lang}.png" alt="${lang}" width="16" height="11"></a>&nbsp;

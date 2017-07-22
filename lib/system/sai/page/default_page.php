@@ -56,7 +56,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
         $mod = \SYSTEM\SAI\sai::getStartModule();        
         if(\call_user_func(array($mod, 'right_public')) ||
             \call_user_func(array($mod, 'right_right'))){
-            return \call_user_func(array($mod, 'html_li_menu'));}        
+            return \call_user_func(array($mod, 'html_menu'));}        
         throw new \SYSTEM\LOG\ERROR('Your SAI-Start-Module has a Problem - either it does not exist or it is not public - which is required!');}
 
     /**
@@ -87,8 +87,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                                                     \LIB\lib_system::js(),
                                                     new \SYSTEM\PSAI('page/js/sai.js')))).
                 \SYSTEM\HTML\html::script(  \LIB\lib_tinymce::js()->WEBPATH(false)).
-                \SYSTEM\HTML\html::script('https://www.google.com/jsapi').
-                '<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>';
+                \SYSTEM\HTML\html::script('https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22visualization%22%2C%22version%22%3A%221.0%22%2C%22packages%22%3A%5B%22corechart%22%5D%7D%5D%7D');
     }
 
     /**
@@ -123,7 +122,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
         $result = '';
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         foreach($langs as $lang){
-            $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('page/tpl/language.tpl'))->SERVERPATH(),array('lang' => $lang,'endpoint' => $endpoint));}
+            $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('page/tpl/language.tpl'))->SERVERPATH(),array('lang' => $lang));}
         return $result;
     }
 }
