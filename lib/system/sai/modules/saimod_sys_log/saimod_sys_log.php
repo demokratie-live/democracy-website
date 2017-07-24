@@ -464,10 +464,10 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
                 return 'success';
             case 'SYSTEM\LOG\DEPRECATED': case 'DEPRECATED':
                 return 'info';
-            case 'SYSTEM\LOG\ERROR': case 'ERROR': case 'Exception': case 'SYSTEM\LOG\ERROR_EXCEPTION':
-            case 'ErrorException': case 'SYSTEM\LOG\SHUTDOWN_EXCEPTION':
-                return 'danger';
-            case 'SYSTEM\LOG\WARNING': case 'WARNING':
+            //case 'SYSTEM\LOG\ERROR': case 'ERROR': case 'Exception': case 'SYSTEM\LOG\ERROR_EXCEPTION':
+            //case 'ErrorException': case 'SYSTEM\LOG\SHUTDOWN_EXCEPTION':
+            //    return 'danger';
+            case 'SYSTEM\LOG\WARNING': case 'WARNING': case 'SYSTEM\LOG\TODO': case 'TODO':
                 return 'warning';
             default:
                 return 'danger';
