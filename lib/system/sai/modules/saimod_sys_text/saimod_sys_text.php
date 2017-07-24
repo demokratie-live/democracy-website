@@ -100,7 +100,7 @@ class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_list_entry.tpl'))->SERVERPATH(), $r);
             $count_filtered++;}
         $vars['pagination'] = '';
-        $vars['page_last'] = ceil($count/100)-1;
+        $vars['page_last'] = floor($count/100);
         for($i=0;$i < ceil($count/100);$i++){
             $data = array('page' => $i,'search' => $search, 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '', 'tag' => $tag);
             $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_text/tpl/saimod_sys_text_pagination.tpl'))->SERVERPATH(), $data);

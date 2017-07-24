@@ -102,8 +102,8 @@ class text {
         if($lang == NULL){
             $lang = \SYSTEM\locale::get();}
 
-        if(!\SYSTEM\locale::isLang($lang)){
-            throw new \Exception("The requested language is not supported: ".$lang);}
+        /*if(!\SYSTEM\locale::isLang($lang)){
+            throw new \Exception("The requested language is not supported: ".$lang);}*/
 
         $res = \SYSTEM\SQL\SYS_TEXT_GET_ID::Q1(array($id,$lang));
         if($fallback && !$res && $lang != \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG)){
