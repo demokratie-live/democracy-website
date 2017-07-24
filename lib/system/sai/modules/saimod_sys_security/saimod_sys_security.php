@@ -251,7 +251,6 @@ class saimod_sys_security extends \SYSTEM\SAI\SaiModule {
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_security(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_SECURITY);
-        $vars['PICPATH'] = (new \SYSTEM\PSAI('modules/saimod_sys_log/img/'))->WEBPATH(false);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_security/tpl/saimod_sys_security.tpl'))->SERVERPATH(), $vars);}
     
     /**

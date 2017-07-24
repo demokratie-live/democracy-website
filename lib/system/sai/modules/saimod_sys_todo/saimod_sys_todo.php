@@ -119,7 +119,6 @@ class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_todo(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_TODO);
-        $vars['PICPATH'] = (new \SYSTEM\PSAI('modules/saimod_sys_log/img/'))->WEBPATH(false);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/saimod_sys_todo.tpl'))->SERVERPATH(), $vars);
     }
     

@@ -78,12 +78,12 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
      * @param string $name Name of the Files Directory
      * @return string Returns HTML
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_files_action_tab($name = 'saistart_sys_sai'){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_files_action_tab($name = 'sai'){
         $result = '';
         $cat = \SYSTEM\FILES\files::get($name);
         $i = 0;
         foreach($cat as $file){
-            $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_files/tpl/saimod_sys_files_list_entry.tpl'))->SERVERPATH(), array('i' => $i++, 'cat' => $name, 'name' => $file, 'extension' => substr($file,-3,3), 'url' => 'api.php?call=files&cat='.$name.'&id='.$file));}
+            $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_files/tpl/saimod_sys_files_list_entry.tpl'))->SERVERPATH(), array('i' => $i++, 'cat' => $name, 'name' => $file, 'extension' => substr($file,-3,3), 'url' => './files/'.$name.'/'.$file));}
         $vars['cat'] = $name;
         $vars['content'] = $result;
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_FILES));    

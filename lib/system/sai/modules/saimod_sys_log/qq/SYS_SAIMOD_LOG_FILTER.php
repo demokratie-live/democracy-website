@@ -33,7 +33,10 @@ class SYS_SAIMOD_LOG_FILTER extends \SYSTEM\DB\QP {
 ' ON '.\SYSTEM\SQL\system_log::NAME_PG.'.'.\SYSTEM\SQL\system_log::FIELD_USER.
 ' = '.\SYSTEM\SQL\system_user::NAME_PG.'.'.\SYSTEM\SQL\system_user::FIELD_ID.
 ' WHERE '.\SYSTEM\SQL\system_log::FIELD_CLASS.' LIKE $1'.
-' AND ('.\SYSTEM\SQL\system_log::FIELD_MESSAGE.' LIKE $2 OR '.\SYSTEM\SQL\system_log::FIELD_FILE.' LIKE $3 OR '.\SYSTEM\SQL\system_log::FIELD_IP.' LIKE $4)'.
+' AND ('.\SYSTEM\SQL\system_log::FIELD_MESSAGE.' LIKE $2'.
+' OR '.\SYSTEM\SQL\system_log::FIELD_FILE.' LIKE $3'.
+' OR '.\SYSTEM\SQL\system_log::FIELD_IP.' LIKE $4'.
+' OR '.\SYSTEM\SQL\system_log::FIELD_REQUEST_URI.' LIKE $5'.')'.
 ' ORDER BY '.\SYSTEM\SQL\system_log::FIELD_TIME.' DESC, '.\SYSTEM\SQL\system_log::NAME_PG.'."'.\SYSTEM\SQL\system_log::FIELD_ID.'" DESC;';
     }
     
@@ -48,7 +51,10 @@ class SYS_SAIMOD_LOG_FILTER extends \SYSTEM\DB\QP {
 ' ON '.\SYSTEM\SQL\system_log::NAME_MYS.'.'.\SYSTEM\SQL\system_log::FIELD_USER.
 ' = '.\SYSTEM\SQL\system_user::NAME_MYS.'.'.\SYSTEM\SQL\system_user::FIELD_ID.
 ' WHERE '.\SYSTEM\SQL\system_log::FIELD_CLASS.' LIKE ?'.
-' AND ('.\SYSTEM\SQL\system_log::FIELD_MESSAGE.' LIKE ? OR '.\SYSTEM\SQL\system_log::FIELD_FILE.' LIKE ? OR '.\SYSTEM\SQL\system_log::FIELD_IP.' LIKE ?)'.
+' AND ('.\SYSTEM\SQL\system_log::FIELD_MESSAGE.' LIKE ?'.
+' OR '.\SYSTEM\SQL\system_log::FIELD_FILE.' LIKE ?'.
+' OR '.\SYSTEM\SQL\system_log::FIELD_IP.' LIKE ?'.
+' OR '.\SYSTEM\SQL\system_log::FIELD_REQUEST_URI.' LIKE ?'.')'.
 ' ORDER BY '.\SYSTEM\SQL\system_log::FIELD_TIME.' DESC, '.\SYSTEM\SQL\system_log::NAME_MYS.'.'.\SYSTEM\SQL\system_log::FIELD_ID.' DESC;';
     }
 }

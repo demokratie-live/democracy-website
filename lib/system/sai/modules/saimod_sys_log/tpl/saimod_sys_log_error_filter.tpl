@@ -1,1 +1,1 @@
-<li class="${active}"><a href="#!log;filter.${filter};search.${search}">${filter}</a></li>
+<li class="${active}"><a href="#!log;filter.${filter};search.${search_encoded}">${filter}</a></li>
