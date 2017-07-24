@@ -85,8 +85,7 @@
             <div class="panel-heading"><a href="#!git">${basic_git}</a></div>
             <div class="panel-body">
                 <div class="inner-page">
-                    <b>Current Project Version:</b> ${git_project}<br/>
-                    <b>Current SYSTEM Version:</b> ${git_system}
+                    ${git}
                 </div>
             </div>
         </div>

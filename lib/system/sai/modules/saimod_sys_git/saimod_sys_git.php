@@ -22,7 +22,7 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_git(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_GIT);
-        $vars = array_merge($vars,self::getGitInfo());
+        $vars['panels'] = self::getGitInfo();
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_git/tpl/saimod_sys_git.tpl'))->SERVERPATH(), $vars);}
     
     /**
@@ -32,24 +32,34 @@ class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
      */
     public static function getGitInfo(){
         \LIB\lib_git::php();
-        $result = array('git_project' => '', 'git_system' => '');
-        try{
-            $repo = \GIT\Git::open(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH));
-            $result['git_project'] = '<a href="http://www.mojotrollz.eu/git/hosting/commit/'.$repo->run('rev-parse HEAD').'" target="_blank">'.$repo->run('rev-parse --short HEAD').'</a><br/>';
-            $result['git_project'] .= $repo->run('log -1 --pretty=%B');
-            
-        } catch (\Exception $ex) {
-            $result['git_project'] = $ex->getMessage();
+        $gits = array(array('title' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT), 'path' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH)),
+                      );//array('title' => 'Current SYSTEM Version', 'path' => \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH).\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL)));
+        $result = '';
+        
+        $i = 0;
+        while($i < count($gits)){
+            $git = $gits[$i];
+            try{
+                $repo = \GIT\Git::open($git['path']);
+                $git['git_project'] = $repo->run('ls-remote --get-url').'<br><br>';
+                $git['git_project'] .= nl2br(htmlentities($repo->run('log --date=relative --graph -3')));
+                
+                $subs = explode("\n",$repo->run('config --file .gitmodules --get-regexp path'));
+                foreach($subs as $sub){
+                    if($sub == ''){
+                        continue;}
+                    $gits[] = array('title' => $git['title'].'/'.explode('.',$sub)[1],
+                                    'path'  => $git['path'].preg_replace('/\s+/', '', explode('path ',$sub)[1]).'/');
+                    //echo $git['title'].'/'.explode('.',$sub)[1].' - '.$git['path'].preg_replace('/\s+/', '', explode('path ',$sub)[1]).'/<br>';
+                }
+
+            } catch (\Exception $ex) {
+                $git['git_project'] = 'Error: '.$git['path'].' '.$ex->getMessage();
+            }
+            $i++;
+            $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_git/tpl/saimod_sys_git_panel.tpl'))->SERVERPATH(), $git);
         }
         
-        try{
-            $repo = \GIT\Git::open(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH).\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL));
-            $result['git_system'] .= '<li>';
-            $result['git_system'] = '<a href="http://www.mojotrollz.eu/git/system/commit/'.$repo->run('rev-parse HEAD').'" target="_blank">'.$repo->run('rev-parse --short HEAD').'</a><br/>';
-            $result['git_system'] .= $repo->run('log -1 --pretty=%B');
-        } catch (\Exception $ex) {
-            $result['git_system'] = $ex->getMessage();
-        }
         return $result;
     }
     

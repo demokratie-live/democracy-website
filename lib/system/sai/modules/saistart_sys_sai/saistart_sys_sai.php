@@ -43,10 +43,19 @@ class saistart_sys_sai extends \SYSTEM\SAI\SaiModule {
             $stat['perc'] = round($stat['state_closed'] / ($stat['state_open']+$stat['state_closed']),2)*100;
             $vars['userstats'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_todo/tpl/todo_stats_users_entry.tpl'))->SERVERPATH(), $stat);
         }
+        
+        \LIB\lib_git::php();
+        try{
+            $repo = \GIT\Git::open(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH));
+            $vars['git'] = $repo->run('ls-remote --get-url').'<br><br>';
+            $vars['git'] .= nl2br(htmlentities($repo->run('log --date=relative -1')));
+        } catch (\Exception $ex) {
+            $vars['git'] = 'Error: '.$ex->getMessage();
+        }
+        
         $vars = array_merge(    $vars,
                                 \SYSTEM\SAI\saimod_sys_todo::statistics(),
-                                \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START),
-                                \SYSTEM\SAI\saimod_sys_git::getGitInfo());
+                                \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_START));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saistart_sys_sai/tpl/content_loggedin.tpl'))->SERVERPATH(), $vars);
     }
     
