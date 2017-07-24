@@ -3,8 +3,8 @@
         <h4><span class="glyphicon glyphicon-saved" aria-hidden="true"></span>&nbsp;&nbsp;${sai_git_title}</h4>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
+<div class="row-fluid">
+    <div class="col-md-12 sai_padding_off">
         <hr>
     </div>
 </div>

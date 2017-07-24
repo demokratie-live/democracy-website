@@ -81,7 +81,7 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
                         array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT,
                                 'name' =>'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT',
                                 'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT)));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config.tpl'))->SERVERPATH(),$vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/saimod_sys_config.tpl'))->SERVERPATH(),$vars);
     }
     
     /**

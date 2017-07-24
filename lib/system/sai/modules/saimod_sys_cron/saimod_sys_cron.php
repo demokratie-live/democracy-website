@@ -33,7 +33,7 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
             $r['i'] = $i++;
             $vars['content'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/list_entry.tpl'))->SERVERPATH(), $r);}   
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CRON), \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_TIME));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/tabs.tpl'))->SERVERPATH(), $vars);
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/saimod_sys_cron.tpl'))->SERVERPATH(), $vars);
     }
     
     /**

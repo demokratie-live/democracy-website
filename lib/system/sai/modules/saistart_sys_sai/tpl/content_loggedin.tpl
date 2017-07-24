@@ -92,7 +92,7 @@
     </div>
 </div>
 <div class="row-fluid">
-    <div class="col-md-12">
+    <div class="col-md-12 sai_padding_off">
         <div class="well" id="todo">
             <h2 class="muted"><a href="#!todo">${basic_todo}</a></h2>
             <b>${basic_status}:</b> ${project_closed}/${project_all}<br/>
@@ -102,7 +102,7 @@
     </div>
 </div>
 <div class="row-fluid">
-    <div class="col-md-12">
+    <div class="col-md-12 sai_padding_off">
         <div class="well" id="log">
             <h2 class="muted"><a href="#!log">${basic_log}</a></h2>
             <h4 class="muted">100 ${sai_log_latest_entries}</h4>

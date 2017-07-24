@@ -89,7 +89,7 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
      * @return string Returns HTML for the Saimods startpage
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod(){
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mods.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD));}
+        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/saimod_sys_mod.tpl'))->SERVERPATH(),\SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD));}
     
     /**
      * Generate <li> Menu for the Saimod
