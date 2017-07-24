@@ -2,7 +2,7 @@
     <td>${name}</td>
     <td>${extension}</td>
     <td>
-        <a href="${url}" target="_blank" id="tooltip_${cat}_${i}" onmouseover="saimod_sys_files_tooltip('tooltip_${cat}_${i}','${name}','${cat}')">${url}</a>
+        <a data-toggle="tooltip" title="<img src='${url}'/>" href="${url}" target="_blank" id="tooltip_${cat}_${i}">${url}</a>
     </td>
     <td>
         <button type="submit" class="btn-warning btn btn-sm imgrnbtn" style="margin: 1px;;" cat="${cat}" id="${name}" textfield="#renametext_${cat}_${i}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
