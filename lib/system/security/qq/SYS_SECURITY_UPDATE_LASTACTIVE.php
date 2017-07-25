@@ -22,6 +22,11 @@ class SYS_SECURITY_UPDATE_LASTACTIVE extends \SYSTEM\DB\QP {
      */
     public static function get_class(){return \get_class();}
     
+    /**
+     * SQL Insert Types
+     * 
+     * @return string Returns sql Insert Types
+     */
     public static function types(){return
 'si';
     }

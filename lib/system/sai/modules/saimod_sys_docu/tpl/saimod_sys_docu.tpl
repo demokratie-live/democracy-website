@@ -1,6 +1,6 @@
 <div class="row-fluid">
-    <div class="col-md-12">
-        <h4><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;${sai_docu_title}</h4>
+    <div class="col-md-12 sai_padding_off">
+        <h4>&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;${sai_docu_title}</h4>
     </div>
 </div>
 <div class="row-fluid">
@@ -17,7 +17,9 @@
                 <button id="btn_generate_md" class="btn-primary btn btn-sm" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> ${basic_generate} MD</button>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane active" id="tab_docu"></div>
+                <div class="tab-pane active" id="tab_docu">
+                    <iframe src="${iframesrc}" style="width: 100%; min-height: 700px;"></iframe>
+                </div>
             </div>
         </div>
     </div>

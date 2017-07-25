@@ -58,6 +58,12 @@ class cron {
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
+    /**
+     * Run a specific registered Cronjob by classname if its time to do so.
+     *
+     * @param string Classname of the cronjob
+     * @return JSON Returns Json::ok()
+     */
     public static function run_class($class){
         $cron = \SYSTEM\SQL\SYS_SAIMOD_CRON_SINGLE_SELECT::Q1(array($class));
         if(!$cron){

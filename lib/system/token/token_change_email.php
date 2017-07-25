@@ -47,10 +47,22 @@ class token_change_email implements token_handler{
         return $result;
     }
 
+    /**
+     * Callback text_fail on fail
+     *
+     * @param array $token_data Token Data
+     * @return string Returns token fail string.
+     */
     public static function text_fail($token_data) {
         $data = \json_decode($token_data['data'],true);
         return 'Could NOT change your Account\'s EMail-Address to '.$data['email'].'. Token is expired or invalid.';}
 
+    /**
+     * Callback text_success on success
+     *
+     * @param array $token_data Token Data
+     * @return string Returns token success string.
+     */
     public static function text_success($token_data) {
         $data = \json_decode($token_data['data'],true);
         return 'Changed your Account\'s EMail-Address to '.$data['email'].'.';}

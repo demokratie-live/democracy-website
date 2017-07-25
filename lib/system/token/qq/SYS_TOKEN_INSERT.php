@@ -22,6 +22,11 @@ class SYS_TOKEN_INSERT extends \SYSTEM\DB\QP {
      */
     public static function get_class(){return \get_class();}
     
+    /**
+     * SQL Insert Types
+     * 
+     * @return string Returns sql Insert Types
+     */
     public static function types(){return
 'ssssis';
     }

@@ -18,33 +18,31 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
     /**
      * Generate the HTML for the Saimods startpage
      * 
+     * @param string $cat Docu selected
      * @return string Returns HTML for the Saimods startpage
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu(){
-        $phpdocconfigs = \SYSTEM\DOCU\docu::getAll();
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu($cat = '\SYSTEM\DOCU\docu_system'){
+        $docu_packages = \SYSTEM\DOCU\docu::getAll();
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_DOCU);
+        $vars['iframesrc'] = \SYSTEM\DOCU\docu::get($cat)['outpath']->WEBPATH(false);
         $vars['tabopts'] = '';
-        foreach($phpdocconfigs as $config){
-            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/tabopt.tpl'))->SERVERPATH(), array('tab_id' => $config['id'],'tab_id_pretty' => $config['title']));}
+        foreach($docu_packages as $package){
+            $config = \SYSTEM\DOCU\docu::get($package);
+            $vars['tabopts'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/tabopt.tpl'))->SERVERPATH(), array('tab_id' => $package,'tab_id_pretty' => $config['title'], 'active' => $package == $cat ? 'active' : ''));}
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu.tpl'))->SERVERPATH(), $vars);
     }  
     
     /**
      * Generate the HTML Documentation
      * 
-     * @return null Returns null
+     * @return json Returns jsn with log
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate(){
-        \LIB\lib_phpdocumentor::php();
-        $configs = \SYSTEM\DOCU\docu::getAll();
-        foreach($configs as $config){
-            \phpdocumentor::run(    $config['inpath'],
-                                    $config['outpath'],
-                                    $config['cachepath'],
-                                    $config['ignore'],
-                                    $config['title'],
-                                    $config['sourcecode'],
-                                    $config['parseprivate']);}
+        $result = array();
+        $packages = \SYSTEM\DOCU\docu::getAll();
+        foreach($packages as $package){
+            $result[] = \SYSTEM\DOCU\docu::generate($package);}
+        return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
     /**
@@ -53,22 +51,10 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
      * @return null Returns null
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate_md(){
-        \LIB\lib_phpdoc_md::php();
-        $configs = \SYSTEM\DOCU\docu::getAll();
-        foreach($configs as $config){
-            \phpdoc_md::run(    $config['inpath_md'],
-                                $config['outpath_md']);}
+        $packages = \SYSTEM\DOCU\docu::getAll();
+        foreach($packages as $package){
+            \SYSTEM\DOCU\docu::generate_md($package);}
     }
-    
-    /**
-     * Generate the HTML for the Iframe of the selected Category
-     * 
-     * @param string $cat Category of the Documentation to be presented
-     * @return string Returns HTML
-     */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_cat($cat = 'system'){
-        $vars = array('iframesrc' => \SYSTEM\DOCU\docu::get($cat)['outpath']->WEBPATH(false));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_docu/tpl/saimod_sys_docu_iframe.tpl'))->SERVERPATH(), $vars);}
     
     /**
      * Generate <li> Menu for the Saimod

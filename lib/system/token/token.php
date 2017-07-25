@@ -47,6 +47,7 @@ class token{
      *
      * @param string $class Token_handler Class
      * @param array $data Data sved to Database for the token_handler on confirm
+     * @param string $post_script Function to be called after successfull token confirm
      * @return string Returns token string.
      */
     public static function request($class,$data=array(),$post_script=null){
@@ -91,6 +92,12 @@ class token{
         return \SYSTEM\SQL\SYS_TOKEN_CONFIRM::QI(array( \SYSTEM\SECURITY\security::isLoggedIn() ? \SYSTEM\SECURITY\security::getUser()->id : null, $token));
     }
     
+    /**
+     * Call token text_success on success
+     *
+     * @param string $token token_handler Classname
+     * @return string Returns token success string.
+     */
     public static function text_success($token){
         $res = self::get($token);
         if(!\in_array($res['class'], self::$type_handlers)){
@@ -98,6 +105,12 @@ class token{
         return \call_user_func_array(array($res['class'], 'text_success'),array($res));
     }
     
+    /**
+     * Call token text_fail on fail
+     *
+     * @param string $token token_handler Classname
+     * @return string Returns token fail string.
+     */
     public static function text_fail($token){
         $res = self::get($token);
         if(!\in_array($res['class'], self::$type_handlers)){

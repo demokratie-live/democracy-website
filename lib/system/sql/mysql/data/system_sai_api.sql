@@ -186,7 +186,7 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1100, 42, 0, 0, '_SYSTEM_SAI_saimod_sys_docu', 'action', NULL);
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1101, 42, 3, 1100, 'cat', 'cat', 'STRING');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1101, 42, 3, 0, '_SYSTEM_SAI_saimod_sys_docu', 'cat', 'STRING');
 -- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1110, 42, 3, 1100, 'doc', 'cat', 'STRING');
 -- REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (1111, 42, 3, 1100, 'doc', 'doc', 'STRING');
 

@@ -1,6 +1,6 @@
 <div class="row-fluid">
-    <div class="col-md-12">
-        <h4><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;&nbsp;${sai_log_title}</h4>
+    <div class="col-md-12 sai_padding_off">
+        <h4>&nbsp;<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;&nbsp;${sai_log_title}</h4>
     </div>
 </div>
 <div class="row-fluid">

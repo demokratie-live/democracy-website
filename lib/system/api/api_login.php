@@ -94,8 +94,8 @@ class api_login {
      * System Account Change Password
      *
      * @param string $username Username
-     * @param sha1 $old_password_sha1 Users Old Password SHA1 String
-     * @param sha1 $new_password_sha1 Users New Password SHA1 String
+     * @param string $old_password_sha1 Users Old Password SHA1 String
+     * @param string $new_password_sha1 Users New Password SHA1 String
      * @return JSON Returns JSON result with success/failure status
      */
     public static function call_account_action_change_password($old_password_sha1,$new_password_sha1){
@@ -105,7 +105,7 @@ class api_login {
      * System Account Request Change EMail Token
      *
      * @param string $username Username
-     * @param email $new_email Users new EMail Address
+     * @param string $new_email Users new EMail Address
      * @return JSON Returns JSON result with success/failure status
      */
     public static function call_account_action_change_email($new_email){

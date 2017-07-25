@@ -60,7 +60,12 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_registerform(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/register.tpl'))->SERVERPATH(), $vars);}
-        
+   
+    /**
+     * Request Password Reset
+     * 
+     * @return string Returns HTML
+     */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_login_action_resetpassword(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_LOGIN);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_login/tpl/resetpassword.tpl'))->SERVERPATH(), $vars);}

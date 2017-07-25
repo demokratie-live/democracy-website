@@ -363,6 +363,13 @@ class security {
                 $_SESSION['values'][\SYSTEM\locale::SESSION_KEY] = $_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]->locale;}
     }
     
+    /**
+     * Update Sessiondata upon user infos change
+     *
+     * @param $data Data which has changed
+     * @param $session_id Session ID to be changed or null
+     * @return null Returns null.
+     */
     public static function update_session_data($data,$session_id = null){
         $old_session_id = \session_id();
         if($session_id){

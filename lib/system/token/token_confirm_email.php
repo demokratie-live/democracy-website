@@ -46,10 +46,22 @@ class token_confirm_email implements token_handler{
             \SYSTEM\SECURITY\security::update_session_data(array('email_confirmed' => 1), $res['session_id']);}
         return $result;
     }
-        
+    
+    /**
+     * Callback text_fail on fail
+     *
+     * @param array $token_data Token Data
+     * @return string Returns token fail string.
+     */
     public static function text_fail($token_data) {
         return 'Could NOT confirm your EMail-Address. Token is expired or invalid.';}
 
+    /**
+     * Callback text_success on success
+     *
+     * @param array $token_data Token Data
+     * @return string Returns token success string.
+     */
     public static function text_success($token_data) {
         return 'Confirmed your EMail-Address.';}
 }

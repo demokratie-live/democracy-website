@@ -24,33 +24,6 @@ class saigui {
      * @return html Returns html of sai defaultpage.
      */
     public function html(){
-        //register docu here, we require path so system must be started
-        \SYSTEM\DOCU\docu::register(array(  'id' => 'system',
-                                            'inpath' => new \SYSTEM\PSYSTEM(),
-                                            'outpath' => new \SYSTEM\PSYSTEM('docu/system/'),
-                                            'inpath_md' => new \SYSTEM\PSYSTEM('docu/system/structure.xml'),
-                                            'outpath_md' => new \SYSTEM\PSYSTEM('docu/system_wiki/'),
-                                            'cachepath' => new \SYSTEM\PSYSTEM('docu/system/cache/'),
-                                            'ignore' => array(  'lib/animate/*',
-                                                                'lib/bootstrap/*',
-                                                                'lib/bootstrap_growl/*',
-                                                                'lib/git/*',
-                                                                'lib/jqbootstrapvalidation/*',
-                                                                'lib/jquery/*',
-                                                                'lib/lettering/*',
-                                                                'lib/markdown/*',
-                                                                'lib/minify/*',
-                                                                'lib/phpdocumentor/*',
-                                                                'lib/scssphp/*',
-                                                                'lib/tablesorter/*',
-                                                                'lib/textillate/*',
-                                                                'lib/tinymce/*',
-                                                                'lib/jstree/*',
-                                                                'lib/phpdoc_md/*'),
-                                            'sourcecode' => true,
-                                            'parseprivate' => false,
-                                            'title' => 'SYSTEM - PHP Framework'));
-        
         \SYSTEM\SECURITY\security::isLoggedIn(); // refresh session
         //Direct JSON Input
         $pg = json_decode(file_get_contents("php://input"), true);

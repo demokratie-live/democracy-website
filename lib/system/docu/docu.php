@@ -12,39 +12,70 @@
 namespace SYSTEM\DOCU;
 
 /**
- * Docu Class provided by System to register phpdocumentor configs.
+ * Docu Class provided by System to register docu_packages.
  */
 class docu {
-    /** array Variable to store all registred phpdocconfigs */
-    private static $phpdocconfigs = array();
+    /** array Variable to store all registred docu_package classes */
+    private static $docu_packages = array();
     
     /**
-     * Register a phpdocconfig
+     * Register a docu package
      *
-     * @param array $phpdocconfig Config to be registered
+     * @param string $docu_package Classname of Docu Package to be registered
      * @return null Returns null.
      */
-    public static function register($phpdocconfig){
-        array_push(self::$phpdocconfigs,$phpdocconfig);}
+    public static function register($docu_package){
+        array_push(self::$docu_packages,$docu_package);}
         
     /**
-     * Get all registered phpdocconfigs
+     * Get all registered docu packages
      *
-     * @return array Returns array with all registered phpdocconfigs.
+     * @return array Returns array with all registered docu package class names.
      */
     public static function getAll(){
-        return self::$phpdocconfigs;}
+        return self::$docu_packages;}
     
     /**
-     * Get a specific phpdocconfig by id
+     * Get a specific docu package by classname
      *
-     * @param string $id Phpdocconfig id to be found
+     * @param string $id Class name of the package to be found
      * @return array Returns the specific config or throws an Error.
      */
     public static function get($id){
-        foreach(self::$phpdocconfigs as $config){
-            if($config['id'] == $id){
-                return $config;}}
-        throw new ERROR('PhpDocConfig for id '.$id.' not found.');
+        foreach(self::$docu_packages as $package){
+            if($package == $id){
+                return \call_user_func($package.'::get_config');}}
+        throw new \SYSTEM\LOG\ERROR('Docu Package with classname "'.$id.'" not found.');
+    }
+    
+    /**
+     * Generate HTML Docu by docu classname
+     *
+     * @param string $id Classname of Docu Package to generated
+     * @return array Returns array with logs.
+     */
+    public static function generate($id){
+        \LIB\lib_phpdocumentor::php();
+        $config = \SYSTEM\DOCU\docu::get($id);
+        return \phpdocumentor::run( $config['inpath'],
+                                    $config['outpath'],
+                                    $config['cachepath'],
+                                    $config['ignore'],
+                                    $config['title'],
+                                    $config['sourcecode'],
+                                    $config['parseprivate']);
+    }
+    
+    /**
+     * Generate Markdown Docu by docu classname
+     *
+     * @param string $id Classname of Docu Package to generated
+     * @return array Returns array with logs.
+     */
+    public static function generate_md($id){
+        \LIB\lib_phpdoc_md::php();
+        $config = \SYSTEM\DOCU\docu::get($id);
+        \phpdoc_md::run(    $config['inpath_md'],
+                            $config['outpath_md']);
     }
 }

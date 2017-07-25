@@ -62,6 +62,14 @@ class time {
         }
     }
     
+    /**
+     * Calaculate the time which has to pass till the given timestamp.
+     * Scaling from seconds to years. Required strings from tag
+     * 'time' to be included.
+     *
+     * @param int $time Unixtimestamp to be converted
+     * @return string Returns scaled time string.
+     */
     public static function time_in_string($time){
         $etime = $time - time();
         if ($etime < 1){

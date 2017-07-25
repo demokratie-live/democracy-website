@@ -100,6 +100,7 @@ class ConnectionAMQP extends ConnectionAbstr {
      * @param string $stmtName Name of the Statement - espec for PostgreSQL important
      * @param string $stmt SQL string of the Statement
      * @param array $values Array of Prepare Values
+     * @param string $types types sql prepare string
      * @return Result Returns Database Query Result.
      */
     public function prepare($stmtName, $stmt, $values, $types = null){

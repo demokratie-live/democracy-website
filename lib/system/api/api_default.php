@@ -11,6 +11,10 @@
  */
 namespace SYSTEM\API;
 
+/**
+ * api_default Interface used internally in api_default Class
+ * can be used insted of api_default if hashbang mechanic should not be used.
+ */
 interface api_default_interface {
     /**
      * API Group function - implement this function and return the Groupnumber
