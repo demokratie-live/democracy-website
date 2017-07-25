@@ -49,7 +49,7 @@ class locale {
      */
     public static function get(){
         $value = \SYSTEM\SECURITY\security::load(self::SESSION_KEY);
-        if($value == NULL){
+        if($value == NULL || !self::isLang($value)){
             return \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG);}
         return $value;
     }
