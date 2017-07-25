@@ -8,8 +8,8 @@ reapearing problems in a good ecapsulated modern way.
 Software Requirements
 =====================
 
-    PHP 5.6+ (new CLASS())->func() must be possible
-    Mysql/Postgressql
+    PHP 5.6+
+    Mysql (Postgressql (deprecated))
 
 Installation
 ============
