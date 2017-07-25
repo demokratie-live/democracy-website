@@ -57,13 +57,22 @@ class docu {
     public static function generate($id){
         \LIB\lib_phpdocumentor::php();
         $config = \SYSTEM\DOCU\docu::get($id);
-        return \phpdocumentor::run( $config['inpath'],
-                                    $config['outpath'],
-                                    $config['cachepath'],
-                                    $config['ignore'],
-                                    $config['title'],
-                                    $config['sourcecode'],
-                                    $config['parseprivate']);
+        $result1 = \phpdocumentor::run( $config['inpath'],
+                                        $config['outpath'],
+                                        $config['cachepath'],
+                                        $config['ignore'],
+                                        $config['title'],
+                                        $config['sourcecode'],
+                                        $config['parseprivate']);
+        $result2 = \phpdocumentor::run( $config['inpath'],
+                                        $config['outpath'],
+                                        $config['cachepath'],
+                                        $config['ignore'],
+                                        $config['title'],
+                                        $config['sourcecode'],
+                                        $config['parseprivate'],
+                                        'xml');
+        return array_merge($result1,$result2);
     }
     
     /**
@@ -75,7 +84,7 @@ class docu {
     public static function generate_md($id){
         \LIB\lib_phpdoc_md::php();
         $config = \SYSTEM\DOCU\docu::get($id);
-        \phpdoc_md::run(    $config['inpath_md'],
-                            $config['outpath_md']);
+        return \phpdoc_md::run( $config['inpath_md'],
+                                $config['outpath_md']);
     }
 }

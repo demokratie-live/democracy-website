@@ -51,9 +51,11 @@ class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
      * @return null Returns null
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_docu_action_generate_md(){
+        $result = array();
         $packages = \SYSTEM\DOCU\docu::getAll();
         foreach($packages as $package){
-            \SYSTEM\DOCU\docu::generate_md($package);}
+            $result[] = \SYSTEM\DOCU\docu::generate_md($package);}
+        return \SYSTEM\LOG\JsonResult::toString($result);
     }
     
     /**
