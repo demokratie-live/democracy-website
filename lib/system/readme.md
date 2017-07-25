@@ -10,6 +10,8 @@ Software Requirements
 
     PHP 5.6+
     Mysql (Postgressql (deprecated))
+	Apache (only htaccess is provided)
+	Graphviz (for phpdocumentor)
 
 Installation
 ============
