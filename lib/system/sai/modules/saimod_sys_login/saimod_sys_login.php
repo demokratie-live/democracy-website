@@ -47,9 +47,9 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
             return;}
         return json_encode(array(   'username' => $user->username,
                                     'email' => $user->email,
-                                    'joindate' => $user->creationDate,
+                                    'joindate' => $user->joindate,
                                     'locale' => $user->locale,
-                                    'last_active' => $user->lastLoginDate));        
+                                    'last_active' => $user->last_active));        
     }        
     
     /**
