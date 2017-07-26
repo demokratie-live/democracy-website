@@ -46,7 +46,7 @@ class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
         if(!$user){
             return;}
         return json_encode(array(   'username' => $user->username,
-                                    'email' => $user->email,
+                                    'email' => $user->email.($user->email_confirmed ? ' (confirmed)' : ''),
                                     'joindate' => $user->joindate,
                                     'locale' => $user->locale,
                                     'last_active' => $user->last_active));        
