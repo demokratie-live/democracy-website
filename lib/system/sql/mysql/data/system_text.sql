@@ -337,6 +337,14 @@
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_save', 'basic');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_save', 'sai_text');
 
+    DELETE FROM `system_text` WHERE id = 'basic_save_close';
+    DELETE FROM `system_text_tag` WHERE id = 'basic_save_close';
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_save_close', 'deDE', 'Speichern & Schließen', 2, 2, '2015-04-20 01:46:06', '2015-04-20 01:46:06');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_save_close', 'enUS', 'Save & Close', 2, 2, '2015-04-18 13:35:09', '2015-04-18 13:35:09');
+    INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_save_close', 'frFR', 'Mémoriser & Fermer', 3, 3, '2015-04-20 16:29:38', '2015-04-20 16:29:38');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_save_close', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_save_close', 'sai_text');
+
     DELETE FROM `system_text` WHERE id = 'basic_show_all';
     DELETE FROM `system_text_tag` WHERE id = 'basic_show_all';
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_show_all', 'deDE', 'Alle anzeigen', 2, 2, '2015-04-20 01:44:40', '2015-04-20 01:44:40');
