@@ -26,21 +26,20 @@ class saigui {
     public function html(){
         \SYSTEM\SECURITY\security::isLoggedIn(); // refresh session
         //Direct JSON Input
-        $pg = json_decode(file_get_contents("php://input"), true);
-        if(!$pg){
-            $pg = array_merge($_POST,$_GET);}
+        //$pg = json_decode(file_get_contents("php://input"), true);
+        //if(!$pg){
+        $pg = array_merge($_POST,$_GET);//}
         if(isset($pg[self::SAI_MOD_POSTFIELD])){
             $classname = \str_replace('.', '\\', $pg[self::SAI_MOD_POSTFIELD]);
             $pg[self::SAI_MOD_POSTFIELD] = \str_replace('.', '_', $pg[self::SAI_MOD_POSTFIELD]);
                         
-            $mods = \SYSTEM\SAI\sai::getAllModules();        
             if( $classname &&
-                \array_search($classname, $mods) !== false &&
+                \array_search($classname, \SYSTEM\SAI\sai::getAllModules()) !== false &&
                 (   \call_user_func(array($classname, 'right_public')) ||
                     \call_user_func(array($classname, 'right_right')))){                                        
                     return \SYSTEM\API\api::run('\SYSTEM\API\verify', $classname , $pg, 42, true, false);
-                } else {    
-                    return '<meta http-equiv="refresh" content="0; url=./sai.php">You are no longer logged in. Page reload in 5sec...';}
+                } else {
+                    return '<script type="text/javascript"> window.location = "./sai.php?redirect="+JSON.stringify(system.cur_state());</script>';}
         } else {            
             return \SYSTEM\API\api::run('\SYSTEM\API\verify', '\SYSTEM\SAI\SaiModule', $pg, 42, false, true);}
     }
