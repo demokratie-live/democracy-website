@@ -26,6 +26,12 @@
                                 <span class="icon-bar"></span>
                             </button>
                             ${menu_start}
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-project-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
                         </div>
                         <div class="collapse navbar-collapse navHeaderCollapse sai_margin_left_off sai_padding_left_off" id="menu-collapse">
                             <ul class="nav navbar-nav sai_menu_first">
@@ -37,9 +43,11 @@
             </div>    
             <div class="row">
                 <div class="col-md-2" style="padding-top: 20px;">
-                    <ul class="nav nav-pills nav-stacked ">                
-                        ${menu_proj}
-                    </ul>
+                    <div class="collapse navbar-collapse sai_padding_off" id="menu-project-collapse">
+                        <ul class="nav nav-pills nav-stacked head-menu">
+                            ${menu_proj}
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-10 sai_margin_left_off">
                     <div class="row">
