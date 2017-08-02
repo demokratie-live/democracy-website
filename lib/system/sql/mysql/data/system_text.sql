@@ -448,6 +448,8 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_long', 'enUS', 'Username is too long', 0, 0, '2015-04-18 13:17:11', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_long', 'frFR', 'Nom d\'utilisateur trop long!', 3, 3, '2015-04-20 16:26:21', '2015-04-20 16:26:21');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_long', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_long', 'sai_login');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_long', 'sai_start');
 
     DELETE FROM `system_text` WHERE id = 'basic_username_miss';
     DELETE FROM `system_text_tag` WHERE id = 'basic_username_miss';
@@ -455,6 +457,8 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_miss', 'enUS', 'Username required', 0, 0, '2015-04-18 13:17:25', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_miss', 'frFR', 'Nom d\'utilisateur est nécessaire!', 2, 2, '2015-04-21 03:40:34', '2015-04-21 03:40:34');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_miss', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_miss', 'sai_login');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_miss', 'sai_start');
 
     DELETE FROM `system_text` WHERE id = 'basic_username_short';
     DELETE FROM `system_text_tag` WHERE id = 'basic_username_short';
@@ -462,6 +466,8 @@
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_short', 'enUS', 'Username is too short', 0, 0, '2015-04-18 13:17:37', '0000-00-00 00:00:00');
     INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('basic_username_short', 'frFR', 'Nom d\'utilisateur trop court!', 2, 2, '2015-04-21 03:39:06', '2015-04-21 03:39:06');
     INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_short', 'basic');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_short', 'sai_login');
+    INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('basic_username_short', 'sai_start');
 
     DELETE FROM `system_text` WHERE id = 'basic_users';
     DELETE FROM `system_text_tag` WHERE id = 'basic_users';

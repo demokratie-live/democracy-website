@@ -25,9 +25,9 @@
                                             id="bt_login_user"
                                             class="form-control"
                                             placeholder="${basic_placeholder_username}"
-                                            minlength="3" data-validation-minlength-message="${sai_error_username_short}"
-                                            maxlength="16" data-validation-maxlength-message="${sai_error_username_long}"
-                                            required data-validation-required-message="${sai_error_username_miss}"/>
+                                            minlength="3" data-validation-minlength-message="${basic_username_short}"
+                                            maxlength="32" data-validation-maxlength-message="${basic_username_long}"
+                                            required data-validation-required-message="${basic_username_miss}"/>
                                 </div>
                                 <div class="controls">
                                     <input  type="password"
@@ -36,9 +36,8 @@
                                             id="bt_login_password"
                                             class="form-control"
                                             placeholder="${basic_placeholder_password}"
-                                            minlength="5" data-validation-minlength-message="${sai_error_password_short}"
-                                            maxlength="16" data-validation-maxlength-message="${sai_error_password_long}"
-                                            required data-validation-required-message="${sai_error_password_miss}"/>
+                                            minlength="5" data-validation-minlength-message="${basic_password_short}"
+                                            required data-validation-required-message="${basic_password_miss}"/>
                                 </div>        
                                 <div class="help-block"></div>
                                 <input type="hidden" />

@@ -15,6 +15,7 @@
                                     id="register_username"
                                     placeholder="${basic_placeholder_username}"
                                     minlength="3" data-validation-minlength-message="${basic_username_short}"
+                                    maxlength="32" data-validation-maxlength-message="${basic_username_long}"
                                     required data-validation-required-message="${basic_username_miss}"/>
                             <br/>
                             <div id="register-help-block-username" class="help-block" style="float: left; margin-top: 3px;"></div>

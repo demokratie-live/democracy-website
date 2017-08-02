@@ -19,8 +19,8 @@
                                      size="30"
                                      style="margin-bottom: 15px; float: left;"
                                      id="user_email_input"
-                                     data-validation-email-message="${sai_error_email_wrong}"
-                                     required data-validation-required-message="${sai_error_email_miss}"/>
+                                     data-validation-email-message="${basic_email_wrong}"
+                                     required data-validation-required-message="${basic_email_miss}"/>
                          </div>
                          <div class="help-block" style="float: left; margin-top: 3px;"></div>
                      </div>
@@ -37,8 +37,8 @@
                                       style="margin-bottom: 15px; float: left;"
                                       id="user_old_password"
                                       placeholder="${basic_placeholder_user}"
-                                      minlength="5" data-validation-minlength-message="${sai_error_password_short}"
-                                      required data-validation-required-message="${sai_error_password_miss}"/>
+                                      minlength="5" data-validation-minlength-message="${basic_password_short}"
+                                      required data-validation-required-message="${basic_password_miss}"/>
                               <div id="help-block-old-password" class="help-block" style="float: left; margin-top: 3px;"></div>
                           </div>
                           <div class="control-group controls" style="clear: both">
@@ -48,7 +48,7 @@
                                       id="user_new_password1"
                                       name="user_new_password1"
                                       placeholder="${basic_placeholder_password}"
-                                      minlength="5" data-validation-minlength-message="${sai_error_password_short}"/>
+                                      minlength="5" data-validation-minlength-message="${basic_password_short}"/>
                               <div class="help-block" style="float: left; margin-top: 3px;"></div>
                           </div>
                           <div class="control-group controls" style="clear: both">
@@ -59,7 +59,7 @@
                                       name="user_new_password2"
                                       placeholder="${basic_placeholder_password}"
                                       data-validation-matches-match="user_new_password1"
-                                      data-validation-matches-message="${sai_error_password_match}"/>
+                                      data-validation-matches-message="${basic_password_match}"/>
                               <div class="help-block" style="float: left; margin-top: 3px;"></div>
                           </div>
                      </div>
