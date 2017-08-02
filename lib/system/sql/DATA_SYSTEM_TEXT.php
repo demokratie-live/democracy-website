@@ -36,5 +36,9 @@ class DATA_SYSTEM_TEXT extends \SYSTEM\DB\QI {
      * @return array Returns paths of MYSQL compatible sql files
      */
     public static function files_mysql(){
-        return array(   (new \SYSTEM\PSQL('/mysql/data/system_text.sql'))->SERVERPATH());}
+        return array(   (new \SYSTEM\PSQL('/mysql/data/system_text_basic.sql'))->SERVERPATH(),
+                        (new \SYSTEM\PSQL('/mysql/data/system_text_mail.sql'))->SERVERPATH(),
+                        (new \SYSTEM\PSQL('/mysql/data/system_text_sai.sql'))->SERVERPATH(),
+                        (new \SYSTEM\PSQL('/mysql/data/system_text_table.sql'))->SERVERPATH(),
+                        (new \SYSTEM\PSQL('/mysql/data/system_text_time.sql'))->SERVERPATH());}
 }
