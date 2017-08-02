@@ -42,7 +42,7 @@ class QI {
             $command =  'mysql'.
                         ' --host=' . $dbinfo->m_host.
                         ' --user=' . $dbinfo->m_user.
-                        ' --password=' . $dbinfo->m_password.
+                        ' --password="' . $dbinfo->m_password.'"'.
                         ' --database=' . $dbinfo->m_database.
                         ' --default-character-set=utf8'.
                         ' --execute="SOURCE ${file}" 2>&1';
