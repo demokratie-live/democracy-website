@@ -14,4 +14,4 @@ namespace SYSTEM\LOG;
 /**
  * Warning Class provided by System for logging Warnings.
  */
-class WARNING extends \SYSTEM\LOG\TODO {}
+class WARNING extends \SYSTEM\LOG\SYSTEM_EXCEPTION {}

@@ -25,8 +25,6 @@ class error_handler_dbwriter implements \SYSTEM\LOG\error_handler {
      */
     public static function CALL(\Exception $E, $thrown){
         try{
-            if(\property_exists(get_class($E), 'logged') && $E->logged){                
-                return false;} //alrdy logged(this prevents proper thrown value for every system exception)
             $result = \SYSTEM\SQL\SYS_LOG_INSERT::QI(array(
                                                     get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),
                                                     getenv('REMOTE_ADDR'),round(microtime(true) - \SYSTEM\time::getStartTime(),5),
@@ -34,12 +32,9 @@ class error_handler_dbwriter implements \SYSTEM\LOG\error_handler {
                                                     array_key_exists('HTTP_REFERER', $_SERVER) ? $_SERVER['HTTP_REFERER'] : null,
                                                     array_key_exists('HTTP_USER_AGENT',$_SERVER) ? $_SERVER['HTTP_USER_AGENT'] : null,
                                                     ($user = \SYSTEM\SECURITY\security::getUser()) ? $user->id : null,$thrown ? 1 : 0));
-            
-            if(\property_exists(get_class($E), 'logged')){
-                $E->logged = true;} //we just did log
+            if(!\property_exists(get_class($E), 'do_not_todo_log')){
+                \SYSTEM\SAI\saimod_sys_todo::exception($E,false);}
         } catch (\Exception $E){
-            //Dump the Error
-            echo \SYSTEM\LOG\JsonResult::toString((array)$E);
             return false;} //Error -> Ignore
         
         return false; //We just log and do not handle the error!

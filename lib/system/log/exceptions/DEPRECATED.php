@@ -14,4 +14,4 @@ namespace SYSTEM\LOG;
 /**
  * Deprecated Log Class provided by System for marking code as Deprecated.
  */
-class DEPRECATED extends \SYSTEM\LOG\TODO {}
+class DEPRECATED extends \SYSTEM\LOG\SYSTEM_EXCEPTION {}

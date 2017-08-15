@@ -14,4 +14,4 @@ namespace SYSTEM\LOG;
 /**
  * Error Log Class provided by System for all kinds of Errors.
  */
-class ERROR extends \SYSTEM\LOG\TODO {}
+class ERROR extends \SYSTEM\LOG\SYSTEM_EXCEPTION {}

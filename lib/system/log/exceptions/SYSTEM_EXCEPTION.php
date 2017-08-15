@@ -15,12 +15,7 @@ namespace SYSTEM\LOG;
  * System Exception Class provided by System for logging all kinds of System Exceptions.
  * All other log Classes are derived from this.
  */
-class SYSTEM_EXCEPTION extends \Exception {
-    /** bool Variable to store if the Exception was logged already */
-    public $logged = false;
-    /** bool Variable to store if the Exceptions was logged as Todo */
-    public $todo_logged = false;
-    
+class SYSTEM_EXCEPTION extends \Exception {    
     /**
      * Construct the Error
      *
@@ -30,6 +25,7 @@ class SYSTEM_EXCEPTION extends \Exception {
      */
     public function __construct($message = "", $code = 1, $previous = NULL){
         parent::__construct($message, $code, $previous);
-        \SYSTEM\LOG\log::__exception_handler($this,false);
+        if($previous == NULL){
+            error_handler_dbwriter::CALL($this, false);}
     }
 }

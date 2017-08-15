@@ -16,8 +16,6 @@ namespace SYSTEM\LOG;
  * All other error exception Classes are derived from this.
  */
 class SYSTEM_ERROR_EXCEPTION extends \ErrorException {
-    /** bool Variable to store if the Exception was logged already */
-    public $logged = false;
     /**
      * Construct the Error
      *

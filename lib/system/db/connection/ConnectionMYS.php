@@ -28,11 +28,10 @@ class ConnectionMYS extends ConnectionAbstr {
     public function __construct(DBInfo $dbinfo, $new_link = false, $client_flag = 0){
         $this->connection = @mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
         if(!$this->connection){
-            die('Could not connect to Database. Check ur Database Settings');}
+            die('Could not connect to Database. Check ur Database Settings.');}
             
         if(!mysqli_select_db($this->connection, $dbinfo->m_database)){
-            mysqli_close($this->connection);
-            die('Could not select Database. Check ur Database Settings: '.mysqli_error($this->connection));}
+            die('Could not select Database. Check ur Database Settings.');}
             
         \mysqli_set_charset($this->connection, 'utf8');
     }

@@ -14,4 +14,7 @@ namespace SYSTEM\LOG;
 /**
  * Info Log Class provided by System for logging Infos.
  */
-class INFO extends \SYSTEM\LOG\SYSTEM_EXCEPTION {}
+class INFO extends \SYSTEM\LOG\SYSTEM_EXCEPTION {
+    /** Property to store if the Exception should not be logged */
+    public $do_not_todo_log;
+}
