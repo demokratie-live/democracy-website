@@ -121,7 +121,7 @@
 
 <!-- testimonial -->
 <div class="testimonial jarallax">
-  <div class="container">
+  <div class="container" style="min-height: 175px;">
     <div class="agileits-w3layouts-info">
       <div class="testimonial-grid">
         <div class="slider">
@@ -158,24 +158,23 @@
               </ul>
             </div>
             <script>
-              // You can also use "$(window).load(function() {"
-              $(function () {
-                // Slideshow 4
-                $("#slider3").responsiveSlides({
-                auto: true,
-                pager:true,
-                nav:false,
-                speed: 6000,
-                namespace: "callbacks",
-                before: function () {
-                  $('.events').append("<li>before event fired.</li>");
-                },
-                after: function () {
-                  $('.events').append("<li>after event fired.</li>");
-                }
+                // You can also use "$(window).load(function() {"
+                $(function () {
+                    // Slideshow 4
+                    $("#slider3").responsiveSlides({
+                        /*auto: true,
+                        pager:true,
+                        nav:false,
+                        speed: 6000,*/
+                        //namespace: "callbacks",
+                        /*before: function () {
+                          $('.events').append("<li>before event fired.</li>");
+                        },
+                        after: function () {
+                          $('.events').append("<li>after event fired.</li>");
+                        }*/
+                    });
                 });
-            
-              });
              </script>
             <!--banner Slider starts Here-->
         </div>
