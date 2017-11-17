@@ -89,7 +89,11 @@ abstract class api_default extends api_system implements api_default_interface {
                 for ($i = 0; $i < $meta->length; $i++) {
                     if($meta->item($i)->getAttribute('name') == $key){
                         $found = true;
-                        $meta->item($i)->setAttribute('content',$metavalue);}
+                        $meta->item($i)->setAttribute('content',$metavalue);
+                    }elseif($meta->item($i)->getAttribute('property') == $key){
+                        $found = true;
+                        $meta->item($i)->setAttribute('content',$metavalue);
+                    }
                 }
                 if(!$found){
                     $node = $head->appendChild($html->createElement('meta'));
