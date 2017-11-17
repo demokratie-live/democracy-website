@@ -1,0 +1,5 @@
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (10, 1, 'start', 'start', -1, 0, 0, '#content', './?page=start', 'init_start', 'default_start');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (15, 1, 'wir', 'wir', -1, 0, 0, '#content', './?page=wir', 'init_wir', 'default_wir');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (20, 1, 'medien', 'medien', -1, 0, 0, '#content', './?page=medien', 'init_medien', 'default_medien');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (25, 1, 'prototyp', 'prototyp', -1, 0, 0, '#content', './?page=prototyp', 'init_prototyp', 'default_prototyp');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (30, 1, 'help', 'help', -1, 0, 0, '#content', './?page=help', 'init_help', 'default_help');

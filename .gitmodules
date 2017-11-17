@@ -1,0 +1,6 @@
+[submodule "lib/system"]
+	path = lib/system
+	url = git@github.com:webcraftmedia/system.git
+[submodule "lib/font_awesome"]
+	path = lib/font_awesome
+	url = git@github.com:webcraftmedia/lib_font_awesome.git
