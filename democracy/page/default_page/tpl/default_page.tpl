@@ -34,10 +34,11 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="DEMOCRACY - Demokratie_live" />
     <meta property="og:description" content="DEMOCRACY ist eine Initiative für mehr Basisdemokratie in Deutschland." />
-    <meta property="og:image" content="https://www.democracy-deutschland.de/images/forfb2.png" />
+    <meta property="og:image" content="./files/images/forfb2.png" />
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="fragment" content="!">
 
     <style>
         /*@font-face {
@@ -52,16 +53,16 @@
         }
         /*  font-family: 'isabelle_layne', serif; */
 
-        @font-face {
+        /*@font-face {
           font-family: 'raleway';
           src: url('fonts/Raleway-Light.ttf') format('truetype');
-        }
+        }*/
         /*  font-family: 'raleway', serif; */
 
-        @font-face {
+        /*@font-face {
           font-family: 'playfair_display';
           src: url('./files/font/playfair_display.tff') format('truetype');
-        }
+        }*/
         /*  font-family: 'playfair_display', serif; */
 
         @font-face {
@@ -132,7 +133,7 @@
                 <li><a id="m_idee" class="m_mm active" href="#">Idee</a></li>
                 <li><a id="m_wir" class="m_mm" href="#!wir">Wir</a></li>
                 <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
-                <li><a class="m_mm" href="#!prototyp">Prototyp</a></li>
+                <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
                 <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
               </ul> 
               <div class="clearfix"> </div>
@@ -174,27 +175,12 @@
                 <div class="isabelle_layne">Demokratie_live</div>
             </div>
             <div class="agileinfo-social-grids">
-              <ul>
-                <li>
-                  <a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"  >
-                    <i id="youtube_" class="fa fa-youtube" ></i>
-                  </a>
-                </li>
-                <li>
-                  <a  href="https://www.facebook.com/democracygermany/" target="_blank" >
-                    <i  id="facebook_" class="facebook_ fa fa-facebook" ></i>
-                  </a>
-                </li>
-                <li>
-                  <a  href="https://twitter.com/democracy_de" target="_blank" >
-                    <i id="twitter_" class="fa fa-twitter" ></i>
-                  </a>
-                </li>
-                <li>
-                  <a  href="https://www.instagram.com/democracy_deutschland/" target="_blank" >
-                    <i  id="insta_" class="insta_ fa fa-instagram" ></i>
-                  </a>
-                </li>                
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i id="youtube_" class="fa fa-youtube"></i></a></li>
+                    <li><a href="https://www.facebook.com/democracygermany/" target="_blank"><i id="facebook_" class="facebook_ fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/democracy_de" target="_blank"><i id="twitter_" class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/democracy_deutschland/" target="_blank"><i id="insta_" class="insta_ fa fa-instagram"></i></a></li>
+                    <li><a href="https://github.com/demokratie-live/" target="_blank"><i id="insta_" class="insta_ fa fa-github"></i></a></li>
               </ul>
             </div>
           </div>
@@ -239,11 +225,11 @@
         <div class="col-md-3 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
           <h3>Navigation</h3>
           <ul class="w3layouts_footer_nav">
-            <li><a href="#" onclick="$('#m_idee,#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
-            <li><a href="#!wir" onclick="$('#m_wir,#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
-            <li><a href="#!medien" onclick="$('#m_medien,#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
-            <li><a href="#!prototyp" onclick="$('#m_proto,#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
-            <li><a href="#!help" onclick="$('#m_help,#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
+            <li><a href="#" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
+            <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
+            <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
+            <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
+            <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
           </ul>
         </div>
         <div class="clearfix"> </div>

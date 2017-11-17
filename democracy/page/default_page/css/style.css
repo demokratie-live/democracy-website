@@ -596,12 +596,6 @@ i.fa.fa-quote-right {
 	top:0;
 }
 
-.rslides li {
-	position:relative;
-	display:block;
-	float:left;
-}
-
 .rslides img {
 	height:auto;
 	border:0;

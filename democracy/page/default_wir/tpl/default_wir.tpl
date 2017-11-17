@@ -130,52 +130,33 @@
                 <li>
                   <div class="testimonial-top">
                     <i class="fa fa-quote-right" aria-hidden="true"></i>
-                    <p>Die Demokratie muss dem Schwächsten die gleichen Chancen zusichern wie dem Stärksten.</p>
+                    <p style="font-family: 'TravelingTypewriter', serif;">Die Demokratie muss dem Schwächsten die gleichen Chancen zusichern wie dem Stärksten.</p>
                     <h5> Mahatma Gandhi </h5>
                   </div>
                 </li>
                 <li>
                   <div class="testimonial-top">
                     <i class="fa fa-quote-right" aria-hidden="true"></i>
-                    <p>Wir wollen mehr Demokratie wagen.</p>
+                    <p style="font-family: 'TravelingTypewriter', serif;">Wir wollen mehr Demokratie wagen.</p>
                     <h5>Willy Brandt</h5>
                   </div>
                 </li>
                                   <li>
                   <div class="testimonial-top">
                     <i class="fa fa-quote-right" aria-hidden="true"></i>
-                    <p>Die Demokratie ist die einzige Staatsform, die den stets notwendigen Weg zum Wandel in Frieden finden  läßt.</p>
+                    <p style="font-family: 'TravelingTypewriter', serif;">Die Demokratie ist die einzige Staatsform, die den stets notwendigen Weg zum Wandel in Frieden finden  läßt.</p>
                     <h5>Richard von Weizsäcker </h5>
                   </div>
                 </li>
                 <li>
                   <div class="testimonial-top">
                     <i class="fa fa-quote-right" aria-hidden="true"></i>
-                    <p>Information ist die Währung der Demokratie.</p>
+                    <p style="font-family: 'TravelingTypewriter', serif;">Information ist die Währung der Demokratie.</p>
                     <h5>Thomas  Jefferson </h5>
                   </div>
                 </li>
               </ul>
             </div>
-            <script>
-                // You can also use "$(window).load(function() {"
-                $(function () {
-                    // Slideshow 4
-                    $("#slider3").responsiveSlides({
-                        /*auto: true,
-                        pager:true,
-                        nav:false,
-                        speed: 6000,*/
-                        //namespace: "callbacks",
-                        /*before: function () {
-                          $('.events').append("<li>before event fired.</li>");
-                        },
-                        after: function () {
-                          $('.events').append("<li>after event fired.</li>");
-                        }*/
-                    });
-                });
-             </script>
             <!--banner Slider starts Here-->
         </div>
       </div>
@@ -302,7 +283,7 @@
         </div>
       </div>
       
-      <div class="col-md-3 w3_agileits_team_grid pointer" onclick="$('#m_help').click()"> 
+      <div class="col-md-3 w3_agileits_team_grid pointer" onclick="system.load('help'); $('#toTopHover').click();"> 
                    
         <div class="w3layouts_team_grid">
           <img src="./files/wir/userdefault.jpg" alt="Du" class="img-responsive" />
