@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>DEMOCRACY Deutschland</title>
+    <title>${title_start}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ${css}
@@ -27,14 +27,14 @@
     <meta name="DC.Creator" content="Democracy Deutschland e.V.">
     <meta name="DC.Publisher" content="Democracy Deutschland e.V.">
     <meta name="DC.Rights" content="Democracy Deutschland e.V.">
-    <meta name="DC.Description" content="DEMOCRACY ist eine Initiative für mehr Basisdemokratie in Deutschland.">
+    <meta name="DC.Description" content="${meta_start_DC.Description}">
     <meta name="DC.Language" content="de">
     <meta name="revisit-after" content="3 DAYS" />
-    <meta property="og:url" content="https://www.democracy-deutschland.de/" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="DEMOCRACY - Demokratie_live" />
-    <meta property="og:description" content="DEMOCRACY ist eine Initiative für mehr Basisdemokratie in Deutschland." />
-    <meta property="og:image" content="./files/images/forfb2.png" />
+    <meta property="og:url" content="${meta_start_og:url}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="${title_start}"/>
+    <meta property="og:description" content="${meta_start_og:description}"/>
+    <meta property="og:image" content="${meta_start_og:image}" />
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -142,21 +142,15 @@
         </div>
         <!-- w3-banner -->
         <div class="w3-banner" style="position: relative; right: -3500px">
-          <h1 class="headtxt" >DEMOCRACY</h1>
-          <div class="isabelle_layne" >Demokratie_live</div>
-          <p class="crowdfunding_details">
-            Crowd-Funding auf
-            <img src="./files/images/startnext_logo.png" alt="Startnext Logo"><br>
-            <strong>440</strong> Unterstützerinnen<br>
-            <strong>21.215€</strong> Spendensumme<br>
-            <br>
-            <strong>12.924€</strong> fehlen noch<br>
-            Noch <strong>12 Tage</strong> - Mach mit!
-          </p>
-          <a href="http://startnext.com/democracy" class="call_to_action">
-            Unterstütze unser Projekt auf<br>
-            <img src="./files/images/startnext_logo.png" alt="Startnext Logo">
-          </a>
+            <h1 class="headtxt" >DEMOCRACY</h1>
+            <div class="isabelle_layne" >Demokratie_live</div>
+            <p class="crowdfunding_details">
+                ${main_startnext_status}
+            </p>
+            <a href="http://startnext.com/democracy" class="call_to_action">
+                Unterstütze unser Projekt auf<br>
+                <img src="./files/images/startnext_logo.png" alt="Startnext Logo">
+            </a>
         </div>
         <!-- //w3-banner -->
       </div>
@@ -207,19 +201,17 @@
                     </div>
                     <br>       
           <h3>Spenden</h3>
-          <div style="color:white">
-                    
-                      
-                        <a  href="https://www.startnext.com/democracy" target="_blank" > 
-                            <img src="./files/images/startnext_logo.png" width="120" style="margin-top: -7px" alt="Startnext Logo">
-                        </a>
-                         
-                        <!--
-                        <div style="font-size: small">Bank: Triodos Bank</div>
-                        <div style="font-size: small">IBAN:</div>
-                        <div style="font-size: small">BIC:</div>
-                        -->
-                    </div>
+            <div style="color:white">
+                <a  href="https://www.startnext.com/democracy" target="_blank" > 
+                    <img src="./files/images/startnext_logo.png" width="120" style="margin-top: -7px" alt="Startnext Logo">
+                </a>
+
+                <!--
+                <div style="font-size: small">Bank: Triodos Bank</div>
+                <div style="font-size: small">IBAN:</div>
+                <div style="font-size: small">BIC:</div>
+                -->
+            </div>
           <div class="clearfix"> </div>
         </div>
         <div class="col-md-3 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
