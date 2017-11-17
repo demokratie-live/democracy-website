@@ -130,7 +130,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a id="m_idee" class="m_mm active" href="#">Idee</a></li>
+                <li><a id="m_idee" class="m_mm active" href="#!start">Idee</a></li>
                 <li><a id="m_wir" class="m_mm" href="#!wir">Wir</a></li>
                 <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
                 <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
@@ -225,7 +225,7 @@
         <div class="col-md-3 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
           <h3>Navigation</h3>
           <ul class="w3layouts_footer_nav">
-            <li><a href="#" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
+            <li><a href="#!start" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
             <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
             <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
             <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>

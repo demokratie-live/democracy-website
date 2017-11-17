@@ -6,3 +6,7 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_wir');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_medien');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_prototyp');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_help');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_ceta');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_euro');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_gez');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_staatstrojaner');

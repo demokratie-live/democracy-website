@@ -21,4 +21,13 @@ class page_democracy extends \SYSTEM\API\api_default {
         return (new default_prototyp())->html();}
     public static function page_help(){
         return (new default_help())->html();}
+        
+    public static function page_ceta(){
+        return (new default_ceta())->html();}
+    public static function page_euro(){
+        return (new default_euro())->html();}
+    public static function page_gez(){
+        return (new default_gez())->html();}
+    public static function page_staatstrojaner(){
+        return (new default_staatstrojaner())->html();}
 }
