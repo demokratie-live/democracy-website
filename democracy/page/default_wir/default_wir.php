@@ -7,7 +7,7 @@ class default_wir implements SYSTEM\PAGE\Page {
     public static function js(){
         return array(   new PPAGE('default_wir/js/default_wir.js'));}
     public static function css(){
-        return array(   new PPAGE('default_wir/css/default_wir.css'));}
+    return array();}//   new PPAGE('default_wir/css/default_wir.css'));}
     public function html(){
         $vars = array();
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

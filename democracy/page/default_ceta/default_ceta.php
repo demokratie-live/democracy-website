@@ -7,7 +7,7 @@ class default_ceta implements SYSTEM\PAGE\Page {
     public static function js(){
         return array(   new PPAGE('default_ceta/js/default_ceta.js'));}
     public static function css(){
-        return array(   new PPAGE('default_ceta/css/default_ceta.css'));}
+        return array();}//   new PPAGE('default_ceta/css/default_ceta.css'));}
     public function html(){
         $vars = array();
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

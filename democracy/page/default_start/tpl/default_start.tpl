@@ -17,7 +17,7 @@
              <div id="appinfobox" class="col-md-12 " >
                  
                  
-                  <img src="./files/images/story_gesamt_2.png" width="100%" >
+                  <img src="./files/images/story_gesamt_2.png" style="width:100%" alt="DEMOCRACY App Story">
             
             </div>
             
@@ -82,35 +82,35 @@
                                 
                             <table>
                                 <tr>
-                                    <td><li  style="margin-top: 2px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li  style="margin-top: 2px"><i class="fa fa-angle-right"></i></li></td>
                                     <td><li>offene & barrierefreie Plattform<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -19px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -19px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>Push-Up-Information über aktuelle Bundestagsabstimmungen<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -17px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -17px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>nachträgliche 24h-Abstimmungsmöglichkeit über vergangene Abstimmungen<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -17px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -17px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>vorläufige 24h-Abstimmungsmöglichkeit über anstehende Abstimmungen<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -17px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -17px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>crowdmoderiertes Diskussionsforum zu jeder Abstimmung<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -19px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -19px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>Pro- & Contra-Bereich mit nutzerbasierter Bewertung der besten Argumente<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -2px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -2px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>Berücksichtigung Deiner Wahlstimme nach Login<li></td>
                                 </tr>
                                   <tr>
-                                    <td><li style="margin-top: -5px"><span class="glyphicon glyphicon-menu-right"></span></li></td>
+                                    <td><li style="margin-top: -5px"><i class="fa fa-angle-right" style="padding-right: 1em;"></i></li></td>
                                     <td><li>& alle Funktionen auch für Nutzer*Inneninitiativen<li></td>
                                 </tr>
                                 

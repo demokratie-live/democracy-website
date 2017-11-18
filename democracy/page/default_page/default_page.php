@@ -15,11 +15,14 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
     }
     
     public static function css(){
-        return  \SYSTEM\HTML\html::link(\LIB\lib_bootstrap::css()->WEBPATH(false)).
-                \SYSTEM\HTML\html::link(\LIB\lib_font_awesome::css()->WEBPATH(false)).
+        return  //\SYSTEM\HTML\html::link(->WEBPATH()).
+                //\SYSTEM\HTML\html::link(->WEBPATH()).
                 //\SYSTEM\HTML\html::link('//fonts.googleapis.com/css?family=Pacifico').
                 //\SYSTEM\HTML\html::link('//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i').
                 \SYSTEM\HTML\html::link(\SYSTEM\CACHE\cache_css::minify(array(
+                    \LIB\lib_bootstrap::css(),
+                    \LIB\lib_font_awesome::css(),
+                    new PPAGE('default_page/css/font.css'),
                     new PPAGE('default_page/css/style.css'),
                     new PPAGE('default_page/css/default_page.css')
                 )));

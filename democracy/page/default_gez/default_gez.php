@@ -7,7 +7,7 @@ class default_gez implements SYSTEM\PAGE\Page {
     public static function js(){
         return array(   new PPAGE('default_gez/js/default_gez.js'));}
     public static function css(){
-        return array(   new PPAGE('default_gez/css/default_gez.css'));}
+        return array();}//   new PPAGE('default_gez/css/default_gez.css'));}
     public function html(){
         $vars = array();
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

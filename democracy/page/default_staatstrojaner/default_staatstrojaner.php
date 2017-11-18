@@ -7,7 +7,7 @@ class default_staatstrojaner implements SYSTEM\PAGE\Page {
     public static function js(){
         return array(   new PPAGE('default_staatstrojaner/js/default_staatstrojaner.js'));}
     public static function css(){
-        return array(   new PPAGE('default_staatstrojaner/css/default_staatstrojaner.css'));}
+        return array();}//   new PPAGE('default_staatstrojaner/css/default_staatstrojaner.css'));}
     public function html(){
         $vars = array();
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

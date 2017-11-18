@@ -7,7 +7,7 @@ class default_prototyp implements SYSTEM\PAGE\Page {
     public static function js(){
         return array(   new PPAGE('default_prototyp/js/default_prototyp.js'));}
     public static function css(){
-        return array(   new PPAGE('default_prototyp/css/default_prototyp.css'));}
+        return array();}//   new PPAGE('default_prototyp/css/default_prototyp.css'));}
     public function html(){
         $vars = array();
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

@@ -7,7 +7,7 @@ class default_euro implements SYSTEM\PAGE\Page {
     public static function js(){
         return array(   new PPAGE('default_euro/js/default_euro.js'));}
     public static function css(){
-        return array(   new PPAGE('default_euro/css/default_euro.css'));}
+        return array();}//   new PPAGE('default_euro/css/default_euro.css'));}
     public function html(){
         $vars = array();
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

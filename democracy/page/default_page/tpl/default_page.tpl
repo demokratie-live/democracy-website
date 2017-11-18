@@ -39,50 +39,6 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="fragment" content="!">
-
-    <style>
-        /*@font-face {
-          font-family: 'helvetica';
-          src: url('./files/font/HelveticaLt.ttf') format('truetype');
-        }*/
-        /*  font-family: 'helvetica', serif; */
-
-        @font-face {
-          font-family: 'isabelle_layne';
-          src: url('./files/font/Isabelle_Layne_Bold.ttf') format('truetype');
-        }
-        /*  font-family: 'isabelle_layne', serif; */
-
-        /*@font-face {
-          font-family: 'raleway';
-          src: url('fonts/Raleway-Light.ttf') format('truetype');
-        }*/
-        /*  font-family: 'raleway', serif; */
-
-        /*@font-face {
-          font-family: 'playfair_display';
-          src: url('./files/font/playfair_display.tff') format('truetype');
-        }*/
-        /*  font-family: 'playfair_display', serif; */
-
-        @font-face {
-          font-family: 'edosz';
-          src: url('./files/font/edosz.ttf') format('truetype');
-        }
-        /*  font-family: 'edosz', serif; */
-
-        @font-face {
-          font-family: 'TravelingTypewriter';
-          src: url('./files/font/TravelingTypewriter.ttf') format('truetype');
-        }
-        /*  font-family: 'TravelingTypewriter', serif; */
-        .callbacks_nav {
-              background:transparent url(./files/images/arrows.png) no-repeat right top;
-        }
-        #toTop {
-          background:url(./files/images/arrow.png) no-repeat 0 0;
-        }
-    </style>
   
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
