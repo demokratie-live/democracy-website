@@ -379,6 +379,7 @@ ul.dropdown-menu li {
 	-o-transition:.5s all;
 	-moz-transition:.5s all;
 	-ms-transition:.5s all;
+        text-align: center;
 }
 
 .services-icon:hover div.services-icon-info {
@@ -830,7 +831,7 @@ i.fa.fa-quote-right {
 }
 
 .agileinfo-social-grids {
-	margin:1em 0 0 -7px;
+	margin:1em 0 0 -10px;
 }
 
 .agileinfo-social-grids ul {
@@ -2411,8 +2412,6 @@ h2.typoh2 {
 	}
 	
 	.services-icon {
-		float:left;
-		width:33.33%;
 	}
 	
 	.callbacks_tabs {
@@ -2590,8 +2589,6 @@ h2.typoh2 {
 	}
 	
 	.services-icon {
-		float:none;
-		width:100%;
 		margin:2em 0 0;
 	}
 	

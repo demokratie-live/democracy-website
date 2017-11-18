@@ -174,7 +174,8 @@
                     <li><a href="https://www.facebook.com/democracygermany/" target="_blank"><i id="facebook_" class="facebook_ fa fa-facebook"></i></a></li>
                     <li><a href="https://twitter.com/democracy_de" target="_blank"><i id="twitter_" class="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.instagram.com/democracy_deutschland/" target="_blank"><i id="insta_" class="insta_ fa fa-instagram"></i></a></li>
-                    <li><a href="https://github.com/demokratie-live/" target="_blank"><i id="insta_" class="insta_ fa fa-github"></i></a></li>
+                    <li><a href="https://github.com/demokratie-live/" target="_blank"><i id="github_" class="insta_ fa fa-github"></i></a></li>
+                    <li><a href="https://discord.gg/Pdu3ZEV" target="_blank"><i id="discord_" class="insta_ fa fa-weixin"></i></a></li>
               </ul>
             </div>
           </div>
@@ -205,7 +206,6 @@
                 <a  href="https://www.startnext.com/democracy" target="_blank" > 
                     <img src="./files/images/startnext_logo.png" width="120" style="margin-top: -7px" alt="Startnext Logo">
                 </a>
-
                 <!--
                 <div style="font-size: small">Bank: Triodos Bank</div>
                 <div style="font-size: small">IBAN:</div>
