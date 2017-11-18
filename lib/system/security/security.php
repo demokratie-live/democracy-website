@@ -356,6 +356,7 @@ class security {
      */
     protected static function startSession(){
         if(!isset($_SESSION) && !headers_sent()){
+            //\session_cache_limiter('private_no_expire');
             \session_start();}
         //respect locale from db if not set(right place here?)
         if( isset($_SESSION[\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)]) &&

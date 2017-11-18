@@ -53,7 +53,7 @@ abstract class api_default extends api_system implements api_default_interface {
     public static function static__escaped_fragment_($_escaped_fragment_){
         \libxml_use_internal_errors(true);
         $html = new \DOMDocument();
-        $html->loadHTML(static::default_page($_escaped_fragment_ ? $_escaped_fragment_ : true));
+        $html->loadHTML(static::default_page($_escaped_fragment_ ? $_escaped_fragment_ : true),LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         if($error = \libxml_get_last_error()){
             //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$html->saveHTML());
             \libxml_clear_errors();}
@@ -63,7 +63,7 @@ abstract class api_default extends api_system implements api_default_interface {
             parse_str(\parse_url($row['url'],PHP_URL_QUERY), $params);
             $class = static::get_class();
             if($class){
-                $frag->loadHTML(mb_convert_encoding(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, $params, static::get_apigroup(), true, false),'HTML-ENTITIES', 'UTF-8'));
+                $frag->loadHTML(mb_convert_encoding(\SYSTEM\API\api::run('\SYSTEM\API\verify', $class, $params, static::get_apigroup(), true, false),'HTML-ENTITIES', 'UTF-8'),LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
                 if($error = \libxml_get_last_error()){
                     //new \SYSTEM\LOG\ERROR('Parse Error: '.$error->message.' line:'.$error->line.' html: '.$frag->saveHTML());
                     \libxml_clear_errors();}
@@ -71,7 +71,7 @@ abstract class api_default extends api_system implements api_default_interface {
                 //Load subpage css
                 foreach($row['css'] as $css){
                     $css_frag = new \DOMDocument();
-                    $css_frag->loadHTML('<link href="'.$css.'" rel="stylesheet" type="text/css">');
+                    $css_frag->loadHTML('<link href="'.$css.'" rel="stylesheet" type="text/css">',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
                     $html->getElementsByTagName('head')[0]->appendChild($html->importNode($css_frag->documentElement,true));
                 }
             }

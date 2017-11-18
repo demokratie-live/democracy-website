@@ -56,6 +56,7 @@ class files {
             call_user_func('\SYSTEM\HEADER::'.$ext);
         }else{
             \SYSTEM\HEADER::FILE($id);}
+        \session_cache_limiter('private_no_expire');
         header("Last-Modified: " . gmdate('D, d M Y H:i:s \G\M\T', filemtime(self::$folders[$cat].$id)));
             
         //Allow Caching for all files
