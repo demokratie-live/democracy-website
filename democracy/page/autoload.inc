@@ -10,3 +10,5 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_ceta');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_euro');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_gez');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_staatstrojaner');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_impressum');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_datenschutz');

@@ -30,4 +30,9 @@ class page_democracy extends \SYSTEM\API\api_default {
         return (new default_gez())->html();}
     public static function page_staatstrojaner(){
         return (new default_staatstrojaner())->html();}
+        
+    public static function page_impressum(){
+        return (new default_impressum())->html();}
+    public static function page_datenschutz(){
+        return (new default_datenschutz())->html();}
 }

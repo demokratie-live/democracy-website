@@ -893,7 +893,7 @@ i.fa.fa-quote-right {
 
 .agileinfo_footer_grid ul.w3layouts_footer_nav li {
 	list-style-type:none;
-	margin:0 0 .5em;
+	margin:0 0 .05em;
 }
 
 .w3layouts_footer_nav li i {
@@ -950,7 +950,7 @@ i.fa.fa-quote-right {
 	background:#0f1215;
 	padding:1.5em 0;
 	text-align:center;
-	margin:4em 0 0;
+	margin:2em 0 0;
 }
 
 .w3_agileits_footer_copy p {

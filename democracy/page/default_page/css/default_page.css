@@ -344,3 +344,13 @@ body {
 #insta__:hover{
   color:#BA3173;
 }
+
+#contact_mail a {
+	font-size:.9em;
+	text-decoration:none;
+	color:#fff;
+}
+
+#contact_mail a:hover {
+	color:#F44336;
+}

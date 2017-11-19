@@ -118,7 +118,7 @@
   <div class="footer" >
     <div class="container" >
       <div class="w3agile_footer_grids" style="padding-left:20px">
-        <div class="col-md-3 agileinfo_footer_grid">
+        <div class="col-md-4 agileinfo_footer_grid">
           <div class="agileits_w3layouts_footer_logo">
             <div class="logobox">
                 <div class="edzofont">DEMOCRACY</div>
@@ -145,18 +145,23 @@
                     <div style="font-size: small">Industriestr. 10</div>
           <div style="font-size: small">37079 Göttingen </div>
           <div style="font-size: small">Deutschland</div>
-          <div style="font-size: small">contact@democracy-deutschland.de</div>
+          <div id="contact_mail" style="font-size: small"><a href="mailto:contact@democracy-deutschland.de">contact@democracy-deutschland.de</a></div>
           <div style="font-size: small">Fon: +49 176 470 40 213</div>
                     </div>
         </div>
-                <div class="col-md-3 agileinfo_footer_grid" >
-          <h3>Impressum</h3>
-                    <div style="color:white">
-                        <div style="font-size: small">Amtsgericht Göttingen</div>
-                        <div style="font-size: small">VR 201924</div>
-             <div></div>    
-                    </div>
-                    <br>       
+        <div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
+          <h3>Navigation</h3>
+          <ul class="w3layouts_footer_nav">
+            <li><a href="#!start" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
+            <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
+            <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
+            <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
+            <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
+            <li><a href="#!impressum" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Impressum</a></li>
+            <li><a href="#!datenschutz" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Datenschutz</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 agileinfo_footer_grid">
           <h3>Spenden</h3>
             <div style="color:white">
                 <a  href="https://www.startnext.com/democracy" target="_blank" > 
@@ -169,16 +174,6 @@
                 -->
             </div>
           <div class="clearfix"> </div>
-        </div>
-        <div class="col-md-3 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
-          <h3>Navigation</h3>
-          <ul class="w3layouts_footer_nav">
-            <li><a href="#!start" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
-            <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
-            <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
-            <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
-            <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
-          </ul>
         </div>
         <div class="clearfix"> </div>
       </div>
