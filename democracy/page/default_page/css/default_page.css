@@ -273,7 +273,7 @@ body {
   #footersz { width: 70%;}  
 }
 
-@media(max-width:500px){	   
+@media(max-width:500px){
   .logox{ width: 50px; }
   #appinfobox img{
     width: 100%;
@@ -289,10 +289,6 @@ body {
   }
   #footersz { width: 100%;}  
   
-  .col-md-7 {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
   .welcome-right { padding: 1em; }
   .container {     
     padding-right: 0px;
