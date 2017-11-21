@@ -21,6 +21,8 @@ class page_democracy extends \SYSTEM\API\api_default {
         return (new default_prototyp())->html();}
     public static function page_help(){
         return (new default_help())->html();}
+    public static function page_faq(){
+        return (new default_faq())->html();}
         
     public static function page_ceta(){
         return (new default_ceta())->html();}
