@@ -75,7 +75,8 @@
     <div class="wthree-heading">
         <h3 style="overflow: hidden;">Spendenfinanzierung</h3>
     </div>
-    <div class="col-md-12 " style=" text-align: justify"> 
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style=" text-align: justify"> 
         <br><br>
         <br>
         <p>
@@ -90,6 +91,7 @@
             Denn wozu ist Geld gut, wenn nicht, um die Welt zu verbessern?
         </p>
     </div>
+    <div class="col-md-2"></div>
 </div>
 <div class="clearfix"></div>
 <br><br><br><br>
