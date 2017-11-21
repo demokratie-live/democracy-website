@@ -78,7 +78,7 @@ abstract class api_default extends api_system implements api_default_interface {
         }
         //Title
         if((count($state)>=1) && array_key_exists('title', $state[0])){
-            $html->getElementsByTagName('title')[0]->nodeValue = $state[0]['title'];}
+            $html->getElementsByTagName('title')->item(0)->nodeValue = $state[0]['title'];}
         //Meta
         if((count($state)>=1) && array_key_exists('meta', $state[0])){
             $meta = $html->getElementsByTagName('meta');//[0]->nodeValue = $state[0]['title'];
