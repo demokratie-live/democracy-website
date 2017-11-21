@@ -15,10 +15,10 @@ INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_staatstrojaner_og:image', 'deDE', 'https://www.democracy-deutschland.de/files/landing/staatstrojaner.jpg', 1, 1, '2017-11-17 17:19:35', '2017-11-17 17:19:35');
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_staatstrojaner_og:title', 'deDE', 'App-stimmen über den Staatstrojaner - mit der DEMOCRACY App', 1, 1, '2017-11-17 17:19:49', '2017-11-17 17:19:49');
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_staatstrojaner_og:url', 'deDE', 'https://www.democracy-deutschland.de/#!staatstrojaner', 1, 1, '2017-11-17 17:19:41', '2017-11-17 17:19:41');
-INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_author', 'deDE', 'Author', 1, 1, '2017-06-08 21:23:49', '2017-06-08 21:23:49');
+REPLACE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_author', 'deDE', 'Author', 1, 1, '2017-06-08 21:23:49', '2017-06-08 21:23:49');
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_DC.Description', 'deDE', 'DEMOCRACY ist eine Initiative für mehr Basisdemokratie in Deutschland.', 1, 1, '2017-11-17 16:46:25', '2017-11-17 16:46:25');
-INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_description', 'deDE', 'Description', 1, 1, '2017-06-08 21:24:43', '2017-06-08 21:24:43');
-INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_keywords', 'deDE', 'Keywords', 1, 1, '2017-06-08 21:25:22', '2017-06-08 21:25:22');
+REPLACE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_description', 'deDE', 'Description', 1, 1, '2017-06-08 21:24:43', '2017-06-08 21:24:43');
+REPLACE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_keywords', 'deDE', 'Keywords', 1, 1, '2017-06-08 21:25:22', '2017-06-08 21:25:22');
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_og:description', 'deDE', 'DEMOCRACY ist eine Initiative für mehr Basisdemokratie in Deutschland.', 1, 1, '2017-11-17 16:43:59', '2017-11-17 16:43:59');
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_og:image', 'deDE', 'https://www.democracy-deutschland.de/files/images/forfb2.png', 1, 1, '2017-11-17 18:08:25', '2017-11-17 18:08:25');
 INSERT INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('meta_start_og:url', 'deDE', 'https://www.democracy-deutschland.de/', 1, 1, '2017-11-17 18:08:54', '2017-11-17 18:08:54');
@@ -65,11 +65,11 @@ INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_staatstrojaner_og:titl
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_staatstrojaner_og:title', 'meta_staatstrojaner');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_staatstrojaner_og:url', 'meta');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_staatstrojaner_og:url', 'meta_staatstrojaner');
-INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_author', 'meta');
+REPLACE INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_author', 'meta');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_DC.Description', 'democracy');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_DC.Description', 'meta');
-INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_description', 'meta');
-INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_keywords', 'meta');
+REPLACE INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_description', 'meta');
+REPLACE INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_keywords', 'meta');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_og:description', 'democracy');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_og:description', 'meta');
 INSERT INTO `system_text_tag` (`id`, `tag`) VALUES ('meta_start_og:image', 'democracy');
