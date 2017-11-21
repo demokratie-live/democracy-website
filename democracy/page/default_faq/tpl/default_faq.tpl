@@ -1,5 +1,7 @@
 <div class="single">
     <div class="container">
+        <div class="wthree-heading"><h3>FAQ</h3></div>
+        <br><br>
         <h3>25k€ ENTWICKLUNGSKOSTEN</h3>
         Falls du irgendwie vom Fach sein solltest, also z.B. Software-Entwicklerin oder Projektleiterin oder so etwas in dieser Art, dann wird dir sicherlich der Zweifel gekommen sein, ob diese 25k€ von denen du sprichst, überhaupt reichen. Ich kann dich verstehen, mir geht es genauso.
         <br><br>
