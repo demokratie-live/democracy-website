@@ -744,7 +744,7 @@ i.fa.fa-quote-right {
 	background:#65b126;
 }
 
-.agileits_w3layouts_events_grid_social,.agileits_w3layouts_events_grid_social1 {
+.agileits_w3layouts_events_grid_social,.agileits_w3layouts_events_grid_social_sub {
 	position:absolute;
 	top:0;
 	background:#F44336;
@@ -755,29 +755,29 @@ i.fa.fa-quote-right {
 	right:-7.5%;
 }
 
-.agileits_w3layouts_events_grid_social1 {
+.agileits_w3layouts_events_grid_social_sub {
 	left:-7.5%!important;
 }
 
-.agileits_w3layouts_events_grid_social ul,.agileits_w3layouts_events_grid_social1 ul {
+.agileits_w3layouts_events_grid_social ul,.agileits_w3layouts_events_grid_social_sub ul {
 	padding:0;
 	margin:0;
 }
 
-.agileits_w3layouts_events_grid_social ul li,.agileits_w3layouts_events_grid_social1 ul li {
+.agileits_w3layouts_events_grid_social ul li,.agileits_w3layouts_events_grid_social_sub ul li {
 	display:block;
 }
 
-.agileits_w3layouts_events_grid_social ul li:nth-child(2),.agileits_w3layouts_events_grid_social1 ul li:nth-child(2) {
+.agileits_w3layouts_events_grid_social ul li:nth-child(2),.agileits_w3layouts_events_grid_social_sub ul li:nth-child(2) {
 	margin:1em 0;
 }
 
-.agileits_w3layouts_events_grid_social ul li a,.agileits_w3layouts_events_grid_social1 ul li a {
+.agileits_w3layouts_events_grid_social ul li a,.agileits_w3layouts_events_grid_social_sub ul li a {
 	color:#FFF;
 	font-size:1em;
 }
 
-.agileits_w3layouts_events_grid_social ul li a:hover,.agileits_w3layouts_events_grid_social1 ul li a:hover {
+.agileits_w3layouts_events_grid_social ul li a:hover,.agileits_w3layouts_events_grid_social_sub ul li a:hover {
 	color:#212121;
 }
 
@@ -2312,7 +2312,7 @@ h2.typoh2 {
 		right:0;
 	}
 	
-	.agileits_w3layouts_events_grid_social1 {
+	.agileits_w3layouts_events_grid_social_sub {
 		left:0!important;
 	}
 	

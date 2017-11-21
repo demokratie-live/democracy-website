@@ -5,7 +5,7 @@
         <h4><a href="${link}">${title}</a></h4>
         <p>${text}</p>
     </div>
-    <div class="agileits_w3layouts_events_grid_social${sub2}">
+    <div class="agileits_w3layouts_events_grid_social${sub}">
         <ul class="agileinfo_social_icons">
             ${links}
         </ul>

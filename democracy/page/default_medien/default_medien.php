@@ -70,7 +70,6 @@ class default_medien implements SYSTEM\PAGE\Page {
         $i = 1;
         foreach($articles as $article){
             $article['sub'] = ($i % 2 == 0) ? '_sub' : '';
-            $article['sub2'] = ($i % 2 == 0) ? '1' : '';
             $links = $article['links'];
             $article['links'] = '';
             foreach($links as $link){
