@@ -1,40 +1,38 @@
 <div class="container">
-    <div class="col-md-12 welcome-left w3-agileits">
-        <div class="wthree-heading "> 
-            <h3 id="h4werte">Unsere Mittel</h3>
+    <div class="wthree-heading" style="padding-top: 4em;"> 
+        <h3 id="h4werte">Unsere Mittel</h3>
+    </div>
+    <div class="row" style="margin-top: 2em;">
+        <div class="col-md-5 col-xs-12">
+            <br><br>
+            <div class="row agile-services-left">${icons}</div>
         </div>
+        <div class="col-md-7 col-xs-12" style="padding-top: 30px; text-align: justify">
+            <p><b style="font-family: 'TravelingTypewriter', serif;">
+                Es ist immer sehr schwierig, über den Wert politischer Ziele zu urteilen, wenn deren Erreichung noch in weiter Ferne liegt. Ich glaube daher, dass man eine politische Bewegung nie nach seinen Zielen beurteilen darf, die sie laut verkündet und vielleicht auch wirklich anstrebt, sondern nur nach den Mitteln, die sie zu ihrer Verwirklichung einsetzt. 
+            </b><i> –  Werner Heisenberg</i></p>
+            <br>
+            <p> 
+                <b>DEMOCRACY ist der überparteiliche Versuch, die basisdemokratische Teilhabe
+                in den Mittelpunkt zu rücken. </b>
+                <br><br>
+                Mit DEMOCRACY wollen wir eine öffentliche Infrastruktur zur Verfügung stellen, die
+                das Funktionieren einer lebendigen Demokratie begünstigt. Der Weisheit letzter
+                Schluss liegt für uns in der solidarischen Kooperation (Gemeinschaftlichkeit) zum
+                Vorteil aller (Gemeinnützigkeit). Deshalb ist es für uns selbstverständlich, nicht nur
+                alle Abstimmungsergebnisse anonymisiert, sondern auch unseren Source-Code
+                offen zu legen (Transparenz). Und weil Profitinteressen die Idee nur korrumpieren
+                würden, haben wir uns auch äußerlich eine Rechtsform gegeben, die eine
+                Verfremdung oder Bereicherungsabsicht per Satzung für immer ausschließt.
+                DEMOCRACY ist und bleibt spendenfinanziert. 
+                <br><br>
+                Alle entstehenden Nutzerdaten sind gerade keine handelbaren Wirtschaftsgüter,
+                sondern im Sinne des Grundgesetzes zu schützen. Datenverkauf und
+                Werbefinanzierung finden bei unserem Vorhaben keinen Platz.
+            </p>
+        </div>
+        <div class="clearfix"> </div>
     </div>
-    <br><br>
-    <br>
-    <div class="col-md-5 col-xs-12">
-        <br><br>
-        <div class="row agile-services-left">${icons}</div>
-    </div>
-    <div class="col-md-7 col-xs-12" style="padding-top: 30px; text-align: justify">
-        <p><b style="font-family: 'TravelingTypewriter', serif;">
-            Es ist immer sehr schwierig, über den Wert politischer Ziele zu urteilen, wenn deren Erreichung noch in weiter Ferne liegt. Ich glaube daher, dass man eine politische Bewegung nie nach seinen Zielen beurteilen darf, die sie laut verkündet und vielleicht auch wirklich anstrebt, sondern nur nach den Mitteln, die sie zu ihrer Verwirklichung einsetzt. 
-        </b><i> –  Werner Heisenberg</i></p>
-        <br>
-        <p> 
-            <b>DEMOCRACY ist der überparteiliche Versuch, die basisdemokratische Teilhabe
-            in den Mittelpunkt zu rücken. </b>
-            <br><br>
-            Mit DEMOCRACY wollen wir eine öffentliche Infrastruktur zur Verfügung stellen, die
-            das Funktionieren einer lebendigen Demokratie begünstigt. Der Weisheit letzter
-            Schluss liegt für uns in der solidarischen Kooperation (Gemeinschaftlichkeit) zum
-            Vorteil aller (Gemeinnützigkeit). Deshalb ist es für uns selbstverständlich, nicht nur
-            alle Abstimmungsergebnisse anonymisiert, sondern auch unseren Source-Code
-            offen zu legen (Transparenz). Und weil Profitinteressen die Idee nur korrumpieren
-            würden, haben wir uns auch äußerlich eine Rechtsform gegeben, die eine
-            Verfremdung oder Bereicherungsabsicht per Satzung für immer ausschließt.
-            DEMOCRACY ist und bleibt spendenfinanziert. 
-            <br><br>
-            Alle entstehenden Nutzerdaten sind gerade keine handelbaren Wirtschaftsgüter,
-            sondern im Sinne des Grundgesetzes zu schützen. Datenverkauf und
-            Werbefinanzierung finden bei unserem Vorhaben keinen Platz.
-        </p>
-    </div>
-    <div class="clearfix"> </div>
 </div>
 <!-- testimonial -->
 <div class="testimonial jarallax" style="margin-top: 50px;">
