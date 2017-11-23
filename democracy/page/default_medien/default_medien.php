@@ -12,7 +12,13 @@ class default_medien implements SYSTEM\PAGE\Page {
         $vars = array();
         
         $vars['articles'] = '';
-        $articles = array(  array(  'img' => './files/medien/sputnik.jpg', 'alt' => 'MDR Sputnik Bildschirmfoto',
+        $articles = array(  array(  'img' => './files/medien/youtube_idealism_prevails.jpg', 'alt' => 'Idealism Prevails - Marius Krüger',
+                                    'day' => '22', 'month' => 'November 2017', 'link' => 'https://www.youtube.com/watch?v=5_QGl2S4CWQ',
+                                    'title' => 'Demokratie im 21. Jahrhundert - Marius Krüger B.A.', 'text' => 'Zu Gast bei Paula P’Cay erklärt Marius Krüger, was er mit vielen Gleichgesinnten und der DEMOCRACY App erreichen möchte.',
+                                    'links' => array(   array( 'icon' => 'fa-youtube', 'link' => 'https://www.youtube.com/watch?v=5_QGl2S4CWQ'),
+                                                        array( 'icon' => 'fa-facebook-square', 'link' => 'https://www.facebook.com/idealismprevails/posts/310388876033747'),
+                                                        array( 'icon' => 'fa-twitter', 'link' => 'https://twitter.com/IdealismPrevail/status/933399378840211458'))),
+                            array(  'img' => './files/medien/sputnik.jpg', 'alt' => 'MDR Sputnik Bildschirmfoto',
                                     'day' => '09', 'month' => 'November 2017', 'link' => 'http://www.sputnik.de/sendungen/tagesupdate/audio-539944.html',
                                     'title' => 'Per App in den Bundestag', 'text' => 'Politische Mitsprache war noch nie so einfach. Wie genau DEMOCRACY funktioniert – im MDR Sputnik Tagesupdate',
                                     'links' => array(   array( 'icon' => 'fa-twitter', 'link' => 'https://twitter.com/democracy_de/status/929327720617730048'),
