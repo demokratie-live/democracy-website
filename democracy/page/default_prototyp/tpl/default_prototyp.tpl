@@ -8,10 +8,7 @@
     <div class="container">
         <div class="about-bottom-info testimonial-top ">
             <p style="text-align:center">
-                Technisch	gesehen	haben	wir	für	echte Basisdemokratie	und	
-                kooperativen	Bürgeraustausch	alle	Möglichkeiten	vor	uns	in	der	Hand.
-                <br>
-                Was	es	braucht,	um	dies möglich	zu	machen?
+                ${proto_support}
             </p>
             <div class="agileinfo-button">
                 <a style="text-align: center;" href="https://www.startnext.com/democracy" target="_blank">EUCH</a>

@@ -105,7 +105,7 @@
                 ${main_startnext_status}
             </p>
             <a href="http://startnext.com/democracy" class="call_to_action">
-                Unterstütze unser Projekt auf<br>
+                ${main_startnext_support}<br>
                 <img src="./files/images/startnext_logo.png" alt="Startnext Logo">
             </a>
         </div>

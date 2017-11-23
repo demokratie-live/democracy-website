@@ -5,7 +5,7 @@
         <br><br>
         <br>
         <div id="appinfobox" class="col-md-12">     
-              <img src="./files/images/story_gesamt_2.small.png" srcset="./files/images/story_gesamt_2.medium.png 1000w, ./files/images/story_gesamt_2.large.png 2000w" style="width:100%" alt="DEMOCRACY App Story">
+            <img src="./files/images/story_gesamt_2.small.png" srcset="./files/images/story_gesamt_2.medium.png 1000w, ./files/images/story_gesamt_2.large.png 2000w" style="width:100%" alt="DEMOCRACY App Story">
         </div>
     </div>
     <br> 
@@ -19,29 +19,7 @@
                 </div>
                 <div class="col-md-7 welcome-left">
                     <div>
-                        <b>DEMOCRACY ist eine Initiative für mehr politische Mitsprache in Deutschland.</b>
-                        <br><br>
-                        <br>
-                        Indem wir – per App – die digitalen Medien nutzen, um dauerhaft bundesweite
-                        politische Mitsprache zu organisieren, überwindet eben diese die klassischen
-                        Grenzen von Ort und Zeit.
-                        <br><br>
-                        Informier Dich, was in Berlin abgeht. Tausch Dich mit anderen aus. 
-                        <br>
-                        Triff Deine eigene Entscheidung und stimme ab.
-                        <br><br>
-                        Anschließend kannst Du Deine und alle anderen Abstimmungsergebnisse einsehen
-                        und mit den offiziellen Resultaten des Bundestages vergleichen.
-                        <br><br>
-                        Mit dem DEMOCRACY Desk wird darüber hinaus ein Raum für eigene
-                        Abstimmungsinitiativen der Nutzer*Innen geschaffen.
-                        <br><br>
-                        Kurz gesagt, mit DEMOCRACY können wir die wahre Bedeutung von Demokratie
-                        nicht nur in der Theorie bekräftigen, sondern täglich leben.
-                        <br><br>
-                        Sei Teil der Veränderung und nutze Deine Stimme. 
-                        <br>
-                        Nur so können aus einer Millionen werden.
+                        ${main_text_left}
                     </div>
                 </div>
                 <div class="col-md-5 welcome-right ">
