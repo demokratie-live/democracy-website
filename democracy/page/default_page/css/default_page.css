@@ -350,3 +350,16 @@ body {
 #contact_mail a:hover {
 	color:#F44336;
 }
+
+.welcome-right li:before{
+    content: "\f105";
+    font-family: 'FontAwesome';
+    font-size: large;
+    float: left;
+    margin-right: 7px;
+    color: #CCCCCC;
+    margin-top: -2px;
+}
+.welcome-right li{
+    padding-top: 5px;
+}
