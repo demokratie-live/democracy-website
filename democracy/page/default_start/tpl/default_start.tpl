@@ -5,7 +5,7 @@
         <br><br>
         <br>
         <div id="appinfobox" class="col-md-12">     
-            <img src="./files/images/story_gesamt_2.small.png" srcset="./files/images/story_gesamt_2.medium.png 1000w, ./files/images/story_gesamt_2.large.png 2000w" style="width:100%" alt="DEMOCRACY App Story">
+            <img src="./files/images/story_gesamt_2.medium.png" srcset="./files/images/story_gesamt_2.large.png 1000w" style="width:100%" alt="DEMOCRACY App Story">
         </div>
     </div>
     <br> 

@@ -2,7 +2,7 @@
     <div class="wthree-heading" style="padding-top: 4em;"> 
         <h3 id="h4werte">Unsere Mittel</h3>
     </div>
-    <div class="row" style="margin-top: 2em;">
+    <div class="row-fluid" style="margin-top: 2em;">
         <div class="col-md-5 col-xs-12">
             <br><br>
             <div class="row agile-services-left">${icons}</div>
