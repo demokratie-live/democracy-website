@@ -12,7 +12,12 @@ class default_medien implements SYSTEM\PAGE\Page {
         $vars = array();
         
         $vars['articles'] = '';
-        $articles = array(  array(  'img' => './files/medien/youtube_idealism_prevails.jpg', 'alt' => 'Idealism Prevails - Marius Krüger',
+        $articles = array(  array(  'img' => './files/medien/interview_fabio_demasi.jpg', 'alt' => 'Fabio De Masi - Magnus Rembold',
+                                    'day' => '23', 'month' => 'November 2017', 'link' => 'https://www.facebook.com/fabio.d.masi/videos/724139911119044/?hc_ref=ARQOUAwCEBF-BSc3ka28z7nFVaOjJVCYgIxLzJ_DEYH0VZfZpljYV3uPLum3LCkcB2s',
+                                    'title' => 'Demokratie in Echtzeit', 'text' => 'Magnus Rembold im Interview mit Fabio De Masi, MdB Die Linke',
+                                    'links' => array(   array( 'icon' => 'fa-facebook-square', 'link' => 'https://www.facebook.com/fabio.d.masi/videos/724139911119044/?hc_ref=ARQOUAwCEBF-BSc3ka28z7nFVaOjJVCYgIxLzJ_DEYH0VZfZpljYV3uPLum3LCkcB2s'),
+                                                        array( 'icon' => 'fa-twitter', 'link' => 'https://twitter.com/democracy_de/status/934000406899953664'))),
+                            array(  'img' => './files/medien/youtube_idealism_prevails.jpg', 'alt' => 'Idealism Prevails - Marius Krüger',
                                     'day' => '22', 'month' => 'November 2017', 'link' => 'https://www.youtube.com/watch?v=5_QGl2S4CWQ',
                                     'title' => 'Demokratie im 21. Jahrhundert - Marius Krüger B.A.', 'text' => 'Zu Gast bei Paula P’Cay erklärt Marius Krüger, was er mit vielen Gleichgesinnten und der DEMOCRACY App erreichen möchte.',
                                     'links' => array(   array( 'icon' => 'fa-youtube', 'link' => 'https://www.youtube.com/watch?v=5_QGl2S4CWQ'),
