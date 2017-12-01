@@ -76,43 +76,49 @@
             <div class="container">
                 <div class="top-nav">
                     <nav class="navbar navbar-default">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a id="m_idee" class="m_mm active" href="#!start">Idee</a></li>
+                                <li><a id="m_wir" class="m_mm" href="#!wir">Wir</a></li>
+                                <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
+                                <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
+                                <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
+                            </ul> 
+                            <div class="clearfix"> </div>
+                        </div>  
+                    </nav>
+                </div>
+                <!-- w3-banner -->
+                <div class="w3-banner" style="position: relative; right: -3500px">
+                    <h1 class="headtxt">DEMOCRACY</h1>
+                    <div class="isabelle_layne" >Demokratie_live</div>
+                    <!--<p class="crowdfunding_details">
+                        ${main_startnext_status}
+                    </p>
+                    <a href="http://startnext.com/democracy" class="call_to_action">
+                        ${main_startnext_support}<br>
+                        <img src="./files/images/startnext_logo.png" alt="Startnext Logo">
+                    </a>-->
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <div class="wthree-heading"><h3>Stell dir vor...</h3></div>
+                    <br><br>
+                    <br>
+                </div>
+                <!-- //w3-banner -->
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a id="m_idee" class="m_mm active" href="#!start">Idee</a></li>
-                <li><a id="m_wir" class="m_mm" href="#!wir">Wir</a></li>
-                <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
-                <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
-                <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
-              </ul> 
-              <div class="clearfix"> </div>
-            </div>  
-          </nav>    
         </div>
-        <!-- w3-banner -->
-        <div class="w3-banner" style="position: relative; right: -3500px">
-            <h1 class="headtxt" >DEMOCRACY</h1>
-            <div class="isabelle_layne" >Demokratie_live</div>
-            <p class="crowdfunding_details">
-                ${main_startnext_status}
-            </p>
-            <a href="http://startnext.com/democracy" class="call_to_action">
-                ${main_startnext_support}<br>
-                <img src="./files/images/startnext_logo.png" alt="Startnext Logo">
-            </a>
-        </div>
-        <!-- //w3-banner -->
-      </div>
     </div>
-  </div>
   <!-- //banner -->
   <section id="content"></section>
   <!-- footer -->
@@ -138,17 +144,17 @@
           </div>
         </div>
         <div class="col-md-3 agileinfo_footer_grid">
-          <h3>Kontakt Info</h3>
-                    <h2 style="color: white;  font-size: 18px"><span class="" >DEMOCRACY</span><br> <small style="font-size: 15px"> Deutschland e.V.</small> </h2>
-                    <small class="foot_gem" style="font-size: 15px">(gemeinnützig)</small>
-          <br>
-                    <div style="color:white">
-                    <div style="font-size: small">Industriestr. 10</div>
-          <div style="font-size: small">37079 Göttingen </div>
-          <div style="font-size: small">Deutschland</div>
-          <div id="contact_mail" style="font-size: small"><a href="mailto:contact@democracy-deutschland.de">contact@democracy-deutschland.de</a></div>
-          <div style="font-size: small">Fon: +49 176 470 40 213</div>
-                    </div>
+            <h3>Kontakt Info</h3>
+            <h2 style="color: white; font-size: 18px"><span class="" >DEMOCRACY</span><br> <small style="font-size: 15px"> Deutschland e.V.</small> </h2>
+            <small class="foot_gem" style="font-size: 15px">(gemeinnützig)</small>
+            <br>
+            <div style="color:white">
+                <div style="font-size: small">Industriestr. 10</div>
+                <div style="font-size: small">37079 Göttingen </div>
+                <div style="font-size: small">Deutschland</div>
+                <div class="contact_mail" style="font-size: small"><a href="mailto:contact@democracy-deutschland.de">EMail schreiben</a></div>
+                <div style="font-size: small">Fon: +49 176 470 40 213</div>
+            </div>
         </div>
         <div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
           <h3>Navigation</h3>
@@ -165,14 +171,14 @@
         <div class="col-md-3 agileinfo_footer_grid">
           <h3>Spenden</h3>
             <div style="color:white">
-                <a  href="https://www.startnext.com/democracy" target="_blank" > 
+                <!--<a  href="https://www.startnext.com/democracy" target="_blank" > 
                     <img src="./files/images/startnext_logo.png" width="120" style="margin-top: -7px" alt="Startnext Logo">
-                </a>
-                <!--
+                </a>-->
                 <div style="font-size: small">Bank: Triodos Bank</div>
-                <div style="font-size: small">IBAN:</div>
-                <div style="font-size: small">BIC:</div>
-                -->
+                <div style="font-size: small">IBAN: DE33 5003 1000 1049 7560 00</div>
+                <div style="font-size: small">BIC: TRODDEF1</div>
+                <br>
+                <div style="font-size: small" class="contact_mail">Spendenquittung auf <a href="mailto:contact@democracy-deutschland.de">Anfrage</a></div>
             </div>
           <div class="clearfix"> </div>
         </div>

@@ -340,14 +340,20 @@ body {
 #insta__:hover{
   color:#BA3173;
 }
+#github_:hover{
+  color:#3b5998;
+}
+#discord_:hover{
+  color:#3b5998;
+}
 
-#contact_mail a {
+.contact_mail a {
 	font-size:.9em;
 	text-decoration:none;
 	color:#fff;
 }
 
-#contact_mail a:hover {
+.contact_mail a:hover {
 	color:#F44336;
 }
 
@@ -365,4 +371,14 @@ body {
 .welcome-right li{
     padding-top: 5px;
     margin-left: 20px;
+}
+
+.tooltip-inner{
+    width: 250px;
+    max-width: 250px;
+    font-size: large;
+    height: 70px;
+    max-height: 70px;
+    vertical-align: middle;
+    display: table-cell;
 }

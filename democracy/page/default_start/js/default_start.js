@@ -9,4 +9,6 @@ function init_start(){
     $(".m_mm").removeClass("active");
     $("#m_idee").addClass("active");
     $(".footer").addClass("footer_bg_grey");
+    
+    $('[data-toggle="tooltip"]').tooltip();
 }

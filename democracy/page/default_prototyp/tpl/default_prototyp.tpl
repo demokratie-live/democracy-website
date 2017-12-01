@@ -4,7 +4,7 @@
     
     </div>
 </div>
-<div class="about-bottom jarallax">
+<!--<div class="about-bottom jarallax">
     <div class="container">
         <div class="about-bottom-info testimonial-top ">
             <p style="text-align:center">
@@ -15,4 +15,4 @@
             </div>
         </div>
     </div>
-</div>		  
+</div>-->		  
