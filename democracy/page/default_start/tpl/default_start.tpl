@@ -59,7 +59,7 @@
                     <br>
                     <div class="row" style="padding-top: 50px;">
                         <div class="col-md-3" style="height: 150px;">
-                            <a href="https://crypto.iti.kit.edu/index.php?id=iti-crypto" target="blank" data-placement="top" data-toggle="tooltip" title="weitergebildet vom" style="height: 150px; vertical-align: bottom; display: table-cell;">
+                            <a href="https://crypto.iti.kit.edu/fileadmin/User/Vorlesung_kryptische_Wahlverfahren/Skript-29-Mai-2013.pdf" target="blank" data-placement="top" data-toggle="tooltip" title="weitergebildet vom" style="height: 150px; vertical-align: bottom; display: table-cell;">
                                 <img class="img-responsive" src="./files/references/Logo_KIT.png" alt="KIT Logo" style="max-height: 150px;">
                             </a>
                         </div>
