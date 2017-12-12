@@ -92,6 +92,7 @@
                                 <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
                                 <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
                                 <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
+                                <li><a id="m_faq" class="m_mm" href="#!faq">FAQ</a></li>
                             </ul> 
                             <div class="clearfix"> </div>
                         </div>  
@@ -164,6 +165,7 @@
             <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
             <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
             <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
+            <li><a href="#!faq" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>FAQ</a></li>
             <li><a href="#!impressum" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Impressum</a></li>
             <li><a href="#!datenschutz" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Datenschutz</a></li>
           </ul>
