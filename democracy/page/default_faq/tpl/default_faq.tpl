@@ -1,4 +1,4 @@
-<div class="single">
+<div class="single" style="background-color: #e8e8e8;">
     <div class="container">
         <div class="wthree-heading"><h3>FAQ</h3></div>
         <br><br>
@@ -7,7 +7,7 @@
             <div class="panel panel-default panel-faq">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse_ask"><b><i class="fa fa-caret-down" aria-hidden="true"></i></b>&nbsp;&nbsp;<b>Eine Frage stellen</b></a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse_ask" class="faq_header"><i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp;&nbsp;<b>Eine Frage stellen</b><i class="openarrow fa fa-angle-down" aria-hidden="true" style="${in_css}"></i></a>
                     </h4>
                 </div>
                 <div id="collapse_ask" class="panel-collapse collapse ${in}">

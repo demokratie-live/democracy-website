@@ -32,7 +32,7 @@ function init_faq(){
             $("#femail").focus();
             return null;
         }   
-        if (frage == "" || frage.length < 3 ){
+        if (frage === "" || frage.length < 3 ){
             alert( "bitte eine Frage eingeben");    
             $("#exampleTextarea").focus();
             return null;
@@ -63,5 +63,12 @@ function init_faq(){
                     alert("Deine Frage konnte nicht versendet weden. Bitte versuche es später noch einmal. Danke.");
                 }
         });
+    });
+    
+    $('.panel').on('show.bs.collapse', function (e) {
+        $(".openarrow",this).css("transform","rotate(180deg)");
+    });
+    $('.panel').on('hide.bs.collapse', function (e) {
+        $(".openarrow",this).css("transform","rotate(0deg)");
     });
 }

@@ -14,7 +14,7 @@ class default_faq implements SYSTEM\PAGE\Page {
         $faqs = \SYSTEM\PAGE\text::tag('faq');
         $i = 0;
         while(array_key_exists('faq_q_'. ($i < 9 ? sprintf("%02d", ++$i) : ++$i), $faqs)){
-            $question = array(  'n' => $i, 'in' => $i == 1 ? 'in' : '',
+            $question = array(  'n' => $i, 'in' => $i == 1 ? 'in' : '', 'in_css' => $i == 1 ? 'transform: rotate(180deg)' : '',
                                 'question' => '${faq_q_'.($i <= 9 ? sprintf("%02d", $i) : $i).'}', //${faq_q_0n} ${faq_q_nn}
                                 'answer' => '${faq_a_'.($i <= 9 ? sprintf("%02d", $i) : $i).'}');  //${faq_a_0n} ${faq_a_nn}
             $vars['questions'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_faq/tpl/question.tpl'))->SERVERPATH(), $question);

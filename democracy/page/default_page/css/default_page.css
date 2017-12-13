@@ -383,12 +383,21 @@ body {
     display: table-cell;
 }
 
-.panel-faq{border-color:#4f81bd}
-.panel-faq>.panel-heading{color:#fff;background-color:#4494d3;border-color:#4f81bd}
-.panel-faq>.panel-heading+.panel-collapse>.panel-body{border-top-color:#4f81bd}
+.panel-faq{margin-bottom: 12px !important; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); border: 0; border-radius: 0;}
+.panel-faq>.panel-heading{border-radius: 0; background-color: #fff; border-color: #000;}
+.panel-faq>.panel-heading+.panel-collapse>.panel-body{border-color: grey}
 .panel-faq>.panel-heading .badge{color:#d9edf7;background-color:#4494d3}
 .panel-faq>.panel-footer+.panel-collapse>.panel-body{border-bottom-color:#4f81bd}
-.panel-faq>.panel-heading>h4>a:hover{text-decoration: none;}
-.panel-faq>.panel-heading>h4>a:active{text-decoration: none;}
-.panel-faq>.panel-heading>h4>a:visited{text-decoration: none;}
-.panel-faq>.panel-heading>h4>a:focus{text-decoration: none;}
+.panel-faq>.panel-heading>.panel-title{color: #333; font-size: 22px; padding-top: 15px; padding-bottom: 15px;}
+.panel-faq>.panel-heading>.panel-title>a{}
+.panel-faq>.panel-heading>.panel-title>a:hover{text-decoration: none;}
+.panel-faq>.panel-heading>.panel-title>a:active{text-decoration: none;}
+.panel-faq>.panel-heading>.panel-title>a:visited{text-decoration: none;}
+.panel-faq>.panel-heading>.panel-title>a:focus{text-decoration: none;}
+
+.openarrow{
+    float:right;
+    font-size: 40px;
+    line-height: 30px;
+    transition: transform .2s;
+}
