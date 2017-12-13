@@ -1,0 +1,1 @@
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (100, 0, 2, 10, 'send_mail_faq', 'data', 'JSON');
