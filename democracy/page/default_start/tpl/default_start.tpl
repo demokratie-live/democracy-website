@@ -64,13 +64,13 @@
                             </a>
                         </div>
                         <div class="col-md-6" style="height: 150px;">
-                            <a href="https://demokratie.io/erstefoerderrunde/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner 1. Förderrunde" style="height: 150px; vertical-align: bottom; display: table-cell;">
+                            <a href="https://demokratie.io/gewinner/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner bei Demokratie.io" style="height: 150px; vertical-align: bottom; display: table-cell;">
                                 <img class="img-responsive" src="./files/references/demokratie-io-landscape-claim-2.png" alt="Demokratie IO Logo" style="max-height: 150px;">
                             </a>
                         </div>
                         <div class="col-md-3" style="height: 150px;">
-                            <a href="https://prototypefund.de" target="blank" data-toggle="tooltip" data-placement="top" title="Gewinner 3. Förderrunde" style="height: 150px; vertical-align: bottom; display: table-cell;">
-                                <img class="img-responsive" src="./files/references/Prototype.png" alt="Prototype Fund Logo" style="max-height: 150px;">
+                            <a href="http://buergerkandidaten.de/" target="blank" data-toggle="tooltip" data-placement="top" title="Unterstützt von" style="height: 150px; vertical-align: bottom; display: table-cell;">
+                                <img class="img-responsive" src="./files/references/buergerkandidaten.png" alt="Prototype Fund Logo" style="max-height: 150px;">
                             </a>
                         </div>
                     </div>
