@@ -180,7 +180,12 @@
                 <div style="font-size: small">IBAN: DE33 5003 1000 1049 7560 00</div>
                 <div style="font-size: small">BIC: TRODDEF1</div>
                 <br>
-                <div style="font-size: small" class="contact_mail">Spendenquittung auf <a href="mailto:contact@democracy-deutschland.de">Anfrage</a></div>
+                <div style="font-size: small" class="contact_mail">
+                    Für Spenden unter 200€ jährlich
+                    genügt der&nbsp;&nbsp;<a href="./files/download/Vereinfachter Zuwendungsnachweis.pdf" targer="blank"><i class="fa fa-angle-double-right" aria-hidden="true"></i>&nbsp;Vereinfachter Zuwendungsnachweis&nbsp;<i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                    <br><br>
+                    Spendenquittung auf&nbsp;&nbsp;<a href="mailto:contact@democracy-deutschland.de"><i class="fa fa-angle-double-right" aria-hidden="true"></i>&nbsp;Anfrage&nbsp;<i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                </div>
             </div>
           <div class="clearfix"> </div>
         </div>
