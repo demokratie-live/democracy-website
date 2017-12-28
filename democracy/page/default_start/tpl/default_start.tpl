@@ -36,41 +36,58 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3" style="height: 250px;">
-                            <a href="https://www.startnext.com/democracy" target="blank" data-toggle="tooltip" data-placement="bottom" title="erfolgreich crowdfinanziert" style="height: 250px; vertical-align: bottom; display: table-cell;">
+                            <a href="https://www.startnext.com/democracy" target="blank" data-toggle="tooltip" data-placement="bottom" title="Erfolgreich crowdfinanziert" style="height: 250px; vertical-align: bottom; display: table-cell;">
                                 <img class="img-responsive" src="./files/references/startnext_logo_green-1.png" alt="Startnext Logo" style="max-height: 250px;">
                             </a>
                         </div>
                         <div class="col-md-3" style="height: 250px;">
-                            <a href="https://www.ghst.de/demokratie/" target="blank" data-toggle="tooltip" data-placement="bottom" title="gefördert durch" style="height: 250px; vertical-align: bottom; display: table-cell;">
+                            <a href="https://www.ghst.de/demokratie/" target="blank" data-toggle="tooltip" data-placement="bottom" title="Gefördert durch" style="height: 250px; vertical-align: bottom; display: table-cell;">
                                 <img class="img-responsive" src="./files/references/1200px-Hertie-Stiftung.png" alt="Herti Stiftung Logo" style="max-height: 250px;">
                             </a>
                         </div>
                         <div class="col-md-3" style="height: 250px;">
-                            <a href="https://www.idealismprevails.at/demokratie-im-21-jahrhundert-marius-krueger-b-a/" target="blank" data-placement="bottom" data-toggle="tooltip" title="promotet von" style="height: 250px; vertical-align: bottom; display: table-cell;">
+                            <a href="https://www.idealismprevails.at/demokratie-im-21-jahrhundert-marius-krueger-b-a/" target="blank" data-placement="bottom" data-toggle="tooltip" title="Promotet von" style="height: 250px; vertical-align: bottom; display: table-cell;">
                                 <img class="img-responsive" src="./files/references/IP_Logo_RGB.png" alt="Idealism Prevails Logo" style="max-height: 250px;">
                             </a>
                         </div>
                         <div class="col-md-3" style="height: 250px;">
-                            <a href="http://www.sputnik.de/sendungen/tagesupdate/audio-539944.html" target="blank" data-placement="bottom" data-toggle="tooltip" title="zu hören bei" style="height: 250px; vertical-align: bottom; display: table-cell;">
+                            <a href="http://www.sputnik.de/sendungen/tagesupdate/audio-539944.html" target="blank" data-placement="bottom" data-toggle="tooltip" title="Zu hören bei" style="height: 250px; vertical-align: bottom; display: table-cell;">
                                 <img class="img-responsive" src="./files/references/MDR-SPUTNIK.png" alt="MDR Sputnik Logo" style="max-height: 250px;">
                             </a>
                         </div>
                     </div>
                     <br>
-                    <div class="row" style="padding-top: 50px;">
-                        <div class="col-md-3" style="height: 150px;">
-                            <a href="https://crypto.iti.kit.edu/fileadmin/User/Vorlesung_kryptische_Wahlverfahren/Skript-29-Mai-2013.pdf" target="blank" data-placement="top" data-toggle="tooltip" title="weitergebildet vom" style="height: 150px; vertical-align: bottom; display: table-cell;">
-                                <img class="img-responsive" src="./files/references/Logo_KIT.png" alt="KIT Logo" style="max-height: 150px;">
+                    <div class="row" style="padding-top: 75px;">
+                        <div class="col-md-3" style="height: 130px;">
+                            <a href="https://crypto.iti.kit.edu/fileadmin/User/Vorlesung_kryptische_Wahlverfahren/Skript-29-Mai-2013.pdf" target="blank" data-placement="top" data-toggle="tooltip" title="Weitergebildet vom" style="height: 130px; vertical-align: bottom; display: table-cell;">
+                                <img class="img-responsive" src="./files/references/Logo_KIT.png" alt="KIT Logo" style="max-height: 130px;">
                             </a>
                         </div>
-                        <div class="col-md-6" style="height: 150px;">
-                            <a href="https://demokratie.io/gewinner/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner bei Demokratie.io" style="height: 150px; vertical-align: bottom; display: table-cell;">
-                                <img class="img-responsive" src="./files/references/demokratie-io-landscape-claim-2.png" alt="Demokratie IO Logo" style="max-height: 150px;">
+                        <div class="col-md-6" style="height: 130px;">
+                            <a href="https://demokratie.io/gewinner/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner bei Demokratie.io" style="height: 130px; vertical-align: bottom; display: table-cell;">
+                                <img class="img-responsive" src="./files/references/demokratie-io-landscape-claim-2.png" alt="Demokratie IO Logo" style="max-height: 130px;">
                             </a>
                         </div>
-                        <div class="col-md-3" style="height: 150px;">
-                            <a href="http://buergerkandidaten.de/" target="blank" data-toggle="tooltip" data-placement="top" title="Unterstützt von" style="height: 150px; vertical-align: bottom; display: table-cell;">
-                                <img class="img-responsive" src="./files/references/buergerkandidaten.png" alt="Prototype Fund Logo" style="max-height: 150px;">
+                        <div class="col-md-3" style="height: 130px;">
+                            <a href="http://buergerkandidaten.de/" target="blank" data-toggle="tooltip" data-placement="top" title="Unterstützt von" style="height: 130px; vertical-align: bottom; display: table-cell;">
+                                <img class="img-responsive" src="./files/references/buergerkandidaten.png" alt="Bürgerkandidaten Logo" style="max-height: 130px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 85px;">
+                        <div class="col-md-4" style="height: 115px;">
+                            <a href="https://www.pressenza.com/de/2017/12/demokratie-echtzeit-neue-app-democracy-erfolgreich-crowdfinanziert/" target="blank" data-placement="top" data-toggle="tooltip" title="Publiziert von" style="height: 100px; vertical-align: bottom; display: table-cell; margin: auto;">
+                                <img class="img-responsive" src="./files/references/pressenza_logo.png" alt="Pressenza Logo" style="max-height: 100px;">
+                            </a>
+                        </div>
+                        <div class="col-md-4" style="height: 115px;">
+                            <a href="https://neue-debatte.com/2017/11/03/digitale-medien-mit-der-democracy-app-zur-basisdemokratie/" target="blank" data-placement="top" data-toggle="tooltip" title="Debatiert auf" style="height: 100px; vertical-align: bottom; display: table-cell; margin: auto;">
+                                <img class="img-responsive" src="./files/references/neue-debatte-logo.png" alt="Neue Debatte Logo" style="max-height: 100px;">
+                            </a>
+                        </div>
+                        <div class="col-md-4" style="height: 115px;">
+                            <a href="https://enorm-magazin.de/push-mitteilung-aus-dem-bundestag" target="blank" data-toggle="tooltip" data-placement="top" title="Abgedruckt bei" style="height: 100px; vertical-align: bottom; display: table-cell;">
+                                <img class="img-responsive" src="./files/references/enorm-magazin.png" alt="Enorm Magazin Logo" style="max-height: 100px;">
                             </a>
                         </div>
                     </div>
