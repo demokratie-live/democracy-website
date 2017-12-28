@@ -181,10 +181,7 @@
                 <div style="font-size: small">BIC: TRODDEF1</div>
                 <br>
                 <div style="font-size: small" class="contact_mail">
-                    Für Spenden unter 200€ jährlich
-                    genügt der&nbsp;&nbsp;<a href="./files/download/Vereinfachter Zuwendungsnachweis.pdf" targer="blank"><i class="fa fa-angle-double-right" aria-hidden="true"></i>&nbsp;Vereinfachter Zuwendungsnachweis&nbsp;<i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-                    <br><br>
-                    Spendenquittung auf&nbsp;&nbsp;<a href="mailto:contact@democracy-deutschland.de"><i class="fa fa-angle-double-right" aria-hidden="true"></i>&nbsp;Anfrage&nbsp;<i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                    ${donate_notice}
                 </div>
             </div>
           <div class="clearfix"> </div>

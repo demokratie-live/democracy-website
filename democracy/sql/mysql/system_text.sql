@@ -173,3 +173,6 @@ INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('faq_q_05', 'faq');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('faq_q_06', 'faq');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('faq_q_07', 'faq');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('faq_q_08', 'faq');
+
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('donate_notice', 'deDE', 'Für Spenden unter 200€ jährlich genügt der <a href=\"files/download/Vereinfachter Zuwendungsnachweis.pdf\" data-mce-href=\"files/download/Vereinfachter Zuwendungsnachweis.pdf\"><strong>»&nbsp;</strong>Vereinfachte Zuwendungsnachweis&nbsp;<strong>«</strong></a><br><br> Spendenquittung auf&nbsp;<a href=\"mailto:contact@democracy-deutschland.de\" data-mce-href=\"mailto:contact@democracy-deutschland.de\"><strong>»&nbsp;</strong>Anfrage&nbsp;<strong>«</strong></a>', '1', '1', '2017-12-28 16:42:29', '2017-12-28 16:42:29');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('donate_notice', 'democracy');
