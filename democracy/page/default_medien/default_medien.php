@@ -8,6 +8,45 @@ class default_medien implements SYSTEM\PAGE\Page {
         return array(   new PPAGE('default_medien/js/default_medien.js'));}
     public static function css(){
         return array();}//   new PPAGE('default_medien/css/default_medien.css'));}
+        
+    public static function wp_entries(){
+        $path = (new \SYSTEM\PROOT('../httpdocs/blog/wp-load.php'))->SERVERPATH();
+        $autoloadFuncs = spl_autoload_functions();
+        foreach($autoloadFuncs as $unregisterFunc){   
+            $unregisterFunc[0] = '\\'.$unregisterFunc[0];
+            spl_autoload_unregister($unregisterFunc);
+        }
+        require $path;
+        $autoloadFuncs2 = spl_autoload_functions();
+        foreach($autoloadFuncs2 as $unregisterFunc){
+            spl_autoload_unregister($unregisterFunc);
+        }
+        foreach($autoloadFuncs as $registerFunc){
+            spl_autoload_register($registerFunc);}
+        $wp_query = new \WP_Query();
+        
+
+        $result = '';
+        $posts = wp_get_recent_posts(array(
+                'numberposts' => 3,
+                'orderby' => 'post_date',
+                'order' => 'DESC',
+                'post_type' => 'post',
+                'post_status' => 'publish',
+        ),ARRAY_A);
+
+        foreach($posts as $post) {
+            $p = array();
+            $p['link'] = get_post_permalink($post['ID']);
+            $p['title'] = $post['post_title'];
+            //$p['exerpt'] = get_the_excerpt($post['ID']);
+            $p['thumbnail'] = get_the_post_thumbnail_url($post['ID'], 'website_blog_thumbnail');
+            $p['date'] = date_i18n( get_option( 'date_format' ), strtotime( $post['post_date'] ) );
+            $p['content'] = wp_trim_words($post['post_content'], 25);
+            $result .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_medien/tpl/wp_entry.tpl'))->SERVERPATH(), $p);
+        }
+        return $result;
+    }
     public function html(){
         $vars = array();
         
@@ -88,6 +127,7 @@ class default_medien implements SYSTEM\PAGE\Page {
             $vars['articles'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_medien/tpl/article.tpl'))->SERVERPATH(), $article);
             $i++;
         }
+        $vars['wp_entries'] = self::wp_entries();
         
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));
         return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_medien/tpl/default_medien.tpl'))->SERVERPATH(), $vars);

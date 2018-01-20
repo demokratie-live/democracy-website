@@ -3,6 +3,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
     public static function js(){        
         return  \SYSTEM\HTML\html::script(\SYSTEM\CACHE\cache_js::minify(array(
                     \LIB\lib_jquery::js(),
+                    new PPAGE('default_page/js/popper.min.js'),
                     \LIB\lib_bootstrap::js(),
                     \LIB\lib_system::js(),
                     new PLIB('responsiveslides/responsiveslides.min.js'),

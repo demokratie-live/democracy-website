@@ -75,24 +75,20 @@
         <div class="header-bottom">
             <div class="container">
                 <div class="top-nav">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button style="float: none;margin-right: auto; margin-left: auto; margin-bottom: 15px;" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span style="font-weight: bold; font-size: large;">&nbsp;DEMOCRACY</span>
+                        </button>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav" style="width:100%; display: table;">
                                 <li><a id="m_idee" class="m_mm active" href="#!start">Idee</a></li>
                                 <li><a id="m_wir" class="m_mm" href="#!wir">Wir</a></li>
                                 <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
                                 <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
                                 <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
                                 <li><a id="m_faq" class="m_mm" href="#!faq">FAQ</a></li>
+                                <li><a id="m_blog" class="m_mm" href="https://www.democracy-deutschland.de/blog">Blog</a></li>
                             </ul> 
                             <div class="clearfix"> </div>
                         </div>  
@@ -123,80 +119,78 @@
   <!-- //banner -->
   <section id="content"></section>
   <!-- footer -->
-  <div class="footer" >
-    <div class="container" >
-      <div class="w3agile_footer_grids" style="padding-left:20px">
-        <div class="col-md-4 agileinfo_footer_grid">
-          <div class="agileits_w3layouts_footer_logo">
-            <div class="logobox">
-                <div class="edzofont">DEMOCRACY</div>
-                <div class="isabelle_layne">Demokratie_live</div>
+  <div class="footer">
+    <div class="container">
+        <div class="row" style="margin-left: 15px; margin-right: 15px;">
+            <div class="col-md-4 agileinfo_footer_grid">
+              <div class="agileits_w3layouts_footer_logo">
+                <div class="logobox">
+                    <div class="edzofont">DEMOCRACY</div>
+                    <div class="isabelle_layne">Demokratie_live</div>
+                </div>
+                <div class="agileinfo-social-grids">
+                    <ul>
+                        <li><a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i id="youtube_" class="fa fa-youtube"></i></a></li>
+                        <li><a href="https://www.facebook.com/democracygermany/" target="_blank"><i id="facebook_" class="facebook_ fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/democracy_de" target="_blank"><i id="twitter_" class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/democracy_deutschland/" target="_blank"><i id="insta_" class="insta_ fa fa-instagram"></i></a></li>
+                        <li><a href="https://github.com/demokratie-live/" target="_blank"><i id="github_" class="insta_ fa fa-github"></i></a></li>
+                        <li><a href="https://discord.gg/Pdu3ZEV" target="_blank"><i id="discord_" class="insta_ fa fa-weixin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="agileinfo-social-grids">
-                <ul>
-                    <li><a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i id="youtube_" class="fa fa-youtube"></i></a></li>
-                    <li><a href="https://www.facebook.com/democracygermany/" target="_blank"><i id="facebook_" class="facebook_ fa fa-facebook"></i></a></li>
-                    <li><a href="https://twitter.com/democracy_de" target="_blank"><i id="twitter_" class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com/democracy_deutschland/" target="_blank"><i id="insta_" class="insta_ fa fa-instagram"></i></a></li>
-                    <li><a href="https://github.com/demokratie-live/" target="_blank"><i id="github_" class="insta_ fa fa-github"></i></a></li>
-                    <li><a href="https://discord.gg/Pdu3ZEV" target="_blank"><i id="discord_" class="insta_ fa fa-weixin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 agileinfo_footer_grid">
-            <h3>Kontakt Info</h3>
-            <h2 style="color: white; font-size: 18px"><span class="" >DEMOCRACY</span><br> <small style="font-size: 15px"> Deutschland e.V.</small> </h2>
-            <small class="foot_gem" style="font-size: 15px">(gemeinnützig)</small>
-            <br>
-            <div style="color:white">
-                <div style="font-size: small">Industriestr. 10</div>
-                <div style="font-size: small">37079 Göttingen </div>
-                <div style="font-size: small">Deutschland</div>
-                <div class="contact_mail" style="font-size: small"><a href="mailto:contact@democracy-deutschland.de">EMail schreiben</a></div>
-                <div style="font-size: small">Fon: +49 176 470 40 213</div>
-            </div>
-        </div>
-        <div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1" style="padding-right:20px">
-          <h3>Navigation</h3>
-          <ul class="w3layouts_footer_nav">
-            <li><a href="#!start" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
-            <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
-            <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
-            <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
-            <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
-            <li><a href="#!faq" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>FAQ</a></li>
-            <li><a href="#!impressum" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Impressum</a></li>
-            <li><a href="#!datenschutz" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Datenschutz</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 agileinfo_footer_grid">
-          <h3>Spenden</h3>
-            <div style="color:white">
-                <!--<a  href="https://www.startnext.com/democracy" target="_blank" > 
-                    <img src="./files/images/startnext_logo.png" width="120" style="margin-top: -7px" alt="Startnext Logo">
-                </a>-->
-                <div style="font-size: small">Bank: Triodos Bank</div>
-                <div style="font-size: small">IBAN: DE33 5003 1000 1049 7560 00</div>
-                <div style="font-size: small">BIC: TRODDEF1</div>
+            <div class="col-md-3 agileinfo_footer_grid">
+                <h3>Kontakt Info</h3>
+                <h2 style="color: white; font-size: 18px"><span class="" >DEMOCRACY</span><br> <small style="font-size: 15px"> Deutschland e.V.</small> </h2>
+                <small class="foot_gem" style="font-size: 15px">(gemeinnützig)</small>
                 <br>
-                <div style="font-size: small" class="contact_mail">
-                    ${donate_notice}
+                <div style="color:white">
+                    <div style="font-size: small">Industriestr. 10</div>
+                    <div style="font-size: small">37079 Göttingen </div>
+                    <div style="font-size: small">Deutschland</div>
+                    <div class="contact_mail" style="font-size: small"><a href="mailto:contact@democracy-deutschland.de">EMail schreiben</a></div>
+                    <div style="font-size: small">Fon: +49 176 470 40 213</div>
                 </div>
             </div>
-          <div class="clearfix"> </div>
+            <div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1">
+              <h3>Navigation</h3>
+              <ul class="w3layouts_footer_nav">
+                <li><a href="#!start" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
+                <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
+                <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
+                <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
+                <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
+                <li><a href="#!faq" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>FAQ</a></li>
+                <li><a href="#!impressum" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Impressum</a></li>
+                <li><a href="#!datenschutz" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Datenschutz</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 agileinfo_footer_grid">
+              <h3>Spenden</h3>
+                <div style="color:white">
+                    <!--<a  href="https://www.startnext.com/democracy" target="_blank" > 
+                        <img src="./files/images/startnext_logo.png" width="120" style="margin-top: -7px" alt="Startnext Logo">
+                    </a>-->
+                    <div style="font-size: small">Bank: Triodos Bank</div>
+                    <div style="font-size: small">IBAN: DE33 5003 1000 1049 7560 00</div>
+                    <div style="font-size: small">BIC: TRODDEF1</div>
+                    <br>
+                    <div style="font-size: small" class="contact_mail">
+                        ${donate_notice}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="clearfix"> </div>
-      </div>
     </div>
     <div class="w3_agileits_footer_copy">
-      <div class="container">
-        <p>
-          <i class="fa fa-creative-commons"></i> BY NC ND 4.0
-          &mdash; 2017
-          <span class="edzofont">DEMOCRACY</span>
-          Deutschland e.V.</p>
-      </div>
+        <div class="container">
+            <p>
+            <i class="fa fa-creative-commons"></i> BY NC ND 4.0
+            &mdash; 2017
+            <span class="edzofont">DEMOCRACY</span>
+            Deutschland e.V.</p>
+        </div>
     </div>
     </div>
     <!-- //footer -->
