@@ -17,3 +17,5 @@ require_once dirname(__FILE__).'/minify/autoload.inc';
 require_once dirname(__FILE__).'/phpdocumentor/autoload.inc';
 require_once dirname(__FILE__).'/phpdoc_md/autoload.inc';
 require_once dirname(__FILE__).'/jstree/autoload.inc';
+require_once dirname(__FILE__).'/popper/autoload.inc';
+require_once dirname(__FILE__).'/font_awesome/autoload.inc';
