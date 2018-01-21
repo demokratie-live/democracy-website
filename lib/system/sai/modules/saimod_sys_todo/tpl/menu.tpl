@@ -1,6 +1,6 @@
-<li id="menu_todo">
-    <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_todo}" href="#!todo">
-        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_todo}</span>
+<li class="nav-item">
+    <a id="menu_todo" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_todo}" href="#!todo">
+        <i class="fa fa-tasks" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_todo}</span>
     </a>
 </li>

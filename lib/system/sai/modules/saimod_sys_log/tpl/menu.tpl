@@ -1,6 +1,6 @@
-<li id="menu_log">
-    <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_log}" href="#!log">
-        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_log}</span>
+<li class="nav-item">
+    <a id="menu_log" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_log}" href="#!log">
+        <i class="fa fa-list" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_log}</span>
     </a>
 </li>

@@ -1,1 +1,1 @@
-<li class="${active}"><a href="#!security;filter.${filter};search.${search}">${name}</a></li>
+<li class="nav-item"><a class="nav-link ${active}" href="#!security;filter.${filter};search.${search}">${name}</a></li>

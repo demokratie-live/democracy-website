@@ -7,57 +7,84 @@
         <link rel="icon" type="image/png" href="./files/sai/logo_sai.png"/>
         ${css}
         ${js}
+        <style>
+            .sai_menu li a.active, #menu_start.active{
+                background-color: #007bff!important;
+            }
+        </style>
+        <style>
+            .divider-vertical {
+                height: parent;
+                margin: 0;
+                overflow: hidden;
+                border-left: 1px solid #e9ecef;
+            }
+        </style>
+        <style>
+        table.tablesorter thead tr th.tablesorter-headerAsc:after,
+table.tablesorter thead tr th.tablesorter-headerDesc:after,
+table.tablesorter thead tr th.tablesorter-header:after {
+    float: right;
+    font-family: FontAwesome;
+}
+table.tablesorter thead tr th.tablesorter-header:after {
+  content: "\f0dc";
+}
+table.tablesorter thead tr th.tablesorter-headerAsc:after {
+  content: "\f0de";
+}
+table.tablesorter thead tr th.tablesorter-headerDesc:after {
+  content: "\f0dd";
+}
+.tablesorter-header-inner{ float: left;}
+</style>
+<style>
+    .sai_border_left{
+        border-left: #dee2e6 1px solid;
+    }
+</style>
     </head>
     <body>
-        <div class="container"> 
+        <div class="container-fluid"> 
             <div class="row">
-                <div class="col-md-2">
-                     ${menu_languages}
-                </div>  
-                <!-- div class="col-md-10 sai_menu_first sai_left_divider" -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="col-md-10 sai_margin_left_off sai_padding_left_off sai_padding_right_off"> 
-                    <nav class="navbar navbar-default sai_margin_bottom_off">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false" style="margin-left: 5px;">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            ${menu_start}
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-project-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
+                <div class="col-md-12 sai_margin_left_off sai_padding_left_off sai_padding_right_off"> 
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light sai_margin_bottom_off sai_padding_off">
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu-collapse" aria-controls="menu-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <!--<span style="font-weight: bold; font-size: large;">&nbsp;DEMOCRACY</span>-->
+                        </button>
+                        ${menu_start}
                         <div class="collapse navbar-collapse navHeaderCollapse sai_margin_left_off sai_padding_left_off" id="menu-collapse">
-                            <ul class="nav navbar-nav sai_menu_first">
-                                ${menu_sys}
+                            <ul class="navbar-nav sai_menu">
+                                ${menu_left}
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="divider-vertical"></li>
+                                <li class="dropdown-divider"></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle " href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="d-md-none" style="padding-left: 15px;"></span>
+                                        <i class="fa fa-language"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                                        ${menu_languages}
+                                    </div>
+                                </li>
+                                <li class="divider-vertical"></li>
+                                <li class="dropdown-divider"></li>
+                                ${menu_right}
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>    
             <div class="row">
-                <div class="col-md-2" style="padding-top: 20px;">
-                    <div class="collapse navbar-collapse sai_padding_off" id="menu-project-collapse">
-                        <ul class="nav nav-pills nav-stacked head-menu">
-                            ${menu_proj}
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-10 sai_margin_left_off">
-                    <div class="row">
-                        <div id="content">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <hr>
-                        <div id="footer"><p>${sai_copyright}</p></div>
-                    </div>
+                <div id="content" class="col-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-12 sai_padding_off">
+                    <hr class="sai_margin_off">
+                    <div id="footer">${sai_copyright}</div>
                 </div>
             </div>
         </div>

@@ -76,7 +76,7 @@ class SaiModule extends \SYSTEM\API\api_default{
      *
      * @return string Returns HTML of the <li> menu for the Saimod
      */
-    public static function html_li_menu(){
+    public static function menu(){
         throw new \RuntimeException("Unimplemented!");}
     /**
      * Check public state for the Saimod.

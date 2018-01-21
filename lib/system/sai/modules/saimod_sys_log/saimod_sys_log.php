@@ -427,9 +427,18 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
         }
         $vars['pagination'] = '';
         $vars['page_last'] = floor($count/100);
+        $dots = false;
         for($i=0;$i < ceil($count/100);$i++){
-            $data = array('page' => $i,'search' => $vars['search_encoded'], 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
-            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_pagination.tpl'))->SERVERPATH(), $data);
+            if(abs($page-$i) < 7){
+                $data = array('page' => $i,'search' => $vars['search_encoded'], 'filter' => $filter, 'active' => ($i == $page) ? 'active' : '');
+                $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_pagination.tpl'))->SERVERPATH(), $data);
+                $dots = false;
+            } else {
+                if(!$dots){
+                    $dots = true;
+                    $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/saimod_sys_log_pagination_dots.tpl'))->SERVERPATH());
+                }
+            }
         }
         $vars['count'] = $count_filtered.'/'.$count;
         $vars['error_filter'] = '';
@@ -479,7 +488,11 @@ class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/menu.tpl'))->SERVERPATH());}
+    public static function menu(){
+        return new sai_module_menu( 1,
+                                    sai_module_menu::POISITION_LEFT,
+                                    sai_module_menu::DIVIDER_NONE,
+                                    \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_log/tpl/menu.tpl'))->SERVERPATH()));}
     
     /**
      * Returns if the Saimod is public(access for everyone)

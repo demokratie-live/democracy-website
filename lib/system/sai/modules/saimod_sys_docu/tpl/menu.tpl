@@ -1,7 +1,7 @@
-<li id="menu_docu">
-    <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_docu}" href="#!docu">
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm" style="padding-left: 15px;"></span>
-        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_docu}</span>
+<li class="nav-item">
+    <a id="menu_docu" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_docu}" href="#!docu">
+        <span class="d-md-none" style="padding-left: 15px;"></span>
+        <i class="fa fa-book" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_docu}</span>
     </a>
 </li>

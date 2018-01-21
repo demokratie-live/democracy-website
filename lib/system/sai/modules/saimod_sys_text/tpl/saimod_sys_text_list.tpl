@@ -1,12 +1,12 @@
 <ul class="nav nav-pills" id="right_filter">    
-    <li class="${active}"><a href="#!text;tag.${tag};filter.all;search.${search}">${basic_all}</a></li>
+    <li class="nav-item"><a class="nav-link ${active}" href="#!text;tag.${tag};filter.all;search.${search}">${basic_all}</a></li>
     ${lang_filter}
     <button class="btn-sm btn btn-success" state="text;tag.${tag};filter.${filter};search." id="btn_search" type="submit" style="float: right; margin-left: 10px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ${basic_search}</button>
     <input class="input-medium search-query action-control" id="input_search" type="text" placeholder="${basic_placeholder_search}" size="20" style="float: right;" value="${search}"/>
 </ul>
 <div id="table_text">
     <h6>${basic_rows}: ${count} ${basic_page}: ${page}</h6>
-    <table class="table table-hover table-condensed sai_table tablesorter" id="sai_mod_text_table" style="overflow: auto;">
+    <table class="table table-hover table-condensed sai_table tablesorter" id="sai_mod_text_table">
         <thead>
             <tr>
                 <th>${table_id}</th>

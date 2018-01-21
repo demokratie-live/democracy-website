@@ -1,1 +1,1 @@
-<li class="${active}"><a href="#!docu;cat.${tab_id}" id="menu_cat_${tab_id}">${tab_id_pretty}</a></li>
+<li class="nav-item"><a class="nav-link ${active}" href="#!docu;cat.${tab_id}" id="menu_cat_${tab_id}">${tab_id_pretty}</a></li>

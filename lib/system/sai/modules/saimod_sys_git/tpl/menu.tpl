@@ -1,9 +1,7 @@
-</ul>
-<ul class="nav navbar-nav navbar-right sai_divider_left">
-    <li id="menu_git">
-        <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_git}" href="#!git">
-            <span class="hidden-md hidden-lg hidden-xl hidden-sm" style="padding-left: 15px;"></span>
-            <span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
-            <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_git}</span>
-        </a>
-    </li>
+<li class="nav-item">
+    <a id="menu_git" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_git}" href="#!git">
+        <span class="d-md-none" style="padding-left: 15px;"></span>
+        <i class="fa fa-git" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_git}</span>
+    </a>
+</li>

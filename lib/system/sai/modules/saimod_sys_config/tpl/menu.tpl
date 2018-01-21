@@ -1,6 +1,7 @@
-<li id="menu_config">
-    <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_config}" href="#!config">
-        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_config}</span>
+<li class="nav-item">
+    <a id="menu_config" class="nav-link" data-toggle="tooltip" title="${sai_menu_config}" href="#!config">
+        <span class="d-md-none" style="padding-left: 15px;"></span>
+        <i class="fa fa-wrench" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_config}</span>
     </a>
 </li>

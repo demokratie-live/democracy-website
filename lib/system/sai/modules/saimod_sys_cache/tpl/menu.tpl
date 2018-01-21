@@ -1,6 +1,6 @@
-<li id="menu_cache">
-    <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cache}" href="#!cache">
-        <span class="glyphicon glyphicon-level-up" aria-hidden="true"></span>
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_cache}</span>
+<li class="nav-item">
+    <a id="menu_cache" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cache}" href="#!cache">
+        <i class="fa fa-database" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_cache}</span>
     </a>
 </li>

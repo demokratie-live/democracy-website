@@ -22,65 +22,6 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
-        $vars['basics'] = $vars['database'] = $vars['sai'] = '';
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS',
-                                    'value' =>implode(',',\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS))));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG)));
-        
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_HOST,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_HOST',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_HOST)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PORT,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PORT',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PORT)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_USER,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_USER',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_USER)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PASSWORD,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PASSWORD',
-                                    'value' =>'&lt;hidden&gt;'));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                            array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME,
-                                    'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME',
-                                    'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME)));
-
-        $vars['sai'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
-                        array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT,
-                                'name' =>'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT',
-                                'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT)));
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/saimod_sys_config.tpl'))->SERVERPATH(),$vars);
     }
     
@@ -90,38 +31,37 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
      * @return string Returns HTML
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_basics(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
-        $vars['basics'] = $vars['database'] = $vars['sai'] = '';
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result = '';
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_ERRORREPORTING)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEPATH)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_SYSTEMPATHREL)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_RESULT)));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS',
                                     'value' =>implode(',',\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS))));
-        $vars['basics'] .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=  \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DEFAULT_LANG)));
     
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_basics.tpl'))->SERVERPATH(),$vars);
+        return $result;
     }
     
     /**
@@ -130,34 +70,33 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
      * @return string Returns HTML
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_database(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_CONFIG);
-        $vars['database'] = '';
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result = '';
+        $result .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_TYPE)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_HOST,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_HOST',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_HOST)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PORT,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PORT',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PORT)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_USER,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_USER',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_USER)));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PASSWORD,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_PASSWORD',
                                     'value' =>'&lt;hidden&gt;'));
-        $vars['database'] .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result .=\SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                             array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME,
                                     'name' =>'\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME',
                                     'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_DB_DBNAME)));
     
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_database.tpl'))->SERVERPATH(),$vars);
+        return $result;
     }
     
     /**
@@ -166,14 +105,12 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
      * @return string Returns HTML
      */
     public static function sai_mod__SYSTEM_SAI_saimod_sys_config_action_sai(){
-        $vars['sai'] = '';
-        $vars['sai'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
+        $result = '';
+        $result .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_tr.tpl'))->SERVERPATH(),
                         array(  'id' =>\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT,
                                 'name' =>'\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT',
                                 'value' =>\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT)));
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_sai.tpl'))->SERVERPATH(),$vars);
-    
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/config_database.tpl'))->SERVERPATH(),$vars);
+        return $result;
     }
     
     /**
@@ -181,7 +118,9 @@ class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/menu.tpl'))->SERVERPATH());}
+    public static function menu(){
+        return new sai_module_menu( 10, sai_module_menu::POISITION_LEFT, sai_module_menu::DIVIDER_NONE,
+                                    \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_config/tpl/menu.tpl'))->SERVERPATH()));}
     
     /**
      * Returns if the Saimod is public(access for everyone)

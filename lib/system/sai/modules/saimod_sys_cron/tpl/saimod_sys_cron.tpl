@@ -1,6 +1,6 @@
 <div class="row-fluid">
     <div class="col-md-12 sai_padding_off">
-        <h4>&nbsp;<span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;${sai_cron_title}</h4>
+        <h4>&nbsp;<span class="fa fa-clock-o" aria-hidden="true"></span>&nbsp;&nbsp;${sai_cron_title}</h4>
     </div>
 </div>
 <div class="row-fluid">
@@ -41,7 +41,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button type="button" class="btn-sm btn btn-success" id="btn_cron_add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button></td>
+                    <td><button type="button" class="btn-sm btn btn-success" id="btn_cron_add"><span class="fa fa-plus" aria-hidden="true"></span> ${basic_add}</button></td>
                 </tr>    
             </table>
         </div>

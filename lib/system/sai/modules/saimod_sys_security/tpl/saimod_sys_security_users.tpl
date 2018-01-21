@@ -1,7 +1,7 @@
 <ul class="nav nav-pills" id="right_filter">    
-    <li class="${active}"><a href="#!security;filter.all;search.${search}">${basic_all}</a></li>
+    <li class="nav-item"><a class="nav-link ${active}" href="#!security;filter.all;search.${search}">${basic_all}</a></li>
     ${right_filter}
-    <button class="btn-sm btn btn-success" state="security;filter.${filter};search." id="btn_search" type="submit" style="float: right; margin-left: 10px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ${basic_search}</button>
+    <button class="btn-sm btn btn-success" state="security;filter.${filter};search." id="btn_search" type="submit" style="float: right; margin-left: 10px;"><span class="fa fa-search" aria-hidden="true"></span> ${basic_search}</button>
     <input class="input-medium search-query action-control" id="input_search" type="text" placeholder="${basic_placeholder_search}" size="20" style="float: right;" value="${search}"/>
 </ul>
 <div id="table_security">

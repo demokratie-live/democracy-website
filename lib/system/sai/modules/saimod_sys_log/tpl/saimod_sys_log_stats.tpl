@@ -1,6 +1,6 @@
 <div class="tabbable tabs-left" id="stats_tabs">
     <ul class="nav nav-tabs">
-        <li class="active" db=""><a href="#tab_stats">Current Month</a></li>
+        <li class="nav-item" db=""><a class="nav-link active" href="#tab_stats">Current Month</a></li>
         ${dbfile_entries}
     </ul>
     <div class="tab-content">

@@ -18,9 +18,7 @@ class sai {
     /** string Classname of the Module which should be loaded at start */
     private static $module_start = '\SYSTEM\SAI\saistart_sys_sai';
     /** array Classnames of all registered Sai user Modules */
-    private static $modules = array(); //only strings!
-    /** array Classnames of all registered Sai system Modules */
-    private static $modules_sys = array(); //only strings!    
+    private static $modules = array(); //only strings! 
 
     /**
      * Check if a given SaiModuleClass is valid
@@ -47,7 +45,7 @@ class sai {
         self::$module_start = $module;}
     
     /**
-     * Register a Sai user Module
+     * Register a Sai Module
      *
      * @param string $module Classname of the Module
      * @return null Returns null.
@@ -56,17 +54,6 @@ class sai {
         if(!self::check_module($module)){
             throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module.'; it might not be available or inherits from the wrong class!');}
         array_push(self::$modules,$module);}
-        
-    /**
-     * Register a Sai system Module
-     *
-     * @param string $module Classname of the Module
-     * @return null Returns null.
-     */
-    public static function register_sys($module){
-        if(!self::check_module($module)){
-            throw new \SYSTEM\LOG\ERROR('Problem with your Sysmodule class: '.$module.'; it might not be available or inherits from the wrong class!');}
-        array_push(self::$modules_sys,$module);}    
 
     /**
      * Get the classname of the Startmodule
@@ -83,14 +70,6 @@ class sai {
      */
     public static function getModules(){
         return self::$modules;}
-    
-    /**
-     * Get all classnames of the registered system saimods
-     *
-     * @return array Returns array with classname of the registered Modules.
-     */
-    public static function getSysModules(){
-        return self::$modules_sys;}
                 
     /**
      * Get all classnames of all the registered saimods
@@ -98,5 +77,5 @@ class sai {
      * @return array Returns array with classname of all the registered Modules.
      */
     public static function getAllModules(){
-        return array_merge(self::$modules_sys,self::$modules,array(self::$module_start));}
+        return array_merge(self::$modules,array(self::$module_start));}
 }

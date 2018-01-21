@@ -1,1 +1,1 @@
-<li class="${active}"><a href="#!${state};filter.${filter};search.${search};page.${page}">${page}</a></li>
+<li class="page-item"><a class="page-link ${active}" href="#!${state};filter.${filter};search.${search};page.${page}">${page}</a></li>

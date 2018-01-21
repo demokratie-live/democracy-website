@@ -1,6 +1,6 @@
 <div class="row-fluid">
     <div class="col-md-12 sai_padding_off">
-        <h4>&nbsp;<span class="glyphicon glyphicon-level-up" aria-hidden="true"></span>&nbsp;&nbsp;${sai_cache_title}</h4>
+        <h4>&nbsp;<span class="fa fa-database" aria-hidden="true"></span>&nbsp;&nbsp;${sai_cache_title}</h4>
     </div>
 </div>
 <div class="row-fluid">
@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="col-md-12 sai_padding_off">
         &nbsp;Entries: ${count} showing 100
-        <button type="button" class="btn-sm btn btn-warning pull-right" id="btn_cache_clear"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_clear}</button>
+        <button type="button" class="btn-sm btn btn-warning pull-right" id="btn_cache_clear"><span class="fa fa-plus" aria-hidden="true"></span> ${basic_clear}</button>
         <br><br>
     </div>
 </div>

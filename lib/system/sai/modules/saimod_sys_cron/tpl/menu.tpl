@@ -1,6 +1,6 @@
-<li id="menu_cron">
-    <a data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cron}" href="#!cron">
-        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-        <span class="hidden-md hidden-lg hidden-xl hidden-sm">&nbsp;&nbsp;${sai_menu_cron}</span>
+<li class="nav-item">
+    <a id="menu_cron" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="${sai_menu_cron}" href="#!cron">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <span class="d-md-none">&nbsp;&nbsp;${sai_menu_cron}</span>
     </a>
 </li>

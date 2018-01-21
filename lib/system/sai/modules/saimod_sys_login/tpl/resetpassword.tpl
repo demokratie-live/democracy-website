@@ -19,7 +19,7 @@
              </th>
              <td>
                  <p style="float: right;">
-                     <button class="btn-sm btn btn-primary" style="clear: left; height: 32px; font-size: 13px;" id="btn_resetpassword"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Reset password</button>
+                     <button class="btn-sm btn btn-primary" style="clear: left; height: 32px; font-size: 13px;" id="btn_resetpassword"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Reset password</button>
                  </p>
              </td>
          </tr>

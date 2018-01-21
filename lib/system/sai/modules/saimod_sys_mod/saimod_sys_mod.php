@@ -27,15 +27,15 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         foreach($sys_mods as $mod){
             $v = array();
             $v['mod'] = $mod;
-            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_tr.tpl'))->SERVERPATH(),$v);
         }
         $mod = \SYSTEM\SAI\sai::getStartModule();
         $start = array();
         $start['start_class'] = $mod;
-        $start['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-        $start['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+        $start['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
+        $start['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
         $vars['saistart'] = \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/saistart.tpl'))->SERVERPATH(),$start);
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
     }
@@ -52,8 +52,8 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
         foreach($mods as $mod){
             $v = array();
             $v['mod'] = $mod;
-            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
-            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_tr.tpl'))->SERVERPATH(),$v);
         }
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);

@@ -14,7 +14,7 @@ namespace SYSTEM\SQL;
 /**
  * QQ to log a execption to system_todo
  */
-class SYS_SAIMOD_TODO_EXCEPTION_INSERT extends \SYSTEM\DB\QP {
+class SYS_LOG_TODO_INSERT extends \SYSTEM\DB\QP {
     /**
      * Get Classname of the QQ
      * 
