@@ -8,7 +8,7 @@ RewriteEngine On
 #RewriteRule ^fonts/glyphicons-halflings-regular\.woff2$ lib/system/lib/bootstrap/lib/fonts/glyphicons-halflings-regular.woff2$1 [L]
 
 RewriteRule ^(.*)/fonts/fontawesome-webfont(.*)$ lib/font_awesome/lib/fonts/fontawesome-webfont$2 [L]
-RewriteRule ^(.*)/fonts/glyphicons-halflings-regular(.*)$ lib/system/lib/bootstrap/lib/fonts/glyphicons-halflings-regular$2 [L]
+RewriteRule ^sai$ sai.php$1 [L]
 
 RewriteRule ^files/([^/]+)/([^/]+)$ api.php?call=files&cat=$1&id=$2 [L]
 RewriteRule ^cache/([^/]+)/([^/]+)$ api.php?call=cache&id=$1&ident=$2 [L]
