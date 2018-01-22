@@ -60,8 +60,8 @@
                         </a>
                     </div>
                     <div class="col-md-6" style="height: 130px; text-align: center; display: table;">
-                        <a href="https://demokratie.io/gewinner/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner bei Demokratie.io" style="height: 130px; vertical-align: bottom; display: table-cell;">
-                            <img class="img-responsive" src="./files/references/demokratie-io-landscape-claim-2.png" alt="Demokratie IO Logo" style="max-height: 130px; max-width: 100%;">
+                        <a href="https://prototypefund.de/project/democracy-demokratie_live/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner 3. Förderrunde" style="height: 130px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/Prototype.png" alt="Prototype Fund Logo" style="max-height: 130px; max-width: 100%;">
                         </a>
                     </div>
                     <div class="col-md-3" style="height: 130px; text-align: center; display: table;">
@@ -70,7 +70,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 25px;">
+                <div class="row" style="padding-top: 35px;">
                     <div class="col-md-4" style="height: 175px; text-align: center; display: table;">
                         <a href="https://www.pressenza.com/de/2017/12/demokratie-echtzeit-neue-app-democracy-erfolgreich-crowdfinanziert/" target="blank" data-placement="top" data-toggle="tooltip" title="Publiziert von" style="height: 175px; vertical-align: bottom; display: table-cell; margin: auto;">
                             <img class="img-responsive" src="./files/references/pressenza_logo.png" alt="Pressenza Logo" style="max-height: 175px; max-width: 100%;">

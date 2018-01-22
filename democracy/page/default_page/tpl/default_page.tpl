@@ -88,7 +88,7 @@
                                 <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
                                 <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
                                 <li><a id="m_faq" class="m_mm" href="#!faq">FAQ</a></li>
-                                <li><a id="m_blog" class="m_mm" href="https://www.democracy-deutschland.de/blog">Blog</a></li>
+                                <!--<li><a id="m_blog" class="m_mm" href="https://www.democracy-deutschland.de/blog">Blog</a></li>-->
                             </ul> 
                             <div class="clearfix"> </div>
                         </div>  

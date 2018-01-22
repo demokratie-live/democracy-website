@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="w3_agileits_team-info">
-        <h4>${name}</h4>
+        <h4>${name}&nbsp;<i class="fa fa-circle" style="color: ${aktiv};"></i></h4>
         <p>${text}</p>
     </div>
 </div>
