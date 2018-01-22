@@ -9,7 +9,7 @@ require_once dirname(__FILE__).'/saimod_sys_log/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_config/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_api/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_page/autoload.inc';
-//require_once dirname(__FILE__).'/saimod_sys_text/autoload.inc';
+require_once dirname(__FILE__).'/saimod_sys_text/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_files/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_cache/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_cron/autoload.inc';
