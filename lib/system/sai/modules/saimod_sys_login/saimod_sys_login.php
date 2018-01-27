@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_login Class provided by System as saimod to provide login/register functionality
  */
-class saimod_sys_login extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_login extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the Saimods startpage
      * 

@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_text Class provided by System as saimod to manage the system_text, system_text_tag table
  */
-class saimod_sys_text extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_text extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the Saimods startpage
      * 

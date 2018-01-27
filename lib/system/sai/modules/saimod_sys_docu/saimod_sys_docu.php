@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_docu Class provided by System as saimod to display the code documentation
  */
-class saimod_sys_docu extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_docu extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the Saimods startpage
      * 

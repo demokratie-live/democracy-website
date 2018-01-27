@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_git Class provided by System as saimod to display git information on the project and system
  */
-class saimod_sys_git extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_git extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the Saimods startpage
      * 

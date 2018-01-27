@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_config Class provided by System as saimod to display the config
  */
-class saimod_sys_config extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_config extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the Saimods startpage
      * 

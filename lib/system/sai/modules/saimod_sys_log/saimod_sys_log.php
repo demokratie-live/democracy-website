@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_log Class provided by System as saimod to manage the system_log table
  */
-class saimod_sys_log extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_log extends \SYSTEM\SAI\sai_module {
     /**
      * Deletes the Log Entries
      * 

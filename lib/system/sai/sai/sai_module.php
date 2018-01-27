@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * SaiModule Class provided by System to be etended by Saimods
  */
-class SaiModule extends \SYSTEM\API\api_default{
+class sai_module extends \SYSTEM\API\api_default{
     /**
      * Get the Api Group this Api is operating on
      *

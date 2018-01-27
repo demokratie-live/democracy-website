@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saigui Class provided by System to handle sai userinterface. Invoke (new saigui)->html()
  */
-class saigui {
+class sai_gui {
     /** string field in post or get to be read as saimod modifier */
     const SAI_MOD_POSTFIELD = 'sai_mod';
     
@@ -41,6 +41,6 @@ class saigui {
                 } else {
                     return '<script type="text/javascript"> window.location = "./sai.php?redirect="+JSON.stringify(system.cur_state());</script>';}
         } else {            
-            return \SYSTEM\API\api::run('\SYSTEM\API\verify', '\SYSTEM\SAI\SaiModule', $pg, 42, false, true);}
+            return \SYSTEM\API\api::run('\SYSTEM\API\verify', '\SYSTEM\SAI\sai_module', $pg, 42, false, true);}
     }
 }

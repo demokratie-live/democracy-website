@@ -10,6 +10,7 @@
         <style>
             .sai_menu li a.active, #menu_start.active{
                 background-color: #007bff!important;
+                color: black;
             }
         </style>
         <style>

@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_todo Class provided by System as saimod to manage the system_todo, system_todo_assign table
  */
-class saimod_sys_todo extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_todo extends \SYSTEM\SAI\sai_module {
     /** array Variable to store all registred todo_stats*/
     private static $stats = array(); //only strings!
     

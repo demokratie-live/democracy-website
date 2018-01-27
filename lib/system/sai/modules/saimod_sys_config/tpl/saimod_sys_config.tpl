@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-12 sai_padding_off">
-        <h4 class="sai_padding_10 bg-primary sai_margin_off">&nbsp;<span class="fa fa-wrench" aria-hidden="true"></span>&nbsp;&nbsp;${sai_config_title}</h4>
+    <div class="col-12 sai_padding_10 bg-primary">
+        <h4 class="sai_margin_off">&nbsp;<span class="fa fa-wrench" aria-hidden="true"></span>&nbsp;&nbsp;${sai_config_title}</h4>
     </div>
     <div class="col-md-2 sai_padding_off">
         <ul class="nav bg-light flex-column" id="tabs_config">

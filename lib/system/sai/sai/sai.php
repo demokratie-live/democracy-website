@@ -29,7 +29,7 @@ class sai {
     private static function check_module($module){
         if( !\class_exists($module) ||
             !\is_array($parents = \class_parents($module)) ||
-            !\array_search('SYSTEM\SAI\SaiModule', $parents)){
+            !\array_search('SYSTEM\SAI\sai_module', $parents)){
             return false;}
         return true;}    
     
