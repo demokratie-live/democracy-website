@@ -5,4 +5,4 @@ require_once 'config.php';
 
 \SYSTEM\system::start(\WEBCRAFT\democracy_deutschland_config());
 
-echo (new SYSTEM\SAI\saigui())->html();
+echo (new SYSTEM\SAI\sai_gui())->html();

@@ -19,9 +19,23 @@
         <div class="clearfix"> </div>
     </div>
 </div>
+<style>
+    @media only screen and (max-width: 767px) {
+        #hcorrection{
+            height: 335px;
+            overflow: hidden;
+        }
+    }
+    @media only screen and (min-width: 768px){
+        #hcorrection{
+            height: 190px;
+            overflow: hidden;
+        }
+    }
+</style>
 <!-- testimonial -->
 <div class="testimonial jarallax" style="margin-top: 50px;">
-    <div class="container" style="min-height: 175px;">
+    <div class="container" id="hcorrection">
         <div class="agileits-w3layouts-info">
             <div class="testimonial-grid">
                 <div class="slider">
