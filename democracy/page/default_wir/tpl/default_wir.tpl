@@ -2,7 +2,7 @@
     <div class="wthree-heading" style="padding-top: 4em;"> 
         <h3 id="h4werte">Unsere Mittel</h3>
     </div>
-    <div class="row" style="margin-top: 2em;">
+    <div class="row" style="margin-top: 2em; margin-left: 15px; margin-right: 15px;">
         <div class="col-md-5 col-xs-12">
             <br><br>
             <div class="row agile-services-left">${icons}</div>
@@ -16,7 +16,6 @@
             <br>
             <p>${wir_text}</p>
         </div>
-        <div class="clearfix"> </div>
     </div>
 </div>
 <style>
@@ -67,11 +66,18 @@
         </div>
     </div>
 </div>
-    
-<div class="testimonial" style="margin-top: 100px;">
+
+<style>
+    @media only screen and (max-width: 767px) {
+        #network{
+            padding-bottom: 0;
+        }
+    }
+</style>
+<div class="testimonial" style="margin-top: 100px;" id="network">
     <div class="container">
         <div class="agileits-w3layouts-info">
-            <div class="testimonial-grid row">
+            <div class="testimonial-grid row" style="margin-left: 15px; margin-right: 15px;">
                 ${network}
             </div>
         </div>
