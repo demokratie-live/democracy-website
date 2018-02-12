@@ -187,7 +187,7 @@
         <div class="container">
             <p>
             <i class="fa fa-creative-commons"></i> BY NC ND 4.0
-            &mdash; 2017
+            &mdash; 2018
             <span class="edzofont">DEMOCRACY</span>
             Deutschland e.V.</p>
         </div>
