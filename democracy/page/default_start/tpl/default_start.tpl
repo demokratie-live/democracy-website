@@ -89,7 +89,7 @@
                 </div>
                 <div class="row" style="padding-top: 45px;">
                     <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
-                        <a href="https://neue-debatte.com/2017/11/03/digitale-medien-mit-der-democracy-app-zur-basisdemokratie/" target="blank" data-placement="top" data-toggle="tooltip" title="Debatiert auf" style="height: 100px; vertical-align: bottom; display: table-cell; margin: auto;">
+                        <a href="https://neue-debatte.com/2017/11/03/digitale-medien-mit-der-democracy-app-zur-basisdemokratie/" target="blank" data-placement="top" data-toggle="tooltip" title="Debattiert auf" style="height: 100px; vertical-align: bottom; display: table-cell; margin: auto;">
                             <img class="img-responsive" src="./files/references/neue-debatte-logo.png" alt="Neue Debatte Logo" style="max-height: 90px; max-width: 100%;">
                         </a>
                     </div>
