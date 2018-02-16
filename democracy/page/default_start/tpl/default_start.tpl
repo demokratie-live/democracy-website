@@ -106,5 +106,32 @@
                 </div>
             </div>
         </div>
+        <div class="row-fluid" style="min-height: 170px; padding-top: 75px; text-align: center;">
+            <div class="col-md-12 w3-agileits">
+                <div class="wthree-heading">
+                    <br><br>
+                    <br><br>
+                    <h3 id="sec_vision">Eingesetzte Technologie</h3>	
+                    <br><br>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
+                        <a href="http://www.reactnative.com/" target="blank" data-toggle="tooltip" data-placement="top" title="Front-End: Apps" style="padding: 10px; height: 100px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/react-native.png" alt="React Native Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                    <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
+                        <a href="https://nodejs.org/" target="blank" data-toggle="tooltip" data-placement="top" title="Backend: Server" style="padding: 10px; height: 100px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/node-js.png" alt="NodeJS Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                    <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
+                        <a href="https://www.browserstack.com" target="blank" data-toggle="tooltip" data-placement="top" title="kostenloser Zugang für Open-Source-Projekte" style="height: 100px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/browserstack.png" alt="Browser Stack Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
