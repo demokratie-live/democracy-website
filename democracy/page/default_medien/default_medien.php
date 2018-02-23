@@ -51,7 +51,18 @@ class default_medien implements SYSTEM\PAGE\Page {
         $vars = array();
         
         $vars['articles'] = '';
-        $articles = array(  array(  'img' => './files/medien/interview_fabio_demasi.jpg', 'alt' => 'Fabio De Masi - Magnus Rembold',
+        $articles = array(  array(  'img' => './files/medien/StartUpValley.jpg', 'alt' => 'DEMOCRACY X StartUpValley',
+                                    'day' => '21', 'month' => 'Februar 2018', 'link' => './files/medien/StartUpValley.pdf',
+                                    'title' => 'DEMOCRACY X StartUpValley', 'text' => 'Das StartUpValley porträtiert die Realität von Morgen: Basisdemokratie in Echtzeit',
+                                    'links' => array(   array( 'icon' => 'fa-download', 'link' => './files/medien/StartUpValley.pdf'),
+                                                        array( 'icon' => 'fa-globe', 'link' => 'https://www.startupvalley.news/de/'))),
+                            array(  'img' => './files/medien/Video.jpg', 'alt' => 'Marius Krüger erklärt DEMOCRACY in 4 Min',
+                                    'day' => '16', 'month' => 'Februar 2018', 'link' => 'https://www.facebook.com/kruegermarius/videos/1565466506855387/',
+                                    'title' => 'DEMOCRACY X Idealism Prevails', 'text' => 'Marius Krüger erklärt DEMOCRACY in 4 Min',
+                                    'links' => array(   array( 'icon' => 'fa-youtube', 'link' => 'https://youtu.be/l7v4RtbPafg'),
+                                                        array( 'icon' => 'fa-facebook-square', 'link' => 'https://www.facebook.com/kruegermarius/videos/1565466506855387/'),
+                                                        array( 'icon' => 'fa-twitter', 'link' => 'https://twitter.com/democracy_de/status/966373377207406592'))),
+                            array(  'img' => './files/medien/interview_fabio_demasi.jpg', 'alt' => 'Fabio De Masi - Magnus Rembold',
                                     'day' => '23', 'month' => 'November 2017', 'link' => 'https://www.facebook.com/fabio.d.masi/videos/724139911119044/?hc_ref=ARQOUAwCEBF-BSc3ka28z7nFVaOjJVCYgIxLzJ_DEYH0VZfZpljYV3uPLum3LCkcB2s',
                                     'title' => 'Demokratie in Echtzeit', 'text' => 'Magnus Rembold im Interview mit Fabio De Masi, MdB Die Linke',
                                     'links' => array(   array( 'icon' => 'fa-facebook-square', 'link' => 'https://www.facebook.com/fabio.d.masi/videos/724139911119044/?hc_ref=ARQOUAwCEBF-BSc3ka28z7nFVaOjJVCYgIxLzJ_DEYH0VZfZpljYV3uPLum3LCkcB2s'),
