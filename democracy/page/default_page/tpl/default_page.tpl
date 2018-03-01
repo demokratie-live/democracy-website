@@ -138,6 +138,48 @@
                         <li><a href="https://discord.gg/Pdu3ZEV" target="_blank"><i id="discord_" class="insta_ fa fa-weixin"></i></a></li>
                   </ul>
                 </div>
+                <br>
+                <style>
+                    .mailjet-subscribe:hover {
+                        cursor: pointer;
+                        background: #96c346;
+                    }
+                    .mailjet-subscribe {
+                        padding: 7px 10px 7px 10px;
+                        font-size: 15px;
+                        line-height: normal;
+                        background: #a0ce4e;
+                        margin-top: 3px;
+                        color: #fff;
+                        border: none;
+                        outline: 0;
+                        font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+                    }
+                    .blink-class { outline: 1px solid #ee1b1b !important;}
+                </style>
+                <div style="width:230px;">
+                    <div id="formular">
+                        <input id="email" name="email" type="text" placeholder="News an deine@email.com" style="width: 100%; margin-bottom: 5px;">
+                        <div style="height: 50px;">
+                            <input id="subscribe" name="submit" type="submit" class="mailjet-subscribe" value="EINTRAGEN" style="float: left;">
+                            <span style="color: white; float: right; padding-top: 7px; padding-right: 15px;">
+                                <!--<input type="checkbox" name="newsletter" checked disabled>&nbsp;Newsletter<br>-->
+                                <input type="checkbox" name="beta" id="beta">&nbsp;Beta-Test
+                                <div style="color: white; padding-left: 13px; display: none;" id="plattform">
+                                    <input type="checkbox" name="android" id="android">&nbsp;Android<br>
+                                    <input type="checkbox" name="ios" id="ios">&nbsp;iOS
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div style="color:white; display: none;" id="confirm">
+                        Bestätigungsmail für die<br>
+                        Anmeldung wurde gesendet.<br>
+                        Bitte überprüfen Sie Ihren<br>
+                        Posteingang und bestätigen<br>
+                        Sie die Anmeldung.
+                    </div>
+                </div>
               </div>
             </div>
             <div class="col-md-3 agileinfo_footer_grid">
