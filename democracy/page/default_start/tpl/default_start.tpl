@@ -59,9 +59,14 @@
                             <img class="img-responsive" src="./files/references/Logo_KIT.png" alt="KIT Logo" style="max-height: 130px; max-width: 100%;">
                         </a>
                     </div>
-                    <div class="col-md-6" style="height: 130px; text-align: center; display: table;">
+                    <!--<div class="col-md-6" style="height: 130px; text-align: center; display: table;">
                         <a href="https://prototypefund.de/project/democracy-demokratie_live/" target="blank" data-placement="top" data-toggle="tooltip" title="Gewinner 3. Förderrunde" style="height: 130px; vertical-align: bottom; display: table-cell;">
                             <img class="img-responsive" src="./files/references/Prototype.png" alt="Prototype Fund Logo" style="max-height: 130px; max-width: 100%;">
+                        </a>
+                    </div>-->
+                    <div class="col-md-6" style="height: 130px; text-align: center; display: table;">
+                        <a href="https://www.democracy-deutschland.de/files/medien/StartUpValley.pdf" target="blank" data-placement="top" data-toggle="tooltip" title="Abgedruckt im Magazin 02/2018" style="height: 130px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/startup_valley_logo.png" alt="Startup Valley Logo" style="max-height: 130px; max-width: 100%;">
                         </a>
                     </div>
                     <div class="col-md-3" style="height: 130px; text-align: center; display: table;">
