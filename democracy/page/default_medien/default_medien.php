@@ -51,7 +51,13 @@ class default_medien implements SYSTEM\PAGE\Page {
         $vars = array();
         
         $vars['articles'] = '';
-        $articles = array(  array(  'img' => './files/medien/startalp.jpg', 'alt' => 'DEMOCRACY X Start Alp',
+        $articles = array(  array(  'img' => './files/medien/infranken.jpg', 'alt' => 'DEMOCRACY X In Franken',
+                                    'day' => '10', 'month' => 'März 2018', 'link' => 'http://ng.infranken.de/epaper/EPaper/PHP-Files/showclust.php?Ref=DText%2Fh1orjbbts8*2smzceweepct&PageRef=DSArchiv%2F6rdf9jsm7vmzsd5tikfp3db&Clip=47%2C194%2C600%2C284&titel=bs&Spezial=&Display=print',
+                                    'title' => 'Politische Mitspache bald per App?', 'text' => 'Marius Krüger spricht im Interview mit der Lokalzeitung Bamberg über seine Idee zur DEMOCRACY App',
+                                    'links' => array(   array( 'icon' => 'fa-paperclip', 'link' => 'http://ng.infranken.de/epaper/EPaper/PHP-Files/showclust.php?Ref=DText%2Fh1orjbbts8*2smzceweepct&PageRef=DSArchiv%2F6rdf9jsm7vmzsd5tikfp3db&Clip=47%2C194%2C600%2C284&titel=bs&Spezial=&Display=print'),
+                                                        array( 'icon' => 'fa-paperclip', 'link' => 'http://ng.infranken.de/epaper/EPaper/PHP-Files/showclust.php?Ref=DText%2F94mvlhvqjm5-m4ssvjtetac&PageRef=DSArchiv%2Fg3~xgnu8amvnb567ftilydq&Clip=47%2C43%2C905%2C417&titel=bs&Spezial=&Display=print'),
+                                                        array( 'icon' => 'fa-globe', 'link' => 'http://www.infranken.de/'))),
+                            array(  'img' => './files/medien/startalp.jpg', 'alt' => 'DEMOCRACY X Start Alp',
                                     'day' => '6', 'month' => 'März 2018', 'link' => 'https://start-alp.com/2018/03/06/democracy-digital-im-bundestag-mitbestimmen/',
                                     'title' => 'DEMOCRACY: Digital im Bundestag mitbestimmen', 'text' => 'Das Start-Alp Magazine skizziert DEMOCRACY als Stimmungsmesser für Politiker und  Informations- und Kundgebungsplattform für Bürger',
                                     'links' => array(   array( 'icon' => 'fa-facebook-square', 'link' => 'https://www.facebook.com/startalp/posts/607742352906895'),
