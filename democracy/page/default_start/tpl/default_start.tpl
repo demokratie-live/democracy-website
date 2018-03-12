@@ -27,7 +27,7 @@
                 <div class="wthree-heading">
                     <br><br>
                     <br><br>
-                    <h3 id="sec_vision">Partner & Referenzen</h3>	
+                    <h3 id="sec_vision">Referenzen</h3>	
                     <br><br>
                 </div>
                 <div class="row">
@@ -92,7 +92,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 45px;">
+                <div class="row" style="padding-top: 55px;">
                     <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
                         <a href="https://neue-debatte.com/2017/11/03/digitale-medien-mit-der-democracy-app-zur-basisdemokratie/" target="blank" data-placement="top" data-toggle="tooltip" title="Debattiert auf" style="height: 100px; vertical-align: bottom; display: table-cell; margin: auto;">
                             <img class="img-responsive" src="./files/references/neue-debatte-logo.png" alt="Neue Debatte Logo" style="max-height: 90px; max-width: 100%;">
@@ -109,6 +109,23 @@
                         </a>
                     </div>
                 </div>
+                <div class="row" style="padding-top: 75px;">
+                    <div class="col-md-3" style="height: 100px; text-align: center; display: table;">
+                        <a href="http://marinaweisband.de/der-wahl-o-mat-fuer-immer/" target="blank" data-toggle="tooltip" data-placement="top" title="Darüber gebloggt von" style="height: 100px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/Marina.png" alt="Marina Weisband Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                    <div class="col-md-6" style="height: 100px; text-align: center; display: table;">
+                        <a href="http://www.spreezeitung.de/26068/app-democracy-demokratie-in-echtzeit/" target="blank" data-toggle="tooltip" data-placement="top" title="Abgedruckt bei" style="height: 100px; vertical-align: central; display: table-cell; padding-top: 20px;">
+                            <img class="img-responsive" src="./files/references/spreezeitung.png" alt="Start Alp Magazin Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                    <div class="col-md-3" style="height: 100px; text-align: center; display: table;">
+                        <a href="https://start-alp.com/2018/03/06/democracy-digital-im-bundestag-mitbestimmen/" target="blank" data-toggle="tooltip" data-placement="top" title="Publiziert von" style="height: 100px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/start_alp.png" alt="Start Alp Magazin Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row-fluid" style="min-height: 170px; padding-top: 75px; text-align: center;">
@@ -120,19 +137,24 @@
                     <br><br>
                 </div>
                 <div class="row">
-                    <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
+                    <div class="col-md-3" style="height: 100px; text-align: center; display: table;">
                         <a href="http://www.reactnative.com/" target="blank" data-toggle="tooltip" data-placement="top" title="Front-End: Apps" style="padding: 10px; height: 100px; vertical-align: bottom; display: table-cell;">
                             <img class="img-responsive" src="./files/references/react-native.png" alt="React Native Logo" style="max-height: 100px; max-width: 100%;">
                         </a>
                     </div>
-                    <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
+                    <div class="col-md-3" style="height: 100px; text-align: center; display: table;">
                         <a href="https://nodejs.org/" target="blank" data-toggle="tooltip" data-placement="top" title="Backend: Server" style="padding: 10px; height: 100px; vertical-align: bottom; display: table-cell;">
                             <img class="img-responsive" src="./files/references/node-js.png" alt="NodeJS Logo" style="max-height: 100px; max-width: 100%;">
                         </a>
                     </div>
-                    <div class="col-md-4" style="height: 100px; text-align: center; display: table;">
+                    <div class="col-md-3" style="height: 100px; text-align: center; display: table;">
                         <a href="https://www.browserstack.com" target="blank" data-toggle="tooltip" data-placement="top" title="kostenloser Zugang für Open-Source-Projekte" style="height: 100px; vertical-align: bottom; display: table-cell;">
                             <img class="img-responsive" src="./files/references/browserstack.png" alt="Browser Stack Logo" style="max-height: 100px; max-width: 100%;">
+                        </a>
+                    </div>
+                    <div class="col-md-3" style="height: 100px; text-align: center; display: table;">
+                        <a href="https://www.digitalocean.com/" target="blank" data-toggle="tooltip" data-placement="top" title="Cloud Service" style="padding: 10px; height: 100px; vertical-align: bottom; display: table-cell;">
+                            <img class="img-responsive" src="./files/references/DO_Logo_Horizontal_Blue.png" alt="Digital Ocean Logo" style="max-height: 100px; max-width: 100%;">
                         </a>
                     </div>
                 </div>

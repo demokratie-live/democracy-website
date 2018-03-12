@@ -51,7 +51,13 @@ class default_medien implements SYSTEM\PAGE\Page {
         $vars = array();
         
         $vars['articles'] = '';
-        $articles = array(  array(  'img' => './files/medien/StartUpValley.jpg', 'alt' => 'DEMOCRACY X StartUpValley',
+        $articles = array(  array(  'img' => './files/medien/startalp.jpg', 'alt' => 'DEMOCRACY X Start Alp',
+                                    'day' => '6', 'month' => 'März 2018', 'link' => 'https://start-alp.com/2018/03/06/democracy-digital-im-bundestag-mitbestimmen/',
+                                    'title' => 'DEMOCRACY: Digital im Bundestag mitbestimmen', 'text' => 'Das Start-Alp Magazine skizziert DEMOCRACY als Stimmungsmesser für Politiker und  Informations- und Kundgebungsplattform für Bürger',
+                                    'links' => array(   array( 'icon' => 'fa-facebook-square', 'link' => 'https://www.facebook.com/startalp/posts/607742352906895'),
+                                                        array( 'icon' => 'fa-twitter', 'link' => 'https://twitter.com/democracy_de/status/973150808979230720'),
+                                                        array( 'icon' => 'fa-globe', 'link' => 'https://start-alp.com/2018/03/06/democracy-digital-im-bundestag-mitbestimmen/'))),
+                            array(  'img' => './files/medien/StartUpValley.jpg', 'alt' => 'DEMOCRACY X StartUpValley',
                                     'day' => '21', 'month' => 'Februar 2018', 'link' => './files/medien/StartUpValley.pdf',
                                     'title' => 'DEMOCRACY X StartUpValley', 'text' => 'Das StartUpValley porträtiert die Realität von Morgen: Basisdemokratie in Echtzeit',
                                     'links' => array(   array( 'icon' => 'fa-download', 'link' => './files/medien/StartUpValley.pdf'),
