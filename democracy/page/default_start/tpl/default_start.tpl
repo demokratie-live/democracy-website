@@ -87,7 +87,7 @@
                         </a>
                     </div>
                     <div class="col-md-3" style="height: 175px; text-align: center; display: table;">
-                        <a href="https://kenfm.de/mehr-transparenz-im-bundestag-ueber-digitale-mitbestimmung/" target="blank" data-placement="top" data-toggle="tooltip" title="Veröffentlicht von" style="height: 175px; vertical-align: bottom; display: table-cell; margin: auto;">
+                        <a href="https://kenfm.de/politische-mitsprache-app-democracy/" target="blank" data-placement="top" data-toggle="tooltip" title="Veröffentlicht von" style="height: 175px; vertical-align: bottom; display: table-cell; margin: auto;">
                             <img class="img-responsive" src="./files/references/KenFM_Profilbild_2017.png" alt="KenFM Logo" style="max-height: 155px; max-width: 100%;">
                         </a>
                     </div>
