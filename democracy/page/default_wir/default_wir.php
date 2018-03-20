@@ -51,7 +51,7 @@ class default_wir implements SYSTEM\PAGE\Page {
             $vars['team'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_wir/tpl/team_member.tpl'))->SERVERPATH(), $member);}
             
         $vars['contributors'] = '';
-        $contributors = array(  array(  'name' => 'Magnus Rembold', 'text' => 'Teamgeist<br>UX & Software Architektur', 'img' => './files/wir/magnus_rembold.jpg', 'aktiv' => 'orange',
+        $contributors = array(  array(  'name' => 'Magnus Rembold', 'text' => 'Teamgeist<br>UX & Software Architektur', 'img' => './files/wir/magnus_rembold.jpg', 'aktiv' => '#f44336',
                                         'links' => array(   array('icon' => 'fa-twitter', 'url' => 'https://twitter.com/magnusmunter'),
                                                             array('icon' => 'fa-xing', 'url' => 'https://www.xing.com/profile/Magnus_Rembold'))),
                                 array(  'name' => 'Dr. Annika Götz', 'text' => 'Kommunikatorin<br>Öffentlichkeitsarbeit', 'img' => './files/wir/annika_goetz.jpg', 'aktiv' => '#f44336',
