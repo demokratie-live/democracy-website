@@ -8,7 +8,7 @@
         <div class="row-fluid" style="padding-top: 25px;">
             <div class="col-md-12 w3-agileits">
                 <div class="wthree-heading">
-                    <h3 id="sec_vision">Vision</h3>
+                    <h3>Vision</h3>
                     <br><br>
                 </div>
                 <div class="row">

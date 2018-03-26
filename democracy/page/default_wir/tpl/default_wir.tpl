@@ -74,7 +74,7 @@
         }
     }
 </style>
-<div class="testimonial" style="margin-top: 100px;" id="network">
+<div class="testimonial" style="margin-top: 100px" id="network">
     <div class="container">
         <div class="agileits-w3layouts-info">
             <div class="testimonial-grid row" style="margin-left: 15px; margin-right: 15px;">
@@ -83,20 +83,3 @@
         </div>
     </div>
 </div>
-
-<div class="container" style="text-align:center">
-    <div class="row" style="margin-left: 15px; margin-right: 15px;">
-        <div class="col-md-12 wthree-heading" style="padding-top: 4em;">
-            <h3 style="word-break: break-all;">Spendenfinanzierung</h3>
-        </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-8" style=" text-align: justify"> 
-            <br><br>
-            <br>
-            <p>${wir_spenden}</p>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
-</div>
-<div class="clearfix"></div>
-<br><br><br><br>

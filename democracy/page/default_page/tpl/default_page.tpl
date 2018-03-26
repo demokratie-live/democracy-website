@@ -85,8 +85,9 @@
                                 <li><a id="m_idee" class="m_mm active" href="#!start">Idee</a></li>
                                 <li><a id="m_wir" class="m_mm" href="#!wir">Wir</a></li>
                                 <li><a id="m_medien" class="m_mm" href="#!medien">Medien</a></li>
-                                <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Prototyp</a></li>
+                                <li><a id="m_prototyp" class="m_mm" href="#!prototyp">Dummy</a></li>
                                 <li><a id="m_help" class="m_mm" href="#!help">Mithelfen</a></li>
+                                <li><a id="m_spenden" class="m_mm" href="#!spenden">Spenden</a></li>
                                 <li><a id="m_faq" class="m_mm" href="#!faq">FAQ</a></li>
                                 <!--<li><a id="m_blog" class="m_mm" href="https://www.democracy-deutschland.de/blog">Blog</a></li>-->
                             </ul> 
@@ -201,8 +202,9 @@
                 <li><a href="#!start" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Idee</a></li>
                 <li><a href="#!wir" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Wir</a></li>
                 <li><a href="#!medien" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Medien</a></li>
-                <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Prototyp</a></li>
+                <li><a href="#!prototyp" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Dummy</a></li>
                 <li><a href="#!help" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Mithelfen</a></li>
+                <li><a href="#!spenden" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Spenden</a></li>
                 <li><a href="#!faq" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>FAQ</a></li>
                 <li><a href="#!impressum" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Impressum</a></li>
                 <li><a href="#!datenschutz" onclick="$('#toTopHover').click()"><i class="fa fa-angle-right" aria-hidden="true"></i>Datenschutz</a></li>

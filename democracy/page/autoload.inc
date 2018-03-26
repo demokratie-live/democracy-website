@@ -14,3 +14,4 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_impressum');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_datenschutz');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_faq');
 SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_news');
+SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_spenden');
