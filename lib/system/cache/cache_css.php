@@ -47,7 +47,7 @@ class cache_css {
     public static function ident($files){
         $ident = '';
         foreach($files as $f){
-            $ident .= $f->SERVERPATH().';';}
+            $ident .= $f->SERVERPATH().';'.filemtime($f->SERVERPATH()).';';}
         return sha1($ident);
     }
         
