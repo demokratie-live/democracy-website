@@ -4,6 +4,8 @@ class DATA_DEMOCRACY extends \SYSTEM\DB\QI {
     public static function get_class(){return \get_class();}
     public static function files_mysql(){
         return array(   (new \PSQL('/mysql/schema_subscribe.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/schema_beta.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/schema_beta_code.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/system_page.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/system_text.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/system_api.sql'))->SERVERPATH());

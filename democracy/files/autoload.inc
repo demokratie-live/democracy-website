@@ -9,3 +9,4 @@
 \SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/references/','references','*.*');
 \SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/download/','download','*.*');
 \SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/org/','org','*.*');
+\SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/invite/','invite','*.*');

@@ -94,4 +94,29 @@ class api_democracy extends \SYSTEM\API\api_system {
         
         \SQL\SUBSCRIBE_EMAIL_COUNT::Q1(array($email));
     }
+    
+    public static function call_beta($ios,$android,$email,$code){
+        $code_valid = self::validate_code($code);
+        
+        if($code_valid){
+            $data = \SQL\BETA_EMAIL_FIND::Q1(array($email));
+            if(!$data){
+                \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
+            } else {
+                if(!self::validate_code($data['code'])){
+                    \SQL\BETA_DELETE::QI(array($email));
+                    \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
+                } else {
+                    throw new ERROR('This EMail has already redeemed a Code');}
+            }
+        } else {
+            \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
+        }
+        
+        return \SYSTEM\LOG\JsonResult::ok();
+    }
+    
+    public static function validate_code($code){
+        return \SQL\BETA_CODE_VALIDATE::Q1(array($code))['count'] !== 0 ? true: false;
+    }
 }
