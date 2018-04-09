@@ -50,11 +50,11 @@
     <link rel="apple-touch-icon" sizes="144x144" href="./files/icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./files/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./files/icons/apple-icon-180x180.png">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="icon" type="image/x-icon" sizes="192x192"  href="./files/icons/android-icon-192x192.png">
     <link rel="icon" type="image/x-icon" sizes="32x32" href="./files/icons/favicon-32x32.png">
     <link rel="icon" type="image/x-icon" sizes="96x96" href="./files/icons/favicon-96x96.png">
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="./favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="../favicon.ico">
   
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -84,10 +84,10 @@
                 </div>
                 <div id="device" class="row step">
                     <div id="select_ios" class="col-6 col-sm-6 col-md-4 offset-md-2 pull-left">
-                        <img src="../files/invite/group2@3x.png" alt="Apple Logo" style="width: 100%;">
+                        <img src="../files/invite/group2@3x.png" alt="Apple Logo" style="width: 100%; background: white;">
                     </div>
                     <div id="select_android" class="col-6 col-sm-6 col-md-4 pull-left">
-                        <img src="../files/invite/group3@3x.png" alt="Android Logo" style="width: 100%;">
+                        <img src="../files/invite/group3@3x.png" alt="Android Logo" style="width: 100%; background: white;">
                     </div>
                     <div class="col-12" id="plattform_text">Bitte wähle Deine Plattform</div>
                 </div>
