@@ -3,6 +3,7 @@ function init_saimod_beta_all() {
     $('#tabs_beta li a').each(function(){
         $(this).removeClass('active');});
     $('#menu_tag_beta').addClass('active');
+    email_delete();
 };
 
 function init_saimod_beta_code() {
@@ -32,7 +33,6 @@ function init_saimod_beta_code() {
     });
     $('.code_setcomment').click(function(){
         var code = $(this).attr('code');
-        var email = $(this).attr('email');
         var i = $(this).attr('i');
         var comment = $('#comment_'+i).val();
         $.ajax({
@@ -45,6 +45,26 @@ function init_saimod_beta_code() {
                 action: 'comment',
                 code: code,
                 comment: comment
+            },
+            success: function(){
+                system.reload();
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    $('.code_delete').click(function(){
+        var code = $(this).attr('code');
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'GET',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_beta',
+                action: 'code_delete',
+                code: code
             },
             success: function(){
                 system.reload();
@@ -90,6 +110,7 @@ function init_saimod_beta_store_android() {
         document.execCommand("copy");
         $temp.remove();
     });
+    email_delete();
 };
 function init_saimod_beta_store_ios() {
     $("#table_beta_store_ios").tablesorter();
@@ -126,6 +147,7 @@ function init_saimod_beta_store_ios() {
         document.execCommand("copy");
         $temp.remove();
     });
+    email_delete();
 };
 function init_saimod_beta_mail() {
     $("#table_beta_mail").tablesorter();
@@ -156,4 +178,30 @@ function init_saimod_beta_mail() {
             }
         });
     });
+    email_delete();
 };
+
+function email_delete(){
+    $('.email_delete').click(function(){
+        if (confirm('Are you sure you want to delete this user PERMANENTLY?')) {
+            var email = $(this).attr('email');
+            $.ajax({
+                async: true,
+                url: this.endpoint,
+                type: 'GET',
+                dataType: 'JSON',
+                data: {
+                    sai_mod: '.SAI.saimod_beta',
+                    action: 'email_delete',
+                    email: email
+                },
+                success: function(){
+                    system.reload();
+                },
+                error: function(){
+                    alert('Something happend - try again!');
+                }
+            });
+        }
+    });
+}

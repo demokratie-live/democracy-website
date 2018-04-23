@@ -11,7 +11,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-109296340-1');
     </script>
 
@@ -64,7 +63,7 @@
     <div id="code" code="${code}" valid="${code_valid}"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 no-gutters" style="text-align: center;">
+            <div class="col-10 offset-1 no-gutters" style="text-align: center;">
                 <img src="../files/invite/group@3x.png" alt="DEMOCRACY Logo" style="width: 120px; margin-top: 25px">
                 <h1>DEMOCRACY</h1>
                 <h2>prototyp_access</h2>
@@ -116,6 +115,8 @@
                 <div id="final_ios" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 24px;">
                         Sobald Du im AppStore freigeschaltet wurdest, erhälst Du eine EMail mit einer genauen Anleitung von uns.<br>
+                        <br>
+                        <span style="color: red;">Bitte überprüfe auch Deinen Spam-Ordner!</span>
                     </div>
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 22px; margin-top: 25px;">
                         <ol style="line-height: 2; text-align: left;">
@@ -131,6 +132,8 @@
                 <div id="final_android" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 24px;">
                         Sobald Du im PlayStore freigeschaltet wurdest, erhälst Du eine EMail mit einer genauen Anleitung von uns.<br>
+                        <br>
+                        <span style="color: red;">Bitte überprüfe auch Deinen Spam-Ordner!</span>
                     </div>
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 22px; margin-top: 25px;">
                         <ol style="line-height: 2; text-align: left;">

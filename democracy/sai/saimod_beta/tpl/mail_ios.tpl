@@ -9,18 +9,18 @@
         </div>
         <br>
         <div>
-            <span>im folgenden erklären wir Dir, wie du <b>zur 1. Version von DEMOCRACY </b>gelangst.</span>
+            <span>im folgenden erklären wir Dir, wie Du <b>zur Beta-Version von DEMOCRACY </b>gelangst.</span>
         </div>
         <br>
         <br>
         <span style="text-decoration: underline;"><b>Anleitung für iOS</b></span>
         <ol style="line-height: 2;">
-            <li>Du erhälst in den folgenden Minuten eine Email von TestFlight mit der Betreffzeile <i>DEMOCRACY Deutschland e.V. has invited you to test "DEMOCRACY App"</i></li>
+            <li>Du erhälst in den folgenden Minuten eine Email von TestFlight mit der Betreffzeile <i>DEMOCRACY Deutschland e.V. has invited you to test "DEMOCRACY Beta"</i></li>
             <li>Öffne diese Mail, klicke den blauen Button <i>View in TestFlight </i>und folge der aufgeführten Anleitung, also</li>
-            <li>Lade dir TestFlight im AppStore herunter</li>
+            <li>Lade Dir TestFlight im AppStore herunter</li>
             <li>Öffne TestFlight und Drücke “Redeem”</li>
             <li>Gib den Bestätigungscode, also z.B. QJHFFNDF ein und lade Dir DEMOCRACY herunter.</li>
-            <li>Öffne DEMOCRACY und teste – wie du Bugs korrekt reportest, entnehme bitte der Anleitung zum Bug-Report</li>
+            <li>Öffne DEMOCRACY und teste – wie Du Bugs korrekt reportest, entnehme bitte der Anleitung zum Bug-Report</li>
         </ol>
         <div>
             <span><br></span>
@@ -34,7 +34,7 @@
         </div>
         <br>
         <div>
-            <span>Wie du das machst?</span>
+            <span>Wie Du das machst?</span>
         </div>
         <div>
             <span>Zunächst: Mach aus der unten stehenden Liste bitte nur das, was Dir zumutbar erscheint. Im Optimalfall:</span>
@@ -44,7 +44,7 @@
             <li>Mach einen Screenshot (in iOS: Stand-by- und Home-Taste gleichzeitig drücken)</li>
             <li>Markiere die fehlerhaften Bereiche in dem Screenshot (z.B Roter Kreis um den Fehler)</li>
             <li>Beschreib das Problem möglichst genau in wenigen Sätzen</li>
-            <li>Gib eine Schritt-für-Schritt-Anleitung, wie es zu dem Problem gekommen ist, und wenn es dir für notwendig erscheint</li>
+            <li>Gib eine Schritt-für-Schritt-Anleitung, wie es zu dem Problem gekommen ist, und wenn es Dir für notwendig erscheint</li>
             <li>Klassifiziere das Problem in einen Fehlerbericht und/oder einen Verbesserungsvorschlag</li>
             <li>Schicke uns den (bearbeiteten) Screenshot, die Fehlerbeschreibung sowie Deine Plattform (iOS/Android) und Deine Gerätebezeichnung (z.B. iPhone SE) per E-Mail an <a href="mailto:prototyping@democracy-deutschland.de">prototyping@democracy-deutschland.de</a> oder optional</li>
             <li>Erstelle ein Issue für das Problem und lade den Screenshot auf Github hoch <a href="https://github.com/demokratie-live/democracy-client/issues">https://github.com/demokratie-live/democracy-client/issues</a></li>

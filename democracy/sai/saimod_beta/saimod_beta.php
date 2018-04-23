@@ -61,6 +61,7 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         while($row = $beta->next()){
             $row['i'] = $i++;
             $row['generated'] = \SYSTEM\time::time_ago_string(strtotime($row['createdAt']));
+            $row['code_delete_disabled'] = $row['count'] == 0 ? '' : 'disabled';
             $vars['data'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/code_tr.tpl'))->SERVERPATH(),$row);
         }
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('time'));
@@ -75,6 +76,16 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
     
     public static function sai_mod__SAI_saimod_beta_action_comment($code,$comment){
         \SQL\BETA_COMMENT::QI(array($comment,$code));
+        return \JsonResult::ok();
+    }
+    
+    public static function sai_mod__SAI_saimod_beta_action_code_delete($code){
+        \SQL\BETA_CODE_DELETE::QI(array($code));
+        return \JsonResult::ok();
+    }
+    
+    public static function sai_mod__SAI_saimod_beta_action_email_delete($email){
+        \SQL\BETA_EMAIL_DELETE::QI(array($email));
         return \JsonResult::ok();
     }
     
@@ -213,7 +224,7 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
     }
     
     public static function sai_mod__SAI_saimod_beta_action_email($email,$android,$ios){
-        require((new \SYSTEM\PROOT('PHPMailer-master/PHPMailerAutoload.php'))->SERVERPATH());
+        /*require((new \SYSTEM\PROOT('PHPMailer-master/PHPMailerAutoload.php'))->SERVERPATH());
         date_default_timezone_set('Europe/Berlin');
 
         $mail = new \PHPMailer;
@@ -246,7 +257,27 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
 
 	//send the message, check for errors
 	if(!$mail->send()){
-	    throw new \SYSTEM\LOG\ERROR("Mailer Error: " . $mail->ErrorInfo);}
+	    throw new \SYSTEM\LOG\ERROR("Mailer Error: " . $mail->ErrorInfo);}*/
+        
+        $bcc = null;
+        $delay = 0;
+        $from = 'Prototyp | DEMOCRACY <prototyping@democracy-deutschland.de>';
+        $subject = '📱 DEMOCRACY: Dein Prototyp Zugang';
+        $html_file = $android ? (new \PSAI('saimod_beta/tpl/mail_android.tpl'))->SERVERPATH() : (new \PSAI('saimod_beta/tpl/mail_ios.tpl'))->SERVERPATH();
+        $text_file = $android ? (new \PSAI('saimod_beta/tpl/mail_android.txt'))->SERVERPATH() : (new \PSAI('saimod_beta/tpl/mail_ios.txt'))->SERVERPATH();
+        $to = $email;
+        $unsubscribe_list = null;
+        $images = ["democracy_logo" => (new \PSAI('saimod_beta/img/logo.png'))->SERVERPATH()];
+        $attachments = [];
+        $replacements = [];
+        $smtp = [   "host"  => "ssl://atmanspacher.eu",
+                    "port"  => 465,
+                    "auth"  => true,
+                    "username" => "prototyping@democracy-deutschland.de",
+                    "password" => "7$7ar0pZ"
+                ];
+        $silent = true;
+        \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
      
         \SQL\BETA_MAIL::QI(array($email));
         

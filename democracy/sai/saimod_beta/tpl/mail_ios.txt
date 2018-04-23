@@ -1,0 +1,30 @@
+Hallo lieber Prototyp-Tester,
+
+im folgenden erklären wir Dir, wie Du zur Beta-Version von DEMOCRACY gelangst.
+
+Anleitung für iOS
+* Du erhälst in den folgenden Minuten eine Email von TestFlight mit der Betreffzeile DEMOCRACY Deutschland e.V. has invited you to test "DEMOCRACY Beta"
+* Öffne diese Mail, klicke den blauen Button View in TestFlight und folge der aufgeführten Anleitung, also
+* Lade Dir TestFlight im AppStore herunter
+* Öffne TestFlight und Drücke “Redeem”
+* Gib den Bestätigungscode, also z.B. QJHFFNDF ein und lade Dir DEMOCRACY herunter.
+* Öffne DEMOCRACY und teste – wie Du Bugs korrekt reportest, entnehme bitte der Anleitung zum Bug-Report
+
+Anleitung zum Bug-Report
+* Ein qualifiziertes Feedback ist notwendig, um Fehler zu beheben. Deshalb gib uns möglichst viele Informationen zu den von Dir gefunden Fehlern oder Verbesserungsvorschlägen.
+* Wie Du das machst?
+* Zunächst: Mach aus der unten stehenden Liste bitte nur das, was Dir zumutbar erscheint. Im Optimalfall:
+
+* Mach einen Screenshot (in iOS: Stand-by- und Home-Taste gleichzeitig drücken)
+* Markiere die fehlerhaften Bereiche in dem Screenshot (z.B Roter Kreis um den Fehler)
+* Beschreib das Problem möglichst genau in wenigen Sätzen
+* Gib eine Schritt-für-Schritt-Anleitung, wie es zu dem Problem gekommen ist, und wenn es Dir für notwendig erscheint
+* Klassifiziere das Problem in einen Fehlerbericht und/oder einen Verbesserungsvorschlag
+* Schicke uns den (bearbeiteten) Screenshot, die Fehlerbeschreibung sowie Deine Plattform (iOS/Android) und Deine Gerätebezeichnung (z.B. iPhone SE) per E-Mail an prototyping@democracy-deutschland.de oder optional
+* Erstelle ein Issue für das Problem und lade den Screenshot auf Github hoch https://github.com/demokratie-live/democracy-client/issues
+
+
+DEMOCRACY Deutschland e.V.
+IBAN: DE33 5003 1000 1049 7560 00
+BIC: TRODDEF1
+mobil +49 176 470 40 213

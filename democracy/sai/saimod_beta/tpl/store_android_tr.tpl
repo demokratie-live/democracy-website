@@ -6,5 +6,8 @@
     <td><i class="fa fa-${redeemed}"></i>&nbsp;${redeemed_time}</td>
     <td><i class="fa fa-${stored}"></i>&nbsp;${stored_time}</td>
     <td>${comment}</td>
-    <td><button type="button" class="btn btn-danger code_android" ${disabled} email="${email}"><i class="fa fa-check"></i>&nbsp;Habe ich dem Store hinzugefügt</button></td>
+    <td>
+        <button type="button" class="btn btn-warning code_android" ${disabled} email="${email}"><i class="fa fa-android"></i>&nbsp;Habe ich dem Store hinzugefügt</button>
+        <button type="button" class="btn btn-danger email_delete" email="${email}"><i class="fa fa-trash"></i></button>
+    </td>
 </tr>

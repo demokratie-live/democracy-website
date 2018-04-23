@@ -10,6 +10,7 @@
                 <th>Store</th>
                 <th>Email</th>
                 <th>Comment</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>${data}</tbody>    
