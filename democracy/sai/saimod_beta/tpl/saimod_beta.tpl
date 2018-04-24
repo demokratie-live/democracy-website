@@ -8,7 +8,7 @@
             <li class="nav-item"><a class="nav-link" href="#!beta(code)" id="menu_tag_code">1. Code</a></li>
             <li class="nav-item"><a class="nav-link" href="#!beta(store_android)" id="menu_tag_store_android">2. Store (Android)&nbsp;<span class="pull-right badge badge-pill badge-danger">${store_android_count}</span></a></li>
             <li class="nav-item"><a class="nav-link" href="#!beta(store_ios)" id="menu_tag_store_ios">2. Store (iOS)&nbsp;<span class="pull-right badge badge-pill badge-danger">${store_ios_count}</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="#!beta(mail)" id="menu_tag_mail">3. Send Mail&nbsp;<span class="pull-right badge badge-pill badge-danger">${mail_count}</span></a></li>
+            <!--<li class="nav-item"><a class="nav-link" href="#!beta(mail)" id="menu_tag_mail">3. Send Mail&nbsp;<span class="pull-right badge badge-pill badge-danger">${mail_count}</span></a></li>-->
         </ul>
     </div>
     <div class="col-md-10 sai_padding_off sai_border_left" id="content_beta">

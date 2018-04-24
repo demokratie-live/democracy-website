@@ -5,7 +5,7 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         $vars = array();
         $vars['store_android_count'] = \SQL\BETA_COUNT_STORE_ANDROID::Q1()['count'];
         $vars['store_ios_count'] = \SQL\BETA_COUNT_STORE_IOS::Q1()['count'];
-        $vars['mail_count'] = \SQL\BETA_COUNT_MAIL::Q1()['count'];
+        //$vars['mail_count'] = \SQL\BETA_COUNT_MAIL::Q1()['count'];
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/saimod_beta.tpl'))->SERVERPATH(),$vars);}
     
     public static function sai_mod__SAI_saimod_beta_action_all(){
@@ -171,12 +171,13 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/store_ios.tpl'))->SERVERPATH(),$vars);
     }
     
-    public static function sai_mod__SAI_saimod_beta_action_store($email){
+    public static function sai_mod__SAI_saimod_beta_action_store($email,$android,$ios){
         \SQL\BETA_STORE::QI(array($email));
-        return \JsonResult::ok();
+        
+        return self::action_email($email,$android,$ios);
     }
     
-    public static function sai_mod__SAI_saimod_beta_action_mail(){
+    /* public static function sai_mod__SAI_saimod_beta_action_mail(){
         $vars = array();
         
         $vars['data'] = '';
@@ -221,44 +222,9 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         }
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('time'));
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/mail.tpl'))->SERVERPATH(),$vars);
-    }
+    } */
     
-    public static function sai_mod__SAI_saimod_beta_action_email($email,$android,$ios){
-        /*require((new \SYSTEM\PROOT('PHPMailer-master/PHPMailerAutoload.php'))->SERVERPATH());
-        date_default_timezone_set('Europe/Berlin');
-
-        $mail = new \PHPMailer;
-        
-        $mail->CharSet = 'utf-8';
-        $mail->Encoding = 'base64';
- 
-        $mail->Host = 'atmanspacher.eu';
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'tls';
-        $mail->SMTPAuth = true;
-   
-        $mail->setFrom(     'prototyping@democracy-deutschland.de', 'DEMOCRACY Deutschland Prototyp');
-        $mail->addReplyTo(  'prototyping@democracy-deutschland.de', 'DEMOCRACY Deutschland Prototyp');
-        $mail->addAddress(  $email);
-        
-        $vars = array();
-        $vars['datum'] = date("d.m.Y");
-        $vars['uhrzeit'] = date("H:i");
-        if($android){
-            $html = \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/mail_android.tpl'))->SERVERPATH(), $vars);
-        } else {
-            $html = \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/mail_ios.tpl'))->SERVERPATH(), $vars);
-        }
-  
-        $mail->Subject = '📱 DEMOCRACY: Dein Prototyp Zugang';
-        $mail->Body = $html;
-        $mail->IsHTML(true);
-        $mail->AddEmbeddedImage((new \PSAI('saimod_beta/img/logo.png'))->SERVERPATH(), 'democracy_logo', 'logo.png');
-
-	//send the message, check for errors
-	if(!$mail->send()){
-	    throw new \SYSTEM\LOG\ERROR("Mailer Error: " . $mail->ErrorInfo);}*/
-        
+    public static function action_email($email,$android,$ios){
         $bcc = null;
         $delay = 0;
         $from = 'Prototyp | DEMOCRACY <prototyping@democracy-deutschland.de>';

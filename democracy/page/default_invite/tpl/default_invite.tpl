@@ -114,7 +114,7 @@
                 </div>
                 <div id="final_ios" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 24px;">
-                        Sobald Du im AppStore freigeschaltet wurdest, erhälst Du eine EMail mit einer genauen Anleitung von uns.<br>
+                        Sobald Du im AppStore freigeschaltet wurdest, erhälst Du eine E-Mail mit einer genauen Anleitung von uns.<br>
                         <br>
                         <span style="color: red;">Bitte überprüfe auch Deinen Spam-Ordner!</span>
                     </div>
@@ -131,7 +131,7 @@
                 </div>
                 <div id="final_android" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 24px;">
-                        Sobald Du im PlayStore freigeschaltet wurdest, erhälst Du eine EMail mit einer genauen Anleitung von uns.<br>
+                        Sobald Du im PlayStore freigeschaltet wurdest, erhälst Du eine E-Mail mit einer genauen Anleitung von uns.<br>
                         <br>
                         <span style="color: red;">Bitte überprüfe auch Deinen Spam-Ordner!</span>
                     </div>

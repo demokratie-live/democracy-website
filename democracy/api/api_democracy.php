@@ -113,6 +113,27 @@ class api_democracy extends \SYSTEM\API\api_system {
             \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
         }
         
+        //SendMail
+        $bcc = null;
+        $delay = 0;
+        $from = 'Prototyp | DEMOCRACY <prototyping@democracy-deutschland.de>';
+        $subject = '📱 DEMOCRACY: Deine Prototyp Bewerbung ist eingegangen!';
+        $html_file = (new \PAPI('tpl/send_mail_beta.tpl'))->SERVERPATH();
+        $text_file = (new \PAPI('tpl/send_mail_beta.txt'))->SERVERPATH();
+        $to = $email;
+        $unsubscribe_list = null;
+        $images = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
+        $attachments = [];
+        $replacements = [];
+        $smtp = [   "host"  => "ssl://atmanspacher.eu",
+                    "port"  => 465,
+                    "auth"  => true,
+                    "username" => "prototyping@democracy-deutschland.de",
+                    "password" => "7$7ar0pZ"
+                ];
+        $silent = true;
+        \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
+        
         return \SYSTEM\LOG\JsonResult::ok();
     }
     

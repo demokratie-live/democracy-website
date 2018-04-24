@@ -81,8 +81,9 @@ function init_saimod_beta_store_android() {
         $(this).removeClass('active');});
     $('#menu_tag_store_android').addClass('active');
     $('.code_android').click(function(){
-        var code = $(this).attr('code');
         var email = $(this).attr('email');
+        var android = $(this).attr('android');
+        var ios = $(this).attr('ios');
         $.ajax({
             async: true,
             url: this.endpoint,
@@ -91,8 +92,9 @@ function init_saimod_beta_store_android() {
             data: {
                 sai_mod: '.SAI.saimod_beta',
                 action: 'store',
-                code: code,
-                email: email
+                email: email,
+                android: android,
+                ios: ios
             },
             success: function(){
                 system.reload();
@@ -118,8 +120,9 @@ function init_saimod_beta_store_ios() {
         $(this).removeClass('active');});
     $('#menu_tag_store_ios').addClass('active');
     $('.code_ios').click(function(){
-        var code = $(this).attr('code');
         var email = $(this).attr('email');
+        var android = $(this).attr('android');
+        var ios = $(this).attr('ios');
         $.ajax({
             async: true,
             url: this.endpoint,
@@ -128,8 +131,9 @@ function init_saimod_beta_store_ios() {
             data: {
                 sai_mod: '.SAI.saimod_beta',
                 action: 'store',
-                code: code,
-                email: email
+                email: email,
+                android: android,
+                ios: ios
             },
             success: function(){
                 system.reload();
@@ -149,7 +153,7 @@ function init_saimod_beta_store_ios() {
     });
     email_delete();
 };
-function init_saimod_beta_mail() {
+/* function init_saimod_beta_mail() {
     $("#table_beta_mail").tablesorter();
     $('#tabs_beta li a').each(function(){
         $(this).removeClass('active');});
@@ -179,7 +183,7 @@ function init_saimod_beta_mail() {
         });
     });
     email_delete();
-};
+}; */
 
 function email_delete(){
     $('.email_delete').click(function(){
