@@ -1,0 +1,34 @@
+.overlay {
+    position:absolute;
+    top:160px;
+    left:0;
+    bottom:0;
+    background-color:rgba(0,0,0,0.4);
+    right:0;
+    transition:all 400ms ease;
+    color: white;
+    overflow: hidden;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 31px;
+    text-align: center;
+}
+
+.overlay:hover  {
+    top: 0;
+    transition:top 200ms linear;
+    background-color:rgba(0,0,0,0.6);
+}
+.overlay div{
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.overlay div h5{
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 40px;
+}
+.overlay:hover div h5{
+    line-height: 30px;
+}

@@ -5,7 +5,7 @@ class default_impressum implements SYSTEM\PAGE\Page {
     public static function meta(){
         return \SYSTEM\PAGE\text::tag('meta_impressum');}
     public static function js(){
-        return array(   new PPAGE('default_impressum/js/default_impressum.js'));}
+        return array();}//   new PPAGE('default_impressum/js/default_impressum.js'));}
     public static function css(){
         return array();}//   new PPAGE('default_impressum/css/default_impressum.css'));}
     public function html(){

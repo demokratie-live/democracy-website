@@ -1,4 +1,4 @@
-REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (100, 0, 2, 10, 'send_mail_faq', 'data', 'JSON');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (100, 0, 2, 10, 'send_mail', 'data', 'JSON');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (110, 0, 2, 10, 'send_subscribe', 'data', 'JSON');
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (120, 0, 2, 10, 'beta', 'ios', 'BOOL');

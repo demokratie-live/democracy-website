@@ -1,52 +1,35 @@
 $(document).ready(function() {
-    new SYSTEM('./api.php',1,'start');
+    new SYSTEM('./api.php',1,'home');
     
     /* init Jarallax */
-    $('.jarallax').jarallax({
+    /*$('.jarallax').jarallax({
         speed: 0.5,
         imgWidth: 1366,
         imgHeight: 768
-    });
+    });*/
+    $().UItoTop({ easingType: 'easeOutQuart' });
     
     $(".scroll").click(function(event){   
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
     });
-      
-    $().UItoTop({ easingType: 'easeOutQuart' });
     
     $('.navbar-nav>li>a').on('click', function(){
         $('.navbar-collapse').collapse('hide');
     });
     
-    $('#beta').change(function(){
-        $('#plattform').toggle();
+    $(document).scroll(function () {
+        var $nav = $(".navbar");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > 0);
     });
     
     $('#subscribe').click(function(){
-        var ok      = true;
         var email   = $('#email').val();
-        var beta    = $('#beta').is(':checked');
-        var android = $('#android').is(':checked');
-        var ios     = $('#ios').is(':checked');
         
         if(!validateEmail(email)){
             $('#email').addClass("blink-class");
-            ok = false;
         } else {
             $('#email').removeClass("blink-class");
-        }
-        
-        if(beta && (!android && !ios)){
-            $('#android').addClass("blink-class");
-            $('#ios').addClass("blink-class");
-            ok = false;
-        } else {
-            $('#android').removeClass("blink-class");
-            $('#ios').removeClass("blink-class");
-        }
-        
-        if(ok){
             $.ajax({
                 async: true,
                 url: './api.php',
@@ -54,10 +37,7 @@ $(document).ready(function() {
                 dataType: 'JSON',
                 data: {
                     call: 'send_subscribe',
-                    data: { email:  email,
-                            beta:   beta,
-                            android:android,
-                            ios:    ios}
+                    data: { email:  email}
                 },
                 success: function(data){
                     if(!data.status){
@@ -74,6 +54,25 @@ $(document).ready(function() {
         }
     });
 });
+
+function sendMail(data,callback){
+    $.ajax({
+        async: true,
+        url: './api.php',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {
+            call: 'send_mail',
+            data: data
+        },
+        success: function(data){
+            callback(data);
+        },
+        error: function(){
+            callback(false);
+        }
+    });
+}
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

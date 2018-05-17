@@ -1,0 +1,5 @@
+Eine Nachricht ist über die Website eingegangen:
+
+${data}
+
+Achtung: Diese EMail ist die einzige Kopie dieser Daten

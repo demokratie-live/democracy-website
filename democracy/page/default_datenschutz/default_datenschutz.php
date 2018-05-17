@@ -5,7 +5,7 @@ class default_datenschutz implements SYSTEM\PAGE\Page {
     public static function meta(){
         return \SYSTEM\PAGE\text::tag('meta_datenschutz');}
     public static function js(){
-        return array(   new PPAGE('default_datenschutz/js/default_datenschutz.js'));}
+        return array();}//  new PPAGE('default_datenschutz/js/default_datenschutz.js'));}
     public static function css(){
         return array();}//   new PPAGE('default_datenschutz/css/default_datenschutz.css'));}
     public function html(){

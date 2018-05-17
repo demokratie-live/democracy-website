@@ -1,43 +1,38 @@
 <?php
 class api_democracy extends \SYSTEM\API\api_system {
-    public static function call_send_mail_faq($data){
-        require((new \SYSTEM\PROOT('PHPMailer-master/PHPMailerAutoload.php'))->SERVERPATH());
-        date_default_timezone_set('Europe/Berlin');
+    public static function call_send_mail($data){
+        /*$tbody = array_reduce($data, function($a, $b){return $a.="<tr><td>".implode("</td><td>",$b)."</td></tr>";});
+        $thead = "<tr><th>" . implode("</th><th>", array_keys($rows[0])) . "</th></tr>";
 
-        $mail = new PHPMailer;
+        $new_data = "<table>\n$thead\n$tbody\n</table>";*/
+        $data['files'] = json_decode($data['files']);
+        $new_data = str_replace('\/', '/',json_encode($data,JSON_PRETTY_PRINT));
+        //SendMail
+        $bcc = null;
+        $delay = 0;
+        $from = 'Website | DEMOCRACY <contact@democracy-deutschland.de>';
+        $subject = '📱 DEMOCRACY: EMail from democracy-deutschland.de';
+        $html_file = (new \PAPI('tpl/send_mail.tpl'))->SERVERPATH();
+        $text_file = (new \PAPI('tpl/send_mail.txt'))->SERVERPATH();
+        $to = 'contact@democracy-deutschland.de';
+        $unsubscribe_list = null;
+        $images = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
+        $attachments = [];
+        $replacements = ['data' => ['value' => ['text' => $new_data]]];
+        $smtp = [   "host"  => "ssl://atmanspacher.eu",
+                    "port"  => 465,
+                    "auth"  => true,
+                    "username" => "prototyping@democracy-deutschland.de",
+                    "password" => "7$7ar0pZ"
+                ];
+        $silent = true;
+        \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
         
-        $mail->CharSet = 'utf-8';
-        $mail->Encoding = 'base64';
- 
-        $mail->Host = 'atmanspacher.eu';
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'tls';
-        $mail->SMTPAuth = true;
-   
-        $mail->setFrom(     $data["email"], 'Neue Frage von  - '. $data["vorname"] .' '. $data["nachname"]);
-        $mail->addReplyTo(  $data["email"], $data["vorname"] .' '. $data["nachname"]);
-        $mail->addAddress(  'contact@democracy-deutschland.de',  'democracy-deutschland.de');
-        
-        $vars = $data;
-        $vars['datum'] = date("d.m.Y");
-        $vars['uhrzeit'] = date("H:i");
-        $html = \SYSTEM\PAGE\replace::replaceFile((new PAPI('tpl/send_mail_faq.tpl'))->SERVERPATH(), $vars);
-  
-        $mail->Subject = 'DEMOCRACY: Frage von '.$data["vorname"] .' '. $data["nachname"].' erhalten!';
-        $mail->Body = $html;
-        $mail->IsHTML(true); 
-
-	//send the message, check for errors
-	if(!$mail->send()){
-	    throw new \SYSTEM\LOG\ERROR("Mailer Error: " . $mail->ErrorInfo);}
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
     public static function call_send_subscribe($data){
-        $beta = $data['beta'] == 'true' ? 1 : 0;
-        $android = $data['android'] == 'true' ? 1 : 0;
-        $ios = $data['ios'] == 'true' ? 1 : 0;
-        \SQL\SUBSCRIBE_ADD::Q1(array($data['email'],$beta,$android,$ios,$beta,$android,$ios));
+        \SQL\SUBSCRIBE_ADD::Q1(array($data['email']));
             
         $sub = \SQL\SUBSCRIBE_GET::Q1(array($data['email']));
         if(!$sub['confirmed']){
@@ -139,5 +134,13 @@ class api_democracy extends \SYSTEM\API\api_system {
     
     public static function validate_code($code){
         return \SQL\BETA_CODE_VALIDATE::Q1(array($code))['count'] !== 0 ? true: false;
+    }
+    
+    public static function call_upload(){
+        $file_name = md5_file($_FILES['datei']['tmp_name']).'_'.basename($_FILES['datei']['name']);
+        if(!\SYSTEM\FILES\files::put('upload', $file_name , $_FILES['datei']['tmp_name'])){
+            throw new \SYSTEM\LOG\ERROR("Upload Problem");}
+        
+        return \SYSTEM\LOG\JsonResult::toString(['file_name' => $file_name]);
     }
 }
