@@ -56,7 +56,7 @@ class HEADER {
      */
     public static function PNG(){
         if(self::checkHeader()){
-            //header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7*4*52))); // 1 week
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7*4*52))); // 1 week
             header('content-type:image/png');}}
     /**
      * Send JPG Headers, if Header was not sent yet
@@ -83,7 +83,7 @@ class HEADER {
      */
     public static function GIF(){
         if(self::checkHeader()){
-            //header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
             header('content-type:image/gif');}}  
     /**
      * Send JS Headers, if Header was not sent yet
@@ -119,6 +119,7 @@ class HEADER {
      * @return null Returns null
      */
     public static function FILE($filename){
+        header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // 1 week
         header("Content-type: application/octet-stream");
         header("Content-Disposition: attachment; filename=\"".$filename."\"");}
 }
