@@ -5,7 +5,8 @@ class api_democracy extends \SYSTEM\API\api_system {
         $thead = "<tr><th>" . implode("</th><th>", array_keys($rows[0])) . "</th></tr>";
 
         $new_data = "<table>\n$thead\n$tbody\n</table>";*/
-        $data['files'] = json_decode($data['files']);
+        if(array_key_exists('files', $data)){
+            $data['files'] = json_decode($data['files']);}
         $new_data = str_replace('\/', '/',json_encode($data,JSON_PRETTY_PRINT));
         //SendMail
         $bcc = null;
