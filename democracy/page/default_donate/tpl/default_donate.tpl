@@ -88,7 +88,7 @@
             <div class="col-lg-8" id="donate_init_text">
                 <span>  DEMOCRACY Deutschland e.V. ist ein gemeinnütziger Verein, der mit seiner
                         gleichnamigen App DEMOCRACY, unsere Politik inklusiver, demokratischer und
-                        bürgernaher machen will.</span>
+                        bürgernäher machen will.</span>
                 <br><br>
                 <span>  Als crowdmoderierte und politisch unabhängige Plattform informiert die App dafür
                          über die aktuellen Bundestagsabstimmungen und ermöglicht den Nutzern eine

@@ -104,8 +104,8 @@ class default_press implements SYSTEM\PAGE\Page {
                                     'link' => './files/medien/StartUpValley.pdf',
                                     'title' => 'StartUpValley - DEMOCRACY X StartUpValley'),
                             array(  'img' => './files/medien/IP.png',
-                                    'link' => 'https://www.facebook.com/kruegermarius/videos/1565466506855387/',
-                                    'title' => 'Idealism Prevails - DEMOCRACY X Idealism Prevails'),
+                                    'link' => 'https://www.idealismprevails.at/demokratie-im-21-jahrhundert-marius-krueger-b-a/',
+                                    'title' => 'Idealism Prevails – Demokratie im 21. Jh'),
                             array(  'img' => './files/medien/Fabio_Di_Masi.png',
                                     'link' => 'https://www.facebook.com/fabio.d.masi/videos/724139911119044/?hc_ref=ARQOUAwCEBF-BSc3ka28z7nFVaOjJVCYgIxLzJ_DEYH0VZfZpljYV3uPLum3LCkcB2s',
                                     'title' => 'Fabio De Masi - Demokratie in Echtzeit'),
@@ -126,10 +126,10 @@ class default_press implements SYSTEM\PAGE\Page {
                                     'title' => 'Medium - Wege zur Demokratie'),
                             array(  'img' => './files/medien/KenFM.png',
                                     'link' => 'https://kenfm.de/politische-mitsprache-app-democracy/',
-                                    'title' => 'KenFM - Pressemitteilung bei KenFM'),
+                                    'title' => 'KenFM – Wahl war gestern. Demokratie ist immer. Mehr politische Mitsprache mit der App DEMOCRACY.'),
                             array(  'img' => './files/medien/Marina_Weisband.png',
                                     'link' => 'http://marinaweisband.de/der-wahl-o-mat-fuer-immer/',
-                                    'title' => 'Marina Weißband - Wahl-O-Mat, aber für immer')
+                                    'title' => 'Marina Weisband - Wahl-O-Mat, aber für immer')
         );
         $result = '';
         foreach($articles as $article){

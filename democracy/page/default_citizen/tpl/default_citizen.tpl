@@ -56,7 +56,7 @@
                             Versprechen und Emotionen geführten hin 
                             <strong>zu einer an konkreten Entscheidungen
                             erfahrbaren und lösungsorientierten Politik
-                            für die Bürger</strong>. In DEMOCRACY geht es
+                            für Bürger</strong>. In DEMOCRACY geht es
                             deshalb nicht um Personen, sondern um
                             einen personen- und akteurunabhängigen
                             Dialog um die sachlich-beste Antwort unserer
@@ -97,7 +97,7 @@
                             virtuellen Bundestagsabgeordneten</strong>
                             auszuüben ist besser. Deshalb kannst du in
                             DEMOCRACY nicht nur Gesetzesinitiativen
-                            upvoten (für wichtig befinden) sondern auch
+                            upvoten (für wichtig befinden), sondern auch
                             <strong>selbst über den Antrag abstimmen</strong> –
                             und zwar noch vor der offiziellen Bundestags-Entscheidung. Deine anoyme Stimme wird
                             daraufhin mit allen anderen abgegeben Vota
