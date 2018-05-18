@@ -94,8 +94,13 @@
     list-style: none;
     height: 100%;
     text-align: center;
+    display: table;
+    width: 100%;
+    padding: 0;
 }
 .agileinfo_about_text li {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .agileinfo_about_text li a {
