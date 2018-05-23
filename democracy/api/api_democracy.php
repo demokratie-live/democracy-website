@@ -1,34 +1,48 @@
 <?php
 class api_democracy extends \SYSTEM\API\api_system {
-    public static function call_send_mail($data){
-        /*$tbody = array_reduce($data, function($a, $b){return $a.="<tr><td>".implode("</td><td>",$b)."</td></tr>";});
-        $thead = "<tr><th>" . implode("</th><th>", array_keys($rows[0])) . "</th></tr>";
-
-        $new_data = "<table>\n$thead\n$tbody\n</table>";*/
-        if(array_key_exists('files', $data)){
-            $data['files'] = json_decode($data['files']);}
-        $new_data = str_replace('\/', '/',json_encode($data,JSON_PRETTY_PRINT));
-        //SendMail
+    
+    private static function mailcannon($from,$subject,$html_file,$text_file,$to,$images,$replacements,$smtp){
         $bcc = null;
         $delay = 0;
-        $from = 'Website | DEMOCRACY <contact@democracy-deutschland.de>';
-        $subject = '📱 DEMOCRACY: EMail from democracy-deutschland.de';
+        $silent = true;
+        $unsubscribe_list = null;
+        $attachments = [];
+        \mailcannon::fire(  $bcc,
+                            $delay,
+                            $from,
+                            $subject,
+                            $html_file,
+                            $text_file,
+                            $to,
+                            $unsubscribe_list,
+                            $images,
+                            $attachments,
+                            $replacements,
+                            $smtp,
+                            $silent);
+    }
+    
+    public static function call_send_mail($data){
+        if(array_key_exists('files', $data)){
+            $data['files'] = json_decode($data['files']);}
+        $data_json = str_replace('\/', '/',json_encode($data,JSON_PRETTY_PRINT));
+        //SendMail
+        $from = 'Website | DEMOCRACY <'.(array_key_exists('email',$data) ? $data['email'] : 'contact@democracy-deutschland.de').'>';
+        $to = 'contact@democracy-deutschland.de';
+        //$to = 'ulf.gebhardt@webcraft-media.de';
+        $subject = '📱 DEMOCRACY Website: '.((array_key_exists('type',$data) && array_key_exists('email',$data)) ? $data['type'].' from '.$data['email'] : 'EMail from democracy-deutschland.de');
         $html_file = (new \PAPI('tpl/send_mail.tpl'))->SERVERPATH();
         $text_file = (new \PAPI('tpl/send_mail.txt'))->SERVERPATH();
-        $to = 'contact@democracy-deutschland.de';
-        $unsubscribe_list = null;
+        $replacements = [   'data_json' =>  ['value' => ['text' => $data_json]],
+                            'type'      =>  ['value' => ['text' => array_key_exists('type',$data) ? $data['type'] : 'No Type given']],
+                            'email'     =>  ['value' => ['text' => array_key_exists('email',$data) ? $data['email'] : 'No EMail given']],
+                            'name'      =>  ['value' => ['text' => array_key_exists('name',$data) ? $data['name'] : 
+                                                                   (array_key_exists('vorname',$data) && array_key_exists('nachname',$data)) ?
+                                                                    $data['vorname'].' '.$data['nachname'] : 'No Name given']],
+                            'text'      =>  ['value' => ['text' => array_key_exists('text',$data) ? $data['text'] : 'No Text given']]];
         $images = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
-        $attachments = [];
-        $replacements = ['data' => ['value' => ['text' => $new_data]]];
-        $smtp = [   "host"  => "ssl://atmanspacher.eu",
-                    "port"  => 465,
-                    "auth"  => true,
-                    "username" => "prototyping@democracy-deutschland.de",
-                    "password" => "7$7ar0pZ"
-                ];
-        $silent = true;
-        \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
-        
+        $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
+        self::mailcannon($from,$subject,$html_file,$text_file,$to,$images,$replacements,$smtp);
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
@@ -121,12 +135,7 @@ class api_democracy extends \SYSTEM\API\api_system {
         $images = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
         $attachments = [];
         $replacements = [];
-        $smtp = [   "host"  => "ssl://atmanspacher.eu",
-                    "port"  => 465,
-                    "auth"  => true,
-                    "username" => "prototyping@democracy-deutschland.de",
-                    "password" => "7$7ar0pZ"
-                ];
+        $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_PROTOTYPING);
         $silent = true;
         \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
         

@@ -20,6 +20,15 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>${data}</tbody>    
+        <tbody>
+            <tr>
+                <th>Count</th>
+                <th>${code_count}</th>
+                <th>${redeemed_count} (${stored_count})</th>
+                <td></td>
+                <td></td>
+            </tr>
+            ${data}
+        </tbody>    
     </table>
 </div>

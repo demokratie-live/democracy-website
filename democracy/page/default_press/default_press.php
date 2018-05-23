@@ -85,7 +85,19 @@ class default_press implements SYSTEM\PAGE\Page {
                                 'title' => 'DEMOCRACY LOGO'),
                         array(  'link' => './files/download/Logo_with_sublines_2.png',
                                 'img' => './files/download/Logo_with_sublines_2.png',
-                                'title' => 'DEMOCRACY Logo quer')
+                                'title' => 'DEMOCRACY Logo quer'),
+                        array(  'link' => './files/download/Funktionen.png',
+                                'img' => './files/download/Funktionen.png',
+                                'title' => 'DEMOCRACY Funktionsgrafik'),
+                        array(  'link' => './files/download/Hello.png',
+                                'img' => './files/download/Hello.png',
+                                'title' => 'DEMOCRACY Beta Schleife'),
+                        array(  'link' => './files/download/PM.png',
+                                'img' => './files/download/PM.png',
+                                'title' => 'DEMOCRACY Beta Invite'),
+                        array(  'link' => './files/download/offenes_Parlament.jpg',
+                                'img' => './files/download/offenes_Parlament.jpg',
+                                'title' => 'DEMOCRACY offenes Parlament'),
         );
         $result = '';
         foreach($media as $m) {
@@ -94,7 +106,13 @@ class default_press implements SYSTEM\PAGE\Page {
         return $result;
     }
     private static function articles(){
-        $articles = array(  array(  'img' => './files/medien/Stadt_Land.png',
+        $articles = array(  array(  'img' => './files/medien/NuoViso_Talk.png',
+                                    'link' => 'https://www.youtube.com/watch?v=1Et7S8pi8zY',
+                                    'title' => 'NuoViso.tv - "Democracy" - Volksabstimmung per Handy - Marius Krüger im NuoViso Talk'),
+                            array(  'img' => './files/medien/audiopreneur.png',
+                                    'link' => 'https://audiopreneur.de/34-ap-democracy-deutschland-die-app-fuer-mehr-demokratie/',
+                                    'title' => 'AudioPreneur Podcast - DEMOCRACY Deutschland – die App für mehr Demokratie'),
+                            array(  'img' => './files/medien/Stadt_Land.png',
                                     'link' => 'http://ng.infranken.de/epaper/EPaper/PHP-Files/showclust.php?Ref=DText%2F94mvlhvqjm5-m4ssvjtetac&PageRef=DSArchiv%2Fg3~xgnu8amvnb567ftilydq&Clip=47%2C43%2C905%2C417&titel=bs&Spezial=&Display=print',
                                     'title' => 'In Franken - Politische Mitspache bald per App?'),
                             array(  'img' => './files/medien/Startalp.png',

@@ -54,6 +54,10 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
     
     public static function sai_mod__SAI_saimod_beta_action_code(){
         $vars = array();
+        $vars['code_count'] = \SQL\BETA_CODES_COUNT::Q1()['count'];
+        $beta_count = \SQL\BETA_COUNT::Q1();
+        $vars['redeemed_count'] = $beta_count['count'];
+        $vars['stored_count'] = $beta_count['store'];
         
         $vars['data'] = '';
         $beta = \SQL\BETA_CODES_FIND::QQ();

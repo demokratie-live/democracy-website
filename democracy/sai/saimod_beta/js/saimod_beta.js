@@ -23,8 +23,12 @@ function init_saimod_beta_code() {
                 action: 'generate',
                 comment: comment
             },
-            success: function(){
-                system.reload();
+            success: function(data){
+                if(data.status){
+                    system.reload();
+                } else {
+                    alert('Something happend - try again!');
+                }
             },
             error: function(){
                 alert('Something happend - try again!');
@@ -153,38 +157,6 @@ function init_saimod_beta_store_ios() {
     });
     email_delete();
 };
-/* function init_saimod_beta_mail() {
-    $("#table_beta_mail").tablesorter();
-    $('#tabs_beta li a').each(function(){
-        $(this).removeClass('active');});
-    $('#menu_tag_mail').addClass('active');
-    $('.beta_mail').click(function(){
-        var email = $(this).attr('email');
-        var android = $(this).attr('android');
-        var ios = $(this).attr('ios');
-        $.ajax({
-            async: true,
-            url: this.endpoint,
-            type: 'GET',
-            dataType: 'JSON',
-            data: {
-                sai_mod: '.SAI.saimod_beta',
-                action: 'email',
-                email: email,
-                android: android,
-                ios: ios
-            },
-            success: function(){
-                system.reload();
-            },
-            error: function(){
-                alert('Something happend - try again!');
-            }
-        });
-    });
-    email_delete();
-}; */
-
 function email_delete(){
     $('.email_delete').click(function(){
         if (confirm('Are you sure you want to delete this user PERMANENTLY?')) {

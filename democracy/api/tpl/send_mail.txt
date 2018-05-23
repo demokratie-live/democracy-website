@@ -1,5 +1,5 @@
 Eine Nachricht ist über die Website eingegangen:
 
-${data}
+${data_json}
 
 Achtung: Diese EMail ist die einzige Kopie dieser Daten

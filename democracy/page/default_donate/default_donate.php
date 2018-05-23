@@ -8,13 +8,19 @@ class default_donate implements SYSTEM\PAGE\Page {
         return array();}//   new PPAGE('default_donate/js/default_donate.js'));}
     public static function css(){
         return array();}//   new PPAGE('default_donate/css/default_donate.css'));}
+    public static function donate_box(){
+        $vars = \SYSTEM\PAGE\text::tag('donation');
+        //Donations
+        /*$vars['donation_paten'] = 9;
+        $vars['donation_value'] = 61;
+        $vars['donation_date'] = '14.05.2018 * 18:45 Uhr';*/
+        $vars['donation_percentage'] = round($vars['donation_value']/100,0);
+        return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_box.tpl'))->SERVERPATH(), $vars);
+    }
     public function html(){
         $vars = array();
-        //Donations
-        $vars['donation_paten'] = 7;
-        $vars['donation_value'] = 55;
-        $vars['donation_date'] = '14.05.2018 * 18:45 Uhr';
-        $vars['donation_percentage'] = round($vars['donation_value']/100,0);
+        //donate box
+        $vars['donate_box'] = self::donate_box();
         //team
         $vars['team'] = '';
         $team = array(  array(  'name' => 'Marius Krüger', 'text' => 'Mädchen für alles<br>Initiator & UI', 'img' => './files/wir/marius_krueger.jpg', 'aktiv' => 'lightgreen',
