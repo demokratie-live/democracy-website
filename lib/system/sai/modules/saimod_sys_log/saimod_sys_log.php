@@ -74,7 +74,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_system($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_CLASS_SYSTEM::QA(array($filter));
@@ -108,7 +108,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_other($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_other($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_CLASS_OTHER::QA(array($filter));
@@ -138,7 +138,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_basic($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_class_basic($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_CLASS_BASIC::QA(array($filter));
@@ -170,7 +170,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_basic($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_basic($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_UNIQUE_BASIC::QA(array($filter));
@@ -200,7 +200,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_request($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_request($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_UNIQUE_REQUEST::QA(array($filter));
@@ -231,7 +231,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_exception($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_exception($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_UNIQUE_EXCEPTION::QA(array($filter));
@@ -261,7 +261,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_referer($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_unique_referer($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_UNIQUE_REFERER::QA(array($filter));
@@ -292,7 +292,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_visitor($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_visitor($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_BASIC_VISITOR::QA(array($filter));
@@ -321,7 +321,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_sucess($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_sucess($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_BASIC_SUCCESS::QA(array($filter));
@@ -364,7 +364,7 @@ class saimod_sys_log extends \SYSTEM\SAI\sai_module {
      * @param string $db DB to operate on
      * @return json Returns json with data
      */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_querytime($filter,$db){
+    public static function sai_mod__SYSTEM_SAI_saimod_sys_log_action_stats_name_basic_querytime($filter,$db=null){
         $result = array();
         if(!$db){
             $result = \SYSTEM\SQL\SYS_SAIMOD_LOG_BASIC_QUERYTIME::QA(array($filter));
