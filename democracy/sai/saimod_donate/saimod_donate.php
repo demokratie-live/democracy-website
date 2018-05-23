@@ -7,9 +7,11 @@ class saimod_donate extends \SYSTEM\SAI\sai_module{
         
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_donate/tpl/saimod_donate.tpl'))->SERVERPATH(),$vars);}
     
-    public static function sai_mod__SAI_saimod_donate_action_update($paten,$value){
+    public static function sai_mod__SAI_saimod_donate_action_update($paten,$value,$paten_goal,$value_goal){
         \SYSTEM\PAGE\text::save('donation_paten', 'donation_paten', 'deDE', ['donation'], $paten);
         \SYSTEM\PAGE\text::save('donation_value', 'donation_value', 'deDE', ['donation'], $value);
+        \SYSTEM\PAGE\text::save('donation_paten_goal', 'donation_paten_goal', 'deDE', ['donation'], $paten_goal);
+        \SYSTEM\PAGE\text::save('donation_value_goal', 'donation_value_goal', 'deDE', ['donation'], $value_goal);
         \SYSTEM\PAGE\text::save('donation_date', 'donation_date', 'deDE', ['donation'], date('d.m.Y * H:i').' Uhr');
         return \SYSTEM\LOG\JsonResult::ok();
     }

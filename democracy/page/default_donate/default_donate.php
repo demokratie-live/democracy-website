@@ -14,7 +14,9 @@ class default_donate implements SYSTEM\PAGE\Page {
         /*$vars['donation_paten'] = 9;
         $vars['donation_value'] = 61;
         $vars['donation_date'] = '14.05.2018 * 18:45 Uhr';*/
-        $vars['donation_percentage'] = round($vars['donation_value']/100,0);
+        $vars['donation_percentage'] = round($vars['donation_value']/$vars['donation_value_goal']*100,0);
+        $vars['donation_paten_goal'] = number_format($vars['donation_paten_goal'] , 0, ',', '.');
+        $vars['donation_value_goal'] = number_format($vars['donation_value_goal'] , 0, ',', '.');
         return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_box.tpl'))->SERVERPATH(), $vars);
     }
     public function html(){

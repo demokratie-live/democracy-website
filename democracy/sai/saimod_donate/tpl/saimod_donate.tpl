@@ -13,9 +13,17 @@
                 <td><input type="text" id="donate-value" value="${donation_value}" style="width: 100%;"/></td>
             </tr>
             <tr>
+                <th>Paten Goal</th>
+                <td><input type="text" id="donate-paten-goal" value="${donation_paten_goal}" style="width: 100%;"/></td>
+            </tr>
+            <tr>
+                <th>Value Goal</th>
+                <td><input type="text" id="donate-value-goal" value="${donation_value_goal}" style="width: 100%;"/></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td>
-                    <button id="donate-update" class="btn btn-success">Update</button>
+                    <button id="donate-update" class="btn btn-success pull-right">Update</button>
                 </td>
             </tr>
         </table>

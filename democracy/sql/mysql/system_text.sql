@@ -181,5 +181,9 @@ INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`,
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('donation_paten', 'donation');
 INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('donation_value', 'deDE', '61', '1', '1', '2017-12-28 16:42:29', '2017-12-28 16:42:29');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('donation_value', 'donation');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('donation_paten_goal', 'deDE', '2000', '1', '1', '2017-12-28 16:42:29', '2017-12-28 16:42:29');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('donation_paten_goal', 'donation');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('donation_value_goal', 'deDE', '10000', '1', '1', '2017-12-28 16:42:29', '2017-12-28 16:42:29');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('donation_value_goal', 'donation');
 INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('donation_date', 'deDE', '14.05.2018 * 18:45 Uhr', '1', '1', '2017-12-28 16:42:29', '2017-12-28 16:42:29');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('donation_date', 'donation');
