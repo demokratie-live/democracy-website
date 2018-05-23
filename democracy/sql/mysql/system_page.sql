@@ -1,7 +1,7 @@
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (10, 1, 'home', 'home', -1, 0, 0, '#content', './?page=home', 'init_home', 'default_home');
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (11, 1, 'citizen', 'citizen', -1, 0, 0, '#content', './?page=citizen', 'init_citizen', 'default_citizen');
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (12, 1, 'politicians', 'politicians', -1, 0, 0, '#content', './?page=politicians', 'init_politicians', 'default_politicians');
-REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (13, 1, 'engeneering', 'engeneering', -1, 0, 0, '#content', './?page=engeneering', 'init_engeneering', 'default_engeneering');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (13, 1, 'engineering', 'engineering', -1, 0, 0, '#content', './?page=engineering', 'init_engineering', 'default_engineering');
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (60, 1, 'donate', 'donate', -1, 0, 0, '#content', './?page=donate', 'init_donate', 'default_donate');
 
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (45, 1, 'datenschutz', 'datenschutz', -1, 0, 0, '#content', './?page=datenschutz', 'init_datenschutz', 'default_datenschutz');

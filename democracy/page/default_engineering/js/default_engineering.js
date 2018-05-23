@@ -1,8 +1,8 @@
 var upload_files = {};
 
-function init_engeneering(){
+function init_engineering(){
     $(".nav-item").removeClass("active");
-    $("#menu_engeneering").parent().addClass("active");
+    $("#menu_engineering").parent().addClass("active");
     $(".navbar").removeClass("startpage");
     $('[data-toggle="tooltip"]').tooltip();
     

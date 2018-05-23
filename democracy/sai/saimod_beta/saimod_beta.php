@@ -88,8 +88,10 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         return \JsonResult::ok();
     }
     
-    public static function sai_mod__SAI_saimod_beta_action_email_delete($email){
-        \SQL\BETA_EMAIL_DELETE::QI(array($email));
+    public static function sai_mod__SAI_saimod_beta_action_email_delete($emails){
+        foreach($emails as $email){
+            \SQL\BETA_EMAIL_DELETE::QI(array($email));
+        }
         return \JsonResult::ok();
     }
     
@@ -100,6 +102,7 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         $beta = \SQL\BETA_STORE_ANDROID_FIND::QQ();
         $i = 0;
         while($row = $beta->next()){
+            $row['tr_class'] = 'table-warning';
             $row['i'] = $i++;
             if($row['android']){
                 $row['device'] = 'android';}
@@ -116,11 +119,10 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
             if($row['storedAt']){
                 $row['stored'] = 'check';
                 $row['stored_time'] = \SYSTEM\time::time_ago_string(strtotime($row['storedAt']));
-                $row['disabled'] = 'disabled';
+                $row['tr_class'] = 'table-success';
             } else {
                 $row['stored'] = 'times';
                 $row['stored_time'] = '';
-                $row['disabled'] = '';
             }
             $row['used_code'] = $row['used_code'] == '' ? 'invalid' : $row['used_code'];
             if($row['used_code'] == $row['code']){
@@ -141,6 +143,7 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         $beta = \SQL\BETA_STORE_IOS_FIND::QQ();
         $i = 0;
         while($row = $beta->next()){
+            $row['tr_class'] = 'table-warning';
             $row['i'] = $i++;
             if($row['android']){
                 $row['device'] = 'android';}
@@ -157,11 +160,10 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
             if($row['storedAt']){
                 $row['stored'] = 'check';
                 $row['stored_time'] = \SYSTEM\time::time_ago_string(strtotime($row['storedAt']));
-                $row['disabled'] = 'disabled';
+                $row['tr_class'] = 'table-success';
             } else {
                 $row['stored'] = 'times';
                 $row['stored_time'] = '';
-                $row['disabled'] = '';
             }
             $row['used_code'] = $row['used_code'] == '' ? 'invalid' : $row['used_code'];
             if($row['used_code'] == $row['code']){
@@ -175,58 +177,13 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/store_ios.tpl'))->SERVERPATH(),$vars);
     }
     
-    public static function sai_mod__SAI_saimod_beta_action_store($email,$android,$ios){
-        \SQL\BETA_STORE::QI(array($email));
-        
-        return self::action_email($email,$android,$ios);
-    }
-    
-    /* public static function sai_mod__SAI_saimod_beta_action_mail(){
-        $vars = array();
-        
-        $vars['data'] = '';
-        $beta = \SQL\BETA_MAIL_FIND::QQ();
-        $i = 0;
-        while($row = $beta->next()){
-            $row['i'] = $i++;
-            if($row['android']){
-                $row['device'] = 'android';}
-            if($row['ios']){
-                $row['device'] = 'apple';}
-            if($row['redeemedAt']){
-                $row['redeemed'] = 'check';
-                $row['redeemed_time'] = \SYSTEM\time::time_ago_string(strtotime($row['redeemedAt']));
-            } else {
-                $row['redeemed'] = 'times';
-                $row['redeemed_time'] = '';
-            }
-            if($row['storedAt']){
-                $row['stored'] = 'check';
-                $row['stored_time'] = \SYSTEM\time::time_ago_string(strtotime($row['storedAt']));
-            } else {
-                $row['stored'] = 'times';
-                $row['stored_time'] = '';
-            }
-            if($row['emailedAt']){
-                $row['mailed'] = 'check';
-                $row['mailed_time'] = \SYSTEM\time::time_ago_string(strtotime($row['emailedAt']));
-                $row['disabled'] = 'disabled';
-            } else {
-                $row['mailed'] = 'times';
-                $row['mailed_time'] = '';
-                $row['disabled'] = '';
-            }
-            $row['used_code'] = $row['used_code'] == '' ? 'invalid' : $row['used_code'];
-            if($row['used_code'] == $row['code']){
-                $row['valid'] = 'green';
-            } else {
-                $row['valid'] = 'red';
-            }
-            $vars['data'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/mail_tr.tpl'))->SERVERPATH(),$row);
+    public static function sai_mod__SAI_saimod_beta_action_store($emails,$android,$ios){
+        foreach($emails as $email){
+            \SQL\BETA_STORE::QI(array($email));
+            self::action_email($email,$android,$ios);
         }
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('time'));
-        return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_beta/tpl/mail.tpl'))->SERVERPATH(),$vars);
-    } */
+        return \SYSTEM\LOG\JsonResult::ok();
+    }
     
     public static function action_email($email,$android,$ios){
         $bcc = null;

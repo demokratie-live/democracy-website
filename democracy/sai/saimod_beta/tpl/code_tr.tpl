@@ -7,7 +7,7 @@
     <td>${count}</td>
     <td><input id="comment_${i}" type="text" class="form-control" value="${comment}"></td>
     <td>
-        <button type="button" class="btn btn-warning code_setcomment" code="${code}" i="${i}"><i class="fa fa-pencil"></i></button>
-        <button type="button" class="btn btn-danger code_delete" ${code_delete_disabled} code="${code}"><i class="fa fa-trash"></i></button>
+        <button type="button" class="btn btn-sm btn-warning code_setcomment" code="${code}" i="${i}"><i class="fa fa-pencil"></i></button>
+        <button type="button" class="btn btn-sm btn-danger code_delete" ${code_delete_disabled} code="${code}"><i class="fa fa-trash"></i></button>
     </td>
 </tr>

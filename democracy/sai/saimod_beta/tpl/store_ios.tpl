@@ -9,7 +9,10 @@
                 <th>Redeemed</th>
                 <th>Store</th>
                 <th>Comment</th>
-                <th>Action</th>
+                <th>
+                    <button type="button" class="btn btn-sm btn-warning code_ios"><i class="fa fa-apple"></i>&nbsp;I added to Store -> Mail</button>
+                    <button type="button" class="btn btn-sm btn-danger email_delete"><i class="fa fa-trash"></i></button>
+                </th>
             </tr>
         </thead>
         <tbody>${data}</tbody>    

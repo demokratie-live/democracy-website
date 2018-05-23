@@ -70,7 +70,7 @@
                         <li class="nav-item active"><a id="menu_home" class="nav-link" href="#!home">Home</a></li>
                         <li class="nav-item"><a id="menu_citizen" class="nav-link" href="#!citizen">Für Bürger</a></li>
                         <li class="nav-item"><a id="menu_politicians" class="nav-link" href="#!politicians">Für Politiker</a></li>
-                        <li class="nav-item"><a id="menu_engeneering" class="nav-link" href="#!engeneering">Engeneering</a></li>
+                        <li class="nav-item"><a id="menu_engineering" class="nav-link" href="#!engineering">Engineering</a></li>
                         <li class="nav-item"><a id="menu_donate" class="nav-link menu-important" href="#!donate">Spenden</a></li>
                     </ul>
                 </div>
@@ -111,7 +111,7 @@
                 <div class="col-lg-2 footer-in-touch">
                     <h3>IN TOUCH</h3>
                     <ul>
-                        <li><a href="#!engeneering#help">Mithelfen</a></li>
+                        <li><a href="#!engineering#help">Mithelfen</a></li>
                         <li><a href="#!press">Presse</a></li>
                         <li><a href="#!faq">FAQ</a></li>
                     </ul>

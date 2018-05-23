@@ -7,5 +7,7 @@
     <td><i class="fa fa-${stored}"></i>&nbsp;${stored_time}</td>
     <td><i class="fa fa-${emailed}"></i>&nbsp;${emailed_time}</td>
     <td>${comment}</td>
-    <td><button type="button" class="btn btn-danger email_delete" email="${email}"><i class="fa fa-trash"></i></button></td>
+    <td>
+        <input type="checkbox" class="all-check" email="${email}"/>
+    </td>
 </tr>

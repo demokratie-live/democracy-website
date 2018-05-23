@@ -17,8 +17,8 @@ class page_democracy extends \SYSTEM\API\api_default {
         return (new default_citizen())->html();}
     public static function page_politicians(){
         return (new default_politicians())->html();}
-    public static function page_engeneering(){
-        return (new default_engeneering())->html();}
+    public static function page_engineering(){
+        return (new default_engineering())->html();}
     public static function page_donate(){
         return (new default_donate())->html();}
     

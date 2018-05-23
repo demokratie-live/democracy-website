@@ -95,7 +95,7 @@
                 <span>  Spenden und Daueraufträge sind nur eine Möglichkeit, uns zu unterstützen.
                         Wir suchen ständig motivierte Leute für die aktive Mitarbeit in unserem
                         Projekt! Du hast Interesse Deine Fähigkeiten einzubringen – wir freuen uns
-                        über Anregungen, Fragen und Kritik. <a href="#!engeneering">Als Freiwilliger melden.</a></span>
+                        über Anregungen, Fragen und Kritik. <a href="#!engineering">Als Freiwilliger melden.</a></span>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">

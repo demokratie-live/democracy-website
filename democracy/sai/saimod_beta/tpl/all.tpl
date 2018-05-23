@@ -10,7 +10,9 @@
                 <th>Store</th>
                 <th>Email</th>
                 <th>Comment</th>
-                <th>Action</th>
+                <th>
+                    <button type="button" class="btn btn-sm btn-danger email_delete"><i class="fa fa-trash"></i></button>
+                </th>
             </tr>
         </thead>
         <tbody>${data}</tbody>    
