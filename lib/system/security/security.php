@@ -287,7 +287,7 @@ class security {
      * @return bool Returns json with status true or false or a bool
      */
     public static function confirm($token) {
-        return \SYSTEM\TOKEN\token::confirm($token) ? \SYSTEM\TOKEN\token::text_success($token) : \SYSTEM\TOKEN\token::text_fail($token);}
+        return \SYSTEM\LOG\JsonResult::status(\SYSTEM\TOKEN\token::confirm($token));}
     
     /**
      * Get Userinfo stored in the current Session.

@@ -34,7 +34,7 @@ class saistart_sys_sai extends \SYSTEM\SAI\sai_module {
 
         $vars['project_name'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_SAI_CONFIG_PROJECT);
         $vars['project_url'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL);
-        $vars['analytics'] = \SYSTEM\SAI\saimod_sys_log::analytics();
+        $vars['analytics'] = \SYSTEM\SAI\saimod_sys_analytics::analytics();
         $user = \SYSTEM\SECURITY\security::getUser();
         $vars['username'] = $user->username;
         $vars['locale'] = $user->locale;

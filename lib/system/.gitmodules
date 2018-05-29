@@ -54,7 +54,4 @@
 	url = ../lib_jstree.git
 [submodule "lib/font_awesome"]
 	path = lib/font_awesome
-	url = gogs@webcraft-media.de:webcraft/lib_font_awesome.git
-[submodule "lib/popper"]
-	path = lib/popper
-	url = D:\\sources\\web\\test\\democracy\\lib\\system\\lib\\popper
+	url = ../lib_font_awesome.git

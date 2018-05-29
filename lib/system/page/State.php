@@ -35,7 +35,7 @@ class State {
         $vars = array();
         for($i=1;$i<count($state_vars);$i++){
             $var = \explode('.',$state_vars[$i]);
-            $vars[$var[0]] = \urlencode($var[1]);}
+            $vars[$var[0]] = \urlencode(implode('.',array_slice($var,1)));}
         $result = array();
         $res = \SYSTEM\SQL\SYS_PAGE_GROUP::QQ(array($group,$state_name));
         while($row = $res->next()){

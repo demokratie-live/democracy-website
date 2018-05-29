@@ -25,7 +25,7 @@ REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`
 
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (70, 42, 'log', 'log', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log', 'init_saimod_sys_log', '\\SYSTEM\\SAI\\saimod_sys_log');
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (71, 42, 'list', 'log', 70, 0, 0, '#tab_log', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=filter&filter=${filter}&search=${search}&page=${page}', 'init_saimod_sys_log_log', '\\SYSTEM\\SAI\\saimod_sys_log');
-REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (72, 42, 'stats', 'log', 70, 0, 1, '#tab_log', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=stats', 'init_saimod_sys_log_stats', '\\SYSTEM\\SAI\\saimod_sys_log');
+-- REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (72, 42, 'stats', 'log', 70, 0, 1, '#tab_log', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=stats', 'init_saimod_sys_log_stats', '\\SYSTEM\\SAI\\saimod_sys_log');
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (73, 42, 'error', 'log', 70, 0, 1, '#tab_log', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_log&action=error&error=${error}', '', '');
 
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (80, 42, 'login', 'login', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_login', 'init_saimod_sys_login', '\\SYSTEM\\SAI\\saimod_sys_login');
@@ -65,3 +65,5 @@ REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (133, 42, 'new', 'page', 130, 0, 1, '#tab_page', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_page&action=newdialog', 'init_saimod_sys_page_new', '\\SYSTEM\\SAI\\saimod_sys_page');
 
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (140, 42, 'git', 'git', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_git', 'init_saimod_sys_git', '\\SYSTEM\\SAI\\saimod_sys_git');
+
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (150, 42, 'analytics', 'analytics', -1, 0, 0, '#content', './sai.php?sai_mod=.SYSTEM.SAI.saimod_sys_analytics', 'init_saimod_sys_analytics', '\\SYSTEM\\SAI\\saimod_sys_analytics');

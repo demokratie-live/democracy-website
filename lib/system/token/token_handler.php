@@ -36,20 +36,4 @@ interface token_handler {
      * @return bool Returns true or false.
      */
     static function confirm($token_data);
-    
-    /**
-     * Callback text_success on success
-     *
-     * @param array $token_data Token Data
-     * @return string Returns token success string.
-     */
-    static function text_success($token_data);
-    
-    /**
-     * Callback text_success on success
-     *
-     * @param array $token_data Token Data
-     * @return string Returns token success string.
-     */
-    static function text_fail($token_data);
 }

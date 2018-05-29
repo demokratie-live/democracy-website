@@ -3,6 +3,7 @@ SYSTEM\autoload::registerFolder(dirname(__FILE__),'SYSTEM\SAI');
 //System Start Mod
 require_once dirname(__FILE__).'/saistart_sys_sai/autoload.inc';
 //System Mod
+require_once dirname(__FILE__).'/saimod_sys_analytics/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_log/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_security/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_mod/autoload.inc';

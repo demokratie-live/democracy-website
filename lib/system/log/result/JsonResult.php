@@ -81,4 +81,7 @@ class JsonResult{
      */
     public static function fail(){
         return self::toString(NULL,false);}
+        
+    public static function status($status){
+        return $status ? self::ok() : self::fail();}
 }

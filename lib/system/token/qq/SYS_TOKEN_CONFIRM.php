@@ -28,6 +28,6 @@ class SYS_TOKEN_CONFIRM extends \SYSTEM\DB\QP {
      * @return string Returns MYSQL Query String
      */
     public static function mysql(){return
-'UPDATE system_token SET expire = null, confirm_time = NOW(), confirm_user = ? WHERE token = ?;';
+'UPDATE system_token SET confirm_time = NOW(), confirm_user = ? WHERE token = ?;';
     }    
 }

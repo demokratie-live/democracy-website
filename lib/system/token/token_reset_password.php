@@ -41,22 +41,4 @@ class token_reset_password implements token_handler{
     public static function confirm($token_data){
         $data = \json_decode($token_data['data'],true);
         return \SYSTEM\SQL\SYS_SECURITY_RESET_PASSWORD::QI(array($data['pw_sha1'],$data['user'])) ? true : false;}
-    
-    /**
-     * Callback text_fail on fail
-     *
-     * @param array $token_data Token Data
-     * @return string Returns token fail string.
-     */
-    public static function text_fail($token_data) {
-        return 'Could NOT reset your Password. Token is expired or invalid.';}
-
-    /**
-     * Callback text_success on success
-     *
-     * @param array $token_data Token Data
-     * @return string Returns token success string.
-     */
-    public static function text_success($token_data) {
-        return 'Changed your Password successfully.';}
 }

@@ -28,7 +28,7 @@ class SYS_TOKEN_INSERT extends \SYSTEM\DB\QP {
      * @return string Returns sql Insert Types
      */
     public static function types(){return
-'ssssis';
+'ssssi';
     }
     
     /**
@@ -37,7 +37,7 @@ class SYS_TOKEN_INSERT extends \SYSTEM\DB\QP {
      * @return string Returns MYSQL Query String
      */
     public static function mysql(){return
-'INSERT INTO system_token (token, class, expire, data, request_user, post_script)'.
-' VALUES (?, ?, FROM_UNIXTIME(?), ?, ?, ?);';
+'INSERT INTO system_token (token, class, expire, data, request_user)'.
+' VALUES (?, ?, FROM_UNIXTIME(?), ?, ?);';
     }    
 }
