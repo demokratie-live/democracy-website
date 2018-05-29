@@ -4,3 +4,6 @@
 [submodule "lib/font_awesome"]
 	path = lib/font_awesome
 	url = git@github.com:webcraftmedia/lib_font_awesome.git
+[submodule "lib/mail_cannon"]
+	path = lib/mail_cannon
+	url = git@github.com:webcraftmedia/lib_mail_cannon.git
