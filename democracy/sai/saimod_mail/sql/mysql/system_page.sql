@@ -1,0 +1,1 @@
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (800, 42, 'donate', 'donate', -1, 0, 0, '#content', './sai.php?sai_mod=.SAI.saimod_donate', 'init_saimod_donate', '\\SAI\\saimod_donate');
