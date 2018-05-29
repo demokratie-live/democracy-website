@@ -5,7 +5,45 @@ require_once(dirname(__FILE__).'/Pear/Mail/mime.php');
 require_once(dirname(__FILE__).'/Pear/Net/SMTP.php');
 
 class mailcannon {
-    public static function fire($bcc,$delay,$from,$subject,$html_file,$text_file,$member_list,$unsubscribe_list,$images,$attachments,$replacements,$smtp = null,$silent = false){
+    public static function send($smtp,$from,$to,$subject,$text,$html,$images,$attachments){
+        if($smtp){
+            $mail = Mail::factory('smtp', $smtp);
+        } else {
+            $mail = Mail::factory('mail');}
+        
+        $mime = new Mail_mime("\n");
+        if($text){
+            $mime->setTXTBody($text);}
+        if($html){
+            $mime->setHTMLBody($html);}    
+        
+        // attach images
+        foreach($images as $name=>$image){
+            $mime->addHTMLImage($image, 'image/png', $name, true, $name);}
+        // attach files
+        foreach($attachments as $name=>$attachment){
+            $mime->addAttachment($attachment,'application/pdf',$name);}
+
+        $mime_params = array(   'text_encoding' => '7bit',
+                                'text_charset'  => 'UTF-8',
+                                'html_charset'  => 'UTF-8',
+                                'head_charset'  => 'UTF-8');
+
+        $body = $mime->get($mime_params);
+        $hdrs = $mime->headers(array(   'From' => $from,
+                                        'Subject' => $subject,
+                                        'Reply-to' => $from,
+                                        'Return-Path' => $from,
+                                        'Message-ID' => self::generateMessageID(),
+                                        'Date' => date('r', time())));
+
+        $recipients = array( 'To' => $to);
+        $succ = $mail->send($recipients, $hdrs, $body);
+        if (PEAR::isError($succ)) {
+            throw new \SYSTEM\LOG\ERROR('Error Sending HTML message to ' . $to . ' ' . $succ->getMessage());}
+    }
+    
+    public static function fire($delay,$from,$subject,$html_file,$text_file,$member_list,$unsubscribe_list,$images,$attachments,$replacements,$smtp = null,$silent = false){
         $silent ? null : print "Sending from ".$from." - '".$subject."'\n";
 
         if(!$member_list){
@@ -114,54 +152,11 @@ class mailcannon {
             }
             $text = @preg_replace($preg_search, $preg_replace, $text);
             $html = @preg_replace($preg_search, $preg_replace, $html);
-
-            //Send mail
-            $mime = new Mail_mime("\n");
-            if($text){
-                $mime->setTXTBody($text);
-            }
-            // attach images
-            foreach($images as $name=>$image){
-                $mime->addHTMLImage($image, 'image/png', $name, true, $name);}
-            // attach other
-            foreach($attachments as $name=>$attachment){
-                $mime->addAttachment($attachment,'application/pdf',$name);}
-
-            if($html){
-                $mime->setHTMLBody($html);}
-
-            $mime_params = array(   'text_encoding' => '7bit',
-                                    'text_charset'  => 'UTF-8',
-                                    'html_charset'  => 'UTF-8',
-                                    'head_charset'  => 'UTF-8');
-
-            $body = $mime->get($mime_params);
-            $hdrs = $mime->headers(array(   'From' => $from,
-                                            'Subject' => $subject,
-                                            'Reply-to' => $from,
-                                            'Return-Path' => $from,
-                                            'Message-ID' => self::generateMessageID(),
-                                            'Date' => date('r', time())));
-
-            $recipients = array( 'To' => $to);
-            $succ = $mail->send($recipients, $hdrs, $body);
-            if (PEAR::isError($succ)) {
-                print 'Error Sending HTML message to ' . $to . ' ' . $succ->getMessage() . "\n";
-            } else {
-                if($unsubscribe_list) {
-                    file_put_contents($unsubscribe_list, $to.PHP_EOL , FILE_APPEND | LOCK_EX);
-                }
-                if($html){
-                    $silent ? null :  print 'Sending HTML message to ' . $to . "\n";
-                } else {
-                    $silent ? null : print 'Sending TXT message to ' . $to . "\n";
-                }
-            }
+            
+            self::send($smtp,$from,$to,$subject,$text,$html,$images,$attachments);
             $count += 1;
             sleep($delay);
         }
-        $silent ? null : print "Sent " . $count . " emails\n";
-        $silent ? null : print "Done\n";
     }
     
     /**

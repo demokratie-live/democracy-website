@@ -195,7 +195,7 @@ class Mail_RFC822 {
         while ($this->address = $this->_splitAddresses($this->address));
 
         if ($this->address === false || isset($this->error)) {
-            require_once 'PEAR.php';
+            //require_once 'PEAR.php';
             return PEAR::raiseError($this->error);
         }
 
