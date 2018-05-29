@@ -1,9 +1,13 @@
 <?php
 namespace SQL;
 
-class BETA_CODES_COUNT extends \SYSTEM\DB\QQ {
+class CONTACTS_SELECT_LIST extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
     public static function mysql(){return
-'SELECT COUNT(code) as count FROM beta_code;';
+'SELECT * FROM contact
+ LEFT JOIN contact_email_list ON contact.email = contact_email_list.email
+ WHERE list = ?;';
+    
+    
     }
 }

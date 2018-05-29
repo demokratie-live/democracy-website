@@ -1,9 +1,9 @@
 <?php
 namespace SQL;
 
-class BETA_CODES_COUNT extends \SYSTEM\DB\QQ {
+class EMAIL_SENT_INSERT extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
     public static function mysql(){return
-'SELECT COUNT(code) as count FROM beta_code;';
+'REPLACE INTO email_sent (id,email)VALUES(?,?);';
     }
 }
