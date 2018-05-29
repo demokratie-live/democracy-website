@@ -34,6 +34,9 @@ class page_democracy extends \SYSTEM\API\api_default {
     public static function page_faq(){
         return (new default_faq())->html();}
         
+    public static function page_unsubscribe($token){
+        return (new default_unsubscribe($token))->html();}
+        
     /*public static function page_wir(){
         return (new default_wir())->html();}
     public static function page_prototyp(){

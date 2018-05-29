@@ -1,13 +1,10 @@
- <tr>
-    <td style="color: ${valid}">${used_code}</td>
-    <td>${email}</td>
-    <td><i class="fa fa-${device}"></i></td>
-    <td>${generated}</td>
-    <td><i class="fa fa-${redeemed}"></i>&nbsp;${redeemed_time}</td>
-    <td><i class="fa fa-${stored}"></i>&nbsp;${stored_time}</td>
-    <td><i class="fa fa-${emailed}"></i>&nbsp;${emailed_time}</td>
-    <td>${comment}</td>
+<tr>
+    <td><a href="#!mail(list);id.${id}">${id}</id></td>
+    <td><a href="#!mail(list);id.${id}">${name}</a></td>
+    <td>${count}</td>
+    <td>${system_lock}</td>
+    <td>${updated_at}</td>
     <td>
-        <input type="checkbox" class="all-check" email="${email}"/>
+        <input type="checkbox" class="pull-right mail-list-check" list="${id}"/>
     </td>
 </tr>

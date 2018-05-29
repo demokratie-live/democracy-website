@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 sai_padding_off bg-primary sai_padding_10">
-        <h4 class="sai_margin_off" style="float:left;">&nbsp;<span class="fa fa-check" aria-hidden="true"></span>&nbsp;&nbsp;Donate</h4>
+        <h4 class="sai_margin_off" style="float:left;">&nbsp;<span class="fa fa-dollar" aria-hidden="true"></span>&nbsp;&nbsp;Donate</h4>
     </div>
     <div class="col-md-8 sai_padding_off" style="padding: 15px;">
         <table class="table table-striped table-condensed" style="border: 1px solid #dee2e6;">

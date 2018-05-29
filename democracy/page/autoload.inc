@@ -14,6 +14,6 @@
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_press');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_faq');
 
-// SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_wir');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_unsubscribe');
 // SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_prototyp');
-SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_invite');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_invite');

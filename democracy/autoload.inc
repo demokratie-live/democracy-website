@@ -6,3 +6,4 @@ require_once dirname(__FILE__).'/api/autoload.inc';
 require_once dirname(__FILE__).'/sql/autoload.inc';
 require_once dirname(__FILE__).'/sai/autoload.inc';
 require_once dirname(__FILE__).'/config/autoload.inc';
+require_once dirname(__FILE__).'/token/autoload.inc';

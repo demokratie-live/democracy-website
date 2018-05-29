@@ -1,4 +1,3 @@
 <?php
-\SYSTEM\autoload::registerFolder(dirname(__FILE__),'SQL');
-
-\SYSTEM\SQL\setup::register('SQL\\DATA_DEMOCRACY');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__));
+\SYSTEM\TOKEN\token::register('token_democracy_unsubscribe');

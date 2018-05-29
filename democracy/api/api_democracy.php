@@ -1,112 +1,44 @@
 <?php
-class api_democracy extends \SYSTEM\API\api_system {
-    
-    private static function mailcannon($from,$subject,$html_file,$text_file,$to,$images,$replacements,$smtp){
-        $bcc = null;
-        $delay = 0;
-        $silent = true;
-        $unsubscribe_list = null;
-        $attachments = [];
-        \mailcannon::fire(  $bcc,
-                            $delay,
-                            $from,
-                            $subject,
-                            $html_file,
-                            $text_file,
-                            $to,
-                            $unsubscribe_list,
-                            $images,
-                            $attachments,
-                            $replacements,
-                            $smtp,
-                            $silent);
-    }
-    
+class api_democracy extends \SYSTEM\API\api_system {    
     public static function call_send_mail($data){
-        if(array_key_exists('files', $data)){
-            $data['files'] = json_decode($data['files']);}
-        $data_json = str_replace('\/', '/',json_encode($data,JSON_PRETTY_PRINT));
-        //SendMail
-        $from = 'Website | DEMOCRACY <'.(array_key_exists('email',$data) ? $data['email'] : 'contact@democracy-deutschland.de').'>';
         $to = 'contact@democracy-deutschland.de';
-        //$to = 'ulf.gebhardt@webcraft-media.de';
-        $subject = '📱 DEMOCRACY Website: '.((array_key_exists('type',$data) && array_key_exists('email',$data)) ? $data['type'].' from '.$data['email'] : 'EMail from democracy-deutschland.de');
-        $html_file = (new \PAPI('tpl/send_mail.tpl'))->SERVERPATH();
-        $text_file = (new \PAPI('tpl/send_mail.txt'))->SERVERPATH();
-        $replacements = [   'data_json' =>  ['value' => ['text' => $data_json]],
-                            'type'      =>  ['value' => ['text' => array_key_exists('type',$data) ? $data['type'] : 'No Type given']],
-                            'email'     =>  ['value' => ['text' => array_key_exists('email',$data) ? $data['email'] : 'No EMail given']],
-                            'name'      =>  ['value' => ['text' => array_key_exists('name',$data) ? $data['name'] : 
-                                                                   (array_key_exists('vorname',$data) && array_key_exists('nachname',$data)) ?
-                                                                    $data['vorname'].' '.$data['nachname'] : 'No Name given']],
-                            'text'      =>  ['value' => ['text' => array_key_exists('text',$data) ? $data['text'] : 'No Text given']]];
-        $images = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
-        $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
-        self::mailcannon($from,$subject,$html_file,$text_file,$to,$images,$replacements,$smtp);
+        if(array_key_exists('files', $data)){
+            $data['files'] = json_decode($data['files'],true);}
+        $data['json'] = str_replace('\/', '/',json_encode($data,JSON_PRETTY_PRINT));
+        switch($data['type']){
+            case 'bugreport':
+                \SAI\saimod_mail::contact($data['email'],$data['name'],null);
+                \SAI\saimod_mail::send_mail($to, \SAI\saimod_mail::EMAIL_WEBSITE_BUGREPORT, null,true,$data);
+                break;
+            case 'volunteer':
+                \SAI\saimod_mail::contact($data['email'],$data['name'],null);
+                \SAI\saimod_mail::send_mail($to, \SAI\saimod_mail::EMAIL_WEBSITE_VOLUNTEER, null,true,$data);
+                break;
+            //contact
+            default:
+                \SAI\saimod_mail::contact($data['email'],$data['vorname'],$data['nachname']);
+                \SAI\saimod_mail::send_mail($to, \SAI\saimod_mail::EMAIL_WEBSITE_CONTACT, null,true,$data);
+                
+        }
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
-    public static function call_send_subscribe($data){
-        \SQL\SUBSCRIBE_ADD::Q1(array($data['email']));
-            
-        $sub = \SQL\SUBSCRIBE_GET::Q1(array($data['email']));
-        if(!$sub['confirmed']){
-            self::send_subscribe_mail($data['email']);}
-            
+    public static function call_send_subscribe($data){ 
+        \SAI\saimod_mail::contact($data['email']);
+        \SAI\saimod_mail::subscribe($data['email'], \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER);
+        \SAI\saimod_mail::send_mail($data['email'], \SAI\saimod_mail::EMAIL_NEWSLETTER_SUBSCRIBE, \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER,true);
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
-    /**
-     * @see http://www.jwz.org/doc/mid.html
-     */
-    public static function generateMessageID()
-    {
-        return sprintf(
-            "<%s.%s@%s>",
-            base_convert(microtime(), 10, 36),
-            base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36),
-            "democracy-deutschland.de"
-        );
-    }
-    
-    private static function send_subscribe_mail($email){
-        require((new \SYSTEM\PROOT('PHPMailer-master/PHPMailerAutoload.php'))->SERVERPATH());
-        date_default_timezone_set('Europe/Berlin');
-
-        $mail = new PHPMailer;
-        
-        $mail->CharSet = 'utf-8';  
- 
-        $mail->Host = 'atmanspacher.eu';
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'tls';
-        $mail->SMTPAuth = true;
-   
-        $mail->setFrom(     'contact@democracy-deutschland.de', 'DEMOCRACY Deutschland e.V.');
-        $mail->addReplyTo(  'contact@democracy-deutschland.de', 'DEMOCRACY Deutschland e.V.');
-        $mail->addAddress(  $email);
-        
-        $mail->addCustomHeader('Return-Path', 'contact@democracy-deutschland.de');
-        $mail->addCustomHeader('Message-ID', self::generateMessageID());
-        $mail->addCustomHeader('Date', date('r', time()));
-        
-        $token = \SYSTEM\TOKEN\token::request('token_confirm_subscribe', array('email' => $email));
-        
-        $html = \SYSTEM\PAGE\replace::replaceFile((new PAPI('tpl/send_mail_subscribe.tpl'))->SERVERPATH(), array('token' => $token));
-        
-        $mail->Subject = '📱 DEMOCRACY: Bitte bestätige Deine Newsletter-Anmeldung';
-        $mail->Body = $html;
-        $mail->IsHTML(true);
-
-	//send the message, check for errors
-	if(!$mail->send()){
-	    throw new \SYSTEM\LOG\ERROR("Mailer Error: " . $mail->ErrorInfo);}
-        
-        \SQL\SUBSCRIBE_EMAIL_COUNT::Q1(array($email));
-    }
-    
-    public static function call_beta($ios,$android,$email,$code){
+    public static function call_beta($ios,$android,$email,$code,$newsletter){
+        \LIB\lib_mail_cannon::php();
         $code_valid = self::validate_code($code);
+        
+        \SAI\saimod_mail::contact($email);
+        \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_PROTOTYPE);
+        if($newsletter){
+            \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER);
+        }
         
         if($code_valid){
             $data = \SQL\BETA_EMAIL_FIND::Q1(array($email));
@@ -123,22 +55,8 @@ class api_democracy extends \SYSTEM\API\api_system {
             \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
         }
         
+        \SAI\saimod_mail::send_mail($email, \SAI\saimod_mail::EMAIL_PROTOTYPE_REGISTER, \SAI\saimod_mail::EMAIL_LIST_PROTOTYPE,true);
         //SendMail
-        $bcc = null;
-        $delay = 0;
-        $from = 'Prototyp | DEMOCRACY <prototyping@democracy-deutschland.de>';
-        $subject = '📱 DEMOCRACY: Deine Prototyp Bewerbung ist eingegangen!';
-        $html_file = (new \PAPI('tpl/send_mail_beta.tpl'))->SERVERPATH();
-        $text_file = (new \PAPI('tpl/send_mail_beta.txt'))->SERVERPATH();
-        $to = $email;
-        $unsubscribe_list = null;
-        $images = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
-        $attachments = [];
-        $replacements = [];
-        $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_PROTOTYPING);
-        $silent = true;
-        \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
-        
         return \SYSTEM\LOG\JsonResult::ok();
     }
     

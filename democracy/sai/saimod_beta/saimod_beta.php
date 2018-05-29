@@ -186,28 +186,9 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
     }
     
     public static function action_email($email,$android,$ios){
-        $bcc = null;
-        $delay = 0;
-        $from = 'Prototyp | DEMOCRACY <prototyping@democracy-deutschland.de>';
-        $subject = '📱 DEMOCRACY: Dein Prototyp Zugang';
-        $html_file = $android ? (new \PSAI('saimod_beta/tpl/mail_android.tpl'))->SERVERPATH() : (new \PSAI('saimod_beta/tpl/mail_ios.tpl'))->SERVERPATH();
-        $text_file = $android ? (new \PSAI('saimod_beta/tpl/mail_android.txt'))->SERVERPATH() : (new \PSAI('saimod_beta/tpl/mail_ios.txt'))->SERVERPATH();
-        $to = $email;
-        $unsubscribe_list = null;
-        $images = ["democracy_logo" => (new \PSAI('saimod_beta/img/logo.png'))->SERVERPATH()];
-        $attachments = [];
-        $replacements = [];
-        $smtp = [   "host"  => "ssl://atmanspacher.eu",
-                    "port"  => 465,
-                    "auth"  => true,
-                    "username" => "prototyping@democracy-deutschland.de",
-                    "password" => "7$7ar0pZ"
-                ];
-        $silent = true;
-        \mailcannon::fire($bcc, $delay, $from, $subject, $html_file, $text_file, $to, $unsubscribe_list, $images, $attachments, $replacements,$smtp, $silent);
-     
+        $email_id = $android ? \SAI\saimod_mail::EMAIL_PROTOTYPE_ACCESS_ANDROID : \SAI\saimod_mail::EMAIL_PROTOTYPE_ACCESS_IOS;
+        \SAI\saimod_mail::send_mail($email, $email_id, \SAI\saimod_mail::EMAIL_LIST_PROTOTYPE,true);     
         \SQL\BETA_MAIL::QI(array($email));
-        
         return \JsonResult::ok();
     }
     

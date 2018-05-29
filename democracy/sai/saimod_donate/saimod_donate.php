@@ -18,7 +18,7 @@ class saimod_donate extends \SYSTEM\SAI\sai_module{
     public static function menu(){
         return new \SYSTEM\SAI\sai_module_menu( 100,
                                     \SYSTEM\SAI\sai_module_menu::POISITION_LEFT,
-                                    \SYSTEM\SAI\sai_module_menu::DIVIDER_LEFT,
+                                    \SYSTEM\SAI\sai_module_menu::DIVIDER_NONE,
                                     \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_donate/tpl/menu.tpl'))->SERVERPATH()));}
     public static function right_public(){return false;}
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}

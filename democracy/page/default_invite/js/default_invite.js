@@ -22,6 +22,7 @@ $(document).ready(function() {
         var code = $('#code').attr('code');
         var android = 1;
         var ios = 0;
+        var newsletter = $('#newsletter_android').is(":checked")  === true ? 1 : 0;
         
         if(!validateEmail(email)){
             $('#googleid').addClass("blink-class");
@@ -29,7 +30,7 @@ $(document).ready(function() {
         } else {
             $('#googleid').removeClass("blink-class");
             $('#duplicate_android').hide();
-            register(email,code,ios,android,function(data){
+            register(email,code,ios,android,newsletter,function(data){
                 if(data.status){
                     $('#android').hide();
                     $('#final_android').show();
@@ -44,6 +45,7 @@ $(document).ready(function() {
         var code = $('#code').attr('code');
         var android = 0;
         var ios = 1;
+        var newsletter = $('#newsletter_ios').is(":checked") === true ? 1 : 0;
         
         if(!validateEmail(email)){
             $('#appleid').addClass("blink-class");
@@ -51,7 +53,7 @@ $(document).ready(function() {
         } else {
             $('#appleid').removeClass("blink-class");
             $('#duplicate_ios').hide();
-            register(email,code,ios,android,function(data){
+            register(email,code,ios,android,newsletter,function(data){
                 if(data.status){
                     $('#ios').hide();
                     $('#final_ios').show();
@@ -63,7 +65,7 @@ $(document).ready(function() {
     });
 });
 
-function register(email,code,ios,android, success){
+function register(email,code,ios,android,newsletter,success){
     $.ajax({
         url: '../api.php',
         type: 'GET',
@@ -73,7 +75,8 @@ function register(email,code,ios,android, success){
             ios: ios,
             android: android,
             email: email,
-            code: code
+            code: code,
+            newsletter: newsletter
         },
         success: success
     });

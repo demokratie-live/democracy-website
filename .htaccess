@@ -10,7 +10,7 @@ RewriteEngine On
 RewriteRule ^invite/([^/]*)$ invite.php?code=$1
 RewriteRule ^invite$ invite.php$1
 
-RewriteRule ^(.*)/fonts/fontawesome-webfont(.*)$ lib/font_awesome/lib/fonts/fontawesome-webfont$2 [L]
+RewriteRule ^(.*)/fonts/fontawesome-webfont(.*)$ lib/system/lib/font_awesome/lib/fonts/fontawesome-webfont$2 [L]
 RewriteRule ^sai$ sai.php$1 [L]
 
 RewriteRule ^(.*)files/([^/]+)/([^/]+)$ api.php?call=files&cat=$2&id=$3 [L]

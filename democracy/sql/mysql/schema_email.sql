@@ -1,10 +1,11 @@
-CREATE TABLE `beta` (
-  `code` varchar(8) DEFAULT NULL,
-  `email` varchar(255) NOT NULL DEFAULT '',
-  `android` int(11) DEFAULT NULL,
-  `ios` int(11) DEFAULT NULL,
-  `redeemedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `storedAt` timestamp NULL DEFAULT NULL,
-  `emailedAt` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`email`)
+CREATE TABLE `email` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `sender` varchar(255) NOT NULL,
+  `subject` text NOT NULL,
+  `template_text` int(10) UNSIGNED NULL,
+  `template_html` int(10) UNSIGNED NULL,
+  `system_lock` int(10) UNSIGNED NULL DEFAULT NULL,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

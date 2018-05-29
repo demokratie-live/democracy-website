@@ -95,8 +95,7 @@
                             Bestätigungsmail für die<br>
                             Anmeldung wurde gesendet.<br>
                             Bitte überprüfen Sie Ihren<br>
-                            Posteingang und bestätigen<br>
-                            Sie die Anmeldung.
+                            Posteingang.
                         </div>
                     </div>
                 </div>

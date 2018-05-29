@@ -98,16 +98,22 @@
                     <div id="ios_go" class="col-10 col-md-8 offset-1 offset-md-2 beta_button">
                         FREISCHALTUNG ANFORDERN
                     </div>
+                    <div style="font-size: 20px; padding-top: 10px;">
+                        <input id="newsletter_ios" type="checkbox" checked style="transform: scale(1.5)"/>&nbsp;&nbsp;und den Newsletter abonieren
+                    </div>
                     <div id="apple_id_text" class="col-12">Bitte gib Deine Apple-ID ein</div>
                     <div id="apple_id_text_sub" class="col-12">(Die AppStore-EMail-Adresse Deines Handys)</div>
                 </div>
                 <div id="android" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0;">
-                        <input id="googleid" type="email" placeholder="Google Play ID eingeben">
-                        <p id="duplicate_android">Diese EMail scheint bereits registriert zu sein!</p>
+                        <input id="googleid" type="email" placeholder="Google Play ID eingeben"/>
+                        <p id="duplicate_android" >Diese EMail scheint bereits registriert zu sein!</p>
                     </div>
                     <div id="android_go" class="col-10 col-md-8 offset-1 offset-md-2 beta_button">
                         FREISCHALTUNG ANFORDERN
+                    </div>
+                    <div style="font-size: 20px; padding-top: 10px;">
+                        <input id="newsletter_android" type="checkbox" checked style="transform: scale(1.5)"/>&nbsp;&nbsp;und den Newsletter abonieren
                     </div>
                     <div id="google_id_text" class="col-12">Bitte gib Deine Google Play ID ein</div>
                     <div id="google_id_text_sub">(Die Google-EMail-Adresse Deines Handys)</div>
