@@ -19,7 +19,7 @@ class mailcannon {
         
         // attach images
         foreach($images as $name=>$image){
-            $mime->addHTMLImage($image, 'image/png', $name, true, $name);}
+            $mime->addHTMLImage($image['file'], $image['mime'], $name, true, $name);}
         // attach files
         foreach($attachments as $name=>$attachment){
             $mime->addAttachment($attachment,'application/pdf',$name);}
