@@ -406,21 +406,24 @@ function init_saimod_mail_email() {
     });
     
     $('#btn-email-image-new').click(function(){
-       var $new = $('.email-image-new').clone().removeClass('email-image-new');
-       $('#tbody_mail_email_images').append($new);
+        var $new = $('.email-image-new').clone().removeClass('email-image-new');
+        $('#tbody_mail_email_images').append($new);
     });
     
     $('#btn-email-placeholder-new').click(function(){
-       var $new = $('.email-placeholder-new').clone().removeClass('email-placeholder-new');
-       $('#tbody_mail_email_placeholders').append($new);
+        var $new = $('.email-placeholder-new').clone().removeClass('email-placeholder-new');
+        $('#tbody_mail_email_placeholders').append($new);
     });
     
     $('.btn-email-placeholder-switch-value-new').click(function(){
-       var $new = $(this).parent().parent().parent().find('.email-placeholder-switch-value-new').clone().removeClass('email-placeholder-switch-value-new');
-       $(this).parent().parent().parent().append($new);
     });
     
     $('.email-placeholder-type').trigger('change');
+}
+
+function placeholder_switch_new(e){
+    var $new = $(e).parent().parent().parent().find('.email-placeholder-switch-value-new').clone().removeClass('email-placeholder-switch-value-new');
+    $(e).parent().parent().parent().append($new);
 }
 
 function placeholder_type(e){

@@ -2,9 +2,9 @@ INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (1,'Test Liste'
 INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (2,'Newsletter',1);
 INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (3,'Prototype',1);
 
-INSERT IGNORE INTO email (`id`,`name`,`sender`,`subject`,`template_text`,`template_html`,`system_lock`) VALUES (1,'Mail Test','Testing | DEMOCRACY <contact@democracy-deutschland.de>','${emoji_mobile} DEMOCRACY Mail Test',1,2,0);
-INSERT IGNORE INTO email_template (`id`,`type`,`name`,`value`,`system_lock`) VALUES (1,0,'Mail Test Text','Use this Mail for testing',0);
-INSERT IGNORE INTO email_template (`id`,`type`,`name`,`value`,`system_lock`) VALUES (2,1,'Mail Test HTML','Use this Mail for testing',0);
+INSERT IGNORE INTO email (`id`,`name`,`sender`,`subject`,`template_text`,`template_html`,`system_lock`) VALUES (1,'Mail Test','Testing | DEMOCRACY <contact@democracy-deutschland.de>','${emoji_mobile} DEMOCRACY Mail Test',1,2,NULL);
+INSERT IGNORE INTO email_template (`id`,`type`,`name`,`value`,`system_lock`) VALUES (1,0,'Mail Test Text','Use this Mail for testing',NULL);
+INSERT IGNORE INTO email_template (`id`,`type`,`name`,`value`,`system_lock`) VALUES (2,1,'Mail Test HTML','Use this Mail for testing',NULL);
 
 INSERT IGNORE INTO email (`id`,`name`,`sender`,`subject`,`template_text`,`template_html`,`system_lock`) VALUES (10,'Website Contact','${data_vorname} ${data_nachname} <${data_email}>','${emoji_mobile} DEMOCRACY Website: ${data_type} from ${data_email}',10,11,1);
 INSERT IGNORE INTO email_template (`id`,`type`,`name`,`value`,`system_lock`) VALUES (10,0,'Website Contact Text','Eine Nachricht ist über die Website eingegangen:\n\n${data_json}\n\nAchtung: Diese EMail ist die einzige Kopie dieser Daten',1);

@@ -99,7 +99,7 @@
                         FREISCHALTUNG ANFORDERN
                     </div>
                     <div style="font-size: 20px; padding-top: 10px;">
-                        <input id="newsletter_ios" type="checkbox" checked style="transform: scale(1.5)"/>&nbsp;&nbsp;und den Newsletter abonieren
+                        <input id="newsletter_ios" type="checkbox" checked style="transform: scale(1.5)"/>&nbsp;&nbsp;und den Newsletter abonnieren
                     </div>
                     <div id="apple_id_text" class="col-12">Bitte gib Deine Apple-ID ein</div>
                     <div id="apple_id_text_sub" class="col-12">(Die AppStore-EMail-Adresse Deines Handys)</div>
@@ -113,7 +113,7 @@
                         FREISCHALTUNG ANFORDERN
                     </div>
                     <div style="font-size: 20px; padding-top: 10px;">
-                        <input id="newsletter_android" type="checkbox" checked style="transform: scale(1.5)"/>&nbsp;&nbsp;und den Newsletter abonieren
+                        <input id="newsletter_android" type="checkbox" checked style="transform: scale(1.5)"/>&nbsp;&nbsp;und den Newsletter abonnieren
                     </div>
                     <div id="google_id_text" class="col-12">Bitte gib Deine Google Play ID ein</div>
                     <div id="google_id_text_sub">(Die Google-EMail-Adresse Deines Handys)</div>
