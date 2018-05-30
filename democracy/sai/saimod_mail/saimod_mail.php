@@ -339,7 +339,8 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             $vars['placeholders'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_placeholder.tpl'))->SERVERPATH(),$row);
         }
         //placeholder new
-        $new_placeholder = ['selected_1' => 'selected', 'selected_2' => '', 'selected_3' => '',
+        $new_placeholder = ['id' => '',
+                            'selected_1' => 'selected', 'selected_2' => '', 'selected_3' => '',
                             'name' => '',
                             'text_value' => '', 'name_default' => '',
                             'switch_table' => '', 'switch_field' => '', 'switch_default' => '',
@@ -406,22 +407,26 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     
     public static function sai_mod__SAI_saimod_mail_action_update_email($data){
         \SQL\EMAIL_UPDATE::QI(array($data['name'],$data['account'],$data['sender'],$data['subject'],$data['text_template'],$data['html_template'],$data['id']));
-        foreach($data['images'] as $image){
-            if($image['deleted'] && $image['id']){
-                \SQL\EMAIL_IMAGE_DELETE::QI(array($data['id'],$image['id']));
-            } else if($image['id']){
-                \SQL\EMAIL_IMAGE_UPDATE::QI(array($image['name'],$image['file'],$image['mime'],$data['id'],$image['id']));
-            } else if(!$image['deleted']){
-                \SQL\EMAIL_IMAGE_INSERT::QI(array($image['id'],$data['id'],$image['name'],$image['file'],$image['mime']));
+        if(array_key_exists('images', $data)){
+            foreach($data['images'] as $image){
+                if($image['deleted'] && $image['id']){
+                    \SQL\EMAIL_IMAGE_DELETE::QI(array($data['id'],$image['id']));
+                } else if($image['id']){
+                    \SQL\EMAIL_IMAGE_UPDATE::QI(array($image['name'],$image['file'],$image['mime'],$data['id'],$image['id']));
+                } else if(!$image['deleted']){
+                    \SQL\EMAIL_IMAGE_INSERT::QI(array($image['id'],$data['id'],$image['name'],$image['file'],$image['mime']));
+                }
             }
         }
-        foreach($data['placeholders'] as $placeholder){
-            if($placeholder['deleted'] && $placeholder['id']){
-                \SQL\EMAIL_PLACEHOLDER_DELETE::QI(array($data['id'],$placeholder['id']));
-            } else if($placeholder['id']){
-                \SQL\EMAIL_PLACEHOLDER_UPDATE::QI(array($placeholder['name'],$placeholder['type'],json_encode($placeholder['data']),$data['id'],$placeholder['id']));
-            } else if(!$placeholder['deleted']){
-                \SQL\EMAIL_PLACEHOLDER_INSERT::QI(array($placeholder['id'],$data['id'],$placeholder['name'],$placeholder['type'],json_encode($placeholder['data'])));
+        if(array_key_exists('placeholders', $data)){
+            foreach($data['placeholders'] as $placeholder){
+                if($placeholder['deleted'] && $placeholder['id']){
+                    \SQL\EMAIL_PLACEHOLDER_DELETE::QI(array($data['id'],$placeholder['id']));
+                } else if($placeholder['id']){
+                    \SQL\EMAIL_PLACEHOLDER_UPDATE::QI(array($placeholder['name'],$placeholder['type'],json_encode($placeholder['data']),$data['id'],$placeholder['id']));
+                } else if(!$placeholder['deleted']){
+                    \SQL\EMAIL_PLACEHOLDER_INSERT::QI(array($placeholder['id'],$data['id'],$placeholder['name'],$placeholder['type'],json_encode($placeholder['data'])));
+                }
             }
         }
         return \JsonResult::ok();

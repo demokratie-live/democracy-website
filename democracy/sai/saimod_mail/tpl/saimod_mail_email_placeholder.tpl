@@ -40,7 +40,7 @@
                     <th>Values</th>
                     <th></th>
                     <th>
-                        <button class="btn btn-sm btn-success btn-email-placeholder-switch-value-new"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-sm btn-success btn-email-placeholder-switch-value-new" onclick="placeholder_switch_new($(this))"><i class="fa fa-plus"></i></button>
                     </th>
                 </tr>
                 ${switch_values}
