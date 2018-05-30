@@ -6,6 +6,16 @@
                 <td><input id="input-email-new-name" type="text" style="width: 100%"/></td>
             </tr>
             <tr>
+                <th>Account</th>
+                <td>
+                    <select id="select-email-new-account">
+                        <option value="1" selected>contact@democracy-deutschland.de</option>
+                        <option value="2">prototyping@democracy-deutschland.de</option>
+                        <option value="3">crowdfunding@democracy-deutschland.de</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>From</th>
                 <td><input id="input-email-new-sender" type="text" style="width: 100%"/></td>
             </tr>

@@ -20,7 +20,7 @@ function init_saimod_mail_contacts() {
             $.ajax({
                 async: true,
                 url: this.endpoint,
-                type: 'GET',
+                type: 'POST',
                 dataType: 'JSON',
                 data: {
                     sai_mod: '.SAI.saimod_mail',
@@ -59,7 +59,7 @@ function init_saimod_mail_contact() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
@@ -103,7 +103,7 @@ function init_saimod_mail_contact_new() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
@@ -144,7 +144,7 @@ function init_saimod_mail_lists() {
             $.ajax({
                 async: true,
                 url: this.endpoint,
-                type: 'GET',
+                type: 'POST',
                 dataType: 'JSON',
                 data: {
                     sai_mod: '.SAI.saimod_mail',
@@ -177,7 +177,7 @@ function init_saimod_mail_list() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
@@ -211,7 +211,7 @@ function init_saimod_mail_list_new() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
@@ -248,7 +248,7 @@ function init_saimod_mail_emails() {
             $.ajax({
                 async: true,
                 url: this.endpoint,
-                type: 'GET',
+                type: 'POST',
                 dataType: 'JSON',
                 data: {
                     sai_mod: '.SAI.saimod_mail',
@@ -277,26 +277,72 @@ function init_saimod_mail_email() {
     
     $('#btn-email-update').click(function(){
         var id = $('#input-email-id').val();
+        var account = $('#select-email-account').val();
         var sender = $('#input-email-sender').val();
         var name = $('#input-email-name').val();
         var subject = $('#input-email-subject').val();
         var text_template = $('#select-email-text-template').val();
         var html_template = $('#select-email-html-template').val();
+        var placeholders = [];
+        $('.email-placeholder').not('.email-placeholder-new').each(function() {
+            var id = $(this).attr('placeholder');
+            var name = $(this).find('.email-placeholder-name').val();
+            var type = $(this).find('.email-placeholder-type').val();
+            var deleted = $(this).hasClass('placeholder_deleted') ? 1 : 0
+            var data = {};
+            switch(type){
+                case "2":
+                    data.table = $(this).find('.email-placeholder-data-switch-table').val();
+                    data.field = $(this).find('.email-placeholder-data-switch-field').val();
+                    data.default = $(this).find('.email-placeholder-data-switch-default').val();
+                    var switch_values = {};
+                    $(this).find('.email-placeholder-switch-value').not('.email-placeholder-switch-value-new').each(function(){
+                        switch_values[$(this).find('.email-placeholder-data-switch-value-key').val()] = $(this).find('.email-placeholder-data-switch-value-value').val();
+                    }) 
+                    data.values = switch_values;
+                   break;
+                case "3":
+                    data.default = $(this).find('.email-placeholder-data-name-value').val();
+                    break;
+                default:
+                    data.value = $(this).find('.email-placeholder-data-text-value').val();
+            }
+            placeholders.push({
+                id: id,
+                name: name,
+                type: type,
+                data: data,
+                deleted: deleted
+            });
+        });
+        var images = [];
+        $('.email-image').not('.email-image-new').each(function() {
+            images.push({
+                id: $(this).attr('image'),
+                name: $(this).find('.email-image-name').val(),
+                file: $(this).find('.email-image-file').val(),
+                mime: $(this).find('.email-image-mime').val(),
+                deleted: $(this).hasClass('image_deleted') ? 1 : 0
+            });
+        });
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
                 action: 'update_email',
                 data: {
                     id: id,
+                    account: account,
                     sender: sender,
                     name: name,
                     subject: subject,
                     text_template: text_template ? text_template : null,
-                    html_template: html_template ? html_template : null
+                    html_template: html_template ? html_template : null,
+                    placeholders: placeholders,
+                    images: images
                 }
             },
             success: function(data){
@@ -318,7 +364,7 @@ function init_saimod_mail_email() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
@@ -340,6 +386,61 @@ function init_saimod_mail_email() {
             }
         });
     });
+    
+    $('#btn-email-template-text').click(function(){
+        var template = $('#select-email-text-template').val();
+        if(template === ""){
+            system.load('mail(template_new)');
+        } else {
+            system.load('mail(template);id.'+template);
+        }
+    });
+    
+    $('#btn-email-template-html').click(function(){
+        var template = $('#select-email-html-template').val();
+        if(template === ""){
+            system.load('mail(template_new)');
+        } else {
+            system.load('mail(template);id.'+template);
+        }
+    });
+    
+    $('#btn-email-image-new').click(function(){
+       var $new = $('.email-image-new').clone().removeClass('email-image-new');
+       $('#tbody_mail_email_images').append($new);
+    });
+    
+    $('#btn-email-placeholder-new').click(function(){
+       var $new = $('.email-placeholder-new').clone().removeClass('email-placeholder-new');
+       $('#tbody_mail_email_placeholders').append($new);
+    });
+    
+    $('.btn-email-placeholder-switch-value-new').click(function(){
+       var $new = $(this).parent().parent().parent().find('.email-placeholder-switch-value-new').clone().removeClass('email-placeholder-switch-value-new');
+       $(this).parent().parent().parent().append($new);
+    });
+    
+    $('.email-placeholder-type').trigger('change');
+}
+
+function placeholder_type(e){
+    switch(e.val()){
+        case '2':
+            $(e).parent().parent().find('.email-placeholder-data-text').hide();
+            $(e).parent().parent().find('.email-placeholder-data-switch').show();
+            $(e).parent().parent().find('.email-placeholder-data-name').hide();
+            break;
+        case '3':
+            $(e).parent().parent().find('.email-placeholder-data-text').hide();
+            $(e).parent().parent().find('.email-placeholder-data-switch').hide();
+            $(e).parent().parent().find('.email-placeholder-data-name').show();
+            break;
+        default:
+            $(e).parent().parent().find('.email-placeholder-data-text').show();
+            $(e).parent().parent().find('.email-placeholder-data-switch').hide();
+            $(e).parent().parent().find('.email-placeholder-data-name').hide();
+    }
+    
 }
 
 function init_saimod_mail_email_new() {
@@ -349,6 +450,7 @@ function init_saimod_mail_email_new() {
     
     $('#btn-email-new-insert').click(function(){
         var name = $('#input-email-new-name').val();
+        var account = $('#select-email-new-account').val();
         var sender = $('#input-email-new-sender').val();
         var subject = $('#input-email-new-subject').val();
         var text_template = $('#select-email-new-text-template').val();
@@ -356,13 +458,14 @@ function init_saimod_mail_email_new() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
                 action: 'insert_email',
                 data: {
                     name: name,
+                    account: account,
                     sender: sender,
                     subject: subject,
                     text_template: text_template,
@@ -397,7 +500,7 @@ function init_saimod_mail_templates() {
             $.ajax({
                 async: true,
                 url: this.endpoint,
-                type: 'GET',
+                type: 'POST',
                 dataType: 'JSON',
                 data: {
                     sai_mod: '.SAI.saimod_mail',
@@ -432,7 +535,7 @@ function init_saimod_mail_template() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',
@@ -470,7 +573,7 @@ function init_saimod_mail_template_new() {
         $.ajax({
             async: true,
             url: this.endpoint,
-            type: 'GET',
+            type: 'POST',
             dataType: 'JSON',
             data: {
                 sai_mod: '.SAI.saimod_mail',

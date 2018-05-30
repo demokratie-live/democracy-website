@@ -1,6 +1,7 @@
 CREATE TABLE `email` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `account` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `sender` varchar(255) NOT NULL,
   `subject` text NOT NULL,
   `template_text` int(10) UNSIGNED NULL,

@@ -15,6 +15,14 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_PROTOTYPE_ACCESS_ANDROID= 31;
     const EMAIL_PROTOTYPE_ACCESS_IOS    = 32;
     
+    const EMAIL_PLACEHOLDER_TYPE_TEXT   = 1;
+    const EMAIL_PLACEHOLDER_TYPE_SWITCH = 2;
+    const EMAIL_PLACEHOLDER_TYPE_NAME   = 3;
+    
+    const EMAIL_ACCOUNT_CONTACT         = 1;
+    const EMAIL_ACCOUNT_PROTOTYPING     = 2;
+    const EMAIL_ACCOUNT_CROWDFUNDING    = 3;
+    
     public static function subscribe($email,$list){
         return \SQL\SUBSCRIBE::QI(array($email,$list));
     }
@@ -41,15 +49,57 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         $email_data     = \SQL\EMAIL_SELECT::Q1(array($email_id));
         $template_text  = \SQL\EMAIL_TEMPLATE_SELECT::Q1(array($email_data['template_text']));
         $template_html  = \SQL\EMAIL_TEMPLATE_SELECT::Q1(array($email_data['template_html']));
-        //TODO
-        //$smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_PROTOTYPING);
-        $smtp           = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
-        $to             = $email;
-        //TODO
+        $placeholders_qq= \SQL\EMAIL_PLACEHOLDER_SELECT_EMAIL::QQ(array($email_id));
+        $images_qq      = \SQL\EMAIL_IMAGE_SELECT_EMAIL::QQ(array($email_id));
+        
+        $smtp = null;
+        switch($email_data['account']){
+            case self::EMAIL_ACCOUNT_PROTOTYPING:
+                $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_PROTOTYPING);
+                break;
+            case self::EMAIL_ACCOUNT_CROWDFUNDING:
+                $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CROWDFUNDING);
+                break;
+            // contact
+            default:
+                $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
+        }
+        
         $replacements = [];
         $replacements['emoji_mobile'] = '📱';
         foreach($data as $k => $v){
             $replacements['data_'.$k] = $v;}
+        while($placeholder = $placeholders_qq->next()){
+            switch($placeholder['type']){
+                case self::EMAIL_PLACEHOLDER_TYPE_TEXT:
+                    $value = json_decode($placeholder['data'],true)['value'];
+                    $value = str_replace('\\n', "\n", $value);
+                    $replacements[$placeholder['name']] = $value;
+                    break;
+                case self::EMAIL_PLACEHOLDER_TYPE_SWITCH:
+                    $data = json_decode($placeholder['data'],true);
+                    $d = null;
+                    switch($data['table']){
+                        case 'contact':
+                            $d = $contact_data[$data['field']];
+                            break;
+                    }
+                    $value = $data['default'];
+                    foreach($data['values'] as $k => $v){
+                        if($d == $k){
+                            $value = $v;}
+                    }
+                    $replacements[$placeholder['name']] = $value;
+                    break;
+                case self::EMAIL_PLACEHOLDER_TYPE_NAME:
+                    $value = json_decode($placeholder['data'],true)['default'];
+                    if($contact_data['name_first'] || $contact_data['name_last']){
+                        $value = trim($contact_data['name_first'].' '.$contact_data['name_last']);
+                    }
+                    $replacements[$placeholder['name']] = $value;
+                    break;
+            }
+        }
         if($list){
             $replacements['unsubscribe_link'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL).
                                                 '#!unsubscribe;token.'.
@@ -57,12 +107,17 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                                                                                 array(  'email' => $email,'list' => $list),
                                                                                 true);
         }
+        $to             = $email;
         $from           = \SYSTEM\PAGE\replace::replace($email_data['sender'],$replacements);
         $subject        = \SYSTEM\PAGE\replace::replace($email_data['subject'],$replacements);
         $text           = \SYSTEM\PAGE\replace::replace($template_text['value'], $replacements);
         $html           = \SYSTEM\PAGE\replace::replace($template_html['value'], $replacements);
-        //TODO
-        $images         = ["democracy_logo" => (new \PAPI('img/logo.png'))->SERVERPATH()];
+        
+        $images = [];
+        while($image = $images_qq->next()){
+            $images[$image['name']] = [ 'file' => (new \PFILES('email/'.$image['file']))->SERVERPATH(),
+                                        'mime' => $image['mime']];
+        }
         //TODO
         $attachments    = [];
         
@@ -239,6 +294,8 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     public static function sai_mod__SAI_saimod_mail_action_email($id){
         $vars = \SQL\EMAIL_SELECT::Q1(array($id));
         $vars['template_lock'] = $vars['system_lock'] ? 'disabled' : '';
+        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = '';
+        $vars['selected_account_'.$vars['account']] = 'selected';
         //text template
         $vars['text_options'] = '';
         $res = \SQL\EMAIL_TEMPLATES_SELECT::QQ(array(0));
@@ -253,6 +310,65 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             $row['selected'] = $row['id'] == $vars['template_html'] ? 'selected' : '';
             $vars['html_options'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_template_option.tpl'))->SERVERPATH(),$row);
         }
+        //placeholders
+        $vars['placeholders'] = '';
+        $res = \SQL\EMAIL_PLACEHOLDER_SELECT_EMAIL::QQ(array($id));
+        while($row = $res->next()){
+            $data = json_decode($row['data'],true);
+            $row['selected_1']      = $row['selected_2'] = $row['selected_3'] = '';
+            $row['selected_'.$row['type']] = 'selected';
+            $row['new_placeholder'] = '';
+            $row['text_value']      = $row['type'] == self::EMAIL_PLACEHOLDER_TYPE_TEXT ? $data['value'] : '';
+            $row['name_default']    = $row['type'] == self::EMAIL_PLACEHOLDER_TYPE_NAME ? $data['default'] : '';
+            $row['switch_table']    = $row['type'] == self::EMAIL_PLACEHOLDER_TYPE_SWITCH ? $data['table'] : '';
+            $row['switch_field']    = $row['type'] == self::EMAIL_PLACEHOLDER_TYPE_SWITCH ? $data['field'] : '';
+            $row['switch_default']  = $row['type'] == self::EMAIL_PLACEHOLDER_TYPE_SWITCH ? $data['default'] : '';
+            $row['switch_values']   = '';
+            if($row['type'] == self::EMAIL_PLACEHOLDER_TYPE_SWITCH){
+                if(!array_key_exists('values', $data)){
+                    $data['values'] = [];
+                }
+                foreach($data['values'] as $k=>$v){
+                    $d = ['k' => $k, 'v' => $v, 'new_switch_value' => ''];
+                    $row['switch_values'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_placeholder_switch_value.tpl'))->SERVERPATH(),$d);
+                }
+                $d = ['k' => '', 'v' => '', 'new_switch_value' => 'email-placeholder-switch-value-new'];
+                $row['switch_values'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_placeholder_switch_value.tpl'))->SERVERPATH(),$d);
+            }
+            //new value
+            $vars['placeholders'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_placeholder.tpl'))->SERVERPATH(),$row);
+        }
+        //placeholder new
+        $new_placeholder = ['selected_1' => 'selected', 'selected_2' => '', 'selected_3' => '',
+                            'name' => '',
+                            'text_value' => '', 'name_default' => '',
+                            'switch_table' => '', 'switch_field' => '', 'switch_default' => '',
+                            'new_placeholder' => 'email-placeholder-new'];
+        $d = ['k' => '', 'v' => '', 'new_switch_value' => 'email-placeholder-switch-value-new'];
+        $new_placeholder['switch_values'] = \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_placeholder_switch_value.tpl'))->SERVERPATH(),$d);
+        $vars['placeholders'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_placeholder.tpl'))->SERVERPATH(),$new_placeholder);   
+        
+        //files
+        $files = \SYSTEM\FILES\files::get('email');
+        //images
+        $vars['images'] = '';
+        $res = \SQL\EMAIL_IMAGE_SELECT_EMAIL::QQ(array($id));
+        while($row = $res->next()){
+            $row['files'] = '';
+            $row['new_image'] = '';
+            foreach($files as $file){
+                $f = ['name' => $file, 'selected' => $row['file'] == $file ? 'selected' : ''];
+                $row['files'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_image_file.tpl'))->SERVERPATH(),$f);
+            }
+            $vars['images'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_image.tpl'))->SERVERPATH(),$row);
+        }
+        //image new
+        $new_image = ['name' => '', 'id' => '', 'mime' => 'image/png', 'files' => '', 'new_image' => 'email-image-new'];
+        foreach($files as $file){
+            $f = ['name' => $file, 'selected' => ''];
+            $new_image['files'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_image_file.tpl'))->SERVERPATH(),$f);
+        }
+        $vars['images'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_image.tpl'))->SERVERPATH(),$new_image);
         //send
         $vars['send'] = '';
         $res = \SQL\EMAIL_LISTS_SELECT::QQ();
@@ -289,12 +405,30 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     }
     
     public static function sai_mod__SAI_saimod_mail_action_update_email($data){
-        \SQL\EMAIL_UPDATE::QI(array($data['name'],$data['sender'],$data['subject'],$data['text_template'],$data['html_template'],$data['id']));
+        \SQL\EMAIL_UPDATE::QI(array($data['name'],$data['account'],$data['sender'],$data['subject'],$data['text_template'],$data['html_template'],$data['id']));
+        foreach($data['images'] as $image){
+            if($image['deleted'] && $image['id']){
+                \SQL\EMAIL_IMAGE_DELETE::QI(array($data['id'],$image['id']));
+            } else if($image['id']){
+                \SQL\EMAIL_IMAGE_UPDATE::QI(array($image['name'],$image['file'],$image['mime'],$data['id'],$image['id']));
+            } else if(!$image['deleted']){
+                \SQL\EMAIL_IMAGE_INSERT::QI(array($image['id'],$data['id'],$image['name'],$image['file'],$image['mime']));
+            }
+        }
+        foreach($data['placeholders'] as $placeholder){
+            if($placeholder['deleted'] && $placeholder['id']){
+                \SQL\EMAIL_PLACEHOLDER_DELETE::QI(array($data['id'],$placeholder['id']));
+            } else if($placeholder['id']){
+                \SQL\EMAIL_PLACEHOLDER_UPDATE::QI(array($placeholder['name'],$placeholder['type'],json_encode($placeholder['data']),$data['id'],$placeholder['id']));
+            } else if(!$placeholder['deleted']){
+                \SQL\EMAIL_PLACEHOLDER_INSERT::QI(array($placeholder['id'],$data['id'],$placeholder['name'],$placeholder['type'],json_encode($placeholder['data'])));
+            }
+        }
         return \JsonResult::ok();
     }
     
     public static function sai_mod__SAI_saimod_mail_action_insert_email($data){
-        \SQL\EMAIL_INSERT::QI(array($data['name'],$data['sender'],$data['subject'],$data['text_template'],$data['html_template']));
+        \SQL\EMAIL_INSERT::QI(array($data['name'],$data['account'],$data['sender'],$data['subject'],$data['text_template'],$data['html_template']));
         return \JsonResult::ok();
     }
     

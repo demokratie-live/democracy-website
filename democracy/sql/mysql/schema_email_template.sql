@@ -1,5 +1,5 @@
 CREATE TABLE `email_template` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `type` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `value` text NOT NULL,
