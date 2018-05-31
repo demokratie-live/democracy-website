@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_files Class provided by System as saimod to manage files (files feature)
  */
-class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_files extends \SYSTEM\SAI\sai_module {
     /**
      * Delete a File in a Files Directory
      * 
@@ -94,7 +94,11 @@ class saimod_sys_files extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_files/tpl/menu.tpl'))->SERVERPATH());}
+    public static function menu(){
+        return new sai_module_menu( 2,
+                                    sai_module_menu::POISITION_LEFT,
+                                    sai_module_menu::DIVIDER_NONE,
+                                    \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_files/tpl/menu.tpl'))->SERVERPATH()));}
     
     /**
      * Returns if the Saimod is public(access for everyone)

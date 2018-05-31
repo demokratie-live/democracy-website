@@ -1,17 +1,12 @@
-<div class="row-fluid">
-    <div class="col-md-12 sai_padding_off">
-        <h4>&nbsp;<span class="fa fa-clock-o" aria-hidden="true"></span>&nbsp;&nbsp;${sai_cron_title}</h4>
+<div class="row">
+    <div class="col-12 sai_padding_10 bg-primary">
+        <h4 class="sai_margin_off">&nbsp;<span class="fa fa-clock-o" aria-hidden="true"></span>&nbsp;&nbsp;${sai_cron_title}</h4>
     </div>
-</div>
-<div class="row-fluid">
-    <div class="col-md-12 sai_padding_off">
-        <hr>
-    </div>
-</div>
-<div class="row-fluid">
     <div class="col-md-12 sai_padding_off">
         &nbsp;Last Visit: ${last_visit}<br/>
         &nbsp;<a href="./sai.php?call=cron" target="_blank">Start Cron</a>
+    </div>
+    <div class="col-md-12 sai_padding_off sai_border_left">
         <div id="cron_content">
             <table class="table table-hover table-condensed sai_table tablesorter" id="sai_mod_cron_table">
                 <thead>
@@ -45,5 +40,11 @@
                 </tr>    
             </table>
         </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="col-md-12 sai_padding_off">
+        
     </div>
 </div>

@@ -13,7 +13,6 @@
         ${content}
     </tbody>     
     <tr>
-        <br>
         <th><form enctype="multipart/form-data" id="form_${cat}"><input class="form-control" type="file" name="datei_${cat}"></th>
         <th></th>
         <th></th>

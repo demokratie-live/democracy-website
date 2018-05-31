@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_cron Class provided by System as saimod to manage the system_cron table
  */
-class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_cron extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the Saimods startpage
      * 
@@ -99,7 +99,11 @@ class saimod_sys_cron extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/menu.tpl'))->SERVERPATH());}
+    public static function menu(){
+        return new sai_module_menu( 5,
+                                    sai_module_menu::POISITION_LEFT,
+                                    sai_module_menu::DIVIDER_NONE,
+                                    \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_cron/tpl/menu.tpl'))->SERVERPATH()));}
     
     /**
      * Returns if the Saimod is public(access for everyone)
