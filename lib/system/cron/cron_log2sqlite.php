@@ -31,7 +31,7 @@ class cron_log2sqlite implements \SYSTEM\CRON\cronjob{
         //create folder if required
         if (!file_exists(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH))) {
             mkdir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH), 0777, true);}
-        $filename = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH).$oldest['year'].'.'.$oldest['month'].'.db';
+        $filename = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH).$oldest['year'].'.'.sprintf('%02d', $oldest['month']).'.db';
         //extract whole month to file
         $con = new \SYSTEM\DB\Connection(new \SYSTEM\DB\DBInfoSQLite($filename));
         //create table
