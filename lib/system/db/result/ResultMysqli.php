@@ -65,7 +65,7 @@ class ResultMysqli extends \SYSTEM\DB\Result{
      * @param int $result_type Mysql Fetch result Type
      * @return array Returns an array(object) containing the next line
      */
-    public function next($object = false, $result_type = MYSQL_BOTH){        
+    public function next($object = false, $result_type = MYSQLI_BOTH){        
         if($object){
             $this->current = mysqli_fetch_object($this->res);
         } else {

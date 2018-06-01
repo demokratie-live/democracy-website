@@ -22,5 +22,5 @@ interface error_handler {
      * @param bool $thrown Was the Exception thrown?
      * @return bool Returns true or false.
      */
-    static function CALL(\Exception $E, $thrown);
+    static function CALL($E, $thrown);
 }

@@ -23,7 +23,7 @@ class error_handler_dbwriter implements \SYSTEM\LOG\error_handler {
      * @param bool $thrown Was the Exception thrown?
      * @return bool Returns true or false.
      */
-    public static function CALL(\Exception $E, $thrown){
+    public static function CALL($E, $thrown){
         try{
             $result = \SYSTEM\SQL\SYS_LOG_INSERT::QI(array(
                                                     get_class($E), $E->getMessage(), $E->getCode(), $E->getFile(), $E->getLine(), $E->getTraceAsString(),

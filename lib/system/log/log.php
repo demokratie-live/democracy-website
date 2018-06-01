@@ -46,7 +46,7 @@ class log {
      * @param bool $thrown Was the Exception thrown?
      * @return bool Returns true or false.
      */
-    private static function call_handlers(\Exception $E, $thrown = true){                  
+    private static function call_handlers($E, $thrown = true){                  
         foreach(self::$handlers as $handler){                        
             if( \call_user_func_array(array($handler,self::HANDLER_FUNC_CALL),array($E, $thrown))){                
                 return true;}}                    
@@ -59,7 +59,7 @@ class log {
      * @param bool $thrown Was the Exception thrown?
      * @return bool Returns true or false depending on thrown
      */
-    public static function __exception_handler(\Exception $E, $thrown = true){        
+    public static function __exception_handler($E, $thrown = true){        
         return self::call_handlers($E, $thrown) && $thrown;}
     
     /**

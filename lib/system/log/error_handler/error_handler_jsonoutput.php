@@ -23,7 +23,7 @@ class error_handler_jsonoutput implements \SYSTEM\LOG\error_handler {
      * @param bool $thrown Was the Exception thrown?
      * @return bool Returns true or false.
      */
-    public static function CALL(\Exception $E, $thrown){        
+    public static function CALL($E, $thrown){        
         if($thrown){     
             try{
                 echo \SYSTEM\LOG\JsonResult::error($E);             

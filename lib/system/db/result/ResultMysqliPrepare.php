@@ -41,12 +41,15 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
             //throw new \Exception("Could not retrieve meta for prepare statement");}
             return;}
         
+        $ref = [];
         while ($field = $this->meta->fetch_field() ) {
-            $this->binds[$field->table.'.'.$field->name] = &$this->binds[$field->table.'.'.$field->name];} //fix for ambiguous fieldnames
+            $this->binds[$field->table.'.'.$field->name] = &$this->binds[$field->table.'.'.$field->name];
+            $ref[$field->table.'.'.$field->name] = &$this->binds[$field->table.'.'.$field->name];
+        } //fix for ambiguous fieldnames
 
         \mysqli_free_result($this->meta);
         
-        call_user_func_array(array($this->res, 'bind_result'), $this->binds); //you need 2 append the parameters - thats the right way to do that.
+        call_user_func_array(array($this->res, 'bind_result'), $ref); //you need 2 append the parameters - thats the right way to do that.
         $this->res->store_result();
     }
 
@@ -88,7 +91,7 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
      * @param int $result_type Mysql Fetch result Type
      * @return array Returns an array(object) containing the next line
      */
-    public function next($object = false, $result_type = MYSQL_BOTH){        
+    public function next($object = false, $result_type = MYSQLI_BOTH){        
         if(\mysqli_stmt_fetch($this->res)){
             foreach( $this->binds as $key=>$value ){
                 $row[substr($key, strpos($key, '.')+1)] = $value;} //fix for ambiguous fieldnames

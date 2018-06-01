@@ -75,7 +75,7 @@ class ConnectionMYS extends ConnectionAbstr {
         if(!mysqli_stmt_execute($prepStmt)){
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  \mysqli_stmt_error($prepStmt));}
 
-        return new ResultMysqliPrepare($prepStmt,$this);
+        return new \SYSTEM\DB\ResultMysqliPrepare($prepStmt,$this);
     }
 
     /**
@@ -88,7 +88,7 @@ class ConnectionMYS extends ConnectionAbstr {
         $result = \mysqli_query($this->connection, $query);
         if(!$result){
             throw new \Exception('Could not query Database. Check ur Query Syntax or required Rights: '.\mysqli_error($this->connection));}
-        return $result === true ? $result : new ResultMysqli($result);
+        return $result === true ? $result : new \SYSTEM\DB\ResultMysqli($result);
     }
     
     /**

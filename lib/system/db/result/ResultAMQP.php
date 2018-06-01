@@ -65,7 +65,7 @@ class ResultAMQP extends \SYSTEM\DB\Result{ // < maybe not ? check if amqpchanne
      * @param int $result_type Mysql Fetch result Type
      * @return array Returns an array(object) containing the next line
      */
-    public function next($object = false, $result_type = MYSQL_BOTH){        
+    public function next($object = false, $result_type = MYSQLI_BOTH){        
         if($object){
             $this->current = pg_fetch_object($this->res);
         } else {
