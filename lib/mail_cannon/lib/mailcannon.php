@@ -40,7 +40,8 @@ class mailcannon {
         $recipients = array( 'To' => $to);
         $succ = $mail->send($recipients, $hdrs, $body);
         if (PEAR::isError($succ)) {
-            throw new \SYSTEM\LOG\ERROR('Error Sending HTML message to ' . $to . ' ' . $succ->getMessage());}
+            return false;}
+        return true;
     }
     
     public static function fire($delay,$from,$subject,$html_file,$text_file,$member_list,$unsubscribe_list,$images,$attachments,$replacements,$smtp = null,$silent = false){
