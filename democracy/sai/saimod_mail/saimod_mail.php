@@ -121,22 +121,22 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         //TODO
         $attachments    = [];
         
-        \mailcannon::send(  $smtp,
-                            $from, $to,
-                            $subject, $text, $html,
-                            $images, $attachments);
-        
+        $sent = \mailcannon::send(  $smtp,
+                                    $from, $to, 
+                                    $subject, $text, $html,
+                                    $images, $attachments);
         if($list != self::EMAIL_LIST_TEST){
             \SQL\EMAIL_SENT_INSERT::QI(array($email_id,$email));}
         
-        return true;
+        return $sent ? true : false;
     }
     
     public static function send_list($email_id,$list){
         $list_handle = \SQL\CONTACT_EMAIL_LIST_SELECT_LIST::QQ(array($list));
         while($row = $list_handle->next()){
             \set_time_limit(30);
-            self::send_mail($row['email'], $email_id, $list);
+            self::send_mail($row['email'], $email_id, $list) ? 1 : 0;
+            \sleep(3);
         }
         return \SYSTEM\LOG\JsonResult::ok();
     }
@@ -401,8 +401,25 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     }
     
     public static function sai_mod__SAI_saimod_mail_action_send_email($data){
+        //Send early response & end Call since it will take longer then the timeout
+        ignore_user_abort(true);
+        ob_start();
+        echo \SYSTEM\LOG\JsonResult::ok();
+        header(filter_input(INPUT_SERVER, 'SERVER_PROTOCOL', FILTER_SANITIZE_STRING) . ' 200 OK');
+        header('Content-Length: '.ob_get_length());
+        header('Connection: close');
+        ob_end_flush();
+        ob_flush();
+        flush();
+        if(session_id()){
+            session_write_close();}
+        fastcgi_finish_request();
+        
+        //Start Process        
         self::send_list($data['email'],$data['list']);
-        return \JsonResult::ok();
+        
+        //Make sure we dont have stray processes?
+        die();
     }
     
     public static function sai_mod__SAI_saimod_mail_action_update_email($data){

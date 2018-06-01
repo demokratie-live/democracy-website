@@ -376,7 +376,7 @@ function init_saimod_mail_email() {
             },
             success: function(data){
                 if(data.status){
-                    alert('Sent EMails');
+                    alert('Sending EMails - DO NOT START THE PROCESS AGAIN - OR DUPLICATES MAY APPEAR!');
                 } else {
                     alert('Something happend - try again!');
                 }
