@@ -119,4 +119,7 @@ class ConnectionPG extends ConnectionAbstr {
      */
     public function exec($query) {
         throw new \Exception('Could not start Transaction: not implemented');}
+        
+    public function insert_id(){
+        throw new \Exception('Not implemented');}
 }

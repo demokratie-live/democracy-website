@@ -107,4 +107,7 @@ class ConnectionSQLite extends ConnectionAbstr {
      */
     public function trans(){
         throw new \Exception('Could not start Transaction: not implemented');}
+        
+    public function insert_id(){
+        throw new \Exception('Not implemented');}
 }

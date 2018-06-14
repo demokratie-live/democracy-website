@@ -82,7 +82,7 @@ class QP {
      * @param DBINFO $dbinfo Database Info or Null for Default DB
      * @return bool Returns true or false (or Result if used incorrectly)
      */
-    public static function QI($params,$dbinfo = null){
+    public static function QI($params,$return_id = false,$dbinfo = null){
         $qq = self::QQ($params,$dbinfo);
-        return $qq->affectedRows() != (0||null);}
+        return $return_id ? $qq->insert_id() : $qq->affectedRows() != (0||null);}
 }

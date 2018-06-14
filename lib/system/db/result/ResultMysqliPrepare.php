@@ -107,4 +107,8 @@ class ResultMysqliPrepare extends \SYSTEM\DB\Result{
      */
     public function seek($row_number){
         return \mysqli_stmt_data_seek($this->res,$row_number);}
+        
+    public function insert_id(){
+        return $this->connection->insert_id();
+    }
 }

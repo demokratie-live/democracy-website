@@ -98,4 +98,7 @@ class Connection extends ConnectionAbstr{
      */
     public function commit(){
         return $this->connection->commit();}
+
+    public function insert_id(){
+        return $this->connection->insert_id();}
 }

@@ -119,4 +119,8 @@ class ConnectionMYS extends ConnectionAbstr {
         if(!\mysqli_begin_transaction($this->connection,MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT)){
             throw new \Exception('Could not start Transaction: '.\mysqli_error($this->connection));}
         return true;}
+        
+    public function insert_id(){
+        return \mysqli_insert_id($this->connection);
+    }
 }
