@@ -28,6 +28,31 @@ function init_saimod_beta_all() {
             });
         }
     });
+    $('.email_delete_contact').click(function(){
+        var emails = [];
+        $('.all-check:checked').each(function() {
+            emails.push($(this).attr('email'));
+        });
+        if (confirm('Are you sure you want to delete '+emails.length+' Users PERMANENTLY from Beta AND Contacts?')) {
+            $.ajax({
+                async: true,
+                url: this.endpoint,
+                type: 'GET',
+                dataType: 'JSON',
+                data: {
+                    sai_mod: '.SAI.saimod_beta',
+                    action: 'email_delete_contact',
+                    emails: emails
+                },
+                success: function(){
+                    system.reload();
+                },
+                error: function(){
+                    alert('Something happend - try again!');
+                }
+            });
+        }
+    });
 };
 
 function init_saimod_beta_code() {
@@ -166,6 +191,31 @@ function init_saimod_beta_store_android() {
             });
         }
     });
+    $('.email_delete_contact').click(function(){
+        var emails = [];
+        $('.android-check:checked').each(function() {
+            emails.push($(this).attr('email'));
+        });
+        if (confirm('Are you sure you want to delete '+emails.length+' Users PERMANENTLY from Beta AND Contacts?')) {
+            $.ajax({
+                async: true,
+                url: this.endpoint,
+                type: 'GET',
+                dataType: 'JSON',
+                data: {
+                    sai_mod: '.SAI.saimod_beta',
+                    action: 'email_delete_contact',
+                    emails: emails
+                },
+                success: function(){
+                    system.reload();
+                },
+                error: function(){
+                    alert('Something happend - try again!');
+                }
+            });
+        }
+    });
 };
 function init_saimod_beta_store_ios() {
     $("#table_beta_store_ios").tablesorter();
@@ -219,6 +269,31 @@ function init_saimod_beta_store_ios() {
                 data: {
                     sai_mod: '.SAI.saimod_beta',
                     action: 'email_delete',
+                    emails: emails
+                },
+                success: function(){
+                    system.reload();
+                },
+                error: function(){
+                    alert('Something happend - try again!');
+                }
+            });
+        }
+    });
+    $('.email_delete_contact').click(function(){
+        var emails = [];
+        $('.ios-check:checked').each(function() {
+            emails.push($(this).attr('email'));
+        });
+        if (confirm('Are you sure you want to delete '+emails.length+' Users PERMANENTLY from Beta AND Contacts?')) {
+            $.ajax({
+                async: true,
+                url: this.endpoint,
+                type: 'GET',
+                dataType: 'JSON',
+                data: {
+                    sai_mod: '.SAI.saimod_beta',
+                    action: 'email_delete_contact',
                     emails: emails
                 },
                 success: function(){

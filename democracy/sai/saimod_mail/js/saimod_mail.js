@@ -268,6 +268,34 @@ function init_saimod_mail_emails() {
             });
         }
     });
+    
+    $('#btn-mail-email-clone').click(function(){
+        var emails = [];
+        $('.mail-email-check:checked').each(function() {
+            emails.push($(this).attr('email'));
+        });
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'clone_email',
+                data: emails
+            },
+            success: function(data){
+                if(data.status){
+                    system.reload();
+                } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
 }
 
 function init_saimod_mail_email() {

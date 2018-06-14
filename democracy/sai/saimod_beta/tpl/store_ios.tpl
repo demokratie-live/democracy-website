@@ -12,6 +12,7 @@
                 <th>
                     <button type="button" class="btn btn-sm btn-warning code_ios"><i class="fa fa-apple"></i>&nbsp;I added to Store -> Mail</button>
                     <button type="button" class="btn btn-sm btn-danger email_delete"><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger email_delete_contact"><i class="fa fa-trash"></i>+<i class="fa fa-envelope"></i></button>
                 </th>
             </tr>
         </thead>

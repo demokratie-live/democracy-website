@@ -95,6 +95,14 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
         return \JsonResult::ok();
     }
     
+    public static function sai_mod__SAI_saimod_beta_action_email_delete_contact($emails){
+        foreach($emails as $email){
+            \SQL\BETA_EMAIL_DELETE::QI(array($email));
+        }
+        saimod_mail::sai_mod__SAI_saimod_mail_action_delete_contact($emails);
+        return \JsonResult::ok();
+    }
+    
     public static function sai_mod__SAI_saimod_beta_action_store_android(){
         $vars = array();
         

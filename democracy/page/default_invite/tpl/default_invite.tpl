@@ -120,13 +120,13 @@
                 </div>
                 <div id="final_ios" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 24px;">
-                        Sobald Du im AppStore freigeschaltet wurdest, erhälst Du eine E-Mail mit einer genauen Anleitung von uns.<br>
+                        Sobald Du im AppStore freigeschaltet wurdest, erhältst Du eine E-Mail mit einer genauen Anleitung von uns.<br>
                         <br>
                         <span style="color: red;">Bitte überprüfe auch Deinen Spam-Ordner!</span>
                     </div>
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 22px; margin-top: 25px;">
                         <ol style="line-height: 2; text-align: left;">
-                            <li>Du erhälst demnächst eine E-Mail von TestFlight</li>
+                            <li>Du erhältst demnächst eine E-Mail von TestFlight</li>
                             <li style="color: lightgrey;">Öffne diese Mail, klicke den blauen Button View in TestFlight</li>
                             <li style="color: lightgrey;">Lade dir TestFlight im AppStore herunter</li>
                             <li style="color: lightgrey;">Öffne TestFlight und Drücke “Redeem”</li>
@@ -137,13 +137,13 @@
                 </div>
                 <div id="final_android" class="row step">
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 24px;">
-                        Sobald Du im PlayStore freigeschaltet wurdest, erhälst Du eine E-Mail mit einer genauen Anleitung von uns.<br>
+                        Sobald Du im PlayStore freigeschaltet wurdest, erhältst Du eine E-Mail mit einer genauen Anleitung von uns.<br>
                         <br>
                         <span style="color: red;">Bitte überprüfe auch Deinen Spam-Ordner!</span>
                     </div>
                     <div class="col-10 col-md-8 offset-1 offset-md-2" style="padding: 0; font-size: 22px; margin-top: 25px;">
                         <ol style="line-height: 2; text-align: left;">
-                            <li>Du erhälst demnächst eine E-Mail von uns mit einem Bestätigungslink</li>
+                            <li>Du erhältst demnächst eine E-Mail von uns mit einem Bestätigungslink</li>
                             <li style="color: lightgrey;">Öffne diese Mail auf deinem Handy und folge dem Link</li>
                             <li style="color: lightgrey;">Drücke den Button ganz unten auf dem es heißt: Tester werden</li>
                             <li style="color: lightgrey;">Eine neue Ansicht lädt, drücke nun die App DEMOCRACY bei Google Play herunterladen.</li>

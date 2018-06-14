@@ -24,7 +24,7 @@
                 <span>  Aber gerade weil so eine große Idee zur Umsetzung in diese Welt auch ein großes
                         Portemonnaie braucht, ist unser Joker die gemeinschaftliche Finanzierung.</span>
                 <br><br>
-                <span>  Nach der Prototypsfinanzierung durch das initiale Crowdfunding im Herbst 2017,
+                <span>  Nach der Prototypsfinanzierung durch das <a href="https://startnext.com/democracy" target="_blank">initiale Crowdfunding im Herbst 2017</a>,
                         kannst Du die Initiative als Pate jetzt regelmäßig unterstützen oder einmalig spenden.
                         Pate kannst du schon ab 1 € monatlich werden. Deine Unterstützung lässt sich
                          jederzeit beenden.</span>

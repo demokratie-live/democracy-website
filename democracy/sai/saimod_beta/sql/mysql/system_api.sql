@@ -11,3 +11,4 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (7050, 42, 2, 7000, 'code_delete', 'code', 'STRING');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (7060, 42, 2, 7000, 'email_delete', 'emails', 'JSON');
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (7065, 42, 2, 7000, 'email_delete_contact', 'emails', 'JSON');
