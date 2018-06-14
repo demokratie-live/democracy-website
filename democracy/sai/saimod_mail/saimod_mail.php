@@ -136,7 +136,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         while($row = $list_handle->next()){
             \set_time_limit(30);
             self::send_mail($row['email'], $email_id, $list) ? 1 : 0;
-            \sleep(3);
+            \sleep(1);
         }
         return \SYSTEM\LOG\JsonResult::ok();
     }
@@ -372,7 +372,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         $vars['images'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_email_image.tpl'))->SERVERPATH(),$new_image);
         //send
         $vars['send'] = '';
-        $res = \SQL\EMAIL_LISTS_SELECT::QQ();
+        $res = \SQL\EMAIL_LISTS_SELECT_AND_SENT_COUNT::QQ(array($id));
         while($row = $res->next()){
             $row['disabled'] = $row['id'] == self::EMAIL_LIST_TEST ? '' : 'disabled';
             $row['btn-color'] = $row['id'] == self::EMAIL_LIST_TEST ? 'success' : 'danger';
@@ -458,6 +458,15 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         foreach($data as $id){
             \SQL\EMAIL_DELETE::QI(array($id));
             \SQL\EMAIL_SENT_DELETE_EMAIL::QI(array($id));
+        }
+        return \JsonResult::ok();
+    }
+    
+    public static function sai_mod__SAI_saimod_mail_action_clone_email($data){
+        foreach($data as $id){
+            $new_id = \SQL\EMAIL_CLONE::QI(array($id),true);
+            \SQL\EMAIL_PLACEHOLDER_CLONE::QI(array($new_id,$id));
+            \SQL\EMAIL_IMAGE_CLONE::QI(array($new_id,$id));
         }
         return \JsonResult::ok();
     }
