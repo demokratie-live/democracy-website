@@ -33,6 +33,8 @@ class page_democracy extends \SYSTEM\API\api_default {
         return (new default_press())->html();}
     public static function page_faq(){
         return (new default_faq())->html();}
+    public static function page_blog(){
+        return (new default_blog())->html();}
         
     public static function page_unsubscribe($token){
         return (new default_unsubscribe($token))->html();}

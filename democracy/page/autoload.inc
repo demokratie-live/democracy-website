@@ -13,6 +13,7 @@
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_press');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_faq');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_blog');
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_unsubscribe');
 // SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_prototyp');

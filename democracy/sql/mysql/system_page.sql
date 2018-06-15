@@ -10,6 +10,7 @@ REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`
 
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (50, 1, 'press', 'press', -1, 0, 0, '#content', './?page=press', 'init_press', 'default_press');
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (60, 1, 'faq', 'faq', -1, 0, 0, '#content', './?page=faq', 'init_faq', 'default_faq');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (65, 1, 'blog', 'blog', -1, 0, 0, '#content', './?page=blog', 'init_blog', 'default_blog');
 
 REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (70, 1, 'unsubscribe', 'unsubscribe', -1, 0, 0, '#content', './?page=unsubscribe&token=${token}', 'init_unsubscribe', 'default_unsubscribe');
 

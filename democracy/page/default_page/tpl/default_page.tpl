@@ -112,6 +112,7 @@
                     <ul>
                         <li><a href="#!engineering#help">Mithelfen</a></li>
                         <li><a href="#!press">Presse</a></li>
+                        <li><a href="#!blog">Blog</a></li>
                         <li><a href="#!faq">FAQ</a></li>
                     </ul>
                 </div>

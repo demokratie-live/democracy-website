@@ -22,6 +22,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                     new PPAGE('default_impressum/js/default_impressum.js'),
                     new PPAGE('default_politicians/js/default_politicians.js'),
                     new PPAGE('default_press/js/default_press.js'),
+                    new PPAGE('default_blog/js/default_blog.js'),
                 )));
     }
     
@@ -41,6 +42,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                     new PPAGE('default_impressum/css/default_impressum.css'),
                     new PPAGE('default_politicians/css/default_politicians.css'),
                     new PPAGE('default_press/css/default_press.css'),
+                    new PPAGE('default_blog/css/default_blog.css'),
                 )));
     }
     
