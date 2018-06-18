@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>Roadmap</h1>
+                <h4 style="padding-top:30px;">Unsere Entwicklung ist <a href="https://github.com/demokratie-live/" target="_blank">Open Source</a>, der Quellcode frei und offen</h4>
             </div>
             <div class="col-12">
                 <style>

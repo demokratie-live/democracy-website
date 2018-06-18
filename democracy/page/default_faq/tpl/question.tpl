@@ -1,4 +1,4 @@
-<div class="panel-faq ${category}">
+<div class="panel-faq ${categories}">
     <div class="panel-heading">
         <h5 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse${n}" class="faq_header">${question}</a>

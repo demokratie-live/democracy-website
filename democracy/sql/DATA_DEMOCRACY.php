@@ -3,7 +3,9 @@ namespace SQL;
 class DATA_DEMOCRACY extends \SYSTEM\DB\QI {
     public static function get_class(){return \get_class();}
     public static function files_mysql(){
-        return array(   (new \PSQL('/mysql/schema_contact.sql'))->SERVERPATH(),
+        return array(   (new \PSQL('/mysql/schema_faq.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/faq.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/schema_contact.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_contact_email_list.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_email_list.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_email.sql'))->SERVERPATH(),
