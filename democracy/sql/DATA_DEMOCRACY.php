@@ -5,6 +5,8 @@ class DATA_DEMOCRACY extends \SYSTEM\DB\QI {
     public static function files_mysql(){
         return array(   (new \PSQL('/mysql/schema_faq.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/faq.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/schema_roadmap.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/roadmap.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_contact.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_contact_email_list.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_email_list.sql'))->SERVERPATH(),
