@@ -120,7 +120,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
         $vars['js'] = '';
         if(!$_escaped_fragment_){
             $vars['js'] = self::js();}
-        $vars['menu_languages'] = self::lang_menu('./sai.php');   
+        $vars['menu_languages'] = self::lang_menu();   
         $vars['menu_start'] = self::menu_start();
         $vars['menu_left'] = self::menu_left();
         $vars['menu_right'] = self::menu_right();
@@ -136,7 +136,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
      * @param string $endpoint Endpoint for the Language Menu
      * @return string Returns HTML
      */
-    public static function lang_menu($endpoint = './api.php'){
+    public static function lang_menu(){
         $result = '';
         $langs = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_LANGS);
         foreach($langs as $lang){

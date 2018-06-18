@@ -64,8 +64,9 @@ table.tablesorter thead tr th.tablesorter-headerDesc:after {
                                 <li class="dropdown-divider"></li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle " href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="d-md-none" style="padding-left: 15px;"></span>
+                                        <span class="d-lg-none" style="padding-left: 15px;"></span>
                                         <i class="fa fa-language"></i>
+                                        <span class="d-lg-none">&nbsp;&nbsp;Language</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
                                         ${menu_languages}
