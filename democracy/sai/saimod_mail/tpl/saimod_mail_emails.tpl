@@ -15,6 +15,6 @@
                 </th>
             </tr>
         </thead>
-        <tbody>${data}</tbody>    
+        <tbody>${data}</tbody>
     </table>
 </div>
