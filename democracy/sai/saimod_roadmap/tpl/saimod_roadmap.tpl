@@ -1,6 +1,6 @@
 <style>
-    #table_goals select{
-        font-family: FontAwesome;
+    #table_goals select, #table_goals select>option{
+        font-family: 'FontAwesome', 'sans-serif';
         font-size: 30px;
     }
     .icon-red {     color: rgb(196, 48, 43); }
@@ -20,6 +20,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Goal</th>
+                        <th>Issue</th>
                         <th>Beta</th>
                         <th>MVP</th>
                         <th>Dream</th>
@@ -32,6 +33,7 @@
                     <tr>
                         <th>New</th>
                         <td><input id="input-roadmap-new-goal" type="text" style="width: 100%"/></td>
+                        <td><input id="input-roadmap-new-issue" type="number" value="" style="width: 100%"/></td>
                         <td>
                             <select id="input-roadmap-new-beta">
                                 <option value="" selected></option>

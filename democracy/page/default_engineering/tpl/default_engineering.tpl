@@ -27,6 +27,9 @@
                     #protodivider{
                         margin-top: 50px;
                     }
+                    .rotate{
+                        font-size: 14px;
+                    }
                     @media (min-width: 992px){
                         #protodivider{
                             margin-top: -30px;
@@ -35,13 +38,12 @@
                             text-align: left;
                         }
                     }
-                    @media (max-width: 575px){
+                    @media (max-width: 767px){
                         .rotate{
-                            transform: rotate(-90.0deg);
                             word-break: keep-all;
                             font-size: 12px;
                         }
-                        .table tr, .table th{
+                        .table tr, .table th.rotate{
                             padding: 3px !important;
                         }
                         #finalblock{
@@ -57,10 +59,19 @@
                 <table class="table table-striped table-bordered table-hover" style="margin-top: 50px; word-break: break-all;">
                     <thead>
                         <tr>
-                            <th scope="col">Funktion</th>
-                            <th scope="col" class="rotate">Closed Beta</th>
-                            <th scope="col" class="rotate">Public MVP</th>
-                            <th scope="col" class="rotate">Post MVP</th>
+                            <th scope="col" style="font-size: 20px; vertical-align: top;">Release</th>
+                            <th scope="col" class="rotate">
+                                Closed Beta
+                                <div class="rmicon-green">30.04.18</div>
+                            </th>
+                            <th scope="col" class="rotate">
+                                Public MVP
+                                <div class="rmicon-red">01.10.18</div>
+                            </th>
+                            <th scope="col" class="rotate">
+                                Post MVP
+                                <div class="rmicon-red">&nbsp;</div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

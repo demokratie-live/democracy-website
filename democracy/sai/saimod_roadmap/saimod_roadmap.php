@@ -53,11 +53,11 @@ class saimod_roadmap extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_roadmap/tpl/saimod_roadmap.tpl'))->SERVERPATH(),$vars);}
         
     public static function sai_mod__SAI_saimod_roadmap_action_insert($data){
-        return \SYSTEM\LOG\JsonResult::status(\SQL\GOAL_INSERT::QI(array($data['order'],$data['goal'],$data['beta'],$data['mvp'],$data['dream'])));
+        return \SYSTEM\LOG\JsonResult::status(\SQL\GOAL_INSERT::QI(array($data['order'],$data['goal'],$data['issue'] ? $data['issue'] : NULL,$data['beta'],$data['mvp'],$data['dream'])));
     }
     
     public static function sai_mod__SAI_saimod_roadmap_action_update($data){
-        return \SYSTEM\LOG\JsonResult::status(\SQL\GOAL_UPDATE::QI(array($data['order'],$data['goal'],$data['beta'],$data['mvp'],$data['dream'],$data['id'])));
+        return \SYSTEM\LOG\JsonResult::status(\SQL\GOAL_UPDATE::QI(array($data['order'],$data['goal'],$data['issue'] ? $data['issue'] : NULL,$data['beta'],$data['mvp'],$data['dream'],$data['id'])));
     }
     
     public static function sai_mod__SAI_saimod_roadmap_action_delete($data){

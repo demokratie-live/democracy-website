@@ -63,6 +63,7 @@ class default_engineering implements SYSTEM\PAGE\Page {
             $goal['class_beta'] = self::icon_class($goal['beta']);
             $goal['class_mvp']  = self::icon_class($goal['mvp']);
             $goal['class_dream']= self::icon_class($goal['dream']);
+            $goal['issue_text'] = $goal['issue'] ? '#'.$goal['issue'] : '';
             $vars['goals'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_engineering/tpl/goal.tpl'))->SERVERPATH(), $goal);
         }
         $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));

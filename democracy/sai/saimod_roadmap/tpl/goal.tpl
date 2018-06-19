@@ -1,6 +1,7 @@
  <tr>
     <td>${id}</td>
     <td><input id="input-roadmap-goal-${id}" type="text" value="${goal}" style="width: 100%"/></td>
+    <td><input id="input-roadmap-issue-${id}" type="number" value="${issue}" style="width: 100%"/></td>
     <td>
         <select id="input-roadmap-beta-${id}">
             <option value="" ${selected_beta}></option>

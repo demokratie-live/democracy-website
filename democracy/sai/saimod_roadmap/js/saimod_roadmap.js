@@ -10,6 +10,7 @@ function init_saimod_roadmap() {
     $('#btn-roadmap-new-insert').click(function(){
         var order = $('#input-roadmap-new-order').val();
         var goal = $('#input-roadmap-new-goal').val();
+        var issue = $('#input-roadmap-new-issue').val();
         var beta = $('#input-roadmap-new-beta').val();
         var mvp = $('#input-roadmap-new-mvp').val();
         var dream = $('#input-roadmap-new-dream').val();
@@ -24,6 +25,7 @@ function init_saimod_roadmap() {
                 data: {
                     order: order,
                     goal: goal,
+                    issue: issue,
                     beta: beta,
                     mvp: mvp,
                     dream: dream,
@@ -46,6 +48,7 @@ function init_saimod_roadmap() {
         var id = $(this).attr('goal');
         var order = $('#input-roadmap-order-'+id).val();
         var goal = $('#input-roadmap-goal-'+id).val();
+        var issue = $('#input-roadmap-issue-'+id).val();
         var beta = $('#input-roadmap-beta-'+id).val();
         var mvp = $('#input-roadmap-mvp-'+id).val();
         var dream = $('#input-roadmap-dream-'+id).val();
@@ -61,6 +64,7 @@ function init_saimod_roadmap() {
                     id: id,
                     order: order,
                     goal: goal,
+                    issue: issue,
                     beta: beta,
                     mvp: mvp,
                     dream: dream,

@@ -1,5 +1,5 @@
 CREATE TABLE `faq` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `order` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `question` text NOT NULL,
   `answer` text NOT NULL,
