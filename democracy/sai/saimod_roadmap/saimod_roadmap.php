@@ -48,6 +48,7 @@ class saimod_roadmap extends \SYSTEM\SAI\sai_module{
             } else {
                 $goal['selected_dream'] = 'selected';
             }
+            $goal['goal'] = \htmlspecialchars($goal['goal']);
             $vars['goals'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_roadmap/tpl/goal.tpl'))->SERVERPATH(),$goal);
         }
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_roadmap/tpl/saimod_roadmap.tpl'))->SERVERPATH(),$vars);}
