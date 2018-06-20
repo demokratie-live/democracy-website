@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${css}
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109296340-1"></script>
+        <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109296340-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'UA-109296340-1');
-        </script>
+        </script>-->
 
         <meta name="author" content="Democracy Deutschland e.V.">
         <meta name="publisher" content="Democracy Deutschland e.V.">
