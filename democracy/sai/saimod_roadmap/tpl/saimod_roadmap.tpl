@@ -8,6 +8,15 @@
     .icon-blue {    color: rgb(68,148,211); }
     .icon-grey {    color: rgb(115,115,115); }
     .icon-black {   color: rgb(0,0,0); }
+    #table_goals td, #table_goals th {
+        width: auto;
+        padding: 3px;
+    }
+
+    #table_goals .min {
+        width: 1px;
+        white-space: nowrap;
+    }
 </style>
 <div class="row">
     <div class="col-12 sai_padding_off bg-primary sai_padding_10">
@@ -15,25 +24,25 @@
     </div>
     <div class="col-md-12 sai_padding_off sai_border_left" id="content_roadmap">
         <div class="table-responsive">
-            <table class="table table-striped table-condensed tablesorter sai_margin_off" id="table_goals">
+            <table class="table table-striped table-condensed table-hover tablesorter sai_margin_off" id="table_goals">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th class="min">ID</th>
                         <th>Goal</th>
-                        <th>Issue</th>
-                        <th>Beta</th>
-                        <th>MVP</th>
-                        <th>Dream</th>
-                        <th>Order</th>
-                        <th>Action</th>
+                        <th class="min">Issue</th>
+                        <th class="min">Beta</th>
+                        <th class="min">MVP</th>
+                        <th class="min">Dream</th>
+                        <th class="min">Order</th>
+                        <th class="min" style="min-width: 80px;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     ${goals}
                     <tr>
-                        <th>New</th>
+                        <th class="min">New</th>
                         <td><input id="input-roadmap-new-goal" type="text" style="width: 100%"/></td>
-                        <td><input id="input-roadmap-new-issue" type="number" value="" style="width: 100%"/></td>
+                        <td><input id="input-roadmap-new-issue" type="number" value="" style="width: 70px;"/></td>
                         <td>
                             <select id="input-roadmap-new-beta">
                                 <option value="" selected></option>
@@ -181,7 +190,7 @@
                                 <option value="75" class="icon-black">&#xf057;</option>
                             </select>
                         </td>
-                        <td><input id="input-roadmap-new-order" type="number" value="0" style="width: 100%"/></td>
+                        <td><input id="input-roadmap-new-order" type="number" value="0" style="width: 70px;"/></td>
                         <td>
                             <button type="button" id="btn-roadmap-new-insert" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i></button>
                         </td>

@@ -14,25 +14,21 @@ class saimod_faq extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_faq/tpl/saimod_faq_list.tpl'))->SERVERPATH(),$vars);}
     
     public static function sai_mod__SAI_saimod_faq_action_new(){
-        $vars = array();
-        return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_faq/tpl/saimod_faq_new.tpl'))->SERVERPATH(),$vars);}
+        return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_faq/tpl/saimod_faq_new.tpl'))->SERVERPATH());}
         
     public static function sai_mod__SAI_saimod_faq_action_edit($id){
         $vars = \SQL\FAQ_SELECT::Q1(array($id));
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_faq/tpl/saimod_faq_edit.tpl'))->SERVERPATH(),$vars);}
         
     public static function sai_mod__SAI_saimod_faq_action_insert($data){
-        return \SYSTEM\LOG\JsonResult::status(\SQL\FAQ_INSERT::QI(array($data['order'],$data['question'],$data['answer'],$data['categories'])));
-    }
+        return \SYSTEM\LOG\JsonResult::status(\SQL\FAQ_INSERT::QI(array($data['order'],$data['question'],$data['answer'],$data['categories'])));}
     
     public static function sai_mod__SAI_saimod_faq_action_update($data){
-        return \SYSTEM\LOG\JsonResult::status(\SQL\FAQ_UPDATE::QI(array($data['order'],$data['question'],$data['answer'],$data['categories'],$data['id'])));
-    }
+        return \SYSTEM\LOG\JsonResult::status(\SQL\FAQ_UPDATE::QI(array($data['order'],$data['question'],$data['answer'],$data['categories'],$data['id'])));}
     
     public static function sai_mod__SAI_saimod_faq_action_delete($data){
         foreach($data as $id){
-            \SQL\FAQ_DELETE::QI(array($id));
-        }
+            \SQL\FAQ_DELETE::QI(array($id));}
         return \JsonResult::ok();
     }
     

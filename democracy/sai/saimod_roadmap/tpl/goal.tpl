@@ -1,7 +1,7 @@
  <tr>
-    <td>${id}</td>
+    <td class="min">${id}</td>
     <td><input id="input-roadmap-goal-${id}" type="text" value="${goal}" style="width: 100%"/></td>
-    <td><input id="input-roadmap-issue-${id}" type="number" value="${issue}" style="width: 100%"/></td>
+    <td><input id="input-roadmap-issue-${id}" type="number" value="${issue}" style="width: 70px;"/></td>
     <td>
         <select id="input-roadmap-beta-${id}">
             <option value="" ${selected_beta}></option>
@@ -149,7 +149,7 @@
             <option value="75" class="icon-black" ${selected_dream_75}>&#xf057;</option>
         </select>
     </td>
-    <td><input id="input-roadmap-order-${id}" type="number" value="${order}" style="width: 100%"/></td>
+    <td><input id="input-roadmap-order-${id}" type="number" value="${order}" style="width: 70px;"/></td>
     <td>
         <button type="button" class="btn-roadmap-del btn btn-sm btn-danger pull-right" goal="${id}"><i class="fa fa-trash"></i></button>
         <button type="button" class="btn-roadmap-update btn btn-sm btn-success pull-right" goal="${id}" style="margin-right: 5px;"><i class="fa fa-edit"></i></button>
