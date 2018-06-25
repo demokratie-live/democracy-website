@@ -162,7 +162,7 @@
                     Ob jung oder alt, ob (bereits) Politikexperte oder (bislang) uninformiert –
                     DEMOCRACY wird Dir eine breit gefächerte Auswahl an Möglichkeiten
                     bieten, politisch aktiv zu werden, und dabei fast automatisch Dein Wissen,
-                    Deinen Einlick in pol. Prozesse sowie Dein Potential, auf die Politik Einfluss zu
+                    Deinen Einblick in pol. Prozesse sowie Dein Potential, auf die Politik Einfluss zu
                     nehmen, vergrößern. Sei Teil der Veränderung und nutze Deine Stimme.
                 </div>
                 <div class="row box-btns">
