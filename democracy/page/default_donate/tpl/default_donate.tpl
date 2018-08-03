@@ -51,7 +51,6 @@
         <div class="row" style="padding-top: 50px;">
             <div class="col-lg-6" style="text-align: left;">
                 <h5><strong>SPENDENKONTO FÜR DAUERAUFTRAG ODER ÜBERWEISUNG</strong></h5>
-                <br>
                 <span>  Unsere Bankverbindung für direkte Spenden, Überweisungen oder
                         Daueraufträge ist: </span>
                 <br><br>
@@ -75,7 +74,6 @@
                         <td>TRODDEF1</td>
                     </tr>
                 </table>
-
                 <span>  Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des
                         Finanzamt Göttingen vom 23.08.2017 die Einhaltung der satzungsmäigen
                         Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt worden
@@ -85,17 +83,21 @@
                         Wenn Du eine separate Zuwendungsbestätigung benötigst,
                         schreib uns bitte eine E-Mail oder gib in Deiner
                         Überweisung Deine Wohnadresse an.</span>
-                <br><br>
+                <br><br><br>
+                
                 <h5><strong>SPENDEN ÜBER BETTERPLACE</strong></h5>
-                <br>
                 <span>2.5 % der Spende verbleiben bei Betterplace.org</span>
-                <br><br>
+                <br><br><br>
+                
                 <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>
-                <br>
                 <span>  Spenden und Daueraufträge sind nur eine Möglichkeit, uns zu unterstützen.
                         Wir suchen ständig motivierte Leute für die aktive Mitarbeit in unserem
                         Projekt! Du hast Interesse Deine Fähigkeiten einzubringen – wir freuen uns
                         über Anregungen, Fragen und Kritik. <a href="#!engineering">Als Freiwilliger melden.</a></span>
+                <br><br><br>
+                
+                <h5><strong>JAHRESABSCHLÜSSE</strong></h5>
+                <span><a href="./files/download/JA_2017_DEMOCRACY.PDF" target="_blank">Jahresabschluss 2017</a></span>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
