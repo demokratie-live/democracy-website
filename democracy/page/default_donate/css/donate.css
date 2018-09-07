@@ -1,0 +1,131 @@
+progress {
+    height: 2.5em;
+    width: 100%;
+    -webkit-appearance: none;
+    border: none;
+
+    /* Set the progressbar to relative */
+    position:relative;
+}
+progress:before {
+    content: attr(data-label);
+    font-size: 0.8em;
+    font-weight: bold;
+    line-height: 3.3em;
+    padding-left: 15px;
+    vertical-align: central;
+
+    /*Position text over the progress bar */
+    position:absolute;
+    left:0;
+    right:0;
+}
+progress::-webkit-progress-bar {
+    background-color: #f6f6f6;
+}
+progress::-webkit-progress-value {
+    background-color: #7cc4ff;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #3D87C1,
+        #3D87C1 10px,
+        #4494D3 10px,
+        #4494D3 20px
+      );
+}
+progress::-moz-progress-bar {
+    background-color: #f6f6f6;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #3D87C1,
+        #3D87C1 10px,
+        #4494D3 10px,
+        #4494D3 20px
+      );
+}
+#donate_init_text{
+    text-align: left;
+    padding-left: 50px;
+}
+.w3_agileits_team_grid{
+    margin-top: 50px;
+}
+@media (max-width: 575px){
+    #donate_init_text{
+        padding-left: 15px;
+        padding-top: 50px;
+    }
+    #donate-box{
+        padding-top: 50px;
+    }
+}
+
+.donate-details {
+    margin-top: 50px;
+    position: relative;    
+    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.donate-details tr td {
+    background: none;
+    height: 75px;
+    
+}
+
+.donate-details td, th {
+    padding-left: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.donate-details .donate-details-head {
+    border-bottom: rgb(200,199,204) solid 0.5px;
+    background-color: rgb(239,239,244);
+}
+
+.donate-details .donate-details-head th{
+    color: rgb(109,109,114);
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    letter-spacing: 1.5px;
+}
+
+.donate-details .donate-details-data {
+    background-color: rgb(246,246,246);
+}
+
+.donate-details .donate-detail-progress {
+    position: absolute;
+    width: 0%;
+    height: 74px;
+    background: rgba(68,148,211,0.25);
+    margin-top: -9px;
+    margin-left: -15px;
+    margin-right: -1px;
+}
+
+.donate-details .donate-details-cost-text {
+    font-size: 14px;
+}
+
+.donate-details .donate-details-cost {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.donate-details .donate-details-description {
+    font-size: 22px;
+}
+
+.donate-details .donate-details-description-subtext {
+    font-size: 18px;
+}
+
+.donate-details .donate-details-date {
+    font-size: 14px;
+    padding-right: 15px;
+}

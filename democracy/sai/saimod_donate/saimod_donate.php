@@ -5,6 +5,17 @@ class saimod_donate extends \SYSTEM\SAI\sai_module{
         $vars = \SYSTEM\PAGE\text::tag('donation');
         $vars['donate_box'] = \default_donate::donate_box();
         
+        $vars['donate_details'] = \default_donate::donate_details();
+        $vars['value_left'] = $vars['donation_value'];
+        $vars['donate_data'] = '';
+        $res = \SQL\DONATE_SELECT::QQ();
+        while($row = $res->next()){
+            $vars['value_left'] -= $row['value'];
+            $row['selected_head'] = $row['type'] == \default_donate::DONATION_TYPE_HEAD ? 'selected' : '';
+            $row['selected_data'] = $row['type'] == \default_donate::DONATION_TYPE_DATA ? 'selected' : '';
+            $vars['donate_data'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_donate/tpl/donate_data.tpl'))->SERVERPATH(),$row);
+        }
+        
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_donate/tpl/saimod_donate.tpl'))->SERVERPATH(),$vars);}
     
     public static function sai_mod__SAI_saimod_donate_action_update($paten,$value,$paten_goal,$value_goal){
@@ -22,6 +33,9 @@ class saimod_donate extends \SYSTEM\SAI\sai_module{
                                     \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_donate/tpl/menu.tpl'))->SERVERPATH()));}
     public static function right_public(){return false;}
     public static function right_right(){return \SYSTEM\SECURITY\security::check(\SYSTEM\SECURITY\RIGHTS::SYS_SAI);}
+    
+    public static function css(){
+        return array(new \PPAGE('default_donate/css/donate.css'));}
     
     public static function js(){
         return array(new \PSAI('saimod_donate/js/saimod_donate.js'));}

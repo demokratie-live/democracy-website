@@ -23,7 +23,8 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                     new PPAGE('default_politicians/js/default_politicians.js'),
                     new PPAGE('default_press/js/default_press.js'),
                     new PPAGE('default_blog/js/default_blog.js'),
-                )));
+                ))).
+                \SYSTEM\HTML\html::script('https://www.paypalobjects.com/api/checkout.js');
     }
     
     public static function css(){
@@ -37,6 +38,7 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                     new PPAGE('default_contact/css/default_contact.css'),
                     new PPAGE('default_datenschutz/css/default_datenschutz.css'),
                     new PPAGE('default_donate/css/default_donate.css'),
+                    new PPAGE('default_donate/css/donate.css'),
                     new PPAGE('default_engineering/css/default_engineering.css'),
                     new PPAGE('default_faq/css/default_faq.css'),
                     new PPAGE('default_impressum/css/default_impressum.css'),

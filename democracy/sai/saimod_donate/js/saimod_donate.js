@@ -29,4 +29,25 @@ function init_saimod_donate() {
             }
         });
     });
+    
+    $('.select-details-type').trigger('change');
 };
+
+function detail_type(e){
+    switch(e.val()){
+        case '1':
+            $(e).parent().parent().find('.input-details-value').show();
+            $(e).parent().parent().find('.input-details-max').show();
+            $(e).parent().parent().find('.input-details-text-cost').show();
+            $(e).parent().parent().find('.input-details-text-description-subtext').show();
+            $(e).parent().parent().find('.input-details-text-date').show();
+            break;
+        default:
+            $(e).parent().parent().find('.input-details-value').hide();
+            $(e).parent().parent().find('.input-details-max').hide();
+            $(e).parent().parent().find('.input-details-text-cost').hide();
+            $(e).parent().parent().find('.input-details-text-description-subtext').hide();
+            $(e).parent().parent().find('.input-details-text-date').hide();
+    }
+    
+}

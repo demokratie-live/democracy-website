@@ -101,7 +101,8 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
-                <script type="text/javascript">
+                ${donate_details}
+                <!--<script type="text/javascript">
                     /* Configure at https://www.betterplace.org/de/projects/61376-democracy-demokratie_live/manage/iframe_donation_form/new */
                     var _bp_iframe = _bp_iframe || {};
                     _bp_iframe.project_id = 61376; /* REQUIRED */
@@ -124,7 +125,7 @@
                     <strong>
                         <a href="https://www.betterplace.org/de/projects/61376-democracy-demokratie_live/donations/new">Jetzt Spenden für „DEMOCRACY | Demokratie_live“ bei unserem Partner betterplace.org</a>
                     </strong>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="row">
