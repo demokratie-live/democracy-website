@@ -5,7 +5,7 @@
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_citizen');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_politicians');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_engineering');
-\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_donate');
+require_once dirname(__FILE__).'/default_donate/autoload.inc';
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_datenschutz');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_impressum');
