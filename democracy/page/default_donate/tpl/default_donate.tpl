@@ -85,8 +85,12 @@
                         Überweisung Deine Wohnadresse an.</span>
                 <br><br><br>
                 
-                <h5><strong>SPENDEN ÜBER BETTERPLACE</strong></h5>
-                <span>2.5 % der Spende verbleiben bei Betterplace.org</span>
+                <h5><strong>EHEMALS SPENDEN ÜBER BETTERPLACE</strong></h5>
+                <span>Wir haben uns dazu entschieden, das Spenden über betterplace nicht mehr ermöglichen zu wollen.<!-- Mehr Informationen dazu finden Sie <a href="" target="_blank">hier</a>.--></span>
+                <br><br><br>
+                
+                <h5><strong>SPENDEN ÜBER PAYPAL</strong></h5>
+                <span>1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.</span>
                 <br><br><br>
                 
                 <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>
@@ -101,7 +105,8 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
-                <script type="text/javascript">
+                ${donate_details}
+                <!--<script type="text/javascript">
                     /* Configure at https://www.betterplace.org/de/projects/61376-democracy-demokratie_live/manage/iframe_donation_form/new */
                     var _bp_iframe = _bp_iframe || {};
                     _bp_iframe.project_id = 61376; /* REQUIRED */
@@ -124,7 +129,7 @@
                     <strong>
                         <a href="https://www.betterplace.org/de/projects/61376-democracy-demokratie_live/donations/new">Jetzt Spenden für „DEMOCRACY | Demokratie_live“ bei unserem Partner betterplace.org</a>
                     </strong>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="row">

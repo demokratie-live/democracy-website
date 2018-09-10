@@ -1,5 +1,9 @@
 <?php
 class default_donate implements SYSTEM\PAGE\Page {
+    
+    const DONATION_TYPE_HEAD = 0;
+    const DONATION_TYPE_DATA = 1;
+    
     public static function title(){
         return \SYSTEM\PAGE\text::get('title_donate');}
     public static function meta(){
@@ -8,21 +12,38 @@ class default_donate implements SYSTEM\PAGE\Page {
         return array();}//   new PPAGE('default_donate/js/default_donate.js'));}
     public static function css(){
         return array();}//   new PPAGE('default_donate/css/default_donate.css'));}
+    public static function donate_details(){
+        $vars = \SYSTEM\PAGE\text::tag('donation');
+        $vars['donation_percentage'] = round($vars['donation_value']/$vars['donation_value_goal']*100,0);
+        $vars['donation_value_goal'] = number_format($vars['donation_value_goal'] , 0, ',', '.');
+        $vars['donation_value'] = number_format($vars['donation_value'] , 0, ',', '.');
+        
+        $vars['donation_data'] = '';
+        $res = \SQL\DONATE_SELECT::QQ();
+        while($row = $res->next()){
+            $row['percentage'] = $row['type'] == self::DONATION_TYPE_DATA ? round($row['value']/$row['max']*100,0) : 0;
+            $row['max'] = number_format($row['max'] , 0, ',', '.');
+            $vars['donation_data'] .= $row['type'] == self::DONATION_TYPE_HEAD ?
+                \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_details_head.tpl'))->SERVERPATH(), $row) :
+                \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_details_data.tpl'))->SERVERPATH(), $row);
+        }
+        
+        return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_details.tpl'))->SERVERPATH(), $vars);
+    }
     public static function donate_box(){
         $vars = \SYSTEM\PAGE\text::tag('donation');
         //Donations
-        /*$vars['donation_paten'] = 9;
-        $vars['donation_value'] = 61;
-        $vars['donation_date'] = '14.05.2018 * 18:45 Uhr';*/
         $vars['donation_percentage'] = round($vars['donation_value']/$vars['donation_value_goal']*100,0);
         $vars['donation_paten_goal'] = number_format($vars['donation_paten_goal'] , 0, ',', '.');
         $vars['donation_value_goal'] = number_format($vars['donation_value_goal'] , 0, ',', '.');
+        $vars['donation_value'] = number_format($vars['donation_value'] , 0, ',', '.');
         return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_box.tpl'))->SERVERPATH(), $vars);
     }
     public function html(){
         $vars = array();
         //donate box
         $vars['donate_box'] = self::donate_box();
+        $vars['donate_details'] = self::donate_details();
         //team
         $vars['team'] = '';
         $team = array(  array(  'name' => 'Marius Krüger', 'text' => 'Mädchen für alles<br>Initiator & UI', 'img' => './files/wir/marius_krueger.jpg', 'aktiv' => 'lightgreen',
