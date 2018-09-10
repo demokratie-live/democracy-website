@@ -85,8 +85,12 @@
                         Überweisung Deine Wohnadresse an.</span>
                 <br><br><br>
                 
-                <h5><strong>SPENDEN ÜBER BETTERPLACE</strong></h5>
-                <span>2.5 % der Spende verbleiben bei Betterplace.org</span>
+                <h5><strong>EHEMALS SPENDEN ÜBER BETTERPLACE</strong></h5>
+                <span>Wir haben uns dazu entschieden, das Spenden über betterplace nicht mehr ermöglichen zu wollen.<!-- Mehr Informationen dazu finden Sie <a href="" target="_blank">hier</a>.--></span>
+                <br><br><br>
+                
+                <h5><strong>SPENDEN ÜBER PAYPAL</strong></h5>
+                <span>1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.</span>
                 <br><br><br>
                 
                 <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>

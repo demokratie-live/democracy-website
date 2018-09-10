@@ -16,6 +16,7 @@ class default_donate implements SYSTEM\PAGE\Page {
         $vars = \SYSTEM\PAGE\text::tag('donation');
         $vars['donation_percentage'] = round($vars['donation_value']/$vars['donation_value_goal']*100,0);
         $vars['donation_value_goal'] = number_format($vars['donation_value_goal'] , 0, ',', '.');
+        $vars['donation_value'] = number_format($vars['donation_value'] , 0, ',', '.');
         
         $vars['donation_data'] = '';
         $res = \SQL\DONATE_SELECT::QQ();
@@ -34,6 +35,7 @@ class default_donate implements SYSTEM\PAGE\Page {
         $vars['donation_percentage'] = round($vars['donation_value']/$vars['donation_value_goal']*100,0);
         $vars['donation_paten_goal'] = number_format($vars['donation_paten_goal'] , 0, ',', '.');
         $vars['donation_value_goal'] = number_format($vars['donation_value_goal'] , 0, ',', '.');
+        $vars['donation_value'] = number_format($vars['donation_value'] , 0, ',', '.');
         return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_box.tpl'))->SERVERPATH(), $vars);
     }
     public function html(){

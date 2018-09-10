@@ -6,25 +6,29 @@
         </span>
         <span style="display:block; font-size: medium; font-weight: normal; color: #6a666b;">(min. Finanzierungsziel/Monat)</span>
     </div>
-    <style>
-        
-    </style>
-    <script>
-        var updateProgress = function () {
-    var trs = document.querySelectorAll('.table-body tr');
-    for (var i=0; i<trs.length; i++) {
-        var tr = trs[i];
-        var pr = tr.querySelector('.progress');
-        pr.style.width = (tr.dataset.progress)+'%';
-        pr.style.height = tr.clientHeight + 'px';
-    }
-}
-    //updateProgress();
-    </script>
     <table class="donate-details">
         <tbody class="table-body">
             ${donation_data}
         </tbody>
     </table>
-    <div id="paypal-button" style="padding-top: 50px;"></div>
+    <div id="paypal-button" style="padding-top: 35px;">
+        <a href="" target="_blank">
+            <img src="./files/images/PayPal-Donate-Button-Transparent.png" alt="Spenden mit Paypal" style="width: 50%"/>
+        </a>
+    </div>
+    <script>
+        var updateProgress = function () {
+            var trs = document.querySelectorAll('.donate-details tr');
+            for (var i=0; i<trs.length; i++) {
+                var tr = trs[i];
+                var pr = tr.querySelector('.donate-detail-progress');
+                if(pr){
+                    pr.style.height = tr.clientHeight-1 + 'px';
+                    pr.style.top = tr.offsetTop + 'px';
+                }
+            }
+        }
+        updateProgress();
+        window.addEventListener("resize", updateProgress);
+    </script>
 </div>

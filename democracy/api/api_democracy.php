@@ -71,4 +71,27 @@ class api_democracy extends \SYSTEM\API\api_system {
         
         return \SYSTEM\LOG\JsonResult::toString(['file_name' => $file_name]);
     }
+    
+    public static function call_donation_status(){
+        $res = \SYSTEM\PAGE\text::tag('donation');
+        $res['donation_percentage'] = round($res['donation_value']/$res['donation_value_goal']*100,0);
+        $res['donation_value_goal'] = (int)$res['donation_value_goal'];
+        $res['donation_paten_goal'] = (int)$res['donation_paten_goal'];
+        $res['donation_paten'] = (int)$res['donation_paten'];
+        $res['donation_value'] = (int)$res['donation_value'];
+        
+        $res['donation_data'] = [];
+        $r = \SQL\DONATE_SELECT::QQ();
+        while($row = $r->next()){
+            $row['percentage'] = $row['type'] == default_donate::DONATION_TYPE_DATA ? round($row['value']/$row['max']*100,0) : 0;
+            $row['id'] = (int)$row['id'];
+            $row['order'] = (int)$row['order'];
+            $row['type'] = (int)$row['type'];
+            $row['value'] = (int)$row['value'];
+            $row['max'] = (int)$row['max'];
+            $res['donation_data'][] = $row;
+        }
+        
+        return \SYSTEM\LOG\JsonResult::toString($res);
+    }
 }

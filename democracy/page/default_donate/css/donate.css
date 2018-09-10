@@ -70,7 +70,7 @@ progress::-moz-progress-bar {
 }
 .donate-details tr td {
     background: none;
-    height: 75px;
+    // height: 75px;
     
 }
 
@@ -103,7 +103,8 @@ progress::-moz-progress-bar {
     width: 0%;
     height: 74px;
     background: rgba(68,148,211,0.25);
-    margin-top: -9px;
+    // margin-top: -9px;
+    margin-top: 1px;
     margin-left: -15px;
     margin-right: -1px;
 }

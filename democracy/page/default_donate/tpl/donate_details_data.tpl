@@ -1,4 +1,4 @@
-<tr class="donate-details-data">
+<tr class="donate-details-data" onresize="updateProgress()">
     <td>
         <div class="donate-detail-progress" style="width: ${percentage}%;"></div>
         <div class="donate-details-cost-text">${text_cost}</div>
