@@ -140,6 +140,8 @@ function init_saimod_donate() {
             }
         });
     });
+    
+    updateProgress();
 };
 
 function detail_type(e){
