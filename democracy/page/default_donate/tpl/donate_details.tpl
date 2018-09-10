@@ -1,5 +1,5 @@
 <div style="width: 100%; margin-left: auto; margin-right: auto;">
-    <progress max="100" value="${donation_percentage}" data-label="${donation_percentage}% von 10.000€ GESCHAFFT!"></progress>
+    <progress max="100" value="${donation_percentage}" data-label="${donation_percentage}% von ${donation_value_goal}€ GESCHAFFT!"></progress>
     <div style="border-top: solid 3px #4494D3; margin-top: 5px; background-color: #f6f6f6; text-align: center; padding-bottom: 15px; padding-top: 15px;">
         <span style="display:block;  font-weight: bold;">
             <span style="font-size: larger; color: #333">${donation_value}€ von ${donation_value_goal}€</span>
