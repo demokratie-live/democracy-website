@@ -8,5 +8,5 @@ CREATE TABLE `donate` (
   `text_description` varchar(255) NOT NULL,
   `text_description_subtext` varchar(255) NOT NULL,
   `text_date` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`);
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

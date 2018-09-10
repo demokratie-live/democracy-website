@@ -22,6 +22,7 @@ class default_donate implements SYSTEM\PAGE\Page {
         $res = \SQL\DONATE_SELECT::QQ();
         while($row = $res->next()){
             $row['percentage'] = $row['type'] == self::DONATION_TYPE_DATA ? round($row['value']/$row['max']*100,0) : 0;
+            $row['max'] = number_format($row['max'] , 0, ',', '.');
             $vars['donation_data'] .= $row['type'] == self::DONATION_TYPE_HEAD ?
                 \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_details_head.tpl'))->SERVERPATH(), $row) :
                 \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/donate_details_data.tpl'))->SERVERPATH(), $row);
