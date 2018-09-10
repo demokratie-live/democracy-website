@@ -26,6 +26,22 @@ class saimod_donate extends \SYSTEM\SAI\sai_module{
         \SYSTEM\PAGE\text::save('donation_date', 'donation_date', 'deDE', ['donation'], date('d.m.Y * H:i').' Uhr');
         return \SYSTEM\LOG\JsonResult::ok();
     }
+    
+    public static function sai_mod__SAI_saimod_donate_action_detail_delete($detail){
+        $res = \SQL\DONATE_DETAIL_DELETE::QI(array($detail));
+        return \SYSTEM\LOG\JsonResult::status($res ? true : false);
+    }
+    
+    public static function sai_mod__SAI_saimod_donate_action_detail_insert($data){
+        $res = \SQL\DONATE_DETAIL_INSERT::QI(array($data['order'],$data['type'],$data['value'],$data['max'],$data['text_cost'],$data['text_description'],$data['text_description_subtext'],$data['text_date']));
+        return \SYSTEM\LOG\JsonResult::status($res ? true : false);
+    }
+    
+    public static function sai_mod__SAI_saimod_donate_action_detail_update($data){
+        $res = \SQL\DONATE_DETAIL_UPDATE::QI(array($data['order'],$data['type'],$data['value'],$data['max'],$data['text_cost'],$data['text_description'],$data['text_description_subtext'],$data['text_date'],$data['detail']));
+        return \SYSTEM\LOG\JsonResult::status($res ? true : false);
+    }
+    
     public static function menu(){
         return new \SYSTEM\SAI\sai_module_menu( 110,
                                     \SYSTEM\SAI\sai_module_menu::POISITION_LEFT,

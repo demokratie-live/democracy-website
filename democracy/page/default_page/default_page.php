@@ -23,8 +23,8 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                     new PPAGE('default_politicians/js/default_politicians.js'),
                     new PPAGE('default_press/js/default_press.js'),
                     new PPAGE('default_blog/js/default_blog.js'),
-                ))).
-                \SYSTEM\HTML\html::script('https://www.paypalobjects.com/api/checkout.js');
+                )));
+                //\SYSTEM\HTML\html::script('https://www.paypalobjects.com/api/checkout.js');
     }
     
     public static function css(){

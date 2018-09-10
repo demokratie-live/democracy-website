@@ -27,33 +27,4 @@
         </tbody>
     </table>
     <div id="paypal-button" style="padding-top: 50px;"></div>
-    <script>
-    paypal.Button.render({
-      env: 'sandbox',
-      client: {
-        sandbox: 'demo_sandbox_client_id'
-      },
-      style: {
-        size: 'large',
-        tagline : false,
-        fundingicons: true,
-      },
-      payment: function (data, actions) {
-        return actions.payment.create({
-          transactions: [{
-            amount: {
-              total: '0.00',
-              currency: 'EUR'
-            }
-          }]
-        });
-      },
-      onAuthorize: function (data, actions) {
-        return actions.payment.execute()
-          .then(function () {
-            window.alert('Danke für Ihre Unterstützung!');
-          });
-      }
-    }, '#paypal-button');
-    </script>
 </div>

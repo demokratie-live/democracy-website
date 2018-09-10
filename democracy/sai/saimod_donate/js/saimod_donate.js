@@ -31,6 +31,115 @@ function init_saimod_donate() {
     });
     
     $('.select-details-type').trigger('change');
+    
+    $('.donate-details-delete').click(function(){
+        var detail = $(this).attr('detail');
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'GET',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_donate',
+                action: 'detail_delete',
+                detail: detail,
+            },
+            success: function(data){
+                if(data.status){
+                    system.reload();
+                } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('.donate-details-update').click(function(){
+        var detail = $(this).attr('detail');
+        var order = $(this).parent().parent().find('.input-details-order').val();
+        var type = $(this).parent().parent().find('.select-details-type').val();
+        var value = $(this).parent().parent().find('.input-details-value').val();
+        var max = $(this).parent().parent().find('.input-details-max').val();
+        var text_cost = $(this).parent().parent().find('.input-details-text-cost').val();
+        var text_description = $(this).parent().parent().find('.input-details-text-description').val();
+        var text_description_subtext = $(this).parent().parent().find('.input-details-text-description-subtext').val();
+        var text_date = $(this).parent().parent().find('.input-details-text-date').val();
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'GET',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_donate',
+                action: 'detail_update',
+                data: {
+                    detail: detail,
+                    order: order,
+                    type: type,
+                    value: value,
+                    max: max,
+                    text_cost: text_cost,
+                    text_description: text_description,
+                    text_description_subtext: text_description_subtext,
+                    text_date: text_date,
+                },
+            },
+            success: function(data){
+                if(data.status){
+                    system.reload();
+                } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#donate-details-insert').click(function(){
+        var order = $(this).parent().parent().find('.input-details-order').val();
+        var type = $(this).parent().parent().find('.select-details-type').val();
+        var value = $(this).parent().parent().find('.input-details-value').val();
+        var max = $(this).parent().parent().find('.input-details-max').val();
+        var text_cost = $(this).parent().parent().find('.input-details-text-cost').val();
+        var text_description = $(this).parent().parent().find('.input-details-text-description').val();
+        var text_description_subtext = $(this).parent().parent().find('.input-details-text-description-subtext').val();
+        var text_date = $(this).parent().parent().find('.input-details-text-date').val();
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'GET',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_donate',
+                action: 'detail_insert',
+                data: {
+                    order: order,
+                    type: type,
+                    value: value,
+                    max: max,
+                    text_cost: text_cost,
+                    text_description: text_description,
+                    text_description_subtext: text_description_subtext,
+                    text_date: text_date,
+                },
+            },
+            success: function(data){
+                if(data.status){
+                    system.reload();
+                } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
 };
 
 function detail_type(e){
