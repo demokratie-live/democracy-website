@@ -50,7 +50,7 @@ progress::-moz-progress-bar {
 .w3_agileits_team_grid{
     margin-top: 50px;
 }
-@media (max-width: 575px){
+@media (max-width: 991px){
     #donate_init_text{
         padding-left: 15px;
         padding-top: 50px;
@@ -70,8 +70,6 @@ progress::-moz-progress-bar {
 }
 .donate-details tr td {
     background: none;
-    // height: 75px;
-    
 }
 
 .donate-details td, th {
@@ -88,7 +86,7 @@ progress::-moz-progress-bar {
 .donate-details .donate-details-head th{
     color: rgb(109,109,114);
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
     padding-top: 7px;
     padding-bottom: 7px;
     letter-spacing: 1.5px;
@@ -103,7 +101,6 @@ progress::-moz-progress-bar {
     width: 0%;
     height: 74px;
     background: rgba(68,148,211,0.25);
-    // margin-top: -9px;
     margin-top: 1px;
     margin-left: -15px;
     margin-right: -1px;
@@ -119,11 +116,11 @@ progress::-moz-progress-bar {
 }
 
 .donate-details .donate-details-description {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .donate-details .donate-details-description-subtext {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .donate-details .donate-details-date {
