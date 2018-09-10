@@ -11,11 +11,12 @@
             ${donation_data}
         </tbody>
     </table>
-    <div id="paypal-button" style="padding-top: 35px;">
-        <a href="" target="_blank">
-            <img src="./files/images/PayPal-Donate-Button-Transparent.png" alt="Spenden mit Paypal" style="width: 50%"/>
-        </a>
-    </div>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="padding-top: 35px;">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="PR4PJL4AY8RSL">
+        <input type="image" src="./files/images/PayPal-Donate-Button-Transparent.png" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal." style="width: 50%;">
+        <!--<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">-->
+    </form>
     <script>
         var updateProgress = function () {
             var trs = document.querySelectorAll('.donate-details tr');
