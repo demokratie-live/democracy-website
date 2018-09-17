@@ -22,6 +22,8 @@ class page_democracy extends \SYSTEM\API\api_default {
     public static function page_donate(){
         return (new default_donate())->html();}
     
+    public static function page_nutzungsbedingungen(){
+        return (new default_nutzungsbedingungen())->html();}
     public static function page_datenschutz(){
         return (new default_datenschutz())->html();}
     public static function page_impressum(){

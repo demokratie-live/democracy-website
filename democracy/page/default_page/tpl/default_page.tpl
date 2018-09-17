@@ -102,6 +102,7 @@
                 <div class="col-lg-3 footer-rechtliches">
                     <h3>RECHTLICHES</h3>
                     <ul>
+                        <li><a href="#!nutzungsbedingungen">Nutzungsbedingungen</a></li>
                         <li><a href="#!datenschutz">Datenschutz</a></li>
                         <li><a href="#!impressum">Impressum</a></li>
                         <li><a href="#!contact">Kontakt</a></li>
