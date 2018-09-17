@@ -217,6 +217,16 @@ body {
     color: #fff;
 }
 
+.whitelink {
+    color: #fff;
+    padding-top: 25px;
+    font-size: 20px;
+}
+
+.whitelink:active, .whitelink:hover, .whitelink:focus {
+    color: #fff;
+}
+
 .newsletterbox{
     padding-bottom: 50px;
 }
@@ -302,4 +312,11 @@ body {
 .page {
     min-height: 100vh;
     overflow-y: hidden;
+}
+
+@media (min-width: 992px) {
+    .testdemocracy {
+       padding-left: 6px;
+       padding-right: 6px;
+    }
 }

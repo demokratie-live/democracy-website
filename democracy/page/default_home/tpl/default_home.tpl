@@ -11,8 +11,8 @@
                         <div class="badges">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <span>Beta</span><br>
-                                    <a class="badge-link icon-app-store-outline" href="./invite/02C67F34" style="padding-top: 5px;"> </a>
+                                    <br>
+                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}" style="padding-top: 5px;"> </a>
                                 </div>
                                 <style>
                                     @media (min-width: 992px){
@@ -22,11 +22,13 @@
                                     }
                                 </style>
                                 <div id="secondbadge" class="col-lg-5">
-                                    <span class="d-none d-lg-block">Beta</span>
-                                    <a class="badge-link icon-google-play-outline" href="./invite/02C67F34" style="padding-top: 5px;"> </a>
+                                    <br>
+                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"> </a>
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <a class="whitelink" href="${link_browserversion}">zur Browserversion</a> 
                     </div>
                 </div>
             </div>
