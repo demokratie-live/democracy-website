@@ -18,11 +18,11 @@
         <meta name="author" content="Democracy Deutschland e.V.">
         <meta name="publisher" content="Democracy Deutschland e.V.">
         <meta name="copyright" content="Democracy Deutschland e.V.">
-        <meta name="description" content="DEMOCRACY ist eine Initiative für mehr Basisdemokratie in Deutschland.">
-        <meta name="keywords" content="Volksabstimmung, Mitbestimmung, Basisdemokratie, Bundestag, Bundestagsabstimmungen, Abstimmungsinitiativen, Demokratie,Bürgerwünsche, Politik, Stimme, Diskussionsforum, Wahlstimmen, abstimmen, appstimmen">
+        <meta name="description" content="Die offizielle Projektseite der DEMOCRACY App – das 10X-Improvement für unsere Demokratie. DEMOCRACY räumt jedem nutzenden Bundesbürger die Möglichkeit ein, sich über die aktuellen Parlamentsabstimmungen des deutschen Bundestags zu informieren und selbst abzustimmen">
+        <meta name="keywords" content="Democracy App, DEMOCRACY App, democracy app, democracyapp, DEMOCRACYApp, Volksabstimmung, Mitbestimmung, Basisdemokratie, Bundestag, Bundestagsabstimmungen, Abstimmungsinitiativen, Demokratie,Bürgerwünsche, Politik, Stimme, Diskussionsforum, Wahlstimmen, abstimmen, appstimmen">
         <meta name="page-topic" content="Gesellschaft">
         <meta name="page-type" content="Bericht Reportage">
-        <meta name="audience" content="Anfänger, Azubis, Erwachsene, Experten, Fortgeschrittene, Frauen, Jugendliche, Männer, Profis, Schüler, Studenten">
+        <meta name="audience" content="Politiker, Bürger, Interessierte, Lobbyisten, Anfänger, Azubis, Erwachsene, Experten, Fortgeschrittene, Frauen, Jugendliche, Männer, Profis, Schüler, Studenten">
         <meta name="robots" content="index, follow">
         <meta name="DC.Creator" content="Democracy Deutschland e.V.">
         <meta name="DC.Publisher" content="Democracy Deutschland e.V.">

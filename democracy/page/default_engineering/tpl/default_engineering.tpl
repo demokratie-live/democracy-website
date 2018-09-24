@@ -66,7 +66,7 @@
                             </th>
                             <th scope="col" class="rotate">
                                 Public MVP
-                                <div class="rmicon-red">01.10.18</div>
+                                <div class="rmicon-green">01.10.18</div>
                             </th>
                             <th scope="col" class="rotate">
                                 Post MVP
