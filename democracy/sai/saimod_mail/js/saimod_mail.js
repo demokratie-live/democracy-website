@@ -199,6 +199,39 @@ function init_saimod_mail_list() {
             }
         });
     });
+    
+    $('#csv-file').change(function (){
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            upload($(this).get(0).files[i],$('#input-list-id').val());
+        }
+    });
+}
+
+function upload(file,list) {
+    if(!file) return;
+
+    //FormData Objekt erzeugen
+    var formData = new FormData();
+    //XMLHttpRequest Objekt erzeugen
+    var client = new XMLHttpRequest();
+    client.responseType = 'json';
+ 
+    $('#bug-progress .progress-bar').css('width', '0%').attr('aria-valuenow', 0); 
+    $('#bug-progress').show(); 
+    $('#bug-file-list').show();
+    $('#bug-file-list').append('<a target="_blank" class="'+file.lastModified+' list-group-item list-group-item-warning"><span class="badge alert-success pull-right hidden">Success</span>'+file.name+'</a>');
+    
+    //Fügt dem formData Objekt unser File Objekt hinzu
+    formData.append("datei", file);
+ 
+    client.onerror = function(e) {
+        $('.'+file.lastModified).removeClass('list-group-item-warning');
+        $('.'+file.lastModified).removeClass('list-group-item-success');
+        $('.'+file.lastModified).addClass('list-group-item-danger');
+    };
+    client.open("POST", "./sai.php?sai_mod=.SAI.saimod_mail&action=csvimport&list="+list);
+    client.send(formData);
+    system.reload();
 }
 
 function init_saimod_mail_list_new() {

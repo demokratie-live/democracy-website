@@ -25,3 +25,5 @@ REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `na
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (9065, 42, 2, 9000, 'update_template', 'data', 'JSON');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (9067, 42, 2, 9000, 'insert_template', 'data', 'JSON');
 REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (9069, 42, 2, 9000, 'delete_template', 'data', 'JSON');
+
+REPLACE INTO `system_api` (`ID`, `group`, `type`, `parentID`, `parentValue`, `name`, `verify`) VALUES (9070, 42, 2, 9000, 'csvimport', 'list', 'UINT0');
