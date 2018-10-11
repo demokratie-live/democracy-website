@@ -21,6 +21,13 @@
                 <th colspan="2"></th>
             </tr>
             <tr>
+                <th>CSV Import</th>
+                <td><input type="file" name="files[]" id="csv-file"></td>
+            </tr>
+            <tr>
+                <th colspan="2"></th>
+            </tr>
+            <tr>
                 <th colspan="2">Members</th>
             </tr>
             ${data}

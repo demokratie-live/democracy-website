@@ -90,7 +90,10 @@
                 <br><br><br>
                 
                 <h5><strong>SPENDEN ÜBER PAYPAL</strong></h5>
-                <span>1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.</span>
+                <span>  1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.
+                        Bitte bedenke, dass von einer monatlichen 1€-Spende insofern nur 0,63€ bei uns ankommen.<br>
+                        <br>
+                        Damit Deine Spende zu 100% wirksam wird und für Dich jederzeit kontrollierbar ist, empfehlen wir einen Dauerauftrag á Konto einzurichten.</span>
                 <br><br><br>
                 
                 <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>

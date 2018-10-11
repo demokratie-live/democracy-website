@@ -511,6 +511,36 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         }
         return \JsonResult::ok();
     }
+    
+    public static function sai_mod__SAI_saimod_mail_action_csvimport($list){
+        $handle = fopen($_FILES['datei']['tmp_name'],'r');
+        while ( ($data = fgetcsv($handle,0,';') ) !== FALSE ) {
+            $email = $data[0];
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                continue;}
+            $db = \SQL\CONTACT_SELECT::Q1(array($email));
+            $sex = $db ? $db['sex'] : null;
+            if(count($data) >= 2 && $data[1]){
+                $sex = $data[1];
+            }
+            $name_first = $db ? $db['name_first'] : null;
+            if(count($data) >= 3 && $data[2]){
+                $name_first = $data[2];
+            }
+            $name_last = $db ? $db['name_last'] : null;
+            if(count($data) >= 4 && $data[3]){
+                $name_first = $data[3];
+            }
+            
+            if($db){
+                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$email));
+            } else {
+                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last));
+            }
+            
+            \SQL\SUBSCRIBE::QI(array($email,$list));
+        }
+    }
         
     public static function menu(){
         return new \SYSTEM\SAI\sai_module_menu( 101,
