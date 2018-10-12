@@ -55,3 +55,6 @@
 [submodule "lib/font_awesome"]
 	path = lib/font_awesome
 	url = ../lib_font_awesome.git
+[submodule "lib/popper"]
+	path = lib/popper
+	url = ../lib_popper.git
