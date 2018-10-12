@@ -8,6 +8,7 @@
 require_once dirname(__FILE__).'/default_donate/autoload.inc';
 
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_datenschutz');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_nutzungsbedingungen');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_impressum');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_contact');
 

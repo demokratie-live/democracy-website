@@ -171,9 +171,9 @@
                             <div>Jetzt Pate werden</div>
                         </a>
                     </div>
-                    <div class="col-lg-4">
-                        <a class="btn-democracy" href="./invite/02C67F34">
-                            <div>Prototyp testen</div>
+                    <div class="col-lg-4 testdemocracy">
+                        <a class="btn-democracy" href="#!home">
+                            <div>DEMOCRACY testen</div>
                         </a>
                     </div>
                     <div class="col-lg-3">

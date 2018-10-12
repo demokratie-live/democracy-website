@@ -66,7 +66,7 @@
                             </th>
                             <th scope="col" class="rotate">
                                 Public MVP
-                                <div class="rmicon-red">01.10.18</div>
+                                <div class="rmicon-green">01.10.18</div>
                             </th>
                             <th scope="col" class="rotate">
                                 Post MVP
@@ -83,7 +83,7 @@
                 <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
             </div>
             <div class="col-12" style="padding-top: 50px;">
-                <h1>Prototyp testen</h1
+                <h1>DEMOCRACY testen</h1
             </div>
             <div class="row" style="padding-top: 50px;">
                 <div class="col-lg-1"></div>
@@ -102,16 +102,16 @@
                     <div class="badges2">
                         <div class="row">
                             <div class="col-md-6">
-                                <span>Beta</span><br>
-                                <a class="badge-link2 icon-app-store-outline2" href="./invite/02C67F34" style="margin-top: -5px;"> </a>
+                                <span>MVP</span><br>
+                                <a class="badge-link2 icon-app-store-outline2" href="${link_appstore}" style="margin-top: -5px;"> </a>
                             </div>
                             <div id="secondbadge" class="col-md-6">
-                                <span class="d-none d-md-block">Beta</span>
-                                <a class="badge-link2 icon-google-play-outline2" href="./invite/02C67F34" style="margin-top: -5px;"> </a>
+                                <span class="d-none d-md-block">MVP</span>
+                                <a class="badge-link2 icon-google-play-outline2" href="${link_playstore}" style="margin-top: -5px;"> </a>
                             </div>
                             <div class="col-12">
-                                <a class="btn-democracy" href="./invite/02C67F34">
-                                    <div style="width: auto; border: 0;">Hier gehts zum Bewerbungsformular</div>
+                                <a class="btn-democracy" href="${link_browserversion}">
+                                    <div style="width: auto; border: 0;">Hier gehts zur Browserversion</div>
                                 </a>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
             <form id="bug-form">
                 <div class="col-12" style="padding-top:50px;">
                     <h1>Bugreports</h1>
-                    <h5 style="padding-top:30px;">Du hast einen Fehler gefunden oder ein anderes Problem in der Beta festgestellt? Hilf uns diese(n) zu beheben –<br>
+                    <h5 style="padding-top:30px;">Du hast einen Fehler gefunden oder ein anderes Problem im MVP festgestellt? Hilf uns diese(n) zu beheben –<br>
                         mit einem qualifizierten Feedback. Dazu füllst du am Besten das untenstehende Formular aus.</h5>
                     <div class="row" style="padding-top:50px;">
                         <div class="col-lg-12">
