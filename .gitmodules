@@ -1,6 +1,6 @@
 [submodule "lib/system"]
 	path = lib/system
-	url = git@github.com:webcraftmedia/system.git
+	url = https://github.com/webcraftmedia/system.git
 [submodule "lib/mail_cannon"]
 	path = lib/mail_cannon
-	url = git@github.com:webcraftmedia/lib_mail_cannon.git
+	url = https://github.com/webcraftmedia/lib_mail_cannon.git
