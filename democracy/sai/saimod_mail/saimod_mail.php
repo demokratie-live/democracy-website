@@ -132,10 +132,10 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     }
     
     public static function send_list($email_id,$list){
-        $list_handle = \SQL\CONTACT_EMAIL_LIST_SELECT_LIST::QQ(array($list));
-        while($row = $list_handle->next()){
+        $list_handle = \SQL\CONTACT_EMAIL_LIST_SELECT_LIST::QA(array($email_id,$list));
+        foreach($list_handle as $row){
             \set_time_limit(30);
-            self::send_mail($row['email'], $email_id, $list) ? 1 : 0;
+            self::send_mail($row['email'], $email_id, $list);
             \sleep(1);
         }
         return \SYSTEM\LOG\JsonResult::ok();
