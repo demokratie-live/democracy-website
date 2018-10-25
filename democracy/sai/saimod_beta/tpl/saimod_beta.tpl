@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-2 sai_padding_off">
         <ul class="nav bg-light flex-column" id="tabs_beta">
-            <li class="nav-item"><a class="nav-link active" href="#!beta" id="menu_tag_beta">(All) Beta</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#!beta" id="menu_tag_beta">(All) Alpha</a></li>
             <li class="nav-item"><a class="nav-link" href="#!beta(code)" id="menu_tag_code">1. Code</a></li>
             <li class="nav-item"><a class="nav-link" href="#!beta(store_android)" id="menu_tag_store_android">2. Store (Android)&nbsp;<span class="pull-right badge badge-pill badge-danger">${store_android_count}</span></a></li>
             <li class="nav-item"><a class="nav-link" href="#!beta(store_ios)" id="menu_tag_store_ios">2. Store (iOS)&nbsp;<span class="pull-right badge badge-pill badge-danger">${store_ios_count}</span></a></li>
