@@ -3,6 +3,12 @@
         font-family: 'FontAwesome', 'sans-serif';
         font-size: 30px;
     }
+    #input-roadmap-beta-head-color, #input-roadmap-beta-head-color>option,
+    #input-roadmap-mvp-head-color, #input-roadmap-mvp-head-color>option,
+    #input-roadmap-dream-head-color, #input-roadmap-dream-head-color>option {
+        font-family: 'Arial' !important;
+        font-size: 20px !important;
+    }
     .icon-red {     color: rgb(196, 48, 43); }
     .icon-green {   color: rgb(38, 183, 39) }
     .icon-blue {    color: rgb(68,148,211); }
@@ -30,11 +36,43 @@
                         <th class="min">ID</th>
                         <th>Goal</th>
                         <th class="min">Issue</th>
-                        <th class="min">Beta</th>
-                        <th class="min">MVP</th>
-                        <th class="min">Dream</th>
+                        <th class="min">
+                            <input tyle="text" value="${roadmap_beta_head_text}" id="input-roadmap-beta-head-text" style="width: 100px;"/><br>
+                            <input tyle="text" value="${roadmap_beta_head_sub_text}" id="input-roadmap-beta-head-sub-text" style="width: 100px;"/><br>
+                            <select id="input-roadmap-beta-head-color">
+                                <option value="red" ${selected_beta_head_red}>Red</option>
+                                <option value="green" ${selected_beta_head_green}>Green</option>
+                                <option value="blue" ${selected_beta_head_blue}>Blue</option>
+                                <option value="grey" ${selected_beta_head_grey}>Grey</option>
+                                <option value="black" ${selected_beta_head_black}>Black</option>
+                            </select>
+                        </th>
+                        <th class="min">
+                            <input tyle="text" value="${roadmap_mvp_head_text}" id="input-roadmap-mvp-head-text" style="width: 100px;"/><br>
+                            <input tyle="text" value="${roadmap_mvp_head_sub_text}" id="input-roadmap-mvp-head-sub-text" style="width: 100px;"/><br>
+                            <select id="input-roadmap-mvp-head-color">
+                                <option value="red" ${selected_mvp_head_red}>Red</option>
+                                <option value="green" ${selected_mvp_head_green}>Green</option>
+                                <option value="blue" ${selected_mvp_head_blue}>Blue</option>
+                                <option value="grey" ${selected_mvp_head_grey}>Grey</option>
+                                <option value="black" ${selected_mvp_head_black}>Black</option>
+                            </select>
+                        </th>
+                        <th class="min">
+                            <input tyle="text" value="${roadmap_dream_head_text}" id="input-roadmap-dream-head-text" style="width: 100px;"/><br>
+                            <input tyle="text" value="${roadmap_dream_head_sub_text}" id="input-roadmap-dream-head-sub-text" style="width: 100px;"/><br>
+                            <select id="input-roadmap-dream-head-color">
+                                <option value="red" ${selected_dream_head_red}>Red</option>
+                                <option value="green" ${selected_dream_head_green}>Green</option>
+                                <option value="blue" ${selected_dream_head_blue}>Blue</option>
+                                <option value="grey" ${selected_dream_head_grey}>Grey</option>
+                                <option value="black" ${selected_dream_head_black}>Black</option>
+                            </select>
+                        </th>
                         <th class="min">Order</th>
-                        <th class="min" style="min-width: 80px;">Action</th>
+                        <th class="min" style="min-width: 80px;">
+                            <button type="button" id="btn-roadmap-head-update" class="btn btn-sm btn-success pull-left" style="margin-left: 7px; margin-right: 5px;"><i class="fa fa-edit"></i></button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
