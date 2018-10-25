@@ -5,6 +5,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_LIST_TEST               = 1;
     const EMAIL_LIST_NEWSLETTER         = 2;
     const EMAIL_LIST_PROTOTYPE          = 3;
+    const EMAIL_LIST_ALPHA              = 4;
     
     const EMAIL_WEBSITE_CONTACT         = 10;
     const EMAIL_WEBSITE_BUGREPORT       = 11;
@@ -14,6 +15,10 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_PROTOTYPE_REGISTER      = 30;
     const EMAIL_PROTOTYPE_ACCESS_ANDROID= 31;
     const EMAIL_PROTOTYPE_ACCESS_IOS    = 32;
+    
+    const EMAIL_ALPHA_REGISTER          = 40;
+    const EMAIL_ALPHA_ACCESS_ANDROID    = 41;
+    const EMAIL_ALPHA_ACCESS_IOS        = 42;
     
     const EMAIL_PLACEHOLDER_TYPE_TEXT   = 1;
     const EMAIL_PLACEHOLDER_TYPE_SWITCH = 2;
