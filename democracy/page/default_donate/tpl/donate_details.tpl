@@ -9,6 +9,11 @@
     <table class="donate-details">
         <tbody class="table-body">
             ${donation_data}
+            <tr>
+                <td colspan="3" style="font-size: 12px;">
+                    * Diese Darstellung kann nur monatliche Spenden (Daueraufträge) berücksichtigen.
+                </td>
+            </tr>
         </tbody>
     </table>
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="padding-top: 35px;">
