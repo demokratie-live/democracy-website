@@ -66,7 +66,7 @@
             <div class="col-10 offset-1 no-gutters" style="text-align: center;">
                 <img src="../files/invite/group@3x.png" alt="DEMOCRACY Logo" style="width: 120px; margin-top: 25px">
                 <h1>DEMOCRACY</h1>
-                <h2>prototyp_access</h2>
+                <h2>alpha_access</h2>
                 <div id="apply" class="row step">
                     <div id="apply_text" class="col-12 col-md-10 offset-md-1">
                         Als crowdmoderierte und politisch unabhängige
@@ -78,7 +78,7 @@
                         <a href="https://www.democracy-deutschland.de" target="blank"><i class="fa fa-arrow-right"></i>&nbsp;Website</a>
                     </div>
                     <div id="apply_go" class="col-10 col-md-8 offset-1 offset-md-2 beta_button">
-                        JETZT FÜR DEN PROTOTYP BEWERBEN
+                        JETZT FÜR DIE ALPHA BEWERBEN
                     </div>
                 </div>
                 <div id="device" class="row step">

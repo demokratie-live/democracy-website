@@ -194,8 +194,8 @@ class saimod_beta extends \SYSTEM\SAI\sai_module{
     }
     
     public static function action_email($email,$android,$ios){
-        $email_id = $android ? \SAI\saimod_mail::EMAIL_PROTOTYPE_ACCESS_ANDROID : \SAI\saimod_mail::EMAIL_PROTOTYPE_ACCESS_IOS;
-        \SAI\saimod_mail::send_mail($email, $email_id, \SAI\saimod_mail::EMAIL_LIST_PROTOTYPE,true);     
+        $email_id = $android ? \SAI\saimod_mail::EMAIL_ALPHA_ACCESS_ANDROID : \SAI\saimod_mail::EMAIL_ALPHA_ACCESS_IOS;
+        \SAI\saimod_mail::send_mail($email, $email_id, \SAI\saimod_mail::EMAIL_LIST_ALPHA,true);     
         \SQL\BETA_MAIL::QI(array($email));
         return \JsonResult::ok();
     }

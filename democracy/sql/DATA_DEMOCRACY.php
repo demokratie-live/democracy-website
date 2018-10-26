@@ -20,6 +20,8 @@ class DATA_DEMOCRACY extends \SYSTEM\DB\QI {
                         (new \PSQL('/mysql/schema_email_placeholder.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_beta.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/schema_beta_code.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/schema_alpha.sql'))->SERVERPATH(),
+                        (new \PSQL('/mysql/schema_alpha_code.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/system_page.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/system_text.sql'))->SERVERPATH(),
                         (new \PSQL('/mysql/system_api.sql'))->SERVERPATH());
