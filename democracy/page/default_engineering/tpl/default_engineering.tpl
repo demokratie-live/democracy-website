@@ -61,16 +61,16 @@
                         <tr>
                             <th scope="col" style="font-size: 20px; vertical-align: top;">Release</th>
                             <th scope="col" class="rotate">
-                                Closed Beta
-                                <div class="rmicon-green">30.04.18</div>
+                                ${roadmap_beta_head_text}
+                                <div class="rmicon-${roadmap_beta_head_color}">${roadmap_beta_head_sub_text}</div>
                             </th>
                             <th scope="col" class="rotate">
-                                Public MVP
-                                <div class="rmicon-green">01.10.18</div>
+                                ${roadmap_mvp_head_text}
+                                <div class="rmicon-${roadmap_mvp_head_color}">${roadmap_mvp_head_sub_text}</div>
                             </th>
                             <th scope="col" class="rotate">
-                                Post MVP
-                                <div class="rmicon-red">&nbsp;</div>
+                                ${roadmap_dream_head_text}
+                                <div class="rmicon-${roadmap_dream_head_color}">${roadmap_dream_head_sub_text}</div>
                             </th>
                         </tr>
                     </thead>

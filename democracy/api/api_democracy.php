@@ -35,7 +35,7 @@ class api_democracy extends \SYSTEM\API\api_system {
         $code_valid = self::validate_code($code);
         
         \SAI\saimod_mail::contact($email);
-        \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_PROTOTYPE);
+        \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_ALPHA);
         if($newsletter){
             \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER);
         }
@@ -55,7 +55,7 @@ class api_democracy extends \SYSTEM\API\api_system {
             \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
         }
         
-        \SAI\saimod_mail::send_mail($email, \SAI\saimod_mail::EMAIL_PROTOTYPE_REGISTER, \SAI\saimod_mail::EMAIL_LIST_PROTOTYPE,true);
+        \SAI\saimod_mail::send_mail($email, \SAI\saimod_mail::EMAIL_ALPHA_REGISTER, \SAI\saimod_mail::EMAIL_LIST_ALPHA,true);
         //SendMail
         return \SYSTEM\LOG\JsonResult::ok();
     }

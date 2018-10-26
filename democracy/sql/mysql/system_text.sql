@@ -197,3 +197,22 @@ INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`,
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('link_appstore', 'democracy');
 INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('link_browserversion', 'deDE', 'https://democracy-app.de', 1, 1, '2018-09-17 10:36:39', '2018-09-17 10:36:39');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('link_browserversion', 'democracy');
+
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_beta_head_color', 'deDE', 'green', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_beta_head_color', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_beta_head_sub_text', 'deDE', '30.4.19', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_beta_head_sub_text', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_beta_head_text', 'deDE', 'Closed Beta', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_beta_head_text', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_dream_head_color', 'deDE', 'black', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_dream_head_color', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_dream_head_sub_text', 'deDE', '&nbsp;', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_dream_head_sub_text', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_dream_head_text', 'deDE', 'Post MVP', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_dream_head_text', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_mvp_head_color', 'deDE', 'green', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_mvp_head_color', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_mvp_head_sub_text', 'deDE', '01.10.18', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_mvp_head_sub_text', 'roadmap');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_mvp_head_text', 'deDE', 'Public MVP', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_mvp_head_text', 'roadmap');
