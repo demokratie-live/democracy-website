@@ -66,7 +66,7 @@ class default_engineering implements SYSTEM\PAGE\Page {
             $goal['issue_text'] = $goal['issue'] ? '#'.$goal['issue'] : '';
             $vars['goals'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_engineering/tpl/goal.tpl'))->SERVERPATH(), $goal);
         }
-        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'));
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('democracy'), \SYSTEM\PAGE\text::tag('roadmap'));
         return \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_engineering/tpl/default_engineering.tpl'))->SERVERPATH(), $vars);
     }
 }

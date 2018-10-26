@@ -3,6 +3,17 @@ namespace SAI;
 class saimod_roadmap extends \SYSTEM\SAI\sai_module{    
     public static function sai_mod__SAI_saimod_roadmap(){
         $vars = array('goals' => '');
+        $vars = array_merge($vars, \SYSTEM\PAGE\text::tag('roadmap'));
+        
+        $vars['selected_beta_head_red'] = $vars['selected_beta_head_green'] = $vars['selected_beta_head_blue'] = $vars['selected_beta_head_grey'] = $vars['selected_beta_head_black'] =
+            $vars['selected_mvp_head_red'] = $vars['selected_mvp_head_green'] = $vars['selected_mvp_head_blue'] = $vars['selected_mvp_head_grey'] = $vars['selected_mvp_head_black'] =
+            $vars['selected_dream_head_red'] = $vars['selected_dream_head_green'] = $vars['selected_dream_head_blue'] = $vars['selected_dream_head_grey'] = $vars['selected_dream_head_black'] =
+            '';
+        $vars['selected_beta_head_'.$vars['roadmap_beta_head_color']] =
+            $vars['selected_mvp_head_'.$vars['roadmap_mvp_head_color']] =
+            $vars['selected_dream_head_'.$vars['roadmap_dream_head_color']] =
+            'selected';
+        
         $goals = \SQL\ROADMAP_SELECT::QQ();
         while($goal = $goals->next()){
             $goal['selected_beta'] =
@@ -66,6 +77,19 @@ class saimod_roadmap extends \SYSTEM\SAI\sai_module{
             \SQL\GOAL_DELETE::QI(array($id));
         }
         return \JsonResult::ok();
+    }
+    
+    public static function sai_mod__SAI_saimod_roadmap_action_update_head($data){
+        \SYSTEM\PAGE\text::save('roadmap_beta_head_text', 'roadmap_beta_head_text', 'deDE', ['roadmap'], $data['roadmap_beta_head_text']);
+        \SYSTEM\PAGE\text::save('roadmap_beta_head_sub_text', 'roadmap_beta_head_sub_text', 'deDE', ['roadmap'], $data['roadmap_beta_head_sub_text']);
+        \SYSTEM\PAGE\text::save('roadmap_beta_head_color', 'roadmap_beta_head_color', 'deDE', ['roadmap'], $data['roadmap_beta_head_color']);
+        \SYSTEM\PAGE\text::save('roadmap_mvp_head_text', 'roadmap_mvp_head_text', 'deDE', ['roadmap'], $data['roadmap_mvp_head_text']);
+        \SYSTEM\PAGE\text::save('roadmap_mvp_head_sub_text', 'roadmap_mvp_head_sub_text', 'deDE', ['roadmap'], $data['roadmap_mvp_head_sub_text']);
+        \SYSTEM\PAGE\text::save('roadmap_mvp_head_color', 'roadmap_mvp_head_color', 'deDE', ['roadmap'], $data['roadmap_mvp_head_color']);
+        \SYSTEM\PAGE\text::save('roadmap_dream_head_text', 'roadmap_dream_head_text', 'deDE', ['roadmap'], $data['roadmap_dream_head_text']);
+        \SYSTEM\PAGE\text::save('roadmap_dream_head_sub_text', 'roadmap_dream_head_sub_text', 'deDE', ['roadmap'], $data['roadmap_dream_head_sub_text']);
+        \SYSTEM\PAGE\text::save('roadmap_dream_head_color', 'roadmap_dream_head_color', 'deDE', ['roadmap'], $data['roadmap_dream_head_color']);
+        return \SYSTEM\LOG\JsonResult::ok();
     }
     
     public static function menu(){
