@@ -26,9 +26,18 @@
                                     <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"> </a>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <br>
+                                    &nbsp;<a class="whitelink" href="${link_browserversion}" target="_blank">zur Browserversion</a>
+                                </div>
+                                <div id="secondbadge" class="col-lg-5">
+                                    <br>
+                                    &nbsp;<a class="whitelink" href="https://github.com/demokratie-live/democracy-development/releases/latest" target="_blank">APK laden</a>
+                                </div>
+                            </div>
                         </div>
                         <br>
-                        <a class="whitelink" href="${link_browserversion}">zur Browserversion</a> 
                     </div>
                 </div>
             </div>
