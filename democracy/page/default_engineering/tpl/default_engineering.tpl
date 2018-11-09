@@ -83,7 +83,7 @@
                 <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
             </div>
             <div class="col-12" style="padding-top: 50px;">
-                <h1>DEMOCRACY testen</h1
+                <h1>DEMOCRACY Entwicklerversion testen</h1
             </div>
             <div class="row" style="padding-top: 50px;">
                 <div class="col-lg-1"></div>
@@ -102,16 +102,16 @@
                     <div class="badges2">
                         <div class="row">
                             <div class="col-md-6">
-                                <span>MVP</span><br>
-                                <a class="badge-link2 icon-app-store-outline2" href="${link_appstore}" style="margin-top: -5px;"> </a>
+                                <span>Alpha</span><br>
+                                <a class="badge-link2 icon-app-store-outline2" href="${link_alpha}" target="_blank" style="margin-top: -5px;"> </a>
                             </div>
                             <div id="secondbadge" class="col-md-6">
-                                <span class="d-none d-md-block">MVP</span>
-                                <a class="badge-link2 icon-google-play-outline2" href="${link_playstore}" style="margin-top: -5px;"> </a>
+                                <span class="d-none d-md-block">Alpha</span>
+                                <a class="badge-link2 icon-google-play-outline2" href="${link_alpha}" target="_blank" style="margin-top: -5px;"> </a>
                             </div>
                             <div class="col-12">
-                                <a class="btn-democracy" href="${link_browserversion}">
-                                    <div style="width: auto; border: 0;">Hier gehts zur Browserversion</div>
+                                <a class="btn-democracy" href="${link_alpha}" target="_blank">
+                                    <div style="width: auto; border: 0;">Hier gehts zur Bewerbungsformular</div>
                                 </a>
                             </div>
                         </div>
