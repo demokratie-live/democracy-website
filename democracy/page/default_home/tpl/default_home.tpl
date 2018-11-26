@@ -33,7 +33,7 @@
                                 </div>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    &nbsp;<a class="whitelink" href="https://github.com/demokratie-live/democracy-development/releases/latest" target="_blank">APK laden</a>
+                                    &nbsp;<a class="whitelink" href="${link_apk}" target="_blank">APK laden</a>
                                 </div>
                             </div>
                         </div>
