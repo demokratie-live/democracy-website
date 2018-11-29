@@ -4,6 +4,99 @@ function init_saimod_mail_overview() {
     $('#tabs_mail li a').each(function(){
         $(this).removeClass('active');});
     $('#menu_mail_overview').addClass('active');
+    
+    $('#import_contact').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_contact',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#import_pr').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_pr',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#import_paypal').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_paypal',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#import_volunteers').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_volunteers',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
 };
 
 function init_saimod_mail_contacts() {

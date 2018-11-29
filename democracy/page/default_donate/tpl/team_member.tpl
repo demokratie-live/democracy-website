@@ -1,14 +1,12 @@
-<div class="col-md-3 w3_agileits_team_grid"> 
-    <div class="w3layouts_team_grid">
-        <img src="${img}" alt="${name}" class="img-responsive"/>
-        <div class="w3layouts_team_grid_pos">
-            <div class="wthree_text agileinfo_about_text">
-                <ul>${links}</ul>
-            </div>
-        </div>
+<div class="col-md-3 team_div"> 
+    <div>
+        <img src="${img}" normal="${img}" hover="${img_hover}" alt="${name}" class="img-responsive"/>
     </div>
-    <div class="w3_agileits_team-info">
+    <div class="team_info">
         <h4>${name}</h4>
-        <p>${text}</p>
+        <div class="team_links">
+            ${links}
+        </div>
+        <p class="team_text">${text}</p>
     </div>
 </div>

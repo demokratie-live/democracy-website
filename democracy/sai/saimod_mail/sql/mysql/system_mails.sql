@@ -2,6 +2,10 @@ INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (1,'Test Liste'
 INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (2,'Newsletter',1);
 INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (3,'Prototype',1);
 INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (4,'Alpha',1);
+INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (5,'Email: Paypal',1);
+INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (6,'Email: Volunteers',1);
+INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (7,'Email: Contact',1);
+INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (8,'Email: PR',1);
 
 INSERT IGNORE INTO email (`id`,`name`,`sender`,`subject`,`template_text`,`template_html`,`system_lock`) VALUES (1,'Mail Test','Testing | DEMOCRACY <contact@democracy-deutschland.de>','${emoji_mobile} DEMOCRACY Mail Test',1,2,NULL);
 INSERT IGNORE INTO email_template (`id`,`type`,`name`,`value`,`system_lock`) VALUES (1,0,'Mail Test Text','Use this Mail for testing',NULL);

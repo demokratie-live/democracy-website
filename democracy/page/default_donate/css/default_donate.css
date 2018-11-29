@@ -34,108 +34,39 @@
 	background:#FFF;
 	color:#4494D3;
 }
-.w3layouts_team_grid {
-	overflow:hidden;
-	position:relative;
-}
 
-.w3layouts_team_grid img {
-	width:100%;
+.team_div {
+    margin-top: 50px;
 }
-
-.w3layouts_team_grid_pos {
-	opacity:0;
-	position:absolute;
-	top:0;
-	left:0;
-	bottom:0;
-	background-color:rgba(0,0,0,0.4);
-	right:0;
-	-webkit-transition:all 400ms ease;
-	-moz-transition:all 400ms ease;
-	transition:all 400ms ease;
+.team_div img {
+    width:100%;
 }
-
-.w3layouts_team_grid_pos {
-	-webkit-transform:scale3d(0,0,1);
-	-moz-transform:scale3d(0,0,1);
-	-ms-transform:scale3d(0,0,1);
-	transform:scale3d(0,0,1);
+.team_info {
+    background-color: rgb(237,237,245);
+    min-height: 105px;
 }
-
-.w3ls_team_grid:hover .w3layouts_team_grid .w3layouts_team_grid_pos,
-.w3_agileits_team_grid:hover .w3layouts_team_grid .w3layouts_team_grid_pos,
-.w3layouts_gallery_grid:hover .w3layouts_team_grid .w3layouts_team_grid_pos {
-	opacity:1;
-	-webkit-transform:scale3d(1,1,1);
-	-moz-transform:scale3d(1,1,1);
-	-ms-transform:scale3d(1,1,1);
-	transform:scale3d(1,1,1);
+.team_info h4 {
+    font-weight: bold;
+    padding-top: 15px;
+    font-size: 20px;
 }
-
-.w3ls_team_grid:hover .wthree_text,
-.w3_agileits_team_grid:hover .wthree_text,
-.w3layouts_gallery_grid:hover .wthree_text {
-	opacity:1;
-	-webkit-transform:translateY(0) scale3d(1,1,1);
-	-moz-transform:translateY(0) scale3d(1,1,1);
-	-ms-transform:translateY(0) scale3d(1,1,1);
-	transform:translateY(0) scale3d(1,1,1);
-	-webkit-transition:transform 400ms ease 380ms;
-	-moz-transition:transform 400ms ease 380ms;
-	transition:transform 400ms ease 380ms;
+.team_links {
+    display: none;
+    padding-top: 5px;
 }
-
-.agileinfo_about_text{
-    height: 100%;
+.team_link {
+    margin: 5px;
+    color: rgb(122,122,122);
+    font-size: 28px;
 }
-
-.agileinfo_about_text ul {
-    list-style: none;
-    height: 100%;
-    text-align: center;
-    display: table;
-    width: 100%;
-    padding: 0;
+.team_link:hover {
+    text-decoration: none;
+    color: rgb(68,148,211);
 }
-.agileinfo_about_text li {
-    display: table-cell;
-    vertical-align: middle;
+.team_link:active {
+    color: rgb(68,148,211);
 }
-
-.agileinfo_about_text li a {
-	color:#fff;
-        vertical-align: middle;
-}
-
-a.w3_agile_facebook:hover {
-	color:#3b5998;
-}
-
-a.agile_twitter:hover {
-	color:#1da1f2;
-}
-
-a.w3_agile_dribble:hover {
-	color:#ea4c89;
-}
-
-.w3_agileits_team-info {
-	padding:1em;
-	background:#ededf5;
-}
-
-.w3_agileits_team-info h4 {
-	color:#212121;
-	font-size:1em;
-	font-weight:600;
-	text-transform:uppercase;
-	letter-spacing:1px;
-	margin:0;
-}
-
-.w3_agileits_team-info p {
-	color:#999;
-	font-size:.9em;
-	margin:.5em 0 0;
+.team_text{
+    color: rgb(162,162,162);
+    font-size: 15px;
 }

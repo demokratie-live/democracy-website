@@ -46,12 +46,26 @@ class default_donate implements SYSTEM\PAGE\Page {
         $vars['donate_details'] = self::donate_details();
         //team
         $vars['team'] = '';
-        $team = array(  array(  'name' => 'Marius Krüger', 'text' => 'Mädchen für alles<br>Initiator & UI', 'img' => './files/wir/marius_krueger.jpg', 'aktiv' => 'lightgreen',
-                                'links' => array(   array('icon' => 'fa-facebook', 'url' => 'https://www.facebook.com/kruegermarius'))),
-                        array(  'name' => 'Manuel Ruck', 'text' => 'React-Experte<br>Baut den Code für die App', 'img' => './files/wir/manuel_ruck.jpg', 'aktiv' => 'lightgreen',
-                                'links' => array(   array('icon' => 'fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck'))),
-                        array(  'name' => 'Ulf Gebhardt', 'text' => '笑い男<br>Entwicklung & Planung', 'img' => './files/wir/ulf_gebhardt.jpg', 'aktiv' => 'lightgreen',
-                                'links' => array(   array('icon' => 'fa-globe', 'url' => 'https://www.webcraft-media.de/#!ulf_gebhardt'))));
+        $team = array(  array(  'name' => 'Marius Krüger',
+                                'text' => 'Mädchen für alles<br>Initiator & UI',
+                                'img' => './files/wir/Marius1.png',
+                                'img_hover' => './files/wir/Marius2.png',
+                                'links' => array(   array(  'icon' => 'fa-envelope','url' => 'mailto:m.krueger@democracy-deutschland.de'),
+                                                    array(  'icon' => 'fa-phone',   'url' => 'tel:+4917647040213'),
+                                                    array(  'icon' => 'fa-facebook','url' => 'https://www.facebook.com/kruegermarius'))),
+                        array(  'name' => 'Manuel Ruck',
+                                'text' => 'React-Experte<br>Baut den Code für die App',
+                                'img' => './files/wir/Manu1.png',
+                                'img_hover' => './files/wir/Manu2.png',
+                                'links' => array(   array(  'icon' => 'fa-envelope','url' => 'mailto:m.ruck@democracy-deutschland.de'),
+                                                    array(  'icon' => 'fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck'))),
+                        array(  'name' => 'Ulf Gebhardt',
+                                'text' => '笑い男<br>Entwicklung & Planung',
+                                'img' => './files/wir/Ulf1.png',
+                                'img_hover' => './files/wir/Ulf2.png',
+                                'links' => array(   array(  'icon' => 'fa-envelope','url' => 'mailto:u.gebhardt@democracy-deutschland.de'),
+                                                    array(  'icon' => 'fa-phone',   'url' => 'tel:+4915784841600'),
+                                                    array(  'icon' => 'fa-globe', 'url' => 'https://www.webcraft-media.de/#!ulf_gebhardt'))));
         foreach($team as $member){
             $links = $member['links'];
             $member['links'] = '';
