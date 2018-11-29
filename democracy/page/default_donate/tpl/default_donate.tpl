@@ -77,9 +77,9 @@
                 <span>  Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des
                         Finanzamt Göttingen vom 23.08.2017 die Einhaltung der satzungsmäigen
                         Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt worden
-                        (<a href="http://docs.google.com/gview?url=https://www.democracy-deutschland.de/files/download/Gemeinnutzigkeit_DEMOCRACY.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="http://docs.google.com/gview?url=https://www.democracy-deutschland.de/files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
+                        (<a href="./files/download/Gemeinnutzigkeit_DEMOCRACY.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
                         abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
-                        (z.B. Kontoauszug) zusammen mit unserem <a href="http://docs.google.com/gview?url=https://www.democracy-deutschland.de/files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
+                        (z.B. Kontoauszug) zusammen mit unserem <a href="./files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
                         Wenn Du eine separate Zuwendungsbestätigung benötigst,
                         schreib uns bitte eine E-Mail oder gib in Deiner
                         Überweisung Deine Wohnadresse an.</span>
