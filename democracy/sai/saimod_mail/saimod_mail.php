@@ -79,11 +79,6 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         }
         
         $replacements = [];
-        $replacements['emoji_mobile'] = '📱';
-        foreach($data as $k => $v){
-            $replacements['data_'.$k] = $v;}
-        foreach($contact_data as $k => $v){
-            $replacements['contact_'.$k] = $v;}
         while($placeholder = $placeholders_qq->next()){
             switch($placeholder['type']){
                 case self::EMAIL_PLACEHOLDER_TYPE_TEXT:
@@ -115,6 +110,11 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                     break;
             }
         }
+        $replacements['emoji_mobile'] = '📱';
+        foreach($data as $k => $v){
+            $replacements['data_'.$k] = $v;}
+        foreach($contact_data as $k => $v){
+            $replacements['contact_'.$k] = $v;}
         if($list){
             $replacements['unsubscribe_link'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL).
                                                 '#!unsubscribe;token.'.
