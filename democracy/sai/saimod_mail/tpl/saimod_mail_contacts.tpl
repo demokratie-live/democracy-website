@@ -12,6 +12,7 @@
                 <th>Sex</th>
                 <th>FirstName</th>
                 <th>LastName</th>
+                <th>Organization</th>
                 <th>UpdatedAt</th>
                 <th>
                     <button type="button" id="btn-mail-contact-del" class="btn btn-sm btn-danger pull-right"><i class="fa fa-trash"></i></button>

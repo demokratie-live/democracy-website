@@ -18,6 +18,10 @@
                 <td><input id="input-contact-new-name-last" type="text" style="width: 100%"/></td>
             </tr>
             <tr>
+                <th>Organization</th>
+                <td><input id="input-contact-new-organization" type="text" style="width: 100%"/></td>
+            </tr>
+            <tr>
                 <th colspan="2"></th>
             </tr>
             <tr>
