@@ -49,7 +49,7 @@ class error_handler_dbwriter implements \SYSTEM\LOG\error_handler {
      * @param int $type Type of the Todo(Exception)
      * @return bool Returns false
      */
-    public static function todo_exception(\Exception $E, $thrown, $type = \SYSTEM\SQL\system_todo::FIELD_TYPE_EXCEPTION){
+    public static function todo_exception($E, $thrown, $type = \SYSTEM\SQL\system_todo::FIELD_TYPE_EXCEPTION){
         try{
             if(\property_exists(get_class($E), 'todo_logged') && $E->todo_logged){                
                 return false;} //alrdy logged(this prevents proper thrown value for every system exception)

@@ -23,8 +23,8 @@
         </tbody>    
     </table>
     <ul class="pagination">
-        <li><a href="#!text;tag.${tag};filter.${filter};search.${search};page.0">&laquo;</a></li>
+        <li class="page-item"><a class="page-link" href="#!text;tag.${tag};filter.${filter};search.${search};page.0">&laquo;</a></li>
         ${pagination}
-        <li><a href="#!text;tag.${tag};filter.${filter};search.${search};page.${page_last}">&raquo;</a></li>
+        <li class="page-item"><a class="page-link" href="#!text;tag.${tag};filter.${filter};search.${search};page.${page_last}">&raquo;</a></li>
     </ul>
 </div>

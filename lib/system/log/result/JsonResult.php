@@ -55,7 +55,7 @@ class JsonResult{
      * @param \Exception $e Exception to be convered.
      * @return string Returns json string.
      */
-    public static function error(\Exception $e){        
+    public static function error($e){        
         $error = array();        
 	$error['class']     = get_class($e);
 	$error['message']   = $e->getMessage();

@@ -238,7 +238,7 @@ class security {
      */
     public static function confirm_email($post_script=null,$post_script_data=null) {
         if(!\SYSTEM\SECURITY\security::isLoggedIn()){
-            throw new ERROR("You need to be logged in to confirm your EMail!");}
+            throw new \SYSTEM\SECURITY\ERROR("You need to be logged in to confirm your EMail!");}
         return self::confirm_email_admin(\SYSTEM\SECURITY\security::getUser()->username, $post_script, $post_script_data);
     }
     
