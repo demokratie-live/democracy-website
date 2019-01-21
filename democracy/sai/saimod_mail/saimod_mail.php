@@ -31,6 +31,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_ACCOUNT_CONTACT         = 1;
     const EMAIL_ACCOUNT_PROTOTYPING     = 2;
     const EMAIL_ACCOUNT_CROWDFUNDING    = 3;
+    const EMAIL_ACCOUNT_KRUEGER         = 4;
     
     public static function subscribe($email,$list){
         return \SQL\SUBSCRIBE::QI(array($email,$list));
@@ -68,6 +69,9 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                 break;
             case self::EMAIL_ACCOUNT_CROWDFUNDING:
                 $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CROWDFUNDING);
+                break;
+            case self::EMAIL_ACCOUNT_KRUEGER:
+                $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_KRUEGER);
                 break;
             // contact
             default:
@@ -515,7 +519,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     public static function sai_mod__SAI_saimod_mail_action_email($id){
         $vars = \SQL\EMAIL_SELECT::Q1(array($id));
         $vars['template_lock'] = $vars['system_lock'] ? 'disabled' : '';
-        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = '';
+        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = $vars['selected_account_4'] = '';
         $vars['selected_account_'.$vars['account']] = 'selected';
         //text template
         $vars['text_options'] = '';
