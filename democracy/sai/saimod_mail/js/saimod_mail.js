@@ -1,5 +1,11 @@
 function init_saimod_mail() {}
 
+function register_search(){
+    $('#btn_search').click(function(){
+        system.load($(this).attr('state')+$('#input_search').val()+$(this).attr('state2'),true);
+    });
+}
+
 function init_saimod_mail_overview() {
     $('#tabs_mail li a').each(function(){
         $(this).removeClass('active');});
@@ -133,6 +139,7 @@ function init_saimod_mail_contacts() {
             });
         }
     });
+    register_search();
 }
 
 function init_saimod_mail_contact() {
