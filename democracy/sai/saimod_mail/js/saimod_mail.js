@@ -145,6 +145,7 @@ function init_saimod_mail_contact() {
         var sex = $('#input-contact-sex').val();
         var name_first = $('#input-contact-name-first').val();
         var name_last = $('#input-contact-name-last').val();
+        var organization = $('#input-contact-organization').val();
         var email_lists = [];
         $(".list-check").each(function(){
             email_lists.push({id: $(this).attr('list'), subscribed: $(this).prop('checked') === true ? 1 : 0});
@@ -162,6 +163,7 @@ function init_saimod_mail_contact() {
                     sex: sex,
                     name_first: name_first,
                     name_last: name_last,
+                    organization: organization,
                     email_lists: email_lists
                 }
             },
@@ -189,6 +191,7 @@ function init_saimod_mail_contact_new() {
         var sex = $('#input-contact-new-sex').val();
         var name_first = $('#input-contact-new-name-first').val();
         var name_last = $('#input-contact-new-name-last').val();
+        var organization = $('#input-contact-new-organization').val();
         var email_lists = [];
         $(".list-check").each(function(){
             email_lists.push({id: $(this).attr('list'), subscribed: $(this).prop('checked') === true ? 1 : 0});
@@ -206,6 +209,7 @@ function init_saimod_mail_contact_new() {
                     sex: sex,
                     name_first: name_first,
                     name_last: name_last,
+                    organization: organization,
                     email_lists: email_lists
                 }
             },

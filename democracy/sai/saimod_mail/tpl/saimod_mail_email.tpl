@@ -94,6 +94,12 @@
                                 <td></td>
                             </tr>
                             <tr>
+                                <td>contact_*</td>
+                                <td>STATIC</td>
+                                <td>Mixed</td>
+                                <td></td>
+                            </tr>
+                            <tr>
                                 <td>unsubscribe_link</td>
                                 <td>STATIC</td>
                                 <td>Link</td>

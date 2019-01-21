@@ -82,6 +82,8 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         $replacements['emoji_mobile'] = '📱';
         foreach($data as $k => $v){
             $replacements['data_'.$k] = $v;}
+        foreach($contact_data as $k => $v){
+            $replacements['contact_'.$k] = $v;}
         while($placeholder = $placeholders_qq->next()){
             switch($placeholder['type']){
                 case self::EMAIL_PLACEHOLDER_TYPE_TEXT:
@@ -425,7 +427,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     }
     
     public static function sai_mod__SAI_saimod_mail_action_update_contact($data){
-        \SQL\CONTACT_UPDATE::QI(array($data['sex'],$data['name_first'],$data['name_last'],$data['email']));
+        \SQL\CONTACT_UPDATE::QI(array($data['sex'],$data['name_first'],$data['name_last'],$data['organization'],$data['email']));
         foreach($data['email_lists'] as $list){
             if($list['subscribed']){
                 self::subscribe($data['email'],$list['id']);
@@ -440,7 +442,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         if($data['email'] == ''){
             throw new \SYSTEM\LOG\ERROR('Please provide an EMail');
         }
-        \SQL\CONTACT_INSERT::QI(array($data['email'],$data['sex'],$data['name_first'],$data['name_last']));
+        \SQL\CONTACT_INSERT::QI(array($data['email'],$data['sex'],$data['name_first'],$data['name_last'],$data['organization']));
         foreach($data['email_lists'] as $list){
             if($list['subscribed']){
                 \SQL\SUBSCRIBE::QI(array($data['email'],$list['id']));
@@ -756,11 +758,15 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if(count($data) >= 4 && $data[3]){
                 $name_first = $data[3];
             }
+            $organization = $db ? $db['organization'] : null;
+            if(count($data) >= 5 && $data[4]){
+                $organization = $data[4];
+            }
             
             if($db){
-                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$email));
+                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$organization,$email));
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last));
+                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last,$organization));
             }
             
             \SQL\SUBSCRIBE::QI(array($email,$list));
