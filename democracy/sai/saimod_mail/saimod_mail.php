@@ -378,27 +378,44 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_overview.tpl'))->SERVERPATH(),$vars);
     }
     
-    public static function sai_mod__SAI_saimod_mail_action_contacts($list=null){
+    public static function sai_mod__SAI_saimod_mail_action_contacts($search='%',$page=0,$list=null){
         $vars = array();
+        $vars['list'] = $list;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
         //menu
         $vars['menu'] = '';
         $vars['active_all'] = $list ? '' : 'active';
         $res = \SQL\EMAIL_LISTS_SELECT::QQ();
         while($row = $res->next()){
             $row['active'] = $row['id'] == $list ? 'active' : '';
+            $row['search'] = $search;
             $vars['menu'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_menu.tpl'))->SERVERPATH(),$row);
         }
         
         //data
         $vars['data'] = '';
         if($list){
-            $res = \SQL\CONTACTS_SELECT_LIST::QQ(array($list));
+            $res = \SQL\CONTACTS_SELECT_LIST::QQ(array($list,$search,$search,$search,$search));
+            $count = \SQL\CONTACTS_COUNT_LIST::Q1(array($list,$search,$search,$search,$search))['count'];
         } else {
-            $res = \SQL\CONTACTS_SELECT::QQ();
+            $res = \SQL\CONTACTS_SELECT::QQ(array($search,$search,$search,$search));
+            $count = \SQL\CONTACTS_COUNT::Q1(array($search,$search,$search,$search))['count'];
         }
-        while($row = $res->next()){
+        $res->seek(25*$page);
+        $count_filtered = 0;
+        while(($row = $res->next()) && ($count_filtered < 25)){
             $vars['data'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_tr.tpl'))->SERVERPATH(),$row);
+            $count_filtered++;
         }
+        // Pagintation
+        $vars['pagination'] = '';
+        $vars['page_last'] = floor($count/25);
+        for($i=0;$i < ceil($count/25);$i++){
+            $data = array('page' => $i,'search' => $search, 'list' => $list, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_pagination.tpl'))->SERVERPATH(), $data);
+        }
+        $vars['count'] = ($count_filtered+$page*25).'/'.$count;
         
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts.tpl'))->SERVERPATH(),$vars);
     }
