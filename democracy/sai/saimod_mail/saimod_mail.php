@@ -213,13 +213,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                 if($contact){
                     $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_PAYPAL))['count'] == 1;
                     if(!$is_subscribed){
-                        \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                        \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                         \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                         \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PAYPAL));
                         $result['mod'] += 1;
                     } 
                 } else {
-                    \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                    \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PAYPAL));
                     $result['new'] += 1;
@@ -259,13 +259,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if($contact){
                 $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_PR))['count'] == 1;
                 if(!$is_subscribed){
-                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PR));
                     $result['mod'] += 1;
                 } 
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name, ''));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PR));
                 $result['new'] += 1;
@@ -306,13 +306,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if($contact){
                 $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_CONTACT))['count'] == 1;
                 if(!$is_subscribed){
-                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_CONTACT));
                     $result['mod'] += 1;
                 } 
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_CONTACT));
                 $result['new'] += 1;
@@ -353,13 +353,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if($contact){
                 $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS))['count'] == 1;
                 if(!$is_subscribed){
-                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS));
                     $result['mod'] += 1;
                 } 
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS));
                 $result['new'] += 1;
