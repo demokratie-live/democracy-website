@@ -33,6 +33,12 @@ function democracy_deutschland_config(){
                                                                                 "port"      => 465,
                                                                                 "auth"      => true,
                                                                                 "username"  => "",
+                                                                                "password"  => "")),
+                    array(\config_ids::DEMOCRACY_EMAIL_KRUEGER,         array(  "imap"      => "HOST:993/imap/ssl",
+                                                                                "host"      => "",
+                                                                                "port"      => 465,
+                                                                                "auth"      => true,
+                                                                                "username"  => "",
                                                                                 "password"  => ""))
                 );
 }

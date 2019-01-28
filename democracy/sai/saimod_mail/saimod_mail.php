@@ -31,6 +31,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_ACCOUNT_CONTACT         = 1;
     const EMAIL_ACCOUNT_PROTOTYPING     = 2;
     const EMAIL_ACCOUNT_CROWDFUNDING    = 3;
+    const EMAIL_ACCOUNT_KRUEGER         = 4;
     
     public static function subscribe($email,$list){
         return \SQL\SUBSCRIBE::QI(array($email,$list));
@@ -69,15 +70,15 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             case self::EMAIL_ACCOUNT_CROWDFUNDING:
                 $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CROWDFUNDING);
                 break;
+            case self::EMAIL_ACCOUNT_KRUEGER:
+                $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_KRUEGER);
+                break;
             // contact
             default:
                 $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
         }
         
         $replacements = [];
-        $replacements['emoji_mobile'] = '📱';
-        foreach($data as $k => $v){
-            $replacements['data_'.$k] = $v;}
         while($placeholder = $placeholders_qq->next()){
             switch($placeholder['type']){
                 case self::EMAIL_PLACEHOLDER_TYPE_TEXT:
@@ -109,6 +110,11 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                     break;
             }
         }
+        $replacements['emoji_mobile'] = '📱';
+        foreach($data as $k => $v){
+            $replacements['data_'.$k] = $v;}
+        foreach($contact_data as $k => $v){
+            $replacements['contact_'.$k] = $v;}
         if($list){
             $replacements['unsubscribe_link'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL).
                                                 '#!unsubscribe;token.'.
@@ -207,13 +213,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                 if($contact){
                     $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_PAYPAL))['count'] == 1;
                     if(!$is_subscribed){
-                        \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                        \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                         \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                         \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PAYPAL));
                         $result['mod'] += 1;
                     } 
                 } else {
-                    \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                    \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PAYPAL));
                     $result['new'] += 1;
@@ -253,13 +259,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if($contact){
                 $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_PR))['count'] == 1;
                 if(!$is_subscribed){
-                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PR));
                     $result['mod'] += 1;
                 } 
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name, ''));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PR));
                 $result['new'] += 1;
@@ -300,13 +306,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if($contact){
                 $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_CONTACT))['count'] == 1;
                 if(!$is_subscribed){
-                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_CONTACT));
                     $result['mod'] += 1;
                 } 
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_CONTACT));
                 $result['new'] += 1;
@@ -347,13 +353,13 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if($contact){
                 $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS))['count'] == 1;
                 if(!$is_subscribed){
-                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$email));
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                     \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS));
                     $result['mod'] += 1;
                 } 
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name));
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
                 \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS));
                 $result['new'] += 1;
@@ -372,27 +378,44 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_overview.tpl'))->SERVERPATH(),$vars);
     }
     
-    public static function sai_mod__SAI_saimod_mail_action_contacts($list=null){
+    public static function sai_mod__SAI_saimod_mail_action_contacts($search='%',$page=0,$list=null){
         $vars = array();
+        $vars['list'] = $list;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
         //menu
         $vars['menu'] = '';
         $vars['active_all'] = $list ? '' : 'active';
         $res = \SQL\EMAIL_LISTS_SELECT::QQ();
         while($row = $res->next()){
             $row['active'] = $row['id'] == $list ? 'active' : '';
+            $row['search'] = $search;
             $vars['menu'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_menu.tpl'))->SERVERPATH(),$row);
         }
         
         //data
         $vars['data'] = '';
         if($list){
-            $res = \SQL\CONTACTS_SELECT_LIST::QQ(array($list));
+            $res = \SQL\CONTACTS_SELECT_LIST::QQ(array($list,$search,$search,$search,$search));
+            $count = \SQL\CONTACTS_COUNT_LIST::Q1(array($list,$search,$search,$search,$search))['count'];
         } else {
-            $res = \SQL\CONTACTS_SELECT::QQ();
+            $res = \SQL\CONTACTS_SELECT::QQ(array($search,$search,$search,$search));
+            $count = \SQL\CONTACTS_COUNT::Q1(array($search,$search,$search,$search))['count'];
         }
-        while($row = $res->next()){
+        $res->seek(25*$page);
+        $count_filtered = 0;
+        while(($row = $res->next()) && ($count_filtered < 25)){
             $vars['data'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_tr.tpl'))->SERVERPATH(),$row);
+            $count_filtered++;
         }
+        // Pagintation
+        $vars['pagination'] = '';
+        $vars['page_last'] = floor($count/25);
+        for($i=0;$i < ceil($count/25);$i++){
+            $data = array('page' => $i,'search' => $search, 'list' => $list, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_pagination.tpl'))->SERVERPATH(), $data);
+        }
+        $vars['count'] = ($count_filtered+$page*25).'/'.$count;
         
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts.tpl'))->SERVERPATH(),$vars);
     }
@@ -421,7 +444,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     }
     
     public static function sai_mod__SAI_saimod_mail_action_update_contact($data){
-        \SQL\CONTACT_UPDATE::QI(array($data['sex'],$data['name_first'],$data['name_last'],$data['email']));
+        \SQL\CONTACT_UPDATE::QI(array($data['sex'],$data['name_first'],$data['name_last'],$data['organization'],$data['email']));
         foreach($data['email_lists'] as $list){
             if($list['subscribed']){
                 self::subscribe($data['email'],$list['id']);
@@ -436,7 +459,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         if($data['email'] == ''){
             throw new \SYSTEM\LOG\ERROR('Please provide an EMail');
         }
-        \SQL\CONTACT_INSERT::QI(array($data['email'],$data['sex'],$data['name_first'],$data['name_last']));
+        \SQL\CONTACT_INSERT::QI(array($data['email'],$data['sex'],$data['name_first'],$data['name_last'],$data['organization']));
         foreach($data['email_lists'] as $list){
             if($list['subscribed']){
                 \SQL\SUBSCRIBE::QI(array($data['email'],$list['id']));
@@ -515,7 +538,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     public static function sai_mod__SAI_saimod_mail_action_email($id){
         $vars = \SQL\EMAIL_SELECT::Q1(array($id));
         $vars['template_lock'] = $vars['system_lock'] ? 'disabled' : '';
-        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = '';
+        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = $vars['selected_account_4'] = '';
         $vars['selected_account_'.$vars['account']] = 'selected';
         //text template
         $vars['text_options'] = '';
@@ -752,11 +775,15 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if(count($data) >= 4 && $data[3]){
                 $name_first = $data[3];
             }
+            $organization = $db ? $db['organization'] : null;
+            if(count($data) >= 5 && $data[4]){
+                $organization = $data[4];
+            }
             
             if($db){
-                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$email));
+                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$organization,$email));
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last));
+                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last,$organization));
             }
             
             \SQL\SUBSCRIBE::QI(array($email,$list));
