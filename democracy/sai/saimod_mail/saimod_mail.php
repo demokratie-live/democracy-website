@@ -773,7 +773,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             }
             $name_last = $db ? $db['name_last'] : null;
             if(count($data) >= 4 && $data[3]){
-                $name_first = $data[3];
+                $name_last = $data[3];
             }
             $organization = $db ? $db['organization'] : null;
             if(count($data) >= 5 && $data[4]){
