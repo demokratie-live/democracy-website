@@ -241,6 +241,12 @@ body {
     display: none;
 }
 
+@media (min-width: 992px) {
+    #social_media {
+        padding-left: 15px;
+    }
+}
+
 #social_media > li > a > i {
     font-size: 26px;
     color: #fff;
