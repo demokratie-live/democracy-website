@@ -18,6 +18,10 @@
                 <td><input id="input-contact-name-last" type="text" value="${name_last}" style="width: 100%"/></td>
             </tr>
             <tr>
+                <th>Organization</th>
+                <td><input id="input-contact-organization" type="text" value="${organization}" style="width: 100%"/></td>
+            </tr>
+            <tr>
                 <th>UpdatedAt</th>
                 <td>${updated_at}</td>
             </tr>

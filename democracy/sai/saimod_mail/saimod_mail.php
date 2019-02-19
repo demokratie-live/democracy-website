@@ -6,6 +6,10 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_LIST_NEWSLETTER         = 2;
     const EMAIL_LIST_PROTOTYPE          = 3;
     const EMAIL_LIST_ALPHA              = 4;
+    const EMAIL_LIST_EMAIL_PAYPAL       = 5;
+    const EMAIL_LIST_EMAIL_VOLUNTEERS   = 6;
+    const EMAIL_LIST_EMAIL_CONTACT      = 7;
+    const EMAIL_LIST_EMAIL_PR           = 8;
     
     const EMAIL_WEBSITE_CONTACT         = 10;
     const EMAIL_WEBSITE_BUGREPORT       = 11;
@@ -27,6 +31,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAIL_ACCOUNT_CONTACT         = 1;
     const EMAIL_ACCOUNT_PROTOTYPING     = 2;
     const EMAIL_ACCOUNT_CROWDFUNDING    = 3;
+    const EMAIL_ACCOUNT_KRUEGER         = 4;
     
     public static function subscribe($email,$list){
         return \SQL\SUBSCRIBE::QI(array($email,$list));
@@ -65,15 +70,15 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             case self::EMAIL_ACCOUNT_CROWDFUNDING:
                 $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CROWDFUNDING);
                 break;
+            case self::EMAIL_ACCOUNT_KRUEGER:
+                $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_KRUEGER);
+                break;
             // contact
             default:
                 $smtp = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
         }
         
         $replacements = [];
-        $replacements['emoji_mobile'] = '📱';
-        foreach($data as $k => $v){
-            $replacements['data_'.$k] = $v;}
         while($placeholder = $placeholders_qq->next()){
             switch($placeholder['type']){
                 case self::EMAIL_PLACEHOLDER_TYPE_TEXT:
@@ -105,6 +110,11 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                     break;
             }
         }
+        $replacements['emoji_mobile'] = '📱';
+        foreach($data as $k => $v){
+            $replacements['data_'.$k] = $v;}
+        foreach($contact_data as $k => $v){
+            $replacements['contact_'.$k] = $v;}
         if($list){
             $replacements['unsubscribe_link'] = \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CONFIG_PATH_BASEURL).
                                                 '#!unsubscribe;token.'.
@@ -151,32 +161,261 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail.tpl'))->SERVERPATH(),$vars);
     }
     
+    public static function sai_mod__SAI_saimod_mail_action_import_paypal(){
+        $account = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
+        $connection_string = '{'.$account['imap'].'}';
+        $folder = 'INBOX.4 - Paypal';
+        $imap = imap_open ( $connection_string.$folder, $account['username'],  $account['password']);         
+        $check = imap_check($imap);
+        
+        $result = ['count' => 0, 'new' => 0, 'mod' => 0, 'match' => 0];
+        
+        $i = $check->Nmsgs;
+        $result['count'] = $i;
+        // Paypal
+        while($i > 0){
+            $body = imap_body($imap, $i);
+            $b64 = imap_base64($body);
+            if($b64){
+                $body = $b64;
+            }
+            
+            $regex_name = '/Name des Kunden:<\/th><td.*>(.*) (.*)<\/td>/mU';
+            $regex_mail = '/E-Mail des Kunden:<\/th><td.+>(.*)<\/td>/mU';
+
+            $first_name = null;
+            $last_name = null;
+            $email = null;
+
+            preg_match_all($regex_name, $body, $matches, \PREG_SET_ORDER);
+            if($matches){
+                $first_name = $matches[0][1];
+                $last_name = $matches[0][2];
+            }
+            preg_match_all($regex_mail, $body, $matches, \PREG_SET_ORDER);
+            if($matches){
+                $email = $matches[0][1];
+            }
+
+            if(!$email){
+                $regex_single = '/<span.+>Diese E-Mail bestätigt den Erhalt einer Spende über &euro;.+ von (.*) (.*) \(<a href="mailto:(.*)\?/mU';
+                preg_match_all($regex_single, $body, $matches, \PREG_SET_ORDER);
+                if($matches){
+                    $first_name = $matches[0][1];
+                    $last_name = $matches[0][2];
+                    $email = $matches[0][3];
+                }
+            }
+
+            if($email){
+                $result['match'] += 1;
+                $contact = \SQL\CONTACT_SELECT::Q1(array($email));
+                if($contact){
+                    $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_PAYPAL))['count'] == 1;
+                    if(!$is_subscribed){
+                        \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
+                        \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                        \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PAYPAL));
+                        $result['mod'] += 1;
+                    } 
+                } else {
+                    \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PAYPAL));
+                    $result['new'] += 1;
+                }
+            }
+            $i--;
+        }
+        imap_close($imap);
+        
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SAI_saimod_mail_action_import_pr(){
+        $account = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
+        $connection_string = '{'.$account['imap'].'}';
+        $folder = 'INBOX.2 - Public Relations';
+        $imap = imap_open ( $connection_string.$folder, $account['username'],  $account['password']);         
+        $check = imap_check($imap);
+        
+        $result = ['count' => 0, 'new' => 0, 'mod' => 0, 'match' => 0];
+        
+        $i = $check->Nmsgs;
+        $result['count'] = $i;        
+        while($i > 0){
+            $first_name = $last_name = '';
+            $header = imap_headerinfo($imap, $i);
+            $from = $header->from[0];
+            if(isset($from->personal)){
+                $personal = explode(' ', imap_utf8($from->personal));
+                $first_name = $personal[0];
+                $last_name = count($personal) > 1 ? $personal[1] : null;
+            }
+            $email = $from->mailbox.'@'.$from->host;
+            
+            $result['match'] += 1;
+            $contact = \SQL\CONTACT_SELECT::Q1(array($email));
+            if($contact){
+                $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_PR))['count'] == 1;
+                if(!$is_subscribed){
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PR));
+                    $result['mod'] += 1;
+                } 
+            } else {
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name, ''));
+                \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_PR));
+                $result['new'] += 1;
+            }
+            
+            $i--;
+        }
+         
+        imap_close($imap);
+        
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SAI_saimod_mail_action_import_contact(){
+        $account = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
+        $connection_string = '{'.$account['imap'].'}';
+        $folder = 'INBOX.1 - Kontakte + Kommunikation';
+        $imap = imap_open ( $connection_string.$folder, $account['username'],  $account['password']);         
+        $check = imap_check($imap);
+        
+        $result = ['count' => 0, 'new' => 0, 'mod' => 0, 'match' => 0];
+        
+        $i = $check->Nmsgs;
+        $result['count'] = $i;        
+        while($i > 0){
+            $first_name = $last_name = '';
+            $header = imap_headerinfo($imap, $i);
+            $from = $header->from[0];
+            if(isset($from->personal)){
+                $personal = explode(' ', imap_utf8($from->personal));
+                $first_name = $personal[0];
+                $last_name = count($personal) > 1 ? $personal[1] : null;
+            }
+            $email = $from->mailbox.'@'.$from->host;
+            
+            $result['match'] += 1;
+            $contact = \SQL\CONTACT_SELECT::Q1(array($email));
+            if($contact){
+                $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_CONTACT))['count'] == 1;
+                if(!$is_subscribed){
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_CONTACT));
+                    $result['mod'] += 1;
+                } 
+            } else {
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
+                \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_CONTACT));
+                $result['new'] += 1;
+            }
+            
+            $i--;
+        }
+         
+        imap_close($imap);
+        
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
+    public static function sai_mod__SAI_saimod_mail_action_import_volunteers(){
+        $account = \SYSTEM\CONFIG\config::get(\config_ids::DEMOCRACY_EMAIL_CONTACT);
+        $connection_string = '{'.$account['imap'].'}';
+        $folder = 'INBOX.3 - Volunteers + Kooperationen';
+        $imap = imap_open ( $connection_string.$folder, $account['username'],  $account['password']);         
+        $check = imap_check($imap);
+        
+        $result = ['count' => 0, 'new' => 0, 'mod' => 0, 'match' => 0];
+        
+        $i = $check->Nmsgs;
+        $result['count'] = $i;        
+        while($i > 0){
+            $first_name = $last_name = '';
+            $header = imap_headerinfo($imap, $i);
+            $from = $header->from[0];
+            if(isset($from->personal)){
+                $personal = explode(' ', imap_utf8($from->personal));
+                $first_name = $personal[0];
+                $last_name = count($personal) > 1 ? $personal[1] : null;
+            }
+            $email = $from->mailbox.'@'.$from->host;
+            
+            $result['match'] += 1;
+            $contact = \SQL\CONTACT_SELECT::Q1(array($email));
+            if($contact){
+                $is_subscribed = \SQL\ISSUBSCRIBED::Q1(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS))['count'] == 1;
+                if(!$is_subscribed){
+                    \SQL\CONTACT_UPDATE::QI(array($contact['sex'],$first_name,$last_name,$contact['organization'],$email));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                    \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS));
+                    $result['mod'] += 1;
+                } 
+            } else {
+                \SQL\CONTACT_INSERT::QI(array($email,null,$first_name,$last_name,''));
+                \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_NEWSLETTER));
+                \SQL\SUBSCRIBE::QI(array($email,self::EMAIL_LIST_EMAIL_VOLUNTEERS));
+                $result['new'] += 1;
+            }
+            
+            $i--;
+        }
+         
+        imap_close($imap);
+        
+        return \SYSTEM\LOG\JsonResult::toString($result);
+    }
+    
     public static function sai_mod__SAI_saimod_mail_action_overview(){
         $vars = array();
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_overview.tpl'))->SERVERPATH(),$vars);
     }
     
-    public static function sai_mod__SAI_saimod_mail_action_contacts($list=null){
+    public static function sai_mod__SAI_saimod_mail_action_contacts($search='%',$page=0,$list=null){
         $vars = array();
+        $vars['list'] = $list;
+        $vars['search'] = $search;
+        $vars['page'] = $page;
         //menu
         $vars['menu'] = '';
         $vars['active_all'] = $list ? '' : 'active';
         $res = \SQL\EMAIL_LISTS_SELECT::QQ();
         while($row = $res->next()){
             $row['active'] = $row['id'] == $list ? 'active' : '';
+            $row['search'] = $search;
             $vars['menu'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_menu.tpl'))->SERVERPATH(),$row);
         }
         
         //data
         $vars['data'] = '';
         if($list){
-            $res = \SQL\CONTACTS_SELECT_LIST::QQ(array($list));
+            $res = \SQL\CONTACTS_SELECT_LIST::QQ(array($list,$search,$search,$search,$search));
+            $count = \SQL\CONTACTS_COUNT_LIST::Q1(array($list,$search,$search,$search,$search))['count'];
         } else {
-            $res = \SQL\CONTACTS_SELECT::QQ();
+            $res = \SQL\CONTACTS_SELECT::QQ(array($search,$search,$search,$search));
+            $count = \SQL\CONTACTS_COUNT::Q1(array($search,$search,$search,$search))['count'];
         }
-        while($row = $res->next()){
+        $res->seek(25*$page);
+        $count_filtered = 0;
+        while(($row = $res->next()) && ($count_filtered < 25)){
             $vars['data'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_tr.tpl'))->SERVERPATH(),$row);
+            $count_filtered++;
         }
+        // Pagintation
+        $vars['pagination'] = '';
+        $vars['page_last'] = floor($count/25);
+        for($i=0;$i < ceil($count/25);$i++){
+            $data = array('page' => $i,'search' => $search, 'list' => $list, 'active' => ($i == $page) ? 'active' : '');
+            $vars['pagination'] .= \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts_pagination.tpl'))->SERVERPATH(), $data);
+        }
+        $vars['count'] = ($count_filtered+$page*25).'/'.$count;
         
         return \SYSTEM\PAGE\replace::replaceFile((new \PSAI('saimod_mail/tpl/saimod_mail_contacts.tpl'))->SERVERPATH(),$vars);
     }
@@ -205,7 +444,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     }
     
     public static function sai_mod__SAI_saimod_mail_action_update_contact($data){
-        \SQL\CONTACT_UPDATE::QI(array($data['sex'],$data['name_first'],$data['name_last'],$data['email']));
+        \SQL\CONTACT_UPDATE::QI(array($data['sex'],$data['name_first'],$data['name_last'],$data['organization'],$data['email']));
         foreach($data['email_lists'] as $list){
             if($list['subscribed']){
                 self::subscribe($data['email'],$list['id']);
@@ -220,7 +459,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         if($data['email'] == ''){
             throw new \SYSTEM\LOG\ERROR('Please provide an EMail');
         }
-        \SQL\CONTACT_INSERT::QI(array($data['email'],$data['sex'],$data['name_first'],$data['name_last']));
+        \SQL\CONTACT_INSERT::QI(array($data['email'],$data['sex'],$data['name_first'],$data['name_last'],$data['organization']));
         foreach($data['email_lists'] as $list){
             if($list['subscribed']){
                 \SQL\SUBSCRIBE::QI(array($data['email'],$list['id']));
@@ -299,7 +538,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     public static function sai_mod__SAI_saimod_mail_action_email($id){
         $vars = \SQL\EMAIL_SELECT::Q1(array($id));
         $vars['template_lock'] = $vars['system_lock'] ? 'disabled' : '';
-        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = '';
+        $vars['selected_account_1'] = $vars['selected_account_2'] = $vars['selected_account_3'] = $vars['selected_account_4'] = '';
         $vars['selected_account_'.$vars['account']] = 'selected';
         //text template
         $vars['text_options'] = '';
@@ -536,11 +775,15 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
             if(count($data) >= 4 && $data[3]){
                 $name_first = $data[3];
             }
+            $organization = $db ? $db['organization'] : null;
+            if(count($data) >= 5 && $data[4]){
+                $organization = $data[4];
+            }
             
             if($db){
-                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$email));
+                \SQL\CONTACT_UPDATE::QI(array($sex,$name_first,$name_last,$organization,$email));
             } else {
-                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last));
+                \SQL\CONTACT_INSERT::QI(array($email,$sex,$name_first,$name_last,$organization));
             }
             
             \SQL\SUBSCRIBE::QI(array($email,$list));

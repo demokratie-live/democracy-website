@@ -1,9 +1,108 @@
 function init_saimod_mail() {}
 
+function register_search(){
+    $('#btn_search').click(function(){
+        system.load($(this).attr('state')+$('#input_search').val()+$(this).attr('state2'),true);
+    });
+}
+
 function init_saimod_mail_overview() {
     $('#tabs_mail li a').each(function(){
         $(this).removeClass('active');});
     $('#menu_mail_overview').addClass('active');
+    
+    $('#import_contact').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_contact',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#import_pr').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_pr',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#import_paypal').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_paypal',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
+    $('#import_volunteers').click(function(){
+        $.ajax({
+            async: true,
+            url: this.endpoint,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                sai_mod: '.SAI.saimod_mail',
+                action: 'import_volunteers',
+            },
+            success: function(data){
+                if(data.status){
+                    $('#import_result').val(JSON.stringify(data)); 
+               } else {
+                    alert('Something happend - try again!');
+                }
+            },
+            error: function(){
+                alert('Something happend - try again!');
+            }
+        });
+    });
+    
 };
 
 function init_saimod_mail_contacts() {
@@ -40,6 +139,7 @@ function init_saimod_mail_contacts() {
             });
         }
     });
+    register_search();
 }
 
 function init_saimod_mail_contact() {
@@ -52,6 +152,7 @@ function init_saimod_mail_contact() {
         var sex = $('#input-contact-sex').val();
         var name_first = $('#input-contact-name-first').val();
         var name_last = $('#input-contact-name-last').val();
+        var organization = $('#input-contact-organization').val();
         var email_lists = [];
         $(".list-check").each(function(){
             email_lists.push({id: $(this).attr('list'), subscribed: $(this).prop('checked') === true ? 1 : 0});
@@ -69,6 +170,7 @@ function init_saimod_mail_contact() {
                     sex: sex,
                     name_first: name_first,
                     name_last: name_last,
+                    organization: organization,
                     email_lists: email_lists
                 }
             },
@@ -96,6 +198,7 @@ function init_saimod_mail_contact_new() {
         var sex = $('#input-contact-new-sex').val();
         var name_first = $('#input-contact-new-name-first').val();
         var name_last = $('#input-contact-new-name-last').val();
+        var organization = $('#input-contact-new-organization').val();
         var email_lists = [];
         $(".list-check").each(function(){
             email_lists.push({id: $(this).attr('list'), subscribed: $(this).prop('checked') === true ? 1 : 0});
@@ -113,6 +216,7 @@ function init_saimod_mail_contact_new() {
                     sex: sex,
                     name_first: name_first,
                     name_last: name_last,
+                    organization: organization,
                     email_lists: email_lists
                 }
             },

@@ -77,9 +77,9 @@
                 <span>  Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des
                         Finanzamt Göttingen vom 23.08.2017 die Einhaltung der satzungsmäigen
                         Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt worden
-                        (<a href="http://docs.google.com/gview?url=https://www.democracy-deutschland.de/files/download/Gemeinnutzigkeit_DEMOCRACY.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="http://docs.google.com/gview?url=https://www.democracy-deutschland.de/files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
+                        (<a href="./files/download/Gemeinnutzigkeit_DEMOCRACY.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
                         abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
-                        (z.B. Kontoauszug) zusammen mit unserem <a href="http://docs.google.com/gview?url=https://www.democracy-deutschland.de/files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
+                        (z.B. Kontoauszug) zusammen mit unserem <a href="./files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
                         Wenn Du eine separate Zuwendungsbestätigung benötigst,
                         schreib uns bitte eine E-Mail oder gib in Deiner
                         Überweisung Deine Wohnadresse an.</span>
@@ -109,30 +109,6 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
                 ${donate_details}
-                <!--<script type="text/javascript">
-                    /* Configure at https://www.betterplace.org/de/projects/61376-democracy-demokratie_live/manage/iframe_donation_form/new */
-                    var _bp_iframe = _bp_iframe || {};
-                    _bp_iframe.project_id = 61376; /* REQUIRED */
-                    _bp_iframe.lang = 'de'; /* Language of the form */
-                    _bp_iframe.width = 600; /* Custom iframe-tag-width, integer */
-                    _bp_iframe.color = '4494D3'; /* Button and banderole color, hex without "#" */
-                    _bp_iframe.background_color = 'ffffff'; /* Background-color, hex without "#" */
-                    _bp_iframe.default_amount = 10; /* Donation-amount, integer 1-99 */
-                    _bp_iframe.default_data_transfer_accepted = true; /* true (default), false */
-                    _bp_iframe.recurring_interval = 'monthly'; /* Interval for recurring donations, string out of
-                    ["single", "monthly", "quarter_yearly", "half_yearly", "yearly"] */
-                    _bp_iframe.bottom_logo = true;
-                    (function() {
-                    var bp = document.createElement('script'); bp.type = 'text/javascript'; bp.async = true;
-                    bp.src = 'https://asset1.betterplace.org/assets/load_donation_iframe.js';
-                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bp, s);
-                    })();
-                </script>
-                <div id="betterplace_donation_iframe" style="background: transparent url('https://www.betterplace.org/assets/new_spinner.gif') 275px 20px no-repeat;">
-                    <strong>
-                        <a href="https://www.betterplace.org/de/projects/61376-democracy-demokratie_live/donations/new">Jetzt Spenden für „DEMOCRACY | Demokratie_live“ bei unserem Partner betterplace.org</a>
-                    </strong>
-                </div>-->
             </div>
         </div>
         <div class="row">
@@ -145,8 +121,8 @@
                 <h2>Das aktive Team</h2>
             </div>
             ${team}
-            <div class="col-md-3 w3_agileits_team_grid">
-                <iframe src="https://discordapp.com/widget?id=372403545086885888&theme=light" width="100%" height="465" allowtransparency="true" frameborder="0"></iframe>
+            <div class="col-md-3" style="margin-top: 50px;">
+                <iframe src="https://discordapp.com/widget?id=372403545086885888&theme=light" width="100%" height="100%" allowtransparency="true" frameborder="0" style="padding-bottom: 15px; min-height: 30p0x;"></iframe>
             </div>
         </div>
         <div class="row">

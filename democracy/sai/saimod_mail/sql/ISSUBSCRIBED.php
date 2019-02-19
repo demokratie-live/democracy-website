@@ -1,9 +1,9 @@
 <?php
 namespace SQL;
 
-class CONTACT_UPDATE extends \SYSTEM\DB\QP {
+class ISSUBSCRIBED extends \SYSTEM\DB\QP {
     public static function get_class(){return \get_class();}
     public static function mysql(){return
-'UPDATE contact SET sex=?, name_first=?, name_last=?, organization=? WHERE email=?;';
+'SELECT COUNT(*) AS count FROM contact_email_list WHERE email = ? AND list = ?;';
     }
 }

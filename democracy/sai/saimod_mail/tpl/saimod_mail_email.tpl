@@ -16,6 +16,7 @@
                         <option value="1" ${selected_account_1}>contact@democracy-deutschland.de</option>
                         <option value="2" ${selected_account_2}>prototyping@democracy-deutschland.de</option>
                         <option value="3" ${selected_account_3}>crowdfunding@democracy-deutschland.de</option>
+                        <option value="4" ${selected_account_4}>krueger@democracy-deutschland.de</option>
                     </select>
                 </td>
             </tr>
@@ -88,6 +89,12 @@
                             </tr>
                             <tr>
                                 <td>data_*</td>
+                                <td>STATIC</td>
+                                <td>Mixed</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>contact_*</td>
                                 <td>STATIC</td>
                                 <td>Mixed</td>
                                 <td></td>
