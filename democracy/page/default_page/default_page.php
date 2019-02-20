@@ -7,8 +7,6 @@ class default_page implements \SYSTEM\PAGE\DefaultPage {
                     \LIB\lib_bootstrap::js(),
                     \LIB\lib_system::js(),
                     new PLIB('responsiveslides/responsiveslides.min.js'),
-                    new PLIB('jarallax/jarallax.js'),
-                    new PLIB('smooth_scroll/SmoothScroll.min.js'),
                     new PLIB('move_top/move-top.min.js'),
                     new PLIB('easing/easing.js'),
                     new PPAGE('default_page/js/default_page.js'),

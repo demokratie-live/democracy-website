@@ -201,6 +201,8 @@ INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`,
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('link_alpha', 'democracy');
 INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('link_apk', 'deDE', 'https://github.com/demokratie-live/democracy-development/releases/latest', 1, 1, '2018-09-17 10:36:39', '2018-09-17 10:36:39');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('link_apk', 'democracy');
+INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('link_fdroid', 'deDE', 'https://f-droid.org/de/packages/de.democracydeutschland.app/', 1, 1, '2018-09-17 10:36:39', '2018-09-17 10:36:39');
+INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('link_fdroid', 'democracy');
 
 INSERT IGNORE INTO `system_text` (`id`, `lang`, `text`, `author`, `author_edit`, `time_create`, `time_edit`) VALUES ('roadmap_beta_head_color', 'deDE', 'green', 1, 1, '2018-10-25 11:51:12', '2018-10-25 11:51:12');
 INSERT IGNORE INTO `system_text_tag` (`id`, `tag`) VALUES ('roadmap_beta_head_color', 'roadmap');

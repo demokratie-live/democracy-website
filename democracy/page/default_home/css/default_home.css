@@ -1,4 +1,7 @@
-
+.slide-default {}
+.slide-wahlometer {
+    display: none;
+}
 
 .header-content {
   text-align: center;
@@ -114,6 +117,9 @@
 }
 .about-content{
     padding-top: 100px;
+}
+.video-content{
+    padding-top: 80px;
 }
 
 .hidden {

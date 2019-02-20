@@ -1,12 +1,6 @@
 $(document).ready(function() {
     new SYSTEM('./api.php',1,'home');
-    
-    /* init Jarallax */
-    /*$('.jarallax').jarallax({
-        speed: 0.5,
-        imgWidth: 1366,
-        imgHeight: 768
-    });*/
+
     $().UItoTop({ easingType: 'easeOutQuart' });
     
     $(".scroll").click(function(event){   
