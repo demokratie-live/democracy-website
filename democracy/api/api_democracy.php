@@ -49,7 +49,7 @@ class api_democracy extends \SYSTEM\API\api_system {
                     \SQL\BETA_DELETE::QI(array($email));
                     \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
                 } else {
-                    throw new ERROR('This EMail has already redeemed a Code');}
+                    throw new \SYSTEM\LOG\ERROR('This EMail has already redeemed a Code');}
             }
         } else {
             \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
