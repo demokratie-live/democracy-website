@@ -19,7 +19,7 @@
             <div class="col-12">
                 <h1 style="padding-top: 75px;">GEMACHT FÜR BÜRGER</h1>
                 <h4 class="subheading">
-                    DEMOCRACY ist speziell dafür entwickelt,<br>
+                    DEMOCRACY ist speziell dafür entwickelt,
                     Bürgerlobbyismus und Politikcontrolling zu fördern
                 </h4>
             </div>
@@ -53,11 +53,11 @@
                         <div class="info-box-text">
                             Bei jedem Gesetz, das Du Dir ansiehst,
                             bekommst du <strong>Einsichten in</strong> dessen konkrete
-                            <strong>Inhalte sowie</strong>in den dazugehörigen
+                            <strong>Inhalte sowie</strong> in den dazugehörigen
                             <strong>parlamentarischen Prozess</strong>. DEMOCRACY
                             stellt Dir dafür alle <strong>offiziellen Informationen
-                            aus dem Parlamentsdokumentations-
-                            system DIP21</strong> zu jedem Vorgang in
+                            aus dem Parlamentsdokumentationssystem
+                            DIP21</strong> zu jedem Vorgang in
                             anschaulicher Form zur Verfügung. So kannst
                             Du beispielsweise von einem Sachgebiet bis
                             herunter zu einem konkreten Thema
@@ -79,8 +79,8 @@
                             Entscheidungen erfahrbaren Politik für
                             die Bürger</strong>. Insofern stehen bei
                             DEMOCRACY die konkret vertretenen
-                            Inhalte und der Dialog um die sachlich-
-                            beste Antwort unserer Zeit auf das einer
+                            Inhalte und der Dialog um die sachlich-beste
+                            Antwort unserer Zeit auf das einer
                             Gesetzesinitiative zugrundeliegende
                             Problem im Vordergrund. 
                         </div>
@@ -91,10 +91,10 @@
                         </div>
                         <h4><strong>BÜRGERLOBBYISMUS INITIIEREN</strong></h4>
                         <div class="info-box-text">
-                            Eine Meinung zu wichtigen Gesetzes-
-                            initiativen zu haben ist gut; <strong>das Mandat
-                            eines virtuellen Bundestagsabgeord-
-                            neten</strong> auszuüben ist besser. Deshalb
+                            Eine Meinung zu wichtigen Gesetzesinitiativen
+                            zu haben ist gut; <strong>das Mandat
+                            eines virtuellen Bundestagsabgeordneten</strong>
+                            auszuüben ist besser. Deshalb
                             kannst du mit DEMOCRACY nicht nur
                             Gesetzesinitiativen upvoten (für wichtig
                             befinden) sondern auch <strong>selbst über die
@@ -103,8 +103,7 @@
                             Deine anoyme Stimme wird daraufhin mit
                             allen anderen abgegeben Vota zu einem
                             Community-Stimmungsbild kumuliert und
-                            Vertretungssymbol Eurer Interessen-
-                            gemeinschaft.
+                            Vertretungssymbol Eurer Interessengemeinschaft.
                         </div>
                     </div>
                     <div class="col-lg-4 info-box">
@@ -143,13 +142,13 @@
                             Parteien bzw. Abgeordneten und <strong>berechnet</strong>
                             in Echtzeit auf Deinem Handy <strong>die</strong> jeweiligen
                             <strong>Übereinstimmungen</strong>. Bei der nächsten
-                            Bundestagswahl stützt du deine
+                            Bundestagswahl stützt Du Deine
                             Wahlentscheidung somit nicht mehr auf
                             schwammige Wahlversprechen, sondern
                             auf das tatsächliche Abstimmungsverhalten
-                            der Politiker und Fraktionen. Der Wahl-O-
-                            Meters machts möglich. Willkommen
-                            im 21. Jahrhundert 
+                            der Politiker und Fraktionen. Der Wahl-O-Meters
+                            machts möglich. Willkommen
+                            im 21. Jahrhundert.
                         </div>
                     </div>
                 </div>

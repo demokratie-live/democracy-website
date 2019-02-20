@@ -17,7 +17,8 @@
             <div class="col-12">
                 <h1 style="padding-top: 75px;">ADDRESSIERT AN POLITIKER</h1>
                 <h4 class="subheading">
-                    Um eine Veränderung über die real-existierenden<br> politischen Entscheidungswege zu ermöglichen
+                    Um eine Veränderung über die real-existierenden
+                    politischen Entscheidungswege zu ermöglichen
                 </h4>
             </div>
             <div class="col-12">
@@ -30,7 +31,7 @@
                         <div class="info-box-text">
                             Fast alle Bürger fordern sie, nicht alle
                             Politiker stufen sie als unbedenklich ein –
-                            die Rede ist von mehr Partizipations-Möglichkeiten. Aber gerade weil eine
+                            die Rede ist von mehr Partizipationsmöglichkeiten. Aber gerade weil eine
                             <strong>notwendige Bedingung für mehr
                             Partizipation</strong> (mit vernünftigem
                             Entscheidungsausgang) <strong>politsche Bildung</strong> ist,
@@ -52,7 +53,7 @@
                             Möglichkeit (ohne juristische Bindung)
                             geschaffen, die es jedem registrierten
                             Bundesbürger ermöglicht, zu den aktuellen
-                            Entscheidungen des Parlaments, ein
+                            Entscheidungen des Parlaments ein
                             Abstimmungsmandat auszuüben. Als Politiker
                             erhälst Du dieses anonymisierte
                             Stimmungsbild noch vor Deiner eigenen
@@ -72,7 +73,7 @@
                             Zusätzlich zum gesamtdeutschen
                             Stimmungsbild liefert Dir DEMOCRACY
                             auch noch ein <strong>qualifiziertes
-                            Wahlkreis-stimmungsbild</strong>. Darin enthalten
+                            Wahlkreisstimmungsbild</strong>. Darin enthalten
                             sind all diejenigen Stimmen, die zusätzlich
                             zu einer deutschen Handynummer eine
                             Postleitzahl Deines Wahlkreises angegeben
@@ -111,7 +112,7 @@
                         <div class="info-box-text">
                             Die dauerhafte Rückkopplung hilft Dir, Dich
                             als Politiker besser positionieren zu können –
-                            ganz klar. Aber ab welcher Community-Größe
+                            ganz klar. Aber ab welcher Communitygröße
                             bist Du bereit, Dich auf die App-Ergebnisse zu
                             beziehen, heißt <strong>Deine Ablehnung oder
                             Zustimmung zu den</strong> jeweiligen
@@ -129,7 +130,7 @@
                         <h4><strong>STÄRKERES VERTRAUEN</strong></h4>
                         <div class="info-box-text">
                             Durch einen Kommunikationsprozess mit
-                            den Bürgern, die Nachvollziehbarkeit Deiner
+                            den Bürgern die Nachvollziehbarkeit Deiner
                             politischen Entscheidungen erhöhen?
                             Gegebenfalls bedeutet das auch, aus
                             vernünftigen Gründen gegen das Stimmungsbild
