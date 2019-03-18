@@ -31,4 +31,18 @@ function init_home(){
     });
     
     $(".navbar").addClass("startpage");
+    
+    // Start Slide
+    WahlOMeterTimer();
+    
+    // Adjust Video Height
+    // $('#video').height($('#video').width()*9/16);
+}
+
+function WahlOMeterTimer(){
+    setTimeout(function () {
+        $('.slide-default').toggle();
+        $('.slide-wahlometer').toggle();
+        WahlOMeterTimer();
+    }, 9500);
 }
