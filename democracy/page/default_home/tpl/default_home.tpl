@@ -56,21 +56,21 @@
 <div class="scroll-icon-container d-none d-lg-block">
     <a href="#" class="scroll-icon"><i class="fa fa-chevron-circle-down"></i></a>
 </div>
-<!--<div class="background-white">
+<div class="background-white">
     <div id="video-box" class="container page">
         <div class="row video-content">
             <div class="col-lg-7">
                 <h1>Worum geht es bei DEMOCRACY?</h1>
             </div>
             <div class="col-lg-5" style="text-align: right; padding-top: 20px;">
-                <a href="#" style="color: rgb(74,74,74); font-size: 20px;">Mehr Informationen zu diesem Film</a>
+                <a href="#!faq" style="color: rgb(74,74,74); font-size: 20px;">Mehr Informationen zu diesem Film</a>
             </div>
-            <div class="col-lg-12" id="video" style="padding-top: 35px;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Acgy-3d4P6o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7f4_yFQwnck" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-</div>-->
+</div>
 <div class="background-white">
     <div id="about" class="container page">
         <div class="row">
