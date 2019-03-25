@@ -95,7 +95,7 @@
                         <img class="info-icon-passive" src="./files/images/group5@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group5@3x.t.png"/>
                     </div>
-                    <div class="info-content">Wichtige Verfahren upvoten und noch vor der offiziellen Bundestags-Entscheidung selbst über die Vorgänge abstimmen</div>
+                    <div class="info-content">Wichtige Verfahren upvoten und noch vor der offiziellen Bundestagsentscheidung selbst über die Vorgänge abstimmen</div>
                 </div>
                 <div class="info-badge" img="./files/images/4_Results.gif">
                     <div class="info-icon">
