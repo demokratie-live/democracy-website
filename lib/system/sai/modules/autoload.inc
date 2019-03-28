@@ -5,7 +5,7 @@ require_once dirname(__FILE__).'/saistart_sys_sai/autoload.inc';
 //System Mod
 require_once dirname(__FILE__).'/saimod_sys_analytics/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_log/autoload.inc';
-//require_once dirname(__FILE__).'/saimod_sys_security/autoload.inc';
+require_once dirname(__FILE__).'/saimod_sys_security/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_mod/autoload.inc';
 require_once dirname(__FILE__).'/saimod_sys_config/autoload.inc';
 //require_once dirname(__FILE__).'/saimod_sys_api/autoload.inc';

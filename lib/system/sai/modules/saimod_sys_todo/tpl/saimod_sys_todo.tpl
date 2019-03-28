@@ -9,8 +9,8 @@
                 <li class="nav-item"><a class="nav-link" href="#!todo(stats)" id="menu_stats">Statistics</a></li>
                 <img id="img_loader" src="./files/sai/ajax-loader.gif" style="margin-left: 10px; margin-top: 10px; display: none;  float: left"/>
                 <button id="btn_refresh" class="btn-primary btn btn-sm" onClick="system.load('todo',true);" style="height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> ${basic_refresh}</button>
-                <button id="btn_close_all" class="btn-danger btn btn-sm" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> ${basic_close_all}</button>
-                <button id="btn_new" class="btn-success btn btn-sm" onClick="system.load('todo(new)');" style="margin-right: 15px; height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button>
+                <button id="btn_close_all" class="btn-danger btn btn-sm" style="height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> ${basic_close_all}</button>
+                <button id="btn_new" class="btn-success btn btn-sm" onClick="system.load('todo(new)');" style="height: 32px; font-size: 13px; float: right;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ${basic_add}</button>
         </ul>
     </div>
     <div class="col-md-10 sai_padding_off sai_border_left" id="tab_todo"></div>

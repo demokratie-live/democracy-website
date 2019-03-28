@@ -81,6 +81,5 @@ class QQ {
      * @return bool Returns true or false (or Result if used incorrectly)
      */
     public static function QI($return_id = false,$dbinfo = null){
-        $qq = self::QQ($dbinfo);
-        return $return_id ? $qq->insert_id() : $qq->affectedRows() != (0||null);}
+        return self::QQ($dbinfo);} // returns boolean no id can be returned
 }
