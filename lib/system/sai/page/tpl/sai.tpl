@@ -59,7 +59,7 @@ table.tablesorter thead tr th.tablesorter-headerDesc:after {
                             <ul class="navbar-nav sai_menu">
                                 ${menu_left}
                             </ul>
-                            <ul class="navbar-nav ml-auto">
+                            <ul class="navbar-nav sai_menu ml-auto">
                                 <li class="divider-vertical"></li>
                                 <li class="dropdown-divider"></li>
                                 <li class="nav-item dropdown">

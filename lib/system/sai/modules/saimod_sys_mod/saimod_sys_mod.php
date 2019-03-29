@@ -14,7 +14,7 @@ namespace SYSTEM\SAI;
 /**
  * saimod_sys_mod Class provided by System as saimod to display all registered saimods & libraries
  */
-class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
+class saimod_sys_mod extends \SYSTEM\SAI\sai_module {
     /**
      * Generate the HTML for the System Page
      * 
@@ -23,39 +23,20 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
     public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_system(){
         $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
         $vars['entries'] = '';
-        $sys_mods = \SYSTEM\SAI\sai::getSysModules();
+        $sys_mods = \SYSTEM\SAI\sai::getModules();
         foreach($sys_mods as $mod){
             $v = array();
             $v['mod'] = $mod;
-            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
-            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
+            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-check"></span>' : '<span class="fa fa-remove"></span>';
+            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-check"></span>' : '<span class="fa fa-remove"></span>';
             $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_tr.tpl'))->SERVERPATH(),$v);
         }
         $mod = \SYSTEM\SAI\sai::getStartModule();
         $start = array();
         $start['start_class'] = $mod;
-        $start['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
-        $start['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
+        $start['start_public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-check"></span>' : '<span class="fa fa-remove"></span>';
+        $start['start_access'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-check"></span>' : '<span class="fa fa-remove"></span>';
         $vars['saistart'] = \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/saistart.tpl'))->SERVERPATH(),$start);
-        return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
-    }
-    
-    /**
-     * Generate the HTML for the Project Page
-     * 
-     * @return string Returns HTML
-     */
-    public static function sai_mod__SYSTEM_SAI_saimod_sys_mod_action_project(){
-        $vars = \SYSTEM\PAGE\text::tag(\SYSTEM\SQL\system_text::TAG_SAI_MOD);
-        $vars['entries'] = $vars['saistart'] = '';
-        $mods = \SYSTEM\SAI\sai::getModules();
-        foreach($mods as $mod){
-            $v = array();
-            $v['mod'] = $mod;
-            $v['public'] = \call_user_func(array($mod, 'right_public')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
-            $v['you'] = \call_user_func(array($mod, 'right_right')) ? '<span class="fa fa-ok"></span>' : '<span class="fa fa-remove"></span>';
-            $vars['entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_tr.tpl'))->SERVERPATH(),$v);
-        }
         return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/mod_table.tpl'))->SERVERPATH(),$vars);
     }
     
@@ -96,7 +77,11 @@ class saimod_sys_mod extends \SYSTEM\SAI\SaiModule {
      * 
      * @return string Returns <li> Menu for the Saimod
      */
-    public static function html_li_menu(){return \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/menu.tpl'))->SERVERPATH());}
+    public static function menu(){
+        return new sai_module_menu( 10,
+                                    sai_module_menu::POISITION_LEFT,
+                                    sai_module_menu::DIVIDER_NONE,
+                                    \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_mod/tpl/menu.tpl'))->SERVERPATH()));}
     
     /**
      * Returns if the Saimod is public(access for everyone)
