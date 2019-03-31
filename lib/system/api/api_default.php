@@ -96,7 +96,7 @@ abstract class api_default extends api_system implements api_default_interface {
                     }
                 }
                 if(!$found){
-                    $node = $head->appendChild($html->createElement('meta'));
+                    $node = $html->getElementsByTagName('head')[0]->appendChild($html->createElement('meta'));
                     $node->setAttribute($key, $metavalue);}
             }
         }
