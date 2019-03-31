@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>Spenden</h1>
-                <h4 style="padding-top:30px;">Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nicht-kommerziell –<br>
+                <h4 style="padding-top:30px;">Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nichtkommerziell –<br>
                     von Menschen für Menschen</h4>
             </div>
         </div>
@@ -16,12 +16,12 @@
                         gleichnamigen App DEMOCRACY unsere Politik inklusiver, demokratischer und
                         bürgernäher machen will.</span>
                 <br><br>
-                <span>  Als crowdmoderierte und politisch unabhängige Plattform informiert die App dafür
+                <span>  Als crowd-moderierte und politisch unabhängige Plattform informiert die App dafür
                          über die aktuellen Bundestagsabstimmungen und ermöglicht den Nutzern eine
                          eigene direkte Abstimmung. Regelmäßige Bürgerbeteiligung und sachbezogenes
-                        Politikcontrolling sollen damit erstmalig in der bundespolitischen Praxis Anwendung finden.</span>
+                        Politik-Controlling sollen damit erstmalig in der bundespolitischen Praxis Anwendung finden.</span>
                 <br><br>
-                <span>  Aber gerade weil so eine große Idee zur Umsetzung in diese Welt auch ein großes
+                <span>  Gerade weil so eine große Idee zur Umsetzung in diese Welt auch ein großes
                         Portemonnaie braucht, ist unser Joker die gemeinschaftliche Finanzierung.</span>
                 <br><br>
                 <span>  Nach der Prototypsfinanzierung durch das <a href="https://startnext.com/democracy" target="_blank">initiale Crowdfunding im Herbst 2017</a>,
@@ -52,7 +52,7 @@
             <div class="col-lg-6" style="text-align: left;">
                 <h5><strong>SPENDENKONTO FÜR DAUERAUFTRAG ODER ÜBERWEISUNG</strong></h5>
                 <span>  Unsere Bankverbindung für direkte Spenden, Überweisungen oder
-                        Daueraufträge ist: </span>
+                        Daueraufträge lautet: </span>
                 <br><br>
                 <style>
                     .table th, .table td{
@@ -75,11 +75,11 @@
                     </tr>
                 </table>
                 <span>  Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des
-                        Finanzamt Göttingen vom 23.08.2017 die Einhaltung der satzungsmäigen
+                        Finanzamts Göttingen vom 23.08.2017 die Einhaltung der satzungsmäßigen
                         Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt worden
                         (<a href="./files/download/Gemeinnutzigkeit_DEMOCRACY.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
                         abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
-                        (z.B. Kontoauszug) zusammen mit unserem <a href="./files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
+                        (z. B. Kontoauszug) zusammen mit unserem <a href="./files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
                         Wenn Du eine separate Zuwendungsbestätigung benötigst,
                         schreib uns bitte eine E-Mail oder gib in Deiner
                         Überweisung Deine Wohnadresse an.</span>
@@ -93,11 +93,11 @@
                 <span>  1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.
                         Bitte bedenke, dass von einer monatlichen 1€-Spende insofern nur 0,63€ bei uns ankommen.<br>
                         <br>
-                        Damit Deine Spende zu 100% wirksam wird und für Dich jederzeit kontrollierbar ist, empfehlen wir einen Dauerauftrag á Konto einzurichten.</span>
+                        Damit Deine Spende zu 100% wirksam wird und für Dich jederzeit kontrollierbar ist, empfehlen wir einen Dauerauftrag à Konto einzurichten.</span>
                 <br><br><br>
                 
                 <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>
-                <span>  Spenden und Daueraufträge sind nur eine Möglichkeit, uns zu unterstützen.
+                <span>  Spenden und Daueraufträge sind nur eine Möglichkeit, um uns zu unterstützen.
                         Wir suchen ständig motivierte Leute für die aktive Mitarbeit in unserem
                         Projekt! Du hast Interesse Deine Fähigkeiten einzubringen – wir freuen uns
                         über Anregungen, Fragen und Kritik. <a href="#!engineering">Als Freiwilliger melden.</a></span>
