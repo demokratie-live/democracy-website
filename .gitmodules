@@ -4,3 +4,6 @@
 [submodule "lib/mail_cannon"]
 	path = lib/mail_cannon
 	url = https://github.com/webcraftmedia/lib_mail_cannon.git
+[submodule "democracy/sai/saimod_mail"]
+	path = democracy/sai/saimod_mail
+	url = git@github.com:webcraftmedia/saimod_mail.git
