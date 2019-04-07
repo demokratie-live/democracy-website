@@ -231,7 +231,7 @@
                                     <input id="vol-frontend" type="checkbox">&nbsp;Front-End-Developer<br>
                                     <input id="vol-backend" type="checkbox">&nbsp;Back-End-Developer<br>
                                     <input id="vol-kryptologe" type="checkbox">&nbsp;Kryptograph<br>
-                                    <input id="vol-marketing" type="checkbox">&nbsp;Marketingstrateg<br>
+                                    <input id="vol-marketing" type="checkbox">&nbsp;Marketingstratege<br>
                                     <input id="vol-redakteur" type="checkbox">&nbsp;Redakteur<br>
                                     <input id="vol-botschafter" type="checkbox">&nbsp;Botschafter<br>
                                     <br>
