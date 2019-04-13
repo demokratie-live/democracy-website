@@ -410,7 +410,8 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         flush();
         if(session_id()){
             session_write_close();}
-        fastcgi_finish_request();
+        if (is_callable('fastcgi_finish_request')) {
+            fastcgi_finish_request();}
         
         //Start Process        
         self::send_list($data['email'],$data['list']);
