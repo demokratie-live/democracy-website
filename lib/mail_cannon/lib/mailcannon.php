@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/Pear/Mail/mime.php');
 require_once(dirname(__FILE__).'/Pear/Net/SMTP.php');
 
 class mailcannon {
-    public static function send($smtp,$from,$to,$subject,$text,$html,$images,$attachments){
+    public static function send($smtp,$from,$to,$replyto,$subject,$text,$html,$images,$attachments){
         if($smtp){
             $mail = Mail::factory('smtp', $smtp);
         } else {
@@ -32,7 +32,7 @@ class mailcannon {
         $body = $mime->get($mime_params);
         $hdrs = $mime->headers(array(   'From' => $from,
                                         'Subject' => $subject,
-                                        'Reply-to' => $from,
+                                        'Reply-to' => $replyto,
                                         'Return-Path' => $from,
                                         'Message-ID' => self::generateMessageID(),
                                         'Date' => date('r', time())));
@@ -40,7 +40,7 @@ class mailcannon {
         $recipients = array( 'To' => $to);
         $succ = $mail->send($recipients, $hdrs, $body);
         if (PEAR::isError($succ)) {
-            return false;}
+            throw new \SYSTEM\LOG\ERROR($succ);}
         return true;
     }
     
@@ -166,10 +166,9 @@ class mailcannon {
     public static function generateMessageID()
     {
         return sprintf(
-            "<%s.%s@%s>",
+            "<%s.%s>",
             base_convert(microtime(), 10, 36),
-            base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36),
-            "democracy-deutschland.de"
+            base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36)
         );
     }
 }
