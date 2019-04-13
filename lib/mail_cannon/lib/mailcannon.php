@@ -154,7 +154,7 @@ class mailcannon {
             $text = @preg_replace($preg_search, $preg_replace, $text);
             $html = @preg_replace($preg_search, $preg_replace, $html);
             
-            self::send($smtp,$from,$to,$subject,$text,$html,$images,$attachments);
+            self::send($smtp,$from,$to,$from,$subject,$text,$html,$images,$attachments);
             $count += 1;
             sleep($delay);
         }
