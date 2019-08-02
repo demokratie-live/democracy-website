@@ -26,11 +26,11 @@ class ConnectionMYS extends ConnectionAbstr {
      * @param int $client_flag Client Flag transmitted on connection
      */
     public function __construct(DBInfo $dbinfo, $new_link = false, $client_flag = 0){
-        $this->connection = @mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
+        $this->connection = @\mysqli_connect($dbinfo->m_host, $dbinfo->m_user, $dbinfo->m_password, $new_link, $client_flag);
         if(!$this->connection){
             die('Could not connect to Database. Check ur Database Settings.');}
             
-        if(!mysqli_select_db($this->connection, $dbinfo->m_database)){
+        if(!\mysqli_select_db($this->connection, $dbinfo->m_database)){
             die('Could not select Database. Check ur Database Settings.');}
             
         \mysqli_set_charset($this->connection, 'utf8');
@@ -48,7 +48,7 @@ class ConnectionMYS extends ConnectionAbstr {
      * @return bool Returns true or false depending on success
      */
     public function close(){
-        return mysqli_close($this->connection);}    
+        return \mysqli_close($this->connection);}    
         
     /**
      * Query the Connection using Prepare Statement
@@ -72,7 +72,7 @@ class ConnectionMYS extends ConnectionAbstr {
         $binds[1] = $types ? $types : $types_;
         \call_user_func_array('mysqli_stmt_bind_param', $binds); //you need 2 append the parameters - thats the right way to do that.
 
-        if(!mysqli_stmt_execute($prepStmt)){
+        if(!\mysqli_stmt_execute($prepStmt)){
             throw new \SYSTEM\LOG\ERROR("Could not execute prepare statement: ".  \mysqli_stmt_error($prepStmt));}
 
         return new \SYSTEM\DB\ResultMysqliPrepare($prepStmt,$this);

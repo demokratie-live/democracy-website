@@ -47,6 +47,8 @@ class cache_js {
     public static function ident($files){
         $ident = '';
         foreach($files as $f){
+            if(!file_exists($f->SERVERPATH())){
+                throw new \SYSTEM\LOG\ERROR('Could not find file: '.$f->SERVERPATH());}
             $ident .= $f->SERVERPATH().';'.filemtime($f->SERVERPATH()).';';}
         return sha1($ident);
     }

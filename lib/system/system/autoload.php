@@ -40,7 +40,7 @@ class autoload {
      */
     private static function getClassNamespaceFromClass($class){
         $path_info = \pathinfo($class);
-        $lastslash = \strrpos($class, 92);
+        $lastslash = \strrpos($class, '\\');
         //No Namespace found
         if(!$lastslash){
             return array($class, '');}

@@ -44,6 +44,8 @@ class cache_scss {
      * @return sha1 Returns the requested Ident
      */
     public static function ident($file){
+        if(!file_exists($file)){
+            throw new \SYSTEM\LOG\ERROR('Could not find file: '.$file);}
         return sha1($file.';'.filemtime($file));}
         
     /**
