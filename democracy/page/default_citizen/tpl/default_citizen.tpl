@@ -146,7 +146,7 @@
                             Wahlentscheidung somit nicht mehr auf
                             schwammige Wahlversprechen, sondern
                             auf das tatsächliche Abstimmungsverhalten
-                            der Politiker und Fraktionen. Der Wahl-O-Meters
+                            der Politiker und Fraktionen. Der Wahl-O-Meter
                             machts möglich. Willkommen
                             im 21. Jahrhundert.
                         </div>
