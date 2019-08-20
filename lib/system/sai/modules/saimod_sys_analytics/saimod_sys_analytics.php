@@ -378,7 +378,7 @@ class saimod_sys_analytics extends \SYSTEM\SAI\sai_module {
         $vars['dbfile_entries'] = '';
         if( \SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH) &&
             file_exists(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH))){
-            $scanned_directory = array_diff(scandir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)), array('..', '.', 'undefined', '.gitignore'));
+            $scanned_directory = array_diff(scandir(\SYSTEM\CONFIG\config::get(\SYSTEM\CONFIG\config_ids::SYS_CRON_LOG2SQLITE_PATH)), array('..', '.', 'undefined', '.gitkeep'));
             foreach($scanned_directory as $file){
                 $vars['dbfile_entries'] .= \SYSTEM\PAGE\replace::replaceFile((new \SYSTEM\PSAI('modules/saimod_sys_analytics/tpl/saimod_sys_analytics_menu.tpl'))->SERVERPATH(), array('file' => $file));}
         }
