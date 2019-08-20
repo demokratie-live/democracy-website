@@ -103,7 +103,7 @@ class State {
      * @return bool Returns true or false.
      */
     private static function is_loaded($row,&$substate,$state_name,$parent_id = -1){
-        for($i=0;$i<count($substate);$i++){
+        for($i=0;$i<count((array)$substate);$i++){
             if($row['name'] == $state_name){
                 $substate[$i]['parent_id'] = $row['id'];}
             if($substate[$i]['name'] == $row['name']){
