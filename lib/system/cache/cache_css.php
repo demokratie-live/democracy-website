@@ -52,23 +52,6 @@ class cache_css {
             $ident .= $f->SERVERPATH().';'.filemtime($f->SERVERPATH()).';';}
         return sha1($ident);
     }
-        
-    /**
-     * Calculate URL for a list of Files
-     *
-     * @param array $files List of Files to be cached into one Cacheentry
-     * @return url Returns the requested Cache-URL
-     */
-    /*public static function url($files){
-        $ident = self::ident($files);
-        if(!\SYSTEM\CACHE\cache_css::get($ident)){
-            \LIB\lib_minify::php();
-            $minifier = new \MatthiasMullie\Minify\CSS();
-            foreach($files as $f){
-                $minifier->add($f->SERVERPATH());}
-            \SYSTEM\CACHE\cache_css::put($ident, $minifier->minify());}
-        return './api.php?call=cache&id='.self::CACHE_CSS.'&ident='.$ident;
-    }*/
     
     /**
      * Minify CSS and calculate URL from it
@@ -80,9 +63,21 @@ class cache_css {
         $ident = self::ident($files);
         if(!\SYSTEM\CACHE\cache_css::get($ident)){
             \LIB\lib_minify::php();
+            \LIB\lib_scssphp::php();
             $minifier = new \MatthiasMullie\Minify\CSS();
+            $sccs     = new \Leafo\ScssPhp\Compiler();
             foreach($files as $f){
-                $minifier->add($f->SERVERPATH());}
+                // Determin CSS/SCSS based on file extension
+                $path = $f->SERVERPATH();
+                $tmp = explode(".", $path); //rediculus
+                if(strtolower(end($tmp)) == 'scss'){
+                    // Compile SCSS
+                    $minifier->add($sccs->compile(file_get_contents($path)));
+                } else {
+                    // Normal CSS
+                    $minifier->add($path);
+                }
+            }
             \SYSTEM\CACHE\cache_css::put($ident, $minifier->minify());}
         return './cache/'.self::CACHE_CSS.'/'.$ident;
     }
