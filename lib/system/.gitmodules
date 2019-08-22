@@ -33,7 +33,7 @@
 	url = ../lib_jqbootstrapvalidation.git
 [submodule "lib/scssphp"]
 	path = lib/scssphp
-	url = ../lib_scssphp
+	url = ../lib_scssphp.git
 [submodule "lib/minify"]
 	path = lib/minify
 	url = ../lib_minify.git
