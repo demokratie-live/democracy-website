@@ -31,7 +31,7 @@
                         <div class="info-box-text">
                             Fast alle Bürger fordern sie, nicht alle
                             Politiker stufen sie als unbedenklich ein –
-                            die Rede ist von mehr Partizipationsmöglichkeiten. Aber gerade weil eine
+                            die Rede ist von mehr Partizipationsmöglichkeiten. Aber gerade, weil eine
                             <strong>notwendige Bedingung für mehr
                             Partizipation</strong> (mit vernünftigem
                             Entscheidungsausgang) <strong>politsche Bildung</strong> ist,
@@ -100,7 +100,7 @@
                             erkennen, Dich in der Folge adäquater zu
                             positionieren</strong> sowie die Erwartungen und
                             Wünsche der Bürger besser sachbezogen
-                            einbeziehen zu können, kurzum: Deine
+                            einbeziehen zu können, kurzum: deine
                             Vertretung zu erleichtern.
                         </div>
                     </div>
