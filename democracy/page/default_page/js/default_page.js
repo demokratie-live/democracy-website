@@ -53,8 +53,8 @@ function sendMail(data,callback){
     $.ajax({
         async: true,
         url: './api.php',
-        type: 'GET',
-        dataType: 'JSON',
+        type: 'POST',
+        //dataType: 'JSON',
         data: {
             call: 'send_mail',
             data: data
