@@ -10,7 +10,7 @@ class default_press implements SYSTEM\PAGE\Page {
         return array();}//   new PPAGE('default_press/css/default_press.css'));}
 
     private static function wordpress(){
-        $path = (new \SYSTEM\PROOT('../httpdocs/blog/wp-load.php'))->SERVERPATH();
+        $path = (new \SYSTEM\PROOT('blog/wp-load.php'))->SERVERPATH();
         $autoloadFuncs = spl_autoload_functions();
         foreach($autoloadFuncs as $unregisterFunc){   
             $unregisterFunc[0] = '\\'.$unregisterFunc[0];
