@@ -74,10 +74,10 @@
                         <td>TRODDEF1</td>
                     </tr>
                 </table>
-                <span>  Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des
-                        Finanzamts Göttingen vom 23.08.2017 die Einhaltung der satzungsmäßigen
-                        Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt worden
-                        (<a href="./files/download/Gemeinnutzigkeit_DEMOCRACY.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
+                <span>  Mit dem Bescheid des Finanzamts Göttingen vom 01.10.2019 sind wir
+                        als gemeinnütziger Verein zur Förderung des demokratischen Staatswesens
+                        sowie der Volks- und Berufsbildung offiziell anerkannt
+                        (<a href="./files/download/Freistellungsbescheid.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
                         abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
                         (z. B. Kontoauszug) zusammen mit unserem <a href="./files/download/Vereinfachter_Zuwendungsnachweis.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
                         Wenn Du eine separate Zuwendungsbestätigung benötigst,
@@ -172,9 +172,14 @@
                 <img src="./files/images/HES_INNOKO_LOGO_RGB.jpg" style="width: 100%;"/>
             </div>
             <div class="col-lg-7" style="text-align: left;">
-                <span>  Das Hertie-Innovationskolleg (HIK) ist ein Projekt der Gemeinnützigen Hertie-Stiftung, dass das Zusammenleben in Europa durch Vorhaben mit großer gesellschaftlicher Wirkung und Vorbildcharakter mitgestaltet. Es fördert Ideen von freien Denkern sowie zukunftsweisende, praxisorientierte Projekte unterschiedlicher Formate innerhalb der drei Themenbereiche Zukunft der Demokratie, Zukunft der Bildung sowie Zukunft des gesellschaftlichen Zusammenhalts.
-                        Marius Krüger ist Kollegiat des HIK-Jahrgangs 2018 I.<br>
-                        <a href="http://hertie-innovationskolleg.de" target="_blank">www.hertie-innovationskolleg.de</a>
+                <span>  Das Hertie-Innovationskolleg (HIK) ist ein Projekt der Gemeinnützigen Hertie-Stiftung,
+                        dass das Zusammenleben in Europa durch Vorhaben mit großer gesellschaftlicher Wirkung
+                        und Vorbildcharakter mitgestaltet. Es fördert Ideen von freien Denkern sowie
+                        zukunftsweisende, praxisorientierte Projekte unterschiedlicher Formate innerhalb der
+                        drei Themenbereiche Zukunft der Demokratie, Zukunft der Bildung sowie Zukunft des
+                        gesellschaftlichen Zusammenhalts.
+                        Marius Krüger war Kollegiat des HIK-Jahrgangs 2018 I.<br>
+                        <a href="./files/download/MariusKrueger_DEMOCRACY_HIKAbschlussbericht.pdf" target="_blank">Abschlussbericht von Marius Krüger</a>
                 </span>
             </div>
         </div>
