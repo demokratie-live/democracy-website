@@ -34,7 +34,7 @@ class mailcannon {
                                         'To' => $to,
                                         'Subject' => $subject,
                                         'Return-Path' => $from,
-                                        'Message-ID' => self::generateMessageID().'@'.$domain,
+                                        'Message-ID' => self::generateMessageID($domain),
                                         'Date' => date('r', time())));
 
         $recipients = array( 'To' => $to);
@@ -163,12 +163,13 @@ class mailcannon {
     /**
      * @see http://www.jwz.org/doc/mid.html
      */
-    public static function generateMessageID()
+    public static function generateMessageID($domain)
     {
         return sprintf(
-            "<%s.%s>",
+            "<%s.%s@%s>",
             base_convert(microtime(), 10, 36),
-            base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36)
+            base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36),
+            $domain
         );
     }
 }
