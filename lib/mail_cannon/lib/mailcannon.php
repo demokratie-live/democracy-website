@@ -31,8 +31,9 @@ class mailcannon {
 
         $body = $mime->get($mime_params);
         $hdrs = $mime->headers(array(   'From' => $from,
+                                        'To' => $to,
                                         'Subject' => $subject,
-                                        'Reply-to' => $replyto,
+                                        // 'Reply-to' => $replyto, // this should reference a message id
                                         'Return-Path' => $from,
                                         'Message-ID' => self::generateMessageID(),
                                         'Date' => date('r', time())));
