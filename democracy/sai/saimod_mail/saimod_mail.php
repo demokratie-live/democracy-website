@@ -81,7 +81,6 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         }
         $to             = $email;
         $from           = \SYSTEM\PAGE\replace::replace($email_data['sender'],$replacements);
-        //$from           = $email_data['account'];
         $subject        = \SYSTEM\PAGE\replace::replace($email_data['subject'],$replacements);
         $text           = \SYSTEM\PAGE\replace::replace($template_text['value'], $replacements);
         $html           = \SYSTEM\PAGE\replace::replace($template_html['value'], $replacements);
