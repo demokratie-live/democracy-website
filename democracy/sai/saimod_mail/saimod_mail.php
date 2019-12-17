@@ -2,6 +2,10 @@
 namespace SAI;
 class saimod_mail extends \SYSTEM\SAI\sai_module{
     const EMAILLIST_TEST               = 1;
+
+    const EMAIL_PLACEHOLDER_TYPE_TEXT   = 1;
+    const EMAIL_PLACEHOLDER_TYPE_SWITCH = 2;
+    const EMAIL_PLACEHOLDER_TYPE_NAME   = 3;
     
     public static function subscribe($email,$list){
         return \SQL\SUBSCRIBE::QI(array($email,$list));
