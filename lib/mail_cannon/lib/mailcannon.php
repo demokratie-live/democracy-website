@@ -35,7 +35,7 @@ class mailcannon {
                                         'Subject' => $subject,
                                         // 'Reply-to' => $replyto, // this should reference a message id
                                         'Return-Path' => $from,
-                                        'Message-ID' => self::generateMessageID(),
+                                        'Message-ID' => self::generateMessageID().'_'.$from,
                                         'Date' => date('r', time())));
 
         $recipients = array( 'To' => $to);
