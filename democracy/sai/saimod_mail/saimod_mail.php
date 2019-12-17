@@ -399,7 +399,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
     
     public static function sai_mod__SAI_saimod_mail_action_send_email($data){
         //Send early response & end Call since it will take longer then the timeout
-        /*ignore_user_abort(true);
+        ignore_user_abort(true);
         ob_start();
         echo \SYSTEM\LOG\JsonResult::ok();
         header(filter_input(INPUT_SERVER, 'SERVER_PROTOCOL', FILTER_SANITIZE_STRING) . ' 200 OK');
@@ -411,7 +411,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         if(session_id()){
             session_write_close();}
         if (is_callable('fastcgi_finish_request')) {
-            fastcgi_finish_request();}*/
+            fastcgi_finish_request();}
         
         //Start Process        
         self::send_list($data['email'],$data['list']);
