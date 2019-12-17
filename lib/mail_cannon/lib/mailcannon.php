@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/Pear/Mail/mime.php');
 require_once(dirname(__FILE__).'/Pear/Net/SMTP.php');
 
 class mailcannon {
-    public static function send($smtp,$from,$to,$replyto,$subject,$text,$html,$images,$attachments){
+    public static function send($smtp,$from,$to,$domain,$subject,$text,$html,$images,$attachments){
         if($smtp){
             $mail = Mail::factory('smtp', $smtp);
         } else {
@@ -33,9 +33,8 @@ class mailcannon {
         $hdrs = $mime->headers(array(   'From' => $from,
                                         'To' => $to,
                                         'Subject' => $subject,
-                                        // 'Reply-to' => $replyto, // this should reference a message id
                                         'Return-Path' => $from,
-                                        'Message-ID' => self::generateMessageID().'_'.$from,
+                                        'Message-ID' => self::generateMessageID().'@'.$domain,
                                         'Date' => date('r', time())));
 
         $recipients = array( 'To' => $to);
