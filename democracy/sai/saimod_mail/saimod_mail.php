@@ -95,7 +95,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         
         try {
             $sent = \mailcannon::send(  $smtp,
-                                        $from, $to, $replyto ? $replyto : $from,
+                                        $from, $to, 'democracy-deutschland.de',
                                         $subject, $text, $html,
                                         $images, $attachments);
         } catch(Exception $e) {
