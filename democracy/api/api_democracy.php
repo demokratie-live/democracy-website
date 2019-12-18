@@ -1,5 +1,26 @@
 <?php
-class api_democracy extends \SYSTEM\API\api_system {    
+class api_democracy extends \SYSTEM\API\api_system {
+    const EMAIL_LIST_NEWSLETTER         = 2;
+    const EMAIL_LIST_PROTOTYPE          = 3;
+    const EMAIL_LIST_ALPHA              = 4;
+    const EMAIL_LIST_EMAIL_PAYPAL       = 5;
+    const EMAIL_LIST_EMAIL_VOLUNTEERS   = 6;
+    const EMAIL_LIST_EMAIL_CONTACT      = 7;
+    const EMAIL_LIST_EMAIL_PR           = 8;
+    
+    const EMAIL_WEBSITE_CONTACT         = 10;
+    const EMAIL_WEBSITE_BUGREPORT       = 11;
+    const EMAIL_WEBSITE_VOLUNTEER       = 12;
+    const EMAIL_NEWSLETTER_SUBSCRIBE    = 20;
+    
+    const EMAIL_PROTOTYPE_REGISTER      = 30;
+    const EMAIL_PROTOTYPE_ACCESS_ANDROID= 31;
+    const EMAIL_PROTOTYPE_ACCESS_IOS    = 32;
+    
+    const EMAIL_ALPHA_REGISTER          = 40;
+    const EMAIL_ALPHA_ACCESS_ANDROID    = 41;
+    const EMAIL_ALPHA_ACCESS_IOS        = 42;
+
     public static function call_send_mail($data){
         $to = 'contact@democracy-deutschland.de';
         if(array_key_exists('files', $data)){
@@ -8,16 +29,16 @@ class api_democracy extends \SYSTEM\API\api_system {
         switch($data['type']){
             case 'bugreport':
                 \SAI\saimod_mail::contact($data['email'],$data['name'],null);
-                \SAI\saimod_mail::send_mail($to, \SAI\saimod_mail::EMAIL_WEBSITE_BUGREPORT, null,true,$data);
+                \SAI\saimod_mail::send_mail($to, self::EMAIL_WEBSITE_BUGREPORT, null,true,$data);
                 break;
             case 'volunteer':
                 \SAI\saimod_mail::contact($data['email'],$data['name'],null);
-                \SAI\saimod_mail::send_mail($to, \SAI\saimod_mail::EMAIL_WEBSITE_VOLUNTEER, null,true,$data);
+                \SAI\saimod_mail::send_mail($to, self::EMAIL_WEBSITE_VOLUNTEER, null,true,$data);
                 break;
             //contact
             default:
                 \SAI\saimod_mail::contact($data['email'],$data['vorname'],$data['nachname']);
-                \SAI\saimod_mail::send_mail($to, \SAI\saimod_mail::EMAIL_WEBSITE_CONTACT, null,true,$data);
+                \SAI\saimod_mail::send_mail($to, self::EMAIL_WEBSITE_CONTACT, null,true,$data);
                 
         }
         return \SYSTEM\LOG\JsonResult::ok();
@@ -25,8 +46,8 @@ class api_democracy extends \SYSTEM\API\api_system {
     
     public static function call_send_subscribe($data){ 
         \SAI\saimod_mail::contact($data['email']);
-        \SAI\saimod_mail::subscribe($data['email'], \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER);
-        \SAI\saimod_mail::send_mail($data['email'], \SAI\saimod_mail::EMAIL_NEWSLETTER_SUBSCRIBE, \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER,true);
+        \SAI\saimod_mail::subscribe($data['email'], self::EMAIL_LIST_NEWSLETTER);
+        \SAI\saimod_mail::send_mail($data['email'], self::EMAIL_NEWSLETTER_SUBSCRIBE, self::EMAIL_LIST_NEWSLETTER,true);
         return \SYSTEM\LOG\JsonResult::ok();
     }
     
@@ -35,9 +56,9 @@ class api_democracy extends \SYSTEM\API\api_system {
         $code_valid = self::validate_code($code);
         
         \SAI\saimod_mail::contact($email);
-        \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_ALPHA);
+        \SAI\saimod_mail::subscribe($email, self::EMAIL_LIST_ALPHA);
         if($newsletter){
-            \SAI\saimod_mail::subscribe($email, \SAI\saimod_mail::EMAIL_LIST_NEWSLETTER);
+            \SAI\saimod_mail::subscribe($email, self::EMAIL_LIST_NEWSLETTER);
         }
         
         if($code_valid){
@@ -55,7 +76,7 @@ class api_democracy extends \SYSTEM\API\api_system {
             \SQL\BETA_INSERT::QI(array($code,$email,$android,$ios));
         }
         
-        \SAI\saimod_mail::send_mail($email, \SAI\saimod_mail::EMAIL_ALPHA_REGISTER, \SAI\saimod_mail::EMAIL_LIST_ALPHA,true);
+        \SAI\saimod_mail::send_mail($email, self::EMAIL_ALPHA_REGISTER, self::EMAIL_LIST_ALPHA,true);
         //SendMail
         return \SYSTEM\LOG\JsonResult::ok();
     }
