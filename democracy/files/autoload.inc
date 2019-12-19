@@ -11,4 +11,4 @@
 \SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/org/','org','*.*');
 \SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/invite/','invite','*.*');
 \SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/upload/','upload','*.*');
-\SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/email/','email','*.*');
+//\SYSTEM\FILES\files::registerFolder(dirname(__FILE__).'/email/','email','*.*');
