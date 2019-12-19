@@ -40,7 +40,9 @@ class mailcannon {
         $recipients = array( 'To' => $to);
         $succ = $mail->send($recipients, $hdrs, $body);
         if (PEAR::isError($succ)) {
-            throw new \SYSTEM\LOG\ERROR($succ);}
+            new \SYSTEM\LOG\ERROR($succ);
+            return false;
+        }
         return true;
     }
     
