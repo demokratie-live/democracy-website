@@ -91,7 +91,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
         
         $images = [];
         while($image = $images_qq->next()){
-            $images[$image['name']] = [ 'file' => (new \PFILES('email/'.$image['file']))->SERVERPATH(),
+            $images[$image['name']] = [ 'file' => (new \PSAI('saimod_mail/files/'.$image['file']))->SERVERPATH(),
                                         'mime' => $image['mime']];
         }
         //TODO
@@ -102,7 +102,7 @@ class saimod_mail extends \SYSTEM\SAI\sai_module{
                                         $from, $to, 'democracy-deutschland.de',
                                         $subject, $text, $html,
                                         $images, $attachments);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             $sent = false;
         }
         if($list != self::EMAILLIST_TEST){
