@@ -117,9 +117,9 @@
                         <li><a href="#!faq">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 footer-socialmedia">
+                <div class="col-lg-3 footer-sm">
                     <h3>SOCIAL MEDIA</h3>
-                    <ul id="social_media">
+                    <ul id="sm">
                         <li>
                             <a href="https://www.facebook.com/democracygermany/" target="_blank"><i class="fab fa-facebook facebook"></i></a>
                             &nbsp;
