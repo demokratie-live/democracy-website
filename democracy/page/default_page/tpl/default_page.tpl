@@ -121,16 +121,16 @@
                     <h3>SOCIAL MEDIA</h3>
                     <ul id="social_media">
                         <li>
-                            <a href="https://www.facebook.com/democracygermany/" target="_blank"><i class="fa fa-facebook facebook"></i></a>
+                            <a href="https://www.facebook.com/democracygermany/" target="_blank"><i class="fab fa-facebook facebook"></i></a>
                             &nbsp;
-                            <a href="https://twitter.com/democracy_de" target="_blank"><i class="fa fa-twitter twitter"></i></a>
+                            <a href="https://twitter.com/democracy_de" target="_blank"><i class="fab fa-twitter twitter"></i></a>
                             &nbsp;
-                            <a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i class="fa fa-youtube youtube"></i></a>
+                            <a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i class="fab fa-youtube youtube"></i></a>
                         </li>
                         <li>
-                            <a href="https://github.com/demokratie-live/" target="_blank"><i class="fa fa-github github"></i></a>
+                            <a href="https://github.com/demokratie-live/" target="_blank"><i class="fab fa-github github"></i></a>
                             &nbsp;
-                            <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fa fa-discord discord"></i></a>
+                            <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fab fa-discord discord"></i></a>
                             &nbsp;
                             <a href="mailto:contact@democracy-deutschland.de" target="_blank"><i class="fa fa-envelope mail"></i></a>
                         </li>
