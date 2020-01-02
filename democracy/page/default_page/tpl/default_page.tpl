@@ -130,7 +130,7 @@
                         <li>
                             <a href="https://github.com/demokratie-live/" target="_blank"><i class="fa fa-github github"></i></a>
                             &nbsp;
-                            <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fa fa-weixin discord"></i></a>
+                            <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fa fa-discord discord"></i></a>
                             &nbsp;
                             <a href="mailto:contact@democracy-deutschland.de" target="_blank"><i class="fa fa-envelope mail"></i></a>
                         </li>
