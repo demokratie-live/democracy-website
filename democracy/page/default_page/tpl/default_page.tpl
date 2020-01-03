@@ -139,7 +139,7 @@
             </div>
             <div class="copyright row">
                 <div class="col-12">
-                    <i class="fa fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2019 <span class="edzofont">DEMOCRACY</span> Deutschland e.V.
+                    <i class="fab fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2019 <span class="edzofont">DEMOCRACY</span> Deutschland e.V.
                 </div>
             </div>
         </div>
