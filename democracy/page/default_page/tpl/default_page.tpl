@@ -117,20 +117,20 @@
                         <li><a href="#!faq">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 footer-socialmedia">
+                <div class="col-lg-3 footer-sm">
                     <h3>SOCIAL MEDIA</h3>
-                    <ul id="social_media">
+                    <ul id="sm">
                         <li>
-                            <a href="https://www.facebook.com/democracygermany/" target="_blank"><i class="fa fa-facebook facebook"></i></a>
+                            <a href="https://www.facebook.com/democracygermany/" target="_blank"><i class="fab fa-facebook facebook"></i></a>
                             &nbsp;
-                            <a href="https://twitter.com/democracy_de" target="_blank"><i class="fa fa-twitter twitter"></i></a>
+                            <a href="https://twitter.com/democracy_de" target="_blank"><i class="fab fa-twitter twitter"></i></a>
                             &nbsp;
-                            <a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i class="fa fa-youtube youtube"></i></a>
+                            <a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank"><i class="fab fa-youtube youtube"></i></a>
                         </li>
                         <li>
-                            <a href="https://github.com/demokratie-live/" target="_blank"><i class="fa fa-github github"></i></a>
+                            <a href="https://github.com/demokratie-live/" target="_blank"><i class="fab fa-github github"></i></a>
                             &nbsp;
-                            <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fa fa-weixin discord"></i></a>
+                            <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fab fa-discord discord"></i></a>
                             &nbsp;
                             <a href="mailto:contact@democracy-deutschland.de" target="_blank"><i class="fa fa-envelope mail"></i></a>
                         </li>
@@ -139,7 +139,7 @@
             </div>
             <div class="copyright row">
                 <div class="col-12">
-                    <i class="fa fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2019 <span class="edzofont">DEMOCRACY</span> Deutschland e.V.
+                    <i class="fab fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2019 <span class="edzofont">DEMOCRACY</span> Deutschland e.V.
                 </div>
             </div>
         </div>

@@ -242,12 +242,12 @@ body {
 }
 
 @media (min-width: 992px) {
-    #social_media {
+    #sm {
         padding-left: 15px;
     }
 }
 
-#social_media > li > a > i {
+#sm > li > a > i {
     font-size: 26px;
     color: #fff;
     padding-top: 10px;
