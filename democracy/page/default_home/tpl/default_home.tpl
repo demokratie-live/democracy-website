@@ -76,40 +76,40 @@
         <div class="row">
             <div class="col-lg-7 order-lg-1 about-content">
                 <h1>Funktionen von DEMOCRACY</h1>
-                <div class="info-badge active" img="./files/images/1_ListView.gif">
+                <div class="info-badge active" img="./files/images/4_Results.gif">
                     <div class="info-icon">
-                        <img class="info-icon-passive hidden" src="./files/images/group2@3x.png"/>
-                        <img class="info-icon-active" src="./files/images/group2@3x.t.png"/>
+                        <img class="info-icon-passive hidden" src="./files/images/group6@3x.png"/>
+                        <img class="info-icon-active" src="./files/images/group6@3x.t.png"/>
                     </div>
-                    <div class="info-content">Mit DEMOCRACY kannst du in Echtzeit alle vergangenen, aktuellen und zukünftigen Abstimmungen des Bundestages verfolgen</div>
+                    <div class="info-content"><b>Wähle</b> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages</div>
                 </div>
                 <div class="info-badge" img="./files/images/2_Details.gif">
                     <div class="info-icon">
                         <img class="info-icon-passive" src="./files/images/group3@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group3@3x.t.png"/>
                     </div>
-                    <div class="info-content">Dich über die Gesetzesvorlagen und Anträge entlang der offiziellen Parlamentsdokumentation (DIP21) informieren</div>
+                    <div class="info-content"><b>Informiere</b> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente</div>
                 </div>
                 <div class="info-badge" img="./files/images/3_Abstimmen.gif">
                     <div class="info-icon">
                         <img class="info-icon-passive" src="./files/images/group5@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group5@3x.t.png"/>
                     </div>
-                    <div class="info-content">Wichtige Verfahren upvoten und noch vor der offiziellen Bundestagsentscheidung selbst über die Vorgänge abstimmen</div>
+                    <div class="info-content"><b>Stimme</b> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter</div>
                 </div>
-                <div class="info-badge" img="./files/images/4_Results.gif">
+                <div class="info-badge" img="./files/images/1_ListView.gif">
                     <div class="info-icon">
-                        <img class="info-icon-passive" src="./files/images/group6@3x.png"/>
-                        <img class="info-icon-active hidden" src="./files/images/group5@3x.t.png"/>
+                        <img class="info-icon-passive" src="./files/images/group2@3x.png"/>
+                        <img class="info-icon-active hidden" src="./files/images/group2@3x.t.png"/>
                     </div>
-                    <div class="info-content">Dein individuelles Abstimmungsverhalten mit der Community sowie den offiziellen Resultaten des Bundestages vergleichen</div>
+                    <div class="info-content"><b>Vergleiche</b> Dein Abstimmungsverhalten mit der Community und dem Bundestag</div>
                 </div>
                 <div class="info-badge" img="./files/images/5_Meter.gif">
                     <div class="info-icon">
-                        <img class="info-icon-passive" src="./files/images/group7@3x.png"/>
-                        <img class="info-icon-active hidden" src="./files/images/group7@3x.t.png"/>
+                        <img class="info-icon-passive" src="./files/images/group9@3x.png"/>
+                        <img class="info-icon-active hidden" src="./files/images/group9@3x.t.png"/>
                     </div>
-                    <div class="info-content">Deine Wahlentscheidung bei der nächsten Bundestagswahl auf das tatsächliche Abstimmungs-verhalten der Politiker und Fraktionen stützen</div>
+                    <div class="info-content"><b>Analysiere</b> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten </div>
                 </div>
                 <br>
                 <br>

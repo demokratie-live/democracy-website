@@ -59,13 +59,12 @@ class default_donate implements SYSTEM\PAGE\Page {
                                 'img_hover' => './files/wir/Manu2.png',
                                 'links' => array(   array(  'icon' => 'fa-envelope','url' => 'mailto:m.ruck@democracy-deutschland.de'),
                                                     array(  'icon' => 'fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck'))),
-                        array(  'name' => 'Ulf Gebhardt',
-                                'text' => '笑い男<br>Entwicklung & Planung',
-                                'img' => './files/wir/Ulf1.png',
-                                'img_hover' => './files/wir/Ulf2.png',
-                                'links' => array(   array(  'icon' => 'fa-envelope','url' => 'mailto:u.gebhardt@democracy-deutschland.de'),
-                                                    array(  'icon' => 'fa-phone',   'url' => 'tel:+4915784841600'),
-                                                    array(  'icon' => 'fa-globe', 'url' => 'https://www.webcraft-media.de/#!ulf_gebhardt'))));
+                        array(  'name' => 'DU!',
+                                'text' => 'Marketingstratege /<br/>React/NodeJS-Developerin',
+                                'img' => './files/wir/du.png',
+                                'img_hover' => './files/wir/du.png',
+                                'links' => array(   array(  'icon' => 'fa-envelope','url' => 'mailto:contact@democracy-deutschland.de'),
+                            )));
         foreach($team as $member){
             $links = $member['links'];
             $member['links'] = '';
