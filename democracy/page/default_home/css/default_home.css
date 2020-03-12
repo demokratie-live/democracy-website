@@ -19,6 +19,9 @@
 .device-container img {
   width: 100%;
 }
+.device-container video {
+  width: 100%;
+}
 
 @media (min-width: 992px) {
     #device-explain {

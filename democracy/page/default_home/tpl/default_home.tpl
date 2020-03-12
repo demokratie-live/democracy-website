@@ -14,18 +14,18 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <br>
-                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}" style="padding-top: 5px;"> </a>
+                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}" style="padding-top: 5px;"></a>
                                 </div>
                                 <style>
-                                    @media (min-width: 992px){
-                                        #secondbadge{
+                                    @media (min-width: 992px) {
+                                        #secondbadge {
                                             padding-left: 25px;
                                         }
                                     }
                                 </style>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"> </a>
+                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"></a>
                                 </div>
                             </div>
                             <div class="row">
@@ -35,7 +35,9 @@
                                 </div>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    &nbsp;<a class="whitelink" href="${link_apk}" target="_blank">APK</a><p style="font-size:20px;display:inline;"> / </p><a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a>
+                                    &nbsp;<a class="whitelink" href="${link_apk}" target="_blank">APK</a>
+                                    <p style="font-size:20px;display:inline;"> / </p>
+                                    <a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +56,9 @@
     </div>
 </div>
 <div class="scroll-icon-container d-none d-lg-block">
-    <a href="#" class="scroll-icon"><i class="fa fa-chevron-circle-down"></i></a>
+    <a href="#" class="scroll-icon">
+        <i class="fa fa-chevron-circle-down"></i>
+    </a>
 </div>
 <div class="background-white">
     <div id="video-box" class="container page">
@@ -76,47 +80,67 @@
         <div class="row">
             <div class="col-lg-7 order-lg-1 about-content">
                 <h1>Funktionen von DEMOCRACY</h1>
-                <div class="info-badge active" img="./files/images/4_Results.gif">
+                <div 
+                    class="info-badge active" 
+                    data-mp4="/videos/DDW-List_croped.mp4" 
+                    data-webm="/videos/DDW-List_croped.mp4">
                     <div class="info-icon">
                         <img class="info-icon-passive hidden" src="./files/images/group6@3x.png"/>
                         <img class="info-icon-active" src="./files/images/group6@3x.t.png"/>
                     </div>
-                    <div class="info-content"><b>Wähle</b> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages</div>
+                    <div class="info-content">
+                        <b>Wähle</b> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages</div>
                 </div>
-                <div class="info-badge" img="./files/images/2_Details.gif">
+                <div class="info-badge"
+                    data-mp4="/videos/DDW-info_croped.mp4" 
+                    data-webm="/videos/DDW-info_croped.mp4">
                     <div class="info-icon">
                         <img class="info-icon-passive" src="./files/images/group3@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group3@3x.t.png"/>
                     </div>
-                    <div class="info-content"><b>Informiere</b> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente</div>
+                    <div class="info-content">
+                        <b>Informiere</b> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente</div>
                 </div>
-                <div class="info-badge" img="./files/images/3_Abstimmen.gif">
+                <div class="info-badge"
+                    data-mp4="/videos/DDW-vote_croped.mp4" 
+                    data-webm="/videos/DDW-vote_croped.mp4">
                     <div class="info-icon">
                         <img class="info-icon-passive" src="./files/images/group5@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group5@3x.t.png"/>
                     </div>
-                    <div class="info-content"><b>Stimme</b> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter</div>
+                    <div class="info-content">
+                        <b>Stimme</b> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter</div>
                 </div>
-                <div class="info-badge" img="./files/images/1_ListView.gif">
+                <div class="info-badge"
+                    data-mp4="/videos/DDW-compare_croped.mp4" 
+                    data-webm="/videos/DDW-compare_croped.mp4">
                     <div class="info-icon">
                         <img class="info-icon-passive" src="./files/images/group2@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group2@3x.t.png"/>
                     </div>
-                    <div class="info-content"><b>Vergleiche</b> Dein Abstimmungsverhalten mit der Community und dem Bundestag</div>
+                    <div class="info-content">
+                        <b>Vergleiche</b> Dein Abstimmungsverhalten mit der Community und dem Bundestag</div>
                 </div>
-                <div class="info-badge" img="./files/images/5_Meter.gif">
+                <div class="info-badge" 
+                    data-mp4="/videos/DDW-analyse_croped.mp4" 
+                    data-webm="/videos/DDW-analyse_croped.mp4">
                     <div class="info-icon">
                         <img class="info-icon-passive" src="./files/images/group9@3x.png"/>
                         <img class="info-icon-active hidden" src="./files/images/group9@3x.t.png"/>
                     </div>
-                    <div class="info-content"><b>Analysiere</b> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten </div>
+                    <div class="info-content">
+                        <b>Analysiere</b> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten </div>
                 </div>
                 <br>
                 <br>
             </div>
             <div class="col-lg-5 order-lg-12">
                 <div class="device-container" id="device-explain">
-                    <img class="transitionImg" src="./files/images/1_ListView.gif">
+                    <video id="video" autoplay loop muted playsinline >
+                        <source id="video-mp4" src="/videos/DDW-List_croped.mp4" type="video/mp4">
+                        <source id="video-webm" src="./democracy/files/images/DDW-List_croped.webm" type="video/webm">
+                        Your browser does not support HTML5 video.
+                    </video>
                 </div>
             </div>
         </div>
