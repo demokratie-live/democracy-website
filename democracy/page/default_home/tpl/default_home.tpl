@@ -14,18 +14,18 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <br>
-                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}" style="padding-top: 5px;"> </a>
+                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}" style="padding-top: 5px;"></a>
                                 </div>
                                 <style>
-                                    @media (min-width: 992px){
-                                        #secondbadge{
+                                    @media (min-width: 992px) {
+                                        #secondbadge {
                                             padding-left: 25px;
                                         }
                                     }
                                 </style>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"> </a>
+                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"></a>
                                 </div>
                             </div>
                             <div class="row">
@@ -35,7 +35,9 @@
                                 </div>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    &nbsp;<a class="whitelink" href="${link_apk}" target="_blank">APK</a><p style="font-size:20px;display:inline;"> / </p><a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a>
+                                    &nbsp;<a class="whitelink" href="./files/download/democracy-app.aab" target="_blank" title="Android App Bundle" >AAB</a>
+                                    <p style="font-size:20px;display:inline;"> / </p>
+                                    <a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +56,9 @@
     </div>
 </div>
 <div class="scroll-icon-container d-none d-lg-block">
-    <a href="#" class="scroll-icon"><i class="fa fa-chevron-circle-down"></i></a>
+    <a href="#" class="scroll-icon">
+        <i class="fa fa-chevron-circle-down"></i>
+    </a>
 </div>
 <div class="background-white">
     <div id="video-box" class="container page">
