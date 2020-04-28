@@ -15,3 +15,7 @@ RewriteRule ^sai$ sai.php$1 [L]
 
 RewriteRule ^(.*)files/([^/]+)/([^/]+)$ api.php?call=files&cat=$2&id=$3 [L]
 RewriteRule ^(.*)cache/([^/]+)/([^/]+)$ api.php?call=cache&id=$2&ident=$3 [L]
+
+# Custom Rewrites
+## https://github.com/demokratie-live/democracy-client/issues/1142
+RewriteRule ^(.*)#(.*)$ /$1#$2 [L,R=301,NE]
