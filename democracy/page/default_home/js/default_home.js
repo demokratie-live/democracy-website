@@ -1,4 +1,6 @@
 function init_home(){
+    var video = document.getElementsByTagName('video')[0];
+
     $(".nav-item").removeClass("active");
     $("#menu_home").parent().addClass("active");
     
@@ -16,7 +18,12 @@ function init_home(){
             $(this).addClass("active");
             $(this).find(".info-icon-passive").hide();
             $(this).find(".info-icon-active").show();
-            $('.transitionImg').attr('src',$(this).attr('img'));
+
+            video.pause();
+            $('#video-mp4').attr('src',$(this).attr('data-mp4'));
+            $('#video-webm').attr('src',$(this).attr('data-webm'));
+            video.load();
+            video.play();
         }
     );
     $(".scroll-icon").click(function() {
