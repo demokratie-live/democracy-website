@@ -82,10 +82,10 @@
                     </div>
                 </div>
                 <div id="device" class="row step">
-                    <div id="select_ios" class="col-6 col-sm-6 col-md-4 offset-md-2 pull-left">
+                    <div id="select_ios" class="col-6 col-sm-6 col-md-4 offset-md-2 float-left">
                         <img src="../files/invite/group2@3x.png" alt="Apple Logo" style="width: 100%; background: white;">
                     </div>
-                    <div id="select_android" class="col-6 col-sm-6 col-md-4 pull-left">
+                    <div id="select_android" class="col-6 col-sm-6 col-md-4 float-left">
                         <img src="../files/invite/group3@3x.png" alt="Android Logo" style="width: 100%; background: white;">
                     </div>
                     <div class="col-12" id="plattform_text">Bitte wähle Deine Plattform</div>
