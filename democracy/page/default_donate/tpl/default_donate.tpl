@@ -105,7 +105,8 @@
                 
                 <h5><strong>JAHRESABSCHLÜSSE</strong></h5>
                 <span><a href="./files/download/JA_2017_DEMOCRACY.PDF" target="_blank">Jahresabschluss 2017</a></span><br>
-                <span><a href="./files/download/JA_2018_DEMOCRACY.PDF" target="_blank">Jahresabschluss 2018</a></span>
+                <span><a href="./files/download/JA_2018_DEMOCRACY.PDF" target="_blank">Jahresabschluss 2018</a></span><br>
+                <span><a href="./files/download/JA_2019_DEMOCRACY.pdf" target="_blank">Jahresabschluss 2019</a></span>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">

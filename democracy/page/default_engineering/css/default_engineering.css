@@ -1,25 +1,26 @@
-.cite{
-    margin-top: 20px;
-    min-height: 120px;
-    display: table;
+.cite {
+  margin-top: 20px;
+  min-height: 120px;
+  display: table;
 }
-.cite-icon{
-    height: 100%;
-    width: 60px;
-    text-align: center;
-    margin: auto;
-    display: table-cell;
-    vertical-align: middle;
+.cite-icon {
+  height: 100%;
+  width: 60px;
+  text-align: center;
+  margin: auto;
+  display: table-cell;
+  vertical-align: middle;
 }
 .cite-content {
-    text-align: center;
-    padding: 25px;
-    font-size: 20px;
-    line-height: 1.2;
-    display: table-cell;
-    min-height: 120px;
+  text-align: center;
+  padding: 25px;
+  font-size: 20px;
+  line-height: 1.2;
+  display: table-cell;
+  min-height: 120px;
 }
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icomoon" !important;
   speak: none;
@@ -52,12 +53,24 @@
 }
 
 .badge-link2 {
-    color: white !important;
-    font-size: 50px;
-    line-height: 70px;
-    display: inline-block;
-    text-decoration: none !important;
+  color: white !important;
+  font-size: 50px;
+  line-height: 70px;
+  display: inline-block;
+  text-decoration: none !important;
 }
-input, textarea{
-    padding: 3px;
+input,
+textarea {
+  padding: 3px;
+}
+
+@media only screen and (max-width: 991px) {
+  .stack-box-img {
+    padding-bottom: 50px;
+  }
+}
+
+.stack-box-img > img {
+  max-height: 150px;
+  max-width: 340px;
 }
