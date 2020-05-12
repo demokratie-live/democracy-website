@@ -37,7 +37,9 @@
                                     <br>
                                     &nbsp;<a class="whitelink" href="./files/download/democracy-app.aab" target="_blank" title="Android App Bundle" >AAB</a>
                                     <p style="font-size:20px;display:inline;"> / </p>
-                                    <a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a>
+                                    <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank" title="Android Package" >APK</a> (v1.3.3)
+                                    <br>
+                                    &nbsp;<a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a> (v1.2.2)
                                 </div>
                             </div>
                         </div>
