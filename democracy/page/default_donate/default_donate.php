@@ -81,14 +81,64 @@ class default_donate implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'DU!',
-                'text' => 'Marketingstratege /<br/>React/NodeJS-Developerin',
-                'img' => './files/wir/du.png',
-                'img_hover' => './files/wir/du.png',
+                'name' => 'Katy',
+                'text' => 'Medienarbeit & PR<br>Repräsentantin und Ansprechpartnerin für Medien',
+                'img' => './files/wir/Katy.jpg',
+                'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:contact@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:k.engler@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
                 )
-            )
+            ),
+            array(
+                'name' => 'Timo',
+                'text' => 'Praktikant<br>Redaktionelle Inhalte',
+                'img' => './files/wir/Timo.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                )
+            ),
+            array(
+                'name' => 'Justem',
+                'text' => 'Community Management & operative Projektleitung<br>Strategie, Community & Coachen',
+                'img' => './files/wir/Justem.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.maciejek@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                )
+            ),
+            array(
+                'name' => 'Fabian',
+                'text' => 'Erstellung von Content, sowie gegebenenfalls Grafikdesign und Gestaltung<br>Erarbeitung von Social Media Strategien',
+                'img' => './files/wir/Fabi.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:f.boenig@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                )
+            ),
+            array(
+                'name' => 'Lisa',
+                'text' => 'Praktikantin<br>Marketing & Social Media',
+                'img' => './files/wir/Lisa.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.rauchmann@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                )
+            ),
+            // array(
+            //     'name' => 'DU!',
+            //     'text' => 'Marketingstratege /<br/>React/NodeJS-Developerin',
+            //     'img' => './files/wir/du.png',
+            //     'img_hover' => './files/wir/du.png',
+            //     'links' => array(
+            //         array('icon' => 'fa fa-envelope', 'url' => 'mailto:contact@democracy-deutschland.de'),
+            //     )
+            // )
         );
         foreach ($team as $member) {
             $links = $member['links'];
