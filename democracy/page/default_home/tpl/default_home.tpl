@@ -39,7 +39,7 @@
                                     <p style="font-size:20px;display:inline;"> / </p>
                                     <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank" title="Android Package" >APK</a> (v1.3.9)
                                     <br>
-                                    &nbsp;<a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a> (v1.2.2)
+                                    &nbsp;<a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a> (Defekt)
                                 </div>
                             </div>
                         </div>
