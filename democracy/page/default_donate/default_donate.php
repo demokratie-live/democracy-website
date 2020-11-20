@@ -61,7 +61,7 @@ class default_donate implements SYSTEM\PAGE\Page
         $team = array(
             array(
                 'name' => 'Marius Krüger',
-                'text' => 'Mädchen für alles<br>Initiator & UI',
+                'text' => 'Gründer<br>Berater & Stratege im Hintergrund',
                 'img' => './files/wir/Marius1.png',
                 'img_hover' => './files/wir/Marius2.png',
                 'links' => array(
@@ -72,7 +72,7 @@ class default_donate implements SYSTEM\PAGE\Page
             ),
             array(
                 'name' => 'Manuel Ruck',
-                'text' => 'React-Experte<br>Baut den Code für die App',
+                'text' => 'Softwareentwickler<br>Programmierer des Projektes',
                 'img' => './files/wir/Manu1.png',
                 'img_hover' => './files/wir/Manu2.png',
                 'links' => array(
@@ -82,7 +82,7 @@ class default_donate implements SYSTEM\PAGE\Page
             ),
             array(
                 'name' => 'Katy',
-                'text' => 'Medienarbeit & PR<br>Repräsentantin und Ansprechpartnerin für Medien',
+                'text' => 'Medienarbeit & PR<br>Repräsentantin & Ansprechpartnerin',
                 'img' => './files/wir/Katy.jpg',
                 'img_hover' => '',
                 'links' => array(
@@ -102,7 +102,7 @@ class default_donate implements SYSTEM\PAGE\Page
             ),
             array(
                 'name' => 'Justem',
-                'text' => 'Community Management & operative Projektleitung<br>Strategie, Community & Coachen',
+                'text' => 'Community & Projektmanagement<br>Strategie, Community & Coachen',
                 'img' => './files/wir/Justem.jpg',
                 'img_hover' => '',
                 'links' => array(
@@ -112,7 +112,7 @@ class default_donate implements SYSTEM\PAGE\Page
             ),
             array(
                 'name' => 'Fabian',
-                'text' => 'Erstellung von Content, sowie gegebenenfalls Grafikdesign und Gestaltung<br>Erarbeitung von Social Media Strategien',
+                'text' => 'Grafiker<br>Gestaltung & Umsetzung',
                 'img' => './files/wir/Fabi.jpg',
                 'img_hover' => '',
                 'links' => array(
