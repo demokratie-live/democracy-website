@@ -91,16 +91,6 @@ class default_donate implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Timo',
-                'text' => 'Praktikant<br>Redaktionelle Inhalte',
-                'img' => './files/wir/Timo.jpg',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
-                )
-            ),
-            array(
                 'name' => 'Justem',
                 'text' => 'Community & Projektmanagement<br>Strategie, Community & Coachen',
                 'img' => './files/wir/Justem.jpg',
@@ -121,12 +111,22 @@ class default_donate implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Lisa',
+                'name' => 'Charlotte',
                 'text' => 'Praktikantin<br>Marketing & Social Media',
-                'img' => './files/wir/Lisa.jpg',
+                'img' => './files/wir/Charlotte.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.rauchmann@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                )
+            ),
+            array(
+                'name' => 'Henrik',
+                'text' => 'Praktikantin<br>Marketing & Social Media',
+                'img' => './files/wir/Henrik.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:h.sabirowsky@democracy-deutschland.de'),
                     // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
                 )
             ),
