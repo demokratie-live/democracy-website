@@ -120,12 +120,25 @@
         </div>
         <div class="row" style="padding-top: 50px;">
             <div class="col-12">
-                <h2>Das aktive Team</h2>
+                <h2>Mitarbeiter</h2>
+                <h4>angestellt für DEMOCRACY arbeiten</h4>
             </div>
             ${team}
             <div class="col-md-3" style="margin-top: 50px;">
                 <iframe src="https://discordapp.com/widget?id=372403545086885888&theme=light" width="100%" height="100%" allowtransparency="true" frameborder="0" style="padding-bottom: 15px; min-height: 30p0x;"></iframe>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 50px;">
+            <div class="col-12">
+                <h2>Praktikanten & Volunteers</h2>
+                <h4>freiwillig für DEMOCRACY arbeiten</h4>
+            </div>
+            ${volunteers}
         </div>
         <div class="row">
             <div class="col-12">

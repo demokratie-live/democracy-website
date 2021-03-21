@@ -61,7 +61,7 @@ class default_donate implements SYSTEM\PAGE\Page
         $team = array(
             array(
                 'name' => 'Marius Krüger',
-                'text' => 'Gründer<br>Berater & Stratege im Hintergrund',
+                'text' => 'Gründer<br>Organisation & Produkt',
                 'img' => './files/wir/Marius1.png',
                 'img_hover' => './files/wir/Marius2.png',
                 'links' => array(
@@ -81,8 +81,8 @@ class default_donate implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Katy',
-                'text' => 'Medienarbeit & PR<br>Repräsentantin & Ansprechpartnerin',
+                'name' => 'Katrin Engler',
+                'text' => 'Sprecherin<br>Pressearbeit & PR',
                 'img' => './files/wir/Katy.jpg',
                 'img_hover' => '',
                 'links' => array(
@@ -91,19 +91,9 @@ class default_donate implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Justem',
-                'text' => 'Community & Projektmanagement<br>Strategie, Community & Coachen',
-                'img' => './files/wir/Justem.jpg',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.maciejek@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
-                )
-            ),
-            array(
-                'name' => 'Fabian',
-                'text' => 'Grafiker<br>Gestaltung & Umsetzung',
-                'img' => './files/wir/Fabi.jpg',
+                'name' => 'Fabian B.',
+                'text' => 'Grafiker<br>Contentgestaltung',
+                'img' => './files/wir/ohneBild.png',
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:f.boenig@democracy-deutschland.de'),
@@ -111,30 +101,28 @@ class default_donate implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Charlotte',
-                'text' => 'Praktikantin<br>Marketing & Social Media',
-                'img' => './files/wir/Charlotte.jpg',
+                'name' => 'Jascha Fabian',
+                'text' => 'Markenstratege<br>Kompagnenplanung',
+                'img' => './files/wir/Jascha.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.fabian@democracy-deutschland.de'),
                 )
             ),
             array(
-                'name' => 'Henrik',
-                'text' => 'Praktikantin<br>Marketing & Social Media',
-                'img' => './files/wir/Henrik.jpg',
+                'name' => 'Elisa Menne',
+                'text' => 'Administration<br>Kommunikation & Buchhaltung',
+                'img' => './files/wir/Elisa.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:h.sabirowsky@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:e.menne@democracy-deutschland.de'),
                 )
             ),
             // array(
             //     'name' => 'DU!',
             //     'text' => 'Marketingstratege /<br/>React/NodeJS-Developerin',
-            //     'img' => './files/wir/du.png',
-            //     'img_hover' => './files/wir/du.png',
+            //     'img' => './files/wir/ohneBild.png',
+            //     'img_hover' => './files/wir/ohneBild.png',
             //     'links' => array(
             //         array('icon' => 'fa fa-envelope', 'url' => 'mailto:contact@democracy-deutschland.de'),
             //     )
@@ -148,6 +136,56 @@ class default_donate implements SYSTEM\PAGE\Page
             }
             $vars['team'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/team_member.tpl'))->SERVERPATH(), $member);
         }
+
+        //volunteers
+        $vars['volunteers'] = '';
+        $volunteers = array(
+            array(
+                'name' => 'Henrik Sabirowsky',
+                'text' => 'Praktikant<br>Social Media Marketing',
+                'img' => './files/wir/Henrik.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:h.sabirowsky@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Charlotte Liedtke',
+                'text' => 'Praktikantin<br>Social Media Marketing',
+                'img' => './files/wir/Charlotte.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Timo Sieg',
+                'text' => 'Redaktion<br>Newsletter & Blog',
+                'img' => './files/wir/Timo.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Jasper Bennink',
+                'text' => 'Redaktion<br>Blog',
+                'img' => './files/wir/Jasper.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    // array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
+                )
+            ),
+        );
+        foreach ($volunteers as $member) {
+            $links = $member['links'];
+            $member['links'] = '';
+            foreach ($links as $link) {
+                $member['links'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/team_link.tpl'))->SERVERPATH(), $link);
+            }
+            $vars['volunteers'] .= \SYSTEM\PAGE\replace::replaceFile((new PPAGE('default_donate/tpl/team_member.tpl'))->SERVERPATH(), $member);
+        }
+
         //icons
         $vars['icons'] = '';
         $icons = array(
