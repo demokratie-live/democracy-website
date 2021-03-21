@@ -173,7 +173,7 @@ class default_donate implements SYSTEM\PAGE\Page
                 'img' => './files/wir/Jasper.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    // array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
                 )
             ),
         );
