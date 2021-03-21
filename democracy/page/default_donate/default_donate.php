@@ -102,7 +102,7 @@ class default_donate implements SYSTEM\PAGE\Page
             ),
             array(
                 'name' => 'Jascha Fabian',
-                'text' => 'Markenstratege<br>Kompagnenplanung',
+                'text' => 'Markenstratege<br>Kampagnenplanung',
                 'img' => './files/wir/Jascha.jpg',
                 'img_hover' => '',
                 'links' => array(
