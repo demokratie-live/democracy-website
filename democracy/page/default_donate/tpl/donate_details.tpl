@@ -69,7 +69,9 @@
                             <br>
                             Bitte bedenke, dass von einer monatlichen 1€-Spende insofern nur 0,63 EUR bei uns ankommen.<br>
                             <br>
-                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=contact@democracy-deutschland.de&lc=DE&no_note=0&cn=&currency_code=EUR&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted" target="_blank"><b>Weiter zu PayPal</b></a>
+                            <a href="https://www.paypal.com/donate?hosted_button_id=PR4PJL4AY8RSL" target="_blank"><b>Weiter zu PayPal</b></a>
+                            <br>
+                            <a href="https://donorbox.org/democracy-app" target="_blank"><b>Weiter zu DonorBox</b></a>
                         </div>
                     </div>
                 </div>
