@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <h6><b>Dauerauftrag via PayPal</b></h6>
-                            1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbeliebn bei PayPal.<br>
+                            1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.<br>
                             <br>
                             Bitte bedenke, dass von einer monatlichen 1€-Spende insofern nur 0,63 EUR bei uns ankommen.<br>
                             <br>
