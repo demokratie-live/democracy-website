@@ -164,7 +164,7 @@ class default_donate implements SYSTEM\PAGE\Page
                 'img' => './files/wir/Leyla.png',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.niederberger@democracy-deutschland.de'),
                 )
             ),
             array(
