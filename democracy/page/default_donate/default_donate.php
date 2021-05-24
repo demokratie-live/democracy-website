@@ -118,6 +118,15 @@ class default_donate implements SYSTEM\PAGE\Page
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:e.menne@democracy-deutschland.de'),
                 )
             ),
+            array(
+                'name' => 'Robert Schäfer',
+                'text' => 'Softwareentwickler<br>Bundestagsschnittstelle',
+                'img' => './files/wir/Robert.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:r.schaefer@democracy-deutschland.de'),
+                )
+            ),
             // array(
             //     'name' => 'DU!',
             //     'text' => 'Marketingstratege /<br/>React/NodeJS-Developerin',
@@ -174,6 +183,24 @@ class default_donate implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Léon Trothe',
+                'text' => 'Praktikantin<br>Social Media Marketing',
+                'img' => './files/wir/Leon.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.trothe@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Leyla Niederberger',
+                'text' => 'Praktikantin<br>Social Media Marketing',
+                'img' => './files/wir/Leyla.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
                 )
             ),
         );
