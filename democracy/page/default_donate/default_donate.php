@@ -150,18 +150,18 @@ class default_donate implements SYSTEM\PAGE\Page
         $vars['volunteers'] = '';
         $volunteers = array(
             array(
-                'name' => 'Henrik Sabirowsky',
-                'text' => 'Praktikant<br>Social Media Marketing',
-                'img' => './files/wir/Henrik.jpg',
+                'name' => 'Léon Trothe',
+                'text' => 'Praktikantin<br>Social Media Marketing',
+                'img' => './files/wir/Leon.png',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:h.sabirowsky@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.trothe@democracy-deutschland.de'),
                 )
             ),
             array(
-                'name' => 'Charlotte Liedtke',
+                'name' => 'Leyla Niederberger',
                 'text' => 'Praktikantin<br>Social Media Marketing',
-                'img' => './files/wir/Charlotte.jpg',
+                'img' => './files/wir/Leyla.png',
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
@@ -183,24 +183,6 @@ class default_donate implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
-                )
-            ),
-            array(
-                'name' => 'Léon Trothe',
-                'text' => 'Praktikantin<br>Social Media Marketing',
-                'img' => './files/wir/Leon.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.trothe@democracy-deutschland.de'),
-                )
-            ),
-            array(
-                'name' => 'Leyla Niederberger',
-                'text' => 'Praktikantin<br>Social Media Marketing',
-                'img' => './files/wir/Leyla.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:c.liedtke@democracy-deutschland.de'),
                 )
             ),
         );
