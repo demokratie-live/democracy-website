@@ -1,4 +1,4 @@
-<div class="header-home">
+<div class="header">
     <div class="container page">
         <div class="row">
             <div class="background-logo">
@@ -7,11 +7,9 @@
             <div class="col-lg-6 order-lg-12">
                 <div class="header-content">
                     <div class="header-content-inner">
-                        <h1 id="index-title" class="slide-default">DEMOCRACY</h1>
-                        <br id="index-title-prime-break">
-                        <p id="index-title-prime" class="slide-default">′</p>
-                        <p id="index-title-year" class="slide-default">21</p>
-                        <h1 id="index-headline" class="slide-default">Weil deine Stimme zählt!</h1>
+                        <h1 id="index-headline" class="slide-default">Weil Deine Stimme zählt!</h1>
+                        <h1 id="index-headline" class="slide-wahlometer">Wahl-⦻-Meter</h1>
+                        <h4 id="index-headline-sub" class="slide-wahlometer">eine Anwendung der DEMOCRACY App</h4>
                         <div class="badges">
                             <div class="row">
                                 <div class="col-lg-5">
@@ -39,9 +37,9 @@
                                     <br>
                                     &nbsp;<a class="whitelink" href="./files/download/democracy-app.aab" target="_blank" title="Android App Bundle" >AAB</a>
                                     <p style="font-size:20px;display:inline;"> / </p>
-                                    <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank" title="Android Package" >APK (v1.4) </a>
-                                    laden 
+                                    <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank" title="Android Package" >APK</a> (v1.3.9)
                                     <br>
+                                    &nbsp;<a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a> (Defekt)
                                 </div>
                             </div>
                         </div>

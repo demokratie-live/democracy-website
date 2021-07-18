@@ -38,7 +38,6 @@ function init_home(){
     });
     
     $(".navbar").addClass("startpage");
-    $('.slide-default').toggle();
     
     // Start Slide
     //WahlOMeterTimer();
