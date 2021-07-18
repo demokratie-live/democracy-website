@@ -1,30 +1,4 @@
-@media screen 
-  and (min-device-width: 1500px) { 
-
-    .slide-default {
-        width: max-content;
-    }
-
-    #index-title {
-        font-size: 4vw;
-    }
-
-}
-
-@media screen 
-  and (min-device-width: 300px) 
-  and (max-device-width: 600px) {
-
-    #index-headline {
-        font-size: 8vw;
-    }
-
-    #index-title {
-        font-size: 12vw;
-    }
-
-}
-
+.slide-default {}
 .slide-wahlometer {
     display: none;
 }
@@ -130,52 +104,20 @@
   display: inline-block;
   text-decoration: none !important;
 }
-
-.header-home{
-    background: linear-gradient(to bottom, rgb(121, 198, 235),rgb(68, 148, 211)) !important;
+.header{
+    background: linear-gradient(to bottom,rgb(95,147,207),rgb(70,108,171));
 }
 
-/*
-.header-home .container {
+.header .container {
 
 }
-*/
-
 .header-content-inner{
     color: #fff;
 }
-
-#index-headline {
-    font-size: 40px;
+#index-headline{
+    font-size: 45px;
     margin-bottom: 5px;
 }
-
-#index-title {
-    font-size: 50px;
-    margin-bottom: 3px;
-    font-family: helvetica_bold;
-    display: inline !important;
-}
-
-#index-title-year {
-    display: inline !important;
-    font-family: helvetica_bold;
-    font-size: 80px;
-    background: linear-gradient(0.75turn, rgb(246, 208, 83), rgb(236,147,55));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#index-title-prime {
-    display: inline !important;
-    font-family: 'Arial';
-    font-size: 75px;
-    padding-bottom: 2px;
-    background: rgb(236,147,55);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .about-content{
     padding-top: 100px;
 }
@@ -247,9 +189,4 @@
     .info-content {
         padding: 15px;
     }
-}
-
-#secondbadge {
-    width: max-content;
-    overflow: visible;
 }
