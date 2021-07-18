@@ -53,6 +53,9 @@ body {
 .edosz {
   font-family: "edosz", cursive;
 }
+.helvetica_bold {
+  font-family: "helvetica_bold", sans-serif;
+}
 
 /* NAVBAR */
 .navbar.scrolled {
@@ -74,9 +77,17 @@ body {
   width: 40px;
 }
 
+#navbar-brand-suffix {
+  font-family: helvetica;
+  font-weight: lighter;
+  font-size: 0.5em;
+  display: inline;
+}
+
 .navbar.startpage .navbar-brand > img {
   height: 60px;
   width: 60px;
+  margin-right: -1vh;
 }
 .navbar-nav > .active > a {
   color: rgb(68, 148, 211) !important;
@@ -323,7 +334,7 @@ body {
 
 .page {
   min-height: 100vh;
-  overflow-y: hidden;
+  overflow-y: clip;
 }
 
 @media (min-width: 992px) {
