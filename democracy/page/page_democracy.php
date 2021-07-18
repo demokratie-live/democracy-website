@@ -5,13 +5,16 @@ class page_democracy extends \SYSTEM\API\api_default {
     public static function get_class($params = null){
         return self::class;}
     public static function get_default_state() {
-        return 'home';}
+        return 'wahlometer';}
         
     public static function default_page($_escaped_fragment_ = null){
         return (new default_page())->html($_escaped_fragment_);}
     
     public static function page_home(){
         return (new default_home())->html();}
+
+    public static function page_wahlometer(){
+        return (new default_wahlometer())->html();}
     
     public static function page_citizen(){
         return (new default_citizen())->html();}
