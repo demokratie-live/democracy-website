@@ -60,18 +60,24 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top startpage">
             <div class="container">
                 <a class="navbar-brand" href="#!home">
-                    <img src="./files/images/logo.png" alt="DEMOCRACY Deutschland Logo"/>&nbsp;&nbsp;DEMOCRACY
+                    <img src="./files/images/logo.png" alt="DEMOCRACY Deutschland Logo"/>&nbsp;&nbsp;DEMOCRACY<h3 id="navbar-brand-suffix">App</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="navbar-nav">
-                        <li class="nav-item active"><a id="menu_home" class="nav-link" href="#!home">Home</a></li>
+                        <li class="nav-item active"><a id="menu_wahlometer" class="nav-link" href="#!wahlometer">Wahl-O-Meter</a></li>
+                        <li class="nav-item active"><a id="menu_home" class="nav-link" href="#!home">DEMOCRACY</a></li>
+                        <li class="nav-item active"><a id="menu_wir" class="nav-link" href="#!wir">Über Uns</a></li>
+                        <li class="nav-item active"><a id="menu_press" class="nav-link" href="#!press">Presse</a></li>
+                        <!--- 
                         <li class="nav-item"><a id="menu_citizen" class="nav-link" href="#!citizen">Für Bürger</a></li>
                         <li class="nav-item"><a id="menu_politicians" class="nav-link" href="#!politicians">Für Politiker</a></li>
                         <li class="nav-item"><a id="menu_engineering" class="nav-link" href="#!engineering">Engineering</a></li>
+                        --->
                         <li class="nav-item"><a id="menu_donate" class="nav-link menu-important" href="#!donate">Spenden</a></li>
+                        
                     </ul>
                 </div>
             </div>
