@@ -10,6 +10,10 @@
   font-family: 'helvetica_bold';
   src: url('./files/font/HelveticaNeue-Bold.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./files/font/SFProDisplay-Regular.ttf') format('truetype');
+}
 /*@font-face {
   font-family: 'raleway';
   src: url('fonts/Raleway-Light.ttf') format('truetype');
