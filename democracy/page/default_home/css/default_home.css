@@ -157,21 +157,35 @@
 
 #index-title-year {
   display: inline !important;
-  font-family: helvetica_bold;
+  font-family: "SFProDisplay";
   font-size: 80px;
   background: linear-gradient(0.75turn, rgb(246, 208, 83), rgb(236, 147, 55));
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-left: -6px !important;
+  font-weight: bolder;
 }
 
-#index-title-prime {
+#index-title-year-period {
   display: inline !important;
-  font-family: "Arial";
-  font-size: 75px;
+  font-family: "SFProDisplay";
+  font-size: 90px;
   padding-bottom: 2px;
   background: rgb(236, 147, 55);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-left: -14px !important;
+  margin-right: -5px !important;
+  font-weight: bolder;
+}
+
+@media screen 
+  and (min-device-width: 475px) { 
+
+    #index-title-year-break {
+        display: none;
+    }
+
 }
 
 .about-content {

@@ -7,8 +7,10 @@
             <div class="col-lg-6 order-lg-12">
                 <div class="header-content">
                     <div class="header-content-inner">
-                        <h1 id="index-title" class="slide-default">DEMOCRACY</h1>
-                        <p id="index-title-year" class="slide-default">1.4</p>
+                        <h1 id="index-title" class="slide-default">DEMOCRACY</h1><br id="index-title-year-break">
+                        <p id="index-title-year" class="slide-default">1</p>
+                        <p id="index-title-year-period" class="slide-default">.</p>
+                        <p id="index-title-year" class="slide-default">4</p>
                         <h1 id="index-headline" class="slide-default">Weil deine Stimme zählt!</h1>
                         <div class="badges">
                             <div class="row">
