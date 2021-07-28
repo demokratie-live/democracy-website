@@ -2,21 +2,20 @@
     <div class="container page">
         <div class="row">
             <div class="background-logo">
-                <img src="./files/images/Logo-Landingpage.png"/>
+                <img src="./files/images/Logo-Landingpage.png" />
             </div>
             <div class="col-lg-6 order-lg-12">
                 <div class="header-content">
                     <div class="header-content-inner">
                         <h1 id="index-title" class="slide-default">DEMOCRACY</h1>
-                        <br id="index-title-prime-break">
-                        <p id="index-title-prime" class="slide-default">′</p>
-                        <p id="index-title-year" class="slide-default">21</p>
+                        <p id="index-title-year" class="slide-default">1.4</p>
                         <h1 id="index-headline" class="slide-default">Weil deine Stimme zählt!</h1>
                         <div class="badges">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <br>
-                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}" style="padding-top: 5px;"></a>
+                                    <a class="badge-link icon-app-store-outline" href="${link_appstore}"
+                                        style="padding-top: 5px;"></a>
                                 </div>
                                 <style>
                                     @media (min-width: 992px) {
@@ -27,20 +26,24 @@
                                 </style>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}" style="padding-top: 5px;"></a>
+                                    <a class="badge-link icon-google-play-outline" href="${link_playstore}"
+                                        style="padding-top: 5px;"></a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-5">
                                     <br>
-                                    &nbsp;<a class="whitelink" href="${link_browserversion}" target="_blank">zur Browserversion</a>
+                                    &nbsp;<a class="whitelink" href="${link_browserversion}" target="_blank">zur
+                                        Browserversion</a>
                                 </div>
                                 <div id="secondbadge" class="col-lg-5">
                                     <br>
-                                    &nbsp;<a class="whitelink" href="./files/download/democracy-app.aab" target="_blank" title="Android App Bundle" >AAB</a>
+                                    &nbsp;<a class="whitelink" href="./files/download/democracy-app.aab" target="_blank"
+                                        title="Android App Bundle">AAB</a>
                                     <p style="font-size:20px;display:inline;"> / </p>
-                                    <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank" title="Android Package" >APK (v1.4) </a>
-                                    laden 
+                                    <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank"
+                                        title="Android Package">APK (v1.4) </a>
+                                    laden
                                     <br>
                                 </div>
                             </div>
@@ -67,14 +70,18 @@
 <div class="background-white">
     <div id="video-box" class="container page">
         <div class="row video-content">
-            <div class="col-lg-7">
-                <h1>Worum geht es bei DEMOCRACY?</h1>
+            <div id="video-title" class="col-lg-7">
+                <h1 id="video-title">Worum geht es bei </h1>
+                <h1 id="video-title-emphasis">DEMOCRACY </h1>
+                <h1 id="video-title">(2:30)?</h1>
             </div>
             <div class="col-lg-5" style="text-align: right; padding-top: 20px;">
                 <a href="#!faq" style="color: rgb(74,74,74); font-size: 20px;">Mehr Informationen zu diesem Film</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DFXcnRdXA7k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DFXcnRdXA7k" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -83,64 +90,61 @@
     <div id="about" class="container page">
         <div class="row">
             <div class="col-lg-7 order-lg-1 about-content">
-                <h1>Funktionen von DEMOCRACY</h1>
-                <div 
-                    class="info-badge active" 
-                    data-mp4="/videos/DDW-List_croped.mp4" 
+                <h1>Alle Funktionen von DEMOCRACY</h1>
+                <div class="info-badge active" data-mp4="/videos/DDW-List_croped.mp4"
                     data-webm="/videos/DDW-List_croped.mp4">
                     <div class="info-icon">
-                        <img class="info-icon-passive hidden" src="./files/images/group6@3x.png"/>
-                        <img class="info-icon-active" src="./files/images/group6@3x.t.png"/>
+                        <img class="info-icon-passive hidden" src="./files/images/group6@3x.png" />
+                        <img class="info-icon-active" src="./files/images/group6@3x.t.png" />
                     </div>
                     <div class="info-content">
-                        <b>Wähle</b> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages</div>
+                        <b>Wähle</b> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages
+                    </div>
                 </div>
-                <div class="info-badge"
-                    data-mp4="/videos/DDW-info_croped.mp4" 
-                    data-webm="/videos/DDW-info_croped.mp4">
+                <div class="info-badge" data-mp4="/videos/DDW-info_croped.mp4" data-webm="/videos/DDW-info_croped.mp4">
                     <div class="info-icon">
-                        <img class="info-icon-passive" src="./files/images/group3@3x.png"/>
-                        <img class="info-icon-active hidden" src="./files/images/group3@3x.t.png"/>
+                        <img class="info-icon-passive" src="./files/images/group3@3x.png" />
+                        <img class="info-icon-active hidden" src="./files/images/group3@3x.t.png" />
                     </div>
                     <div class="info-content">
-                        <b>Informiere</b> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente</div>
+                        <b>Informiere</b> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente
+                    </div>
                 </div>
-                <div class="info-badge"
-                    data-mp4="/videos/DDW-vote_croped.mp4" 
-                    data-webm="/videos/DDW-vote_croped.mp4">
+                <div class="info-badge" data-mp4="/videos/DDW-vote_croped.mp4" data-webm="/videos/DDW-vote_croped.mp4">
                     <div class="info-icon">
-                        <img class="info-icon-passive" src="./files/images/group5@3x.png"/>
-                        <img class="info-icon-active hidden" src="./files/images/group5@3x.t.png"/>
+                        <img class="info-icon-passive" src="./files/images/group5@3x.png" />
+                        <img class="info-icon-active hidden" src="./files/images/group5@3x.t.png" />
                     </div>
                     <div class="info-content">
-                        <b>Stimme</b> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter</div>
+                        <b>Stimme</b> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter
+                    </div>
                 </div>
-                <div class="info-badge"
-                    data-mp4="/videos/DDW-compare_croped.mp4" 
+                <div class="info-badge" data-mp4="/videos/DDW-compare_croped.mp4"
                     data-webm="/videos/DDW-compare_croped.mp4">
                     <div class="info-icon">
-                        <img class="info-icon-passive" src="./files/images/group2@3x.png"/>
-                        <img class="info-icon-active hidden" src="./files/images/group2@3x.t.png"/>
+                        <img class="info-icon-passive" src="./files/images/group2@3x.png" />
+                        <img class="info-icon-active hidden" src="./files/images/group2@3x.t.png" />
                     </div>
                     <div class="info-content">
-                        <b>Vergleiche</b> Dein Abstimmungsverhalten mit der Community und dem Bundestag</div>
+                        <b>Vergleiche</b> Dein Abstimmungsverhalten mit der Community und dem Bundestag
+                    </div>
                 </div>
-                <div class="info-badge" 
-                    data-mp4="/videos/DDW-analyse_croped.mp4" 
+                <div class="info-badge" data-mp4="/videos/DDW-analyse_croped.mp4"
                     data-webm="/videos/DDW-analyse_croped.mp4">
                     <div class="info-icon">
-                        <img class="info-icon-passive" src="./files/images/group9@3x.png"/>
-                        <img class="info-icon-active hidden" src="./files/images/group9@3x.t.png"/>
+                        <img class="info-icon-passive" src="./files/images/group9@3x.png" />
+                        <img class="info-icon-active hidden" src="./files/images/group9@3x.t.png" />
                     </div>
                     <div class="info-content">
-                        <b>Analysiere</b> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten </div>
+                        <b>Analysiere</b> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten
+                    </div>
                 </div>
                 <br>
                 <br>
             </div>
             <div class="col-lg-5 order-lg-12">
                 <div class="device-container" id="device-explain">
-                    <video id="video" autoplay loop muted playsinline >
+                    <video id="video" autoplay loop muted playsinline>
                         <source id="video-mp4" src="/videos/DDW-List_croped.mp4" type="video/mp4">
                         <source id="video-webm" src="./democracy/files/images/DDW-List_croped.webm" type="video/webm">
                         Your browser does not support HTML5 video.
@@ -148,5 +152,57 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="background-white">
+    <div id="about" class="container page">
+        <h1>Für wen ist DEMOCRACY?</h1>
+        <div class="ri-container" id="ri-container-1">
+            <div class="rectangleinfo">
+                <div class="ri-title">
+                    <h3 class="ri-title-heading">Für Bürger,</h3>
+                </div>
+                <div class="ri-subtitle">
+                    <p class="ri-subtitle-heading">die sich mehr Transparenz <br>& Teilhabe wünschen </p>
+                </div>
+            </div>
+            <div class="ri-content">
+                <p>Ob jung oder alt, ob bereits Experte oder bislang uninformiert. DEMOCRACY ist ein politisches
+                    Werkzeug
+                    für alle, die sich mehr Transparenz und Teilhabe wünschen. </p>
+                <a class="ri-link" href="#top"> Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="ri-container" id="ri-container-2">
+            <div class="rectangleinfo">
+                <div class="ri-title">
+                    <h3 class="ri-title-heading">Für Politiker,</h3>
+                </div>
+                <div class="ri-subtitle">
+                    <p class="ri-subtitle-heading">die erklären wollen, warum <br>sie wie entscheiden </p>
+                </div>
+            </div>
+            <div class="ri-content">
+                <p>Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. DEMOCRACY bietet Dir die Möglichkeit,
+                    Deinen
+                    wichtigsten Stakeholdern Gehör zu schenken: den Bürgern.</p>
+                <a class="ri-link" href="#top"> Mehr erfahren</a>
+            </div>
+        </div>
+        <h1 class="press-heading"> bekannt aus</h1>
+    </div>
+    <div id="press-logos" class="container page">
+        <a href="#top" id="hna-logo">
+            <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
+        </a>
+        <a href="#top" id="golem-logo">
+            <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
+        </a>
+        <a href="#top" id="focus-logo">
+            <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
+        </a>
+        <a href="#top" id="frarundschau-logo">
+            <img src="./files/images/frarundschau_logo.png" alt="Logo der Frankfurter Rundschau">
+        </a>
     </div>
 </div>
