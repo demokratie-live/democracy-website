@@ -1,32 +1,25 @@
-@media screen 
-  and (min-device-width: 1500px) { 
+@media screen and (min-device-width: 1500px) {
+  .slide-default {
+    width: max-content;
+  }
 
-    .slide-default {
-        width: max-content;
-    }
-
-    #index-title {
-        font-size: 4vw;
-    }
-
+  #index-title {
+    font-size: 4vw;
+  }
 }
 
-@media screen 
-  and (min-device-width: 300px) 
-  and (max-device-width: 600px) {
+@media screen and (min-device-width: 300px) and (max-device-width: 600px) {
+  #index-headline {
+    font-size: 8vw;
+  }
 
-    #index-headline {
-        font-size: 8vw;
-    }
-
-    #index-title {
-        font-size: 12vw;
-    }
-
+  #index-title {
+    font-size: 12vw;
+  }
 }
 
 .slide-wahlometer {
-    display: none;
+  display: none;
 }
 
 .header-content {
@@ -50,48 +43,49 @@
 }
 
 @media (min-width: 992px) {
-    #device-explain {
-        margin: 100px auto 50px auto;
-        padding: 0 35px 0 35px;
-    }
-    .header-content {
-        height: 100vh;
-        text-align: left;
-    }
-    .header-content .header-content-inner {
-        max-width: none;
-        margin: 0;
-        position: absolute;
-        top: 55%;
-        transform: translateY(-55%);
-    }
-    .header-content .header-content-inner h1 {
-        font-size: 50px;
-    }
-    .device-container {
-        max-width: none;
-        max-height: calc(0vh);
-        margin: 150px auto 0;
-    }
+  #device-explain {
+    margin: 100px auto 50px auto;
+    padding: 0 35px 0 35px;
+  }
+  .header-content {
+    height: 100vh;
+    text-align: left;
+  }
+  .header-content .header-content-inner {
+    max-width: none;
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-55%);
+  }
+  .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+  .device-container {
+    max-width: none;
+    max-height: calc(0vh);
+    margin: 150px auto 0;
+  }
 }
 
 .scroll-icon-container {
-    font-size: 20px;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    bottom: 30px;
-    text-decoration: none;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 30px;
+  text-decoration: none;
 }
 
 .scroll-icon {
-    color: rgba(255, 255, 255, 0.2) !important;
-    padding: 10px 10px 10px 10px;
-    text-decoration: none !important;
-    font-size: 30px;
+  color: rgba(255, 255, 255, 0.2) !important;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none !important;
+  font-size: 30px;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icomoon" !important;
   speak: none;
@@ -131,8 +125,12 @@
   text-decoration: none !important;
 }
 
-.header-home{
-    background: linear-gradient(to bottom, rgb(121, 198, 235),rgb(68, 148, 211)) !important;
+.header-home {
+  background: linear-gradient(
+    to bottom,
+    rgb(121, 198, 235),
+    rgb(68, 148, 211)
+  ) !important;
 }
 
 /*
@@ -141,115 +139,230 @@
 }
 */
 
-.header-content-inner{
-    color: #fff;
+.header-content-inner {
+  color: #fff;
 }
 
 #index-headline {
-    font-size: 40px;
-    margin-bottom: 5px;
+  font-size: 40px;
+  margin-bottom: 5px;
 }
 
 #index-title {
-    font-size: 50px;
-    margin-bottom: 3px;
-    font-family: helvetica_bold;
-    display: inline !important;
+  font-size: 50px;
+  margin-bottom: 3px;
+  font-family: helvetica_bold;
+  display: inline !important;
 }
 
 #index-title-year {
-    display: inline !important;
-    font-family: helvetica_bold;
-    font-size: 80px;
-    background: linear-gradient(0.75turn, rgb(246, 208, 83), rgb(236,147,55));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  display: inline !important;
+  font-family: helvetica_bold;
+  font-size: 80px;
+  background: linear-gradient(0.75turn, rgb(246, 208, 83), rgb(236, 147, 55));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #index-title-prime {
-    display: inline !important;
-    font-family: 'Arial';
-    font-size: 75px;
-    padding-bottom: 2px;
-    background: rgb(236,147,55);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  display: inline !important;
+  font-family: "Arial";
+  font-size: 75px;
+  padding-bottom: 2px;
+  background: rgb(236, 147, 55);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.about-content{
-    padding-top: 100px;
+.about-content {
+  padding-top: 100px;
 }
-.video-content{
-    padding-top: 80px;
+.video-content {
+  padding-top: 80px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-.info-badge{
-    background-color: rgb(239,239,244);
-    margin-top: 20px;
-    min-height: 120px;
-    cursor: pointer;
-    display: table;
+.info-badge {
+  background-color: rgb(239, 239, 244);
+  margin-top: 20px;
+  min-height: 120px;
+  cursor: pointer;
+  display: table;
 }
-.info-badge:hover{
-    background-color: rgb(154,194,228);
-}
-
-.info-badge.active{
-    background-color: rgb(68,148,211);
-    color: #fff;
+.info-badge:hover {
+  background-color: rgb(154, 194, 228);
 }
 
-.info-icon{
-    height: 100%;
-    width: 125px;
-    text-align: center;
-    margin: auto;
-    display: table-cell;
-    vertical-align: middle;
+.info-badge.active {
+  background-color: rgb(68, 148, 211);
+  color: #fff;
 }
-.info-icon img{
-    height: 80px;
+
+.info-icon {
+  height: 100%;
+  width: 125px;
+  text-align: center;
+  margin: auto;
+  display: table-cell;
+  vertical-align: middle;
+}
+.info-icon img {
+  height: 80px;
 }
 .info-content {
-    padding-top: 35px;
-    padding-bottom: 35px;
-    padding-left: 5px;
-    padding-right: 25px;
-    font-size: 20px;
-    line-height: 1.2;
-    display: table-cell;
-    min-height: 120px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-left: 5px;
+  padding-right: 25px;
+  font-size: 20px;
+  line-height: 1.2;
+  display: table-cell;
+  min-height: 120px;
 }
-.background-logo{
-    overflow: hidden;
-    width: 100%;
-    position: absolute;
-    height: 100vh;
-    left: 0;
+.background-logo {
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  height: 100vh;
+  left: 0;
 }
 .background-logo > img {
-    height: 80vh;
-    position: absolute;
-    right: -30vh;
-    top: 20vh;
+  height: 80vh;
+  position: absolute;
+  right: -30vh;
+  top: 20vh;
 }
-@media (max-width:500px) {
-    .info-icon{
-        width: 60px !important;
-    }
-    .info-icon img{
-        height: 40px;
-    }
-    .info-content {
-        padding: 15px;
-    }
+@media (max-width: 500px) {
+  .info-icon {
+    width: 60px !important;
+  }
+  .info-icon img {
+    height: 40px;
+  }
+  .info-content {
+    padding: 15px;
+  }
 }
 
 #secondbadge {
-    width: max-content;
-    overflow: visible;
+  width: max-content;
+  overflow: visible;
+}
+
+#video-title {
+  display: inline !important;
+}
+
+#video-title-emphasis {
+  font-family: "helvetica_bold";
+  display: inline !important;
+}
+
+@media screen and (min-device-width: 800px) {
+  #video-title {
+    white-space: nowrap;
+  }
+}
+
+.rectangleinfo {
+  text-align: left;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  padding-right: 12px;
+  padding-top: 64px;
+  flex: 0 0 100%;
+}
+
+.ri-title {
+  z-index: 5000;
+  position: relative;
+}
+
+.ri-subtitle {
+  margin-left: 16px;
+  margin-top: -12px;
+  z-index: 4000;
+  position: relative;
+}
+
+.ri-title-heading {
+  display: inline-block;
+  padding: 14px 18px 16px 16px;
+  color: #fff;
+  background: rgb(68, 148, 211);
+  font-family: "helvetica_bold";
+  font-size: 32px;
+  letter-spacing: -0.06px;
+}
+
+.ri-subtitle-heading {
+  display: inline-block;
+  color: #000;
+  padding: 20px 40px 22px 22px;
+  background: rgb(239, 239, 244);
+  transform: rotate(-1.5deg);
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.05px;
+  font-family: "helvetica_bold";
+  line-height: normal;
+}
+
+.ri-content {
+  margin-top: 4vh;
+  width: 400px;
+  box-sizing: border-box;
+  font-size: 24px;
+  line-height: normal;
+  padding-left: 28px;
+}
+
+@media screen and (max-device-width: 770px) {
+  .ri-content {
+    width: 60vw;
+  }
+}
+
+.ri-link {
+  float: right;
+  font-size: 20px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.46;
+  letter-spacing: 0.14px;
+  text-align: right;
+  padding-top: 4px;
+}
+
+.ri-container {
+  display: inline-block;
+  overflow: visible;
+  width: 50%;
+}
+
+#ri-container-2 {
+  float: right;
+}
+
+@media screen and (max-device-width: 900px) {
+  .ri-container {
+    width: 100%;
+  }
+  #ri-container-2 {
+    float: none;
+  }
+}
+
+.press-heading {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+#press-logos {
+    display: inline-block;
 }
