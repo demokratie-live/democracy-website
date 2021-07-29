@@ -6,6 +6,11 @@
   #index-title {
     font-size: 4vw;
   }
+
+  #campaigncorner-img {
+    scale: 40% !important;
+  }
+
 }
 
 @media screen and (min-device-width: 300px) and (max-device-width: 600px) {
@@ -16,6 +21,11 @@
   #index-title {
     font-size: 12vw;
   }
+
+  #campaigncorner-img {
+    scale: 10% !important;
+  }
+
 }
 
 .slide-default {
@@ -317,6 +327,10 @@
   #video-applink {
     white-space: pre-line;
   }
+
+  #wom-aboutlink {
+    white-space: pre-line;
+  }
 }
 
 
@@ -324,6 +338,10 @@
   min-height: 40vh;
 }
 
+#press-heading-wom {
+  margin-top: 0vh;
+  padding-top: 5vh;
+}
 
 #campaigncorner-img {
     position: absolute;
@@ -331,10 +349,17 @@
     bottom: 0px;
     transform-origin: bottom right;
     margin-bottom: -1px;
-    scale: 25%;
+    scale: 20%;
   }
 
   #campaigncorner-anchor {
     position: absolute;
     right: 0px;
   }
+
+#wom-aboutlink {
+  float: right;
+  margin-top: -4vh;
+  text-align: right;
+}
+
