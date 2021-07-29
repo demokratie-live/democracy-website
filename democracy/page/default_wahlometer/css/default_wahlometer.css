@@ -300,6 +300,7 @@
   display: inline-block;
   overflow: visible;
   width: 33%;
+  vertical-align: top;
 }
 
 #si-container-3 {
@@ -311,6 +312,13 @@
     width: 100%;
   }
 }
+
+@media screen and (min-device-width: 992px) and (max-device-width: 1200px) {
+  #video-applink {
+    white-space: pre-line;
+  }
+}
+
 
 #si-panel {
   min-height: 40vh;
@@ -328,6 +336,9 @@
     position: absolute;
     right: 0px;
     bottom: 0px;
+    transform-origin: bottom right;
+    margin-bottom: -1px;
+    scale: 25%;
   }
 
   #campaigncorner-anchor {

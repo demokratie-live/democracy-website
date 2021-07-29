@@ -77,7 +77,7 @@
                 <h1 id="video-title-emphasis">DEMOCRACY </h1>
                 <h1 id="video-title">(2:30)?</h1>
             </div>
-            <div class="col-lg-5" style="text-align: right; padding-top: 20px;">
+            <div class="col-lg-5" id="video-applink" style="text-align: right; padding-top: 20px;">
                 <a href="#!faq" style="color: rgb(74,74,74); font-size: 20px;">Mehr Informationen zu diesem Film</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
@@ -192,19 +192,19 @@
             </div>
         </div>
         <h1 class="press-heading"> bekannt aus</h1>
-    </div>
-    <div id="press-logos" class="container page">
-        <a href="#top" id="hna-logo">
-            <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
-        </a>
-        <a href="#top" id="golem-logo">
-            <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
-        </a>
-        <a href="#top" id="focus-logo">
-            <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
-        </a>
-        <a href="#top" id="frarundschau-logo">
-            <img src="./files/images/frarundschau_logo.png" alt="Logo der Frankfurter Rundschau">
-        </a>
+        <div id="press-logos">
+            <a href="#top" id="hna-logo">
+                <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
+            </a>
+            <a href="#top" id="golem-logo">
+                <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
+            </a>
+            <a href="#top" id="focus-logo">
+                <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
+            </a>
+            <a href="#top" id="frarundschau-logo">
+                <img src="./files/images/frarundschau_logo.png" alt="Logo der Frankfurter Rundschau">
+            </a>
+        </div>
     </div>
 </div>
