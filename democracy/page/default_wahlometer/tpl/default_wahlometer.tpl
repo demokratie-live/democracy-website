@@ -134,7 +134,7 @@
                 <h1 id="video-title-emphasis">Wahl-O-Meter </h1>
                 <h1 id="video-title">(1:00)?</h1>
             </div>
-            <div class="col-lg-5" style="text-align: right; padding-top: 20px;">
+            <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
                 <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY App herunterladen</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
@@ -159,6 +159,6 @@
     <div id="about" class="container page">
         <h1>Warum gibt es uns?</h1>
     </div>
-        <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner.png"
+        <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
                 alt="Democracy 1.4 - finde die Taten hinter den Worten" id="campaigncorner-img"></a>
 </div>
