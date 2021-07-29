@@ -146,19 +146,33 @@
     </div>
 </div>
 <div class="background-white">
-    <div id="press-panel" class="container page">
-        <h1 class="press-heading"> bekannt aus</h1>
-    </div>
-</div>
-<div class="background-white">
     <div id="about" class="container page">
+        <h1 class="press-heading" id="press-heading-wom"> bekannt aus</h1>
+        <div id="press-logos">
+            <a href="#top" id="hna-logo">
+                <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
+            </a>
+            <a href="#top" id="golem-logo">
+                <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
+            </a>
+            <a href="#top" id="focus-logo">
+                <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
+            </a>
+            <a href="#top" id="frarundschau-logo">
+                <img src="./files/images/frarundschau_logo.png" alt="Logo der Frankfurter Rundschau">
+            </a>
+        </div>
         <h1>Was ist der Unterschied zum Wahl-O-Mat?</h1>
+        <p> womcontent</p>
     </div>
 </div>
 <div class="background-white">
     <div id="about" class="container page">
         <h1>Warum gibt es uns?</h1>
+        <div id="wom-aboutlink" class="col-lg-5">
+            <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">Zur Vision von DEMOCRACY</a>
+        </div>
     </div>
-        <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
-                alt="Democracy 1.4 - finde die Taten hinter den Worten" id="campaigncorner-img"></a>
+    <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
+            alt="Democracy 1.4 - finde die Taten hinter den Worten" id="campaigncorner-img"></a>
 </div>
