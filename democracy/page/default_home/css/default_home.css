@@ -370,13 +370,45 @@
   #ri-container-2 {
     float: none;
   }
+
+  #press-logos {
+    flex-wrap: wrap;
+    scale: 50%;
+    margin-bottom: 0vh;
+  }
+
+  #press-logos > a {
+    margin: 6vh;
+  }
+
+  #press-logos > a > img {
+    scale: 90%;
+  }
+
+  .press-heading {
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 0vh;
+  }
+
 }
 
 .press-heading {
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 15vh;
+  margin-bottom: 10vh;
 }
 
 #press-logos {
-    display: inline-block;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 10vh;
+}
+
+#press-logos > a {
+  margin: 3vh;
+}
+
+#press-logos > a > img {
+    max-width: 100%;
 }
