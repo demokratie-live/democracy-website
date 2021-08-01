@@ -151,7 +151,7 @@ class default_donate implements SYSTEM\PAGE\Page
         $volunteers = array(
             array(
                 'name' => 'Léon Trothe',
-                'text' => 'Praktikantin<br>Social Media Marketing',
+                'text' => 'Praktikant<br>Social Media Marketing',
                 'img' => './files/wir/Leon.png',
                 'img_hover' => '',
                 'links' => array(
