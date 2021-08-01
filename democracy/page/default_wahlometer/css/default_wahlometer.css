@@ -10,7 +10,6 @@
   #campaigncorner-img {
     scale: 40% !important;
   }
-
 }
 
 @media screen and (min-device-width: 300px) and (max-device-width: 600px) {
@@ -25,7 +24,6 @@
   #campaigncorner-img {
     scale: 10% !important;
   }
-
 }
 
 .slide-default {
@@ -236,6 +234,9 @@
   .info-content {
     padding: 15px;
   }
+  #wom-campaign-title {
+    margin-top: -4vh;
+  }
 }
 
 .symbolinfo {
@@ -292,7 +293,21 @@
 
 @media screen and (max-device-width: 770px) {
   .si-content {
-    width: 60vw;
+    width: 60vw !important;
+  }
+  #wom-title {
+    font-size: 40px !important;
+  }
+  #wom-title-year {
+    font-size: 62px !important;
+  }
+  #wom-title-year-period {
+    font-size: 73px !important;
+  }
+  #wom-title-subtitle {
+    font-size: 26px !important;
+    width: min-content !important;
+    margin-top: 0%;
   }
 }
 
@@ -321,6 +336,9 @@
   .si-container {
     width: 100%;
   }
+  #ri-container-wom {
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (min-device-width: 992px) and (max-device-width: 1200px) {
@@ -333,7 +351,6 @@
   }
 }
 
-
 #si-panel {
   min-height: 40vh;
 }
@@ -344,18 +361,18 @@
 }
 
 #campaigncorner-img {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    transform-origin: bottom right;
-    margin-bottom: -1px;
-    scale: 20%;
-  }
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  transform-origin: bottom right;
+  margin-bottom: -1px;
+  scale: 20%;
+}
 
-  #campaigncorner-anchor {
-    position: absolute;
-    right: 0px;
-  }
+#campaigncorner-anchor {
+  position: absolute;
+  right: 0px;
+}
 
 #wom-aboutlink {
   float: right;
@@ -363,3 +380,142 @@
   text-align: right;
 }
 
+#ri-quote-bold-wom {
+  font-family: "helvetica_bold";
+}
+
+#ri-link-wom {
+  color: #4a90e2;
+}
+
+#ri-content-wom {
+  padding-left: 0%;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-left: 4vw;
+  padding-top: 2vh;
+}
+
+#ri-container-wom {
+  padding-top: 5vh;
+  display: flex;
+  margin-left: 1vw;
+  width: 100%;
+}
+
+#rectangleinfo-wom {
+  padding-top: 0%;
+  flex: 0 0 50%;
+}
+
+@media screen and (min-device-width: 1500px) {
+  #wom-title {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-device-width: 300px) and (max-device-width: 600px) {
+  #wom-title-subtitle {
+    font-size: 8vw;
+  }
+
+  #wom-title {
+    font-size: 12vw;
+  }
+}
+@media screen and (min-device-width: 300px) {
+  #wom-title-year-break {
+    display: none !important;
+  }
+  #wom-title-subtitle {
+    width: auto !important;
+  }
+}
+
+#wom-title-year {
+  display: inline !important;
+  font-family: "SFProDisplay";
+  font-size: 100px;
+  background: linear-gradient(0.75turn, rgb(246, 208, 83), rgb(236, 147, 55));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: -6px !important;
+  font-weight: bolder;
+}
+
+#wom-title-year-period {
+  display: inline !important;
+  font-family: "SFProDisplay";
+  font-size: 112px;
+  padding-bottom: 2px;
+  background: rgb(236, 147, 55);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: -14px !important;
+  margin-right: -5px !important;
+  font-weight: bolder;
+}
+
+#wom-campaign-container {
+  margin-top: 10vh;
+}
+
+#wom-title-subtitle {
+  color: #4494d3;
+  font-size: 40px;
+  width: max-content;
+  margin-top: -20px;
+}
+
+#wom-title {
+  color: #000b30;
+  font-size: 62px;
+  font-family: helvetica_bold;
+  display: inline !important;
+}
+
+#wom-campaign-badges {
+  margin-top: 10px;
+}
+
+#icon-google-play-outline-wom::before {
+  color: #454545 !important;
+}
+
+#icon-app-store-outline-wom::before {
+  color: #454545 !important;
+}
+
+#icon-google-play-filled-wom::before {
+  color: #454545 !important;
+}
+
+#icon-app-store-filled-wom::before {
+  color: #454545 !important;
+}
+
+#firstbadge-wom,
+#secondbage-wom {
+  max-width: min-content;
+}
+
+#secondbadge-wom {
+  margin-bottom: 10vh;
+}
+
+#wom-about {
+  min-height: unset !important;
+}
+
+/*
+#ri-quote {
+  font-size: 90px;
+  position: absolute;
+  z-index: 5000;
+  transform: rotate(-1deg);
+  color: #4494d3;
+  margin-bottom: unset;
+}
+*/

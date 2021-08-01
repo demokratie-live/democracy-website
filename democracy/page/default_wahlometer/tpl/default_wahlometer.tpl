@@ -149,28 +149,79 @@
     <div id="about" class="container page">
         <h1 class="press-heading" id="press-heading-wom"> bekannt aus</h1>
         <div id="press-logos">
-            <a href="#top" id="hna-logo">
-                <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
+            <a href="#top" id="hrinfo-logo">
+                <img src="./files/images/hrinfo_logo.png" alt="Logo des hessischen Radiosenders hr-iNFO">
             </a>
-            <a href="#top" id="golem-logo">
-                <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
+            <a href="#top" id="mdr-logo">
+                <img src="./files/images/mdr_logo.png" alt="Logo des Mitteldeutschen Rundfunks">
             </a>
-            <a href="#top" id="focus-logo">
-                <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
+            <a href="#top" id="dw-logo">
+                <img src="./files/images/dw_logo.png" alt="Logo der Nachrichtenorganisation Deutsche Welle">
             </a>
-            <a href="#top" id="frarundschau-logo">
-                <img src="./files/images/frarundschau_logo.png" alt="Logo der Frankfurter Rundschau">
+            <a href="#top" id="wired-logo">
+                <img src="./files/images/wired_logo.png" alt="Logo des Magazins WIRED">
             </a>
         </div>
         <h1>Was ist der Unterschied zum Wahl-O-Mat?</h1>
-        <p> womcontent</p>
     </div>
 </div>
 <div class="background-white">
-    <div id="about" class="container page">
+    <div id="wom-about" class="container page">
         <h1>Warum gibt es uns?</h1>
         <div id="wom-aboutlink" class="col-lg-5">
             <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">Zur Vision von DEMOCRACY</a>
+        </div>
+        <div class="ri-container" id="ri-container-wom">
+            <div class="rectangleinfo" id="rectangleinfo-wom">
+                <div class="ri-title" id="ri-title-wom">
+                    <h3 class="ri-title-heading" id="ri-title-heading-wom">Wir wollen</h3>
+                </div>
+                <div class="ri-subtitle">
+                    <p class="ri-subtitle-heading" id="ri-subtitle-heading-wom">Menschen einfachen <br>Zugang zur
+                        Politik bieten
+                    <!--<div id="ri-quote">"</div>-->
+                    </p>
+                </div>
+
+            </div>
+            <div class="ri-content" id="ri-content-wom">
+                <p>Mit DEMOCRACY geben wir Menschen die Möglichkeit, sich über die Abstimmungen im Bundestag zu
+                    informieren und ihre Meinung mit den der Parteien und Abgeordneten abzugleichen.</p>
+                <a class="ri-link" id="ri-link-wom"> <b id="ri-quote-bold-wom">Marius Krüger, </b>Gründer</a>
+            </div>
+        </div>
+        <div id="wom-campaign-container">
+            <h1>Finde die Partei, die Dich wirklich vertritt</h1>
+            <div id="wom-campaign-title">
+                <h1 id="wom-title">DEMOCRACY</h1>
+                <br id="wom-title-year-break">
+                <p id="wom-title-year">1</p>
+                <p id="wom-title-year-period">.</p>
+                <p id="wom-title-year">4</p>
+                <h1 id="wom-title-subtitle">Dein faktenbasierter Wahlhelfer</h1>
+                <div id="wom-campaign-badges" class="badges">
+                    <div class="row">
+                        <div class="col-lg-5" id="firstbadge-wom">
+                            <br>
+                            <a class="badge-link icon-app-store-outline" id="icon-app-store-outline-wom"
+                                href="${link_appstore}" style="padding-top: 5px;"></a>
+                        </div>
+                        <style>
+                            @media (min-width: 992px) {
+                                #secondbadge {
+                                    padding-left: 25px;
+                                }
+                            }
+                        </style>
+                        <div id="secondbadge-wom" class="col-lg-5">
+                            <br>
+                            <a class="badge-link icon-google-play-outline" id="icon-google-play-outline-wom"
+                                href="${link_playstore}" style="padding-top: 5px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
