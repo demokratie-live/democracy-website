@@ -15,6 +15,9 @@ class page_democracy extends \SYSTEM\API\api_default {
 
     public static function page_wahlometer(){
         return (new default_wahlometer())->html();}
+
+    public static function page_about(){
+        return (new default_about())->html();}
     
     public static function page_citizen(){
         return (new default_citizen())->html();}

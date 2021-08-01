@@ -3,6 +3,7 @@
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_page');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_home');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_wahlometer');
+\SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_about');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_citizen');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_politicians');
 \SYSTEM\autoload::registerFolder(dirname(__FILE__).'/default_engineering');
