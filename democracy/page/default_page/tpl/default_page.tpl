@@ -69,7 +69,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item active"><a id="menu_wahlometer" class="nav-link" href="#!wahlometer">Wahl-O-Meter</a></li>
                         <li class="nav-item active"><a id="menu_home" class="nav-link" href="#!home">DEMOCRACY</a></li>
-                        <li class="nav-item active"><a id="menu_wir" class="nav-link" href="#!about">Über Uns</a></li>
+                        <li class="nav-item active"><a id="menu_about" class="nav-link" href="#!about">Über Uns</a></li>
                         <li class="nav-item active"><a id="menu_press" class="nav-link" href="#!press">Presse</a></li>
                         <!--- 
                         <li class="nav-item"><a id="menu_citizen" class="nav-link" href="#!citizen">Für Bürger</a></li>
