@@ -286,14 +286,14 @@
 }
 
 .ri-title {
-  z-index: 5000;
+  z-index: 500;
   position: relative;
 }
 
 .ri-subtitle {
   margin-left: 16px;
   margin-top: -16px;
-  z-index: 4000;
+  z-index: 400;
   position: relative;
 }
 
