@@ -167,8 +167,10 @@
 </div>
 <div class="background-white">
     <div id="wom-about" class="container page">
+    <div>
         <h1>Warum gibt es uns?</h1>
-        <div id="wom-aboutlink" class="col-lg-5">
+        </div>
+        <div id="video-applink" class="col-lg-5">
             <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">Zur Vision von DEMOCRACY</a>
         </div>
         <div class="ri-container" id="ri-container-wom">
@@ -179,7 +181,7 @@
                 <div class="ri-subtitle">
                     <p class="ri-subtitle-heading" id="ri-subtitle-heading-wom">Menschen einfachen <br>Zugang zur
                         Politik bieten
-                    <!--<div id="ri-quote">"</div>-->
+                        <!--<div id="ri-quote">"</div>-->
                     </p>
                 </div>
 
@@ -187,12 +189,14 @@
             <div class="ri-content" id="ri-content-wom">
                 <p>Mit DEMOCRACY geben wir Menschen die Möglichkeit, sich über die Abstimmungen im Bundestag zu
                     informieren und ihre Meinung mit den der Parteien und Abgeordneten abzugleichen.</p>
-                <a class="ri-link" id="ri-link-wom"> <b id="ri-quote-bold-wom">Marius Krüger, </b>Gründer</a>
             </div>
+        </div>
+        <div class="quote-name" id="quote-name-wom">
+            <a class="ri-link" id="ri-link-wom"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
         </div>
         <div id="wom-campaign-container">
             <h1>Finde die Partei, die Dich wirklich vertritt</h1>
-            <div id="wom-campaign-title">
+            <div id="wom-campaign-title" class="col-lg-7">
                 <h1 id="wom-title">DEMOCRACY</h1>
                 <br id="wom-title-year-break">
                 <p id="wom-title-year">1</p>
