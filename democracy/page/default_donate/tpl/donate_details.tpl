@@ -9,16 +9,17 @@
     <table class="donate-details">
         <tbody class="table-body">
             ${donation_data}
+            <!--
             <tr>
                 <td colspan="3" style="font-size: 12px;">
                     * Diese Darstellung kann nur monatliche Spenden (Daueraufträge) berücksichtigen.
                 </td>
             </tr>
+            -->
         </tbody>
     </table>
     <!-- Button trigger modal -->
-    <input type="image" src="./files/images/PayPal-Donate-Button-Transparent.png" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal." style="width: 50%; margin-top: 35px;" data-toggle="modal" data-target="#DEMOCRACYPatenschaft">
-
+    <input id="donate-button" value="Spenden" type="button" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal." data-toggle="modal" data-target="#DEMOCRACYPatenschaft">
     <!-- Modal -->
     <div class="modal fade" id="DEMOCRACYPatenschaft" tabindex="-1" role="dialog" aria-labelledby="DEMOCRACY Patenschaft" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
