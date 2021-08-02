@@ -503,6 +503,7 @@
 
 #secondbadge-wom {
   margin-bottom: 10vh;
+  min-width: max-content;
 }
 
 #wom-about {
