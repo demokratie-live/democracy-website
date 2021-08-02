@@ -34,6 +34,8 @@
 .device-container {
   max-width: 350px;
   margin: 0px auto 50px;
+  z-index: 0;
+  position: relative;
 }
 .device-container img {
   width: 100%;
