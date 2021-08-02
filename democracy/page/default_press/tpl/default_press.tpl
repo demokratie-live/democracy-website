@@ -1,23 +1,11 @@
 <div class="background-white">
     <div class="container main-container">
         <div class="row">
-            <div class="col-12">
-                <h1>Pressespiegel</h1>
-                <h5 style="padding-top:20px; padding-bottom: 50px;">Über DEMOCRACY berichtet</h5>
-            </div>
-            ${articles}
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-12" style="padding-top: 50px;">
-                <h1>Publikationen</h1>
-                <h5 style="padding-top:20px; padding-bottom: 50px;">DEMOCRACY veröffentlicht</h5>
+                <h1>Presse-Kit</h1>
+                <h5 style="padding-top:20px; padding-bottom: 50px;">Unsere Story</h5>
             </div>
-            ${publications}
+            ${media}
         </div>
         <div class="row">
             <div class="col-12" style="padding-top: 50px;">
@@ -28,19 +16,36 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h1>Pressespiegel</h1>
+                <h5 style="padding-top:20px; padding-bottom: 50px;">Über DEMOCRACY berichtet</h5>
+            </div>
+            ${articles}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
             </div>
         </div>
         <div class="row">
             <div class="col-12" style="padding-top: 50px;">
-                <h1>Medien zum Download</h1>
-                <h5 style="padding-top:20px; padding-bottom: 50px;">DEMOCRACY stellt zur Verfügung</h5>
+                <h1>Publikationen</h1>
+                <h5 style="padding-top:20px; padding-bottom: 50px;">DEMOCRACY veröffentlicht</h5>
             </div>
-            ${media}
+            ${publications}
         </div>
         <div class="row">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
             </div>
         </div>
         <div class="row">
