@@ -254,7 +254,7 @@
   margin-bottom: 2vh;
   border-radius: 4px;
   background-color: #efeff4;
-  z-index: 4000;
+  z-index: 400;
   position: relative;
 }
 
@@ -263,13 +263,13 @@
   height: 76px;
   object-fit: contain;
   position: relative;
-  z-index: 5000;
+  z-index: 500;
   margin-left: 80px;
   margin-bottom: -138px;
 }
 
 .si-subtitle {
-  z-index: 4000;
+  z-index: 400;
   position: relative;
 }
 
@@ -514,7 +514,7 @@
 #ri-quote {
   font-size: 90px;
   position: absolute;
-  z-index: 5000;
+  z-index: 500;
   transform: rotate(-1deg);
   color: #4494d3;
   margin-bottom: unset;
