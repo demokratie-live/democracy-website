@@ -18,7 +18,7 @@
         <meta name="author" content="Democracy Deutschland e.V.">
         <meta name="publisher" content="Democracy Deutschland e.V.">
         <meta name="copyright" content="Democracy Deutschland e.V.">
-        <meta name="description" content="Die offizielle Projektseite der DEMOCRACY App – das 10X-Improvement für unsere Demokratie. DEMOCRACY räumt jedem nutzenden Bundesbürger die Möglichkeit ein, sich über die aktuellen Parlamentsabstimmungen des deutschen Bundestags zu informieren und selbst abzustimmen">
+        <meta name="description" content="Finde die Taten hinter den Worten. Ganz einfach: Mit dem Wahl-O-Meter – der Wahlhilfe von DEMOCRACY. Hol Dir jetzt zur Bundestagswahl die kostenlose App DEMOCRACY, damit Du Deine Wahlentscheidung nicht nur auf Wahlversprechen stützen musst!">
         <meta name="keywords" content="Democracy App, DEMOCRACY App, democracy app, democracyapp, DEMOCRACYApp, Volksabstimmung, Mitbestimmung, Basisdemokratie, Bundestag, Bundestagsabstimmungen, Abstimmungsinitiativen, Demokratie,Bürgerwünsche, Politik, Stimme, Diskussionsforum, Wahlstimmen, abstimmen, appstimmen">
         <meta name="page-topic" content="Gesellschaft">
         <meta name="page-type" content="Bericht Reportage">
