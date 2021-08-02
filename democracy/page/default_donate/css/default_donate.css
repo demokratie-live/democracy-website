@@ -70,3 +70,14 @@
     color: rgb(162,162,162);
     font-size: 15px;
 }
+
+#donate-button {
+	width: inherit;
+	height: auto;
+	border-radius: 4px;
+	background-color: #f5a623;
+	color: #4a4a4a;
+	font-size: 2rem;
+	font-family: "helvetica_bold";
+	margin-top: 2vh;
+  }

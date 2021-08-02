@@ -2,8 +2,10 @@
     <div class="container main-container">
         <div class="row">
             <div class="col-12">
-                <h1>Spenden</h1>
-                <h4 style="padding-top:30px;">Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nichtkommerziell –<br>
+                <h1 id="statement-heading">Spenden</h1>
+                <h4 id="statement-content" style="padding-top:30px;">Unsere Arbeit ist unabhängig, überparteilich,
+                    allgemeinnützig und
+                    nichtkommerziell –<br>
                     von Menschen für Menschen</h4>
             </div>
         </div>
@@ -12,22 +14,25 @@
                 ${donate_box}
             </div>
             <div class="col-lg-8" id="donate_init_text">
-                <span>  DEMOCRACY Deutschland e.V. ist ein gemeinnütziger Verein, der mit seiner
-                        gleichnamigen App DEMOCRACY unsere Politik inklusiver, demokratischer und
-                        bürgernäher machen will.</span>
-                <br><br>
-                <span>  Als crowd-moderierte und politisch unabhängige Plattform informiert die App dafür
-                         über die aktuellen Bundestagsabstimmungen und ermöglicht den Nutzern eine
-                         eigene direkte Abstimmung. Regelmäßige Bürgerbeteiligung und sachbezogenes
-                        Politik-Controlling sollen damit erstmalig in der bundespolitischen Praxis Anwendung finden.</span>
-                <br><br>
-                <span>  Gerade weil so eine große Idee zur Umsetzung in diese Welt auch ein großes
-                        Portemonnaie braucht, ist unser Joker die gemeinschaftliche Finanzierung.</span>
-                <br><br>
-                <span>  Nach der Prototypsfinanzierung durch das <a href="https://startnext.com/democracy" target="_blank">initiale Crowdfunding im Herbst 2017</a>,
-                        kannst Du die Initiative als Pate jetzt regelmäßig unterstützen oder einmalig spenden.
-                        Pate kannst du schon ab 1 € monatlich werden. Deine Unterstützung lässt sich
-                         jederzeit beenden.</span>
+                <span> DEMOCRACY Deutschland e.V. ist ein <b>gemeinnütziger Verein</b>, der mit seiner gleichnamigen App
+                    DEMOCRACY, unsere Politik transparenter und demokratischer machen will.
+                    <br><br>
+                    Die Gewinnerzielungabsicht haben wir bereits mit der Wahl unserer Rechtsform bewusst ausgeschlossen.
+                    DEMOCRACY ist und bleibt <b>spendenfinanziert</b> - seit Tag 1. Daten, bei der Nutzung der App
+                    entstehen,
+                    sind für uns keine handelbaren Wirtschaftsgüter, sondern im Sinne der informationellen
+                    Selbstbestimmung und des Grundgesetzes zu schützen.
+                    <br><br>
+                    Unser Joker ist die <b>gemeinschaftliche Finanzierung</b>.
+                    DEMOCRACY Deutschland e.V. ist ein gemeinnütziger Verein, der mit seiner gleichnamigen App
+                    DEMOCRACY, unsere Politik transparenter und demokratischer machen will.
+                    <br><br>
+                    Deine regelmäßige Unterstützung hilft uns, seit der Prototypsfinanzierung durch das <a
+                        href="https://startnext.com/democracy" target="_blank">initiale
+                        Crowdfunding im Herbst 2017</a>, die laufenden Kosten zu decken und gibt uns Planungssicherheit
+                    für die
+                    Zukunft des Projekts. Pate kannst du schon ab 5 € monatlich werden. Deine Unterstützung lässt sich
+                    jederzeit beenden. </span>
                 <br><br>
                 <div class="row">
                     <div class="col-lg-4">
@@ -37,7 +42,7 @@
                     </div>
                     <div class="col-lg-4">
                         <a class="btn-democracy btn-democracy-light" href="#!donate#donate">
-                            <div >Einmalig Spenden</div>
+                            <div>Einmalig Spenden</div>
                         </a>
                     </div>
                 </div>
@@ -45,18 +50,19 @@
         </div>
         <div class="row" id="donate">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
             </div>
         </div>
         <div class="row" style="padding-top: 50px;">
             <div class="col-lg-6" style="text-align: left;">
                 <h5><strong>SPENDENKONTO FÜR DAUERAUFTRAG ODER ÜBERWEISUNG</strong></h5>
-                <span>  Unsere Bankverbindung für direkte Spenden, Überweisungen oder
-                        Daueraufträge lautet: </span>
+                <span> Unsere Bankverbindung für direkte Spenden, Überweisungen oder
+                    Daueraufträge lautet: </span>
                 <br><br>
                 <style>
-                    .table th, .table td{
-                        border:0;
+                    .table th,
+                    .table td {
+                        border: 0;
                         padding: 3px;
                     }
                 </style>
@@ -74,108 +80,56 @@
                         <td>TRODDEF1</td>
                     </tr>
                 </table>
-                <span>  Mit dem Bescheid des Finanzamts Göttingen vom 01.10.2019 sind wir
-                        als gemeinnütziger Verein zur Förderung des demokratischen Staatswesens
-                        sowie der Volks- und Berufsbildung offiziell anerkannt
-                        (<a href="./files/download/Freistellungsbescheid.pdf" target="_blank">Nachweis der Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf" target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
-                        abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
-                        (z. B. Kontoauszug) zusammen mit unserem <a href="./files/download/Vereinfachter_Zuwendungsnachweis_2019.pdf" target="_blank">Vereinfachten Zuwendungsnachweis</a>.
-                        Wenn Du eine separate Zuwendungsbestätigung benötigst,
-                        schreib uns bitte eine E-Mail oder gib in Deiner
-                        Überweisung Deine Wohnadresse an.</span>
+                <span> Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des Finanzamt Göttingen vom 23.08.2017
+                    die Einhaltung der satzungsmäigen Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt
+                    worden
+                    (<a href="./files/download/Freistellungsbescheid.pdf" target="_blank">Nachweis der
+                        Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf"
+                        target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
+                    abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
+                    (z. B. Kontoauszug) zusammen mit unserem <a
+                        href="./files/download/Vereinfachter_Zuwendungsnachweis_2019.pdf" target="_blank">Vereinfachten
+                        Zuwendungsnachweis</a>.
+                    Wenn Du eine separate Zuwendungsbestätigung benötigst,
+                    schreib uns bitte eine E-Mail oder gib in Deiner
+                    Überweisung Deine Wohnadresse an.</span>
                 <br><br><br>
-                
-                <h5><strong>EHEMALS SPENDEN ÜBER BETTERPLACE</strong></h5>
-                <span>Wir haben uns dazu entschieden, das Spenden über betterplace nicht mehr ermöglichen zu wollen.<!-- Mehr Informationen dazu finden Sie <a href="" target="_blank">hier</a>.--></span>
-                <br><br><br>
-                
-                <h5><strong>SPENDEN ÜBER PAYPAL</strong></h5>
-                <span>  1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.
-                        Bitte bedenke, dass von einer monatlichen 1€-Spende insofern nur 0,63€ bei uns ankommen.<br>
-                        <br>
-                        Damit Deine Spende zu 100% wirksam wird und für Dich jederzeit kontrollierbar ist, empfehlen wir einen Dauerauftrag à Konto einzurichten.</span>
-                <br><br><br>
-                
-                <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>
-                <span>  Spenden und Daueraufträge sind nur eine Möglichkeit, um uns zu unterstützen.
-                        Wir suchen ständig motivierte Leute für die aktive Mitarbeit in unserem
-                        Projekt! Du hast Interesse Deine Fähigkeiten einzubringen – wir freuen uns
-                        über Anregungen, Fragen und Kritik. <a href="#!engineering">Als Freiwilliger melden.</a></span>
-                <br><br><br>
-                
-                <h5><strong>JAHRESABSCHLÜSSE</strong></h5>
-                <span><a href="./files/download/JA_2017_DEMOCRACY.PDF" target="_blank">Jahresabschluss 2017</a></span><br>
-                <span><a href="./files/download/JA_2018_DEMOCRACY.PDF" target="_blank">Jahresabschluss 2018</a></span><br>
-                <span><a href="./files/download/JA_2019_DEMOCRACY.pdf" target="_blank">Jahresabschluss 2019</a></span>
+
+                <h5><strong>SPENDEN ÜBER DONORBOX</strong></h5>
+                <span>1.5% Deines Spendenbetrags verbleiben bei Donorbox und 2.9% Deines Spendenbetrags + 0,30 EUR beim
+                    Zahlungsdienstleister Stripe.<br>
+                    <br><br><br>
+
+                    <h5><strong>SPENDEN ÜBER PAYPAL</strong></h5>
+                    <span> 1,5% Deines Spendenbetrags + 0,35 EUR pro Transaktion verbleiben bei PayPal.
+                        <br><br><br>
+
+                        <h5><strong>ANDERE FORMEN DER UNTERSTÜTZUNG</strong></h5>
+                        <span> Spenden und Daueraufträge sind nur eine Möglichkeit, um uns zu unterstützen.
+                            Wir suchen ständig motivierte Leute für die aktive Mitarbeit in unserem
+                            Projekt! Du hast Interesse Deine Fähigkeiten einzubringen – wir freuen uns
+                            über Anregungen, Fragen und Kritik. <a href="#!engineering">Als Freiwilliger
+                                melden.</a></span>
+                        <br><br><br>
+
+                        <h5><strong>JAHRESABSCHLÜSSE</strong></h5>
+                        <span><a href="./files/download/JA_2017_DEMOCRACY.PDF" target="_blank">Jahresabschluss
+                                2017</a></span><br>
+                        <span><a href="./files/download/JA_2018_DEMOCRACY.PDF" target="_blank">Jahresabschluss
+                                2018</a></span><br>
+                        <span><a href="./files/download/JA_2019_DEMOCRACY.pdf" target="_blank">Jahresabschluss
+                                2019</a></span>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
                 ${donate_details}
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 50px;">
-            <div class="col-12">
-                <h2>Mitarbeiter</h2>
-                <h4>angestellt für DEMOCRACY arbeiten</h4>
-            </div>
-            ${team}
-            <div class="col-md-3" style="margin-top: 50px;">
-                <iframe src="https://discordapp.com/widget?id=372403545086885888&theme=light" width="100%" height="100%" allowtransparency="true" frameborder="0" style="padding-bottom: 15px; min-height: 30p0x;"></iframe>
-            </div>
+        <div class="vspace-small" class="col-lg-5">
         </div>
         <div class="row">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 50px;">
-            <div class="col-12">
-                <h2>Praktikanten & Volunteers</h2>
-                <h4>freiwillig für DEMOCRACY arbeiten</h4>
-            </div>
-            ${volunteers}
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;"/>
-            </div>
-        </div>
-        <div class="row" style="padding-bottom: 100px;">
-            <div class="col-12" style="padding-top: 50px; padding-bottom: 50px;">
-                <h2>Die Philosophie des<br>
-                    DEMOCRACY Deutschland e.V.</h2>
-            </div>
-            ${icons}
-            <div class="col-md-2"></div>
-            <div class="col-md-1">
-                <img src="./files/images/quotes@3x.png" style="width: 60px; padding-left: 12px; padding-top: 25px;"/>
-            </div>
-            <div class="col-md-7" style="text-align: left;padding-top: 25px;">
-                <span>  Mit DEMOCRACY wollen wir eine öffentliche Infrastruktur zur Verfügung 
-                        stellen, die das Funktionieren einer lebendigen Demokratie begünstigt. 
-                        Der Weisheit letzter Schluss liegt für uns in der solidarischen Kooperation
-                        (Gemeinschaftlichkeit) zum Vorteil aller (Gemeinnützigkeit). Deshalb ist es für
-                        uns selbstverständlich, nicht nur alle Abstimmungsergebnisse anonymisiert,
-                        sondern auch unseren Source-Code offen zu legen (Transparenz). Und weil
-                        Profitinteressen die Idee nur korrumpieren würden, haben wir uns auch
-                        äußerlich eine Rechtsform gegeben, die eine Verfremdung oder Bereicherungsabsicht
-                        per Satzung für immer ausschließt. DEMOCRACY ist und bleibt
-                        spendenfinanziert.</span>
-                <br><br>
-                <span>  Alle entstehenden Nutzerdaten sind gerade keine handelbaren Wirtschaftsgüter,
-                        sondern im Sinne des Grundgesetzes zu schützen. Datenverkauf und
-                        Werbefinanzierung finden bei unserem Vorhaben keinen Platz.</span>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 0px;"/>
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 0px;" />
             </div>
         </div>
         <div class="row" style="padding-bottom: 100px;">
@@ -183,17 +137,18 @@
                 <h2>DEMOCRACY X HIK</h2>
             </div>
             <div class="col-lg-5">
-                <img src="./files/images/HES_INNOKO_LOGO_RGB.jpg" style="width: 100%;"/>
+                <img src="./files/images/HES_INNOKO_LOGO_RGB.jpg" style="width: 100%;" />
             </div>
             <div class="col-lg-7" style="text-align: left;">
-                <span>  Das Hertie-Innovationskolleg (HIK) ist ein Projekt der Gemeinnützigen Hertie-Stiftung,
-                        dass das Zusammenleben in Europa durch Vorhaben mit großer gesellschaftlicher Wirkung
-                        und Vorbildcharakter mitgestaltet. Es fördert Ideen von freien Denkern sowie
-                        zukunftsweisende, praxisorientierte Projekte unterschiedlicher Formate innerhalb der
-                        drei Themenbereiche Zukunft der Demokratie, Zukunft der Bildung sowie Zukunft des
-                        gesellschaftlichen Zusammenhalts.
-                        Marius Krüger war Kollegiat des HIK-Jahrgangs 2018&nbsp;I.<br>
-                        <a href="./files/download/MariusKrueger_DEMOCRACY_HIKAbschlussbericht.pdf" target="_blank">Abschlussbericht von Marius Krüger</a>
+                <span> Das Hertie-Innovationskolleg (HIK) ist ein Projekt der Gemeinnützigen Hertie-Stiftung,
+                    dass das Zusammenleben in Europa durch Vorhaben mit großer gesellschaftlicher Wirkung
+                    und Vorbildcharakter mitgestaltet. Es fördert Ideen von freien Denkern sowie
+                    zukunftsweisende, praxisorientierte Projekte unterschiedlicher Formate innerhalb der
+                    drei Themenbereiche Zukunft der Demokratie, Zukunft der Bildung sowie Zukunft des
+                    gesellschaftlichen Zusammenhalts.
+                    Marius Krüger war Kollegiat des HIK-Jahrgangs 2018&nbsp;I.<br>
+                    <a href="./files/download/MariusKrueger_DEMOCRACY_HIKAbschlussbericht.pdf"
+                        target="_blank">Abschlussbericht von Marius Krüger</a>
                 </span>
             </div>
         </div>

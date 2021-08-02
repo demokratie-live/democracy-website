@@ -349,3 +349,8 @@ body {
     white-space: nowrap;
   }
 }
+
+.vspace-small {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
