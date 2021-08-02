@@ -163,12 +163,9 @@ class default_about implements SYSTEM\PAGE\Page
         //icons
         $vars['icons'] = '';
         $icons = array(
-            array('icon' => 'gear', 'text' => 'GEMEINSCHAFTLICH', 'subtext' => 'Solidarische Kooperation'),
-            array('icon' => 'heart2', 'text' => 'ALLGEMEINNÜTZIG', 'subtext' => 'Zum Vorteil Aller'),
-            array('icon' => 'ledger', 'text' => 'FAIR', 'subtext' => 'mit gleichen Rechten für Alle'),
-            array('icon' => 'magnify', 'text' => 'ÖFFENTLICH', 'subtext' => 'Open Source, Open Book, Open Data'),
-            array('icon' => 'dialog', 'text' => 'DIALOGFÖRDERND', 'subtext' => 'bemüht Trennung zu überwinden'),
-            array('icon' => 'shield', 'text' => 'NICHT PROFITORIENTIERT', 'subtext' => 'kein Datenverkauf, keine Werbung')
+            array('icon' => 'magnify', 'text' => 'TRANSPARENT', 'subtext' => 'Open Source & Open Book'),
+            array('icon' => 'shield', 'text' => 'NICHT PROFITORIENTIERT', 'subtext' => 'kein Datenverkauf, keine Werbung'),
+            array('icon' => 'heart2', 'text' => 'DATENSPARSAM', 'subtext' => 'geringstmögliche Datensammlung')
         );
         $i = 1;
         foreach ($icons as $icon) {
