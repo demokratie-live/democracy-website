@@ -263,6 +263,7 @@
 
 #secondbadge {
   overflow: visible;
+  min-width: max-content;
 }
 
 #video-title {
