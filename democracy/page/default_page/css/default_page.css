@@ -343,3 +343,9 @@ body {
     padding-right: 3px;
   }
 }
+
+@media screen and (min-width: 992px) {
+  #video-title {
+    white-space: nowrap;
+  }
+}

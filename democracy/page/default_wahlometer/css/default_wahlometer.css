@@ -293,7 +293,7 @@
 
 @media screen and (max-device-width: 770px) {
   .si-content {
-    width: 60vw !important;
+    width: 90vw !important;
   }
   #wom-title {
     font-size: 40px !important;
@@ -380,12 +380,12 @@
   text-align: right;
 }
 
-#ri-quote-bold-wom {
+.ri-quote-bold {
   font-family: "helvetica_bold";
 }
 
-#ri-link-wom {
-  color: #4a90e2;
+.ri-link {
+  color: #4a90e2 !important;
 }
 
 #ri-content-wom {
@@ -519,3 +519,7 @@
   margin-bottom: unset;
 }
 */
+
+#quote-name-wom {
+  margin-top: -1vh;
+}

@@ -275,12 +275,6 @@
   display: inline !important;
 }
 
-@media screen and (min-device-width: 800px) {
-  #video-title {
-    white-space: nowrap;
-  }
-}
-
 .rectangleinfo {
   text-align: left;
   box-sizing: border-box;
@@ -309,7 +303,7 @@
   color: #fff;
   background: rgb(68, 148, 211);
   font-family: "helvetica_bold";
-  font-size: 32px;
+  font-size: 26px;
   letter-spacing: -0.06px;
 }
 
@@ -319,7 +313,7 @@
   padding: 20px 40px 22px 22px;
   background: rgb(239, 239, 244);
   transform: rotate(-1.5deg);
-  font-size: 27px;
+  font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.05px;
   font-family: "helvetica_bold";
@@ -330,14 +324,14 @@
   margin-top: 4vh;
   width: 400px;
   box-sizing: border-box;
-  font-size: 24px;
+  font-size: 20px;
   line-height: normal;
   padding-left: 28px;
 }
 
 @media screen and (max-device-width: 770px) {
   .ri-content {
-    width: 60vw;
+    width: 90vw;
   }
 }
 
