@@ -196,7 +196,7 @@
         </div>
         <div id="wom-campaign-container">
             <h1>Finde die Partei, die Dich wirklich vertritt</h1>
-            <div id="wom-campaign-title" class="col-lg-7">
+            <div id="wom-campaign-title">
                 <h1 id="wom-title">DEMOCRACY</h1>
                 <br id="wom-title-year-break">
                 <p id="wom-title-year">1</p>
