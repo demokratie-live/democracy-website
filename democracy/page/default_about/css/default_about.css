@@ -105,19 +105,11 @@
 	min-height: min-content;
 	margin-top: 15vh;
 	min-height: 15vh;
-	max-width: 80vh;
 }
 
 #statement-content {
 	margin-bottom: -2vh;
   padding-bottom: 5vh;
 	margin-top: 3vh;
-	font-size: 25px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: 1.46;
-	letter-spacing: 0.17px;
 	text-align: center;
-	color: #4a4a4a;
 }
