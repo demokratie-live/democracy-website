@@ -172,7 +172,7 @@
                 <p>Ob jung oder alt, ob bereits Experte oder bislang uninformiert. DEMOCRACY ist ein politisches
                     Werkzeug
                     für alle, die sich mehr Transparenz und Teilhabe wünschen. </p>
-                <a class="ri-link" href="#top"> Mehr erfahren</a>
+                <a class="ri-link" href="#!citizen"> Mehr erfahren</a>
             </div>
         </div>
         <div class="ri-container" id="ri-container-2">
@@ -188,21 +188,21 @@
                 <p>Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. DEMOCRACY bietet Dir die Möglichkeit,
                     Deinen
                     wichtigsten Stakeholdern Gehör zu schenken: den Bürgern.</p>
-                <a class="ri-link" href="#top"> Mehr erfahren</a>
+                <a class="ri-link" href="#!politicians"> Mehr erfahren</a>
             </div>
         </div>
         <h1 class="press-heading"> bekannt aus</h1>
         <div id="press-logos">
-            <a href="#top" id="hna-logo">
+            <a href="https://www.hna.de/lokales/goettingen/goettingen-ort28741/eine-app-fuer-demokratische-grundrechte-aus-goettingen-13759011.html" id="hna-logo">
                 <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
             </a>
-            <a href="#top" id="golem-logo">
+            <a href="https://www.golem.de/news/democracy-der-verbesserte-wahl-o-mat-in-einer-app-1906-141599.html" id="golem-logo">
                 <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
             </a>
-            <a href="#top" id="focus-logo">
+            <a href="./files/download/FOCUS_45_2018.pdf" id="focus-logo">
                 <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
             </a>
-            <a href="#top" id="frarundschau-logo">
+            <a href="https://www.fr.de/kultur/demokratie-macher-10908580.html" id="frarundschau-logo">
                 <img src="./files/images/frarundschau_logo.png" alt="Logo der Frankfurter Rundschau">
             </a>
         </div>
