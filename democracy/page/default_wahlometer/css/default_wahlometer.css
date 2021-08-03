@@ -309,6 +309,10 @@
     width: min-content !important;
     margin-top: 0%;
   }
+  #rectangleinfo-wom {
+    padding-top: 0%;
+    flex: 0 0 100% !important;
+  }
 }
 
 .si-link {
@@ -366,8 +370,8 @@
   bottom: 0px;
   transform-origin: bottom right;
   margin-bottom: -1px;
-  -webkit-transition: all .6s ease;
-  transform: scale(0.25)
+  -webkit-transition: all 0.6s ease;
+  transform: scale(0.25);
 }
 
 #campaigncorner-anchor {
@@ -425,6 +429,7 @@
   #wom-title {
     font-size: 12vw;
   }
+
 }
 @media screen and (min-device-width: 300px) {
   #wom-title-year-break {
@@ -460,7 +465,7 @@
 }
 
 #wom-campaign-container {
-  margin-top: 10vh;
+  margin-top: 20vh;
 }
 
 #wom-title-subtitle {
