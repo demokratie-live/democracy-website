@@ -117,8 +117,8 @@
                 <div class="col-lg-2 footer-in-touch">
                     <h3>IN TOUCH</h3>
                     <ul>
+                        <li><a href="#!engineering">Programmieren</a></li>
                         <li><a href="#!engineering#help">Mithelfen</a></li>
-                        <li><a href="#!press">Presse</a></li>
                         <li><a href="#!blog">Blog</a></li>
                         <li><a href="#!faq">FAQ</a></li>
                     </ul>
@@ -145,7 +145,7 @@
             </div>
             <div class="copyright row">
                 <div class="col-12">
-                    <i class="fab fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2020 <span class="edzofont">DEMOCRACY</span> Deutschland e.V.
+                    <i class="fab fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2021 <span class="edzofont">DEMOCRACY</span> Deutschland e.V.
                 </div>
             </div>
         </div>

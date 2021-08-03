@@ -120,7 +120,7 @@
                 <p>DEMOCRACY ist kostenlos –
                     die Entwicklung der App open source und spendenfinanziert.
                     Als gemeinnütziger Verein wollen wir Politik transparenter machen.</p>
-                <a class="si-link" href="#top"> Mehr erfahren</a>
+                <a class="si-link" href="#!about"> Mehr erfahren</a>
                 <br>
             </div>
         </div>
@@ -135,7 +135,7 @@
                 <h1 id="video-title">(1:00)?</h1>
             </div>
             <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
-                <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY App herunterladen</a>
+                <a href="#!wahlometer#wom-campaign-container" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY App herunterladen</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DFXcnRdXA7k" frameborder="0"
