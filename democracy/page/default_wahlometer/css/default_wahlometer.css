@@ -8,7 +8,7 @@
   }
 
   #campaigncorner-img {
-    scale: 40% !important;
+    transform: scale(0.45) !important;
   }
 }
 
@@ -22,7 +22,7 @@
   }
 
   #campaigncorner-img {
-    scale: 10% !important;
+    transform: scale(0.12) !important;
   }
 }
 
@@ -366,7 +366,8 @@
   bottom: 0px;
   transform-origin: bottom right;
   margin-bottom: -1px;
-  scale: 20%;
+  -webkit-transition: all .6s ease;
+  transform: scale(0.25)
 }
 
 #campaigncorner-anchor {
