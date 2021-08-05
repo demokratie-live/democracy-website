@@ -159,7 +159,7 @@
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
-                        <p class="ri-subtitle-right">Zuschauerdemokratie</p>
+                        <p class="ri-subtitle-right">Zuschauer-Demokratie</p>
                         <div class="haken">&#11167;</div>
                     </div>
                 </div>
