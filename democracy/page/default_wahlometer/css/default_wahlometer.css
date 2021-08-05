@@ -237,6 +237,13 @@
   #wom-campaign-title {
     margin-top: -4vh;
   }
+  .ri-title-heading-acc {
+    font-size: 20px;
+  }
+  .ri-subtitle-right,
+  .ri-subtitle-left {
+    font-size: 16px;
+  }
 }
 
 .symbolinfo {
@@ -602,6 +609,17 @@
   font-size: 20px;
 }
 
+.ri-title-heading-acc {
+  z-index: 500;
+  position: relative;
+  display: inline-block;
+  padding: 14px 18px 16px 16px;
+  color: #fff;
+  font-family: "helvetica_bold";
+  font-size: 26px;
+  letter-spacing: -0.06px;
+}
+
 @media screen and (max-device-width: 575px) {
   .ri-subtitle-heading-acc {
     transform: unset !important;
@@ -609,7 +627,7 @@
   }
   .acc-content-left,
   .acc-content-right {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -624,3 +642,16 @@
     bottom: 3em;
   }
 }
+
+@media screen and (max-device-width: 992px) {
+  .ri-title-heading-acc {
+    min-height: 3.5em;
+  }
+}
+
+@media screen and (max-device-width: 420px) {
+  .ri-title-heading-acc {
+    margin-left: -16px;
+  }
+}
+

@@ -1,7 +1,8 @@
 <div class="background-white">
     <div id="about-statement" class="container page">
         <h1 id="statement-heading">DEMOCRACY Deutschland e.V.</h1>
-        <h4 id="statement-content">Wir sind ein gemeinnütziger Verein, der unsere Politik transparenter und demokratischer machen will.
+        <h4 id="statement-content">Wir sind ein gemeinnütziger Verein, der unsere Politik transparenter und
+            demokratischer machen will.
             Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nicht-kommerziell –
             von Menschen für Menschen</h4>
     </div>
@@ -24,15 +25,229 @@
     </div>
 </div>
 <div class="background-white">
-    <div id="video-box" class="container page">
-        <div class="row video-content">
-            <div id="video-title" class="col-lg-7">
-                <h1 id="video-title">Unser demokratisches Verständnis</h1>
+    <div id="about" class="container page" style="min-height: unset !important;">
+        <h1>Unser demokratisches Verständnis</h1>
+        <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
+            <a href="#!contact" style="color: rgb(74,74,74); font-size: 20px;">Ich habe eine Nachfrage</a>
+        </div>
+        <!-- ROW 1 -->
+        <div class="containerrow-acc container-1 px-lg-5">
+
+            <!-- rectanglebox START-->
+            <div class="rectanglebox-acc content-open">
+                <div id="rectanglebox-acc-boundary" class="row pt-5">
+                    <div class="col-6 ">
+                        <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0">
+                            <h3 class="ri-title-heading-acc" style="background-color: #4494d3;">Das unterstützen wir
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0">
+                            <h3 class="ri-title-heading-acc" style="background-color: #e67c89;">Das unterstützen wir
+                                <u>nicht</u>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
-                <a href="#!contact" style="color: rgb(74,74,74); font-size: 20px;">Ich habe eine Nachfrage</a>
+            <!-- rectanglebox ENDE-->
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-left">Demokratie als aufklärerische Idee</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">Nicht-demokratische Regierungsformen</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Demokratie, in seiner aufklärerischen Idee verstanden als “government
+                        of the people, by the people, for the people.” (Lincoln) mit dem Prinzip “Ein Mensch – eine
+                        Stimme”
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Diktatur (Regierung der Befehlenden),
+                        Oligarchie (Regierung der Vermögenden), Epistokratie (Regierung der Expert:innen)
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- ROW 2 -->
+
+        <div class="containerrow-acc container-2 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-left">Souveränität des Einzelnen</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">Fremdbestimmung des Einzelnen </p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Die Selbstbestimmung des Individuums und seine Fähigkeit, eigenständig
+                        vernünftige Entscheidungen zu treffen sowie den verfassungsmäßigen Schutz dieser Würde
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Haltungen, die die universelle Befähigung des Menschen, eigenständig
+                        vernünftige Entscheidungen zu treffen, aberkennen und/oder Bewegungen, die Freiheits- und
+                        Mitbestimmungsrechte des Einzelnen abbauen (wollen)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 3 -->
+
+        <div class="containerrow-acc container-3 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-left">Meinungsfreiheit & breite Debatten</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">Verengung des Meinungskorridors </p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Meinungsfreiheit, verstanden in der Idee Rosa Luxemburgs, als die
+                        Freiheit der Andersdenkenden. (bzw. Voltaires “Ich mag verdammen, was du sagst, aber ich werde
+                        mein Leben dafür einsetzen, dass du es sagen darfst.”)
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">(staatliche) Beschneidung oder Kontrolle von Informationen und
+                        homogene Berichterstattung
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ROW 4 -->
+        <div class="containerrow-acc container-4 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-left">Direkte Beteiligung</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">Zuschauerdemokratie</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">umfassende Mitbestimmungsmöglichkeiten im politischen Prozess während
+                        der Legislaturperiode und eine politisch aktive Bevölkerung
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">einen Zustand, in dem Wirtschaftslobbyisten täglich politische
+                        Entscheidungen beeinflussen, während Bürger:innen zwischen Wahlen passiv zuschauen müssen
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 5 -->
+
+        <div class="containerrow-acc container-5 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-left">Transparenz & Informationssouveränität</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">Hinterzimmer-Politik</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">größtmögliche Transparenz im politischen Prozess und einen freien und
+                        benutzerfreundlichen Zugang zu allen Informationen, sodass Bürger:innen ihre Repräsentanten und
+                        deren Arbeit verfolgen können
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">intransparente Entscheidungsfindungen, bei denen Bürger:innen wenig
+                        Einblick haben, was passiert und auch nicht überprüfen können, warum und wie Entscheidungen
+                        zustande kommen und wer auf sie Einfluss genommen hat
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 6 -->
+
+        <div class="containerrow-acc container-6 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-left">rückkoppelnde Politiker,</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">entkoppelte Politiker,</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">die Erwartungen und Wünsche aus der Bevölkerung einbeziehen (wollen),
+                        sich in ständigem Austausch mit der Bevölkerung als Vertreter dieser verstehen und falls nötig
+                        vom Kurs ihrer Partei abweichen und nach ihrem Gewissen entscheiden.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">die eigene Interessen verfolgen, während der Legislaturperiode kein
+                        Interesse an der Bevölkerung haben und sich im undurchsichtigen parlamentarischen Betrieb ihrer
+                        Rechenschaftspflicht entziehen
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vspace-acc">
     </div>
 </div>
 <div class="background-white">
@@ -98,3 +313,56 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.container-text-acc').css('display', 'none');
+        $('.container-1 .container-text-acc').css('display', 'inline-flex');
+        $('.container-1 .haken').css('display', 'none');
+
+
+        function html(clas) {
+            var html = $('.rectanglebox-acc.content-open').html();
+            $('.rectanglebox-acc.content-open').html('').removeClass('content-open');
+            $('.haken').css('display', 'inline-table');
+            $('' + clas + ' .rectanglebox-acc').html(html);
+            $('' + clas + ' .rectanglebox-acc').addClass('content-open');
+            $('' + clas + ' .haken').css('display', 'none');
+        }
+
+        $('.container-1 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-1 .container-text-acc').css('display', 'inline-flex');
+            html('.container-1');
+        })
+
+        $('.container-2 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-2 .container-text-acc').css('display', 'inline-flex');
+            html('.container-2');
+        })
+
+        $('.container-3 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-3 .container-text-acc').css('display', 'inline-flex');
+            html('.container-3');
+        })
+
+        $('.container-4 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-4 .container-text-acc').css('display', 'inline-flex');
+            html('.container-4');
+        })
+
+        $('.container-5 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-5 .container-text-acc').css('display', 'inline-flex');
+            html('.container-5');
+        })
+
+        $('.container-6 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-6 .container-text-acc').css('display', 'inline-flex');
+            html('.container-6');
+        })
+    });
+</script>
