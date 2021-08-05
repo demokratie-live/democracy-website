@@ -346,6 +346,10 @@
 }
 
 @media screen and (min-device-width: 992px) and (max-device-width: 1200px) {
+  .containerrow-acc .haken {
+    bottom: 1.5em;
+  }
+
   #video-applink {
     white-space: pre-line;
   }
@@ -429,7 +433,6 @@
   #wom-title {
     font-size: 12vw;
   }
-
 }
 @media screen and (min-device-width: 300px) {
   #wom-title-year-break {
@@ -529,4 +532,95 @@
 
 #quote-name-wom {
   margin-top: -1vh;
+}
+
+.container-acc {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.containerrow-acc .haken {
+  display: inline-table;
+  font-size: 20px;
+  position: absolute;
+  right: 12px;
+  bottom: 1em;
+}
+
+.container-text-acc {
+  margin-bottom: 5vh !important;
+}
+
+.container-text-acc col {
+  margin-left: -31px;
+  margin-top: 20px;
+}
+.rectanglebox-acc {
+  position: relative;
+  left: 0px;
+  bottom: -15;
+  right: 0px;
+  padding-top: 5vh;
+}
+.container-text-acc {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.ri-subtitle-heading-acc {
+  display: inline-block;
+  color: #000;
+  padding: 20px 40px 22px 22px;
+  background: rgb(239, 239, 244);
+  transform: rotate(-1.5deg);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.05px;
+  font-family: "helvetica_bold";
+  line-height: normal;
+  margin-top: -2vh;
+  margin-left: 1vw !important;
+}
+
+.ri-subtitle-right {
+  margin-left: 1vw;
+  margin-bottom: -5px;
+}
+
+#rectanglebox-acc-boundary {
+  padding-top: unset !important;
+}
+
+.vspace-acc {
+  padding-bottom: 10vh;
+}
+
+.acc-content-left,
+.acc-content-right {
+  padding-left: 4vw;
+  width: 90%;
+  font-size: 20px;
+}
+
+@media screen and (max-device-width: 575px) {
+  .ri-subtitle-heading-acc {
+    transform: unset !important;
+    margin-left: unset;
+  }
+  .acc-content-left,
+  .acc-content-right {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-device-width: 475px) and (max-device-width: 991px) {
+  .containerrow-acc .haken {
+    bottom: 1.5em;
+  }
+}
+
+@media screen and (max-device-width: 475px) {
+  .containerrow-acc .haken {
+    bottom: 3em;
+  }
 }
