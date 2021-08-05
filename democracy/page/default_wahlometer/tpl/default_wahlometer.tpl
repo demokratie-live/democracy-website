@@ -135,7 +135,8 @@
                 <h1 id="video-title">(1:00)?</h1>
             </div>
             <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
-                <a href="#!wahlometer#wom-campaign-container" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY App herunterladen</a>
+                <a href="#!wahlometer#wom-campaign-container" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY
+                    App herunterladen</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uWwQquy_MD0" frameborder="0"
@@ -146,10 +147,11 @@
     </div>
 </div>
 <div class="background-white">
-    <div id="about" class="container page">
+    <div id="about" class="container page" style="min-height: unset !important;">
         <h1 class="press-heading" id="press-heading-wom"> bekannt aus</h1>
         <div id="press-logos">
-            <a href="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html" id="hrinfo-logo">
+            <a href="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html"
+                id="hrinfo-logo">
                 <img src="./files/images/hrinfo_logo.png" alt="Logo des hessischen Radiosenders hr-iNFO">
             </a>
             <a href="https://www.youtube.com/watch?v=5sbPOUL-5Fs" id="mdr-logo">
@@ -158,17 +160,206 @@
             <a href="https://www.youtube.com/watch?v=RkSq_rBpVlA" id="dw-logo">
                 <img src="./files/images/dw_logo.png" alt="Logo der Nachrichtenorganisation Deutsche Welle">
             </a>
-            <a href="https://www.gq-magazin.de/auto-technik/article/die-bundesregierung-sollte-wort-halten-und-unserer-demokratie-ein-update-fuer-mehr-beteiligung-verpassen" id="wired-logo">
+            <a href="https://www.gq-magazin.de/auto-technik/article/die-bundesregierung-sollte-wort-halten-und-unserer-demokratie-ein-update-fuer-mehr-beteiligung-verpassen"
+                id="wired-logo">
                 <img src="./files/images/wired_logo.png" alt="Logo des Magazins WIRED">
             </a>
         </div>
+    </div>
+</div>
+<div class="background-white">
+    <div id="about" class="container page" style="min-height: unset !important;">
         <h1>Was ist der Unterschied zum Wahl-O-Mat?</h1>
+        <!-- ROW 1 -->
+        <div class="containerrow-acc container-1 px-lg-5">
+
+            <!-- rectanglebox START-->
+            <div class="rectanglebox-acc content-open">
+                <div id="rectanglebox-acc-boundary" class="row pt-5">
+                    <div class="col-6 ">
+                        <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0">
+                            <h3 class="ri-title-heading" style="background-color: #f5a623;">Wahl-O-Mat</h3>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0">
+                            <h3 class="ri-title-heading" style="background-color: #4494d3;">Wahl-O-Meter</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- rectanglebox ENDE-->
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        basiert auf Versprechen
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">basiert auf Handlungen</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Der Wahl-O-Mat ermöglicht, die Stellungnahmen zu bestimmten Fragen mit
+                        den autorisierten Antworten der Parteien zu vergleichen. Er kreuzt insofern die Wahlversprechen
+                        der Parteien mit den eigenen Erwartungen für die Zukunft.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Der Wahl-O-Meter (meter = messen) vergleicht retrospektiv das
+                        tatsächliche Abstimmungsverhalten der Parteien und Politiker mit den eigenen Stellungnahmen bei
+                        konkreten Gesetzen/Anträgen des Bundestag.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 2 -->
+
+        <div class="containerrow-acc container-2 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        Parteien haben Finger im Spiel
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">Parteien wird auf Finger geschaut</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Beim Wahl-O-Mat geben die Parteien ihre theoretischen Positionen zu
+                        vorgefertigten Statements über die Zukunft ab.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Das Wahl-O-Meter braucht keine Eigenangaben der Parteien, er zieht
+                        Parteien und Abgeordnete für ihre Arbeit in der letzten Legislaturperiode zur Rechenschaft.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 3 -->
+
+        <div class="containerrow-acc container-3 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        macht Wahlkampf einfacher
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">macht Politik transparent</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Der Wahl-O-Mat hilft dabei, die Wahlversprechen der Parteien auf
+                        einige verständliche Thesen zu komprimieren.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Das Wahl-O-Meter stellt die Abstimmungen der Parteien und Politiker
+                        im Bundestag in den Fokus und bietet so einen Einblick in den politischen Prozess.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 4 -->
+        <div class="containerrow-acc container-4 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        ausgesuchte Themen
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">alle Themen</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Der Wahl-O-Mat behandelt nur die Themen, welche von einer Redaktion
+                        für die Statements ausgesucht werden.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Das Wahl-O-Meter verarbeitet alle Gesetze und Anträge der vergangenen
+                        Legislaturperiode des Bundestags und ist damit nur dadurch begrenzt, wie viel Zeit du den
+                        Abstimmungen widmen möchtest.
+                        <br>
+                        Falls du trotzdem eine redaktionell ausgewählte Orientierungshilfe möchtest, gibt es bis zur
+                        Bundestagswahl 2021 den Reiter ‘Empfohlen’.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 5 -->
+
+        <div class="containerrow-acc container-5 px-lg-5">
+            <div class="rectanglebox-acc"></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                        von der Regierung
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
+                        <p class="ri-subtitle-right">independent</p>
+                        <div class="haken">&#11167;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container-text-acc">
+                <div class="col-6">
+                    <div class="acc-content-left">Der Wahl-O-Mat wird von der Bundeszentrale für politische Bildung
+                        betrieben, welche von der Bundesregierung finanziert wird.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="acc-content-right">Die DEMOCRACY App und damit auch das Wahl-O-Meter sind unabhängig,
+                        gemeinnützig und spendenfinanziert
+                        - von Bürgern für Bürger.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vspace-acc">
     </div>
 </div>
 <div class="background-white">
     <div id="wom-about" class="container page">
-    <div>
-        <h1>Warum gibt es uns?</h1>
+        <div>
+            <h1>Warum gibt es uns?</h1>
         </div>
         <div id="video-applink" class="col-lg-5">
             <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">Zur Vision von DEMOCRACY</a>
@@ -231,3 +422,50 @@
     <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
             alt="Democracy 1.4 - finde die Taten hinter den Worten" id="campaigncorner-img"></a>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.container-text-acc').css('display', 'none');
+        $('.container-1 .container-text-acc').css('display', 'inline-flex');
+        $('.container-1 .haken').css('display', 'none');
+
+
+        function html(clas) {
+            var html = $('.rectanglebox-acc.content-open').html();
+            $('.rectanglebox-acc.content-open').html('').removeClass('content-open');
+            $('.haken').css('display', 'inline-table');
+            $('' + clas + ' .rectanglebox-acc').html(html);
+            $('' + clas + ' .rectanglebox-acc').addClass('content-open');
+            $('' + clas + ' .haken').css('display', 'none');
+        }
+
+        $('.container-1 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-1 .container-text-acc').css('display', 'inline-flex');
+            html('.container-1');
+        })
+
+        $('.container-2 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-2 .container-text-acc').css('display', 'inline-flex');
+            html('.container-2');
+        })
+
+        $('.container-3 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-3 .container-text-acc').css('display', 'inline-flex');
+            html('.container-3');
+        })
+
+        $('.container-4 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-4 .container-text-acc').css('display', 'inline-flex');
+            html('.container-4');
+        })
+
+        $('.container-5 .ri-subtitle-heading-acc').click(function() {
+            $('.container-text-acc').css('display', 'none');
+            $('.container-5 .container-text-acc').css('display', 'inline-flex');
+            html('.container-5');
+        })
+    });
+</script>
