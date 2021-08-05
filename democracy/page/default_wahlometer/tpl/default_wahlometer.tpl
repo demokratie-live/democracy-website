@@ -178,12 +178,12 @@
                 <div id="rectanglebox-acc-boundary" class="row pt-5">
                     <div class="col-6 ">
                         <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0">
-                            <h3 class="ri-title-heading" style="background-color: #f5a623;">Wahl-O-Mat</h3>
+                            <h3 class="ri-title-heading-acc" style="background-color: #f5a623;">Wahl-O-Mat</h3>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0">
-                            <h3 class="ri-title-heading" style="background-color: #4494d3;">Wahl-O-Meter</h3>
+                            <h3 class="ri-title-heading-acc" style="background-color: #4494d3;">Wahl-O-Meter</h3>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
-                        basiert auf Versprechen
+                        <p class="ri-subtitle-left">basiert auf Versprechen</p>
                         <div class="haken">&#11167;</div>
                     </div>
                 </div>
@@ -206,13 +206,13 @@
             </div>
             <div class="row container-text-acc">
                 <div class="col-6">
-                    <div class="acc-content-left">Der Wahl-O-Mat ermöglicht, die Stellungnahmen zu bestimmten Fragen mit
-                        den autorisierten Antworten der Parteien zu vergleichen. Er kreuzt insofern die Wahlversprechen
-                        der Parteien mit den eigenen Erwartungen für die Zukunft.
+                    <div class="acc-content-left">Der Wahl-O-Mat ermöglicht den Vergleich eigener Stellungnahmen zu
+                        bestimmten Statements mit den autorisierten Antworten der Parteien. Er kreuzt insofern die
+                        Wahlversprechen der Parteien mit den eigenen Erwartungen für die Zukunft.
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="acc-content-right">Der Wahl-O-Meter (meter = messen) vergleicht retrospektiv das
+                    <div class="acc-content-right">Der Wahl-O-Meter (meter = messen) vergleicht rückblickend das
                         tatsächliche Abstimmungsverhalten der Parteien und Politiker mit den eigenen Stellungnahmen bei
                         konkreten Gesetzen/Anträgen des Bundestag.
                     </div>
@@ -227,7 +227,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
-                        Parteien haben Finger im Spiel
+                        <p class="ri-subtitle-left">Parteien haben Finger im Spiel</p>
                         <div class="haken">&#11167;</div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
-                        macht Wahlkampf einfacher
+                        <p class="ri-subtitle-left">macht Wahlkampf einfacher</p>
                         <div class="haken">&#11167;</div>
                     </div>
                 </div>
@@ -290,7 +290,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
-                        ausgesuchte Themen
+                        <p class="ri-subtitle-left">ausgesuchte Themen</p>
                         <div class="haken">&#11167;</div>
                     </div>
                 </div>
@@ -327,7 +327,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
-                        von der Regierung
+                        <p class="ri-subtitle-left">von der Regierung</p>
                         <div class="haken">&#11167;</div>
                     </div>
                 </div>
