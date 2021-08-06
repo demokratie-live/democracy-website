@@ -50,7 +50,7 @@
         </div>
         <div class="row" id="donate">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 75px;" />
             </div>
         </div>
         <div class="row" style="padding-top: 50px;">
@@ -148,7 +148,7 @@
                     zukunftsweisende, praxisorientierte Projekte unterschiedlicher Formate innerhalb der
                     drei Themenbereiche Zukunft der Demokratie, Zukunft der Bildung sowie Zukunft des
                     gesellschaftlichen Zusammenhalts.
-                    Marius Krüger war Kollegiat des HIK-Jahrgangs 2018&nbsp;I.<br>
+                    Marius Krüger war Kollegiat des HIK-Jahrgangs 2018&nbsp;I. 
                     <a href="./files/download/MariusKrueger_DEMOCRACY_HIKAbschlussbericht.pdf"
                         target="_blank">Abschlussbericht von Marius Krüger</a>
                 </span>
