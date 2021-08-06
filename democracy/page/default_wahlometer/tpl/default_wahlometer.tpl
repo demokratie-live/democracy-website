@@ -67,7 +67,7 @@
         <i class="fa fa-chevron-circle-down"></i>
     </a>
 </div>
-<div class="background-white">
+<div class="background-white" style="z-index: 100; position: relative;">
     <div id="si-panel" class="container page">
         <div class="si-container" id="si-container-1">
             <div class="symbolinfo">
@@ -170,7 +170,7 @@
 </div>
 <div class="background-white">
     <div id="about" class="container page" style="min-height: unset !important;">
-        <h1>Was ist der Unterschied zum Wahl-O-Mat?</h1>
+        <h1 style="padding-bottom: 5vh;">Was ist der Unterschied zum Wahl-O-Mat?</h1>
         <!-- ROW 1 -->
         <div class="containerrow-acc container-1 px-lg-5">
 
@@ -193,15 +193,15 @@
 
             <div class="row">
                 <div class="col-6">
-                    <div class="mr-0 bg-light ri-subtitle-heading-acc">
+                    <div class="mr-0 bg-light ri-subtitle-heading-acc" style="width: 95%;">
                         <p class="ri-subtitle-left">basiert auf Versprechen</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">basiert auf Handlungen</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -229,13 +229,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">Parteien haben Finger im Spiel</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">Parteien wird auf Finger geschaut</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -261,13 +261,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">macht Wahlkampf einfacher</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">macht Politik transparent</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -292,13 +292,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">ausgesuchte Themen</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">alle Themen</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -312,7 +312,7 @@
                     <div class="acc-content-right">Das Wahl-O-Meter verarbeitet alle Gesetze und Anträge der vergangenen
                         Legislaturperiode des Bundestags und ist damit nur dadurch begrenzt, wie viel Zeit du den
                         Abstimmungen widmen möchtest.
-                        <br>
+                        <br><br>
                         Falls du trotzdem eine redaktionell ausgewählte Orientierungshilfe möchtest, gibt es bis zur
                         Bundestagswahl 2021 den Reiter ‘Empfohlen’.
 
@@ -329,13 +329,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">von der Regierung</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">independent</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
