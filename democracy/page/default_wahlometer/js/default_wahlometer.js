@@ -45,6 +45,11 @@ function init_wahlometer(){
     
     // Adjust Video Height
     // $('#video').height($('#video').width()*9/16);
+
+    $('iframe.yt-hd-thumbnail').youTubeHDThumbnail({
+        darkenThumbnail: false
+    });
+
 }
 
 function WahlOMeterTimer(){
