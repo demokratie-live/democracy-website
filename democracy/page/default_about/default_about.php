@@ -46,13 +46,12 @@ class default_about implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Katrin Engler',
-                'text' => 'Sprecherin<br>Pressearbeit & PR',
-                'img' => './files/wir/Katy.jpg',
+                'name' => 'Robert Schäfer',
+                'text' => 'Softwareentwickler<br>Bundestagsschnittstelle',
+                'img' => './files/wir/Robert.png',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:k.engler@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:r.schaefer@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -84,12 +83,22 @@ class default_about implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Robert Schäfer',
-                'text' => 'Softwareentwickler<br>Bundestagsschnittstelle',
-                'img' => './files/wir/Robert.png',
+                'name' => 'Timo Sieg',
+                'text' => 'Redaktion<br>Newsletter & Blog',
+                'img' => './files/wir/Timo.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:r.schaefer@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Paul Koch',
+                'text' => 'Sprecher<br>Pressearbeit & PR',
+                'img' => './files/wir/Paul.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:p.koch@democracy-deutschland.de'),
+                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
                 )
             ),
             // array(
@@ -115,15 +124,6 @@ class default_about implements SYSTEM\PAGE\Page
         $vars['volunteers'] = '';
         $volunteers = array(
             array(
-                'name' => 'Léon Trothe',
-                'text' => 'Praktikantin<br>Social Media Marketing',
-                'img' => './files/wir/Leon.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.trothe@democracy-deutschland.de'),
-                )
-            ),
-            array(
                 'name' => 'Leyla Niederberger',
                 'text' => 'Praktikantin<br>Social Media Marketing',
                 'img' => './files/wir/Leyla.png',
@@ -133,12 +133,21 @@ class default_about implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Timo Sieg',
-                'text' => 'Redaktion<br>Newsletter & Blog',
-                'img' => './files/wir/Timo.jpg',
+                'name' => 'Lukas Gabriel',
+                'text' => 'Softwareentwickler<br>Website & Blog',
+                'img' => './files/wir/Lukas.png',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.gabriel@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Léon Trothe',
+                'text' => 'Redaktion<br>Social Media & Blog',
+                'img' => './files/wir/Leon.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.trothe@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -148,6 +157,15 @@ class default_about implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Felix Niehaus',
+                'text' => 'Praktikant<br>Social Media Marketing',
+                'img' => './files/wir/ohneBild.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:f.niehaus@democracy-deutschland.de'),
                 )
             ),
         );
