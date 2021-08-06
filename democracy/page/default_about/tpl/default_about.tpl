@@ -69,7 +69,7 @@
             <div class="row container-text-acc">
                 <div class="col-6">
                     <div class="acc-content-left">Demokratie, in seiner aufklärerischen Idee verstanden als “government
-                        of the people, by the people, for the people.” (Lincoln) mit dem Prinzip “Ein Mensch – eine
+                        of the people, by the people, for the people” (Lincoln) mit dem Prinzip “Ein Mensch – eine
                         Stimme”
                     </div>
                 </div>
