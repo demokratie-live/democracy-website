@@ -156,11 +156,16 @@ function gtag(){dataLayer.push(arguments);}
                                 class="fa fa-envelope mail"></i></a>
                     </li>
                     <li>
-                        <a href="https://instagram.com/democracy_app" target="_blank"><i
-                                class="fa fa-instagram instagram"></i></a>
+                        <a href="mailto:contact@democracy-deutschland.de" target="_blank" style="display: none;"><i
+                                class="fa fa-envelope mail"></i></a>
                         &nbsp;
-                        <a href="https://www.tiktok.com/@democracy_app" target="_blank"><i
-                                class="fa fa-tiktok tiktok"></i></a>
+                        <a href="https://instagram.com/democracy_app" target="_blank"><img
+                                src="./files/images/instagram-icon.svg"
+                                onerror="this.onerror=null; this.src='./files/images/instagram-icon.png'"></a>
+                        &nbsp;
+                        <a href="mailto:contact@democracy-deutschland.de" target="_blank" style="display: none;"><i
+                                class="fa fa-envelope mail"></i></a>
+                        <!--<a href="https://www.tiktok.com/@democracy_app" target="_blank">t</a>-->
                     </li>
                 </ul>
             </div>
