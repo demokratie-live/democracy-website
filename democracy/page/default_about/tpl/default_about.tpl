@@ -1,8 +1,10 @@
 <div class="background-white">
     <div id="about-statement" class="container page">
         <h1 id="statement-heading">DEMOCRACY Deutschland e.V.</h1>
-        <h4 id="statement-content" style="padding-top: 30px;">Wir sind ein gemeinnütziger Verein, der unsere Politik transparenter und
-            demokratischer machen will.</h4><h4 id="statement-content" style="margin-bottom: -20px;">
+        <h4 id="statement-content" style="padding-top: 30px;">Wir sind ein gemeinnütziger Verein, der unsere Politik
+            transparenter und
+            demokratischer machen will.</h4>
+        <h4 id="statement-content" style="margin-bottom: -20px;">
             Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nicht-kommerziell –
             von Menschen für Menschen</h4>
     </div>
@@ -26,10 +28,7 @@
 </div>
 <div class="background-white">
     <div id="about" class="container page" style="min-height: unset !important;">
-        <h1>Unser demokratisches Verständnis</h1>
-        <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
-            <a href="#!contact" style="color: rgb(74,74,74); font-size: 20px;">Ich habe eine Nachfrage</a>
-        </div>
+        <h1 class="col-lg-12" style="padding-bottom: 5vh; padding-top: 2vh;">Unser demokratisches Verständnis</h1>
         <!-- ROW 1 -->
         <div class="containerrow-acc container-1 px-lg-5">
 
@@ -57,13 +56,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">Demokratie als aufklärerische Idee</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">Nicht-demokratische Regierungsformen</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -90,13 +89,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">Souveränität des Einzelnen</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">Fremdbestimmung des Einzelnen </p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -123,13 +122,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">Meinungsfreiheit & breite Debatten</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">Verengung des Meinungskorridors </p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -154,13 +153,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">Direkte Beteiligung</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">Zuschauer-Demokratie</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -187,13 +186,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">Transparenz & Informationssouveränität</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">Hinterzimmer-Politik</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -221,13 +220,13 @@
                 <div class="col-6">
                     <div class="mr-0 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-left">rückkoppelnde Politiker,</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ml-0 pl-sm-2 pl-md-2 pl-lg-2 bg-light ri-subtitle-heading-acc">
                         <p class="ri-subtitle-right">entkoppelte Politiker,</p>
-                        <div class="haken">&#11167;</div>
+                        <div class="haken">&#8964;</div>
                     </div>
                 </div>
             </div>
@@ -247,20 +246,18 @@
             </div>
         </div>
     </div>
-    <div class="vspace-acc">
-    </div>
 </div>
 <div class="background-white">
     <div class="container main-container">
         <div class="row">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 75px;" />
             </div>
         </div>
         <div class="row" style="padding-top: 50px;">
             <div class="col-12">
-                <h2>Mitarbeiter</h2>
-                <h4>angestellt für DEMOCRACY arbeiten</h4>
+                <h1>Mitarbeiter</h1>
+                <h4 style="padding-top: 30px;">angestellt für DEMOCRACY arbeiten</h4>
             </div>
             ${team}
             <div class="col-md-3" style="margin-top: 50px;">
@@ -270,25 +267,25 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 75px;" />
             </div>
         </div>
         <div class="row" style="padding-top: 50px;">
             <div class="col-12">
-                <h2>Praktikanten & Volunteers</h2>
-                <h4>freiwillig für DEMOCRACY arbeiten</h4>
+                <h1>Praktikanten & Volunteers</h1>
+                <h4 style="padding-top: 30px;">freiwillig für DEMOCRACY arbeiten</h4>
             </div>
             ${volunteers}
         </div>
         <div class="row">
             <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
+                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 75px;" />
             </div>
         </div>
         <div class="row" style="padding-bottom: 100px;">
             <div class="col-12" style="padding-top: 50px; padding-bottom: 50px;">
-                <h2 id="philosophy_title">Unsere Philosophie</h2>
-                <h4 id="philosophy_subtitle">Wir machen das Unmögliche möglich und sind dabei…</h4>
+                <h1>Unsere Philosophie</h1>
+                <h4 style="padding-top: 30px;">Wir machen das Unmögliche möglich und sind dabei…</h4>
             </div>
             ${icons}
             <div class="col-md-2"></div>
