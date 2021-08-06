@@ -39,7 +39,8 @@
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <meta name="fragment" content="!">
-
+        <link rel="stylesheet" href="./files/YouTubeHDThumbnail/css/YouTube.HD.Thumbnail.css"> 
+        
         <link rel="manifest" href="/manifest.json">
         <link rel="apple-touch-icon" sizes="57x57" href="./files/icons/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="./files/icons/apple-icon-60x60.png">
