@@ -135,7 +135,7 @@
             <div class="row container-text-acc">
                 <div class="col-6">
                     <div class="acc-content-left">Meinungsfreiheit, verstanden in der Idee Rosa Luxemburgs, als die
-                        Freiheit der Andersdenkenden. (bzw. Voltaires “Ich mag verdammen, was du sagst, aber ich werde
+                        Freiheit der Andersdenkenden (bzw. Voltaires “Ich mag verdammen, was du sagst, aber ich werde
                         mein Leben dafür einsetzen, dass du es sagen darfst.”)
                     </div>
                 </div>
