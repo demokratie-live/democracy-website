@@ -359,11 +359,11 @@
 </div>
 <div class="background-white">
     <div id="wom-about" class="container page">
-        <div>
+        <div class="col-lg-12" style="display: flex;">
             <h1>Warum gibt es uns?</h1>
-        </div>
-        <div id="video-applink" class="col-lg-5">
-            <a href="#top" style="color: rgb(74,74,74); font-size: 20px;">Zur Vision von DEMOCRACY</a>
+            <a href="#!about"
+                style="color: rgb(74,74,74); font-size: 20px; text-align: right; padding-top: 22px; float: right; flex: 100 0 0; z-index: 800;">Zur
+                Vision von DEMOCRACY</a>
         </div>
         <div class="ri-container" id="ri-container-wom">
             <div class="rectangleinfo" id="rectangleinfo-wom">
@@ -381,13 +381,13 @@
             <div class="ri-content" id="ri-content-wom">
                 <p>Mit DEMOCRACY geben wir Menschen die Möglichkeit, sich über die Abstimmungen im Bundestag zu
                     informieren und ihre Meinung mit den der Parteien und Abgeordneten abzugleichen.</p>
+                <div class="quote-name" id="quote-name-wom">
+                    <a class="ri-link" id="ri-link-wom"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
+                </div>
             </div>
         </div>
-        <div class="quote-name" id="quote-name-wom">
-            <a class="ri-link" id="ri-link-wom"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
-        </div>
         <div id="wom-campaign-container">
-            <h1>Finde die Partei, die Dich wirklich vertritt</h1>
+            <h1 style="z-index: 800; position: relative;">Finde die Partei, die Dich wirklich vertritt</h1>
             <div id="wom-campaign-title">
                 <h1 id="wom-title">DEMOCRACY</h1>
                 <br id="wom-title-year-break">
@@ -412,7 +412,8 @@
                         <div id="secondbadge-wom" class="col-lg-5">
                             <br>
                             <a class="badge-link icon-google-play-outline" id="icon-google-play-outline-wom"
-                                href="${link_playstore}" style="padding-top: 5px;"></a>
+                                href="${link_playstore}"
+                                style="padding-top: 5px; z-index: 800; position: relative;"></a>
                         </div>
                     </div>
                 </div>
@@ -420,7 +421,7 @@
 
         </div>
     </div>
-    <a href="#top" id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
+    <a id="campaigncorner-anchor"><img src="files/images/campaigncorner@3x.png"
             alt="Democracy 1.4 - finde die Taten hinter den Worten" id="campaigncorner-img"></a>
 </div>
 <script>
