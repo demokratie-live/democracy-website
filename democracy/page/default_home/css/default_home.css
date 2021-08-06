@@ -166,6 +166,8 @@
   -webkit-text-fill-color: transparent;
   margin-left: -6px !important;
   font-weight: bolder;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #index-title-year-period {
@@ -179,6 +181,8 @@
   margin-left: -14px !important;
   margin-right: -5px !important;
   font-weight: bolder;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media screen 
@@ -366,8 +370,8 @@
 
   #press-logos {
     flex-wrap: wrap;
-    scale: 50%;
     margin-bottom: 0vh;
+    transform: scale(0.8);
   }
 
   #press-logos > a {
@@ -375,7 +379,7 @@
   }
 
   #press-logos > a > img {
-    scale: 90%;
+    transform: scale(0.9);
   }
 
   .press-heading {
@@ -396,6 +400,7 @@
   display: inline-flex;
   justify-content: space-between;
   margin-bottom: 10vh;
+  transform: scale(1.05);
 }
 
 #press-logos > a {

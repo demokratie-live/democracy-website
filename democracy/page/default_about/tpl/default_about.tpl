@@ -1,8 +1,8 @@
 <div class="background-white">
     <div id="about-statement" class="container page">
         <h1 id="statement-heading">DEMOCRACY Deutschland e.V.</h1>
-        <h4 id="statement-content">Wir sind ein gemeinnütziger Verein, der unsere Politik transparenter und
-            demokratischer machen will.
+        <h4 id="statement-content" style="padding-top: 30px;">Wir sind ein gemeinnütziger Verein, der unsere Politik transparenter und
+            demokratischer machen will.</h4><h4 id="statement-content" style="margin-bottom: -20px;">
             Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nicht-kommerziell –
             von Menschen für Menschen</h4>
     </div>
@@ -304,12 +304,12 @@
                     Bereicherungsabsicht per Satzung für immer ausschließt. DEMOCRACY ist und bleibt spendenfinanziert.
                     Daten, bei der Nutzung der App entstehen, sind für uns keine handelbaren Wirtschaftsgüter, sondern
                     im Sinne der informationellen Selbstbestimmung zu vermeiden bzw. zu schützen.</span>
+                <div id="quote-name-about">
+                    <a class="ri-link" id="ri-link-about"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
+                </div>
             </div>
             <div class="col-md-2">
             </div>
-        </div>
-        <div id="quote-name-about">
-            <a class="ri-link" id="ri-link-about"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
         </div>
     </div>
 </div>

@@ -312,7 +312,7 @@
     font-size: 73px !important;
   }
   #wom-title-subtitle {
-    font-size: 26px !important;
+    font-size: 25px !important;
     width: min-content !important;
     margin-top: 0%;
   }
@@ -412,6 +412,7 @@
   margin-top: 0;
   margin-left: 4vw;
   padding-top: 2vh;
+  z-index: 800;
 }
 
 #ri-container-wom {
@@ -447,6 +448,7 @@
   }
   #wom-title-subtitle {
     width: auto !important;
+    font-size: 22px !important;
   }
 }
 
@@ -459,6 +461,8 @@
   -webkit-text-fill-color: transparent;
   margin-left: -6px !important;
   font-weight: bolder;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #wom-title-year-period {
@@ -472,6 +476,8 @@
   margin-left: -14px !important;
   margin-right: -5px !important;
   font-weight: bolder;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #wom-campaign-container {
@@ -480,7 +486,7 @@
 
 #wom-title-subtitle {
   color: #4494d3;
-  font-size: 40px;
+  font-size: 34px;
   width: max-content;
   margin-top: -20px;
 }
@@ -606,7 +612,7 @@
 }
 
 .vspace-acc {
-  padding-bottom: 10vh;
+  padding-bottom: 15vh;
 }
 
 .acc-content-left,

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <h1 id="statement-heading">Spenden</h1>
-                <h4 id="statement-content" style="padding-top:30px;">Unsere Arbeit ist unabhängig, überparteilich,
+                <h4 id="statement-content" style="padding-top:30px; line-height: 150%;">Unsere Arbeit ist unabhängig, überparteilich,
                     allgemeinnützig und
                     nichtkommerziell –<br>
                     von Menschen für Menschen</h4>
