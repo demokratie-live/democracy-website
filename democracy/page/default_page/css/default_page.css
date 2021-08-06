@@ -276,13 +276,13 @@ body {
 
 .mailjet-subscribe:hover {
   cursor: pointer;
-  background: #96c346;
+  background: #3F73EB;
 }
 .mailjet-subscribe {
   padding: 7px 10px 7px 10px;
   font-size: 15px;
   line-height: normal;
-  background: #a0ce4e;
+  background: #4494D3;
   margin-top: 3px;
   color: #fff;
   border: none;
