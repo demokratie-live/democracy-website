@@ -260,10 +260,6 @@
                 <h4 style="padding-top: 30px;">angestellt für DEMOCRACY arbeiten</h4>
             </div>
             ${team}
-            <div class="col-md-3" style="margin-top: 50px;">
-                <iframe src="https://discordapp.com/widget?id=372403545086885888&theme=light" width="100%" height="100%"
-                    allowtransparency="true" frameborder="0" style="padding-bottom: 15px; min-height: 30p0x;"></iframe>
-            </div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -276,6 +272,10 @@
                 <h4 style="padding-top: 30px;">freiwillig für DEMOCRACY arbeiten</h4>
             </div>
             ${volunteers}
+            <div class="col-md-3" style="margin-top: 50px;">
+                <iframe src="https://discordapp.com/widget?id=372403545086885888&theme=light" width="100%" height="100%"
+                    allowtransparency="true" frameborder="0" style="padding-bottom: 15px; min-height: 30p0x;"></iframe>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
