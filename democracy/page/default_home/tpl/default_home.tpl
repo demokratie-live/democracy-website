@@ -69,7 +69,7 @@
         <i class="fa fa-chevron-circle-down"></i>
     </a>
 </div>
-<div class="background-white">
+<div class="background-white" style="z-index: 100; position: relative;">
     <div id="video-box" class="container page">
         <div class="row video-content">
             <div id="video-title" class="col-lg-7">
@@ -89,7 +89,7 @@
     </div>
 </div>
 <div class="background-white">
-    <div id="about" class="container page">
+    <div id="about" class="container page" style="margin-top: -8vh;">
         <div class="row">
             <div class="col-lg-7 order-lg-1 about-content">
                 <h1>Alle Funktionen von DEMOCRACY</h1>
@@ -158,7 +158,7 @@
 </div>
 <div class="background-white">
     <div id="about" class="container page">
-        <h1>Für wen ist DEMOCRACY?</h1>
+        <h1 style="padding-bottom: 5vh; padding-top: 3vh;">Für wen ist DEMOCRACY?</h1>
         <div class="ri-container" id="ri-container-1">
             <div class="rectangleinfo">
                 <div class="ri-title">
@@ -193,10 +193,12 @@
         </div>
         <h1 class="press-heading"> bekannt aus</h1>
         <div id="press-logos">
-            <a href="https://www.hna.de/lokales/goettingen/goettingen-ort28741/eine-app-fuer-demokratische-grundrechte-aus-goettingen-13759011.html" id="hna-logo">
+            <a href="https://www.hna.de/lokales/goettingen/goettingen-ort28741/eine-app-fuer-demokratische-grundrechte-aus-goettingen-13759011.html"
+                id="hna-logo">
                 <img src="./files/images/hna_logo.png" alt="Logo der Hessischen Niedersächsischen Allgemeinen Zeitung">
             </a>
-            <a href="https://www.golem.de/news/democracy-der-verbesserte-wahl-o-mat-in-einer-app-1906-141599.html" id="golem-logo">
+            <a href="https://www.golem.de/news/democracy-der-verbesserte-wahl-o-mat-in-einer-app-1906-141599.html"
+                id="golem-logo">
                 <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
             </a>
             <a href="./files/download/FOCUS_45_2018.pdf" id="focus-logo">
