@@ -72,8 +72,12 @@
 }
 
 #quote-name-about {
-  margin-bottom: 10em;
-  margin-top: -5em;
+  margin: unset;
+}
+
+#ri-link-about {
+  float: left;
+  margin-top: 1vh;
 }
 
 #philosophy_title {
@@ -101,15 +105,11 @@
 }
 
 #about-statement {
-	text-align: center;
-	min-height: min-content;
-	margin-top: 15vh;
-	min-height: 15vh;
+  text-align: center;
+  min-height: min-content;
+  padding-top: 150px;
 }
 
 #statement-content {
-	margin-bottom: -2vh;
-  padding-bottom: 5vh;
-	margin-top: 3vh;
-	text-align: center;
+  
 }
