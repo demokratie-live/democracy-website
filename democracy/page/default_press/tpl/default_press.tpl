@@ -44,11 +44,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <img src="./files/images/democracy-bar.png" class="divider" style="padding-top: 50px;" />
-            </div>
-        </div>
-        <div class="row">
             <div class="col-12" style="padding-top: 50px;">
                 <h3>Sie wollen einen Artikel über uns schreiben? Kontaktieren Sie uns!</h3>
             </div>
