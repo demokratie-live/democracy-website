@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="padding-top: 50px;">
                 <h1>Pressespiegel</h1>
                 <h5 style="padding-top:20px; padding-bottom: 50px;">Über DEMOCRACY berichtet</h5>
             </div>
