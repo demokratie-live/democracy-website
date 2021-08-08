@@ -118,7 +118,9 @@
                         <span><a href="./files/download/JA_2018_DEMOCRACY.PDF" target="_blank">Jahresabschluss
                                 2018</a></span><br>
                         <span><a href="./files/download/JA_2019_DEMOCRACY.pdf" target="_blank">Jahresabschluss
-                                2019</a></span>
+                                2019</a></span><br>
+                        <span><a href="./files/download/JA_2020_DEMOCRACY.pdf" target="_blank">Jahresabschluss
+                                2020</a></span><br>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
