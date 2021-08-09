@@ -127,7 +127,7 @@
     </div>
 </div>
 <div class="background-white">
-    <div id="video-box" class="container page">
+    <div id="video-box" class="container page" style="min-height: unset; padding-bottom: 10vh;">
         <div class="row video-content">
             <div id="video-title" class="col-lg-7">
                 <h1 id="video-title">Wie funktioniert der </h1>
@@ -138,7 +138,7 @@
                 <a href="#!wahlometer#wom-campaign-container" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY
                     App herunterladen</a>
             </div>
-            <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
+            <div class="col-lg-12" id="video" style="padding-top: 35px;">
                 <iframe width="100%" height="100%" class="yt-hd-thumbnail"
                     src="https://www.youtube.com/embed/uWwQquy_MD0" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
