@@ -139,7 +139,7 @@
                     App herunterladen</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
-                <iframe width="100%" height="100%"
+                <iframe width="100%" height="100%" class="yt-hd-thumbnail"
                     src="https://www.youtube.com/embed/uWwQquy_MD0" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
@@ -471,4 +471,3 @@
         })
     });
 </script>
-<script src="./files/YouTubeHDThumbnail/js/jQuery.YouTube.HD.Thumbnail.js"></script>

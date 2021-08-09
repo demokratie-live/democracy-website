@@ -18,4 +18,7 @@ function init_about() {
       $(this).find(".team_links").hide();
     }
   );
+  $("iframe.yt-hd-thumbnail").youTubeHDThumbnail({
+    darkenThumbnail: false,
+  });
 }
