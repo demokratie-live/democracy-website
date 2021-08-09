@@ -43,7 +43,8 @@ function gtag(){dataLayer.push(arguments);}
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="fragment" content="!">
-    <link rel="stylesheet" href="./files/YouTubeHDThumbnail/css/YouTube.HD.Thumbnail.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/demokratie-live/YouTubeHDThumbnail@master/css/YouTube.HD.Thumbnail.css">
 
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" sizes="57x57" href="./files/icons/apple-icon-57x57.png">
@@ -178,6 +179,7 @@ function gtag(){dataLayer.push(arguments);}
         </div>
     </div>
     ${js}
+    <script src="https://cdn.jsdelivr.net/gh/demokratie-live/YouTubeHDThumbnail@master/js/jQuery.YouTube.HD.Thumbnail_democracy.js"></script>
 </body>
 
 </html>

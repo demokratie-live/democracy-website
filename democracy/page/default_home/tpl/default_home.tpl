@@ -81,7 +81,7 @@
                 <a href="#!faq" style="color: rgb(74,74,74); font-size: 20px;">Mehr Informationen zu diesem Film</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DFXcnRdXA7k" frameborder="0"
+                <iframe width="100%" height="100%" class="yt-hd-thumbnail" src="https://www.youtube.com/embed/DFXcnRdXA7k" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
