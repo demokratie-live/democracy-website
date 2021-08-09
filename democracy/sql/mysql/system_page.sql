@@ -17,3 +17,6 @@ REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`
 
 # REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (15, 1, 'wir', 'wir', -1, 0, 0, '#content', './?page=wir', 'init_wir', 'default_wir');
 # REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (25, 1, 'prototyp', 'prototyp', -1, 0, 0, '#content', './?page=prototyp', 'init_prototyp', 'default_prototyp');
+
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (16, 1, 'about', 'about', -1, 0, 0, '#content', './?page=about', 'init_about', 'default_about');
+REPLACE INTO `system_page` (`id`, `group`, `name`, `state`, `parent_id`, `login`, `type`, `div`, `url`, `func`, `php_class`) VALUES (14, 1, 'wahlometer', 'wahlometer', -1, 0, 0, '#content', './?page=wahlometer', 'init_wahlometer', 'default_wahlometer'),
