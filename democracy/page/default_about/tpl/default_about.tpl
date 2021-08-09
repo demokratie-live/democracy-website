@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="background-white">
-    <div id="video-box" class="container page">
+    <div id="video-box" class="container page" style="min-height: unset; padding-bottom: 10vh;">
         <div class="row video-content" id="mission-statement">
             <div id="video-title" class="col-lg-7">
                 <h1 id="video-title">Initiativenleitbild / Mission Statement (10:47)</h1>
@@ -18,7 +18,7 @@
             <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
                 <a href="#!donate" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY Spenden</a>
             </div>
-            <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
+            <div class="col-lg-12" id="video" style="padding-top: 35px;">
                 <iframe width="100%" height="100%" class="yt-hd-thumbnail" src="https://www.youtube.com/embed/E3KvgGrGQO4" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>

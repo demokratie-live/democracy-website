@@ -70,7 +70,7 @@
     </a>
 </div>
 <div class="background-white" style="z-index: 100; position: relative;">
-    <div id="video-box" class="container page">
+    <div id="video-box" class="container page" style="min-height: unset; padding-bottom: 10vh;">
         <div class="row video-content">
             <div id="video-title" class="col-lg-7">
                 <h1 id="video-title">Worum geht es bei </h1>
@@ -80,7 +80,7 @@
             <div class="col-lg-5" id="video-applink" style="text-align: right; padding-top: 20px;">
                 <a href="#!faq" style="color: rgb(74,74,74); font-size: 20px;">Mehr Informationen zu diesem Film</a>
             </div>
-            <div class="col-lg-12" id="video" style="padding-top: 35px; min-height: 75vh;">
+            <div class="col-lg-12" id="video" style="padding-top: 35px;">
                 <iframe width="100%" height="100%" class="yt-hd-thumbnail" src="https://www.youtube.com/embed/DFXcnRdXA7k" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
