@@ -246,7 +246,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="acc-content-right">Das Wahl-O-Meter braucht keine Eigenangaben der Parteien, er zieht
+                    <div class="acc-content-right">Der Wahl-O-Meter braucht keine Eigenangaben der Parteien, er zieht
                         Parteien und Abgeordnete für ihre Arbeit in der letzten Legislaturperiode zur Rechenschaft.
                     </div>
                 </div>
@@ -278,7 +278,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="acc-content-right">Das Wahl-O-Meter stellt die Abstimmungen der Parteien und Politiker
+                    <div class="acc-content-right">Der Wahl-O-Meter stellt die Abstimmungen der Parteien und Politiker
                         im Bundestag in den Fokus und bietet so einen Einblick in den politischen Prozess.
                     </div>
                 </div>
@@ -309,7 +309,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="acc-content-right">Das Wahl-O-Meter verarbeitet alle Gesetze und Anträge der vergangenen
+                    <div class="acc-content-right">Der Wahl-O-Meter verarbeitet alle Gesetze und Anträge der vergangenen
                         Legislaturperiode des Bundestags und ist damit nur dadurch begrenzt, wie viel Zeit du den
                         Abstimmungen widmen möchtest.
                         <br><br>
@@ -346,7 +346,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="acc-content-right">Die DEMOCRACY App und damit auch das Wahl-O-Meter sind unabhängig,
+                    <div class="acc-content-right">Die DEMOCRACY App und damit auch der Wahl-O-Meter sind unabhängig,
                         gemeinnützig und spendenfinanziert
                         - von Bürgern für Bürger.
                     </div>

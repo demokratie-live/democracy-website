@@ -299,7 +299,7 @@
                     Source-Code und unsere Bücher offen zu legen (Transparenz). Und weil Profitinteressen die Idee nur
                     korrumpieren würden, haben wir uns auch äußerlich eine Rechtsform gegeben, die eine Verfremdung oder
                     Bereicherungsabsicht per Satzung für immer ausschließt. DEMOCRACY ist und bleibt spendenfinanziert.
-                    Daten, bei der Nutzung der App entstehen, sind für uns keine handelbaren Wirtschaftsgüter, sondern
+                    Daten, die bei der Nutzung der App entstehen, sind für uns keine handelbaren Wirtschaftsgüter, sondern
                     im Sinne der informationellen Selbstbestimmung zu vermeiden bzw. zu schützen.</span>
                 <div id="quote-name-about">
                     <a class="ri-link" id="ri-link-about"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
