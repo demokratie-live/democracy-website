@@ -151,19 +151,19 @@
     <div id="about" class="container page" style="min-height: unset !important;">
         <h1 class="press-heading" id="press-heading-wom"> bekannt aus</h1>
         <div id="press-logos">
-            <a href="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html"
-                id="hrinfo-logo">
-                <img src="./files/images/hrinfo_logo.png" alt="Logo des hessischen Radiosenders hr-iNFO">
+            <a href="#TODO" id="tagesschau-logo" style="margin-right: 0;">
+                <img src="./files/images/tagesschau_logo.png" alt="Logo der Tagesschau">
             </a>
-            <a href="https://www.youtube.com/watch?v=5sbPOUL-5Fs" id="mdr-logo">
-                <img src="./files/images/mdr_logo.png" alt="Logo des Mitteldeutschen Rundfunks">
+            <a href="#TODO"
+                id="br-logo">
+                <img src="./files/images/br_logo.png" alt="Logo des Bayerischen Rundfunks">
             </a>
-            <a href="https://www.youtube.com/watch?v=RkSq_rBpVlA" id="dw-logo">
-                <img src="./files/images/dw_logo.png" alt="Logo der Nachrichtenorganisation Deutsche Welle">
+            <a href="https://www.golem.de/news/democracy-der-verbesserte-wahl-o-mat-in-einer-app-1906-141599.html"
+                id="golem-logo">
+                <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
             </a>
-            <a href="https://www.gq-magazin.de/auto-technik/article/die-bundesregierung-sollte-wort-halten-und-unserer-demokratie-ein-update-fuer-mehr-beteiligung-verpassen"
-                id="wired-logo">
-                <img src="./files/images/wired_logo.png" alt="Logo des Magazins WIRED">
+            <a href="./files/download/FOCUS_45_2018.pdf" id="focus-logo">
+                <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
             </a>
         </div>
     </div>
