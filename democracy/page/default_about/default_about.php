@@ -129,6 +129,8 @@ class default_about implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.gabriel@democracy-deutschland.de'),
+                    array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Lukas_Gabriel25/'),
+                    array('icon' => 'fab fa-linkedin', 'url' => 'https://www.linkedin.com/in/lukas-gabriel/')
                 )
             ),
             array(
@@ -147,6 +149,7 @@ class default_about implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.niederberger@democracy-deutschland.de'),
+                    array('icon' => 'fab fa-linkedin', 'url' => 'https://www.linkedin.com/in/leyla-niederberger/')
                 )
             ),
         );
