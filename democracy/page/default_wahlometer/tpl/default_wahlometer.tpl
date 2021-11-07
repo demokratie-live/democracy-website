@@ -162,8 +162,8 @@
                 id="golem-logo" target=”_blank”>
                 <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
             </a>
-            <a href="./files/download/FOCUS_45_2018.pdf" id="focus-logo" target=”_blank”>
-                <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
+            <a href="https://www.focus.de/digital/bundestagswahl-2021-mit-dieser-app-koennen-sie-abstimmungen-im-bundestag-mit-ihren-ansichten-vergleichen_id_24262915.html" id="focus-logo" target=”_blank”>
+                <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS" style="transform: scale(0.9);">
             </a>
         </div>
     </div>
