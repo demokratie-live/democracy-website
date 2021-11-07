@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-12">
                 <h1 id="statement-heading">Spenden</h1>
-                <h4 id="statement-content" style="padding-top:30px; line-height: 150%;">Unsere Arbeit ist unabhängig, überparteilich,
+                <h4 id="statement-content" style="padding-top:30px; line-height: 150%;">Unsere Arbeit ist unabhängig,
+                    überparteilich,
                     allgemeinnützig und
                     nichtkommerziell –<br>
                     von Menschen für Menschen</h4>
@@ -14,38 +15,35 @@
                 ${donate_box}
             </div>
             <div class="col-lg-8" id="donate_init_text">
-                <span> DEMOCRACY Deutschland e.V. ist ein <b>gemeinnütziger Verein</b>, der mit seiner gleichnamigen App
-                    DEMOCRACY, unsere Politik transparenter und demokratischer machen will.
+                <span> DEMOCRACY Deutschland e.V. ist ein <b>gemeinnütziger Verein</b>, der sich mit seiner
+                    gleichnamigen App und Bildungsarbeit für Demokratie
+                    als politische Selbstbestimmung einsetzt.
                     <br><br>
-                    Die Gewinnerzielungabsicht haben wir bereits mit der Wahl unserer Rechtsform bewusst ausgeschlossen.
-                    DEMOCRACY ist und bleibt <b>spendenfinanziert</b> - seit Tag 1. Daten, bei der Nutzung der App
-                    entstehen,
-                    sind für uns keine handelbaren Wirtschaftsgüter, sondern im Sinne der informationellen
-                    Selbstbestimmung und des Grundgesetzes zu schützen.
+                    Eine Gewinnerzielungabsicht haben wir bereits mit der Wahl unserer Rechtsform ausgeschlossen. Daten,
+                    die bei der Nutzung der App entstehen, sind für uns keine handelbaren Wirtschaftsgüter, sondern im
+                    Sinne der informationellen Selbstbestimmung und des Grundgesetzes zu schützen.
                     <br><br>
-                    Unser Joker ist die <b>gemeinschaftliche Finanzierung</b>.
-                    DEMOCRACY Deutschland e.V. ist ein gemeinnütziger Verein, der mit seiner gleichnamigen App
-                    DEMOCRACY, unsere Politik transparenter und demokratischer machen will.
+                    Unser Vorschlag für eine nachhaltige Veränderung ist die <b>gemeinschaftliche Finanzierung</b>.
                     <br><br>
-                    Deine regelmäßige Unterstützung hilft uns, seit der Prototypsfinanzierung durch das <a
+                    Deine finanzielle Unterstützung hilft uns, seit der Prototypsfinanzierung durch das <a
                         href="https://startnext.com/democracy" target="_blank">initiale
                         Crowdfunding im Herbst 2017</a>, die laufenden Kosten zu decken und gibt uns Planungssicherheit
                     für die
                     Zukunft des Projekts. Pate kannst du schon ab 5 € monatlich werden. Deine Unterstützung lässt sich
-                    jederzeit beenden. </span>
-                <br><br>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <a class="btn-democracy btn-democracy-dark" href="#!donate#donate">
-                            <div>Jetzt Pate werden</div>
-                        </a>
+                    jederzeit beenden.
+                    <br><br>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a class="btn-democracy btn-democracy-dark" href="#!donate#donate">
+                                <div>Jetzt Pate werden</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a class="btn-democracy btn-democracy-light" href="#!donate#donate">
+                                <div>Einmalig Spenden</div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        <a class="btn-democracy btn-democracy-light" href="#!donate#donate">
-                            <div>Einmalig Spenden</div>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row" id="donate">
@@ -148,7 +146,7 @@
                     zukunftsweisende, praxisorientierte Projekte unterschiedlicher Formate innerhalb der
                     drei Themenbereiche Zukunft der Demokratie, Zukunft der Bildung sowie Zukunft des
                     gesellschaftlichen Zusammenhalts.
-                    Marius Krüger war Kollegiat des HIK-Jahrgangs 2018&nbsp;I. 
+                    Marius Krüger war Kollegiat des HIK-Jahrgangs 2018&nbsp;I.
                     <a href="./files/download/MariusKrueger_DEMOCRACY_HIKAbschlussbericht.pdf"
                         target="_blank">Abschlussbericht von Marius Krüger</a>
                 </span>
