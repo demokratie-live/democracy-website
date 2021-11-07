@@ -161,11 +161,11 @@
   display: inline !important;
   font-family: "SFProDisplay";
   font-size: 80px;
-  background: linear-gradient(0.75turn, rgb(246, 208, 83), rgb(236, 147, 55));
+  background: linear-gradient(0.5turn, #4494d3, #336daf);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-left: -6px !important;
-  font-weight: bolder;
+  font-weight: 900;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -175,12 +175,12 @@
   font-family: "SFProDisplay";
   font-size: 90px;
   padding-bottom: 2px;
-  background: rgb(236, 147, 55);
+  background: linear-gradient(0.5turn, #4494d3, #336daf);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-left: -14px !important;
   margin-right: -5px !important;
-  font-weight: bolder;
+  font-weight: 900;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
