@@ -41,7 +41,7 @@
                                         title="Android App Bundle">AAB</a>
                                     <p style="font-size:20px;display:inline;"> / </p>
                                     <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank"
-                                        title="Android Package">APK (v1.4) </a>
+                                        title="Android Package">APK (v1.5) </a>
                                     laden
                                     <br>
                                     <!--- &nbsp;<a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a> (Defekt) --->
@@ -393,7 +393,7 @@
                 <br id="wom-title-year-break">
                 <p id="wom-title-year">1</p>
                 <p id="wom-title-year-period">.</p>
-                <p id="wom-title-year">4</p>
+                <p id="wom-title-year">5</p>
                 <h1 id="wom-title-subtitle">Dein faktenbasierter Wahlhelfer</h1>
                 <div id="wom-campaign-badges" class="badges">
                     <div class="row">
