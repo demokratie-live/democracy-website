@@ -151,18 +151,18 @@
     <div id="about" class="container page" style="min-height: unset !important;">
         <h1 class="press-heading" id="press-heading-wom"> bekannt aus</h1>
         <div id="press-logos">
-            <a href="#TODO" id="tagesschau-logo" style="margin-right: 0;">
+            <a href="https://www.youtube.com/watch?v=B1N2ySUYXBY?autoplay=0" id="tagesschau-logo" style="margin-right: 0;" target=”_blank”>
                 <img src="./files/images/tagesschau_logo.png" alt="Logo der Tagesschau">
             </a>
-            <a href="#TODO"
-                id="br-logo">
+            <a href="https://www.br.de/nachrichten/netzwelt/bundestagswahl-alternativen-zum-wahl-o-mat"
+                id="br-logo" target=”_blank”>
                 <img src="./files/images/br_logo.png" alt="Logo des Bayerischen Rundfunks">
             </a>
             <a href="https://www.golem.de/news/democracy-der-verbesserte-wahl-o-mat-in-einer-app-1906-141599.html"
-                id="golem-logo">
+                id="golem-logo" target=”_blank”>
                 <img src="./files/images/golem_logo.png" alt="Logo der IT-News-Seite Golem">
             </a>
-            <a href="./files/download/FOCUS_45_2018.pdf" id="focus-logo">
+            <a href="./files/download/FOCUS_45_2018.pdf" id="focus-logo" target=”_blank”>
                 <img src="./files/images/focus_logo.png" alt="Logo der Zeitschrift FOCUS">
             </a>
         </div>
