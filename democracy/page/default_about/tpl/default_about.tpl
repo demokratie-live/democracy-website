@@ -1,11 +1,10 @@
 <div class="background-white">
     <div id="about-statement" class="container page">
         <h1 id="statement-heading">DEMOCRACY Deutschland e.V.</h1>
-        <h4 id="statement-content" style="padding-top: 30px;">Wir sind ein gemeinnütziger Verein, der unsere Politik
-            transparenter und
-            demokratischer machen will.</h4>
-        <h4 id="statement-content" style="margin-bottom: -20px;">
-            Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nicht-kommerziell –
+        <h4 id="statement-content" style="padding-top: 30px;">Wir sind ein gemeinnütziger Verein, der sich für
+            Demokratie als politische Selbstbestimmung einsetzt.</h4>
+        <h4 id="statement-content" style="margin-bottom: -20px; line-height: 160%;">
+            Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nichtkommerziell –
             von Menschen für Menschen</h4>
     </div>
 </div>
@@ -13,13 +12,14 @@
     <div id="video-box" class="container page" style="min-height: unset; padding-bottom: 10vh;">
         <div class="row video-content" id="mission-statement">
             <div id="video-title" class="col-lg-7">
-                <h1 id="video-title">Initiativenleitbild / Mission Statement (10:47)</h1>
+                <h1 id="video-title">Initiativenleitbild / Mission Statement (10:46)</h1>
             </div>
             <div id="video-applink" class="col-lg-5" style="text-align: right; padding-top: 20px;">
                 <a href="#!donate" style="color: rgb(74,74,74); font-size: 20px;">DEMOCRACY Spenden</a>
             </div>
             <div class="col-lg-12" id="video" style="padding-top: 35px;">
-                <iframe width="100%" height="100%" class="yt-hd-thumbnail" src="https://www.youtube.com/embed/E3KvgGrGQO4" frameborder="0"
+                <iframe width="100%" height="100%" class="yt-hd-thumbnail"
+                    src="https://www.youtube.com/embed/E3KvgGrGQO4" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
@@ -285,21 +285,23 @@
         <div class="row" style="padding-bottom: 100px;">
             <div class="col-12" style="padding-top: 50px; padding-bottom: 50px;">
                 <h1>Unsere Philosophie</h1>
-                <h4 style="padding-top: 30px;">Wir machen das Unmögliche möglich und sind dabei…</h4>
+                <h4 style="padding-top: 30px; line-height: 160%;">Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nichtkommerziell –<br>
+                von Menschen für Menschen</h4>
             </div>
             ${icons}
             <div class="col-md-2"></div>
             <div class="col-md-1">
                 <img src="./files/images/quotes@3x.png" style="width: 60px; padding-left: 12px; padding-top: 25px;" />
             </div>
-            <div class="col-md-7" style="text-align: left;padding-top: 25px;">
+            <div class="col-md-7" style="text-align: left; padding-top: 25px;">
                 <span> Mit DEMOCRACY wollen wir der Zivilgesellschaft eine Infrastruktur zur Verfügung stellen, die das
                     Funktionieren von tatsächlicher Demokratie begünstigt. Der Weisheit letzter Schluss liegt für uns in
                     der solidarischen Kooperation zum Vorteil aller. Für uns ist es selbstverständlich, unseren
                     Source-Code und unsere Bücher offen zu legen (Transparenz). Und weil Profitinteressen die Idee nur
                     korrumpieren würden, haben wir uns auch äußerlich eine Rechtsform gegeben, die eine Verfremdung oder
                     Bereicherungsabsicht per Satzung für immer ausschließt. DEMOCRACY ist und bleibt spendenfinanziert.
-                    Daten, die bei der Nutzung der App entstehen, sind für uns keine handelbaren Wirtschaftsgüter, sondern
+                    Daten, die bei der Nutzung der App entstehen, sind für uns keine handelbaren Wirtschaftsgüter,
+                    sondern
                     im Sinne der informationellen Selbstbestimmung zu vermeiden bzw. zu schützen.</span>
                 <div id="quote-name-about">
                     <a class="ri-link" id="ri-link-about"> <b class="ri-quote-bold">Marius Krüger, </b>Gründer</a>
