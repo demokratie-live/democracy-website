@@ -194,17 +194,17 @@
         <h1 class="press-heading"> bekannt aus</h1>
         <div id="press-logos">
             <a href="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html"
-                id="hrinfo-logo" style="padding-top: 10px;">
-                <img src="./files/images/hrinfo_logo.png" alt="Logo des hessischen Radiosenders hr-iNFO">
+                id="hrinfo-logo" style="padding-top: 10px;" target=”_blank”>
+                <img src="./files/images/hrinfo_logo.png" alt="Logo des hessischen Radiosenders hr-iNFO" >
             </a>
-            <a href="https://www.youtube.com/watch?v=5sbPOUL-5Fs" id="mdr-logo">
+            <a href="https://www.youtube.com/watch?v=5sbPOUL-5Fs" id="mdr-logo" target=”_blank”>
                 <img src="./files/images/mdr_logo.png" alt="Logo des Mitteldeutschen Rundfunks">
             </a>
-            <a href="https://www.youtube.com/watch?v=RkSq_rBpVlA" id="dw-logo">
+            <a href="https://www.youtube.com/watch?v=RkSq_rBpVlA" id="dw-logo" target=”_blank”>
                 <img src="./files/images/dw_logo.png" alt="Logo der Nachrichtenorganisation Deutsche Welle">
             </a>
             <a href="https://www.gq-magazin.de/auto-technik/article/die-bundesregierung-sollte-wort-halten-und-unserer-demokratie-ein-update-fuer-mehr-beteiligung-verpassen"
-                id="wired-logo">
+                id="wired-logo" target=”_blank”>
                 <img src="./files/images/wired_logo.png" alt="Logo des Magazins WIRED">
             </a>
         </div>
