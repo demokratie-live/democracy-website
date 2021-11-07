@@ -46,31 +46,12 @@ class default_about implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Robert Schäfer',
-                'text' => 'Softwareentwickler<br>Bundestagsschnittstelle',
-                'img' => './files/wir/Robert.png',
+                'name' => 'Timo Sieg',
+                'text' => 'Redaktion<br>Newsletter & Blog',
+                'img' => './files/wir/Timo.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:r.schaefer@democracy-deutschland.de'),
-                )
-            ),
-            array(
-                'name' => 'Fabian B.',
-                'text' => 'Grafiker<br>Contentgestaltung',
-                'img' => './files/wir/ohneBild.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:f.boenig@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
-                )
-            ),
-            array(
-                'name' => 'Jascha Fabian',
-                'text' => 'Markenstratege<br>Kampagnenplanung',
-                'img' => './files/wir/Jascha.jpg',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.fabian@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -80,15 +61,6 @@ class default_about implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:e.menne@democracy-deutschland.de'),
-                )
-            ),
-            array(
-                'name' => 'Timo Sieg',
-                'text' => 'Redaktion<br>Newsletter & Blog',
-                'img' => './files/wir/Timo.jpg',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -124,12 +96,30 @@ class default_about implements SYSTEM\PAGE\Page
         $vars['volunteers'] = '';
         $volunteers = array(
             array(
-                'name' => 'Leyla Niederberger',
-                'text' => 'Praktikantin<br>Social Media Marketing',
-                'img' => './files/wir/Leyla.png',
+                'name' => 'Jascha Fabian',
+                'text' => 'Markenstratege<br>Kampagnenplanung',
+                'img' => './files/wir/Jascha.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.niederberger@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.fabian@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Jasper Bennink',
+                'text' => 'Redaktion<br>Blog',
+                'img' => './files/wir/Jasper.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Robert Schäfer',
+                'text' => 'Softwareentwickler<br>Bundestagsdatenschnittstelle',
+                'img' => './files/wir/Robert.png',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:r.schaefer@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -151,21 +141,12 @@ class default_about implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Jasper Bennink',
-                'text' => 'Redaktion<br>Blog',
-                'img' => './files/wir/Jasper.jpg',
+                'name' => 'Leyla Niederberger',
+                'text' => 'Botschaft<br>Social Media Marketing',
+                'img' => './files/wir/Leyla.png',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
-                )
-            ),
-            array(
-                'name' => 'Felix Niehaus',
-                'text' => 'Praktikant<br>Social Media Marketing',
-                'img' => './files/wir/ohneBild.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:f.niehaus@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.niederberger@democracy-deutschland.de'),
                 )
             ),
         );
