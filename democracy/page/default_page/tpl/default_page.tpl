@@ -151,7 +151,7 @@ function gtag(){dataLayer.push(arguments);}
                         <a href="https://github.com/demokratie-live/" target="_blank"><i
                                 class="fab fa-github github"></i></a>
                         &nbsp;
-                        <a href="https://discord.gg/Pdu3ZEV" target="_blank"><i class="fab fa-discord discord"></i></a>
+                        <a href="https://discord.gg/ZWcFrEc" target="_blank"><i class="fab fa-discord discord"></i></a>
                         &nbsp;
                         <a href="mailto:contact@democracy-deutschland.de" target="_blank"><i
                                 class="fa fa-envelope mail"></i></a>
