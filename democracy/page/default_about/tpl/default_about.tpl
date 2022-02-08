@@ -68,9 +68,8 @@
             </div>
             <div class="row container-text-acc">
                 <div class="col-6">
-                    <div class="acc-content-left">Demokratie, in seiner aufklärerischen Idee verstanden als “government
-                        of the people, by the people, for the people” (Lincoln) mit dem Prinzip “Ein Mensch – eine
-                        Stimme”
+                    <div class="acc-content-left">Demokratie, in seiner aufklärerischen Idee verstanden als Regierung
+                        <b>durch</b> die Bevölkerung mit dem Prinzip <i>ein Mensch – eine Stimme</i>
                     </div>
                 </div>
                 <div class="col-6">
@@ -285,8 +284,9 @@
         <div class="row" style="padding-bottom: 100px;">
             <div class="col-12" style="padding-top: 50px; padding-bottom: 50px;">
                 <h1>Unsere Philosophie</h1>
-                <h4 style="padding-top: 30px; line-height: 160%;">Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nichtkommerziell –<br>
-                von Menschen für Menschen</h4>
+                <h4 style="padding-top: 30px; line-height: 160%;">Unsere Arbeit ist unabhängig, überparteilich,
+                    allgemeinnützig und nichtkommerziell –<br>
+                    von Menschen für Menschen</h4>
             </div>
             ${icons}
             <div class="col-md-2"></div>
