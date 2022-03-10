@@ -20,7 +20,7 @@ function gtag(){dataLayer.push(arguments);}
     <meta name="publisher" content="Democracy Deutschland e.V.">
     <meta name="copyright" content="Democracy Deutschland e.V.">
     <meta name="description"
-        content="Finde die Taten hinter den Worten. Ganz einfach: Mit dem Wahl-O-Meter – der Wahlhilfe von DEMOCRACY. Hol Dir jetzt zur Bundestagswahl die kostenlose App DEMOCRACY, damit Du Deine Wahlentscheidung nicht nur auf Wahlversprechen stützen musst!">
+        content="Mach Dich zum Abgeordneten! Ganz einfach: Mit DEMOCRACY. Kontrolliere das Stimmverhalten Deiner Politiker. Stimme zu den gleichen Themen selbst ab. Finde Übereinstimmungen & Abweichungen. Erhalte faktenbasierte Hilfe für Deine nächste Wahlentscheidung. Alles in einer kostenlosen und gemeinnützigen App.">
     <meta name="keywords"
         content="Democracy App, DEMOCRACY App, democracy app, democracyapp, DEMOCRACYApp, Volksabstimmung, Mitbestimmung, Basisdemokratie, Bundestag, Bundestagsabstimmungen, Abstimmungsinitiativen, Demokratie,Bürgerwünsche, Politik, Stimme, Diskussionsforum, Wahlstimmen, abstimmen, appstimmen">
     <meta name="page-topic" content="Gesellschaft">
