@@ -41,7 +41,7 @@
                                         title="Android App Bundle">AAB</a>
                                     <p style="font-size:20px;display:inline;"> / </p>
                                     <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank"
-                                        title="Android Package">APK (v1.5) </a>
+                                        title="Android Package">APK (v1.5.4) </a>
                                     laden
                                     <br>
                                     <!--- &nbsp;<a class="whitelink" href="${link_fdroid}" target="_blank">F-Droid</a> (Defekt) --->
