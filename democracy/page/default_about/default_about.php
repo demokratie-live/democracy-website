@@ -46,31 +46,12 @@ class default_about implements SYSTEM\PAGE\Page
                 )
             ),
             array(
-                'name' => 'Timo Sieg',
-                'text' => 'Redaktion<br>Newsletter & Blog',
-                'img' => './files/wir/Timo.jpg',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
-                )
-            ),
-            array(
                 'name' => 'Elisa Menne',
                 'text' => 'Administration<br>Kommunikation & Buchhaltung',
                 'img' => './files/wir/Elisa.jpg',
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:e.menne@democracy-deutschland.de'),
-                )
-            ),
-            array(
-                'name' => 'Paul Koch',
-                'text' => 'Sprecher<br>Pressearbeit & PR',
-                'img' => './files/wir/Paul.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:p.koch@democracy-deutschland.de'),
-                    // array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Manuel_Ruck')
                 )
             ),
             // array(
@@ -96,12 +77,12 @@ class default_about implements SYSTEM\PAGE\Page
         $vars['volunteers'] = '';
         $volunteers = array(
             array(
-                'name' => 'Jascha Fabian',
-                'text' => 'Markenstratege<br>Kampagnenplanung',
-                'img' => './files/wir/Jascha.jpg',
+                'name' => 'Timo Sieg',
+                'text' => 'Redaktion<br>Newsletter & Blog',
+                'img' => './files/wir/Timo.jpg',
                 'img_hover' => '',
                 'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.fabian@democracy-deutschland.de'),
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:t.sieg@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -111,6 +92,15 @@ class default_about implements SYSTEM\PAGE\Page
                 'img_hover' => '',
                 'links' => array(
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.bennink@democracy-deutschland.de'),
+                )
+            ),
+            array(
+                'name' => 'Jascha Fabian',
+                'text' => 'Markenstratege<br>Kampagnenplanung',
+                'img' => './files/wir/Jascha.jpg',
+                'img_hover' => '',
+                'links' => array(
+                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:j.fabian@democracy-deutschland.de'),
                 )
             ),
             array(
@@ -131,15 +121,6 @@ class default_about implements SYSTEM\PAGE\Page
                     array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.gabriel@democracy-deutschland.de'),
                     array('icon' => 'fab fa-xing', 'url' => 'https://www.xing.com/profile/Lukas_Gabriel25/'),
                     array('icon' => 'fab fa-linkedin', 'url' => 'https://www.linkedin.com/in/lukas-gabriel/')
-                )
-            ),
-            array(
-                'name' => 'Léon Trothe',
-                'text' => 'Redaktion<br>Social Media & Blog',
-                'img' => './files/wir/Leon.png',
-                'img_hover' => '',
-                'links' => array(
-                    array('icon' => 'fa fa-envelope', 'url' => 'mailto:l.trothe@democracy-deutschland.de'),
                 )
             ),
             array(
