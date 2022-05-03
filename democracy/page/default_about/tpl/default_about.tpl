@@ -69,7 +69,7 @@
             <div class="row container-text-acc">
                 <div class="col-6">
                     <div class="acc-content-left">Demokratie, in seiner aufklärerischen Idee verstanden als Regierung
-                        <b>durch</b> die Bevölkerung mit dem Prinzip <i>ein Mensch – eine Stimme</i>
+                        durch die Bevölkerung mit dem Prinzip ein Mensch – eine Stimme
                     </div>
                 </div>
                 <div class="col-6">
