@@ -78,9 +78,7 @@
                         <td>TRODDEF1</td>
                     </tr>
                 </table>
-                <span> Für den Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des Finanzamt Göttingen vom 23.08.2017
-                    die Einhaltung der satzungsmäigen Voraussetzungen nach den §§ 51, 59, 60 und 61 AO festgestellt
-                    worden
+                <span> Der Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des Finanzamts Göttingen vom 10.11.2022 als gemeinnützig anerkannt
                     (<a href="./files/download/Freistellungsbescheid.pdf" target="_blank">Nachweis der
                         Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf"
                         target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
