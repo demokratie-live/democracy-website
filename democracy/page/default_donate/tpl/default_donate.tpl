@@ -84,7 +84,7 @@
                         target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
                     abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
                     (z. B. Kontoauszug) zusammen mit unserem <a
-                        href="./files/download/Vereinfachter_Zuwendungsnachweis_2019.pdf" target="_blank">Vereinfachten
+                        href="./files/download/Vereinfachter_Zuwendungsnachweis_2022.pdf" target="_blank">Vereinfachten
                         Zuwendungsnachweis</a>.
                     Wenn Du eine separate Zuwendungsbestätigung benötigst,
                     schreib uns bitte eine E-Mail oder gib in Deiner
