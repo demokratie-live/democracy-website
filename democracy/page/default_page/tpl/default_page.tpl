@@ -173,7 +173,7 @@ function gtag(){dataLayer.push(arguments);}
         </div>
         <div class="copyright row">
             <div class="col-12">
-                <i class="fab fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2021 <span
+                <i class="fab fa-creative-commons"></i> BY NC ND 4.0 &mdash; 2024 <span
                     class="edzofont">DEMOCRACY</span> Deutschland e.V.
             </div>
         </div>
