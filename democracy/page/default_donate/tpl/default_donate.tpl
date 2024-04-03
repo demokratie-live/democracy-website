@@ -121,6 +121,8 @@
                                 2021</a></span><br>
                         <span><a href="./files/download/JA_2022_DEMOCRACY.pdf" target="_blank">Jahresabschluss
                                 2022</a></span><br>
+                        <span><a href="./files/download/JA_2023_DEMOCRACY.pdf" target="_blank">Jahresabschluss
+                                2023</a></span><br>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
