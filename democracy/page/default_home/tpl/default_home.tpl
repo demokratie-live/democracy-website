@@ -44,7 +44,7 @@
                                         title="Android App Bundle">AAB</a>
                                     <p style="font-size:20px;display:inline;"> / </p>
                                     <a class="whitelink" href="./files/download/democracy-app.apk" target="_blank"
-                                        title="Android Package">APK (v1.5.9) </a>
+                                        title="Android Package">APK (v1.5.10) </a>
                                     laden
                                     <br>
                                 </div>
