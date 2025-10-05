@@ -25,6 +25,9 @@ node_modules
 *.tsbuildinfo
 next-env.d.ts
 
+# Storybook
+/storybook-static
+
 # IDE
 .idea
 .vscode
