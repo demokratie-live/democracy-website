@@ -119,27 +119,27 @@ democracy-website/
 
 ### Development
 ```bash
-npm run dev          # Start dev server (http://localhost:3000)
-npm run build        # Build for production
-npm run start        # Start production server
+pnpm dev          # Start dev server (http://localhost:3000)
+pnpm build        # Build for production
+pnpm start        # Start production server
 ```
 
 ### Testing
 ```bash
-npm test             # Run tests
-npm run test:ui      # Run tests with UI
-npm run test:coverage # Run tests with coverage
+pnpm test             # Run tests
+pnpm test:ui          # Run tests with UI
+pnpm test:coverage    # Run tests with coverage
 ```
 
 ### Storybook
 ```bash
-npm run storybook         # Start Storybook dev server
-npm run build-storybook   # Build Storybook
+pnpm storybook         # Start Storybook dev server
+pnpm build-storybook   # Build Storybook
 ```
 
 ### Linting
 ```bash
-npm run lint         # Run ESLint
+pnpm lint         # Run ESLint
 ```
 
 ## Technology Stack

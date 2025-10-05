@@ -15,20 +15,20 @@ Official website for DEMOCRACY Deutschland - **Weil deine Stimme zählt!**
 
 ### Prerequisites
 
-- Node.js 20+ and npm
+- Node.js 20+ and pnpm
 
 ### Installation
 
 ```bash
 git clone https://github.com/demokratie-live/democracy-website
 cd democracy-website
-npm install
+pnpm install
 ```
 
 ### Development
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
@@ -36,19 +36,19 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ### Build
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ### Production
 
 ```bash
-npm run start
+pnpm start
 ```
 
 ### Linting
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 ## Project Structure
