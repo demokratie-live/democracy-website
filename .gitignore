@@ -3,3 +3,30 @@
 democracy_website_dump.sql
 /blog/
 /democracy/files/old/
+
+# Next.js
+/.next/
+/out/
+/build
+node_modules
+*.local
+
+# Testing
+/coverage
+
+# Environment
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
