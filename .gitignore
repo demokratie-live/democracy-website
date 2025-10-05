@@ -30,3 +30,5 @@ next-env.d.ts
 .vscode
 *.swp
 *.swo
+*storybook.log
+storybook-static
