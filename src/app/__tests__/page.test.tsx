@@ -4,10 +4,11 @@ import Home from '../page';
 
 describe('Home Page', () => {
   it('renders the main heading', () => {
-    render(<Home />);
+    const { container } = render(<Home />);
     
-    const heading = screen.getByRole('heading', { name: /DEMOCRACY/i, level: 1 });
+    const heading = container.querySelector('#index-title');
     expect(heading).toBeInTheDocument();
+    expect(heading?.textContent).toBe('DEMOCRACY');
   });
 
   it('renders the tagline', () => {
@@ -20,8 +21,8 @@ describe('Home Page', () => {
   it('renders app store links', () => {
     render(<Home />);
     
-    const appStoreLink = screen.getByRole('link', { name: /App Store/i });
-    const playStoreLink = screen.getByRole('link', { name: /Google Play/i });
+    const appStoreLink = screen.getByLabelText(/App Store/i);
+    const playStoreLink = screen.getByLabelText(/Google Play/i);
     
     expect(appStoreLink).toBeInTheDocument();
     expect(playStoreLink).toBeInTheDocument();

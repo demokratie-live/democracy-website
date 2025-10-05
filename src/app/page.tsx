@@ -1,214 +1,283 @@
+import './home.css';
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
       {/* Hero Section */}
-      <div className="relative bg-blue-600 text-white min-h-screen flex items-center">
-        <div className="container mx-auto px-4 py-20">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Content */}
-            <div className="text-center md:text-left">
-              <h1 className="text-5xl md:text-7xl font-bold mb-4">DEMOCRACY</h1>
-              <p className="text-2xl md:text-3xl mb-2">1.5</p>
-              <h2 className="text-3xl md:text-4xl mb-8">Weil deine Stimme zählt!</h2>
-              
-              <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <a 
-                    href="https://apps.apple.com/de/app/democracy-deutschland/id1341311158"
-                    className="inline-block px-6 py-3 bg-black rounded-lg hover:bg-gray-800 transition"
-                  >
-                    App Store
-                  </a>
-                  <a 
-                    href="https://play.google.com/store/apps/details?id=de.democracy"
-                    className="inline-block px-6 py-3 bg-black rounded-lg hover:bg-gray-800 transition"
-                  >
-                    Google Play
-                  </a>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <a 
-                    href="https://app.democracy-deutschland.de"
-                    className="text-white hover:underline"
-                  >
-                    zur Browserversion
-                  </a>
-                  <span className="hidden sm:inline">•</span>
-                  <a 
-                    href="/download/democracy-app.apk"
-                    className="text-white hover:underline"
-                  >
-                    APK (v1.5.10) laden
-                  </a>
+      <div className="header-home">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center min-h-screen">
+            <div className="background-logo">
+              <img src="/images/Logo-Landingpage.png" alt="DEMOCRACY Logo" />
+            </div>
+            
+            <div className="w-full lg:w-6/12 order-2 lg:order-1">
+              <div className="header-content">
+                <div className="header-content-inner">
+                  <h1 id="index-title" className="slide-default">DEMOCRACY</h1>
+                  <br id="index-title-year-break" />
+                  <p id="index-title-year" className="slide-default">1</p>
+                  <p id="index-title-year-period" className="slide-default">.</p>
+                  <p id="index-title-year" className="slide-default">5</p>
+                  <h1 id="index-headline" className="slide-default">Weil deine Stimme zählt!</h1>
+                  
+                  <div className="badges">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
+                      <div className="text-center lg:text-left">
+                        <br />
+                        <a 
+                          className="badge-link icon-app-store-outline" 
+                          href="https://apps.apple.com/de/app/democracy-deutschland/id1341311158"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Download on the App Store"
+                        />
+                      </div>
+                      <div className="text-center lg:text-left" id="secondbadge">
+                        <br />
+                        <a 
+                          className="badge-link icon-google-play-outline" 
+                          href="https://play.google.com/store/apps/details?id=de.democracy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Get it on Google Play"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-4">
+                      <div className="text-center lg:text-left">
+                        <br />
+                        &nbsp;<a className="whitelink" href="https://app.democracy-deutschland.de" target="_blank" rel="noopener noreferrer">
+                          zur Browserversion
+                        </a>
+                      </div>
+                      <div className="text-center lg:text-left" id="secondbadge">
+                        <br />
+                        &nbsp;<a className="whitelink" href="/download/democracy-app.aab" target="_blank" title="Android App Bundle">
+                          AAB
+                        </a>
+                        <p style={{fontSize: '20px', display: 'inline'}}> / </p>
+                        <a className="whitelink" href="/download/democracy-app.apk" target="_blank" title="Android Package">
+                          APK (v1.5.10)
+                        </a> laden
+                        <br />
+                      </div>
+                    </div>
+                  </div>
+                  <br />
                 </div>
               </div>
             </div>
             
-            {/* Device Image */}
-            <div className="flex justify-center">
-              <div className="max-w-xs">
-                <img 
-                  src="/images/List.png" 
-                  alt="DEMOCRACY App Screenshot"
-                  className="w-full"
-                />
+            <div className="hidden lg:block lg:w-1/12 order-3"></div>
+            
+            <div className="w-full lg:w-5/12 order-1 lg:order-4">
+              <div className="device-container">
+                <img className="translateImg slide-default" src="/images/List.png" alt="DEMOCRACY App" />
               </div>
             </div>
           </div>
         </div>
         
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block">
-          <a href="#video" className="text-white opacity-20 hover:opacity-40 transition">
-            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l7 7a1 1 0 01-1.414 1.414L10 5.414 3.707 11.707a1 1 0 01-1.414-1.414l7-7A1 1 0 0110 3z" clipRule="evenodd" transform="rotate(180 10 10)" />
-            </svg>
+        <div className="scroll-icon-container hidden lg:block">
+          <a href="#video-box" className="scroll-icon">
+            ↓
           </a>
         </div>
       </div>
 
       {/* Video Section */}
-      <div id="video" className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-2">
-              Worum geht es bei <span className="text-blue-600">DEMOCRACY</span> (2:30)?
-            </h2>
-            <div className="aspect-video mt-8">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/DFXcnRdXA7k" 
-                title="DEMOCRACY Erklärvideo"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-lg"
-              />
+      <div className="bg-white" style={{zIndex: 100, position: 'relative'}}>
+        <div id="video-box" className="container mx-auto px-4" style={{minHeight: 'unset', paddingBottom: '10vh'}}>
+          <div className="video-content">
+            <div className="flex flex-col lg:flex-row justify-between items-start mb-8">
+              <div className="lg:w-7/12">
+                <h1 id="video-title">Worum geht es bei </h1>
+                <h1 id="video-title-emphasis">DEMOCRACY </h1>
+                <h1 id="video-title">(2:30)?</h1>
+              </div>
+              <div className="lg:w-5/12 text-left lg:text-right pt-5">
+                <a href="#faq" style={{color: 'rgb(74,74,74)', fontSize: '20px'}}>
+                  Mehr Informationen zu diesem Film
+                </a>
+              </div>
+            </div>
+            <div className="w-full pt-8">
+              <div className="relative w-full" style={{paddingBottom: '56.25%'}}>
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full yt-hd-thumbnail"
+                  src="https://www.youtube.com/embed/DFXcnRdXA7k" 
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="DEMOCRACY Erklärvideo"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Features Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Alle Funktionen von DEMOCRACY</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <img src="/images/group6@3x.t.png" alt="Wählen" className="w-12 h-12" />
+      <div className="bg-white">
+        <div id="about" className="container mx-auto px-4" style={{marginTop: '-8vh'}}>
+          <div className="flex flex-col lg:flex-row">
+            <div className="w-full lg:w-7/12 order-1 about-content">
+              <h1 className="text-4xl font-bold mb-8">Alle Funktionen von DEMOCRACY</h1>
+              
+              <div className="info-badge active" data-mp4="/videos/DDW-List_croped.mp4">
+                <div className="info-icon">
+                  <img className="info-icon-passive hidden" src="/images/group6@3x.png" alt="" />
+                  <img className="info-icon-active" src="/images/group6@3x.t.png" alt="" />
                 </div>
-                <div>
-                  <p><strong>Wähle</strong> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages</p>
+                <div className="info-content">
+                  <b>Wähle</b> einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages
                 </div>
               </div>
               
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <img src="/images/group3@3x.png" alt="Informieren" className="w-12 h-12" />
+              <div className="info-badge" data-mp4="/videos/DDW-info_croped.mp4">
+                <div className="info-icon">
+                  <img className="info-icon-passive" src="/images/group3@3x.png" alt="" />
+                  <img className="info-icon-active hidden" src="/images/group3@3x.t.png" alt="" />
                 </div>
-                <div>
-                  <p><strong>Informiere</strong> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <img src="/images/group5@3x.png" alt="Abstimmen" className="w-12 h-12" />
-                </div>
-                <div>
-                  <p><strong>Stimme</strong> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter</p>
+                <div className="info-content">
+                  <b>Informiere</b> Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente
                 </div>
               </div>
               
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <img src="/images/group2@3x.png" alt="Vergleichen" className="w-12 h-12" />
+              <div className="info-badge" data-mp4="/videos/DDW-vote_croped.mp4">
+                <div className="info-icon">
+                  <img className="info-icon-passive" src="/images/group5@3x.png" alt="" />
+                  <img className="info-icon-active hidden" src="/images/group5@3x.t.png" alt="" />
                 </div>
-                <div>
-                  <p><strong>Vergleiche</strong> Dein Abstimmungsverhalten mit der Community und dem Bundestag</p>
+                <div className="info-content">
+                  <b>Stimme</b> selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter
                 </div>
               </div>
               
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <img src="/images/group9@3x.png" alt="Analysieren" className="w-12 h-12" />
+              <div className="info-badge" data-mp4="/videos/DDW-compare_croped.mp4">
+                <div className="info-icon">
+                  <img className="info-icon-passive" src="/images/group2@3x.png" alt="" />
+                  <img className="info-icon-active hidden" src="/images/group2@3x.t.png" alt="" />
                 </div>
-                <div>
-                  <p><strong>Analysiere</strong> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten</p>
+                <div className="info-content">
+                  <b>Vergleiche</b> Dein Abstimmungsverhalten mit der Community und dem Bundestag
                 </div>
               </div>
+              
+              <div className="info-badge" data-mp4="/videos/DDW-analyse_croped.mp4">
+                <div className="info-icon">
+                  <img className="info-icon-passive" src="/images/group9@3x.png" alt="" />
+                  <img className="info-icon-active hidden" src="/images/group9@3x.t.png" alt="" />
+                </div>
+                <div className="info-content">
+                  <b>Analysiere</b> Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten
+                </div>
+              </div>
+              
+              <br />
+              <br />
             </div>
             
-            <div className="flex justify-center">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="max-w-xs w-full"
-              >
-                <source src="/videos/DDW-List_croped.mp4" type="video/mp4" />
-              </video>
+            <div className="w-full lg:w-5/12 order-2">
+              <div className="device-container" id="device-explain">
+                <video id="video" autoPlay loop muted playsInline>
+                  <source src="/videos/DDW-List_croped.mp4" type="video/mp4" />
+                  <source src="/videos/DDW-List_croped.webm" type="video/webm" />
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Target Audience Section */}
-      <div className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Für wen ist DEMOCRACY?</h2>
+      <div className="bg-white">
+        <div id="about" className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl font-bold text-center mb-12" style={{paddingTop: '3vh'}}>
+            Für wen ist DEMOCRACY?
+          </h1>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-2">Für Bürger,</h3>
-              <p className="text-lg text-gray-600 mb-4">die sich mehr Transparenz & Teilhabe wünschen</p>
-              <p className="mb-4">
-                Ob jung oder alt, ob bereits Experte oder bislang uninformiert. 
-                DEMOCRACY ist ein politisches Werkzeug für alle, die sich mehr 
-                Transparenz und Teilhabe wünschen.
-              </p>
-              <a href="/citizen" className="text-blue-600 hover:underline">Mehr erfahren →</a>
+          <div className="ri-container" id="ri-container-1">
+            <div className="rectangleinfo">
+              <div className="ri-title">
+                <h3 className="ri-title-heading">Für Bürger,</h3>
+              </div>
+              <div className="ri-subtitle">
+                <p className="ri-subtitle-heading">
+                  die sich mehr Transparenz <br />& Teilhabe wünschen
+                </p>
+              </div>
             </div>
-            
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-2">Für Politiker,</h3>
-              <p className="text-lg text-gray-600 mb-4">die erklären wollen, warum sie wie entscheiden</p>
-              <p className="mb-4">
-                Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. 
-                DEMOCRACY bietet Dir die Möglichkeit, Deinen wichtigsten 
-                Stakeholdern Gehör zu schenken: den Bürgern.
+            <div className="ri-content">
+              <p>
+                Ob jung oder alt, ob bereits Experte oder bislang uninformiert. DEMOCRACY ist ein politisches
+                Werkzeug für alle, die sich mehr Transparenz und Teilhabe wünschen.
               </p>
-              <a href="/politicians" className="text-blue-600 hover:underline">Mehr erfahren →</a>
+              <a className="ri-link" href="#citizen"> Mehr erfahren</a>
             </div>
+          </div>
+          
+          <div className="ri-container" id="ri-container-2">
+            <div className="rectangleinfo">
+              <div className="ri-title">
+                <h3 className="ri-title-heading">Für Politiker,</h3>
+              </div>
+              <div className="ri-subtitle">
+                <p className="ri-subtitle-heading">
+                  die erklären wollen, warum <br />sie wie entscheiden
+                </p>
+              </div>
+            </div>
+            <div className="ri-content">
+              <p>
+                Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. DEMOCRACY bietet Dir die Möglichkeit,
+                Deinen wichtigsten Stakeholdern Gehör zu schenken: den Bürgern.
+              </p>
+              <a className="ri-link" href="#politicians"> Mehr erfahren</a>
+            </div>
+          </div>
+          
+          <h1 className="press-heading">bekannt aus</h1>
+          <div id="press-logos">
+            <a 
+              href="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html" 
+              id="hrinfo-logo" 
+              style={{paddingTop: '10px'}} 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/images/hrinfo_logo.png" alt="Logo des hessischen Radiosenders hr-iNFO" />
+            </a>
+            <a 
+              href="https://www.youtube.com/watch?v=5sbPOUL-5Fs" 
+              id="mdr-logo" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/images/mdr_logo.png" alt="Logo des Mitteldeutschen Rundfunks" />
+            </a>
+            <a 
+              href="https://www.youtube.com/watch?v=RkSq_rBpVlA" 
+              id="dw-logo" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/images/dw_logo.png" alt="Logo der Nachrichtenorganisation Deutsche Welle" />
+            </a>
+            <a 
+              href="https://www.gq-magazin.de/auto-technik/article/die-bundesregierung-sollte-wort-halten-und-unserer-demokratie-ein-update-fuer-mehr-beteiligung-verpassen" 
+              id="wired-logo" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/images/wired_logo.png" alt="Logo des Magazins WIRED" />
+            </a>
           </div>
         </div>
       </div>
-
-      {/* Press Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">bekannt aus</h2>
-          
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            <a href="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html" target="_blank" rel="noopener noreferrer">
-              <img src="/images/hrinfo_logo.png" alt="hr-iNFO" className="h-12" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=5sbPOUL-5Fs" target="_blank" rel="noopener noreferrer">
-              <img src="/images/mdr_logo.png" alt="MDR" className="h-12" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=RkSq_rBpVlA" target="_blank" rel="noopener noreferrer">
-              <img src="/images/dw_logo.png" alt="Deutsche Welle" className="h-12" />
-            </a>
-            <a href="https://www.gq-magazin.de/auto-technik/article/die-bundesregierung-sollte-wort-halten-und-unserer-demokratie-ein-update-fuer-mehr-beteiligung-verpassen" target="_blank" rel="noopener noreferrer">
-              <img src="/images/wired_logo.png" alt="WIRED" className="h-12" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }

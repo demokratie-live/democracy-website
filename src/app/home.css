@@ -1,0 +1,373 @@
+/* Icon fonts */
+@font-face {
+  font-family: 'icomoon';
+  src: url('/font/icomoon.eot?qwl7qv');
+  src: url('/font/icomoon.eot?qwl7qv#iefix') format('embedded-opentype'),
+    url('/font/icomoon.ttf?qwl7qv') format('truetype'),
+    url('/font/icomoon.woff?qwl7qv') format('woff'),
+    url('/font/icomoon.svg?qwl7qv#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-app-store-outline:before {
+  content: "\e901";
+  color: #fff;
+}
+.icon-app-store-filled:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-google-play-outline:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-google-play-filled:before {
+  content: "\e902";
+  color: #fff;
+}
+
+/* Header styles */
+.header-home {
+  background: linear-gradient(to bottom, rgb(121, 198, 235), rgb(68, 148, 211)) !important;
+  position: relative;
+  min-height: 100vh;
+}
+
+.background-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-logo img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.header-content {
+  text-align: center;
+  padding: 125px 0 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.header-content .header-content-inner h1 {
+  margin-bottom: 30px;
+}
+
+.header-content-inner {
+  color: #fff;
+}
+
+#index-headline {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+#index-title {
+  font-size: 50px;
+  margin-bottom: 3px;
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  display: inline !important;
+}
+
+#index-title-year {
+  display: inline !important;
+  font-family: "SFProDisplay", -apple-system, system-ui, sans-serif;
+  font-size: 80px;
+  background: linear-gradient(0.5turn, #4494d3, #336daf);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: -6px !important;
+  font-weight: 900;
+  -webkit-background-clip: text;
+}
+
+#index-title-year-period {
+  display: inline !important;
+  font-family: "SFProDisplay", -apple-system, system-ui, sans-serif;
+  font-size: 90px;
+  padding-bottom: 2px;
+  background: linear-gradient(0.5turn, #4494d3, #336daf);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: -14px !important;
+  margin-right: -5px !important;
+  font-weight: 900;
+  -webkit-background-clip: text;
+}
+
+.badge-link {
+  color: white !important;
+  font-size: 70px;
+  line-height: 70px;
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+.whitelink {
+  color: white;
+  text-decoration: none;
+}
+
+.whitelink:hover {
+  text-decoration: underline;
+}
+
+.device-container {
+  max-width: 350px;
+  margin: 0px auto 50px;
+  z-index: 0;
+  position: relative;
+}
+
+.device-container img,
+.device-container video {
+  width: 100%;
+}
+
+.scroll-icon-container {
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 30px;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.scroll-icon {
+  color: rgba(255, 255, 255, 0.2) !important;
+  padding: 10px;
+  text-decoration: none !important;
+  font-size: 30px;
+}
+
+/* Video section */
+.video-content {
+  padding: 50px 0;
+}
+
+#video-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: inline;
+}
+
+#video-title-emphasis {
+  display: inline;
+  color: rgb(68, 148, 211);
+}
+
+/* Features section */
+.about-content {
+  padding-top: 100px;
+}
+
+.info-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.info-badge.active,
+.info-badge:hover {
+  opacity: 1;
+}
+
+.info-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.info-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.info-icon-passive {
+  display: block;
+}
+
+.info-icon-active {
+  display: none;
+}
+
+.info-badge.active .info-icon-passive {
+  display: none;
+}
+
+.info-badge.active .info-icon-active {
+  display: block;
+}
+
+.info-content {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+/* Rectangle info cards */
+.ri-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.rectangleinfo {
+  flex-shrink: 0;
+  width: 300px;
+}
+
+.ri-title-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ri-subtitle-heading {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.ri-content {
+  flex: 1;
+}
+
+.ri-link {
+  color: rgb(68, 148, 211);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ri-link:hover {
+  text-decoration: underline;
+}
+
+/* Press logos */
+.press-heading {
+  text-align: center;
+  margin: 4rem 0 2rem;
+}
+
+#press-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+#press-logos a {
+  display: block;
+}
+
+#press-logos img {
+  height: 48px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+
+#press-logos img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+  #device-explain {
+    margin: 100px auto 50px auto;
+    padding: 0 35px;
+  }
+  
+  .header-content {
+    height: 100vh;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-content .header-content-inner {
+    max-width: none;
+    margin: 0;
+  }
+  
+  .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+  
+  .device-container {
+    max-width: none;
+    margin: 150px auto 0;
+  }
+}
+
+@media screen and (min-device-width: 1500px) {
+  .slide-default {
+    width: max-content;
+  }
+
+  #index-title {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-device-width: 300px) and (max-device-width: 600px) {
+  #index-headline {
+    font-size: 8vw;
+  }
+
+  #index-title {
+    font-size: 12vw;
+  }
+}
+
+@media screen and (min-device-width: 475px) { 
+  #index-title-year-break {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .ri-container {
+    flex-direction: column;
+  }
+  
+  .rectangleinfo {
+    width: 100%;
+  }
+}
