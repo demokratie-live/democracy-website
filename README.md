@@ -1,26 +1,77 @@
-# https://democracy-deutschland.de
+# DEMOCRACY Deutschland Website
 
-## contributing
+Official website for DEMOCRACY Deutschland - **Weil deine Stimme zählt!**
 
-```
+🌐 **Live:** [https://democracy-deutschland.de](https://democracy-deutschland.de)
+
+## Tech Stack
+
+- **Framework:** Next.js 15 with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel (recommended)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+ and npm
+
+### Installation
+
+```bash
 git clone https://github.com/demokratie-live/democracy-website
 cd democracy-website
+npm install
 ```
 
-run your local php server
+### Development
 
-duplicate `config.dist.php` in root folder and name it `config.php`
-setting up your `config.php`
-
-import mysql structure from `democracy_website.sql` into your database
-
+```bash
+npm run dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Build
+
+```bash
+npm run build
 ```
 
-### convert videos
+### Production
 
-mp4
-`ffmpeg -i DDW-List.mp4 -filter:v "crop=540:1080:0:0" -an -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p  DDW-List_croped.mp4 -y`
+```bash
+npm run start
+```
 
-`ffmpeg -i DDW-List.mp4 -filter:v "crop=540:1080:0:0" -an -c vp9 -b:v 0 -crf 41  DDW-List_croped.webm -y`
+### Linting
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+democracy-website/
+├── src/
+│   └── app/           # Next.js App Router pages
+│       ├── layout.tsx # Root layout
+│       ├── page.tsx   # Home page
+│       └── globals.css # Global styles
+├── public/            # Static assets
+│   ├── images/        # Image files
+│   ├── videos/        # Video files
+│   ├── download/      # Downloadable files
+│   └── fonts/         # Font files
+└── package.json       # Dependencies
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+See [LICENSE](LICENSE) file for details.
