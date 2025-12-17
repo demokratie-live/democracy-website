@@ -84,7 +84,7 @@
                         target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
                     abzugsfähig. Für Spenden unter 200€ jährlich genügt der Zahlungsnachweis
                     (z. B. Kontoauszug) zusammen mit unserem <a
-                        href="./files/download/Vereinfachter_Zuwendungsnachweis_2022.pdf" target="_blank">Vereinfachten
+                        href="./files/download/Vereinfachter_Zuwendungsnachweis_2025.pdf" target="_blank">Vereinfachten
                         Zuwendungsnachweis</a>.
                     Wenn Du eine separate Zuwendungsbestätigung benötigst,
                     schreib uns bitte eine E-Mail oder gib in Deiner
@@ -123,6 +123,8 @@
                                 2022</a></span><br>
                         <span><a href="./files/download/JA_2023_DEMOCRACY.pdf" target="_blank">Jahresabschluss
                                 2023</a></span><br>
+                        <span><a href="./files/download/JA_2024_DEMOCRACY.pdf" target="_blank">Jahresabschluss
+                                2024</a></span><br>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
