@@ -247,16 +247,6 @@ body {
 .newsletterbox {
   padding-bottom: 50px;
 }
-.newsletterbox #email {
-  width: 100%;
-  margin-bottom: 5px;
-  width: 230px;
-}
-
-.newsletterbox #confirm {
-  color: white;
-  display: none;
-}
 
 @media (min-width: 992px) {
   #sm {
@@ -272,21 +262,6 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 25px;
-}
-
-.mailjet-subscribe:hover {
-  cursor: pointer;
-  background: #3F73EB;
-}
-.mailjet-subscribe {
-  padding: 7px 10px 7px 10px;
-  font-size: 15px;
-  line-height: normal;
-  background: #4494D3;
-  margin-top: 3px;
-  color: #fff;
-  border: none;
-  outline: 0;
 }
 
 /* COPYRIGHT */
