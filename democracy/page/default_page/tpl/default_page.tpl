@@ -103,17 +103,9 @@ function gtag(){dataLayer.push(arguments);}
                 </div>
                 <br>
                 <div class="newsletterbox">
-                    <div id="formular">
-                        <input id="email" name="email" type="text" placeholder="News an deine@email.com">
-                        <br>
-                        <input id="subscribe" name="submit" type="submit" class="mailjet-subscribe" value="EINTRAGEN">
-                    </div>
-                    <div id="confirm">
-                        Bestätigungsmail für die<br>
-                        Anmeldung wurde gesendet.<br>
-                        Bitte überprüfen Sie Ihren<br>
-                        Posteingang.
-                    </div>
+                    <a href="https://listmonk.democracy-app.de/subscription/form" target="_blank" rel="noopener noreferrer" class="btn-democracy">
+                        <div>NEWSLETTER ABONNIEREN</div>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 footer-rechtliches">
