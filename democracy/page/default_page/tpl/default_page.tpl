@@ -152,9 +152,8 @@ function gtag(){dataLayer.push(arguments);}
                         <a href="mailto:contact@democracy-deutschland.de" target="_blank" style="display: none;"><i
                                 class="fa fa-envelope mail"></i></a>
                         &nbsp;
-                        <a href="https://instagram.com/democracy_app" target="_blank"><img
-                                src="./files/images/instagram-icon.svg"
-                                onerror="this.onerror=null; this.src='./files/images/instagram-icon.png'"></a>
+                        <a href="https://instagram.com/democracy_app" target="_blank"><i
+                                class="fab fa-instagram instagram"></i></a>
                         &nbsp;
                         <a href="mailto:contact@democracy-deutschland.de" target="_blank" style="display: none;"><i
                                 class="fa fa-envelope mail"></i></a>

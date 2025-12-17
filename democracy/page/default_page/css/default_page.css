@@ -189,6 +189,10 @@ body {
   color: #f8e71c !important;
   border-color: #f8e71c !important;
 }
+.instagram:hover {
+  color: #E1306C !important;
+  border-color: #E1306C !important;
+}
 
 .menu-important {
   color: rgb(208, 2, 27) !important;
