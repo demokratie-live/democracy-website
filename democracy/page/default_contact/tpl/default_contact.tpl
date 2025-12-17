@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-12">
                 DEMOCRACY Deutschland e.V.<br>
-                Industriestraße 10<br>
-                37079 Göttingen<br>
+                Am Klausberge 12<br>
+                37075 Göttingen<br>
                 Tel  +49 - (0)176 - 47040213<br> 
                 contact@democracy-deutschland.de
             </div>
