@@ -103,7 +103,7 @@ function gtag(){dataLayer.push(arguments);}
                 </div>
                 <br>
                 <div class="newsletterbox">
-                    <a href="https://listmonk.democracy-app.de/subscription/form" target="_blank" rel="noopener noreferrer" class="btn-democracy">
+                    <a href="https://listmonk.democracy-app.de/subscription/form" target="_blank" rel="noopener noreferrer" class="btn-democracy" role="button" aria-label="Newsletter abonnieren - öffnet in neuem Tab">
                         <div>NEWSLETTER ABONNIEREN</div>
                     </a>
                 </div>
