@@ -246,6 +246,12 @@ body {
 
 .newsletterbox {
   padding-bottom: 50px;
+  max-width: 300px;
+}
+
+.newsletterbox .btn-democracy div {
+  width: 100%;
+  margin: 5px 0;
 }
 
 @media (min-width: 992px) {
