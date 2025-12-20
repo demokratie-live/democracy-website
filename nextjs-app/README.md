@@ -6,14 +6,19 @@ This is the modern Next.js application for the DEMOCRACY Deutschland website, im
 
 ### Prerequisites
 
-- Node.js 18+ and npm
+- Node.js 18+ and pnpm
 - Docker and Docker Compose (for local database)
+
+**Install pnpm if you haven't:**
+```bash
+npm install -g pnpm
+```
 
 ### Installation
 
 1. **Install dependencies:**
 ```bash
-npm install
+pnpm install
 ```
 
 2. **Start Docker services (PostgreSQL + MailHog):**
@@ -24,15 +29,15 @@ docker-compose up -d
 3. **Set up database:**
 ```bash
 # Generate Prisma Client
-npm run db:generate
+pnpm db:generate
 
 # Push schema to database
-npm run db:push
+pnpm db:push
 ```
 
 4. **Start development server:**
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser.
@@ -59,13 +64,14 @@ nextjs-app/
 
 ## 🛠️ Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm run db:generate` - Generate Prisma Client
-- `npm run db:push` - Push schema to database
-- `npm run db:studio` - Open Prisma Studio
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm lint` - Run ESLint
+- `pnpm format` - Format code with Prettier
+- `pnpm db:generate` - Generate Prisma Client
+- `pnpm db:push` - Push schema to database
+- `pnpm db:studio` - Open Prisma Studio
+- `pnpm db:seed` - Seed database with test data
 
 ## 🏗️ Implementation Status
 
