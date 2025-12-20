@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSetHeaderTheme } from '@/contexts/HeaderContext';
 
 // FAQ data from legacy system
 const faqData = [
@@ -86,6 +87,7 @@ const categories = [
 ];
 
 export default function FAQPage() {
+  useSetHeaderTheme('light');
   const [activeCategory, setActiveCategory] = useState('all');
   const [openIndex, setOpenIndex] = useState<number>(0);
 
@@ -99,7 +101,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-16">
       <div className="container mx-auto px-4 py-8 lg:py-16">
         {/* Header */}
         <div className="mb-8 text-center">
