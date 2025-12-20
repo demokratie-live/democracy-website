@@ -4,3 +4,9 @@ democracy_website_dump.sql
 /blog/
 /democracy/files/old/
 .env
+# Next.js application
+/nextjs-app/node_modules
+/nextjs-app/.next
+/nextjs-app/.env.local
+/nextjs-app/dist
+/nextjs-app/build
