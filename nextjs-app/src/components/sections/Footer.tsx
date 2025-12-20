@@ -2,171 +2,129 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { NewsletterForm } from '@/components/forms/NewsletterForm';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Brand and description */}
-          <div className="space-y-8">
-            <img
-              className="h-10"
-              src="/logo.png"
-              alt="DEMOCRACY Deutschland"
-            />
-            <p className="text-sm leading-6 text-gray-300">
-              Mach mit! Bringe unsere Demokratie ins 21. Jahrhundert.
-            </p>
-            <div className="flex space-x-6">
-              <a
-                href="https://twitter.com/democracy_de"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-300"
+    <footer className="bg-[#1a1a1a]" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">Footer</h2>
+      <div className="container mx-auto px-4">
+        <div className="footer flex flex-wrap py-12">
+          {/* Newsletter Section */}
+          <div className="w-full lg:w-4/12 footer-newsletter mb-8 lg:mb-0">
+            <div className="logobox mb-4">
+              <div className="text-white text-2xl font-bold" style={{ fontFamily: 'helvetica, sans-serif' }}>DEMOCRACY</div>
+              <div className="text-gray-400 text-sm">Demokratie_live</div>
+            </div>
+            <div className="newsletterbox">
+              <a 
+                href="https://listmonk.democracy-app.de/subscription/form" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-block bg-[#4494d3] hover:bg-[#336daf] text-white font-medium py-2 px-4 rounded transition-colors"
+                role="button" 
+                aria-label="Newsletter abonnieren - öffnet in neuem Tab"
               >
-                <span className="sr-only">Twitter</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </a>
-              <a
-                href="https://github.com/demokratie-live"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-300"
-              >
-                <span className="sr-only">GitHub</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                NEWSLETTER ABONNIEREN
               </a>
             </div>
           </div>
 
-          {/* Links */}
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Navigation
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  <li>
-                    <Link
-                      href="/wahlometer"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      Wahlometer
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      Über uns
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/faq"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      FAQ
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/blog"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Unterstützung
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  <li>
-                    <Link
-                      href="/donate"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      Spenden
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/press"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      Presse
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/contact"
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      Kontakt
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">
-                Newsletter
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-300">
-                Bleib auf dem Laufenden über neue Features und Updates.
-              </p>
-              <div className="mt-6">
-                <NewsletterForm inline showLabel={false} />
-              </div>
-            </div>
+          {/* RECHTLICHES */}
+          <div className="w-full lg:w-3/12 footer-rechtliches mb-8 lg:mb-0">
+            <h3 className="text-white text-sm font-semibold uppercase mb-4">RECHTLICHES</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/nutzungsbedingungen" className="text-gray-300 hover:text-white text-sm">
+                  Nutzungsbedingungen
+                </Link>
+              </li>
+              <li>
+                <Link href="/datenschutz" className="text-gray-300 hover:text-white text-sm">
+                  Datenschutz
+                </Link>
+              </li>
+              <li>
+                <Link href="/impressum" className="text-gray-300 hover:text-white text-sm">
+                  Impressum
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-300 hover:text-white text-sm">
+                  Kontakt
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* IN TOUCH */}
+          <div className="w-full lg:w-2/12 footer-in-touch mb-8 lg:mb-0">
+            <h3 className="text-white text-sm font-semibold uppercase mb-4">IN TOUCH</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/engineering" className="text-gray-300 hover:text-white text-sm">
+                  Programmieren
+                </Link>
+              </li>
+              <li>
+                <Link href="/engineering#help" className="text-gray-300 hover:text-white text-sm">
+                  Mithelfen
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-gray-300 hover:text-white text-sm">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-300 hover:text-white text-sm">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* SOCIAL MEDIA */}
+          <div className="w-full lg:w-3/12 footer-sm">
+            <h3 className="text-white text-sm font-semibold uppercase mb-4">SOCIAL MEDIA</h3>
+            <ul id="sm" className="space-y-2">
+              <li className="flex gap-4 text-2xl">
+                <a href="https://www.facebook.com/democracygermany/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#1877f2]">
+                  <i className="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com/democracy_de" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#1da1f2]">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#ff0000]">
+                  <i className="fab fa-youtube"></i>
+                </a>
+              </li>
+              <li className="flex gap-4 text-2xl">
+                <a href="https://github.com/demokratie-live/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+                  <i className="fab fa-github"></i>
+                </a>
+                <a href="https://discord.gg/ZWcFrEc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#5865f2]">
+                  <i className="fab fa-discord"></i>
+                </a>
+                <a href="mailto:contact@democracy-deutschland.de" className="text-gray-400 hover:text-white">
+                  <i className="fa fa-envelope"></i>
+                </a>
+              </li>
+              <li className="flex gap-4 text-2xl items-center">
+                <a href="https://instagram.com/democracy_app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#e4405f]">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="https://t.me/democracy_app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#0088cc]">
+                  <i className="fab fa-telegram"></i>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom section */}
-        <div className="mt-16 border-t border-gray-700 pt-8 sm:mt-20 lg:mt-24">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs leading-5 text-gray-400">
-              &copy; {new Date().getFullYear()} DEMOCRACY Deutschland e.V. Alle
-              Rechte vorbehalten.
-            </p>
-            <div className="flex gap-x-4">
-              <Link
-                href="/impressum"
-                className="text-xs leading-5 text-gray-400 hover:text-gray-300"
-              >
-                Impressum
-              </Link>
-              <Link
-                href="/datenschutz"
-                className="text-xs leading-5 text-gray-400 hover:text-gray-300"
-              >
-                Datenschutz
-              </Link>
-              <Link
-                href="/nutzungsbedingungen"
-                className="text-xs leading-5 text-gray-400 hover:text-gray-300"
-              >
-                Nutzungsbedingungen
-              </Link>
-            </div>
+        {/* Copyright */}
+        <div className="copyright border-t border-gray-700 py-6 text-center">
+          <div className="text-gray-400 text-sm">
+            <i className="fab fa-creative-commons"></i> BY NC ND 4.0 — {new Date().getFullYear()} <span style={{ fontFamily: 'helvetica, sans-serif' }}>DEMOCRACY</span> Deutschland e.V.
           </div>
         </div>
       </div>
