@@ -189,7 +189,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ### Phase 7: Public Pages Migration (Week 5-7)
 
-**Status: 68% Complete (13/19 Seiten implementiert)**
+**Status: 74% Complete (14/19 Seiten implementiert)**
 
 #### Pages to Migrate (in priority order)
 
@@ -236,7 +236,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 7. **Additional Pages**
    - [x] /wahlometer ✅
    - [x] /press ✅
-   - [ ] /blog ❌
+   - [x] /blog ✅
    - [ ] /invite ❌
    - [ ] /unsubscribe (/abmelden) ❌
 
@@ -253,7 +253,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 - [ ] Test all animations/transitions
 
 #### Deliverables
-- [ ] All 19 pages migrated (13/19 done)
+- [ ] All 19 pages migrated (14/19 done)
 - [x] Responsive design verified
 - [ ] Cross-browser testing complete
 - [ ] Accessibility audit passed
