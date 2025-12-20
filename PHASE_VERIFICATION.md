@@ -137,7 +137,7 @@ Dev Dependencies:
   - [x] Health checks configured
   - [x] Volumes for data persistence
 
-### npm Scripts
+### pnpm Scripts
 - [x] `dev` - Start development server
 - [x] `build` - Build for production
 - [x] `start` - Start production server

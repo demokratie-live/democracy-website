@@ -225,7 +225,7 @@ democracy-mailhog    mailhog/mailhog:latest   Up and running
 
 ---
 
-## 6. npm Scripts Verification
+## 6. pnpm Scripts Verification
 
 ### Database Scripts Added ✅
 - ✅ `db:seed` - Run seed script (tsx prisma/seed.ts)
@@ -310,11 +310,11 @@ democracy-mailhog    mailhog/mailhog:latest   Up and running
 7. ✅ Documentation is complete
 8. ✅ Roadmap updated
 
-### What Can Be Tested (requires npm install)
-- Database schema push: `npm run db:push`
-- Database seeding: `npm run db:seed`
-- Prisma Client generation: `npm run db:generate`
-- Prisma Studio: `npm run db:studio`
+### What Can Be Tested (requires pnpm install)
+- Database schema push: `pnpm run db:push`
+- Database seeding: `pnpm run db:seed`
+- Prisma Client generation: `pnpm run db:generate`
+- Prisma Studio: `pnpm run db:studio`
 
 ---
 
@@ -336,12 +336,12 @@ democracy-mailhog    mailhog/mailhog:latest   Up and running
 - Prisma schema design
 - Seed data script
 - All documentation
-- npm scripts configuration
+- pnpm scripts configuration
 
 ### What Requires User Action
-- Run `npm install` to install dependencies
-- Run `npm run db:push` to sync schema (if needed)
-- Run `npm run db:seed` to populate data (if needed)
+- Run `pnpm install` to install dependencies
+- Run `pnpm run db:push` to sync schema (if needed)
+- Run `pnpm run db:seed` to populate data (if needed)
 
 ### Not Required in CI
 - Node modules are correctly excluded via .gitignore

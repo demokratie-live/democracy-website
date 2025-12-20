@@ -191,7 +191,7 @@
 
 ---
 
-## 6. npm Scripts Verification
+## 6. pnpm Scripts Verification
 
 ### Payload Scripts Added ✅
 ```json
@@ -377,12 +377,12 @@ Payload creates tables with `payload_` prefix:
 3. ✅ Admin routes created in correct location
 4. ✅ API routes created
 5. ✅ TypeScript configuration updated
-6. ✅ npm scripts configured
+6. ✅ pnpm scripts configured
 7. ✅ Environment variables documented
 8. ✅ Documentation is complete and comprehensive
 
-### What Can Be Tested (requires npm install)
-- Start development server: `npm run dev`
+### What Can Be Tested (requires pnpm install)
+- Start development server: `pnpm run dev`
 - Access admin panel: http://localhost:3000/admin
 - Create first admin user
 - Test all 8 collections

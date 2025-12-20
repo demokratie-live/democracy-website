@@ -19,15 +19,15 @@ cd democracy-nextjs
 
 ```bash
 # Core dependencies
-npm install @prisma/client prisma
-npm install nodemailer
-npm install bcryptjs jsonwebtoken
-npm install zod
-npm install react-hook-form
-npm install @tanstack/react-query
+pnpm install @prisma/client prisma
+pnpm install nodemailer
+pnpm install bcryptjs jsonwebtoken
+pnpm install zod
+pnpm install react-hook-form
+pnpm install @tanstack/react-query
 
 # Development dependencies
-npm install -D @types/nodemailer @types/bcryptjs @types/jsonwebtoken
+pnpm install -D @types/nodemailer @types/bcryptjs @types/jsonwebtoken
 ```
 
 ### 1.3 Project Structure
@@ -287,7 +287,7 @@ Payload CMS is modern, TypeScript-based, and self-hosted.
 Install Payload:
 
 ```bash
-npm install payload @payloadcms/bundler-webpack @payloadcms/db-postgres @payloadcms/richtext-slate
+pnpm install payload @payloadcms/bundler-webpack @payloadcms/db-postgres @payloadcms/richtext-slate
 ```
 
 ### 3.2 Payload Configuration
@@ -946,7 +946,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN pnpm ci
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -958,7 +958,7 @@ COPY . .
 RUN npx prisma generate
 
 # Build Next.js
-RUN npm run build
+RUN pnpm run build
 
 # Production image
 FROM base AS runner
@@ -1108,8 +1108,8 @@ npx ts-node scripts/import-data.ts
 ### 9.1 Setup Testing
 
 ```bash
-npm install -D @testing-library/react @testing-library/jest-dom jest jest-environment-jsdom
-npm install -D @playwright/test
+pnpm install -D @testing-library/react @testing-library/jest-dom jest jest-environment-jsdom
+pnpm install -D @playwright/test
 ```
 
 ### 9.2 Example Test

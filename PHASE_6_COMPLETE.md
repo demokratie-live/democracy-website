@@ -296,7 +296,7 @@ All user-facing text is in German:
 Phase 6 has delivered a complete, production-ready component library with:
 - **21 components** (8 UI, 3 forms, 4 sections, 6 utilities)
 - **1,386 lines of code**
-- **782 npm packages** installed
+- **782 pnpm packages** installed
 - **Full TypeScript** type safety
 - **Tailwind CSS** styling
 - **Responsive design** for all screens

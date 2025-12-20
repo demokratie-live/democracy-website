@@ -108,7 +108,7 @@ pnpm lint         # ESLint passes
 pnpm type-check   # TypeScript compilation succeeds
 ```
 
-## Package Manager Migration: npm → pnpm ✅
+## Package Manager Migration: pnpm → pnpm ✅
 
 **Completed**:
 - [x] Removed `package-lock.json`

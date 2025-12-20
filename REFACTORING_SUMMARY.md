@@ -18,7 +18,7 @@ Dieses Dokument fasst den aktuellen Stand des Refactorings von PHP zu Next.js zu
 - Prisma ORM 5.22.0 mit 13 Datenbank-Modellen
 - Docker Compose (PostgreSQL 15 + MailHog)
 - ESLint, Prettier, und alle Build-Tools konfiguriert
-- 782 npm-Pakete installiert
+- 782 pnpm-Pakete installiert
 
 ### Phase 3: Database Design & Setup ✅
 - 13 Prisma-Modelle implementiert

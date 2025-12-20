@@ -436,7 +436,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 - [ ] Security headers configuration
 
 #### Tools
-- [ ] npm audit
+- [ ] pnpm audit
 - [ ] Snyk or similar
 - [ ] OWASP ZAP
 - [ ] Manual code review

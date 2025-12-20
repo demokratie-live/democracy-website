@@ -111,7 +111,7 @@ Created `docker-compose.yml` with:
 
 ### 7. Development Scripts ✅
 
-Added npm scripts in `package.json`:
+Added pnpm scripts in `package.json`:
 - `dev` - Start development server
 - `build` - Production build
 - `lint` - ESLint
@@ -223,19 +223,19 @@ Superior to MySQL for:
 cd nextjs-app
 
 # Install dependencies (if not already done)
-npm install
+pnpm install
 
 # Start Docker services
 docker-compose up -d
 
 # Generate Prisma Client
-npm run db:generate
+pnpm run db:generate
 
 # Push schema to database
-npm run db:push
+pnpm run db:push
 
 # Start development server
-npm run dev
+pnpm run dev
 ```
 
 Open http://localhost:3000

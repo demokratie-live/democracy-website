@@ -109,7 +109,7 @@ NEXT_PUBLIC_SERVER_URL="http://localhost:3000"
 - `PAYLOAD_SECRET` - Secret for Payload CMS encryption
 - `NEXT_PUBLIC_SERVER_URL` - Public URL for the application
 
-### 6. npm Scripts ✅
+### 6. pnpm Scripts ✅
 
 Added to `package.json`:
 - `payload` - Run Payload CLI commands
@@ -173,9 +173,9 @@ Added to `package.json`:
 
 ```bash
 cd nextjs-app
-npm install --legacy-peer-deps
+pnpm install --legacy-peer-deps
 docker compose up -d
-npm run dev
+pnpm run dev
 ```
 
 ### Accessing the CMS

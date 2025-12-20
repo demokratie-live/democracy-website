@@ -320,27 +320,27 @@ The database is pre-populated with:
 
 ### Regenerate Prisma Client
 ```bash
-npm run db:generate
+pnpm run db:generate
 ```
 
 ### Push Schema Changes (Development)
 ```bash
-npm run db:push
+pnpm run db:push
 ```
 
 ### Create Migration (Production)
 ```bash
-npm run db:migrate
+pnpm run db:migrate
 ```
 
 ### Seed Database
 ```bash
-npm run db:seed
+pnpm run db:seed
 ```
 
 ### Open Prisma Studio (GUI)
 ```bash
-npm run db:studio
+pnpm run db:studio
 ```
 Access at: http://localhost:5555
 
@@ -348,8 +348,8 @@ Access at: http://localhost:5555
 ```bash
 docker compose down -v  # Delete volumes
 docker compose up -d    # Restart containers
-npm run db:push         # Push schema
-npm run db:seed         # Reseed data
+pnpm run db:push         # Push schema
+pnpm run db:seed         # Reseed data
 ```
 
 ## Migration Strategy

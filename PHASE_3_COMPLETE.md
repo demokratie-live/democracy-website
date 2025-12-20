@@ -100,7 +100,7 @@ Created comprehensive seed script (`prisma/seed.ts`) that populates:
 **Updated `.gitignore`:**
 - Added `.env` to prevent committing secrets
 
-### 6. npm Scripts Added ✅
+### 6. pnpm Scripts Added ✅
 
 Updated `package.json` with database scripts:
 - `db:seed` - Run seed script
@@ -141,12 +141,12 @@ docker compose up -d
 ✅ MailHog running
 
 # Schema pushed
-npm run db:push
+pnpm run db:push
 ✅ All tables created
 ✅ Prisma Client generated
 
 # Database seeded
-npm run db:seed
+pnpm run db:seed
 ✅ 2 email lists created
 ✅ 3 email templates created
 ✅ 3 FAQ entries created
@@ -186,7 +186,7 @@ npm run db:seed
 
 ### Prisma Studio (GUI)
 ```bash
-npm run db:studio
+pnpm run db:studio
 ```
 Access at: http://localhost:5555
 
@@ -240,19 +240,19 @@ docker compose up -d
 docker compose ps
 
 # Push schema (development)
-npm run db:push
+pnpm run db:push
 
 # Create migration (production)
-npm run db:migrate
+pnpm run db:migrate
 
 # Seed database
-npm run db:seed
+pnpm run db:seed
 
 # Open Prisma Studio
-npm run db:studio
+pnpm run db:studio
 
 # Generate Prisma Client
-npm run db:generate
+pnpm run db:generate
 
 # Stop and remove database
 docker compose down -v
