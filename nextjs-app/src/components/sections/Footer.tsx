@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { NewsletterForm } from '@/components/forms/NewsletterForm';
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-gray-900" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">

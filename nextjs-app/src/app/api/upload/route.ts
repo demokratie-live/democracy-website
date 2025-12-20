@@ -81,11 +81,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Set max body size to 10MB
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '10mb',
-    },
-  },
-};
+// Route segment config for API route
+export const maxDuration = 60; // 60 seconds
+export const dynamic = 'force-dynamic';

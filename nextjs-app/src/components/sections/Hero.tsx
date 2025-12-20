@@ -17,7 +17,7 @@ interface HeroProps {
   imageSrc?: string;
 }
 
-export function Hero({
+export default function Hero({
   title,
   subtitle,
   description,

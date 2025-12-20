@@ -2,11 +2,11 @@
 import type { ServerFunctionClient } from 'payload';
 
 import config from '@payload-config';
-import { handleServerFunctions } from '@payloadcms/next/utilities';
+import { REST_POST } from '@payloadcms/next/routes';
 import { importMap } from '../../importMap';
 
 export const POST: ServerFunctionClient = (args) =>
-  handleServerFunctions({
+  REST_POST({
     ...args,
     config,
     importMap,

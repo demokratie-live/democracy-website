@@ -210,7 +210,7 @@ async function main() {
 
   // Create admin user (password: admin123)
   console.log('Creating admin user...');
-  const bcrypt = require('bcryptjs');
+  const bcrypt = await import('bcryptjs');
   const hashedPassword = await bcrypt.hash('admin123', 10);
 
   await prisma.adminUser.upsert({
