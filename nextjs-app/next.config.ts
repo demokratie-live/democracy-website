@@ -12,19 +12,8 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Disable Turbopack for now due to compatibility issues with Payload CMS
-  // Turbopack has issues with esbuild and drizzle-kit modules
-  experimental: {
-    turbo: {
-      rules: {
-        // Ignore non-JS files in node_modules
-        "*.md": {
-          loaders: ["raw-loader"],
-          as: "*.js",
-        },
-      },
-    },
-  },
+  // Note: Do not use Turbopack (--turbo flag) as it has compatibility issues 
+  // with Payload CMS's esbuild and drizzle-kit modules
   // Exclude problematic packages from server bundling
   serverExternalPackages: [
     "esbuild",

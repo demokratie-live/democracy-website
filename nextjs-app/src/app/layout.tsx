@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/sections/Header";
-import Footer from "@/components/sections/Footer";
-import { HeaderProvider } from "@/contexts/HeaderContext";
-import Script from "next/script";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+// Note: globals.css is imported in (public)/layout.tsx to avoid conflicts with Payload CMS
 
 export const metadata: Metadata = {
   title: "DEMOCRACY App",
@@ -35,30 +25,12 @@ export const metadata: Metadata = {
   },
 };
 
+// Minimal root layout - actual layouts are in route groups
+// (public) for frontend, (payload) for admin
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="de" className={inter.variable}>
-      <head>
-        {/* FontAwesome */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
-      <body className="font-sans antialiased min-h-screen flex flex-col">
-        <HeaderProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </HeaderProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

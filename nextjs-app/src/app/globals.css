@@ -12,7 +12,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-body {
+/* Only apply to public pages, not Payload admin */
+body:not([data-theme]) {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;

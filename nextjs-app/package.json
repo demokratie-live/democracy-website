@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--no-deprecation' next dev",
+    "dev:turbo": "cross-env NODE_OPTIONS='--no-deprecation' next dev --turbo",
     "build": "cross-env NODE_OPTIONS='--no-deprecation' next build",
     "start": "cross-env NODE_OPTIONS='--no-deprecation' next start",
     "lint": "eslint",
@@ -25,9 +26,9 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "^3.69.0",
-    "@payloadcms/next": "^3.69.0",
-    "@payloadcms/richtext-lexical": "^3.69.0",
+    "@payloadcms/db-postgres": "3.14.0",
+    "@payloadcms/next": "3.14.0",
+    "@payloadcms/richtext-lexical": "3.14.0",
     "@prisma/client": "5.22.0",
     "@tanstack/react-query": "^5.90.12",
     "bcryptjs": "^3.0.3",
@@ -35,12 +36,12 @@
     "clsx": "^2.1.1",
     "cross-env": "^10.1.0",
     "jsonwebtoken": "^9.0.3",
-    "next": "16.1.0",
+    "next": "15.1.4",
     "nodemailer": "^7.0.11",
-    "payload": "^3.69.0",
+    "payload": "3.14.0",
     "prisma": "5.22.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "19.0.0-rc-65a56d0e-20241020",
     "react-hook-form": "^7.69.0",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0",
@@ -53,14 +54,20 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.4",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "eslint": "^9",
-    "eslint-config-next": "16.1.0",
+    "eslint-config-next": "15.1.4",
     "prettier": "^3.7.4",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   },
   "packageManager": "pnpm@10.26.0",
   "engines": {
