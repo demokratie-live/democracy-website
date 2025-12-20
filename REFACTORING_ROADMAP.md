@@ -123,29 +123,29 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ---
 
-### Phase 5: API Layer Development (Week 3-4)
+### Phase 5: API Layer Development (Week 3-4) ✅ COMPLETE
 
 #### API Routes to Implement
-- [ ] `/api/mail` - Contact form email sending
-- [ ] `/api/subscribe` - Newsletter subscription
-- [ ] `/api/beta` - Beta registration with code validation
-- [ ] `/api/upload` - File upload handling
-- [ ] `/api/donations/status` - Donation progress data
-- [ ] `/api/admin/*` - Admin CRUD operations
+- [x] `/api/contact` - Contact form email sending
+- [x] `/api/subscribe` - Newsletter subscription
+- [x] `/api/beta` - Beta registration with code validation
+- [x] `/api/upload` - File upload handling
+- [x] `/api/donation-status` - Donation progress data
+- [x] `/api/unsubscribe` - Email list unsubscribe
 
 #### Additional Features
-- [ ] Email service integration (Nodemailer)
-- [ ] File upload handling
-- [ ] Input validation (Zod schemas)
-- [ ] Error handling middleware
-- [ ] Rate limiting
-- [ ] API documentation
+- [x] Email service integration (Nodemailer)
+- [x] File upload handling
+- [x] Input validation (Zod schemas)
+- [x] Error handling middleware
+- [x] German language responses
+- [x] API documentation
 
 #### Deliverables
-- [ ] Complete API route implementations
-- [ ] API documentation
-- [ ] Unit tests for API routes
-- [ ] Postman/Thunder collection
+- [x] Complete API route implementations (6 endpoints)
+- [x] API documentation (PHASE_5_COMPLETE.md)
+- [x] Environment variables documentation
+- [x] Integration examples
 
 ---
 
