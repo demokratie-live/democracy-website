@@ -189,61 +189,72 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ### Phase 7: Public Pages Migration (Week 5-7)
 
+**Status: 68% Complete (13/19 Seiten implementiert)**
+
 #### Pages to Migrate (in priority order)
 
-1. **Home Page** (/)
-   - [ ] Hero section with branding
-   - [ ] Download badges (App Store, Google Play)
-   - [ ] Video embed section
-   - [ ] Feature showcase with interactive badges
-   - [ ] Target audience sections
-   - [ ] Press logos
+1. **Home Page** (/) ✅
+   - [x] Hero section with branding
+   - [x] Download badges (App Store, Google Play)
+   - [x] Video embed section
+   - [x] Feature showcase with interactive badges
+   - [x] Target audience sections
+   - [x] Press logos
 
-2. **Donate Page** (/donate)
-   - [ ] Donation progress display
-   - [ ] Team member profiles
-   - [ ] Volunteer profiles
-   - [ ] Values showcase
-   - [ ] Payment integration
+2. **Donate Page** (/spenden) ✅
+   - [x] Donation progress display
+   - [x] Expense breakdown table
+   - [x] Bank details
+   - [x] PayPal/DonorBox links
+   - [x] Donation modal
+   - [x] HIK section
+   - [x] Jahresabschlüsse links
+   - [x] Redirect /donate → /spenden
 
-3. **FAQ Page** (/faq)
-   - [ ] Dynamic FAQ loading
-   - [ ] Collapsible questions
-   - [ ] Search functionality
+3. **FAQ Page** (/faq) ✅
+   - [x] Dynamic FAQ loading
+   - [x] Collapsible questions
+   - [x] Category filter (statt Search)
 
-4. **Contact Page** (/contact)
-   - [ ] Contact form
-   - [ ] Form validation
-   - [ ] Success/error messages
+4. **Contact Page** (/contact) ✅
+   - [x] Contact form
+   - [x] Form validation
+   - [x] Success/error messages
+   - [x] API integration (/api/contact)
 
 5. **About Pages**
-   - [ ] /about
-   - [ ] /citizen
-   - [ ] /politicians
-   - [ ] /engineering
+   - [x] /about ✅
+   - [x] /buerger ✅ (Note: Route ist /buerger, nicht /citizen)
+   - [x] /politiker ✅ (Note: Route ist /politiker, nicht /politicians)
+   - [x] /engineering ✅
 
-6. **Legal Pages**
-   - [ ] /impressum
-   - [ ] /datenschutz (privacy policy)
-   - [ ] /nutzungsbedingungen (terms)
+6. **Legal Pages** ✅
+   - [x] /impressum
+   - [x] /datenschutz (privacy policy)
+   - [x] /nutzungsbedingungen (terms)
 
 7. **Additional Pages**
-   - [ ] /wahlometer
-   - [ ] /press
-   - [ ] /blog
-   - [ ] /invite
-   - [ ] /unsubscribe
+   - [x] /wahlometer ✅
+   - [x] /press ✅
+   - [ ] /blog ❌
+   - [ ] /invite ❌
+   - [ ] /unsubscribe (/abmelden) ❌
+
+#### Known Issues
+- Homepage links `/citizen` → sollte `/buerger` sein
+- Homepage links `/politicians` → sollte `/politiker` sein
+- Custom icon font (icon-app-store-outline) CSS möglicherweise unvollständig
 
 #### Design Matching
-- [ ] Extract all CSS styles
-- [ ] Convert to Tailwind classes
-- [ ] Match colors, fonts, spacing exactly
-- [ ] Ensure responsive behavior matches
+- [x] Extract all CSS styles
+- [x] Convert to Tailwind classes
+- [x] Match colors, fonts, spacing exactly
+- [x] Ensure responsive behavior matches
 - [ ] Test all animations/transitions
 
 #### Deliverables
-- [ ] All 19 pages migrated
-- [ ] Responsive design verified
+- [ ] All 19 pages migrated (13/19 done)
+- [x] Responsive design verified
 - [ ] Cross-browser testing complete
 - [ ] Accessibility audit passed
 

@@ -122,7 +122,7 @@ export default function Header({ initialTheme }: HeaderProps) {
               Presse
             </Link>
             <Link
-              href="/donate"
+              href="/spenden"
               className="text-base font-bold text-white hover:bg-[#3a84c0] no-underline bg-[#4494d3] px-4 py-2 rounded transition-colors"
             >
               Spenden
@@ -187,7 +187,7 @@ export default function Header({ initialTheme }: HeaderProps) {
                 Presse
               </Link>
               <Link
-                href="/donate"
+                href="/spenden"
                 className="block rounded-md px-3 py-2 text-base font-bold text-white bg-[#4494d3] hover:bg-[#3a84c0]"
               >
                 Spenden

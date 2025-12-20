@@ -2,6 +2,16 @@ import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Redirects for legacy URLs
+  async redirects() {
+    return [
+      {
+        source: "/donate",
+        destination: "/spenden",
+        permanent: true,
+      },
+    ];
+  },
   // Disable Turbopack for now due to compatibility issues with Payload CMS
   // Turbopack has issues with esbuild and drizzle-kit modules
   experimental: {
