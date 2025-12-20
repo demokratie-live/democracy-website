@@ -63,3 +63,14 @@ body {
   content: "\e902";
   color: #fff;
 }
+
+/* Dark variants for wahlometer bottom section */
+.icon-app-store-outline[style*="color: #454545"]:before,
+.icon-app-store-outline[style*="color:#454545"]:before {
+  color: #454545 !important;
+}
+
+.icon-google-play-outline[style*="color: #454545"]:before,
+.icon-google-play-outline[style*="color:#454545"]:before {
+  color: #454545 !important;
+}
