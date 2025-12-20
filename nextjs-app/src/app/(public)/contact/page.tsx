@@ -1,8 +1,10 @@
 'use client';
 
 import * as React from 'react';
+import { useSetHeaderTheme } from '@/contexts/HeaderContext';
 
 export default function ContactPage() {
+  useSetHeaderTheme('light');
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
@@ -45,7 +47,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="row">
           {/* Contact Information */}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ComparisonAccordion, ComparisonRow } from '@/components/ui/ComparisonAccordion';
+import { useSetHeaderTheme } from '@/contexts/HeaderContext';
 
 const team = [
   {
@@ -144,8 +145,10 @@ function TeamMember({ member }: { member: typeof team[0] }) {
 }
 
 export default function AboutPage() {
+  useSetHeaderTheme('light');
+
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-16">
       {/* Statement Section */}
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800">

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSetHeaderTheme } from '@/contexts/HeaderContext';
 
 // Press Kit / Downloads (type 2 = MEDIA_DOWNLOAD)
 const pressKitItems = [
@@ -278,8 +279,10 @@ function MediaArticle({ title, img, link, useExternalImg = false }: MediaArticle
 }
 
 export default function PressPage() {
+  useSetHeaderTheme('light');
+  
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-16">
       {/* Press Kit Section */}
       <div className="container mx-auto px-4">
         <div className="pt-12">
