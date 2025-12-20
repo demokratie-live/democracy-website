@@ -5,9 +5,28 @@ import Link from 'next/link';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    
+    // Check initial scroll position
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-[#4494d3]/95 backdrop-blur-md shadow-lg' 
+          : 'bg-[#4494d3]/80 backdrop-blur-sm'
+      }`}
+    >
       <nav className="container mx-auto px-4" aria-label="Top">
         <div className="flex w-full items-center justify-between py-4">
           {/* Logo */}

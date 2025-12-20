@@ -4,6 +4,7 @@ democracy_website_dump.sql
 /blog/
 /democracy/files/old/
 .env
+/.playwright-mcp
 # Next.js application
 /nextjs-app/node_modules
 /nextjs-app/.next
