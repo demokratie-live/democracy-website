@@ -16,7 +16,10 @@
     "db:seed": "tsx prisma/seed.ts",
     "type-check": "tsc --noEmit",
     "payload": "cross-env NODE_OPTIONS='--no-deprecation' payload",
-    "generate:types": "cross-env NODE_OPTIONS='--no-deprecation' payload generate:types"
+    "generate:types": "cross-env NODE_OPTIONS='--no-deprecation' payload generate:types",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -44,6 +47,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
