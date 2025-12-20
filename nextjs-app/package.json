@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "cross-env NODE_OPTIONS='--no-deprecation' next dev",
+    "build": "cross-env NODE_OPTIONS='--no-deprecation' next build",
+    "start": "cross-env NODE_OPTIONS='--no-deprecation' next start",
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -14,22 +14,30 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:seed": "tsx prisma/seed.ts",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "payload": "cross-env NODE_OPTIONS='--no-deprecation' payload",
+    "generate:types": "cross-env NODE_OPTIONS='--no-deprecation' payload generate:types"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.69.0",
+    "@payloadcms/next": "^3.69.0",
+    "@payloadcms/richtext-lexical": "^3.69.0",
     "@prisma/client": "5.22.0",
     "@tanstack/react-query": "^5.90.12",
     "bcryptjs": "^3.0.3",
+    "cross-env": "^10.1.0",
     "jsonwebtoken": "^9.0.3",
     "next": "16.1.0",
     "nodemailer": "^7.0.11",
+    "payload": "^3.69.0",
     "prisma": "5.22.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.69.0",
+    "sharp": "^0.34.5",
     "zod": "^4.2.1"
   },
   "devDependencies": {
