@@ -1,14 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    turbo: {
-      rules: {
-        '*.md': {
-          loaders: ['raw-loader'],
-          as: '*.js',
-        },
-      },
-    },
+  turbopack: {
+    // Force the root so Next.js does not pick the upper workspace yarn.lock
+    root: __dirname,
   },
   webpack: (config, { isServer }) => {
     // Ignore node_modules binaries and non-JS files in production builds

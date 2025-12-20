@@ -7,11 +7,11 @@ export default function Home() {
         title="DEMOCRACY"
         subtitle="Digitale Demokratie für Deutschland"
         description="Stimme über Abstimmungen im Bundestag direkt über die DEMOCRACY App ab."
-        primaryCTA={{
+        primaryCta={{
           text: "App herunterladen",
           href: "#download",
         }}
-        secondaryCTA={{
+        secondaryCta={{
           text: "Mehr erfahren",
           href: "/about",
         }}
