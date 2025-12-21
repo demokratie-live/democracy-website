@@ -22,7 +22,3 @@ export function formatDate(date: Date | string): string {
     day: 'numeric',
   }).format(d);
 }
-
-export function formatPercentage(value: number): string {
-  return `${Math.round(value)}%`;
-}

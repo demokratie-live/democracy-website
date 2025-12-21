@@ -21,7 +21,9 @@
     "generate:types": "cross-env NODE_OPTIONS='--no-deprecation' payload generate:types",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed"
+    "test:headed": "playwright test --headed",
+    "knip": "knip",
+    "knip:fix": "knip --fix"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -31,19 +33,15 @@
     "@payloadcms/next": "3.14.0",
     "@payloadcms/richtext-lexical": "3.14.0",
     "@prisma/client": "5.22.0",
-    "@tanstack/react-query": "^5.90.12",
-    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cross-env": "^10.1.0",
-    "jsonwebtoken": "^9.0.3",
     "next": "15.1.4",
     "nodemailer": "^7.0.11",
     "payload": "3.14.0",
     "prisma": "5.22.0",
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
-    "react-hook-form": "^7.69.0",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.2.1"
@@ -51,14 +49,14 @@
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.4",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
+    "knip": "^5.76.1",
+    "postcss": "^8.5.6",
     "prettier": "^3.7.4",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
