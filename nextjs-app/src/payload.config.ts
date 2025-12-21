@@ -211,7 +211,6 @@ export default buildConfig({
     user: 'admin-users',
     meta: {
       titleSuffix: '- DEMOCRACY CMS',
-      favicon: '/favicon.ico',
     },
     components: {
       beforeDashboard: [],
