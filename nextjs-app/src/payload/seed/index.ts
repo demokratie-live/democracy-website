@@ -11,6 +11,7 @@ import { seedHomepage } from './homepage';
 import { seedWahlometer } from './wahlometer';
 import { seedAbout } from './about';
 import { seedBuerger } from './buerger';
+import { seedPolitiker } from './politiker';
 
 /**
  * Seeds all initial data on first start
@@ -45,4 +46,7 @@ export async function seedInitialData(payload: Payload) {
   
   // Seed Bürger configuration if not exists
   await seedBuerger(payload);
+  
+  // Seed Politiker configuration if not exists
+  await seedPolitiker(payload);
 }

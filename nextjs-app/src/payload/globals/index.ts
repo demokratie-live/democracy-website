@@ -6,3 +6,4 @@ export { Homepage } from './homepage';
 export { Wahlometer } from './wahlometer';
 export { About } from './about';
 export { Buerger } from './buerger';
+export { Politiker } from './politiker';
