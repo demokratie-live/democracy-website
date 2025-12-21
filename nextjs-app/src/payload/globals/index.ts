@@ -4,3 +4,4 @@
 
 export { Homepage } from './homepage';
 export { Wahlometer } from './wahlometer';
+export { About } from './about';
