@@ -80,7 +80,7 @@ Diese Befehle funktionieren nicht korrekt, da die Datenbank und andere Services 
 - Next.js: `localhost:3000`
 
 **Payload CMS REST API:**
-Für programmatischen Zugriff auf Payload CMS Daten (Login, CRUD-Operationen, Medien-Upload) siehe [`nextjs-app/PAYLOAD_API_ACCESS.md`](../nextjs-app/PAYLOAD_API_ACCESS.md).
+Für programmatischen Zugriff auf Payload CMS Daten (Login, CRUD-Operationen, Medien-Upload) siehe die Datei `nextjs-app/PAYLOAD_API_ACCESS.md`.
 
 **Default Admin Login (local development):**
 - E-Mail: `admin@democracy-deutschland.de`
