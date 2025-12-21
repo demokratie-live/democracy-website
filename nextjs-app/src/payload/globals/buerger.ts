@@ -5,7 +5,7 @@ import { isAdminOrEditor } from '../access';
  * Bürger Page Global Configuration
  * 
  * Ermöglicht die vollständige Verwaltung der Bürger-Seite über das Payload CMS.
- * Alle Sektionen, Features, Steps und Benefits können über das CMS gepflegt werden.
+ * Struktur entspricht exakt der Original-PHP-Seite.
  */
 export const Buerger: GlobalConfig = {
   slug: 'buerger',
@@ -28,13 +28,13 @@ export const Buerger: GlobalConfig = {
           name: 'metaTitle',
           type: 'text',
           label: 'Meta Titel',
-          defaultValue: 'DEMOCRACY für Bürger - Deine Stimme zählt',
+          defaultValue: 'DEMOCRACY als Informations- und Beteiligungsplattform für Bürger',
         },
         {
           name: 'metaDescription',
           type: 'textarea',
           label: 'Meta Beschreibung',
-          defaultValue: 'Nutze DEMOCRACY als Bürger und stimme über Bundestagsabstimmungen ab. Vergleiche deine Meinung mit deinen Abgeordneten.',
+          defaultValue: 'DEMOCRACY ist speziell dafür entwickelt, Bürgerlobbyismus und Politikcontrolling zu fördern. Nutze deine Stimme!',
         },
       ],
     },
@@ -47,38 +47,49 @@ export const Buerger: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
-          label: 'Titel',
-          defaultValue: 'DEMOCRACY für Bürger',
+          label: 'Titel (Zeile 1)',
+          defaultValue: 'DEMOCRACY als Informations- und',
         },
         {
-          name: 'subtitle',
-          type: 'textarea',
-          label: 'Untertitel',
-          defaultValue: 'Deine Stimme zählt! Mit DEMOCRACY kannst du über alle Bundestagsabstimmungen abstimmen und deine Meinung mit deinen Abgeordneten vergleichen.',
-        },
-        {
-          name: 'appStoreUrl',
+          name: 'titleLine2',
           type: 'text',
-          label: 'App Store URL',
-          defaultValue: 'https://apps.apple.com/de/app/democracy-deutschland/id1356447024',
+          label: 'Titel (Zeile 2)',
+          defaultValue: 'Beteiligungsplattform für Bürger',
         },
         {
-          name: 'appStoreButtonText',
+          name: 'heroImage',
           type: 'text',
-          label: 'App Store Button Text',
-          defaultValue: '📱 iOS App',
+          label: 'Hero-Bild URL',
+          defaultValue: '/files/images/Fur_Burger.png',
         },
         {
-          name: 'playStoreUrl',
-          type: 'text',
-          label: 'Play Store URL',
-          defaultValue: 'https://play.google.com/store/apps/details?id=de.democracy',
-        },
-        {
-          name: 'playStoreButtonText',
-          type: 'text',
-          label: 'Play Store Button Text',
-          defaultValue: '🤖 Android App',
+          name: 'hotspots',
+          type: 'array',
+          label: 'Hotspots',
+          labels: {
+            singular: 'Hotspot',
+            plural: 'Hotspots',
+          },
+          fields: [
+            {
+              name: 'number',
+              type: 'text',
+              label: 'Nummer',
+              required: true,
+            },
+            {
+              name: 'tooltip',
+              type: 'textarea',
+              label: 'Tooltip-Text',
+              required: true,
+            },
+            {
+              name: 'active',
+              type: 'checkbox',
+              label: 'Aktiv (blau statt grau)',
+              defaultValue: false,
+            },
+          ],
         },
         {
           name: 'enabled',
@@ -88,7 +99,7 @@ export const Buerger: GlobalConfig = {
         },
       ],
     },
-    // Features Section
+    // Features Section - "Gemacht für Bürger"
     {
       name: 'featuresSection',
       type: 'group',
@@ -98,7 +109,13 @@ export const Buerger: GlobalConfig = {
           name: 'title',
           type: 'text',
           label: 'Titel',
-          defaultValue: 'Was DEMOCRACY dir bietet',
+          defaultValue: 'GEMACHT FÜR BÜRGER',
+        },
+        {
+          name: 'subtitle',
+          type: 'text',
+          label: 'Untertitel',
+          defaultValue: 'DEMOCRACY ist speziell dafür entwickelt, Bürgerlobbyismus und Politikcontrolling zu fördern',
         },
         {
           name: 'features',
@@ -110,9 +127,9 @@ export const Buerger: GlobalConfig = {
           },
           fields: [
             {
-              name: 'icon',
+              name: 'iconUrl',
               type: 'text',
-              label: 'Icon (Emoji)',
+              label: 'Icon URL',
               required: true,
             },
             {
@@ -123,8 +140,8 @@ export const Buerger: GlobalConfig = {
             },
             {
               name: 'description',
-              type: 'textarea',
-              label: 'Beschreibung',
+              type: 'richText',
+              label: 'Beschreibung (mit Fettdruck)',
               required: true,
             },
           ],
@@ -137,124 +154,67 @@ export const Buerger: GlobalConfig = {
         },
       ],
     },
-    // Steps Section
+    // Video/CTA Section - "Werde ein Teil von DEMOCRACY"
     {
-      name: 'stepsSection',
+      name: 'ctaSection',
       type: 'group',
-      label: 'So funktioniert\'s Sektion',
+      label: 'CTA Sektion',
       fields: [
+        {
+          name: 'videoThumbnail',
+          type: 'text',
+          label: 'Video-Vorschaubild URL',
+          defaultValue: '/files/images/juli.png',
+        },
+        {
+          name: 'videoUrl',
+          type: 'text',
+          label: 'Video URL',
+          defaultValue: 'https://www.youtube.com/watch?v=ouzgAqvJUA8',
+        },
         {
           name: 'title',
           type: 'text',
           label: 'Titel',
-          defaultValue: 'So funktioniert\'s',
+          defaultValue: 'Werde ein Teil von DEMOCRACY',
         },
         {
-          name: 'steps',
+          name: 'description',
+          type: 'textarea',
+          label: 'Beschreibung',
+          defaultValue: 'Ob jung oder alt, ob (bereits) Politikexperte oder (bislang) uninformiert – DEMOCRACY wird Dir eine breit gefächerte Auswahl an Möglichkeiten bieten, politisch aktiv zu werden, und dabei fast automatisch Dein Wissen, Deinen Einblick in pol. Prozesse sowie Dein Potential, auf die Politik Einfluss zu nehmen, vergrößern. Sei Teil der Veränderung und nutze Deine Stimme.',
+        },
+        {
+          name: 'buttons',
           type: 'array',
-          label: 'Schritte',
+          label: 'Buttons',
           labels: {
-            singular: 'Schritt',
-            plural: 'Schritte',
-          },
-          fields: [
-            {
-              name: 'number',
-              type: 'text',
-              label: 'Nummer',
-              required: true,
-            },
-            {
-              name: 'title',
-              type: 'text',
-              label: 'Titel',
-              required: true,
-            },
-            {
-              name: 'description',
-              type: 'textarea',
-              label: 'Beschreibung',
-              required: true,
-            },
-          ],
-        },
-        {
-          name: 'enabled',
-          type: 'checkbox',
-          label: 'Aktiv',
-          defaultValue: true,
-        },
-      ],
-    },
-    // Benefits Section
-    {
-      name: 'benefitsSection',
-      type: 'group',
-      label: 'Vorteile Sektion',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          label: 'Titel',
-          defaultValue: 'Deine Vorteile',
-        },
-        {
-          name: 'benefits',
-          type: 'array',
-          label: 'Vorteile',
-          labels: {
-            singular: 'Vorteil',
-            plural: 'Vorteile',
-          },
-          fields: [
-            {
-              name: 'title',
-              type: 'text',
-              label: 'Titel',
-              required: true,
-            },
-            {
-              name: 'description',
-              type: 'textarea',
-              label: 'Beschreibung',
-              required: true,
-            },
-          ],
-        },
-        {
-          name: 'enabled',
-          type: 'checkbox',
-          label: 'Aktiv',
-          defaultValue: true,
-        },
-      ],
-    },
-    // Example Section
-    {
-      name: 'exampleSection',
-      type: 'group',
-      label: 'Beispiel Sektion',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          label: 'Titel',
-          defaultValue: 'Ein Beispiel',
-        },
-        {
-          name: 'paragraphs',
-          type: 'array',
-          label: 'Absätze',
-          labels: {
-            singular: 'Absatz',
-            plural: 'Absätze',
+            singular: 'Button',
+            plural: 'Buttons',
           },
           fields: [
             {
               name: 'text',
-              type: 'textarea',
-              label: 'Text',
+              type: 'text',
+              label: 'Button-Text',
               required: true,
+            },
+            {
+              name: 'url',
+              type: 'text',
+              label: 'URL',
+              required: true,
+            },
+            {
+              name: 'variant',
+              type: 'select',
+              label: 'Variante',
+              options: [
+                { label: 'Standard (Blau)', value: 'default' },
+                { label: 'Dunkel', value: 'dark' },
+                { label: 'Hell', value: 'light' },
+              ],
+              defaultValue: 'default',
             },
           ],
         },
@@ -266,47 +226,29 @@ export const Buerger: GlobalConfig = {
         },
       ],
     },
-    // CTA Section
+    // Contact CTA Section
     {
-      name: 'ctaSection',
+      name: 'contactSection',
       type: 'group',
-      label: 'Call-to-Action Sektion',
+      label: 'Kontakt Sektion',
       fields: [
         {
           name: 'title',
           type: 'text',
           label: 'Titel',
-          defaultValue: 'Bereit loszulegen?',
+          defaultValue: 'Noch nicht ganz verstanden? Wir sind für Dich da!',
         },
         {
-          name: 'subtitle',
-          type: 'textarea',
-          label: 'Untertitel',
-          defaultValue: 'Lade DEMOCRACY jetzt herunter und werde Teil einer neuen Form der Bürgerbeteiligung!',
-        },
-        {
-          name: 'appStoreUrl',
+          name: 'buttonText',
           type: 'text',
-          label: 'App Store URL',
-          defaultValue: 'https://apps.apple.com/de/app/democracy-deutschland/id1356447024',
+          label: 'Button-Text',
+          defaultValue: 'KONTAKTFORMULAR',
         },
         {
-          name: 'appStoreButtonText',
+          name: 'buttonUrl',
           type: 'text',
-          label: 'App Store Button Text',
-          defaultValue: '📱 Jetzt für iOS herunterladen',
-        },
-        {
-          name: 'playStoreUrl',
-          type: 'text',
-          label: 'Play Store URL',
-          defaultValue: 'https://play.google.com/store/apps/details?id=de.democracy',
-        },
-        {
-          name: 'playStoreButtonText',
-          type: 'text',
-          label: 'Play Store Button Text',
-          defaultValue: '🤖 Jetzt für Android herunterladen',
+          label: 'Button-URL',
+          defaultValue: '/contact',
         },
         {
           name: 'enabled',
