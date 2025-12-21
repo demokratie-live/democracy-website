@@ -10,6 +10,7 @@ import { seedDonationSettings, seedDonationItems } from './donation';
 import { seedHomepage } from './homepage';
 import { seedWahlometer } from './wahlometer';
 import { seedAbout } from './about';
+import { seedBuerger } from './buerger';
 
 /**
  * Seeds all initial data on first start
@@ -41,4 +42,7 @@ export async function seedInitialData(payload: Payload) {
   
   // Seed About configuration if not exists
   await seedAbout(payload);
+  
+  // Seed Bürger configuration if not exists
+  await seedBuerger(payload);
 }

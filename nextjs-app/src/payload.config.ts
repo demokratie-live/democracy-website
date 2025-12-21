@@ -17,7 +17,7 @@ import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 
 // Import globals
-import { Homepage, Wahlometer, About } from './payload/globals';
+import { Homepage, Wahlometer, About, Buerger } from './payload/globals';
 
 // Import collections
 import {
@@ -89,7 +89,7 @@ export default buildConfig({
     AdminUsers,
     ActivityLog,
   ],
-  globals: [Homepage, Wahlometer, About],
+  globals: [Homepage, Wahlometer, About, Buerger],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'your-secret-here',
   typescript: {
