@@ -537,6 +537,10 @@ export default buildConfig({
       afterDashboard: [],
     },
     dateFormat: 'dd.MM.yyyy HH:mm',
+    timezones: {
+      defaultTimezone: 'Europe/Berlin',
+      supportedTimezones: ['Europe/Berlin', 'UTC'],
+    },
   },
   collections: [
     {

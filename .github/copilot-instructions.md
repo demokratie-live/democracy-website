@@ -23,9 +23,15 @@ nextjs-app/
 
 ## Development Setup
 
-### Docker-Based Development (Recommended)
+### ⚠️ WICHTIG: IMMER Docker verwenden!
 
-All services including Next.js run as Docker containers in daemon mode:
+**NIEMALS `pnpm dev` oder `npx next dev` direkt ausführen!**
+
+Die Entwicklung erfolgt AUSSCHLIESSLICH über Docker Compose. Dies stellt sicher, dass alle Services (PostgreSQL, MailHog, Next.js) korrekt konfiguriert und verbunden sind.
+
+### Docker-Based Development (PFLICHT)
+
+Alle Services inklusive Next.js laufen als Docker Container im Daemon-Modus:
 
 ```bash
 cd /Users/manuelruck/Work/democracy/repos/democracy-website/nextjs-app
@@ -58,14 +64,14 @@ docker-compose restart nextjs  # Restart to re-seed data
 docker-compose down
 ```
 
-### Manual Development (Alternative)
+### ❌ NICHT ERLAUBT (nur für Referenz dokumentiert)
 
-```bash
-cd /Users/manuelruck/Work/democracy/repos/democracy-website/nextjs-app
-pnpm install                    # Use pnpm only (enforced via packageManager field)
-docker-compose up -d postgres mailhog  # Start only PostgreSQL + MailHog
-pnpm dev                        # http://localhost:3000
-```
+Die folgenden Befehle sind **NICHT** zu verwenden:
+- `pnpm dev` - Startet Next.js ohne Docker-Netzwerk
+- `npx next dev` - Startet Next.js ohne Docker-Netzwerk  
+- `npm run dev` - Startet Next.js ohne Docker-Netzwerk
+
+Diese Befehle funktionieren nicht korrekt, da die Datenbank und andere Services im Docker-Netzwerk laufen.
 
 **Key services:**
 - PostgreSQL: `localhost:5432` (user: democracy, db: democracy_db)
