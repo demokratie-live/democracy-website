@@ -42,9 +42,9 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 - [x] Timeline estimation
 
 #### Key Decisions
-- **Framework**: Next.js 14+ with App Router
+- **Framework**: Next.js 16+ with App Router
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS 4 (PostCSS-based, kein tailwind.config)
 - **CMS**: Payload CMS (TypeScript-based, self-hosted)
 - **Database**: PostgreSQL with Prisma ORM
 - **Deployment**: Docker Compose
@@ -189,7 +189,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ### Phase 7: Public Pages Migration (Week 5-7)
 
-**Status**: 🔄 74% Complete (14/19 Seiten implementiert)
+**Status**: 🔄 88% Complete (15/17 eigenständige Seiten implementiert)
 
 #### Pages to Migrate (in priority order)
 
@@ -212,9 +212,9 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
    - [x] Redirect /donate → /spenden
 
 3. **FAQ Page** (/faq) ✅
-   - [x] Dynamic FAQ loading
+   - [x] Dynamic FAQ loading from Payload CMS
    - [x] Collapsible questions
-   - [x] Category filter (statt Search)
+   - [x] Category filter
 
 4. **Contact Page** (/contact) ✅
    - [x] Contact form
@@ -222,11 +222,11 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
    - [x] Success/error messages
    - [x] API integration (/api/contact)
 
-5. **About Pages**
-   - [x] /about ✅
-   - [x] /buerger ✅ (Note: Route ist /buerger, nicht /citizen)
-   - [x] /politiker ✅ (Note: Route ist /politiker, nicht /politicians)
-   - [x] /engineering ✅
+5. **About Pages** ✅
+   - [x] /about
+   - [x] /buerger
+   - [x] /politiker
+   - [x] /engineering
 
 6. **Legal Pages** ✅
    - [x] /impressum
@@ -237,13 +237,13 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
    - [x] /wahlometer ✅
    - [x] /press ✅
    - [x] /blog ✅
-   - [ ] /invite ❌
-   - [ ] /unsubscribe (/abmelden) ❌
+   - [ ] /invite ❌ (FEHLT - benötigt dynamische Route mit Code-Parameter)
+   - [ ] /abmelden ❌ (FEHLT - API existiert unter /api/unsubscribe, UI-Seite fehlt)
 
 #### Known Issues
-- Homepage links `/citizen` → sollte `/buerger` sein
-- Homepage links `/politicians` → sollte `/politiker` sein
-- Custom icon font (icon-app-store-outline) CSS möglicherweise unvollständig
+- `/invite/[code]` Seite fehlt komplett (wird in /engineering referenziert)
+- `/abmelden` UI-Seite fehlt (nur API implementiert)
+- Engineering-Seite hat Referenzen auf `/invite/C1B381E2` die aktuell 404 zurückgeben
 
 #### Design Matching
 - [x] Extract all CSS styles
@@ -253,7 +253,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 - [ ] Test all animations/transitions
 
 #### Deliverables
-- [ ] All 19 pages migrated (14/19 done)
+- [ ] All 17 Seiten migrated (15/17 done - fehlt: /invite, /abmelden)
 - [x] Responsive design verified
 - [ ] Cross-browser testing complete
 - [ ] Accessibility audit passed
@@ -262,7 +262,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ### Phase 7.4: CMS Content Migration (Week 7)
 
-**Status**: 🔄 In Progress
+**Status**: 🔄 In Progress (4 Globals + 8 Collections = 12 CMS-Entitäten vorhanden)
 
 #### Content Management Status
 
@@ -276,11 +276,13 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
 | Über uns (`/about`) | `About` Global | `src/payload/globals/about.ts` |
 | Wahl-O-Meter (`/wahlometer`) | `Wahlometer` Global | `src/payload/globals/wahlometer.ts` |
 | Bürger (`/buerger`) | `Buerger` Global | `src/payload/globals/buerger.ts` |
-| FAQ (`/faq`) | `faqs` Collection | `src/payload/collections/faqs.ts` |
-| Spenden (`/spenden`) | `donation-settings`, `donation-items` Collections | `src/payload/collections/` |
-| Blog Posts | `blog-posts` Collection | `src/payload/collections/blog-posts.ts` |
-| Team Members | `team-members` Collection | `src/payload/collections/team-members.ts` |
-| Media Coverage | `media-coverage` Collection | `src/payload/collections/media-coverage.ts` |
+| FAQ (`/faq`) | `faqs` Collection | `src/payload/collections/content.ts` |
+| Spenden (`/spenden`) | `donation-settings`, `donation-items` Collections | `src/payload/collections/donation.ts` |
+| Blog Posts | `blog-posts` Collection | `src/payload/collections/content.ts` |
+| Team Members | `team-members` Collection | `src/payload/collections/content.ts` |
+| Media Coverage | `media-coverage` Collection | `src/payload/collections/content.ts` |
+| Roadmap Items | `roadmap-items` Collection | `src/payload/collections/content.ts` |
+| Beta System | `beta-codes`, `beta-registrations` Collections | `src/payload/collections/beta.ts` |
 
 ##### ❌ Noch statische Inhalte (ausstehend):
 
@@ -325,15 +327,18 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
 
 ### Phase 8: Admin Dashboard (Week 7-9)
 
+**Status**: ✅ ~90% Complete
+
 #### Admin Layout
 - [x] Sidebar navigation (`src/components/admin/AdminSidebar.tsx`)
 - [x] Header with user menu (`src/components/admin/AdminHeader.tsx`)
 - [x] Breadcrumbs (`src/components/admin/Breadcrumbs.tsx`)
 - [x] Responsive design (mobile sidebar toggle, collapsible)
+- [x] Dark mode toggle
 
 #### Management Interfaces
 
-1. **FAQ Management** (`src/app/(public)/admin/dashboard/faqs/`)
+1. **FAQ Management** (`src/app/(public)/admin/dashboard/faqs/`) - via API, nicht direkt Payload
    - [x] List view with search/filter
    - [x] Create new FAQ (`/new/`)
    - [x] Edit existing FAQ (`/[id]/`)
@@ -361,14 +366,18 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
    - [x] Create/edit roadmap items (`/new/`, `/[id]/`)
    - [x] Status updates (planned, in-progress, completed)
    - [x] Priority management
-   - [x] Completion tracking
+   - [x] RoadmapForm.tsx für Bearbeitung
 
 5. **Donation Management** (`src/app/(public)/admin/dashboard/donations/`)
    - [x] Current progress overview (ProgressBar, Stats)
    - [x] Update donation amounts (`DonationSettingsForm.tsx`)
    - [x] Manage spending categories (`DonationItemActions.tsx`)
-   - [ ] Donor list (if applicable) - keine Spender-DB
    - [x] Analytics (Fortschrittsbalken, Statistiken)
+
+6. **Additional Admin Pages**
+   - [x] Activity Log (`/activity/`)
+   - [x] Settings (`/settings/`)
+   - [x] Profile (`/profile/`)
 
 #### Admin Features
 - [x] Authentication (login/logout) - Payload CMS Auth + `admin-auth.ts` Middleware
@@ -377,13 +386,20 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
 - [x] Dark mode toggle (im Header)
 - [x] User profile management (`/profile/` Seite)
 
+#### API Routes für Admin (`/src/app/api/admin/`)
+- [x] FAQs CRUD (`/api/admin/faqs/`)
+- [x] Media CRUD (`/api/admin/media/`)
+- [x] Roadmap CRUD (`/api/admin/roadmap/`)
+- [x] Donations Settings + Items (`/api/admin/donations/`)
+- [x] Beta Codes + Registrations (`/api/admin/beta/`)
+
 #### Deliverables
-- [x] Complete admin dashboard (~80% fertig)
-- [x] All 5 management interfaces (alle vorhanden)
+- [x] Complete admin dashboard
+- [x] All 5 management interfaces
 - [ ] Admin user guide
 - [ ] Security audit
 
-**Hinweis:** Die Prisma-Tabellen müssen mit `pnpm db:push` synchronisiert werden.
+**Hinweis:** Admin-Dashboard ist unter `/admin/dashboard` erreichbar, Payload CMS unter `/admin`.
 
 ---
 
@@ -424,18 +440,26 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
 
 ### Phase 10: Docker Configuration (Week 10)
 
-#### Services to Containerize
-- [ ] Next.js application
-- [ ] PostgreSQL database
-- [ ] Payload CMS (if separate)
+**Status**: ✅ Development Docker bereits implementiert
+
+#### Services bereits containerisiert (Development)
+- [x] Next.js application (via Dockerfile.dev)
+- [x] PostgreSQL database
+- [x] MailHog (Email Testing)
+- [x] docker-compose.yml für Development
+
+#### Services to Containerize (Production)
+- [ ] Next.js application (Production Build)
+- [ ] PostgreSQL database (Production)
 - [ ] Redis (for caching, optional)
 
 #### Configuration Files
-- [ ] Dockerfile for Next.js
-- [ ] docker-compose.yml for development
-- [ ] docker-compose.prod.yml for production
-- [ ] .dockerignore
-- [ ] Environment variable templates
+- [x] Dockerfile.dev für Next.js (Development)
+- [ ] Dockerfile für Next.js (Production)
+- [x] docker-compose.yml für Development
+- [ ] docker-compose.prod.yml für Production
+- [x] .dockerignore
+- [x] Environment variable templates (.env, .env.docker, .env.example)
 
 #### Features
 - [ ] Hot reload in development
@@ -699,14 +723,14 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
 | 4. CMS Integration | 1-2 weeks | ✅ Complete |
 | 5. API Development | 1-2 weeks | ✅ Complete |
 | 6. Component Library | 1-2 weeks | ✅ Complete |
-| 7. Pages Migration | 2-3 weeks | 🔄 74% Complete (14/19) |
-| 7.4 CMS Content Migration | 1 week | 🔄 In Progress (6/13) |
-| 8. Admin Dashboard | 2-3 weeks | 🔄 ~80% Complete |
+| 7. Pages Migration | 2-3 weeks | 🔄 88% Complete (15/17) |
+| 7.4 CMS Content Migration | 1 week | 🔄 In Progress (~70%) |
+| 8. Admin Dashboard | 2-3 weeks | ✅ ~90% Complete |
 | 9. Data Migration | 1 week | ⏳ Pending |
-| 10. Docker Config | 1 week | ⏳ Pending |
+| 10. Docker Config | 1 week | 🔄 Dev Complete, Prod Pending |
 | 11. Testing & QA | 1-2 weeks | ⏳ Pending |
 | 12. Security Audit | 1 week | ⏳ Pending |
-| 13. Documentation | 1-2 weeks | ⏳ Pending |
+| 13. Documentation | 1-2 weeks | 🔄 Teilweise vorhanden |
 | 14. Deployment Prep | 1 week | ⏳ Pending |
 | 15. Launch & Monitoring | 1-2 weeks | ⏳ Pending |
 
@@ -723,6 +747,6 @@ Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pf
 
 ---
 
-**Document Version**: 1.1  
-**Last Updated**: 21. Dezember 2024  
+**Document Version**: 1.2  
+**Last Updated**: 21. Dezember 2025  
 **Owner**: DEMOCRACY Deutschland Development Team
