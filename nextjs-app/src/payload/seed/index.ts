@@ -7,6 +7,7 @@ import { seedAdminUser } from './admin';
 import { seedFAQs } from './faqs';
 import { seedEmailLists, seedEmailTemplates } from './email';
 import { seedDonationSettings, seedDonationItems } from './donation';
+import { seedHomepage } from './homepage';
 
 /**
  * Seeds all initial data on first start
@@ -29,4 +30,7 @@ export async function seedInitialData(payload: Payload) {
   
   // Seed Donation Items if none exist
   await seedDonationItems(payload);
+  
+  // Seed Homepage configuration if not exists
+  await seedHomepage(payload);
 }

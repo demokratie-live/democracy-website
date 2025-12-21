@@ -16,6 +16,9 @@ import { buildConfig, type Payload } from 'payload';
 import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 
+// Import globals
+import { Homepage } from './payload/globals';
+
 // Import collections
 import {
   // Content
@@ -86,6 +89,7 @@ export default buildConfig({
     AdminUsers,
     ActivityLog,
   ],
+  globals: [Homepage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'your-secret-here',
   typescript: {
