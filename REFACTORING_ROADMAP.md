@@ -189,7 +189,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ### Phase 7: Public Pages Migration (Week 5-7)
 
-**Status: 74% Complete (14/19 Seiten implementiert)**
+**Status**: 🔄 74% Complete (14/19 Seiten implementiert)
 
 #### Pages to Migrate (in priority order)
 
@@ -257,6 +257,69 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 - [x] Responsive design verified
 - [ ] Cross-browser testing complete
 - [ ] Accessibility audit passed
+
+---
+
+### Phase 7.4: CMS Content Migration (Week 7)
+
+**Status**: 🔄 In Progress
+
+#### Content Management Status
+
+Die folgende Übersicht zeigt, welche Seiteninhalte bereits über Payload CMS pflegbar sind und welche noch statisch im Code liegen.
+
+##### ✅ Bereits über CMS pflegbar:
+
+| Seite | CMS Global/Collection | Datei |
+|-------|----------------------|-------|
+| Homepage (`/`) | `Homepage` Global | `src/payload/globals/homepage.ts` |
+| Über uns (`/about`) | `About` Global | `src/payload/globals/about.ts` |
+| Wahl-O-Meter (`/wahlometer`) | `Wahlometer` Global | `src/payload/globals/wahlometer.ts` |
+| Bürger (`/buerger`) | `Buerger` Global | `src/payload/globals/buerger.ts` |
+| FAQ (`/faq`) | `faqs` Collection | `src/payload/collections/faqs.ts` |
+| Spenden (`/spenden`) | `donation-settings`, `donation-items` Collections | `src/payload/collections/` |
+| Blog Posts | `blog-posts` Collection | `src/payload/collections/blog-posts.ts` |
+| Team Members | `team-members` Collection | `src/payload/collections/team-members.ts` |
+| Media Coverage | `media-coverage` Collection | `src/payload/collections/media-coverage.ts` |
+
+##### ❌ Noch statische Inhalte (ausstehend):
+
+| Seite | Statische Inhalte | Priorität | Aufwand |
+|-------|-------------------|-----------|---------|
+| **Politiker** (`/politiker`) | 6 Benefits, 3 Use Cases, 3 Stats, 5 FAQs, SEO | **Hoch** | 2-3h |
+| **Engineering** (`/engineering`) | 68 Roadmap-Items, Tech-Stack, Formulare | **Hoch** | 4-6h |
+| **Presse** (`/press`) | 6 Press-Kit Items, 9 Blog Posts, 20 Presseartikel, 6 Publikationen | **Hoch** | 3-4h |
+| **Datenschutz** (`/datenschutz`) | Gesamte Datenschutzerklärung (~2000 Wörter) | Mittel | 1-2h |
+| **Impressum** (`/impressum`) | Impressum, Adresse, Kontaktdaten | Mittel | 1h |
+| **Nutzungsbedingungen** (`/nutzungsbedingungen`) | Gesamte AGB (~11 Abschnitte) | Mittel | 1-2h |
+| **Kontakt** (`/contact`) | Kontaktdaten (Adresse, Telefon, Email) | Niedrig | 0.5h |
+
+##### Empfohlene Implementierungsreihenfolge:
+
+1. **Politiker Global** (`src/payload/globals/politiker.ts`)
+   - [ ] Global Schema erstellen (benefits, useCases, stats, faqs Sektionen)
+   - [ ] Seed-Datei erstellen
+   - [ ] Seite refaktorieren
+
+2. **Engineering Global** (`src/payload/globals/engineering.ts`)
+   - [ ] Global Schema erstellen (roadmap, techStack, forms Sektionen)
+   - [ ] Seed-Datei erstellen
+   - [ ] Seite refaktorieren
+
+3. **Presse-Seite** - MediaCoverage Collection nutzen
+   - [ ] Bestehende `media-coverage` Collection in `/press/page.tsx` einbinden
+   - [ ] Press-Kit als separate Sektion/Global
+
+4. **Legal Pages Global** (`src/payload/globals/legal.ts`)
+   - [ ] Datenschutz, Impressum, Nutzungsbedingungen als Rich-Text Felder
+   - [ ] Seiten refaktorieren
+
+#### Deliverables
+- [ ] Politiker Global + Seed + Page Refactoring
+- [ ] Engineering Global + Seed + Page Refactoring
+- [ ] Presse-Seite mit CMS-Daten
+- [ ] Legal Pages Global
+- [ ] 100% der Inhalte über CMS pflegbar
 
 ---
 
@@ -631,13 +694,14 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 | Phase | Duration | Status |
 |-------|----------|--------|
 | 1. Foundation & Planning | 1 week | ✅ Complete |
-| 2. Environment Setup | 1 week | ⏳ Pending |
-| 3. Database Design | 1 week | ⏳ Pending |
-| 4. CMS Integration | 1-2 weeks | ⏳ Pending |
-| 5. API Development | 1-2 weeks | ⏳ Pending |
-| 6. Component Library | 1-2 weeks | ⏳ Pending |
-| 7. Pages Migration | 2-3 weeks | ⏳ Pending |
-| 8. Admin Dashboard | 2-3 weeks | ⏳ Pending |
+| 2. Environment Setup | 1 week | ✅ Complete |
+| 3. Database Design | 1 week | ✅ Complete |
+| 4. CMS Integration | 1-2 weeks | ✅ Complete |
+| 5. API Development | 1-2 weeks | ✅ Complete |
+| 6. Component Library | 1-2 weeks | ✅ Complete |
+| 7. Pages Migration | 2-3 weeks | 🔄 74% Complete (14/19) |
+| 7.4 CMS Content Migration | 1 week | 🔄 In Progress (6/13) |
+| 8. Admin Dashboard | 2-3 weeks | 🔄 ~80% Complete |
 | 9. Data Migration | 1 week | ⏳ Pending |
 | 10. Docker Config | 1 week | ⏳ Pending |
 | 11. Testing & QA | 1-2 weeks | ⏳ Pending |
@@ -659,6 +723,6 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: December 2024  
+**Document Version**: 1.1  
+**Last Updated**: 21. Dezember 2024  
 **Owner**: DEMOCRACY Deutschland Development Team
