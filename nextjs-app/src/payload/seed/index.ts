@@ -8,6 +8,7 @@ import { seedFAQs } from './faqs';
 import { seedEmailLists, seedEmailTemplates } from './email';
 import { seedDonationSettings, seedDonationItems } from './donation';
 import { seedHomepage } from './homepage';
+import { seedWahlometer } from './wahlometer';
 
 /**
  * Seeds all initial data on first start
@@ -33,4 +34,7 @@ export async function seedInitialData(payload: Payload) {
   
   // Seed Homepage configuration if not exists
   await seedHomepage(payload);
+  
+  // Seed Wahlometer configuration if not exists
+  await seedWahlometer(payload);
 }
