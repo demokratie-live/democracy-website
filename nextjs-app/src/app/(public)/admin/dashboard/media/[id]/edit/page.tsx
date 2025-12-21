@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { MediaForm } from '../../MediaForm';
 
 interface EditMediaPageProps {
@@ -7,9 +8,16 @@ interface EditMediaPageProps {
 }
 
 async function getMedia(id: string) {
-  return prisma.media.findUnique({
-    where: { id },
-  });
+  const payload = await getPayload({ config: configPromise });
+  try {
+    const result = await payload.findByID({
+      collection: 'media-coverage',
+      id,
+    });
+    return result;
+  } catch {
+    return null;
+  }
 }
 
 export default async function EditMediaPage({ params }: EditMediaPageProps) {

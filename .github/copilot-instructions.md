@@ -23,11 +23,47 @@ nextjs-app/
 
 ## Development Setup
 
+### Docker-Based Development (Recommended)
+
+All services including Next.js run as Docker containers in daemon mode:
+
 ```bash
-cd nextjs-app
+cd /Users/manuelruck/Work/democracy/repos/democracy-website/nextjs-app
+
+# Start all services (PostgreSQL, MailHog, Next.js) in background
+docker-compose up -d
+
+# View logs (follow mode)
+docker-compose logs -f nextjs      # Next.js logs only
+docker-compose logs -f             # All services
+docker logs democracy-nextjs -f    # Alternative for Next.js
+
+# Restart Next.js app (after code changes that require restart)
+docker-compose restart nextjs
+
+# Full reset (stop, remove containers, rebuild)
+docker-compose down && docker-compose up -d
+
+# Rebuild Next.js image (after package.json or pnpm-lock.yaml changes)
+docker-compose build nextjs && docker-compose up -d
+
+# Hard reset (including volumes - clears database)
+docker-compose down -v && docker-compose up -d
+
+# Database reset (clear all data)
+docker exec democracy-postgres psql -U democracy -d democracy_db -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+docker-compose restart nextjs  # Restart to re-seed data
+
+# Stop all services
+docker-compose down
+```
+
+### Manual Development (Alternative)
+
+```bash
+cd /Users/manuelruck/Work/democracy/repos/democracy-website/nextjs-app
 pnpm install                    # Use pnpm only (enforced via packageManager field)
-docker-compose up -d            # Start PostgreSQL + MailHog
-pnpm db:generate && pnpm db:push
+docker-compose up -d postgres mailhog  # Start only PostgreSQL + MailHog
 pnpm dev                        # http://localhost:3000
 ```
 
@@ -35,6 +71,33 @@ pnpm dev                        # http://localhost:3000
 - PostgreSQL: `localhost:5432` (user: democracy, db: democracy_db)
 - MailHog UI: `localhost:8025` (for testing emails)
 - Payload Admin: `localhost:3000/admin`
+- Next.js: `localhost:3000`
+
+**Payload CMS REST API:**
+Für programmatischen Zugriff auf Payload CMS Daten (Login, CRUD-Operationen, Medien-Upload) siehe [`nextjs-app/PAYLOAD_API_ACCESS.md`](../nextjs-app/PAYLOAD_API_ACCESS.md).
+
+**Default Admin Login (local development):**
+- E-Mail: `admin@democracy-deutschland.de`
+- Password: `admin123`
+
+**Environment Files:**
+- `.env` - Local development (localhost)
+- `.env.docker` - Docker development (uses Docker network hostnames)
+- `.env.example` - Template for new developers
+
+## Debugging
+
+**Always check Docker logs to debug errors:**
+```bash
+# Check Next.js logs for runtime errors
+docker logs democracy-nextjs --tail 100
+
+# Check PostgreSQL logs for database issues
+docker logs democracy-postgres --tail 100
+
+# Watch logs in real-time while testing
+docker-compose logs -f
+```
 
 ## Code Patterns
 

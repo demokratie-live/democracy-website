@@ -1,14 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader } from '@/components/admin';
 import { Button } from '@/components/ui';
 import { RoadmapBoard } from './RoadmapBoard';
 
 async function getRoadmapItems() {
-  return prisma.roadmap.findMany({
-    orderBy: { priority: 'asc' },
+  const payload = await getPayload({ config: configPromise });
+  const result = await payload.find({
+    collection: 'roadmap-items',
+    sort: 'priority',
+    limit: 100,
   });
+  return result.docs;
 }
 
 export default async function RoadmapPage() {

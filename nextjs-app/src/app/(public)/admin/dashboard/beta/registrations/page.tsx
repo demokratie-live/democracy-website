@@ -1,11 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader, StatsCard, DataTable } from '@/components/admin';
 import { formatDate } from '@/lib/utils';
 import { ExportButton } from './ExportButton';
 
 async function getBetaStats() {
+  const payload = await getPayload({ config: configPromise });
+  
   const [
     totalRegistrations,
     iosRegistrations,
@@ -14,42 +17,43 @@ async function getBetaStats() {
     activeCodes,
     totalCodes,
   ] = await Promise.all([
-    prisma.betaRegistration.count(),
-    prisma.betaRegistration.count({ where: { ios: true } }),
-    prisma.betaRegistration.count({ where: { android: true } }),
-    prisma.betaRegistration.count({ where: { newsletter: true } }),
-    prisma.betaCode.count({ where: { active: true } }),
-    prisma.betaCode.count(),
+    payload.find({ collection: 'beta-registrations', limit: 0 }),
+    payload.find({ collection: 'beta-registrations', where: { ios: { equals: true } }, limit: 0 }),
+    payload.find({ collection: 'beta-registrations', where: { android: { equals: true } }, limit: 0 }),
+    payload.find({ collection: 'beta-registrations', where: { newsletter: { equals: true } }, limit: 0 }),
+    payload.find({ collection: 'beta-codes', where: { active: { equals: true } }, limit: 0 }),
+    payload.find({ collection: 'beta-codes', limit: 0 }),
   ]);
 
   // Get registrations per week
   const weekAgo = new Date();
   weekAgo.setDate(weekAgo.getDate() - 7);
-  const thisWeek = await prisma.betaRegistration.count({
-    where: { createdAt: { gte: weekAgo } },
+  const thisWeekResult = await payload.find({
+    collection: 'beta-registrations',
+    where: { createdAt: { greater_than: weekAgo.toISOString() } },
+    limit: 0,
   });
 
   return {
-    totalRegistrations,
-    iosRegistrations,
-    androidRegistrations,
-    newsletterSubscribers,
-    activeCodes,
-    totalCodes,
-    thisWeek,
+    totalRegistrations: totalRegistrations.totalDocs,
+    iosRegistrations: iosRegistrations.totalDocs,
+    androidRegistrations: androidRegistrations.totalDocs,
+    newsletterSubscribers: newsletterSubscribers.totalDocs,
+    activeCodes: activeCodes.totalDocs,
+    totalCodes: totalCodes.totalDocs,
+    thisWeek: thisWeekResult.totalDocs,
   };
 }
 
 async function getRecentRegistrations() {
-  return prisma.betaRegistration.findMany({
-    take: 10,
-    orderBy: { createdAt: 'desc' },
-    include: {
-      code: {
-        select: { code: true },
-      },
-    },
+  const payload = await getPayload({ config: configPromise });
+  const result = await payload.find({
+    collection: 'beta-registrations',
+    limit: 10,
+    sort: '-createdAt',
+    depth: 1, // Include related betaCode
   });
+  return result.docs;
 }
 
 export default async function BetaRegistrationsPage() {

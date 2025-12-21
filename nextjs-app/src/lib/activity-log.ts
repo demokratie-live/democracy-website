@@ -1,4 +1,5 @@
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 
 type ActivityAction = 'create' | 'update' | 'delete' | 'login' | 'logout';
 type EntityType = 'FAQ' | 'Media' | 'Roadmap' | 'Donation' | 'BetaCode' | 'BetaRegistration' | 'User' | 'DonationSettings';
@@ -25,19 +26,20 @@ export async function logActivity({
   details,
   userId,
   ipAddress,
-  userAgent,
 }: LogActivityParams) {
   try {
-    await prisma.activityLog.create({
+    const payload = await getPayload({ config: configPromise });
+    
+    await payload.create({
+      collection: 'activity-logs',
       data: {
         action,
         entityType,
         entityId,
-        entityTitle: entityTitle || null,
-        details: details ? JSON.stringify(details) : null,
-        userId: userId || null,
-        ipAddress: ipAddress || null,
-        userAgent: userAgent || null,
+        entityTitle: entityTitle || undefined,
+        details: details || undefined,
+        userId: userId || undefined,
+        ipAddress: ipAddress || undefined,
       },
     });
   } catch (error) {

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { BetaCodeForm } from '../../BetaCodeForm';
 
 interface EditBetaCodePageProps {
@@ -7,9 +8,15 @@ interface EditBetaCodePageProps {
 }
 
 async function getBetaCode(id: string) {
-  return prisma.betaCode.findUnique({
-    where: { id },
-  });
+  const payload = await getPayload({ config: configPromise });
+  try {
+    return await payload.findByID({
+      collection: 'beta-codes',
+      id,
+    });
+  } catch {
+    return null;
+  }
 }
 
 export default async function EditBetaCodePage({ params }: EditBetaCodePageProps) {

@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contactFormSchema } from '@/lib/validation';
 import { sendEmail } from '@/lib/email';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { z } from 'zod';
 
 export async function POST(request: NextRequest) {
@@ -11,16 +12,19 @@ export async function POST(request: NextRequest) {
     // Validate request body
     const validated = contactFormSchema.parse(body);
     
+    const payload = await getPayload({ config: configPromise });
+    
     // Create contact record
-    const contact = await prisma.contact.create({
+    const contact = await payload.create({
+      collection: 'contacts',
       data: {
         email: validated.email,
         type: validated.type,
-        vorname: validated.vorname || null,
-        nachname: validated.nachname || null,
-        name: validated.name || null,
+        vorname: validated.vorname || undefined,
+        nachname: validated.nachname || undefined,
+        name: validated.name || undefined,
         message: validated.message,
-        files: validated.files || null,
+        files: validated.files || undefined,
       },
     });
     

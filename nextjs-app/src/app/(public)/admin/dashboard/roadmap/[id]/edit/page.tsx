@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { RoadmapForm } from '../../RoadmapForm';
 
 interface EditRoadmapPageProps {
@@ -7,9 +8,15 @@ interface EditRoadmapPageProps {
 }
 
 async function getRoadmapItem(id: string) {
-  return prisma.roadmap.findUnique({
-    where: { id },
-  });
+  const payload = await getPayload({ config: configPromise });
+  try {
+    return await payload.findByID({
+      collection: 'roadmap-items',
+      id,
+    });
+  } catch {
+    return null;
+  }
 }
 
 export default async function EditRoadmapPage({ params }: EditRoadmapPageProps) {

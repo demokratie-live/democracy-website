@@ -70,48 +70,9 @@ async function main() {
 
   console.log('✅ Created email templates');
 
-  // Create sample FAQ entries
-  console.log('Creating FAQ entries...');
-  await prisma.faq.upsert({
-    where: { id: 'sample-faq-1' },
-    update: {},
-    create: {
-      id: 'sample-faq-1',
-      question: 'Was ist DEMOCRACY?',
-      answer:
-        'DEMOCRACY ist eine App, mit der du über Abstimmungen im Deutschen Bundestag mitentscheiden kannst, als wärst du selbst Bundestagsabgeordneter.',
-      order: 1,
-      active: true,
-    },
-  });
-
-  await prisma.faq.upsert({
-    where: { id: 'sample-faq-2' },
-    update: {},
-    create: {
-      id: 'sample-faq-2',
-      question: 'Wie funktioniert DEMOCRACY?',
-      answer:
-        'Du lädst dir die App herunter, wählst Themen aus, die dich interessieren, informierst dich über die Vorgänge und stimmst ab. Deine Stimme wird mit dem tatsächlichen Abstimmungsergebnis des Bundestages verglichen.',
-      order: 2,
-      active: true,
-    },
-  });
-
-  await prisma.faq.upsert({
-    where: { id: 'sample-faq-3' },
-    update: {},
-    create: {
-      id: 'sample-faq-3',
-      question: 'Ist DEMOCRACY kostenlos?',
-      answer:
-        'Ja, DEMOCRACY ist komplett kostenlos und wird durch Spenden finanziert. Es gibt keine Werbung und keine versteckten Kosten.',
-      order: 3,
-      active: true,
-    },
-  });
-
-  console.log('✅ Created FAQ entries');
+  // Note: FAQs are managed by Payload CMS
+  // Run `pnpm seed:faqs` to import FAQs to Payload CMS
+  console.log('ℹ️  FAQs werden über Payload CMS verwaltet. Nutze `pnpm seed:faqs` zum Importieren.');
 
   // Create donation settings
   console.log('Creating donation settings...');
@@ -208,24 +169,8 @@ async function main() {
 
   console.log('✅ Created beta codes');
 
-  // Create admin user (password: admin123)
-  console.log('Creating admin user...');
-  const bcrypt = await import('bcryptjs');
-  const hashedPassword = await bcrypt.hash('admin123', 10);
-
-  await prisma.adminUser.upsert({
-    where: { email: 'admin@democracy-deutschland.de' },
-    update: {},
-    create: {
-      email: 'admin@democracy-deutschland.de',
-      passwordHash: hashedPassword,
-      name: 'Admin User',
-      role: 'admin',
-      active: true,
-    },
-  });
-
-  console.log('✅ Created admin user (email: admin@democracy-deutschland.de, password: admin123)');
+  // Note: Admin users are managed by Payload CMS
+  console.log('ℹ️  Admin-Benutzer werden über Payload CMS verwaltet.');
 
   // Create sample roadmap items
   console.log('Creating roadmap items...');

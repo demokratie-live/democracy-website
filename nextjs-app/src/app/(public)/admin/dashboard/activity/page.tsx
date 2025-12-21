@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader, DataTable } from '@/components/admin';
 import { formatDate } from '@/lib/utils';
 
@@ -11,22 +12,28 @@ interface ActivityLogEntry {
   entityId: string | null;
   entityTitle: string | null;
   ipAddress: string | null;
-  createdAt: Date;
-  user: { name: string | null; email: string } | null;
+  createdAt: string;
+  userName?: string | null;
 }
 
 async function getActivityLogs(): Promise<ActivityLogEntry[]> {
   try {
-    // @ts-expect-error - ActivityLog model exists after prisma generate
-    return await prisma.activityLog.findMany({
-      take: 100,
-      orderBy: { createdAt: 'desc' },
-      include: {
-        user: {
-          select: { name: true, email: true },
-        },
-      },
+    const payload = await getPayload({ config: configPromise });
+    const result = await payload.find({
+      collection: 'activity-logs',
+      limit: 100,
+      sort: '-createdAt',
     });
+    return result.docs.map(doc => ({
+      id: String(doc.id),
+      action: doc.action,
+      entityType: doc.entityType,
+      entityId: doc.entityId || null,
+      entityTitle: doc.entityTitle || null,
+      ipAddress: doc.ipAddress || null,
+      createdAt: doc.createdAt,
+      userName: doc.userName || null,
+    }));
   } catch {
     return [];
   }
@@ -104,13 +111,8 @@ export default async function ActivityLogPage() {
       render: (log: ActivityLogEntry) => (
         <div className="text-sm">
           <p className="text-gray-900 dark:text-white">
-            {log.user?.name || 'System'}
+            {log.userName || 'System'}
           </p>
-          {log.user?.email && (
-            <p className="text-gray-500 dark:text-gray-400 text-xs">
-              {log.user.email}
-            </p>
-          )}
         </div>
       ),
     },

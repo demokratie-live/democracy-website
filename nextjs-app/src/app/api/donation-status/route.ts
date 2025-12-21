@@ -1,12 +1,19 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { NextResponse } from 'next/server';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
+    const payload = await getPayload({ config: configPromise });
+    
     // Get donation settings
-    const settings = await prisma.donationSettings.findFirst({
-      orderBy: { createdAt: 'desc' },
+    const settingsResult = await payload.find({
+      collection: 'donation-settings',
+      limit: 1,
+      sort: '-createdAt',
     });
+    
+    const settings = settingsResult.docs[0];
     
     if (!settings) {
       return NextResponse.json(
@@ -16,24 +23,28 @@ export async function GET(request: NextRequest) {
     }
     
     // Get all donation items
-    const items = await prisma.donationItem.findMany({
-      where: { active: true },
-      orderBy: { order: 'asc' },
+    const itemsResult = await payload.find({
+      collection: 'donation-items',
+      where: { active: { equals: true } },
+      sort: 'order',
+      limit: 100,
     });
     
+    const items = itemsResult.docs;
+    
     // Calculate percentages
-    const donationPercentage = settings.goal > 0 
-      ? Math.round((settings.currentAmount / settings.goal) * 100)
+    const donationPercentage = settings.goalValue > 0 
+      ? Math.round((settings.currentValue / settings.goalValue) * 100)
       : 0;
     
-    const patensPercentage = settings.patensGoal > 0
-      ? Math.round((settings.currentPatens / settings.patensGoal) * 100)
+    const patensPercentage = settings.patronsGoal > 0
+      ? Math.round((settings.patrons / settings.patronsGoal) * 100)
       : 0;
     
     // Format donation items
     const donationData = items.map(item => {
-      const percentage = item.max > 0
-        ? Math.round((item.value / item.max) * 100)
+      const percentage = item.maxValue > 0
+        ? Math.round((item.value / item.maxValue) * 100)
         : 0;
       
       return {
@@ -43,18 +54,18 @@ export async function GET(request: NextRequest) {
         title: item.title,
         description: item.description,
         value: item.value,
-        max: item.max,
+        max: item.maxValue,
         percentage: percentage,
       };
     });
     
     return NextResponse.json({ 
       success: true,
-      donation_value: settings.currentAmount,
-      donation_value_goal: settings.goal,
+      donation_value: settings.currentValue,
+      donation_value_goal: settings.goalValue,
       donation_percentage: donationPercentage,
-      donation_patens: settings.currentPatens,
-      donation_patens_goal: settings.patensGoal,
+      donation_patens: settings.patrons,
+      donation_patens_goal: settings.patronsGoal,
       patens_percentage: patensPercentage,
       donation_data: donationData,
     });

@@ -1,20 +1,37 @@
 import React from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader, DataTable, StatusBadge } from '@/components/admin';
 import { Button } from '@/components/ui';
 import { formatDate } from '@/lib/utils';
 import { BetaCodeActions } from './BetaCodeActions';
 
 async function getBetaCodes() {
-  return prisma.betaCode.findMany({
-    orderBy: { createdAt: 'desc' },
-    include: {
-      _count: {
-        select: { registrations: true },
-      },
-    },
+  const payload = await getPayload({ config: configPromise });
+  const result = await payload.find({
+    collection: 'beta-codes',
+    sort: '-createdAt',
+    limit: 100,
   });
+  
+  // Get registration counts for each code
+  const codesWithCounts = await Promise.all(
+    result.docs.map(async (code) => {
+      const regs = await payload.find({
+        collection: 'beta-registrations',
+        where: { betaCode: { equals: code.id } },
+        limit: 0,
+      });
+      return {
+        ...code,
+        uses: code.usedCount || 0,
+        _count: { registrations: regs.totalDocs },
+      };
+    })
+  );
+  
+  return codesWithCounts;
 }
 
 export default async function BetaCodesPage() {

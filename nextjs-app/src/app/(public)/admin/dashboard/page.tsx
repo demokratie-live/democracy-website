@@ -1,53 +1,65 @@
 import React from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader, StatsCard, ProgressBar } from '@/components/admin';
 import { formatDate, formatCurrency } from '@/lib/utils';
 
 // Dashboard data fetching
 async function getDashboardStats() {
+  const payload = await getPayload({ config: configPromise });
+  
+  // Fetch FAQ count from Payload CMS
+  let faqCount = 0;
+  try {
+    const faqs = await payload.find({
+      collection: 'faqs',
+      where: { active: { equals: true } },
+      limit: 0, // Just get count
+    });
+    faqCount = faqs.totalDocs;
+  } catch {
+    console.error('Failed to fetch FAQ count from Payload');
+  }
+
   const [
-    faqCount,
-    betaRegistrations,
-    betaCodes,
-    donationSettings,
+    betaRegistrationsResult,
+    betaCodesResult,
+    donationSettingsResult,
   ] = await Promise.all([
-    prisma.faq.count({ where: { active: true } }),
-    prisma.betaRegistration.count(),
-    prisma.betaCode.count({ where: { active: true } }),
-    prisma.donationSettings.findFirst(),
+    payload.find({ collection: 'beta-registrations', limit: 0 }),
+    payload.find({ collection: 'beta-codes', where: { active: { equals: true } }, limit: 0 }),
+    payload.find({ collection: 'donation-settings', limit: 1 }),
   ]);
 
   // Get recent registrations for the week
   const weekAgo = new Date();
   weekAgo.setDate(weekAgo.getDate() - 7);
-  const recentRegistrations = await prisma.betaRegistration.count({
-    where: { createdAt: { gte: weekAgo } },
+  const recentRegistrationsResult = await payload.find({
+    collection: 'beta-registrations',
+    where: { createdAt: { greater_than: weekAgo.toISOString() } },
+    limit: 0,
   });
 
   return {
     faqCount,
-    betaRegistrations,
-    betaCodes,
-    recentRegistrations,
-    donationSettings,
+    betaRegistrations: betaRegistrationsResult.totalDocs,
+    betaCodes: betaCodesResult.totalDocs,
+    recentRegistrations: recentRegistrationsResult.totalDocs,
+    donationSettings: donationSettingsResult.docs[0],
   };
 }
 
 async function getRecentActivity() {
-  const recentRegistrations = await prisma.betaRegistration.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' },
-    select: {
-      id: true,
-      email: true,
-      ios: true,
-      android: true,
-      createdAt: true,
-    },
+  const payload = await getPayload({ config: configPromise });
+  
+  const recentRegistrations = await payload.find({
+    collection: 'beta-registrations',
+    limit: 5,
+    sort: '-createdAt',
   });
 
-  return recentRegistrations.map((reg) => ({
+  return recentRegistrations.docs.map((reg) => ({
     id: reg.id,
     action: 'Beta Registrierung',
     description: reg.email,
@@ -204,7 +216,7 @@ export default async function AdminDashboardPage() {
           
           <div className="grid grid-cols-2 gap-3">
             <Link
-              href="/admin/dashboard/faqs/new"
+              href="/admin/collections/faqs/create"
               className="flex flex-col items-center p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
               <svg className="w-8 h-8 mb-2" style={{ color: 'rgb(68, 148, 211)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">

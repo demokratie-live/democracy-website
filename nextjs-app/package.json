@@ -15,6 +15,7 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:seed": "tsx prisma/seed.ts",
+    "seed:faqs": "cross-env NODE_OPTIONS='--no-deprecation' tsx scripts/seed-faqs.ts",
     "type-check": "tsc --noEmit",
     "payload": "cross-env NODE_OPTIONS='--no-deprecation' payload",
     "generate:types": "cross-env NODE_OPTIONS='--no-deprecation' payload generate:types",

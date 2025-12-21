@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { z } from 'zod';
 
 const unsubscribeSchema = z.object({
@@ -14,43 +15,66 @@ export async function POST(request: NextRequest) {
     // Validate request body
     const validated = unsubscribeSchema.parse(body);
     
+    const payload = await getPayload({ config: configPromise });
+    
     if (validated.list) {
       // Unsubscribe from specific list
-      const list = await prisma.emailList.findFirst({
-        where: { name: validated.list },
+      const list = await payload.find({
+        collection: 'email-lists',
+        where: { name: { equals: validated.list } },
+        limit: 1,
       });
       
-      if (!list) {
+      if (list.totalDocs === 0) {
         return NextResponse.json(
           { success: false, error: 'Liste nicht gefunden' },
           { status: 404 }
         );
       }
       
-      await prisma.emailListMember.updateMany({
+      // Find and update member
+      const member = await payload.find({
+        collection: 'email-list-members',
         where: {
-          listId: list.id,
-          email: validated.email,
+          and: [
+            { list: { equals: list.docs[0].id } },
+            { email: { equals: validated.email } },
+          ],
         },
-        data: {
-          subscribed: false,
-        },
+        limit: 1,
       });
+      
+      if (member.docs[0]) {
+        await payload.update({
+          collection: 'email-list-members',
+          id: member.docs[0].id,
+          data: {
+            subscribed: false,
+          },
+        });
+      }
       
       return NextResponse.json({ 
         success: true, 
-        message: `Sie wurden erfolgreich von der Liste "${list.name}" abgemeldet`
+        message: `Sie wurden erfolgreich von der Liste "${list.docs[0].name}" abgemeldet`
       });
     } else {
       // Unsubscribe from all lists
-      await prisma.emailListMember.updateMany({
-        where: {
-          email: validated.email,
-        },
-        data: {
-          subscribed: false,
-        },
+      const members = await payload.find({
+        collection: 'email-list-members',
+        where: { email: { equals: validated.email } },
+        limit: 100,
       });
+      
+      for (const member of members.docs) {
+        await payload.update({
+          collection: 'email-list-members',
+          id: member.id,
+          data: {
+            subscribed: false,
+          },
+        });
+      }
       
       return NextResponse.json({ 
         success: true, 
@@ -90,28 +114,43 @@ export async function GET(request: NextRequest) {
     // Validate email
     const validated = unsubscribeSchema.parse({ email, list: list || undefined });
     
+    const payload = await getPayload({ config: configPromise });
+    
     if (validated.list) {
       // Unsubscribe from specific list
-      const emailList = await prisma.emailList.findFirst({
-        where: { name: validated.list },
+      const emailList = await payload.find({
+        collection: 'email-lists',
+        where: { name: { equals: validated.list } },
+        limit: 1,
       });
       
-      if (!emailList) {
+      if (emailList.totalDocs === 0) {
         return new NextResponse('Liste nicht gefunden', { status: 404 });
       }
       
-      await prisma.emailListMember.updateMany({
+      const member = await payload.find({
+        collection: 'email-list-members',
         where: {
-          listId: emailList.id,
-          email: validated.email,
+          and: [
+            { list: { equals: emailList.docs[0].id } },
+            { email: { equals: validated.email } },
+          ],
         },
-        data: {
-          subscribed: false,
-        },
+        limit: 1,
       });
       
+      if (member.docs[0]) {
+        await payload.update({
+          collection: 'email-list-members',
+          id: member.docs[0].id,
+          data: {
+            subscribed: false,
+          },
+        });
+      }
+      
       return new NextResponse(
-        `Sie wurden erfolgreich von der Liste "${emailList.name}" abgemeldet.`,
+        `Sie wurden erfolgreich von der Liste "${emailList.docs[0].name}" abgemeldet.`,
         { 
           status: 200,
           headers: { 'Content-Type': 'text/html; charset=utf-8' }
@@ -119,14 +158,21 @@ export async function GET(request: NextRequest) {
       );
     } else {
       // Unsubscribe from all lists
-      await prisma.emailListMember.updateMany({
-        where: {
-          email: validated.email,
-        },
-        data: {
-          subscribed: false,
-        },
+      const members = await payload.find({
+        collection: 'email-list-members',
+        where: { email: { equals: validated.email } },
+        limit: 100,
       });
+      
+      for (const member of members.docs) {
+        await payload.update({
+          collection: 'email-list-members',
+          id: member.id,
+          data: {
+            subscribed: false,
+          },
+        });
+      }
       
       return new NextResponse(
         'Sie wurden erfolgreich von allen Listen abgemeldet.',

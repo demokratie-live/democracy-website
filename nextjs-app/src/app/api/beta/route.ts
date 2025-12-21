@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { betaRegistrationSchema } from '@/lib/validation';
 import { sendEmail } from '@/lib/email';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { z } from 'zod';
 
 export async function POST(request: NextRequest) {
@@ -11,10 +12,16 @@ export async function POST(request: NextRequest) {
     // Validate request body
     const validated = betaRegistrationSchema.parse(body);
     
+    const payload = await getPayload({ config: configPromise });
+    
     // Validate beta code
-    const betaCode = await prisma.betaCode.findUnique({
-      where: { code: validated.code },
+    const betaCodeResult = await payload.find({
+      collection: 'beta-codes',
+      where: { code: { equals: validated.code } },
+      limit: 1,
     });
+    
+    const betaCode = betaCodeResult.docs[0];
     
     if (!betaCode) {
       return NextResponse.json(
@@ -31,11 +38,7 @@ export async function POST(request: NextRequest) {
     }
     
     // Check if code has reached max uses
-    const currentUses = await prisma.betaRegistration.count({
-      where: { betaCodeId: betaCode.id },
-    });
-    
-    if (betaCode.maxUses && currentUses >= betaCode.maxUses) {
+    if (betaCode.maxUses && (betaCode.usedCount || 0) >= betaCode.maxUses) {
       return NextResponse.json(
         { success: false, error: 'Dieser Beta-Code wurde bereits zu oft verwendet' },
         { status: 400 }
@@ -43,28 +46,34 @@ export async function POST(request: NextRequest) {
     }
     
     // Check if email already used this code
-    const existingRegistration = await prisma.betaRegistration.findFirst({
+    const existingRegistration = await payload.find({
+      collection: 'beta-registrations',
       where: {
-        betaCodeId: betaCode.id,
-        email: validated.email,
+        and: [
+          { betaCode: { equals: betaCode.id } },
+          { email: { equals: validated.email } },
+        ],
       },
+      limit: 1,
     });
     
-    if (existingRegistration) {
+    if (existingRegistration.totalDocs > 0) {
       return NextResponse.json(
         { success: false, error: 'Diese E-Mail wurde bereits mit diesem Code registriert' },
         { status: 400 }
       );
     }
     
-    // Check if email already exists in contacts
-    let contact = await prisma.contact.findUnique({
-      where: { email: validated.email },
+    // Check if contact exists, create if not
+    const existingContact = await payload.find({
+      collection: 'contacts',
+      where: { email: { equals: validated.email } },
+      limit: 1,
     });
     
-    // Create contact if doesn't exist
-    if (!contact) {
-      contact = await prisma.contact.create({
+    if (existingContact.totalDocs === 0) {
+      await payload.create({
+        collection: 'contacts',
         data: {
           email: validated.email,
           type: 'beta',
@@ -74,33 +83,50 @@ export async function POST(request: NextRequest) {
     }
     
     // Create beta registration
-    await prisma.betaRegistration.create({
+    await payload.create({
+      collection: 'beta-registrations',
       data: {
-        betaCodeId: betaCode.id,
+        betaCode: betaCode.id,
         email: validated.email,
         ios: validated.ios,
         android: validated.android,
+        newsletter: validated.newsletter,
       },
     });
     
-    // Get alpha list
-    const alphaList = await prisma.emailList.findFirst({
-      where: { name: 'alpha' },
+    // Update beta code usage count
+    await payload.update({
+      collection: 'beta-codes',
+      id: betaCode.id,
+      data: {
+        usedCount: (betaCode.usedCount || 0) + 1,
+      },
     });
     
-    // Add to alpha list if exists
-    if (alphaList) {
-      const existingMember = await prisma.emailListMember.findFirst({
+    // Get alpha list and add member
+    const alphaList = await payload.find({
+      collection: 'email-lists',
+      where: { name: { equals: 'alpha' } },
+      limit: 1,
+    });
+    
+    if (alphaList.docs[0]) {
+      const existingMember = await payload.find({
+        collection: 'email-list-members',
         where: {
-          listId: alphaList.id,
-          email: validated.email,
+          and: [
+            { list: { equals: alphaList.docs[0].id } },
+            { email: { equals: validated.email } },
+          ],
         },
+        limit: 1,
       });
       
-      if (!existingMember) {
-        await prisma.emailListMember.create({
+      if (existingMember.totalDocs === 0) {
+        await payload.create({
+          collection: 'email-list-members',
           data: {
-            listId: alphaList.id,
+            list: alphaList.docs[0].id,
             email: validated.email,
             subscribed: true,
           },
@@ -110,22 +136,29 @@ export async function POST(request: NextRequest) {
     
     // Add to newsletter if requested
     if (validated.newsletter) {
-      const newsletterList = await prisma.emailList.findFirst({
-        where: { name: 'newsletter' },
+      const newsletterList = await payload.find({
+        collection: 'email-lists',
+        where: { name: { equals: 'newsletter' } },
+        limit: 1,
       });
       
-      if (newsletterList) {
-        const existingMember = await prisma.emailListMember.findFirst({
+      if (newsletterList.docs[0]) {
+        const existingMember = await payload.find({
+          collection: 'email-list-members',
           where: {
-            listId: newsletterList.id,
-            email: validated.email,
+            and: [
+              { list: { equals: newsletterList.docs[0].id } },
+              { email: { equals: validated.email } },
+            ],
           },
+          limit: 1,
         });
         
-        if (!existingMember) {
-          await prisma.emailListMember.create({
+        if (existingMember.totalDocs === 0) {
+          await payload.create({
+            collection: 'email-list-members',
             data: {
-              listId: newsletterList.id,
+              list: newsletterList.docs[0].id,
               email: validated.email,
               subscribed: true,
             },
@@ -135,8 +168,10 @@ export async function POST(request: NextRequest) {
     }
     
     // Get registration email template
-    const template = await prisma.emailTemplate.findFirst({
-      where: { name: 'beta_registration' },
+    const template = await payload.find({
+      collection: 'email-templates',
+      where: { name: { equals: 'beta_registration' } },
+      limit: 1,
     });
     
     // Send confirmation email
@@ -146,8 +181,8 @@ export async function POST(request: NextRequest) {
     
     await sendEmail({
       to: validated.email,
-      subject: template?.subject || 'Beta-Registrierung bestätigt',
-      text: template?.body || `Hallo,
+      subject: template.docs[0]?.subject || 'Beta-Registrierung bestätigt',
+      text: template.docs[0]?.body || `Hallo,
 
 vielen Dank für Ihre Anmeldung zur DEMOCRACY Beta!
 

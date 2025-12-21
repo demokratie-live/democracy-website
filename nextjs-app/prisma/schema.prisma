@@ -20,17 +20,7 @@ model Page {
   updatedAt DateTime @updatedAt
 }
 
-model Faq {
-  id        String   @id @default(cuid())
-  question  String
-  answer    String   @db.Text
-  order     Int
-  active    Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([order])
-}
+// Note: FAQs are now managed by Payload CMS (collection: faqs)
 
 model Media {
   id          String   @id @default(cuid())

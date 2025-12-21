@@ -1,16 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader, DataTable } from '@/components/admin';
 import { Button } from '@/components/ui';
 import { formatDate } from '@/lib/utils';
 import { MediaActions } from './MediaActions';
 
 async function getMediaCoverage() {
-  return prisma.media.findMany({
-    orderBy: { publishedAt: 'desc' },
+  const payload = await getPayload({ config: configPromise });
+  const result = await payload.find({
+    collection: 'media-coverage',
+    sort: '-publishedAt',
+    limit: 100,
   });
+  return result.docs;
 }
 
 export default async function MediaPage() {

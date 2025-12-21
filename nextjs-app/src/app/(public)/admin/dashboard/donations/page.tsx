@@ -1,20 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 import { PageHeader, StatsCard, ProgressBar, DataTable } from '@/components/admin';
 import { formatCurrency } from '@/lib/utils';
 import { DonationSettingsForm } from './DonationSettingsForm';
 import { DonationItemActions } from './DonationItemActions';
 
 async function getDonationData() {
-  const [settings, items] = await Promise.all([
-    prisma.donationSettings.findFirst(),
-    prisma.donationItem.findMany({
-      orderBy: { order: 'asc' },
-    }),
+  const payload = await getPayload({ config: configPromise });
+  
+  const [settingsResult, itemsResult] = await Promise.all([
+    payload.find({ collection: 'donation-settings', limit: 1 }),
+    payload.find({ collection: 'donation-items', sort: 'order', limit: 100 }),
   ]);
 
-  return { settings, items };
+  return { 
+    settings: settingsResult.docs[0], 
+    items: itemsResult.docs 
+  };
 }
 
 export default async function DonationsPage() {
