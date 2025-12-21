@@ -263,62 +263,64 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
 ### Phase 8: Admin Dashboard (Week 7-9)
 
 #### Admin Layout
-- [ ] Sidebar navigation
-- [ ] Header with user menu
-- [ ] Breadcrumbs
-- [ ] Responsive design
+- [x] Sidebar navigation (`src/components/admin/AdminSidebar.tsx`)
+- [x] Header with user menu (`src/components/admin/AdminHeader.tsx`)
+- [x] Breadcrumbs (`src/components/admin/Breadcrumbs.tsx`)
+- [x] Responsive design (mobile sidebar toggle, collapsible)
 
 #### Management Interfaces
 
-1. **FAQ Management**
-   - [ ] List view with search/filter
-   - [ ] Create new FAQ
-   - [ ] Edit existing FAQ
-   - [ ] Delete FAQ
-   - [ ] Reorder FAQs (drag-and-drop)
+1. **FAQ Management** (`src/app/(public)/admin/dashboard/faqs/`)
+   - [x] List view with search/filter
+   - [x] Create new FAQ (`/new/`)
+   - [x] Edit existing FAQ (`/[id]/`)
+   - [x] Delete FAQ (via FAQActions component)
+   - [ ] Reorder FAQs (drag-and-drop) - nur Order-Feld vorhanden
    - [ ] Bulk actions
 
-2. **Media/Press Management**
-   - [ ] List view with thumbnails
-   - [ ] Create new entry
-   - [ ] Edit existing entry
-   - [ ] Delete entry
-   - [ ] Image upload
-   - [ ] Date filtering
+2. **Media/Press Management** (`src/app/(public)/admin/dashboard/media/`)
+   - [x] List view with thumbnails
+   - [x] Create new entry (`/new/`)
+   - [x] Edit existing entry (`/[id]/`)
+   - [x] Delete entry (via MediaActions component)
+   - [x] Image upload (via Payload CMS)
+   - [x] Date filtering (sortiert nach publishedAt)
 
-3. **Beta Management**
-   - [ ] Registration list
-   - [ ] Code management
-   - [ ] Statistics dashboard
-   - [ ] Export functionality
-   - [ ] Email subscribers
+3. **Beta Management** (`src/app/(public)/admin/dashboard/beta/`)
+   - [x] Registration list (`/registrations/`)
+   - [x] Code management (`/codes/`)
+   - [x] Statistics dashboard (Plattform-Verteilung, Charts)
+   - [ ] Export functionality (Button vorhanden, TODO)
+   - [x] Email subscribers (Newsletter-Spalte in Registrierungen)
 
-4. **Roadmap Management**
-   - [ ] Kanban board view
-   - [ ] Create/edit roadmap items
-   - [ ] Status updates
-   - [ ] Priority management
-   - [ ] Completion tracking
+4. **Roadmap Management** (`src/app/(public)/admin/dashboard/roadmap/`)
+   - [x] Kanban board view (`RoadmapBoard.tsx`)
+   - [x] Create/edit roadmap items (`/new/`, `/[id]/`)
+   - [x] Status updates (planned, in-progress, completed)
+   - [x] Priority management
+   - [x] Completion tracking
 
-5. **Donation Management**
-   - [ ] Current progress overview
-   - [ ] Update donation amounts
-   - [ ] Manage spending categories
-   - [ ] Donor list (if applicable)
-   - [ ] Analytics
+5. **Donation Management** (`src/app/(public)/admin/dashboard/donations/`)
+   - [x] Current progress overview (ProgressBar, Stats)
+   - [x] Update donation amounts (`DonationSettingsForm.tsx`)
+   - [x] Manage spending categories (`DonationItemActions.tsx`)
+   - [ ] Donor list (if applicable) - keine Spender-DB
+   - [x] Analytics (Fortschrittsbalken, Statistiken)
 
 #### Admin Features
-- [ ] Authentication (login/logout)
-- [ ] Role-based access control
-- [ ] Activity logging
-- [ ] Dark mode toggle
-- [ ] User profile management
+- [ ] Authentication (login/logout) - Payload CMS Auth vorhanden, custom fehlt
+- [ ] Role-based access control - Schema vorhanden, nicht enforced
+- [x] Activity logging (`/activity/` Seite + ActivityLog Model)
+- [x] Dark mode toggle (im Header)
+- [x] User profile management (`/profile/` Seite)
 
 #### Deliverables
-- [ ] Complete admin dashboard
-- [ ] All 5 management interfaces
+- [x] Complete admin dashboard (~80% fertig)
+- [x] All 5 management interfaces (alle vorhanden)
 - [ ] Admin user guide
 - [ ] Security audit
+
+**Hinweis:** Die Prisma-Tabellen müssen mit `pnpm db:push` synchronisiert werden.
 
 ---
 
