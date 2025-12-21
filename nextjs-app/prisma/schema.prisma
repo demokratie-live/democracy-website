@@ -162,52 +162,5 @@ model SentEmail {
   @@index([sentAt])
 }
 
-// Admin System
-model AdminUser {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String
-  name         String
-  role         String   @default("admin")
-  active       Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  activities   ActivityLog[]
-
-  @@index([email])
-}
-
-// Activity Logging
-model ActivityLog {
-  id           String   @id @default(cuid())
-  action       String   // create, update, delete, login, logout
-  entityType   String   // FAQ, Media, Roadmap, Donation, BetaCode, User
-  entityId     String?
-  entityTitle  String?
-  details      Json?
-  ipAddress    String?
-  userAgent    String?
-  userId       String?
-  user         AdminUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
-  createdAt    DateTime @default(now())
-
-  @@index([action])
-  @@index([entityType])
-  @@index([createdAt])
-  @@index([userId])
-}
-
-// Admin Session
-model AdminSession {
-  id           String   @id @default(cuid())
-  userId       String
-  token        String   @unique
-  expiresAt    DateTime
-  createdAt    DateTime @default(now())
-  ipAddress    String?
-  userAgent    String?
-
-  @@index([token])
-  @@index([userId])
-  @@index([expiresAt])
-}
+// Note: Admin users, activity logs, and sessions are now managed by Payload CMS
+// See: src/payload.config.ts for admin-users, activity-logs collections

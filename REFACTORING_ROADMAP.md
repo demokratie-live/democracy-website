@@ -290,7 +290,7 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
    - [x] Registration list (`/registrations/`)
    - [x] Code management (`/codes/`)
    - [x] Statistics dashboard (Plattform-Verteilung, Charts)
-   - [ ] Export functionality (Button vorhanden, TODO)
+   - [x] Export functionality (`ExportButton.tsx` + `/api/admin/beta/export/`)
    - [x] Email subscribers (Newsletter-Spalte in Registrierungen)
 
 4. **Roadmap Management** (`src/app/(public)/admin/dashboard/roadmap/`)
@@ -308,8 +308,8 @@ Target:  Next.js → PostgreSQL → Headless CMS → Docker
    - [x] Analytics (Fortschrittsbalken, Statistiken)
 
 #### Admin Features
-- [ ] Authentication (login/logout) - Payload CMS Auth vorhanden, custom fehlt
-- [ ] Role-based access control - Schema vorhanden, nicht enforced
+- [x] Authentication (login/logout) - Payload CMS Auth + `admin-auth.ts` Middleware
+- [x] Role-based access control (`src/lib/admin-auth.ts` mit `requireRole()`)
 - [x] Activity logging (`/activity/` Seite + ActivityLog Model)
 - [x] Dark mode toggle (im Header)
 - [x] User profile management (`/profile/` Seite)

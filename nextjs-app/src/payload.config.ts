@@ -620,6 +620,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || process.env.DATABASE_URL || '',
     },
+    push: true, // Auto-create/update schema on dev server start
   }),
   sharp,
   plugins: [],

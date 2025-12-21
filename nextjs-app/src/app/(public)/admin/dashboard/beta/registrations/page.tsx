@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { PageHeader, StatsCard, DataTable } from '@/components/admin';
 import { formatDate } from '@/lib/utils';
+import { ExportButton } from './ExportButton';
 
 async function getBetaStats() {
   const [
@@ -125,19 +126,7 @@ export default async function BetaRegistrationsPage() {
             >
               Beta-Codes verwalten
             </Link>
-            <button
-              onClick={() => {
-                // TODO: Implement CSV export
-                alert('Export-Funktion wird implementiert...');
-              }}
-              className="px-4 py-2 text-sm font-medium text-white rounded-lg flex items-center"
-              style={{ backgroundColor: 'rgb(68, 148, 211)' }}
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Exportieren
-            </button>
+            <ExportButton />
           </div>
         }
       />
