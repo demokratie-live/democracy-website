@@ -53,6 +53,57 @@ export const AdminUsers: CollectionConfig = {
       },
       label: 'Letzte Anmeldung',
     },
+    // TOTP Two-Factor Authentication
+    {
+      type: 'group',
+      name: 'totp',
+      label: 'Zwei-Faktor-Authentifizierung (TOTP)',
+      admin: {
+        description: 'Konfigurieren Sie die Zwei-Faktor-Authentifizierung für erhöhte Sicherheit. Besuchen Sie /admin-setup-totp um TOTP einzurichten.',
+      },
+      fields: [
+        {
+          name: 'enabled',
+          type: 'checkbox',
+          label: 'TOTP aktiviert',
+          defaultValue: false,
+          admin: {
+            readOnly: true,
+            description: 'Wenn aktiviert, ist bei der Anmeldung ein TOTP-Code erforderlich.',
+          },
+        },
+        {
+          name: 'secret',
+          type: 'text',
+          label: 'TOTP-Secret',
+          admin: {
+            readOnly: true,
+            hidden: true,
+            description: 'Das geheime Token für die TOTP-Generierung. Wird automatisch erstellt.',
+          },
+        },
+        {
+          name: 'verified',
+          type: 'checkbox',
+          label: 'TOTP verifiziert',
+          defaultValue: false,
+          admin: {
+            readOnly: true,
+            description: 'Zeigt an, ob der Benutzer die TOTP-Einrichtung erfolgreich abgeschlossen hat.',
+          },
+        },
+        {
+          name: 'backupCodes',
+          type: 'json',
+          label: 'Backup-Codes',
+          admin: {
+            readOnly: true,
+            hidden: true,
+            description: 'Einmal-Backup-Codes für den Notfall.',
+          },
+        },
+      ],
+    },
   ],
 };
 
