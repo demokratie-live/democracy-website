@@ -29,6 +29,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@democracy-deutschland/payload-totp-plugin": "link:../packages/payload-totp-plugin",
     "@payloadcms/db-postgres": "3.14.0",
     "@payloadcms/next": "3.14.0",
     "@payloadcms/richtext-lexical": "3.14.0",

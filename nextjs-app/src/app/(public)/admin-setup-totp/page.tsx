@@ -4,10 +4,12 @@
  * TOTP Setup Page
  * 
  * Allows admin users to set up two-factor authentication.
+ * Uses styles from @democracy-deutschland/payload-totp-plugin.
  */
 
 import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { styles } from '@democracy-deutschland/payload-totp-plugin/components';
 
 type TotpSetupData = {
   qrCode: string;
@@ -195,258 +197,266 @@ function TotpSetupContent() {
 
   if (loading && !setupData && !status) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
-        <div className="text-white">Wird geladen...</div>
+      <div style={styles.container}>
+        <div style={styles.loading}>Wird geladen...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 p-4 flex items-center justify-center">
-      <div className="max-w-md w-full">
-        {/* Main Card */}
-        <div className="bg-gray-800 rounded-lg shadow-2xl p-8">
-          <h1 className="text-2xl font-bold text-white mb-2 text-center">
-            Zwei-Faktor-Authentifizierung
-          </h1>
-          <p className="text-gray-400 text-sm text-center mb-6">
-            Schützen Sie Ihr Konto mit TOTP
-          </p>
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <h1 style={{ ...styles.title, textAlign: 'center', marginBottom: '0.5rem' }}>
+          Zwei-Faktor-Authentifizierung
+        </h1>
+        <p style={{ ...styles.subtitle, textAlign: 'center', marginBottom: '1.5rem' }}>
+          Schützen Sie Ihr Konto mit TOTP
+        </p>
 
-          {error && (
-            <div className="mb-4 p-3 bg-red-900/50 border border-red-500 text-red-300 rounded text-sm">
-              {error}
+        {error && <div style={styles.errorBox}>{error}</div>}
+        {success && <div style={styles.successBox}>{success}</div>}
+
+        {/* TOTP Globally Disabled */}
+        {status && !status.globalEnabled && (
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ ...styles.iconContainer, backgroundColor: '#4b5563', margin: '0 auto 1rem' }}>
+              <span>🔒</span>
             </div>
-          )}
+            <p style={{ ...styles.subtitle, marginBottom: '1rem' }}>
+              Zwei-Faktor-Authentifizierung ist derzeit vom Administrator deaktiviert.
+            </p>
+            <button
+              onClick={() => router.push(redirect)}
+              style={styles.button}
+            >
+              Zurück
+            </button>
+          </div>
+        )}
 
-          {success && (
-            <div className="mb-4 p-3 bg-green-900/50 border border-green-500 text-green-300 rounded text-sm">
-              {success}
+        {/* Status Display */}
+        {status && status.globalEnabled && !setupData && !backupCodes && (
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+              <div
+                style={{
+                  width: '0.75rem',
+                  height: '0.75rem',
+                  borderRadius: '50%',
+                  backgroundColor: status.enabled ? '#22c55e' : '#6b7280',
+                }}
+              />
+              <span style={{ color: '#d1d5db' }}>
+                Status: {status.enabled ? 'Aktiviert' : 'Nicht aktiviert'}
+              </span>
             </div>
-          )}
 
-          {/* TOTP Globally Disabled */}
-          {status && !status.globalEnabled && (
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🔒</span>
+            {status.required && !status.enabled && (
+              <div style={styles.warningBox}>
+                ⚠️ Zwei-Faktor-Authentifizierung ist für alle Benutzer erforderlich.
               </div>
-              <p className="text-gray-300 mb-4">
-                Zwei-Faktor-Authentifizierung ist derzeit vom Administrator deaktiviert.
+            )}
+
+            {status.enabled && (
+              <p style={{ ...styles.subtitle, marginBottom: '1rem' }}>
+                Verbleibende Backup-Codes: {status.backupCodesRemaining}
               </p>
-              <button
-                onClick={() => router.push(redirect)}
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-              >
-                Zurück
-              </button>
-            </div>
-          )}
+            )}
 
-          {/* Status Display */}
-          {status && status.globalEnabled && !setupData && !backupCodes && (
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div
-                  className={`w-3 h-3 rounded-full ${
-                    status.enabled ? 'bg-green-500' : 'bg-gray-500'
-                  }`}
-                ></div>
-                <span className="text-gray-300">
-                  Status: {status.enabled ? 'Aktiviert' : 'Nicht aktiviert'}
-                </span>
+            {!status.enabled && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <button
+                  onClick={startSetup}
+                  disabled={loading}
+                  style={{
+                    ...styles.buttonGreen,
+                    ...(loading ? styles.buttonDisabled : {}),
+                  }}
+                >
+                  {loading ? 'Wird geladen...' : 'TOTP einrichten'}
+                </button>
+
+                {isOptional && !status.required && (
+                  <button
+                    onClick={skipSetup}
+                    style={styles.buttonSecondary}
+                  >
+                    Später einrichten
+                  </button>
+                )}
               </div>
+            )}
 
-              {status.required && !status.enabled && (
-                <div className="mb-4 p-3 bg-yellow-900/50 border border-yellow-500 text-yellow-300 rounded text-sm">
-                  ⚠️ Zwei-Faktor-Authentifizierung ist für alle Benutzer erforderlich.
-                </div>
-              )}
-
-              {status.enabled && (
-                <p className="text-sm text-gray-400 mb-4">
-                  Verbleibende Backup-Codes: {status.backupCodesRemaining}
-                </p>
-              )}
-
-              {!status.enabled && (
-                <div className="space-y-3">
-                  <button
-                    onClick={startSetup}
-                    disabled={loading}
-                    className="w-full bg-green-600 text-white py-3 px-4 rounded font-medium hover:bg-green-700 disabled:opacity-50"
-                  >
-                    {loading ? 'Wird geladen...' : 'TOTP einrichten'}
-                  </button>
-
-                  {isOptional && !status.required && (
-                    <button
-                      onClick={skipSetup}
-                      className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded font-medium hover:bg-gray-600"
-                    >
-                      Später einrichten
-                    </button>
-                  )}
-                </div>
-              )}
-
-              {status.enabled && !status.required && (
-                <div className="mt-6 pt-6 border-t border-gray-700">
-                  <h3 className="text-lg font-medium text-white mb-4">
-                    TOTP deaktivieren
-                  </h3>
-                  <input
-                    type="text"
-                    value={disableCode}
-                    onChange={(e) => setDisableCode(e.target.value.replace(/\D/g, ''))}
-                    placeholder="6-stelliger Code"
-                    maxLength={6}
-                    className="w-full p-3 bg-gray-700 border border-gray-600 rounded mb-3 text-center text-white font-mono tracking-widest"
-                  />
-                  <button
-                    onClick={disableTotp}
-                    disabled={loading || disableCode.length !== 6}
-                    className="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 disabled:opacity-50"
-                  >
-                    Deaktivieren
-                  </button>
-                </div>
-              )}
-
-              {status.enabled && status.required && (
-                <div className="mt-4 p-3 bg-gray-700/50 border border-gray-600 text-gray-400 rounded text-sm">
-                  ℹ️ TOTP kann nicht deaktiviert werden, da es für alle Benutzer erforderlich ist.
-                </div>
-              )}
-
-              {status.enabled && (
-                <div className="mt-4">
-                  <button
-                    onClick={() => router.push(redirect)}
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-                  >
-                    Zurück
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Setup Flow */}
-          {setupData && (
-            <div>
-              <div className="flex justify-center mb-4">
-                <img
-                  src={setupData.qrCode}
-                  alt="TOTP QR Code"
-                  className="w-48 h-48 bg-white p-2 rounded"
+            {status.enabled && !status.required && (
+              <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid #374151' }}>
+                <h3 style={{ ...styles.title, fontSize: '1.125rem', marginBottom: '1rem' }}>
+                  TOTP deaktivieren
+                </h3>
+                <input
+                  type="text"
+                  value={disableCode}
+                  onChange={(e) => setDisableCode(e.target.value.replace(/\D/g, ''))}
+                  placeholder="6-stelliger Code"
+                  maxLength={6}
+                  style={{ ...styles.inputCode, marginBottom: '0.75rem' }}
                 />
+                <button
+                  onClick={disableTotp}
+                  disabled={loading || disableCode.length !== 6}
+                  style={{
+                    ...styles.button,
+                    backgroundColor: '#dc2626',
+                    ...(loading || disableCode.length !== 6 ? styles.buttonDisabled : {}),
+                  }}
+                >
+                  Deaktivieren
+                </button>
               </div>
+            )}
 
+            {status.enabled && status.required && (
+              <div style={{ ...styles.warningBox, marginTop: '1rem', backgroundColor: 'rgba(55, 65, 81, 0.5)', borderColor: '#4b5563', color: '#9ca3af' }}>
+                ℹ️ TOTP kann nicht deaktiviert werden, da es für alle Benutzer erforderlich ist.
+              </div>
+            )}
+
+            {status.enabled && (
+              <div style={{ marginTop: '1rem' }}>
+                <button
+                  onClick={() => router.push(redirect)}
+                  style={styles.button}
+                >
+                  Zurück
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Setup Flow */}
+        {setupData && (
+          <div>
+            <div style={styles.qrContainer}>
+              <img
+                src={setupData.qrCode}
+                alt="TOTP QR Code"
+                style={styles.qrCode}
+              />
+            </div>
+
+            <div style={styles.linkContainer}>
               <button
                 onClick={() => setShowManualCode(!showManualCode)}
-                className="w-full text-blue-400 hover:text-blue-300 text-sm mb-4"
+                style={styles.link}
               >
                 {showManualCode ? 'QR-Code verwenden' : 'Code manuell eingeben'}
               </button>
+            </div>
 
-              {showManualCode && (
-                <div className="bg-gray-700 p-3 rounded mb-4">
-                  <p className="text-gray-400 text-xs mb-2">Manueller Code:</p>
-                  <div className="flex items-center gap-2">
-                    <code className="flex-1 bg-gray-600 p-2 rounded font-mono text-sm text-white text-center tracking-wider break-all">
-                      {setupData.manualCode}
-                    </code>
-                    <button
-                      onClick={() => copyToClipboard(setupData.secret)}
-                      className="bg-gray-600 hover:bg-gray-500 p-2 rounded text-white flex-shrink-0"
-                    >
-                      📋
-                    </button>
-                  </div>
+            {showManualCode && (
+              <div style={styles.manualCodeContainer}>
+                <p style={styles.manualCodeLabel}>Manueller Code:</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <code style={{ ...styles.manualCode, flex: 1, padding: '0.5rem', backgroundColor: '#4b5563', borderRadius: '0.25rem' }}>
+                    {setupData.manualCode}
+                  </code>
+                  <button
+                    onClick={() => copyToClipboard(setupData.secret)}
+                    style={{
+                      background: '#4b5563',
+                      border: 'none',
+                      borderRadius: '0.25rem',
+                      padding: '0.5rem',
+                      cursor: 'pointer',
+                      color: '#fff',
+                      flexShrink: 0,
+                    }}
+                  >
+                    📋
+                  </button>
                 </div>
-              )}
-
-              <div className="border-t border-gray-700 pt-4 mt-4">
-                <p className="text-gray-400 text-sm mb-3">
-                  Geben Sie den 6-stelligen Code ein:
-                </p>
-                <input
-                  type="text"
-                  value={verifyCode}
-                  onChange={(e) => setVerifyCode(e.target.value.replace(/\D/g, ''))}
-                  placeholder="000000"
-                  maxLength={6}
-                  className="w-full p-3 bg-gray-700 border border-gray-600 rounded text-center text-xl font-mono text-white mb-3"
-                />
-                <button
-                  onClick={verifySetup}
-                  disabled={loading || verifyCode.length !== 6}
-                  className="w-full bg-green-600 text-white py-3 px-4 rounded font-medium hover:bg-green-700 disabled:opacity-50"
-                >
-                  {loading ? 'Wird verifiziert...' : 'Aktivieren'}
-                </button>
               </div>
+            )}
 
-              {isOptional && (
+            <div style={{ borderTop: '1px solid #374151', paddingTop: '1rem', marginTop: '1rem' }}>
+              <p style={{ ...styles.subtitle, marginBottom: '0.75rem' }}>
+                Geben Sie den 6-stelligen Code ein:
+              </p>
+              <input
+                type="text"
+                value={verifyCode}
+                onChange={(e) => setVerifyCode(e.target.value.replace(/\D/g, ''))}
+                placeholder="000000"
+                maxLength={6}
+                style={{ ...styles.inputCode, marginBottom: '0.75rem' }}
+              />
+              <button
+                onClick={verifySetup}
+                disabled={loading || verifyCode.length !== 6}
+                style={{
+                  ...styles.buttonGreen,
+                  ...(loading || verifyCode.length !== 6 ? styles.buttonDisabled : {}),
+                }}
+              >
+                {loading ? 'Wird verifiziert...' : 'Aktivieren'}
+              </button>
+            </div>
+
+            {isOptional && (
+              <div style={styles.linkContainer}>
                 <button
                   onClick={skipSetup}
-                  className="w-full mt-3 text-gray-500 hover:text-gray-400 text-sm"
+                  style={styles.linkMuted}
                 >
                   Überspringen
                 </button>
-              )}
-            </div>
-          )}
+              </div>
+            )}
+          </div>
+        )}
 
-          {/* Backup Codes */}
-          {backupCodes && (
-            <div>
-              <div className="text-center mb-4">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">✅</span>
+        {/* Backup Codes */}
+        {backupCodes && (
+          <div>
+            <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+              <div style={{ ...styles.iconContainer, backgroundColor: '#16a34a', margin: '0 auto 1rem' }}>
+                <span>✅</span>
+              </div>
+              <h2 style={{ ...styles.title, fontSize: '1.25rem' }}>
+                TOTP aktiviert!
+              </h2>
+            </div>
+
+            <div style={styles.warningBox}>
+              <strong>⚠️ Speichern Sie diese Backup-Codes sicher!</strong>
+              <p style={{ margin: '0.5rem 0 0', fontSize: '0.75rem' }}>
+                Falls Sie keinen Zugriff auf Ihre App haben, können Sie einen dieser Codes verwenden.
+              </p>
+            </div>
+
+            <div style={styles.backupCodesGrid}>
+              {backupCodes.map((code, index) => (
+                <div key={index} style={styles.backupCode}>
+                  {code}
                 </div>
-                <h2 className="text-xl font-bold text-white">
-                  TOTP aktiviert!
-                </h2>
-              </div>
-
-              <div className="bg-yellow-900/30 border border-yellow-600 p-4 rounded mb-4">
-                <p className="text-yellow-300 text-sm font-medium mb-2">
-                  ⚠️ Speichern Sie diese Backup-Codes sicher!
-                </p>
-                <p className="text-yellow-200/70 text-xs">
-                  Falls Sie keinen Zugriff auf Ihre App haben, können Sie einen dieser Codes verwenden.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 mb-4">
-                {backupCodes.map((code, index) => (
-                  <code
-                    key={index}
-                    className="bg-gray-700 p-2 rounded font-mono text-sm text-center text-white"
-                  >
-                    {code}
-                  </code>
-                ))}
-              </div>
-
-              <button
-                onClick={() => copyToClipboard(backupCodes.join('\n'))}
-                className="w-full bg-gray-700 text-gray-300 py-2 px-4 rounded hover:bg-gray-600 mb-3"
-              >
-                📋 Alle kopieren
-              </button>
-
-              <button
-                onClick={finishSetup}
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded font-medium hover:bg-blue-700"
-              >
-                Zum Admin-Bereich
-              </button>
+              ))}
             </div>
-          )}
-        </div>
+
+            <button
+              onClick={() => copyToClipboard(backupCodes.join('\n'))}
+              style={{ ...styles.buttonSecondary, marginBottom: '0.75rem' }}
+            >
+              📋 Alle kopieren
+            </button>
+
+            <button
+              onClick={finishSetup}
+              style={styles.button}
+            >
+              Zum Admin-Bereich
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -455,8 +465,8 @@ function TotpSetupContent() {
 export default function TotpSetupPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
-        <div className="text-white">Wird geladen...</div>
+      <div style={styles.container}>
+        <div style={styles.loading}>Wird geladen...</div>
       </div>
     }>
       <TotpSetupContent />

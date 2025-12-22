@@ -25,8 +25,8 @@ services:
 
   nextjs:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
+      context: ..
+      dockerfile: nextjs-app/Dockerfile.dev
     container_name: democracy-nextjs
     working_dir: /app
     env_file:
@@ -44,6 +44,8 @@ services:
       - ./tsconfig.json:/app/tsconfig.json
       - ./postcss.config.mjs:/app/postcss.config.mjs
       - ./payload.config.ts:/app/payload.config.ts:ro
+      - ./package.json:/app/package.json:ro
+      - ../packages:/packages
     ports:
       - "3000:3000"
     depends_on:
