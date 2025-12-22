@@ -23,7 +23,14 @@ export const AdminUsers: CollectionConfig = {
   access: {
     read: isAdminOrEditor,
     create: isAdmin,
-    update: isAdmin,
+    update: ({ req: { user }, id }) => {
+      // Admins can update anyone
+      // Users can update their own record (for TOTP reset)
+      const typedUser = user as { id?: string; role?: string } | null;
+      if (typedUser?.role === 'admin') return true;
+      if (typedUser?.id && id && String(typedUser.id) === String(id)) return true;
+      return false;
+    },
     delete: isAdmin,
   },
   fields: [
@@ -68,8 +75,7 @@ export const AdminUsers: CollectionConfig = {
           label: 'TOTP aktiviert',
           defaultValue: false,
           admin: {
-            readOnly: true,
-            description: 'Wenn aktiviert, ist bei der Anmeldung ein TOTP-Code erforderlich.',
+            description: 'Wenn aktiviert, ist bei der Anmeldung ein TOTP-Code erforderlich. Deaktivieren um TOTP zurückzusetzen.',
           },
         },
         {
@@ -77,9 +83,7 @@ export const AdminUsers: CollectionConfig = {
           type: 'text',
           label: 'TOTP-Secret',
           admin: {
-            readOnly: true,
             hidden: true,
-            description: 'Das geheime Token für die TOTP-Generierung. Wird automatisch erstellt.',
           },
         },
         {
@@ -88,8 +92,7 @@ export const AdminUsers: CollectionConfig = {
           label: 'TOTP verifiziert',
           defaultValue: false,
           admin: {
-            readOnly: true,
-            description: 'Zeigt an, ob der Benutzer die TOTP-Einrichtung erfolgreich abgeschlossen hat.',
+            description: 'Zeigt an, ob der Benutzer die TOTP-Einrichtung erfolgreich abgeschlossen hat. Deaktivieren um TOTP zurückzusetzen.',
           },
         },
         {
@@ -97,9 +100,7 @@ export const AdminUsers: CollectionConfig = {
           type: 'json',
           label: 'Backup-Codes',
           admin: {
-            readOnly: true,
             hidden: true,
-            description: 'Einmal-Backup-Codes für den Notfall.',
           },
         },
       ],
