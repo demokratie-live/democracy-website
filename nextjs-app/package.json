@@ -1,0 +1,89 @@
+{
+  "name": "nextjs-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS='--no-deprecation' next dev",
+    "dev:turbo": "cross-env NODE_OPTIONS='--no-deprecation' next dev --turbo",
+    "build": "cross-env NODE_OPTIONS='--no-deprecation' next build",
+    "start": "cross-env NODE_OPTIONS='--no-deprecation' next start",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts",
+    "seed:faqs": "cross-env NODE_OPTIONS='--no-deprecation' tsx scripts/seed-faqs.ts",
+    "type-check": "tsc --noEmit",
+    "payload": "cross-env NODE_OPTIONS='--no-deprecation' payload",
+    "generate:types": "cross-env NODE_OPTIONS='--no-deprecation' payload generate:types",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "knip": "knip",
+    "knip:fix": "knip --fix"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@democracy-deutschland/payload-totp-plugin": "link:../packages/payload-totp-plugin",
+    "@payloadcms/db-postgres": "3.14.0",
+    "@payloadcms/next": "3.14.0",
+    "@payloadcms/richtext-lexical": "3.14.0",
+    "@prisma/client": "5.22.0",
+    "@types/qrcode": "^1.5.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cross-env": "^10.1.0",
+    "next": "15.1.4",
+    "nodemailer": "^7.0.11",
+    "otplib": "^12.0.1",
+    "payload": "3.14.0",
+    "prisma": "5.22.0",
+    "qrcode": "^1.5.4",
+    "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "sharp": "^0.34.5",
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.4",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@vitejs/plugin-react": "^5.1.2",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.4",
+    "jsdom": "^27.3.0",
+    "knip": "^5.76.1",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "vitest": "^4.0.16"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
+  },
+  "packageManager": "pnpm@10.26.0",
+  "engines": {
+    "node": "22.18.x"
+  }
+}

@@ -1,0 +1,8 @@
+minReleaseAge: 7 # Require packages to be at least 7 days old to reduce supply-chain risk
+onlyBuiltDependencies:
+  - '@prisma/client'
+  - '@prisma/engines'
+  - esbuild
+  - prisma
+  - sharp
+  - unrs-resolver

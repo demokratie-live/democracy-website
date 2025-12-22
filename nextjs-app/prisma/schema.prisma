@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Content Management
+model Page {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   Json
+  metaTitle String?
+  metaDesc  String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Note: FAQs are now managed by Payload CMS (collection: faqs)
+
+model Media {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  url         String
+  outlet      String?
+  imageUrl    String?
+  publishedAt DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([publishedAt])
+}
+
+model Roadmap {
+  id          String    @id @default(cuid())
+  title       String
+  description String?   @db.Text
+  priority    Int
+  status      String // planned, in-progress, completed
+  targetDate  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([priority])
+}
+
+// Donation System
+model DonationItem {
+  id          String   @id @default(cuid())
+  type        String // head, data
+  order       Int
+  title       String
+  description String?  @db.Text
+  value       Int
+  maxValue    Int
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+}
+
+model DonationSettings {
+  id           String   @id @default(cuid())
+  currentValue Int
+  goalValue    Int
+  patrons      Int
+  patronsGoal  Int
+  updatedAt    DateTime @updatedAt
+}
+
+// Beta System
+model BetaCode {
+  id         String             @id @default(cuid())
+  code       String             @unique
+  uses       Int                @default(0)
+  maxUses    Int                @default(1)
+  active     Boolean            @default(true)
+  createdAt  DateTime           @default(now())
+  registrations BetaRegistration[]
+}
+
+model BetaRegistration {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  ios        Boolean  @default(false)
+  android    Boolean  @default(false)
+  newsletter Boolean  @default(false)
+  status     String   @default("pending") // pending, approved, rejected
+  codeId     String?
+  code       BetaCode? @relation(fields: [codeId], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@index([email])
+  @@index([status])
+}
+
+// Email System
+model Contact {
+  id        String              @id @default(cuid())
+  email     String              @unique
+  firstName String?
+  lastName  String?
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+  lists     EmailListMember[]
+  sentEmails SentEmail[]
+
+  @@index([email])
+}
+
+model EmailList {
+  id          String            @id @default(cuid())
+  name        String            @unique
+  description String?
+  createdAt   DateTime          @default(now())
+  members     EmailListMember[]
+}
+
+model EmailListMember {
+  contactId String
+  listId    String
+  contact   Contact   @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  list      EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
+  addedAt   DateTime  @default(now())
+
+  @@id([contactId, listId])
+}
+
+model EmailTemplate {
+  id       String      @id @default(cuid())
+  type     String      @unique
+  subject  String
+  bodyText String      @db.Text
+  bodyHtml String      @db.Text
+  sentEmails SentEmail[]
+}
+
+model SentEmail {
+  id         String        @id @default(cuid())
+  contactId  String
+  templateId String
+  contact    Contact       @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  template   EmailTemplate @relation(fields: [templateId], references: [id])
+  sentAt     DateTime      @default(now())
+
+  @@index([sentAt])
+}
+
+// Note: Admin users, activity logs, and sessions are now managed by Payload CMS
+// See: src/payload.config.ts for admin-users, activity-logs collections

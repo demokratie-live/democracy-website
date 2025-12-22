@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Only apply to public pages, not Payload admin */
+body:not([data-theme]) {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom Icon Font for App Store badges */
+@font-face {
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?v4aotw');
+  src: url('/fonts/icomoon.eot?v4aotw#iefix') format('embedded-opentype'),
+       url('/fonts/icomoon.ttf?v4aotw') format('truetype'),
+       url('/fonts/icomoon.woff?v4aotw') format('woff'),
+       url('/fonts/icomoon.svg?v4aotw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-app-store-outline:before {
+  content: "\e901";
+  color: #fff;
+}
+
+.icon-app-store-filled:before {
+  content: "\e900";
+  color: #fff;
+}
+
+.icon-google-play-outline:before {
+  content: "\e903";
+  color: #fff;
+}
+
+.icon-google-play-filled:before {
+  content: "\e902";
+  color: #fff;
+}
+
+/* Dark variants for wahlometer bottom section */
+.icon-app-store-outline[style*="color: #454545"]:before,
+.icon-app-store-outline[style*="color:#454545"]:before {
+  color: #454545 !important;
+}
+
+.icon-google-play-outline[style*="color: #454545"]:before,
+.icon-google-play-outline[style*="color:#454545"]:before {
+  color: #454545 !important;
+}
