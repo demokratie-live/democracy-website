@@ -1,0 +1,50 @@
+columns:
+  - title: "Produkt"
+    links:
+      - label: "Wahlometer"
+        href: "/wahlometer"
+      - label: "Für Bürger"
+        href: "/buerger"
+      - label: "Für Politiker"
+        href: "/politiker"
+      - label: "Engineering"
+        href: "/engineering"
+
+  - title: "Verein"
+    links:
+      - label: "Über uns"
+        href: "/ueber-uns"
+      - label: "Spenden"
+        href: "/spenden"
+      - label: "Presse"
+        href: "/presse"
+      - label: "Blog"
+        href: "/blog"
+
+  - title: "Support"
+    links:
+      - label: "FAQ"
+        href: "/faq"
+      - label: "Kontakt"
+        href: "/kontakt"
+
+legal:
+  - label: "Impressum"
+    href: "/impressum"
+  - label: "Datenschutz"
+    href: "/datenschutz"
+  - label: "Nutzungsbedingungen"
+    href: "/nutzungsbedingungen"
+
+social:
+  - label: "GitHub"
+    href: "https://github.com/demokratie-live"
+    icon: "github"
+  - label: "Twitter"
+    href: "https://twitter.com/democracy_de"
+    icon: "twitter"
+  - label: "Instagram"
+    href: "https://instagram.com/democracy.deutschland"
+    icon: "instagram"
+
+copyright: "© {year} DEMOCRACY Deutschland e.V. Alle Rechte vorbehalten."
