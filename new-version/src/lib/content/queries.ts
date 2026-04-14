@@ -39,7 +39,15 @@ export async function getAllBlogPosts() {
 }
 
 export async function getBlogPost(slug: string) {
-  return loadMdx<BlogFrontmatter>(`blog/${slug}.mdx`, blogFrontmatterSchema);
+  const posts = await getAllBlogPosts();
+  const post = posts.find((p) => p.frontmatter.slug === slug);
+  if (!post) throw new Error(`Blog post not found: ${slug}`);
+  return post;
+}
+
+export async function getBlogPostsByTag(tag: string) {
+  const posts = await getAllBlogPosts();
+  return posts.filter((p) => p.frontmatter.tags.includes(tag));
 }
 
 // --- Navigation ---

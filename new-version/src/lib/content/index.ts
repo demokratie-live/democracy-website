@@ -4,6 +4,7 @@ export {
   getPage,
   getAllBlogPosts,
   getBlogPost,
+  getBlogPostsByTag,
   getNavigation,
   getFooter,
   getFAQ,

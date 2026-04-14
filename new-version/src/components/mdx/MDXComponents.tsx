@@ -20,6 +20,8 @@ import { FAQSection } from "./FAQSection";
 import { DonateSection } from "./DonateSection";
 import { RoadmapSection } from "./RoadmapSection";
 import { ContactForm } from "./ContactForm";
+import { MediaGrid } from "./MediaGrid";
+import { BlogTeaser } from "./BlogTeaser";
 
 function isInternalLink(href: string) {
   return href.startsWith("/") || href.startsWith("#");
@@ -65,4 +67,6 @@ export const mdxComponents = {
   DonateSection,
   RoadmapSection,
   ContactForm,
+  MediaGrid,
+  BlogTeaser,
 };

@@ -13,6 +13,9 @@ const routes = [
   { path: "/spenden", name: "Spenden" },
   { path: "/engineering", name: "Engineering" },
   { path: "/kontakt", name: "Kontakt" },
+  { path: "/blog", name: "Blog" },
+  { path: "/blog/wahlometer-launch", name: "Blog-Artikel" },
+  { path: "/presse", name: "Presse" },
 ];
 
 for (const route of routes) {

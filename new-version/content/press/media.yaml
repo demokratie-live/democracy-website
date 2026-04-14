@@ -1,0 +1,49 @@
+- title: "DEMOCRACY im Deutschlandfunk"
+  type: article
+  url: "https://www.deutschlandfunk.de/democracy-app-100.html"
+  date: 2023-11-15
+  source: "Deutschlandfunk"
+  description: "Bericht über die DEMOCRACY App und ihre Rolle bei der politischen Bildung."
+
+- title: "App macht Bundestagsabstimmungen transparent"
+  type: article
+  url: "https://www.sueddeutsche.de/digital/democracy-app-bundestag"
+  date: 2023-09-20
+  source: "Süddeutsche Zeitung"
+  description: "Wie die DEMOCRACY App Bürgerinnen und Bürgern ermöglicht, das Abstimmungsverhalten im Bundestag nachzuvollziehen."
+
+- title: "Demokratie per App"
+  type: article
+  url: "https://www.spiegel.de/netzwelt/apps/democracy-app"
+  date: 2023-06-10
+  source: "Der Spiegel"
+  description: "DEMOCRACY will die Kluft zwischen Parlament und Bevölkerung verringern."
+
+- title: "Digital mitbestimmen mit DEMOCRACY"
+  type: article
+  url: "https://www.zeit.de/digital/2023-04/democracy-app"
+  date: 2023-04-05
+  source: "Die Zeit"
+  description: "Porträt der Civic-Tech-Initiative DEMOCRACY Deutschland e.V."
+
+- title: "DEMOCRACY beim Chaos Communication Congress"
+  type: video
+  url: "https://media.ccc.de/v/democracy-app"
+  date: 2023-12-28
+  source: "CCC"
+  description: "Vortrag über Open-Source-Demokratie-Tools und die Architektur der DEMOCRACY App."
+
+- title: "DEMOCRACY Pressemappe"
+  type: document
+  url: "/press/DEMOCRACY-Pressemappe.pdf"
+  description: "Offizielle Pressemappe mit Hintergrundinformationen, Fakten und Bildmaterial."
+
+- title: "DEMOCRACY Logo (SVG)"
+  type: logo
+  url: "/press/democracy-logo.svg"
+  description: "Offizielles DEMOCRACY Logo zur redaktionellen Verwendung."
+
+- title: "App Screenshot — Abstimmungsübersicht"
+  type: screenshot
+  url: "/press/screenshot-abstimmung.png"
+  description: "Screenshot der Abstimmungsübersicht in der DEMOCRACY App."
