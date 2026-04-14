@@ -15,8 +15,8 @@ import {
   type RoadmapGoal,
   pressListSchema,
   type PressEntry,
-  seoSchema,
-  type SEO,
+  globalSeoSchema,
+  type GlobalSEO,
   footerSchema,
   type FooterData,
 } from "../schemas";
@@ -88,8 +88,8 @@ export async function getPressEntries(): Promise<PressEntry[]> {
 
 // --- Global SEO ---
 
-export async function getGlobalSEO(): Promise<SEO> {
-  return loadYaml("site/seo.yaml", seoSchema);
+export async function getGlobalSEO(): Promise<GlobalSEO> {
+  return loadYaml("site/seo.yaml", globalSeoSchema);
 }
 
 // --- Footer ---

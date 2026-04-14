@@ -40,7 +40,7 @@ export function Footer({ footer }: FooterProps) {
   const copyrightText = footer.copyright.replace("{year}", String(year));
 
   return (
-    <footer className="border-t border-border bg-muted">
+    <footer className="border-t border-border bg-muted" aria-label="Fußbereich">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Columns */}
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -76,7 +76,7 @@ export function Footer({ footer }: FooterProps) {
           {footer.columns.map((column) => (
             <div key={column.title}>
               <h3 className="text-sm font-semibold text-foreground">{column.title}</h3>
-              <ul className="mt-3 space-y-2">
+              <ul className="mt-3 space-y-2" role="list">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -95,7 +95,7 @@ export function Footer({ footer }: FooterProps) {
         {/* Bottom Bar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">{copyrightText}</p>
-          <div className="flex gap-4">
+          <nav className="flex gap-4" aria-label="Rechtliche Links">
             {footer.legal.map((item) => (
               <Link
                 key={item.href}
@@ -105,7 +105,7 @@ export function Footer({ footer }: FooterProps) {
                 {item.label}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
     </footer>

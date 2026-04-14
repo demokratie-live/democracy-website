@@ -1,4 +1,4 @@
-export { seoSchema, type SEO } from "./seo";
+export { seoSchema, globalSeoSchema, openGraphSchema, type SEO, type GlobalSEO } from "./seo";
 export { pageFrontmatterSchema, type PageFrontmatter } from "./page";
 export { blogFrontmatterSchema, type BlogFrontmatter } from "./blog";
 export { faqEntrySchema, faqListSchema, type FAQEntry } from "./faq";

@@ -14,7 +14,10 @@ export function Navbar({ navigation }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <nav
+        aria-label="Hauptnavigation"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+      >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-bold text-primary-500">DEMOCRACY</span>
@@ -46,6 +49,8 @@ export function Navbar({ navigation }: NavbarProps) {
           className="md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -53,8 +58,8 @@ export function Navbar({ navigation }: NavbarProps) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-white md:hidden">
-          <div className="space-y-1 px-4 py-4">
+        <div id="mobile-menu" className="border-t border-border bg-white md:hidden">
+          <nav aria-label="Mobile Navigation" className="space-y-1 px-4 py-4">
             {navigation.main.map((item) => (
               <Link
                 key={item.href}
@@ -73,7 +78,7 @@ export function Navbar({ navigation }: NavbarProps) {
               <Heart className="h-4 w-4" />
               Spenden
             </Link>
-          </div>
+          </nav>
         </div>
       )}
     </header>

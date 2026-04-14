@@ -1,2 +1,11 @@
 title: "DEMOCRACY Deutschland"
 description: "DEMOCRACY ermöglicht politische Mitbestimmung — transparent, unabhängig, digital."
+siteUrl: "https://www.democracy-deutschland.de"
+locale: "de_DE"
+openGraph:
+  siteName: "DEMOCRACY Deutschland"
+  type: "website"
+  image: "/images/og-default.svg"
+  imageWidth: 1200
+  imageHeight: 630
+  imageAlt: "DEMOCRACY Deutschland – Weil deine Stimme zählt!"

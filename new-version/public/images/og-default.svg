@@ -1,0 +1,6 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#3d87c1"/>
+  <text x="600" y="280" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="bold" fill="white">DEMOCRACY</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="32" fill="white" opacity="0.9">Weil deine Stimme zählt!</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22" fill="white" opacity="0.7">democracy-deutschland.de</text>
+</svg>

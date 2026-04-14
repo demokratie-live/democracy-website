@@ -19,7 +19,7 @@ import { footerSchema } from "../src/lib/schemas/footer";
 import { donateConfigSchema } from "../src/lib/schemas/donate";
 import { roadmapListSchema } from "../src/lib/schemas/roadmap";
 import { pressListSchema } from "../src/lib/schemas/press";
-import { seoSchema } from "../src/lib/schemas/seo";
+import { seoSchema, globalSeoSchema } from "../src/lib/schemas/seo";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -99,7 +99,7 @@ async function main() {
   console.log("\n📊 YAML-Dateien:");
   await validateYamlFile("site/navigation.yaml", navigationSchema, "site/navigation.yaml");
   await validateYamlFile("site/footer.yaml", footerSchema, "site/footer.yaml");
-  await validateYamlFile("site/seo.yaml", seoSchema, "site/seo.yaml");
+  await validateYamlFile("site/seo.yaml", globalSeoSchema, "site/seo.yaml");
   await validateYamlFile("faq/allgemein.yaml", faqListSchema, "faq/allgemein.yaml");
   await validateYamlFile("team/members.yaml", teamDataSchema, "team/members.yaml");
   await validateYamlFile("donate/config.yaml", donateConfigSchema, "donate/config.yaml");
