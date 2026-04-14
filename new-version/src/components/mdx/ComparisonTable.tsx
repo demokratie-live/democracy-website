@@ -1,39 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import {
+  useState,
+  Children,
+  isValidElement,
+  type ReactNode,
+  type ReactElement,
+} from "react";
 import { ChevronDown } from "lucide-react";
 
-interface ComparisonRow {
+interface ComparisonRowProps {
   left: string;
   leftDescription: string;
   right: string;
   rightDescription: string;
 }
 
-interface ComparisonCardsProps {
-  title: string;
+export function ComparisonRow(_props: ComparisonRowProps) {
+  // Rendered by ComparisonTable, not directly
+  return null;
+}
+
+interface ComparisonTableProps {
   leftLabel: string;
   rightLabel: string;
   leftColor?: string;
   rightColor?: string;
-  rows: ComparisonRow[];
+  children: ReactNode;
 }
 
-export function ComparisonCards({
-  title,
+export function ComparisonTable({
   leftLabel,
   rightLabel,
   leftColor = "bg-amber-500",
   rightColor = "bg-primary-500",
-  rows,
-}: ComparisonCardsProps) {
+  children,
+}: ComparisonTableProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const rows: ComparisonRowProps[] = [];
+  Children.forEach(children, (child) => {
+    if (isValidElement(child) && child.type === ComparisonRow) {
+      rows.push(
+        (child as ReactElement<ComparisonRowProps>).props,
+      );
+    }
+  });
 
   return (
     <section className="py-12">
-      <h2 className="mb-8 text-center text-2xl font-bold sm:text-3xl">
-        {title}
-      </h2>
       <div className="mb-4 grid grid-cols-2 gap-2">
         <div
           className={`rounded-lg ${leftColor} px-4 py-2 text-center font-semibold text-white`}
