@@ -47,11 +47,7 @@ export function Navbar({ navigation }: NavbarProps) {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
         >
-          {mobileOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 

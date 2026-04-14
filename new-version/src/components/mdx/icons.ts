@@ -16,6 +16,9 @@ import {
   Check,
   X,
   ChevronDown,
+  Server,
+  Code,
+  Share2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -37,6 +40,9 @@ const iconMap: Record<string, LucideIcon> = {
   check: Check,
   x: X,
   "chevron-down": ChevronDown,
+  server: Server,
+  code: Code,
+  "share-2": Share2,
 };
 
 export function resolveIcon(name: string): LucideIcon | null {

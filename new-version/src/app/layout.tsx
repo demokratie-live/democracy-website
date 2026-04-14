@@ -15,8 +15,7 @@ export const metadata: Metadata = {
     default: "DEMOCRACY Deutschland",
     template: "%s | DEMOCRACY Deutschland",
   },
-  description:
-    "DEMOCRACY ermöglicht politische Mitbestimmung — transparent, unabhängig, digital.",
+  description: "DEMOCRACY ermöglicht politische Mitbestimmung — transparent, unabhängig, digital.",
   metadataBase: new URL("https://www.democracy-deutschland.de"),
 };
 
@@ -25,10 +24,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [navigation, footer] = await Promise.all([
-    getNavigation(),
-    getFooter(),
-  ]);
+  const [navigation, footer] = await Promise.all([getNavigation(), getFooter()]);
 
   return (
     <html lang="de" className={`${inter.className} h-full antialiased`}>

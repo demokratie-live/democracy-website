@@ -1,0 +1,37 @@
+headline: "Spenden"
+subline: "Unsere Arbeit ist unabhängig, überparteilich, allgemeinnützig und nichtkommerziell – von Menschen für Menschen"
+
+bankAccount:
+  holder: "DEMOCRACY Deutschland e.V."
+  iban: "DE33 5003 1000 1049 7560 00"
+  bic: "TRODDEF1"
+  bank: "Triodos Bank"
+
+progress:
+  current: 1650
+  # TODO: goal should be automatically calculated from categories[].amount
+  goal: 9300
+  unit: "€/Monat"
+  patrons: 387
+
+categories:
+  - label: "Server & Infrastruktur"
+    amount: 800
+    icon: "server"
+  - label: "Entwicklung"
+    amount: 2500
+    icon: "code"
+  - label: "Verwaltung & Recht"
+    amount: 700
+    icon: "file-text"
+  - label: "Kommunikation"
+    amount: 500
+    icon: "share-2"
+  - label: "Sonstiges"
+    amount: 500
+    icon: "list"
+
+callToAction:
+  paypal: "https://www.paypal.com/donate/?hosted_button_id=DEMOCRACY"
+  bankTransfer: true
+  minAmount: 5

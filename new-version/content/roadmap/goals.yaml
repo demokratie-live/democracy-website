@@ -1,0 +1,69 @@
+- title: "Live-Daten aus dem Bundestag"
+  description: "Aktuelle und vergangene Abstimmungen, Vorgänge und Drucksachen direkt aus dem parlamentarischen Informationssystem."
+  phase: beta
+  status: done
+
+- title: "Nutzerabstimmung"
+  description: "Eigene Stimme zu Bundestagsabstimmungen abgeben – Ja, Enthaltung oder Nein."
+  phase: beta
+  status: done
+
+- title: "Push-Benachrichtigungen"
+  description: "Benachrichtigungen über neue Abstimmungen, Ergebnisse und Updates."
+  phase: beta
+  status: done
+
+- title: "Ergebnisdarstellung"
+  description: "Visualisierung der Abstimmungsergebnisse als Kreisdiagramme – gesamt und nach Fraktionen."
+  phase: beta
+  status: done
+
+- title: "Gesetz suchen"
+  description: "Volltextsuche über alle Bundestagsvorgänge und Drucksachen."
+  phase: beta
+  status: done
+
+- title: "Wahl-O-Meter"
+  description: "Persönlicher Vergleich der eigenen Abstimmungen mit den Fraktionsergebnissen im Bundestag."
+  phase: mvp
+  status: done
+
+- title: "Profilbereich"
+  description: "Persönliche Abstimmungshistorie und Statistiken."
+  phase: mvp
+  status: done
+
+- title: "Fraktionsergebnisse"
+  description: "Detaillierte Darstellung der Abstimmungsergebnisse nach Fraktionen als Balkendiagramme."
+  phase: mvp
+  status: done
+
+- title: "Desktop-Version"
+  description: "DEMOCRACY als Web-App für den Desktop-Browser."
+  phase: mvp
+  status: in-progress
+
+- title: "Diskussionsforum"
+  description: "Crowdmoderierte Diskussion zu Gesetzesvorhaben – Argumente einbringen, lesen und bewerten."
+  phase: mvp
+  status: planned
+
+- title: "Abgeordnetenprofile"
+  description: "Detailseiten zu Abgeordneten mit Abstimmungsverhalten und Kontaktmöglichkeiten."
+  phase: mvp
+  status: planned
+
+- title: "Kryptographisches Wahlverfahren"
+  description: "Ende-zu-Ende-verschlüsselte Abstimmung für maximale Sicherheit und Verifizierbarkeit."
+  phase: dream
+  status: planned
+
+- title: "Eigene Abstimmungslisten"
+  description: "Nutzer können eigene Themen zur Abstimmung stellen – über den Bundestag hinaus."
+  phase: dream
+  status: planned
+
+- title: "Landesparlamante & EU"
+  description: "Erweiterung auf Landtage und das Europäische Parlament."
+  phase: dream
+  status: planned

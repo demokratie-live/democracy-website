@@ -16,6 +16,10 @@ import { PhilosophyCard } from "./PhilosophyCard";
 import { TeamSection } from "./TeamSection";
 import { ComparisonTable, ComparisonRow } from "./ComparisonTable";
 import { ValueTable, ValueRow } from "./ValueTable";
+import { FAQSection } from "./FAQSection";
+import { DonateSection } from "./DonateSection";
+import { RoadmapSection } from "./RoadmapSection";
+import { ContactForm } from "./ContactForm";
 
 function isInternalLink(href: string) {
   return href.startsWith("/") || href.startsWith("#");
@@ -57,4 +61,8 @@ export const mdxComponents = {
   ComparisonRow,
   ValueTable,
   ValueRow,
+  FAQSection,
+  DonateSection,
+  RoadmapSection,
+  ContactForm,
 };

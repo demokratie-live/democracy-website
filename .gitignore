@@ -4,3 +4,9 @@ democracy_website_dump.sql
 /blog/
 /democracy/files/old/
 .env
+.playwright-mcp/console-2026-04-14T05-27-56-372Z.log
+.playwright-mcp/console-2026-04-14T05-28-14-029Z.log
+.playwright-mcp/console-2026-04-14T05-29-07-410Z.log
+.playwright-mcp/page-2026-04-14T05-27-57-144Z.yml
+.playwright-mcp/page-2026-04-14T05-28-14-210Z.yml
+.playwright-mcp/page-2026-04-14T05-29-07-826Z.yml

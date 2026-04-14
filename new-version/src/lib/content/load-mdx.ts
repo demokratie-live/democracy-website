@@ -26,10 +26,7 @@ export async function loadAllMdx<T>(
 
   const results = await Promise.all(
     mdxFiles.map(async (fileName) => {
-      const { frontmatter, content } = await loadMdx(
-        path.join(dirPath, fileName),
-        schema,
-      );
+      const { frontmatter, content } = await loadMdx(path.join(dirPath, fileName), schema);
       return { frontmatter, content, fileName };
     }),
   );

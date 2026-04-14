@@ -14,14 +14,10 @@ export function Hero({ headline, subline, version }: HeroProps) {
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
           {headline}
           {version && (
-            <span className="mt-2 block text-2xl font-light opacity-80 sm:text-3xl">
-              {version}
-            </span>
+            <span className="mt-2 block text-2xl font-light opacity-80 sm:text-3xl">{version}</span>
           )}
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">
-          {subline}
-        </p>
+        <p className="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">{subline}</p>
         <div className="mt-10">
           <AppBadges className="justify-center" />
         </div>

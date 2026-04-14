@@ -7,10 +7,7 @@ interface GridProps {
 }
 
 export function Grid({ cols = 2, children, className = "" }: GridProps) {
-  const gridCols =
-    cols === 2 ? "md:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
+  const gridCols = cols === 2 ? "md:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
 
-  return (
-    <div className={`grid gap-8 ${gridCols} ${className}`}>{children}</div>
-  );
+  return <div className={`grid gap-8 ${gridCols} ${className}`}>{children}</div>;
 }

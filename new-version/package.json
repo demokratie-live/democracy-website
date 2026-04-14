@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "validate-content": "tsx scripts/validate-content.ts"
   },
   "dependencies": {
@@ -21,12 +24,14 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
+    "prettier": "^3.8.2",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"

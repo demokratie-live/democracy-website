@@ -11,13 +11,7 @@ interface InfoCardProps {
   children: ReactNode;
 }
 
-export function InfoCard({
-  icon,
-  title,
-  subtitle,
-  link,
-  children,
-}: InfoCardProps) {
+export function InfoCard({ icon, title, subtitle, link, children }: InfoCardProps) {
   const Icon = resolveIcon(icon);
 
   return (
@@ -28,11 +22,7 @@ export function InfoCard({
         </div>
       )}
       <h3 className="text-xl font-bold text-primary-600">{title}</h3>
-      {subtitle && (
-        <p className="mb-3 text-sm font-medium text-muted-foreground">
-          {subtitle}
-        </p>
-      )}
+      {subtitle && <p className="mb-3 text-sm font-medium text-muted-foreground">{subtitle}</p>}
       <p className="mb-4 text-sm text-muted-foreground">{children}</p>
       {link && (
         <Link

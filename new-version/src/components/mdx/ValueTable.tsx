@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  useState,
-  Children,
-  isValidElement,
-  type ReactNode,
-  type ReactElement,
-} from "react";
+import { useState, Children, isValidElement, type ReactNode, type ReactElement } from "react";
 import { ChevronDown, Check, X } from "lucide-react";
 
 interface ValueRowProps {
@@ -38,16 +32,11 @@ export function ValueTable({ children }: ValueTableProps) {
   return (
     <div className="space-y-3">
       {values.map((value, index) => (
-        <div
-          key={index}
-          className="overflow-hidden rounded-lg ring-1 ring-border"
-        >
+        <div key={index} className="overflow-hidden rounded-lg ring-1 ring-border">
           <button
             type="button"
             className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-muted/50"
-            onClick={() =>
-              setOpenIndex(openIndex === index ? null : index)
-            }
+            onClick={() => setOpenIndex(openIndex === index ? null : index)}
             aria-expanded={openIndex === index}
           >
             <div className="flex flex-1 items-center gap-3">
@@ -68,18 +57,14 @@ export function ValueTable({ children }: ValueTableProps) {
                     <Check className="h-4 w-4" />
                     {value.support}
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    {value.supportDescription}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{value.supportDescription}</p>
                 </div>
                 <div>
                   <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-danger">
                     <X className="h-4 w-4" />
                     {value.oppose}
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    {value.opposeDescription}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{value.opposeDescription}</p>
                 </div>
               </div>
             </div>

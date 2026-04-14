@@ -75,9 +75,7 @@ export function Footer({ footer }: FooterProps) {
           {/* Link Columns */}
           {footer.columns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-sm font-semibold text-foreground">
-                {column.title}
-              </h3>
+              <h3 className="text-sm font-semibold text-foreground">{column.title}</h3>
               <ul className="mt-3 space-y-2">
                 {column.links.map((link) => (
                   <li key={link.href}>

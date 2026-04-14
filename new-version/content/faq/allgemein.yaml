@@ -1,0 +1,81 @@
+- question: "Gebt ihr meine Daten an Dritte weiter?"
+  answer: >-
+    Die Betreiber der App DEMOCRACY nehmen den Schutz Deiner persönlichen Daten
+    sehr ernst. Unserer Meinung nach sind Nutzerdaten gerade keine handelbaren
+    Wirtschaftsgüter, sondern im Sinne des Grundgesetzes zu schützen. Deshalb
+    behandeln wir Deine personenbezogenen wie Abstimmungs-Daten vertraulich
+    entsprechend den gesetzlichen Datenschutzrichtlinien und geben sie
+    selbstverständlich nicht an Dritte weiter.
+  category: datenschutz
+
+- question: "Wie stellt ihr meine Stimmanonymität sicher?"
+  answer: >-
+    Wahlgeheimnis bedeutet, dass während und nach einer Wahl keine Information
+    bekannt werden darf, die darauf schließen lässt, was ein Wähler gewählt hat.
+    Unser Konzept sieht vor, jede Deiner Abstimmungsentscheidungen von Deinen
+    personenbezogenen Identifikationsdaten zu trennen. Deine Stimme wird
+    serverseitig nur akkumuliert gespeichert, wir loggen keinen Servertraffic
+    und speichern kein Datum zu Deiner Stimmabgabe.
+  category: datenschutz
+
+- question: "Sensible Daten und Open Source – geht das?"
+  answer: >-
+    Open Source bedeutet, dass der Quellcode frei und offen ist. Die Daten der
+    Nutzer sind kein Bestandteil des Quellcodes, sondern der entsprechenden
+    Installation des freien Programms auf einem Server. Insofern ist der
+    unberechtigte Zugriff auf Nutzerdaten durch Dritte durch unsere
+    Open-Source-Eigenschaft nicht angetastet. Überdies wird jede Änderung im
+    Code, bevor sie in den Betrieb übergeht, von uns geprüft.
+  category: datenschutz
+
+- question: "Auf welchen Plattformen kann ich teilnehmen?"
+  answer: >-
+    An DEMOCRACY teilnehmen kannst Du via Smartphone mit iOS- oder
+    Android-Betriebssystem. Die App ist kostenlos im App Store und Google Play
+    Store verfügbar.
+  category: allgemein
+
+- question: "Welche Funktionen bietet DEMOCRACY?"
+  answer: >-
+    DEMOCRACY bietet Live-Daten aus dem Bundestag, eigene Abstimmungen durch
+    Dich als Nutzer und eine Übersicht über die Ergebnisse. Die vollständige
+    Funktionsübersicht findest Du auf unserer Engineering-Seite.
+  category: allgemein
+
+- question: "Wie wird DEMOCRACY finanziert?"
+  answer: >-
+    DEMOCRACY ist eine gemeinnützige App — von Menschen, für Menschen. Da wir
+    DEMOCRACY als werbefreie Plattform ohne Datenverkauf realisieren, setzen
+    wir auf gemeinschaftliche Finanzierung. DEMOCRACY wird durch Spenden
+    finanziert. Pate kannst du schon ab 5 € monatlich werden.
+  category: finanzen
+
+- question: "Warum braucht ihr Geld?"
+  answer: >-
+    Der Betrieb der App und der Serverinfrastruktur verursacht laufende Kosten.
+    Dazu kommen Entwicklungsaufwände für neue Features und die Pflege
+    bestehender Funktionen. Deine finanzielle Unterstützung gibt uns
+    Planungssicherheit für die Zukunft des Projekts.
+  category: finanzen
+
+- question: "Wie ist die Bankverbindung von DEMOCRACY Deutschland e.V.?"
+  answer: >-
+    Kontoinhaber: DEMOCRACY Deutschland e.V. —
+    IBAN: DE33 5003 1000 1049 7560 00 —
+    BIC: TRODDEF1
+  category: finanzen
+
+- question: "Ist DEMOCRACY wirklich kostenlos?"
+  answer: >-
+    Ja, DEMOCRACY ist und bleibt kostenlos. Es gibt keine versteckten Kosten,
+    keine Werbung und keinen Datenverkauf. Die App wird ausschließlich durch
+    Spenden finanziert.
+  category: allgemein
+
+- question: "Kann ich bei DEMOCRACY mitmachen?"
+  answer: >-
+    Ja! Wir suchen ständig motivierte Leute für die aktive Mitarbeit. Unser
+    Projekt ist Open Source — Du kannst auf GitHub mitentwickeln, Feedback
+    geben oder uns mit Deinen Fähigkeiten unterstützen. Melde Dich einfach
+    über unser Kontaktformular.
+  category: allgemein

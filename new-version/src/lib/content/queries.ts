@@ -26,31 +26,20 @@ import { loadYaml } from "./load-yaml";
 // --- Pages ---
 
 export async function getPage(slug: string) {
-  return loadMdx<PageFrontmatter>(
-    `pages/${slug}.mdx`,
-    pageFrontmatterSchema,
-  );
+  return loadMdx<PageFrontmatter>(`pages/${slug}.mdx`, pageFrontmatterSchema);
 }
 
 // --- Blog ---
 
 export async function getAllBlogPosts() {
-  const posts = await loadAllMdx<BlogFrontmatter>(
-    "blog",
-    blogFrontmatterSchema,
-  );
+  const posts = await loadAllMdx<BlogFrontmatter>("blog", blogFrontmatterSchema);
   return posts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime(),
+    (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
   );
 }
 
 export async function getBlogPost(slug: string) {
-  return loadMdx<BlogFrontmatter>(
-    `blog/${slug}.mdx`,
-    blogFrontmatterSchema,
-  );
+  return loadMdx<BlogFrontmatter>(`blog/${slug}.mdx`, blogFrontmatterSchema);
 }
 
 // --- Navigation ---

@@ -185,10 +185,10 @@ gantt
 
 **Seiten:**
 
-| Seite | Route | Content-Quelle |
-|-------|-------|----------------|
-| Impressum | `/impressum` | `content/pages/impressum.mdx` |
-| Datenschutz | `/datenschutz` | `content/pages/datenschutz.mdx` |
+| Seite               | Route                  | Content-Quelle                          |
+| ------------------- | ---------------------- | --------------------------------------- |
+| Impressum           | `/impressum`           | `content/pages/impressum.mdx`           |
+| Datenschutz         | `/datenschutz`         | `content/pages/datenschutz.mdx`         |
 | Nutzungsbedingungen | `/nutzungsbedingungen` | `content/pages/nutzungsbedingungen.mdx` |
 
 **Schritte:**
@@ -208,11 +208,11 @@ gantt
 
 **Seiten:**
 
-| Seite | Route | Besonderheiten |
-|-------|-------|---------------|
-| Über uns | `/ueber-uns` | TeamGrid-Komponente, ValueCards |
-| Bürger | `/buerger` | Reine MDX-Seite |
-| Politiker | `/politiker` | Reine MDX-Seite |
+| Seite      | Route         | Besonderheiten                    |
+| ---------- | ------------- | --------------------------------- |
+| Über uns   | `/ueber-uns`  | TeamGrid-Komponente, ValueCards   |
+| Bürger     | `/buerger`    | Reine MDX-Seite                   |
+| Politiker  | `/politiker`  | Reine MDX-Seite                   |
 | Wahlometer | `/wahlometer` | App-Screenshots, Video-Einbettung |
 
 **Schritte:**
@@ -309,12 +309,14 @@ graph TD
 3. Seite `/spenden` anlegen
 
 **Update-Workflow für Fortschrittsbalken:**
+
 ```yaml
 # Einfach in content/donate/config.yaml ändern:
 progress:
-  current: 3200  # ← Wert aktualisieren
+  current: 3200 # ← Wert aktualisieren
   goal: 5000
 ```
+
 → PR öffnen → Merge → automatisch deployed.
 
 ---
@@ -447,12 +449,12 @@ flowchart TD
 1. Client-seitiges Redirect-Script für `/#!page`-URLs:
    ```typescript
    // src/app/layout.tsx oder separates Script
-   if (window.location.hash.startsWith('#!')) {
-     const page = window.location.hash.replace('#!', '');
+   if (window.location.hash.startsWith("#!")) {
+     const page = window.location.hash.replace("#!", "");
      const redirectMap = {
-       'home': '/',
-       'about': '/ueber-uns',
-       'donate': '/spenden',
+       home: "/",
+       about: "/ueber-uns",
+       donate: "/spenden",
        // ...
      };
      if (redirectMap[page]) {
@@ -578,15 +580,15 @@ sequenceDiagram
 
 ### Typische Aufgaben
 
-| Aufgabe | Was tun | Datei |
-|---------|---------|-------|
-| FAQ hinzufügen | Eintrag in YAML | `content/faq/allgemein.yaml` |
-| Blogpost schreiben | Neue MDX-Datei | `content/blog/2026-xx-xx-titel.mdx` |
-| Team-Mitglied ändern | YAML bearbeiten | `content/team/members.yaml` |
-| Spendenstand aktualisieren | YAML bearbeiten | `content/donate/config.yaml` |
-| Navigation ändern | YAML bearbeiten | `content/site/navigation.yaml` |
-| Seite inhaltlich ändern | MDX bearbeiten | `content/pages/seitenname.mdx` |
-| Neue Seite erstellen | MDX + Route | `content/pages/neu.mdx` + `src/app/neu/page.tsx` |
+| Aufgabe                    | Was tun         | Datei                                            |
+| -------------------------- | --------------- | ------------------------------------------------ |
+| FAQ hinzufügen             | Eintrag in YAML | `content/faq/allgemein.yaml`                     |
+| Blogpost schreiben         | Neue MDX-Datei  | `content/blog/2026-xx-xx-titel.mdx`              |
+| Team-Mitglied ändern       | YAML bearbeiten | `content/team/members.yaml`                      |
+| Spendenstand aktualisieren | YAML bearbeiten | `content/donate/config.yaml`                     |
+| Navigation ändern          | YAML bearbeiten | `content/site/navigation.yaml`                   |
+| Seite inhaltlich ändern    | MDX bearbeiten  | `content/pages/seitenname.mdx`                   |
+| Neue Seite erstellen       | MDX + Route     | `content/pages/neu.mdx` + `src/app/neu/page.tsx` |
 
 ---
 
@@ -715,6 +717,7 @@ graph TD
 ```
 
 **Parallele Arbeit möglich:**
+
 - Phase 3 (FAQ, Spenden, Roadmap, Kontakt) kann parallel nach Phase 1 starten
 - Phase 5.2 und 5.3 können parallel laufen
 - WordPress-Migration (4.3) kann unabhängig vom Blog-System vorbereitet werden
@@ -723,15 +726,15 @@ graph TD
 
 ## Technische Entscheidungen (Zusammenfassung)
 
-| Entscheidung | Wahl | Alternative | Begründung |
-|-------------|------|------------|-----------|
-| Framework | Next.js 15 | Astro, Gatsby | App Router, MDX-Support, großes Ecosystem |
-| Sprache | TypeScript | JavaScript | Typsicherheit, bessere DX, Zod-Integration |
-| Content-Format | MDX + YAML | Nur MDX, Nur JSON | Optimal: MDX für Text, YAML für Daten |
-| Validierung | Zod | Yup, Joi | TypeScript-first, Build-time Fehler |
-| CSS | Tailwind CSS | Bootstrap 5, CSS Modules | Modern, kein CSS-Overhead, Copilot-freundlich |
-| Icons | Lucide React | Font Awesome | Treeshakable, SVG, kein Font-Laden |
-| Deployment | Static Export | SSR, ISR | Kein Server nötig, schnell, günstig |
-| Hosting | GitHub Pages / Cloudflare Pages | Vercel, Netlify | Kostenlos, einfach, Git-Integration |
-| Formular | Formspree / Web3Forms | Eigener Server | Statisch kompatibel, kein Backend nötig |
-| Package Manager | pnpm | npm, yarn | Schneller, strenger, Workspace-Support |
+| Entscheidung    | Wahl                            | Alternative              | Begründung                                    |
+| --------------- | ------------------------------- | ------------------------ | --------------------------------------------- |
+| Framework       | Next.js 15                      | Astro, Gatsby            | App Router, MDX-Support, großes Ecosystem     |
+| Sprache         | TypeScript                      | JavaScript               | Typsicherheit, bessere DX, Zod-Integration    |
+| Content-Format  | MDX + YAML                      | Nur MDX, Nur JSON        | Optimal: MDX für Text, YAML für Daten         |
+| Validierung     | Zod                             | Yup, Joi                 | TypeScript-first, Build-time Fehler           |
+| CSS             | Tailwind CSS                    | Bootstrap 5, CSS Modules | Modern, kein CSS-Overhead, Copilot-freundlich |
+| Icons           | Lucide React                    | Font Awesome             | Treeshakable, SVG, kein Font-Laden            |
+| Deployment      | Static Export                   | SSR, ISR                 | Kein Server nötig, schnell, günstig           |
+| Hosting         | GitHub Pages / Cloudflare Pages | Vercel, Netlify          | Kostenlos, einfach, Git-Integration           |
+| Formular        | Formspree / Web3Forms           | Eigener Server           | Statisch kompatibel, kein Backend nötig       |
+| Package Manager | pnpm                            | npm, yarn                | Schneller, strenger, Workspace-Support        |

@@ -35,11 +35,7 @@ async function fileExists(filePath: string): Promise<boolean> {
   }
 }
 
-async function validateMdxFiles(
-  dir: string,
-  schema: z.ZodType,
-  label: string,
-) {
+async function validateMdxFiles(dir: string, schema: z.ZodType, label: string) {
   const fullDir = path.join(CONTENT_DIR, dir);
   if (!(await fileExists(fullDir))) return;
 
@@ -68,11 +64,7 @@ async function validateMdxFiles(
   }
 }
 
-async function validateYamlFile(
-  filePath: string,
-  schema: z.ZodType,
-  label: string,
-) {
+async function validateYamlFile(filePath: string, schema: z.ZodType, label: string) {
   const fullPath = path.join(CONTENT_DIR, filePath);
   if (!(await fileExists(fullPath))) return;
 

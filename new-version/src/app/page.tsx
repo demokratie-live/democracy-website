@@ -14,7 +14,5 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const { content } = await getPage("home");
 
-  return (
-    <MDXRemote source={content} components={mdxComponents} />
-  );
+  return <MDXRemote source={content} components={mdxComponents} />;
 }

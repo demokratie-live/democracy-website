@@ -14,17 +14,10 @@ const bgClasses: Record<string, string> = {
   none: "",
 };
 
-export function Section({
-  bg = "none",
-  centered = false,
-  children,
-  className = "",
-}: SectionProps) {
+export function Section({ bg = "none", centered = false, children, className = "" }: SectionProps) {
   return (
     <section className={`py-16 ${bgClasses[bg] ?? ""} ${className}`}>
-      <div
-        className={`mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 ${centered ? "text-center" : ""}`}
-      >
+      <div className={`mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 ${centered ? "text-center" : ""}`}>
         {children}
       </div>
     </section>

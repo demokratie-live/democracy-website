@@ -8,9 +8,7 @@ interface VideoPlayerProps {
 
 export function VideoPlayer({ url, title, className = "" }: VideoPlayerProps) {
   // Convert YouTube watch URLs to embed URLs
-  const embedUrl = url
-    .replace("watch?v=", "embed/")
-    .replace("youtu.be/", "www.youtube.com/embed/");
+  const embedUrl = url.replace("watch?v=", "embed/").replace("youtu.be/", "www.youtube.com/embed/");
 
   return (
     <div className={`overflow-hidden rounded-xl ${className}`}>

@@ -14,14 +14,14 @@ Die bestehende Website von DEMOCRACY Deutschland e.V. ist eine PHP-basierte Sing
 
 ### Probleme des aktuellen Systems
 
-| Problem | Auswirkung |
-|---------|-----------|
-| Custom PHP-Framework | Schwer wartbar, kein Community-Support |
-| WordPress-Abhängigkeit | Sicherheits-Updates, Komplexität |
-| MySQL für statische Inhalte | Unnötiger Infrastruktur-Overhead |
-| SAI-Admin-Backend | Proprietär, schlecht dokumentiert |
-| Hash-Routing | Schlecht für SEO, kein SSR |
-| Bootstrap 4 + jQuery | Veraltet, großes Bundle |
+| Problem                     | Auswirkung                             |
+| --------------------------- | -------------------------------------- |
+| Custom PHP-Framework        | Schwer wartbar, kein Community-Support |
+| WordPress-Abhängigkeit      | Sicherheits-Updates, Komplexität       |
+| MySQL für statische Inhalte | Unnötiger Infrastruktur-Overhead       |
+| SAI-Admin-Backend           | Proprietär, schlecht dokumentiert      |
+| Hash-Routing                | Schlecht für SEO, kein SSR             |
+| Bootstrap 4 + jQuery        | Veraltet, großes Bundle                |
 
 ---
 
@@ -41,7 +41,7 @@ graph LR
     B -->|"Pull Request"| C[Review + Validierung]
     C -->|"Merge"| D[CI/CD Build]
     D -->|"Static Export"| E[CDN / GitHub Pages]
-    
+
     style A fill:#e1f5fe55
     style B fill:#fff3e055
     style C fill:#f3e5f555
@@ -53,15 +53,15 @@ graph LR
 
 ### Warum dieser Stack?
 
-| Entscheidung | Begründung |
-|-------------|-----------|
-| **Next.js 15** | App Router, Static Export, MDX-Support, großes Ecosystem |
-| **TypeScript** | Typsicherheit für Schemas, Loader, Komponenten |
-| **MDX** | Markdown + React-Komponenten — ideal für redaktionelle Inhalte |
-| **YAML** | Besser lesbar als JSON für strukturierte Daten (Navigation, FAQ, Team) |
-| **Zod** | TypeScript-first Validierung, Build-time Fehler statt Runtime-Fehler |
-| **Tailwind CSS** | Utility-first, kein CSS-Overhead, hervorragend für Copilot |
-| **Statischer Export** | Kein Server nötig, schnell, günstig, sicher |
+| Entscheidung          | Begründung                                                             |
+| --------------------- | ---------------------------------------------------------------------- |
+| **Next.js 15**        | App Router, Static Export, MDX-Support, großes Ecosystem               |
+| **TypeScript**        | Typsicherheit für Schemas, Loader, Komponenten                         |
+| **MDX**               | Markdown + React-Komponenten — ideal für redaktionelle Inhalte         |
+| **YAML**              | Besser lesbar als JSON für strukturierte Daten (Navigation, FAQ, Team) |
+| **Zod**               | TypeScript-first Validierung, Build-time Fehler statt Runtime-Fehler   |
+| **Tailwind CSS**      | Utility-first, kein CSS-Overhead, hervorragend für Copilot             |
+| **Statischer Export** | Kein Server nötig, schnell, günstig, sicher                            |
 
 ---
 
@@ -99,10 +99,10 @@ graph TD
 
 ### Regel
 
-| Inhalt | Format | Beispiel |
-|--------|--------|---------|
-| Fließtext mit Struktur | `.mdx` | Über uns, Impressum, Datenschutz |
-| Datierte Beiträge | `.mdx` | Blogposts, Pressemitteilungen |
+| Inhalt                 | Format  | Beispiel                             |
+| ---------------------- | ------- | ------------------------------------ |
+| Fließtext mit Struktur | `.mdx`  | Über uns, Impressum, Datenschutz     |
+| Datierte Beiträge      | `.mdx`  | Blogposts, Pressemitteilungen        |
 | Listen & Konfiguration | `.yaml` | Navigation, FAQ, Team, Spenden-Daten |
 
 ---
@@ -232,8 +232,7 @@ DEMOCRACY ermöglicht es jedem, über die gleichen Themen abzustimmen
 wie der Bundestag — transparent und unabhängig.
 
 <Callout variant="info">
-  DEMOCRACY ist ein gemeinnütziger Verein. Alle unsere Produkte sind
-  Open Source und frei verfügbar.
+  DEMOCRACY ist ein gemeinnütziger Verein. Alle unsere Produkte sind Open Source und frei verfügbar.
 </Callout>
 
 ## Das Team
@@ -464,11 +463,13 @@ export const pageFrontmatterSchema = z.object({
   title: z.string().min(1),
   slug: z.string().startsWith("/"),
   seo: seoSchema,
-  hero: z.object({
-    headline: z.string().min(1),
-    subline: z.string().optional(),
-    image: z.string().optional(),
-  }).optional(),
+  hero: z
+    .object({
+      headline: z.string().min(1),
+      subline: z.string().optional(),
+      image: z.string().optional(),
+    })
+    .optional(),
 });
 
 export type PageFrontmatter = z.infer<typeof pageFrontmatterSchema>;
@@ -558,7 +559,7 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 
 export async function loadPage<T>(
   filePath: string,
-  schema: z.ZodType<T>
+  schema: z.ZodType<T>,
 ): Promise<{ frontmatter: T; content: string }> {
   const fullPath = path.join(CONTENT_DIR, filePath);
   const raw = await fs.readFile(fullPath, "utf-8");
@@ -577,10 +578,7 @@ import { z } from "zod";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
-export async function loadYaml<T>(
-  filePath: string,
-  schema: z.ZodType<T>
-): Promise<T> {
+export async function loadYaml<T>(filePath: string, schema: z.ZodType<T>): Promise<T> {
   const fullPath = path.join(CONTENT_DIR, filePath);
   const raw = await fs.readFile(fullPath, "utf-8");
   const data = yaml.parse(raw);
@@ -594,32 +592,32 @@ export async function loadYaml<T>(
 
 ### Mapping: Alt → Neu
 
-| Alte Seite (PHP) | Neue Route | Content-Typ | Quelle |
-|------------------|-----------|-------------|--------|
-| `#!home` | `/` | MDX | `content/pages/home.mdx` |
-| `#!wahlometer` | `/wahlometer` | MDX | `content/pages/wahlometer.mdx` |
-| `#!about` | `/ueber-uns` | MDX + YAML | `content/pages/ueber-uns.mdx` + `content/team/members.yaml` |
-| `#!citizen` | `/buerger` | MDX | `content/pages/buerger.mdx` |
-| `#!politicians` | `/politiker` | MDX | `content/pages/politiker.mdx` |
-| `#!engineering` | `/engineering` | MDX + YAML | `content/pages/engineering.mdx` + `content/roadmap/goals.yaml` |
-| `#!donate` | `/spenden` | MDX + YAML | `content/pages/spenden.mdx` + `content/donate/config.yaml` |
-| `#!faq` | `/faq` | YAML | `content/faq/allgemein.yaml` |
-| `#!press` | `/presse` | MDX + YAML | `content/pages/presse.mdx` + `content/press/media.yaml` |
-| `#!blog` | `/blog` | MDX (je Artikel) | `content/blog/*.mdx` |
-| `#!contact` | `/kontakt` | MDX | `content/pages/kontakt.mdx` |
-| `#!datenschutz` | `/datenschutz` | MDX | `content/pages/datenschutz.mdx` |
-| `#!nutzungsbedingungen` | `/nutzungsbedingungen` | MDX | `content/pages/nutzungsbedingungen.mdx` |
-| `#!impressum` | `/impressum` | MDX | `content/pages/impressum.mdx` |
-| WordPress `/blog/` | `/blog/[slug]` | MDX | `content/blog/*.mdx` |
+| Alte Seite (PHP)        | Neue Route             | Content-Typ      | Quelle                                                         |
+| ----------------------- | ---------------------- | ---------------- | -------------------------------------------------------------- |
+| `#!home`                | `/`                    | MDX              | `content/pages/home.mdx`                                       |
+| `#!wahlometer`          | `/wahlometer`          | MDX              | `content/pages/wahlometer.mdx`                                 |
+| `#!about`               | `/ueber-uns`           | MDX + YAML       | `content/pages/ueber-uns.mdx` + `content/team/members.yaml`    |
+| `#!citizen`             | `/buerger`             | MDX              | `content/pages/buerger.mdx`                                    |
+| `#!politicians`         | `/politiker`           | MDX              | `content/pages/politiker.mdx`                                  |
+| `#!engineering`         | `/engineering`         | MDX + YAML       | `content/pages/engineering.mdx` + `content/roadmap/goals.yaml` |
+| `#!donate`              | `/spenden`             | MDX + YAML       | `content/pages/spenden.mdx` + `content/donate/config.yaml`     |
+| `#!faq`                 | `/faq`                 | YAML             | `content/faq/allgemein.yaml`                                   |
+| `#!press`               | `/presse`              | MDX + YAML       | `content/pages/presse.mdx` + `content/press/media.yaml`        |
+| `#!blog`                | `/blog`                | MDX (je Artikel) | `content/blog/*.mdx`                                           |
+| `#!contact`             | `/kontakt`             | MDX              | `content/pages/kontakt.mdx`                                    |
+| `#!datenschutz`         | `/datenschutz`         | MDX              | `content/pages/datenschutz.mdx`                                |
+| `#!nutzungsbedingungen` | `/nutzungsbedingungen` | MDX              | `content/pages/nutzungsbedingungen.mdx`                        |
+| `#!impressum`           | `/impressum`           | MDX              | `content/pages/impressum.mdx`                                  |
+| WordPress `/blog/`      | `/blog/[slug]`         | MDX              | `content/blog/*.mdx`                                           |
 
 ### Entfallende Seiten
 
-| Alte Seite | Grund |
-|-----------|-------|
-| `#!unsubscribe` | Kein eigenes Newsletter-System mehr |
-| `#!invite` | Beta-Phase abgeschlossen |
+| Alte Seite             | Grund                                     |
+| ---------------------- | ----------------------------------------- |
+| `#!unsubscribe`        | Kein eigenes Newsletter-System mehr       |
+| `#!invite`             | Beta-Phase abgeschlossen                  |
 | SAI-Admin (`/sai.php`) | Entfällt — Content wird via Git verwaltet |
-| `/api.php` | Entfällt — kein Backend |
+| `/api.php`             | Entfällt — kein Backend                   |
 
 ---
 
@@ -689,21 +687,21 @@ flowchart TD
 
 ### Verfügbare Content-Blocks
 
-| Komponente | Zweck | Beispiel |
-|-----------|-------|---------|
-| `<Hero>` | Seitenheader mit Headline + Bild | Startseite, Über uns |
-| `<Callout>` | Hervorgehobener Hinweis-Block | Info, Warnung, Tipp |
-| `<TeamGrid>` | Team-Mitglieder-Raster | Über uns |
-| `<FAQAccordion>` | Aufklappbare FAQ-Liste | FAQ-Seite |
-| `<DonateBox>` | Spendenfortschritt + CTA | Spendenseite |
-| `<ProgressBar>` | Visueller Fortschrittsbalken | Spenden, Roadmap |
-| `<MediaGrid>` | Presse-/Download-Raster | Pressseite |
-| `<BlogList>` | Blog-Artikel-Übersicht | Blog-Index |
-| `<ContactForm>` | Kontaktformular (extern) | Kontaktseite |
-| `<AppBadges>` | App Store / Play Store Buttons | Startseite |
-| `<VideoPlayer>` | Eingebetteter Video-Player | Startseite |
-| `<RoadmapTimeline>` | Phasen-Ansicht der Roadmap | Engineering |
-| `<ValueCards>` | Werte-/Prinzipien-Karten | Über uns |
+| Komponente          | Zweck                            | Beispiel             |
+| ------------------- | -------------------------------- | -------------------- |
+| `<Hero>`            | Seitenheader mit Headline + Bild | Startseite, Über uns |
+| `<Callout>`         | Hervorgehobener Hinweis-Block    | Info, Warnung, Tipp  |
+| `<TeamGrid>`        | Team-Mitglieder-Raster           | Über uns             |
+| `<FAQAccordion>`    | Aufklappbare FAQ-Liste           | FAQ-Seite            |
+| `<DonateBox>`       | Spendenfortschritt + CTA         | Spendenseite         |
+| `<ProgressBar>`     | Visueller Fortschrittsbalken     | Spenden, Roadmap     |
+| `<MediaGrid>`       | Presse-/Download-Raster          | Pressseite           |
+| `<BlogList>`        | Blog-Artikel-Übersicht           | Blog-Index           |
+| `<ContactForm>`     | Kontaktformular (extern)         | Kontaktseite         |
+| `<AppBadges>`       | App Store / Play Store Buttons   | Startseite           |
+| `<VideoPlayer>`     | Eingebetteter Video-Player       | Startseite           |
+| `<RoadmapTimeline>` | Phasen-Ansicht der Roadmap       | Engineering          |
+| `<ValueCards>`      | Werte-/Prinzipien-Karten         | Über uns             |
 
 ---
 
@@ -717,7 +715,7 @@ graph TD
     B["Konsistente Strukturen"] --> E
     C["Klare Zod-Schemas"] --> E
     D["Stabile Konventionen"] --> E
-    
+
     E --> F["Neue Inhalte generieren"]
     E --> G["Bestehende Inhalte bearbeiten"]
     E --> H["Komponenten korrekt einsetzen"]
@@ -740,17 +738,17 @@ graph TD
 
 ### Was wir gewinnen
 
-| Vorher (PHP) | Nachher (Next.js + MDX) |
-|-------------|------------------------|
-| MySQL-Datenbank nötig | Keine Datenbank |
-| WordPress für Blog | MDX-Dateien im Repo |
-| Admin-Backend (SAI) | Git + Pull Requests |
-| Server mit PHP/Apache | Statischer Export (CDN) |
-| Hash-Routing, kein SEO | Saubere URLs, SSG |
-| Bootstrap 4 + jQuery | Tailwind CSS |
-| Custom Template-Engine | React-Komponenten |
-| Keine Validierung | Zod Build-time Checks |
-| Deployment: Docker + MySQL | Deployment: `git push` |
+| Vorher (PHP)               | Nachher (Next.js + MDX) |
+| -------------------------- | ----------------------- |
+| MySQL-Datenbank nötig      | Keine Datenbank         |
+| WordPress für Blog         | MDX-Dateien im Repo     |
+| Admin-Backend (SAI)        | Git + Pull Requests     |
+| Server mit PHP/Apache      | Statischer Export (CDN) |
+| Hash-Routing, kein SEO     | Saubere URLs, SSG       |
+| Bootstrap 4 + jQuery       | Tailwind CSS            |
+| Custom Template-Engine     | React-Komponenten       |
+| Keine Validierung          | Zod Build-time Checks   |
+| Deployment: Docker + MySQL | Deployment: `git push`  |
 
 ### Was wir bewusst weglassen
 
