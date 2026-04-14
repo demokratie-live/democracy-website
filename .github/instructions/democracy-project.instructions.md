@@ -58,3 +58,26 @@ Content and layout structure belong in the `.mdx` file, not in `page.tsx`.
 - **lucide-react**: v1.8+ has no brand icons. Use inline SVGs for social media icons.
 - **Tailwind v4**: Uses PostCSS plugin, theme values defined in `globals.css` with `@theme`.
 - **pnpm**: Always use pnpm. Never use npm or yarn.
+
+## Formatting
+
+- Prettier is configured (`.prettierrc`) with MDX support.
+- Always run `pnpm format` after creating or editing files.
+- Run `pnpm format:check` in CI or before commits.
+- EditorConfig (`.editorconfig`) ensures 2-space indentation across editors.
+
+## Testing
+
+- Playwright E2E smoke tests in `tests/e2e/smoke.spec.ts`.
+- Run `pnpm build && pnpm test:e2e` to test all pages.
+- Every page route must be covered by a smoke test (HTTP 200, no console errors).
+- When adding a new page, add it to the `routes` array in `smoke.spec.ts`.
+
+## Auto-Update Context Files
+
+When introducing new patterns, components, or conventions:
+1. Update `AGENTS.md` with new commands, components, or gotchas
+2. Update relevant `.github/instructions/*.instructions.md` files
+3. Update `.github/instructions/mdx-content.instructions.md` when adding MDX components
+
+This keeps future Copilot sessions accurate and productive.
