@@ -23,6 +23,8 @@ All work should be done inside `new-version/`. See `new-version/AGENTS.md` for c
 - **Build**: Static export (`output: "export"`)
 - **Content Language**: German
 - **Code Language**: English (variable names, comments, code)
+- **User Language**: German — the user communicates in German. Always respond in German unless explicitly asked otherwise. Code, variable names, and commit messages remain in English.
+- **Reference Site**: [democracy-deutschland.de](https://www.democracy-deutschland.de) — the original live site is the visual reference for design decisions
 - **Content**: All content in `new-version/content/` as MDX and YAML files
 - **Validation**: `pnpm validate-content` checks all content against Zod schemas
 
@@ -34,6 +36,9 @@ pnpm build            # Production build
 pnpm lint             # ESLint
 pnpm validate-content # Content validation
 pnpm test:e2e         # Playwright smoke tests (build first!)
+pnpm format           # Format all files with Prettier (incl. MDX)
+pnpm format:check     # Check formatting without writing
+npx serve out         # Preview built site locally (pnpm start does NOT work with static export)
 ```
 
 ## ⚠️ Critical Workflow Rules
