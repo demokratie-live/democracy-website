@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { resolveIcon } from "./icons";
+import { renderIcon } from "./icons";
 
 interface InfoCardProps {
   icon: string;
@@ -12,13 +12,13 @@ interface InfoCardProps {
 }
 
 export function InfoCard({ icon, title, subtitle, link, children }: InfoCardProps) {
-  const Icon = resolveIcon(icon);
+  const iconNode = renderIcon(icon, "h-8 w-8");
 
   return (
     <div className="rounded-xl p-6 ring-1 ring-border">
-      {Icon && (
+      {iconNode && (
         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary-100 text-primary-500">
-          <Icon className="h-8 w-8" />
+          {iconNode}
         </div>
       )}
       <h3 className="text-xl font-bold text-primary-600">{title}</h3>

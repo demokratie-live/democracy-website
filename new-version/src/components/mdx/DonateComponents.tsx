@@ -1,4 +1,4 @@
-import { resolveIcon } from "./icons";
+import { renderIcon } from "./icons";
 
 interface ProgressBarProps {
   current: number;
@@ -90,13 +90,12 @@ export function DonateCategories({ categories, goal }: DonateCategoriesProps) {
       </p>
       <div className="space-y-3">
         {categories.map((cat) => {
-          const Icon = resolveIcon(cat.icon);
           const barWidth = Math.min(Math.round((cat.amount / goal) * 100), 100);
           return (
             <div key={cat.label}>
               <div className="mb-1 flex items-center justify-between text-sm">
                 <span className="flex items-center gap-2">
-                  {Icon && <Icon className="h-4 w-4 text-primary-500" />}
+                  {renderIcon(cat.icon, "h-4 w-4 text-primary-500")}
                   {cat.label}
                 </span>
                 <span className="font-medium">{cat.amount.toLocaleString("de-DE")} €</span>
