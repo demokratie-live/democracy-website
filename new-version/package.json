@@ -10,7 +10,8 @@
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "validate-content": "tsx scripts/validate-content.ts"
+    "validate-content": "tsx scripts/validate-content.ts",
+    "prepare": "git config --local core.hooksPath new-version/.husky"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",

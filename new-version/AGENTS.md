@@ -196,6 +196,7 @@ Use the `<ContentPage>` wrapper component with MDX content.
 - MDX files use the `mdx` parser with `proseWrap: "preserve"`.
 - `.editorconfig` enforces 2-space indentation, UTF-8, LF line endings.
 - Always run `pnpm format` after creating or editing files.
+- A pre-commit hook runs `pnpm lint` from `new-version/`; keep lint passing before committing.
 
 ## Testing
 

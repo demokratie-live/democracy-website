@@ -64,6 +64,7 @@ Content and layout structure belong in the `.mdx` file, not in `page.tsx`.
 - Prettier is configured (`.prettierrc`) with MDX support.
 - Always run `pnpm format` after creating or editing files.
 - Run `pnpm format:check` in CI or before commits.
+- A pre-commit hook runs `pnpm lint` from `new-version/`; keep lint passing before you commit.
 - EditorConfig (`.editorconfig`) ensures 2-space indentation across editors.
 
 ## Testing

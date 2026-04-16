@@ -27,6 +27,7 @@ All work should be done inside `new-version/`. See `new-version/AGENTS.md` for c
 - **Reference Site**: [democracy-deutschland.de](https://www.democracy-deutschland.de) — the original live site is the visual reference for design decisions
 - **Content**: All content in `new-version/content/` as MDX and YAML files
 - **Validation**: `pnpm validate-content` checks all content against Zod schemas
+- **Commits**: Commit sensible, self-contained changes promptly instead of leaving them uncommitted for long.
 
 ## Commands (run from `new-version/`)
 
