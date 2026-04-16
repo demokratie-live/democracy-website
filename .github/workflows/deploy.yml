@@ -47,6 +47,22 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: website-preview-${{ github.run_id }}
+          path: new-version/out
+          retention-days: 7
+
+      - name: Add preview artifact info to summary
+        run: |
+          {
+            echo "### Preview artifact"
+            echo ""
+            echo "- Name: \`website-preview-${GITHUB_RUN_ID}\`"
+            echo "- Download it from the workflow run artifacts and serve \`out/\` locally with \`npx serve out\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v5.0.0
