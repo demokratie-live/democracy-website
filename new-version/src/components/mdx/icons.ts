@@ -19,6 +19,7 @@ import {
   Server,
   Code,
   Share2,
+  Smartphone,
   type LucideIcon,
 } from "lucide-react";
 
@@ -43,6 +44,7 @@ const iconMap: Record<string, LucideIcon> = {
   server: Server,
   code: Code,
   "share-2": Share2,
+  smartphone: Smartphone,
 };
 
 export function resolveIcon(name: string): LucideIcon | null {

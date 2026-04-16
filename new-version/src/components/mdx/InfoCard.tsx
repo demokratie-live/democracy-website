@@ -23,7 +23,7 @@ export function InfoCard({ icon, title, subtitle, link, children }: InfoCardProp
       )}
       <h3 className="text-xl font-bold text-primary-600">{title}</h3>
       {subtitle && <p className="mb-3 text-sm font-medium text-muted-foreground">{subtitle}</p>}
-      <p className="mb-4 text-sm text-muted-foreground">{children}</p>
+      <div className="mb-4 text-sm text-muted-foreground">{children}</div>
       {link && (
         <Link
           href={link}

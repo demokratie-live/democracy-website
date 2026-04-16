@@ -16,7 +16,7 @@ export function PhilosophyCard({ icon, title, children }: PhilosophyCardProps) {
         {Icon && <Icon className="h-8 w-8" />}
       </div>
       <h3 className="mb-1 text-sm font-bold uppercase tracking-wide">{title}</h3>
-      <p className="text-sm text-muted-foreground">{children}</p>
+      <div className="text-sm text-muted-foreground">{children}</div>
     </div>
   );
 }

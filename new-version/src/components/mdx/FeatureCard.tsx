@@ -17,7 +17,7 @@ export function FeatureCard({ icon, title, children }: FeatureCardProps) {
       </div>
       <div>
         <h3 className="font-bold">{title}</h3>
-        <p className="text-sm text-muted-foreground">{children}</p>
+        <div className="text-sm text-muted-foreground">{children}</div>
       </div>
     </div>
   );

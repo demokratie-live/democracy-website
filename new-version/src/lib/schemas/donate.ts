@@ -26,6 +26,7 @@ export const donateConfigSchema = z.object({
   categories: z.array(donateCategorySchema),
   callToAction: z.object({
     paypal: z.string().url().optional(),
+    donorbox: z.string().url().optional(),
     bankTransfer: z.boolean().default(true),
     minAmount: z.number().min(1).default(5),
   }),

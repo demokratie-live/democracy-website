@@ -1,49 +1,182 @@
-- title: "DEMOCRACY im Deutschlandfunk"
-  type: article
-  url: "https://www.deutschlandfunk.de/democracy-app-100.html"
-  date: 2023-11-15
-  source: "Deutschlandfunk"
-  description: "Bericht über die DEMOCRACY App und ihre Rolle bei der politischen Bildung."
-
-- title: "App macht Bundestagsabstimmungen transparent"
-  type: article
-  url: "https://www.sueddeutsche.de/digital/democracy-app-bundestag"
-  date: 2023-09-20
-  source: "Süddeutsche Zeitung"
-  description: "Wie die DEMOCRACY App Bürgerinnen und Bürgern ermöglicht, das Abstimmungsverhalten im Bundestag nachzuvollziehen."
-
-- title: "Demokratie per App"
-  type: article
-  url: "https://www.spiegel.de/netzwelt/apps/democracy-app"
-  date: 2023-06-10
-  source: "Der Spiegel"
-  description: "DEMOCRACY will die Kluft zwischen Parlament und Bevölkerung verringern."
-
-- title: "Digital mitbestimmen mit DEMOCRACY"
-  type: article
-  url: "https://www.zeit.de/digital/2023-04/democracy-app"
-  date: 2023-04-05
-  source: "Die Zeit"
-  description: "Porträt der Civic-Tech-Initiative DEMOCRACY Deutschland e.V."
-
-- title: "DEMOCRACY beim Chaos Communication Congress"
+# Presse-Kit: Videos (type 1 from media.sql)
+- title: "DEMOCRACY goes Crowdfunding"
   type: video
-  url: "https://media.ccc.de/v/democracy-app"
-  date: 2023-12-28
-  source: "CCC"
-  description: "Vortrag über Open-Source-Demokratie-Tools und die Architektur der DEMOCRACY App."
+  url: "https://www.youtube.com/watch?v=q0frFha7QE8"
+  date: 2017-10-01
+  source: "DEMOCRACY"
+  description: "Das offizielle Crowdfunding-Video von DEMOCRACY Deutschland e.V."
 
-- title: "DEMOCRACY Pressemappe"
-  type: document
-  url: "/press/DEMOCRACY-Pressemappe.pdf"
-  description: "Offizielle Pressemappe mit Hintergrundinformationen, Fakten und Bildmaterial."
+- title: "Testimonial Anny Hartmann"
+  type: video
+  url: "https://www.youtube.com/watch?v=748FNtwHCzw"
+  date: 2017-11-01
+  source: "DEMOCRACY"
+  description: "Kabarettistin Anny Hartmann über DEMOCRACY."
 
-- title: "DEMOCRACY Logo (SVG)"
+- title: "DEMOCRACY verlängert Crowdfunding"
+  type: video
+  url: "https://www.youtube.com/watch?v=-6pdnFqnaWY"
+  date: 2017-12-01
+  source: "DEMOCRACY"
+  description: "Crowdfunding-Verlängerung für DEMOCRACY."
+
+- title: "Highlights DEMOCRACY X IP"
+  type: video
+  url: "https://www.youtube.com/watch?v=l7v4RtbPafg"
+  date: 2018-02-01
+  source: "DEMOCRACY"
+  description: "Highlights vom DEMOCRACY X Idealism Prevails Event."
+
+- title: "Developer Demo Sprint 01"
+  type: video
+  url: "https://www.youtube.com/watch?v=oTX59JhDmXU"
+  date: 2018-03-01
+  source: "DEMOCRACY"
+  description: "Erste Entwickler-Demo der DEMOCRACY App."
+
+- title: "Developer Demo Sprint 04"
+  type: video
+  url: "https://www.youtube.com/watch?v=H6oJA4MUVW0"
+  date: 2018-04-01
+  source: "DEMOCRACY"
+  description: "Vierte Entwickler-Demo der DEMOCRACY App."
+
+# Downloads: Logos & Grafiken (type 2 from media.sql)
+- title: "DEMOCRACY Bubble"
   type: logo
-  url: "/press/democracy-logo.svg"
-  description: "Offizielles DEMOCRACY Logo zur redaktionellen Verwendung."
+  url: "https://democracy-deutschland.de/files/download/DEMOCRACY_Logo.png"
+  description: "DEMOCRACY Logo — runde Variante."
 
-- title: "App Screenshot — Abstimmungsübersicht"
+- title: "DEMOCRACY Bubble Beta"
+  type: logo
+  url: "https://democracy-deutschland.de/files/download/DEMOCRACY_Logo_Beta.png"
+  description: "DEMOCRACY Beta-Logo — runde Variante."
+
+- title: "DEMOCRACY Logo"
+  type: logo
+  url: "https://democracy-deutschland.de/files/download/Logo_with_sublines_1.png"
+  description: "DEMOCRACY Logo mit Untertitel."
+
+- title: "DEMOCRACY Logo quer"
+  type: logo
+  url: "https://democracy-deutschland.de/files/download/Logo_with_sublines_2.png"
+  description: "DEMOCRACY Logo — Querformat."
+
+- title: "DEMOCRACY Funktionsgrafik"
   type: screenshot
-  url: "/press/screenshot-abstimmung.png"
-  description: "Screenshot der Abstimmungsübersicht in der DEMOCRACY App."
+  url: "https://democracy-deutschland.de/files/download/Funktionen.png"
+  description: "Übersicht der Funktionen der DEMOCRACY App."
+
+- title: "DEMOCRACY Beta Schleife"
+  type: screenshot
+  url: "https://democracy-deutschland.de/files/download/Hello.png"
+  description: "DEMOCRACY Beta-Schleife Grafik."
+
+- title: "DEMOCRACY Beta Invite"
+  type: screenshot
+  url: "https://democracy-deutschland.de/files/download/PM.png"
+  description: "DEMOCRACY Beta-Einladung Grafik."
+
+- title: "DEMOCRACY offenes Parlament"
+  type: screenshot
+  url: "https://democracy-deutschland.de/files/download/offenes_Parlament.jpg"
+  description: "Grafik zum offenen Parlament."
+
+# Pressespiegel: Berichte über DEMOCRACY (type 0 from media.sql)
+- title: "NuoViso.tv"
+  type: article
+  url: "https://www.youtube.com/watch?v=1Et7S8pi8zY"
+  date: 2017-11-01
+  source: "NuoViso.tv"
+  description: "Interview über DEMOCRACY."
+
+- title: "DEMOCRACY Deutschland – die App für mehr Demokratie"
+  type: article
+  url: "https://audiopreneur.de/34-ap-democracy-deutschland-die-app-fuer-mehr-demokratie/"
+  date: 2017-12-01
+  source: "AudioPreneur Podcast"
+  description: "Podcast-Episode über die DEMOCRACY App."
+
+- title: "Politische Mitsprache bald per App?"
+  type: article
+  url: "https://www.infranken.de/"
+  date: 2018-01-01
+  source: "In Franken"
+  description: "Bericht über die politische Mitsprache per App."
+
+- title: "DEMOCRACY: Digital im Bundestag mitbestimmen"
+  type: article
+  url: "https://start-alp.com/2018/03/06/democracy-digital-im-bundestag-mitbestimmen/"
+  date: 2018-03-06
+  source: "Start Alp"
+  description: "Artikel über digitale Mitbestimmung im Bundestag."
+
+- title: "DEMOCRACY X StartUpValley"
+  type: document
+  url: "https://democracy-deutschland.de/files/download/StartUpValley.pdf"
+  date: 2018-03-01
+  source: "StartUpValley"
+  description: "StartUpValley-Artikel über DEMOCRACY."
+
+- title: "Demokratie im 21. Jh"
+  type: article
+  url: "https://www.idealismprevails.at/demokratie-im-21-jahrhundert-marius-krueger-b-a/"
+  date: 2018-02-01
+  source: "Idealism Prevails"
+  description: "Diskussion über Demokratie im 21. Jahrhundert."
+
+- title: "Demokratie in Echtzeit"
+  type: article
+  url: "https://www.facebook.com/fabio.d.masi/videos/724139911119044/"
+  date: 2018-01-15
+  source: "Fabio De Masi"
+  description: "Demokratie in Echtzeit — Video mit Fabio De Masi."
+
+- title: "Per App in den Bundestag"
+  type: article
+  url: "https://www.mdr.de/"
+  date: 2018-01-20
+  source: "Sputnik (MDR)"
+  description: "Radio-Beitrag über DEMOCRACY."
+
+- title: "Neues Start-Up will deutsche Politik verbessern"
+  type: article
+  url: "http://www.spreezeitung.de/25886/neues-start-up-will-deutsche-politik-verbessern/"
+  date: 2017-11-15
+  source: "Spreezeitung"
+  description: "Bericht über das Start-Up DEMOCRACY."
+
+- title: "Mit der Democracy App zur Basisdemokratie?!"
+  type: article
+  url: "https://neue-debatte.com/2017/11/03/digitale-medien-mit-der-democracy-app-zur-basisdemokratie/"
+  date: 2017-11-03
+  source: "Neue Debatte"
+  description: "Artikel über Basisdemokratie und die DEMOCRACY App."
+
+- title: "Push-Mitteilung aus dem Bundestag"
+  type: article
+  url: "https://enorm-magazin.de/push-mitteilung-aus-dem-bundestag"
+  date: 2018-04-01
+  source: "Enorm-Magazin"
+  description: "Enorm-Magazin über Push-Mitteilungen aus dem Bundestag."
+
+- title: "Wege zur Demokratie"
+  type: article
+  url: "https://medium.com/@ulf.gebhardt/wege-zur-demokratie-276e2d9363e3"
+  date: 2018-04-15
+  source: "Medium"
+  description: "Ulf Gebhardt über Wege zur Demokratie."
+
+- title: "Wahl war gestern. Demokratie ist immer."
+  type: article
+  url: "https://kenfm.de/politische-mitsprache-app-democracy/"
+  date: 2017-12-15
+  source: "KenFM"
+  description: "Mehr politische Mitsprache mit der App DEMOCRACY."
+
+- title: "Wahl-O-Mat, aber für immer"
+  type: article
+  url: "http://marinaweisband.de/der-wahl-o-mat-fuer-immer/"
+  date: 2017-11-10
+  source: "Marina Weisband"
+  description: "Marina Weisband über DEMOCRACY als dauerhaften Wahl-O-Mat."
