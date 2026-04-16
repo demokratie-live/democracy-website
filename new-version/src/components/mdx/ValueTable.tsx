@@ -14,6 +14,7 @@ export function ValueRow(_props: ValueRowProps) {
   // Rendered by ValueTable, not directly
   return null;
 }
+ValueRow.displayName = "ValueRow";
 
 interface ValueTableProps {
   children: ReactNode;
@@ -24,7 +25,12 @@ export function ValueTable({ children }: ValueTableProps) {
 
   const values: ValueRowProps[] = [];
   Children.forEach(children, (child) => {
-    if (isValidElement(child) && child.type === ValueRow) {
+    if (
+      isValidElement(child) &&
+      (child.type === ValueRow ||
+        (typeof child.type === "function" &&
+          (child.type as { displayName?: string }).displayName === "ValueRow"))
+    ) {
       values.push((child as ReactElement<ValueRowProps>).props);
     }
   });

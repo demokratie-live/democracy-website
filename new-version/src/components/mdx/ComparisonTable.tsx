@@ -14,6 +14,7 @@ export function ComparisonRow(_props: ComparisonRowProps) {
   // Rendered by ComparisonTable, not directly
   return null;
 }
+ComparisonRow.displayName = "ComparisonRow";
 
 interface ComparisonTableProps {
   leftLabel: string;
@@ -34,7 +35,12 @@ export function ComparisonTable({
 
   const rows: ComparisonRowProps[] = [];
   Children.forEach(children, (child) => {
-    if (isValidElement(child) && child.type === ComparisonRow) {
+    if (
+      isValidElement(child) &&
+      (child.type === ComparisonRow ||
+        (typeof child.type === "function" &&
+          (child.type as { displayName?: string }).displayName === "ComparisonRow"))
+    ) {
       rows.push((child as ReactElement<ComparisonRowProps>).props);
     }
   });

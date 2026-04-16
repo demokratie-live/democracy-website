@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { Download, ExternalLink, Package } from "lucide-react";
 
 interface AppBadgesProps {
   className?: string;
@@ -28,6 +28,24 @@ export function AppBadges({ className = "" }: AppBadgesProps) {
           <path d="M3 20.5V3.5c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-1.97 1.13-2.5-2.5 2.5-2.5 1.97 1.13v.36zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z" />
         </svg>
         Google Play
+      </a>
+      <a
+        href="https://github.com/demokratie-live/democracy-client/releases/latest/download/democracy-app.apk"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-muted"
+      >
+        <Download className="h-5 w-5" />
+        APK direkt laden
+      </a>
+      <a
+        href="https://github.com/demokratie-live/democracy-client/releases/latest/download/democracy-app.aab"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-muted"
+      >
+        <Package className="h-5 w-5" />
+        AAB (Android App Bundle)
       </a>
       <a
         href="https://democracy-app.de"

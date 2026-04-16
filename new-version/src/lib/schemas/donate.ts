@@ -1,11 +1,15 @@
 import { z } from "zod";
 
-export const donateProgressSchema = z.object({
-  current: z.number().min(0),
-  goal: z.number().min(1),
-  unit: z.string().default("€/Monat"),
-  patrons: z.number().min(0).optional(),
-});
+// Note: `goal` is intentionally NOT part of the schema. It is derived from
+// the sum of `categories[].amount` in the query layer. YAML files MUST NOT
+// set `progress.goal`; `.strict()` makes such attempts fail loudly.
+export const donateProgressSchema = z
+  .object({
+    current: z.number().min(0),
+    unit: z.string().default("€/Monat"),
+    patrons: z.number().min(0).optional(),
+  })
+  .strict();
 
 export const donateCategorySchema = z.object({
   label: z.string().min(1),

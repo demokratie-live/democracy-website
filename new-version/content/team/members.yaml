@@ -1,13 +1,13 @@
 core:
   - name: Marius Krüger
     role: Gründer / Organisation & Produkt
-    image: /images/team/marius.jpg
+    image: /images/team/marius.png
     links:
       email: m.krueger@democracy-deutschland.de
 
   - name: Manuel Ruck
     role: Softwareentwickler / Programmierer
-    image: /images/team/manuel.jpg
+    image: /images/team/manuel.png
     links:
       email: m.ruck@democracy-deutschland.de
 

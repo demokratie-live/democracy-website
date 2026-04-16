@@ -70,8 +70,22 @@ export async function getTeam(): Promise<TeamData> {
 
 // --- Donate ---
 
-export async function getDonateConfig(): Promise<DonateConfig> {
-  return loadYaml("donate/config.yaml", donateConfigSchema);
+/**
+ * Returned donate config with derived `progress.goal` = sum of category amounts.
+ * `goal` is NOT part of the YAML (see donateProgressSchema) — categories are the
+ * single source of truth.
+ */
+export type DonateConfigWithGoal = DonateConfig & {
+  progress: DonateConfig["progress"] & { goal: number };
+};
+
+export async function getDonateConfig(): Promise<DonateConfigWithGoal> {
+  const config = await loadYaml("donate/config.yaml", donateConfigSchema);
+  const goal = config.categories.reduce((sum, c) => sum + c.amount, 0);
+  return {
+    ...config,
+    progress: { ...config.progress, goal },
+  };
 }
 
 // --- Roadmap ---
@@ -83,7 +97,13 @@ export async function getRoadmap(): Promise<RoadmapGoal[]> {
 // --- Press ---
 
 export async function getPressEntries(): Promise<PressEntry[]> {
-  return loadYaml("press/media.yaml", pressListSchema);
+  const entries = await loadYaml("press/media.yaml", pressListSchema);
+  return [...entries].sort((a, b) => {
+    if (a.date && b.date) return b.date.getTime() - a.date.getTime();
+    if (a.date) return -1;
+    if (b.date) return 1;
+    return 0;
+  });
 }
 
 // --- Global SEO ---

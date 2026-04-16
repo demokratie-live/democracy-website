@@ -5,6 +5,7 @@
   date: 2017-10-01
   source: "DEMOCRACY"
   description: "Das offizielle Crowdfunding-Video von DEMOCRACY Deutschland e.V."
+  image: "/images/press/crowdfunding.png"
 
 - title: "Testimonial Anny Hartmann"
   type: video
@@ -12,6 +13,7 @@
   date: 2017-11-01
   source: "DEMOCRACY"
   description: "Kabarettistin Anny Hartmann über DEMOCRACY."
+  image: "/images/press/anny-hartmann.png"
 
 - title: "DEMOCRACY verlängert Crowdfunding"
   type: video
@@ -19,6 +21,7 @@
   date: 2017-12-01
   source: "DEMOCRACY"
   description: "Crowdfunding-Verlängerung für DEMOCRACY."
+  image: "/images/press/cf-verlaengerung.png"
 
 - title: "Highlights DEMOCRACY X IP"
   type: video
@@ -26,6 +29,7 @@
   date: 2018-02-01
   source: "DEMOCRACY"
   description: "Highlights vom DEMOCRACY X Idealism Prevails Event."
+  image: "/images/press/democracy-x-ip.png"
 
 - title: "Developer Demo Sprint 01"
   type: video
@@ -33,6 +37,7 @@
   date: 2018-03-01
   source: "DEMOCRACY"
   description: "Erste Entwickler-Demo der DEMOCRACY App."
+  image: "/images/press/sprint-1.png"
 
 - title: "Developer Demo Sprint 04"
   type: video
@@ -40,47 +45,56 @@
   date: 2018-04-01
   source: "DEMOCRACY"
   description: "Vierte Entwickler-Demo der DEMOCRACY App."
+  image: "/images/press/sprint-4.png"
 
 # Downloads: Logos & Grafiken (type 2 from media.sql)
 - title: "DEMOCRACY Bubble"
   type: logo
   url: "https://democracy-deutschland.de/files/download/DEMOCRACY_Logo.png"
   description: "DEMOCRACY Logo — runde Variante."
+  image: "/images/press/democracy-logo.png"
 
 - title: "DEMOCRACY Bubble Beta"
   type: logo
   url: "https://democracy-deutschland.de/files/download/DEMOCRACY_Logo_Beta.png"
   description: "DEMOCRACY Beta-Logo — runde Variante."
+  image: "/images/press/democracy-logo-beta.png"
 
 - title: "DEMOCRACY Logo"
   type: logo
   url: "https://democracy-deutschland.de/files/download/Logo_with_sublines_1.png"
   description: "DEMOCRACY Logo mit Untertitel."
+  image: "/images/press/logo-with-sublines-1.png"
 
 - title: "DEMOCRACY Logo quer"
   type: logo
   url: "https://democracy-deutschland.de/files/download/Logo_with_sublines_2.png"
   description: "DEMOCRACY Logo — Querformat."
+  image: "/images/press/logo-with-sublines-2.png"
 
 - title: "DEMOCRACY Funktionsgrafik"
   type: screenshot
   url: "https://democracy-deutschland.de/files/download/Funktionen.png"
   description: "Übersicht der Funktionen der DEMOCRACY App."
+  image: "/images/press/funktionen.png"
 
 - title: "DEMOCRACY Beta Schleife"
   type: screenshot
   url: "https://democracy-deutschland.de/files/download/Hello.png"
   description: "DEMOCRACY Beta-Schleife Grafik."
+  image: "/images/press/hello.png"
 
 - title: "DEMOCRACY Beta Invite"
   type: screenshot
   url: "https://democracy-deutschland.de/files/download/PM.png"
   description: "DEMOCRACY Beta-Einladung Grafik."
+  image: "/images/press/pm.png"
 
 - title: "DEMOCRACY offenes Parlament"
   type: screenshot
   url: "https://democracy-deutschland.de/files/download/offenes_Parlament.jpg"
   description: "Grafik zum offenen Parlament."
+  image: "/images/press/offenes-parlament.jpg"
 
 # Pressespiegel: Berichte über DEMOCRACY (type 0 from media.sql)
 - title: "NuoViso.tv"
@@ -89,6 +103,7 @@
   date: 2017-11-01
   source: "NuoViso.tv"
   description: "Interview über DEMOCRACY."
+  image: "/images/press/nuoviso.png"
 
 - title: "DEMOCRACY Deutschland – die App für mehr Demokratie"
   type: article
@@ -96,6 +111,7 @@
   date: 2017-12-01
   source: "AudioPreneur Podcast"
   description: "Podcast-Episode über die DEMOCRACY App."
+  image: "/images/press/audiopreneur.png"
 
 - title: "Politische Mitsprache bald per App?"
   type: article
@@ -103,6 +119,7 @@
   date: 2018-01-01
   source: "In Franken"
   description: "Bericht über die politische Mitsprache per App."
+  image: "/images/press/infranken.jpg"
 
 - title: "DEMOCRACY: Digital im Bundestag mitbestimmen"
   type: article
@@ -110,6 +127,7 @@
   date: 2018-03-06
   source: "Start Alp"
   description: "Artikel über digitale Mitbestimmung im Bundestag."
+  image: "/images/press/startalp.png"
 
 - title: "DEMOCRACY X StartUpValley"
   type: document
@@ -117,6 +135,7 @@
   date: 2018-03-01
   source: "StartUpValley"
   description: "StartUpValley-Artikel über DEMOCRACY."
+  image: "/images/press/startupvalley.jpg"
 
 - title: "Demokratie im 21. Jh"
   type: article
@@ -124,6 +143,7 @@
   date: 2018-02-01
   source: "Idealism Prevails"
   description: "Diskussion über Demokratie im 21. Jahrhundert."
+  image: "/images/press/idealism-prevails.png"
 
 - title: "Demokratie in Echtzeit"
   type: article
@@ -131,6 +151,7 @@
   date: 2018-01-15
   source: "Fabio De Masi"
   description: "Demokratie in Echtzeit — Video mit Fabio De Masi."
+  image: "/images/press/fabio-de-masi.png"
 
 - title: "Per App in den Bundestag"
   type: article
@@ -138,6 +159,7 @@
   date: 2018-01-20
   source: "Sputnik (MDR)"
   description: "Radio-Beitrag über DEMOCRACY."
+  image: "/images/press/mdr-sputnik.png"
 
 - title: "Neues Start-Up will deutsche Politik verbessern"
   type: article
@@ -145,6 +167,7 @@
   date: 2017-11-15
   source: "Spreezeitung"
   description: "Bericht über das Start-Up DEMOCRACY."
+  image: "/images/press/spreezeitung.png"
 
 - title: "Mit der Democracy App zur Basisdemokratie?!"
   type: article
@@ -152,6 +175,7 @@
   date: 2017-11-03
   source: "Neue Debatte"
   description: "Artikel über Basisdemokratie und die DEMOCRACY App."
+  image: "/images/press/neue-debatte.png"
 
 - title: "Push-Mitteilung aus dem Bundestag"
   type: article
@@ -159,6 +183,7 @@
   date: 2018-04-01
   source: "Enorm-Magazin"
   description: "Enorm-Magazin über Push-Mitteilungen aus dem Bundestag."
+  image: "/images/press/enorm-magazin.png"
 
 - title: "Wege zur Demokratie"
   type: article
@@ -166,6 +191,7 @@
   date: 2018-04-15
   source: "Medium"
   description: "Ulf Gebhardt über Wege zur Demokratie."
+  image: "/images/press/medium.jpg"
 
 - title: "Wahl war gestern. Demokratie ist immer."
   type: article
@@ -173,6 +199,7 @@
   date: 2017-12-15
   source: "KenFM"
   description: "Mehr politische Mitsprache mit der App DEMOCRACY."
+  image: "/images/press/kenfm.png"
 
 - title: "Wahl-O-Mat, aber für immer"
   type: article
@@ -180,3 +207,4 @@
   date: 2017-11-10
   source: "Marina Weisband"
   description: "Marina Weisband über DEMOCRACY als dauerhaften Wahl-O-Mat."
+  image: "/images/press/marina-weisband.png"

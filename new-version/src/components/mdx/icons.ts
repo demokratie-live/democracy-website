@@ -1,3 +1,4 @@
+import type { ComponentType, SVGProps } from "react";
 import {
   List,
   FileText,
@@ -20,10 +21,14 @@ import {
   Code,
   Share2,
   Smartphone,
-  type LucideIcon,
 } from "lucide-react";
+import { TypeScriptIcon } from "@/components/icons/tech/TypeScriptIcon";
+import { ReactIcon } from "@/components/icons/tech/ReactIcon";
+import { NodeIcon } from "@/components/icons/tech/NodeIcon";
 
-const iconMap: Record<string, LucideIcon> = {
+export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+
+const iconMap: Record<string, IconComponent> = {
   list: List,
   "file-text": FileText,
   vote: Vote,
@@ -45,8 +50,11 @@ const iconMap: Record<string, LucideIcon> = {
   code: Code,
   "share-2": Share2,
   smartphone: Smartphone,
+  "tech-typescript": TypeScriptIcon,
+  "tech-react": ReactIcon,
+  "tech-node": NodeIcon,
 };
 
-export function resolveIcon(name: string): LucideIcon | null {
+export function resolveIcon(name: string): IconComponent | null {
   return iconMap[name] ?? null;
 }

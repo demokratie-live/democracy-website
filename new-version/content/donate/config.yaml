@@ -9,7 +9,6 @@ bankAccount:
 
 progress:
   current: 1759
-  goal: 10000
   unit: "€/Monat"
   patrons: 387
 
