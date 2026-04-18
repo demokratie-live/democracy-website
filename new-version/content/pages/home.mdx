@@ -17,54 +17,78 @@ hero:
   phoneAlt="DEMOCRACY App – Liste der Bundestagsvorgänge"
 />
 
-<Section bg="white" centered>
-## Worum geht es bei DEMOCRACY?
+<Section bg="white">
+<div className="flex flex-col items-baseline justify-between gap-2 sm:flex-row">
+  <h2 className="text-2xl font-bold">Worum geht es bei DEMOCRACY? (2:30)</h2>
+  <a
+    href="https://www.youtube.com/watch?v=DFXcnRdXA7k"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-sm font-medium text-primary-500 hover:text-primary-600"
+  >
+    Mehr Informationen zu diesem Film
+  </a>
+</div>
 
-(2:30)
-
-<VideoPlayer url="https://www.youtube.com/embed/DFXcnRdXA7k" title="Worum geht es bei DEMOCRACY? (2:30)" />
+<div className="mt-6">
+  <VideoPlayer url="https://www.youtube.com/embed/DFXcnRdXA7k" title="Worum geht es bei DEMOCRACY? (2:30)" />
+</div>
 </Section>
 
 <Section>
 ## Alle Funktionen von DEMOCRACY
 
-<FeatureCard icon="list" title="Wähle">
-  einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages
-</FeatureCard>
+<Grid cols={2}>
+  <div className="space-y-4">
+    <FeatureCard icon="list" title="Wähle" highlight>
+      einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages
+    </FeatureCard>
 
-<FeatureCard icon="file-text" title="Informiere">
-  Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente
-</FeatureCard>
+    <FeatureCard icon="file-text" title="Informiere">
+      Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente
+    </FeatureCard>
 
-<FeatureCard icon="vote" title="Stimme">
-  selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter
-</FeatureCard>
+    <FeatureCard icon="vote" title="Stimme">
+      selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter
+    </FeatureCard>
 
-<FeatureCard icon="bar-chart" title="Vergleiche">
-  Dein Abstimmungsverhalten mit der Community und dem Bundestag
-</FeatureCard>
+    <FeatureCard icon="bar-chart" title="Vergleiche">
+      Dein Abstimmungsverhalten mit der Community und dem Bundestag
+    </FeatureCard>
 
-<FeatureCard icon="pie-chart" title="Analysiere">
-  Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten
-</FeatureCard>
+    <FeatureCard icon="pie-chart" title="Analysiere">
+      Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten
+    </FeatureCard>
+
+  </div>
+
+  <div className="flex justify-center">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img
+      src="/files/images/List.png"
+      alt="DEMOCRACY App Screenshot"
+      className="max-h-[560px] w-auto drop-shadow-xl"
+    />
+  </div>
+</Grid>
 </Section>
 
 <Section bg="white">
 ## Für wen ist DEMOCRACY?
 
 <Grid cols={2}>
-  <InfoCard icon="users" title="Für Bürger," subtitle="die sich mehr Transparenz & Teilhabe wünschen" link="/buerger">
+  <InfoCard title="Für Bürger," subtitle="die sich mehr Transparenz & Teilhabe wünschen" link="/buerger">
     Ob jung oder alt, ob bereits Experte oder bislang uninformiert. DEMOCRACY ist ein politisches Werkzeug für alle, die sich mehr Transparenz und Teilhabe wünschen.
   </InfoCard>
 
-  <InfoCard icon="landmark" title="Für Politiker," subtitle="die erklären wollen, warum sie wie entscheiden" link="/politiker">
+  <InfoCard title="Für Politiker," subtitle="die erklären wollen, warum sie wie entscheiden" link="/politiker">
     Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. DEMOCRACY bietet Dir die Möglichkeit, Deinen wichtigsten Stakeholdern Gehör zu schenken: den Bürgern.
   </InfoCard>
 </Grid>
 </Section>
 
 <Section centered>
-## Bekannt aus
+## bekannt aus
 
 <PressBar>
   <PressLink name="hr-iNFO" url="https://www.hr-inforadio.de/podcast/jung-macht-politik/jung-macht-politik-marius-krueger--per-app-zum-virtuellen-bundestagsabgeordneten,podcast-episode-76718.html" logo="/images/press/hrinfo_logo.png" />
@@ -73,11 +97,3 @@ hero:
   <PressLink name="WIRED" url="https://www.wired.de/article/democracy-app-bundestag" logo="/images/press/wired_logo.png" />
 </PressBar>
 </Section>
-
-<CTA bg="primary-light">
-## Jetzt DEMOCRACY herunterladen
-
-Kostenlos, gemeinnützig und open source – von Bürgern für Bürger.
-
-<AppBadges className="justify-center" />
-</CTA>

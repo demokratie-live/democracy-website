@@ -21,7 +21,6 @@ export function VideoPlayer({ url, title, className = "" }: VideoPlayerProps) {
           className="absolute inset-0 h-full w-full"
         />
       </div>
-      <p className="mt-2 text-center text-sm text-muted-foreground">{title}</p>
     </div>
   );
 }

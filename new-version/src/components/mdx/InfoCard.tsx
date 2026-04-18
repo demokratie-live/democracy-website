@@ -4,15 +4,39 @@ import { ArrowRight } from "lucide-react";
 import { renderIcon } from "./icons";
 
 interface InfoCardProps {
-  icon: string;
+  icon?: string;
   title: string;
   subtitle?: string;
   link?: string;
+  variant?: "icon" | "pill";
   children: ReactNode;
 }
 
-export function InfoCard({ icon, title, subtitle, link, children }: InfoCardProps) {
-  const iconNode = renderIcon(icon, "h-8 w-8");
+export function InfoCard({ icon, title, subtitle, link, variant, children }: InfoCardProps) {
+  const resolvedVariant = variant ?? (icon ? "icon" : "pill");
+
+  if (resolvedVariant === "pill") {
+    return (
+      <div className="py-2">
+        <span className="inline-block rounded-md bg-primary-500 px-4 py-2 text-base font-semibold text-white shadow-sm">
+          {title}
+        </span>
+        {subtitle && <p className="mt-4 text-base font-bold text-foreground">{subtitle}</p>}
+        <div className="mt-4 text-sm leading-relaxed text-muted-foreground">{children}</div>
+        {link && (
+          <Link
+            href={link}
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-500 hover:text-primary-600"
+          >
+            Mehr erfahren
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
+      </div>
+    );
+  }
+
+  const iconNode = icon ? renderIcon(icon, "h-8 w-8") : null;
 
   return (
     <div className="rounded-xl p-6 ring-1 ring-border">
