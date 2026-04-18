@@ -1,0 +1,89 @@
+---
+title: "Hey, kann ich Deine Nummer haben?"
+slug: "hey-kann-ich-deine-nummer-haben"
+date: 2021-09-14
+author: "Timo Sieg"
+excerpt: "In letzter Zeit wurde uns eine Frage immer häufiger gestellt: Warum muss ich bei der DEMOCRACY App meine Handynummer angeben? Wir verstehen, dass das für viele eine große Hürde direkt zu Beginn darstellt. Die Reise hat noch nicht ganz…"
+tags:
+  - erklaerung
+seo:
+  title: "Hey, kann ich Deine Nummer haben?"
+  description: "In letzter Zeit wurde uns eine Frage immer häufiger gestellt: Warum muss ich bei der DEMOCRACY App meine Handynummer angeben? Wir verstehen, dass das für viele eine große Hürde direkt zu Beginn darstellt. Die Reise hat noch nicht ganz…"
+---
+In letzter Zeit wurde uns eine Frage immer häufiger gestellt: **Warum muss ich bei der DEMOCRACY App meine Handynummer angeben?**
+
+Wir verstehen, dass das für viele eine große Hürde direkt zu Beginn darstellt. Die Reise hat noch nicht ganz begonnen und schon fragt Dich der Kontrolleur nach Deinem Ticket… ähm Deiner Handynummer? Gerade wenn Du uns im Zuge der Bundestagswahl als einen faktenbasierten Wahlhelfer kennengelernt hast, scheint es komisch, dich fürs Abstimmen mit deiner Handynummer verifizieren zu müssen, Wozu?
+
+Da das Thema Datenschutz und -sicherheit nicht nur uns persönlich am Herzen liegt, sondern auch im Zentrum der Idee von DEMOCRACY steht, möchten wir Dir mit diesem Blogeintrag erklären, warum die App Dich nach Deiner Nummer fragt und was sie damit (nicht) macht, sobald sie diese hat.
+
+Aber eins nach dem anderen, zunächst etwas Grundsätzliches:
+
+### Unser Datenschutz-Standpunkt
+
+Wir sind der Überzeugung, dass Daten keine handelbaren Wirtschaftsgüter sind und dass der Schutz Deiner Daten sowie die größtmögliche Vermeidung ihrer Sammlung langfristig wichtig für Deine informationelle Selbstbestimmung sind.
+
+Aber wenn uns Datensouveränität so wichtig ist, warum verlangen wir dann eine Verifikation per Handynummer?
+
+### Wahlempfehlung oder Abstimmungsapp?
+
+Der Ursprung dieses Problems liegt in unserem Anspruch, mit DEMOCRACY nicht nur eine **retrospektive, faktenbasierte Wahlempfehlung** zur Verfügung zu stellen, sondern außerdem **digitale basisdemokratische Beteiligung** in die Realität umzusetzen. Die App DEMOCRACY verfolgt in diesem Sinne mehrere Ziele: Politische Bildung durch Information und Empfehlung (Transparenz) sowie Fortschritt durch Überwachung und Bürgerlobbyismus (Partizipation). Mehr dazu später, jedenfalls kommen wir durch diesen Anspruch nicht drum herum, uns mit den Grundsätzen von Wahlverfahren auseinanderzusetzen.
+
+### Wahlgrundsätze
+
+Die Anforderungen an Wahlverfahren sind grob anhand der Wahlgrundsätze in Deutschland strukturiert. Die zentralen Anforderungen, die eine geheime, freie Wahl ermöglichen sind:
+
+_Wahlgeheimnis, Integrität und Verifizierbarkeit_.
+
+**Wahlgeheimnis** bedeutet: Es dürfen während und nach der Wahl darf keine Information bekannt werden, die darauf schließen lässt, was ein Wähler gewählt hat.
+
+**Integrität** bedeutet: Es werden genau die Stimmen gezählt, die von wahlberechtigten Wählern abgegeben wurden. Es werden keine Stimmen unbefugt hinzugefügt, gelöscht oder verändert.
+
+**Verifizierbarkei**t bedeutet: Jeder kann nachprüfen, ob die eigene Stimme in der Auszählung berücksichtigt wurde (individuelle Verifizierbarkeit) und ob das Wahlergebnis korrekt berechnet wurde (universelle Verifizierbarkeit)
+
+Deshalb gibt es Wählerverzeichnisse, deshalb macht ihr euer Kreuz in einer Kabine und werft euren Stimmzettel selbst in die Urne, deshalb gibt es Wahlbeobachtung.
+
+### Das Wahlverfahren von DEMOCRACY
+
+Bei der Konzeption unseres Wahlverfahrens, war es das Ziel, die beschriebenen Grundsätze so gut wie möglich einzuhalten, allerdings mussten wir dafür neue Wege gehen. Einer davon ist die Verifikation per Handynummer als Alternative zum klassischen Wählerverzeichnis.
+
+Da uns von DEMOCRACY Deutschland e.V. keine Wählerkartei vorliegt, haben wir uns dafür entschieden, eine deutsche Handynummer (in Kombination mit einer Geräte-ID) als Schlüsselidentifikator zu verwenden.
+
+#### Handynummern-Wählerverzeichnis
+
+Unsere Alternative zum klassischen Wählerverzeichnis ist ein Handynummern-Wählerverzeichnis. Sicher, eindeutiger wäre es, deinen Personalausweis (z.B. im Post-Identverfahren) zu verifizieren, aber mal ehrlich, wer von Euch wäre bereit, sich mit seinem Personalausweis bei uns zu registrieren? Auf der anderen Seite der Medaille sind die Identifikation per Mail oder Pseudonym deutlich anfälliger für Fälschungen.
+
+![](https://web.archive.org/web/20240724002826im_/https://lh5.googleusercontent.com/Ax3_IRIbjE_3D0W3sU4GtSWuomd4Q2ReV6Si6slF3-nSMX2T9Ojs9CNIcFBaiHo0VeTjghBct8ZC2DXNBFEDCL99YvZWjeB4wtFiX0BKt4ASvt1jU7_W9Gx8FIoB77NG7L7KITkY=s0)
+
+**Was passiert nun technisch?**
+
+Beim ersten Start der App wird über die Geräte-ID Deines Smartphones eine Nutzeridentität auf unserem Server erstellt und in einem JWT-Token verschlüsselt auf Deinem Handy abgelegt. Nach der korrekten Eingabe eines per SMS an Deine Handynummer verschickten Codes, bist Du verifiziert für die Abstimmung. Deine Handynummer und Geräte-ID werden nach dem Authentifikations- und Verifikationsverfahren verschlüsselt in einer Datenbank des Vereins abgelegt. Damit ist die weitere Verwendung der Nummer auch für uns ausgeschlossen und unmöglich.
+
+#### Anonymität beim Abstimmen
+
+Soweit zur Identifikation, aber wie hält die Software DEMOCRACY nun mein Stimmgeheimnis aufrecht, wenn in der digitalen Welt doch alles eine Spur hinterlässt?
+
+**Um Stimmanonymität zu gewährleisten, muss beim Abstimmen Deine Identität von Deiner Abstimmungsentscheidung getrennt werden**. Dazu sendet Dein Handy bei jeder Abstimmung erstens Deinen verifizierten Token, zweitens Deine Stimme (Ja/Nein/Enthaltung) und drittens den Vorgang (Gesetz oder Antrag), über den Du abstimmst, SSL-verschlüsselt an den App-Server.
+
+Dieser macht einen Strich in der jeweiligen Spalte der Votes-Tabelle für das Community-Ergebnis. Damit Du nur einmal abstimmst, merkt der Server sich, dass Dein Token abgestimmt hat, indem er Deine ID in die Voters-Tabelle schreibt. Wie Du abgestimmt hast, ist ab diesem Moment für den Server unklar, diese Information ist lediglich **lokal auf Deinem Gerät** gespeichert, damit Du selbst sehen kannst, wie Du abgestimmt hast und der Wahl-O-Meter lokal seine Übereinstimmungsrechnungen vornehmen kann.
+
+![](https://web.archive.org/web/20240724002826im_/https://lh3.googleusercontent.com/7Up823KQ0H6LLSmLwat6xR82gQxWEHzgQA_ddjxYivqVrmBN3iSizvLeN5S0wrLLO8u4dzCRS4wIeCPJsD9vXjqC1jPNh3EMX-c8oj7dRsxllhTwkPBu-sqnIFgYHzGrrYdFyXzQ=s0)
+
+Das vollständige Paper zu unserem Wahlverfahren findest Du [hier](https://web.archive.org/web/20240724002826/https://github.com/demokratie-live/democracy-docu/wiki/Stimmanonymit%C3%A4t).
+
+#### Alternativen
+
+Soweit wir wissen gibt es – nach Abwägung aller Zielkonflikte – keine praktikablen Alternativen zu diesem Identifikations- und Anonymisierungsverfahren: Natürlich könnten wir auf Kosten Deiner Stimmanonymität jede Deiner Abstimmungsentscheidungen auf unserem Server speichern oder Dich nicht identifizieren, sodass Mehrfachabstimmungen möglich werden. Das geht wegen unserem Datenschutz-Standpunkt und den Wahlgrundsätzen keine geeignete Alternative.
+
+### Warum wir die Identifikation zur Pflicht machen?
+
+Wir haben uns dazu entschieden, die Verifikation per Handynummer in der DEMOCRACY App verpflichtend für die Abstimmungsfunktion zu machen. Warum? Es gibt Nutzen von DEMOCRACY, die individuell und unabhängig von der Anzahl an Nutzer:innen sind (hellblau), bei anderen steigt der kollektive Nutzen mit der Userzahl (dunkelblau).
+
+![](https://web.archive.org/web/20240724002826im_/https://lh4.googleusercontent.com/x_O-1pIfmWUlJ3huP-nTlWQQn8beq9vHS8YyfbGD6eK2X4BOWQPtQ42W-ZL-wBkQll9hRGJl4PBLB87hGnyT-lbQtDFgSfTuEgGjb7r8jzA1mpWfIKZYXNaB5nheCjsMolfo4z1v=s0)
+
+Für Nutzen #1 ist und wird auch in Zukunft keine Verifikation erforderlich sein. Du kannst das Informationsangebot der App (mitsamt aller Abstimmungsergebnisse) vollständig nutzen, auch ohne verifiziert zu sein.
+
+Für Nutzen #2, unseren Wahl-O-Meter, wäre es theoretisch denkbar, dir die Option einzuräumen, auf die Verifikation zu verzichten, so dass dein Abstimmungsverhalten nicht mit ins Community-Ergebnis einfließt. Wir haben uns gegen diese Option und für eine obligatorische Identifikation entschieden, weil ansonsten Nutzen #3 und #4 für alle flöten gehen. Diese sind uns am wichtigsten.
+
+Wir arbeiten an einer Zukunft, in der die Stimmen von Millionen von Nutzer:innen – mit akzeptabler User Experience – in ein korrektes Wahlergebnis überführt werden können, und zwar digital. Damit ist **sachlicher, vertrauenswürdiger und basisdemokratischer Druck auf Politiker:innen**möglich, Rechenschaft für ihre Entscheidungen abzulegen (#3) und sie ggf. zu ändern (#4).
+
+**Die Reise hat begonnen… deshalb fragen wir Dich nach Deiner Handynummer!**
