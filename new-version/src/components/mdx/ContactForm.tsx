@@ -39,8 +39,12 @@ export function ContactForm() {
     setErrors({});
     setStatus("sending");
 
+    const endpoint =
+      process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ??
+      "https://formspree.io/f/contact@democracy-deutschland.de";
+
     try {
-      const response = await fetch("https://formspree.io/f/contact@democracy-deutschland.de", {
+      const response = await fetch(endpoint, {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },
