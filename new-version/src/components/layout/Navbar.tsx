@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Heart } from "lucide-react";
-import type { Navigation } from "@/lib/schemas";
+import { Menu, X } from "lucide-react";
+import type { Navigation, NavItem } from "@/lib/schemas";
 
 interface NavbarProps {
   navigation: Navigation;
+}
+
+function itemClasses(item: NavItem, base: string) {
+  if (item.highlight) {
+    return `${base} rounded-full bg-[var(--color-important)] px-4 py-1.5 text-white hover:bg-[var(--color-important-hover)]`;
+  }
+  return `${base} text-foreground/80 hover:text-primary-500`;
 }
 
 export function Navbar({ navigation }: NavbarProps) {
@@ -18,9 +25,21 @@ export function Navbar({ navigation }: NavbarProps) {
         aria-label="Hauptnavigation"
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
       >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-primary-500">DEMOCRACY</span>
+        {/* Brand */}
+        <Link href="/" aria-label="DEMOCRACY Startseite" className="flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/files/images/logo.png"
+            alt=""
+            aria-hidden="true"
+            className="h-9 w-9 rounded-full object-contain"
+          />
+          <span className="font-display text-xl leading-none text-primary-500">
+            DEMOCRACY
+          </span>
+          <span className="font-script -ml-1 mt-3 text-2xl leading-none text-primary-500">
+            App
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -29,18 +48,14 @@ export function Navbar({ navigation }: NavbarProps) {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary-500"
+              className={itemClasses(
+                item,
+                "text-sm font-medium transition-colors",
+              )}
             >
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/spenden"
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600"
-          >
-            <Heart className="h-4 w-4" />
-            Spenden
-          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -64,20 +79,16 @@ export function Navbar({ navigation }: NavbarProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block rounded-lg px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary-500"
+                className={
+                  item.highlight
+                    ? "mt-2 flex items-center justify-center rounded-full bg-[var(--color-important)] px-4 py-2.5 text-base font-medium text-white transition-colors hover:bg-[var(--color-important-hover)]"
+                    : "block rounded-lg px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary-500"
+                }
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/spenden"
-              className="mt-2 flex items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 py-2.5 text-base font-medium text-white transition-colors hover:bg-primary-600"
-              onClick={() => setMobileOpen(false)}
-            >
-              <Heart className="h-4 w-4" />
-              Spenden
-            </Link>
           </nav>
         </div>
       )}

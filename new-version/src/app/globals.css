@@ -1,13 +1,36 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* DEMOCRACY display fonts — ported from legacy site */
+@font-face {
+  font-family: "Edosz";
+  src: url("/fonts/edosz.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Isabelle Layne";
+  src: url("/fonts/isabelle-layne.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Isabelle Layne";
+  src: url("/fonts/isabelle-layne-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --color-primary-50: #eef6fd;
   --color-primary-100: #d5e9f9;
   --color-primary-200: #a8d1f3;
-  --color-primary-300: #7cb9ed;
+  --color-primary-300: #79c6eb;
   --color-primary-400: #4494d3;
-  --color-primary-500: #3d87c1;
+  --color-primary-500: #4494d3;
   --color-primary-600: #336daf;
   --color-primary-700: #2a5a91;
   --color-primary-800: #224873;
@@ -24,19 +47,44 @@
   --color-accent-800: #2a4c10;
   --color-accent-900: #1a2f0a;
 
+  /* Live-site signature color for donation / "Spenden" CTA */
+  --color-important: #d0021b;
+  --color-important-hover: #a80115;
+  --color-link: #007bff;
   --color-danger: #f44336;
 
   --color-background: #ffffff;
-  --color-foreground: #212121;
+  --color-foreground: #212529;
   --color-muted: #f5f5f5;
-  --color-muted-foreground: #919191;
+  --color-muted-foreground: #6c757d;
   --color-border: #e5e5e5;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Dark footer surface */
+  --color-surface-dark: #191d20;
+  --color-surface-dark-heading: #4494d3;
+
+  --font-sans:
+    "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Edosz", "Archivo Black", "Helvetica Neue", sans-serif;
+  --font-script: "Isabelle Layne", "Caveat", cursive;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+}
+
+/* Utility classes mirroring live-site signature elements */
+.democracy-gradient {
+  background: linear-gradient(180deg, #79c6eb 0%, #4494d3 100%);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-script {
+  font-family: var(--font-script);
 }

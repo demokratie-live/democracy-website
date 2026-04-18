@@ -7,6 +7,12 @@ export const footerColumnSchema = z.object({
 });
 
 export const footerSchema = z.object({
+  newsletter: z
+    .object({
+      label: z.string().min(1),
+      href: z.string().url(),
+    })
+    .optional(),
   columns: z.array(footerColumnSchema),
   legal: z.array(navItemSchema).default([]),
   social: z.array(navItemSchema).default([]),

@@ -4,6 +4,8 @@ export const navItemSchema = z.object({
   label: z.string().min(1),
   href: z.string().min(1),
   icon: z.string().optional(),
+  highlight: z.boolean().default(false),
+  external: z.boolean().default(false),
 });
 
 export const navigationSchema = z.object({

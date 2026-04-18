@@ -1,32 +1,29 @@
+newsletter:
+  label: "NEWSLETTER ABONNIEREN"
+  href: "https://listmonk.democracy-app.de/subscription/form"
+
 columns:
-  - title: "Produkt"
+  - title: "RECHTLICHES"
     links:
-      - label: "Wahlometer"
-        href: "/wahlometer"
-      - label: "Für Bürger"
-        href: "/buerger"
-      - label: "Für Politiker"
-        href: "/politiker"
-      - label: "Engineering"
-        href: "/engineering"
-
-  - title: "Verein"
-    links:
-      - label: "Über uns"
-        href: "/ueber-uns"
-      - label: "Spenden"
-        href: "/spenden"
-      - label: "Presse"
-        href: "/presse"
-      - label: "Blog"
-        href: "/blog"
-
-  - title: "Support"
-    links:
-      - label: "FAQ"
-        href: "/faq"
+      - label: "Nutzungsbedingungen"
+        href: "/nutzungsbedingungen"
+      - label: "Datenschutz"
+        href: "/datenschutz"
+      - label: "Impressum"
+        href: "/impressum"
       - label: "Kontakt"
         href: "/kontakt"
+
+  - title: "IN TOUCH"
+    links:
+      - label: "Programmieren"
+        href: "/engineering"
+      - label: "Mithelfen"
+        href: "/engineering#help"
+      - label: "Blog"
+        href: "/blog"
+      - label: "FAQ"
+        href: "/faq"
 
 legal:
   - label: "Impressum"
@@ -37,14 +34,36 @@ legal:
     href: "/nutzungsbedingungen"
 
 social:
-  - label: "GitHub"
-    href: "https://github.com/demokratie-live"
-    icon: "github"
+  - label: "Facebook"
+    href: "https://www.facebook.com/democracygermany/"
+    icon: "facebook"
+    external: true
   - label: "Twitter"
     href: "https://twitter.com/democracy_de"
     icon: "twitter"
+    external: true
+  - label: "YouTube"
+    href: "https://www.youtube.com/channel/UC2R4cGTq1LjFZ2DvDaVhDyg"
+    icon: "youtube"
+    external: true
+  - label: "GitHub"
+    href: "https://github.com/demokratie-live/"
+    icon: "github"
+    external: true
+  - label: "Discord"
+    href: "https://discord.gg/ZWcFrEc"
+    icon: "discord"
+    external: true
+  - label: "E-Mail"
+    href: "mailto:contact@democracy-deutschland.de"
+    icon: "email"
   - label: "Instagram"
-    href: "https://instagram.com/democracy.deutschland"
+    href: "https://instagram.com/democracy_app"
     icon: "instagram"
+    external: true
+  - label: "Telegram"
+    href: "https://t.me/democracy_app"
+    icon: "telegram"
+    external: true
 
-copyright: "© {year} DEMOCRACY Deutschland e.V. Alle Rechte vorbehalten."
+copyright: "BY NC ND 4.0 — {year} DEMOCRACY Deutschland e.V."
