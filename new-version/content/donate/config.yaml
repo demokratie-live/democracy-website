@@ -11,6 +11,7 @@ progress:
   current: 1759
   unit: "€/Monat"
   patrons: 387
+  patronsGoal: 2000
 
 categories:
   - label: "Server & Infrastruktur"

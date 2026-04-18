@@ -8,6 +8,7 @@ export const donateProgressSchema = z
     current: z.number().min(0),
     unit: z.string().default("€/Monat"),
     patrons: z.number().min(0).optional(),
+    patronsGoal: z.number().min(1).optional(),
   })
   .strict();
 

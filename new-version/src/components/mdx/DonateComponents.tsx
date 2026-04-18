@@ -5,32 +5,61 @@ interface ProgressBarProps {
   goal: number;
   unit?: string;
   patrons?: number;
+  patronsGoal?: number;
 }
 
-export function ProgressBar({ current, goal, unit = "€/Monat", patrons }: ProgressBarProps) {
+export function ProgressBar({
+  current,
+  goal,
+  unit = "€/Monat",
+  patrons,
+  patronsGoal,
+}: ProgressBarProps) {
   const percentage = Math.min(Math.round((current / goal) * 100), 100);
+  const patronsPct =
+    patrons !== undefined && patronsGoal
+      ? Math.min(Math.round((patrons / patronsGoal) * 100), 100)
+      : undefined;
 
   return (
-    <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
-      {/* Progress bar */}
-      <div className="mb-2 flex items-end justify-between text-sm">
-        <span className="font-semibold text-primary-600">{percentage}% erreicht</span>
-        <span className="text-muted-foreground">
-          {current.toLocaleString("de-DE")} von {goal.toLocaleString("de-DE")} {unit}
-        </span>
-      </div>
-      <div className="h-4 overflow-hidden rounded-full bg-muted">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-primary-500 to-primary-600 transition-all duration-500"
-          style={{ width: `${percentage}%` }}
-        />
-      </div>
-
-      {patrons !== undefined && (
-        <p className="mt-3 text-center text-sm text-muted-foreground">
-          <span className="font-semibold text-foreground">{patrons}</span> Patenschaften
-        </p>
+    <div className="rounded-xl border border-border bg-white p-6 shadow-sm space-y-6">
+      {patronsGoal && patrons !== undefined && (
+        <div>
+          <div className="mb-2 flex items-end justify-between text-sm">
+            <span className="font-semibold text-[var(--color-important)]">
+              {patronsPct}% erreicht
+            </span>
+            <span className="text-muted-foreground">
+              {patrons.toLocaleString("de-DE")} von{" "}
+              {patronsGoal.toLocaleString("de-DE")} Patenschaften
+            </span>
+          </div>
+          <div className="h-4 overflow-hidden rounded-full bg-muted">
+            <div
+              className="h-full rounded-full bg-[var(--color-important)] transition-all duration-500"
+              style={{ width: `${patronsPct}%` }}
+            />
+          </div>
+        </div>
       )}
+
+      <div>
+        <div className="mb-2 flex items-end justify-between text-sm">
+          <span className="font-semibold text-[var(--color-important)]">
+            {percentage}% erreicht
+          </span>
+          <span className="text-muted-foreground">
+            {current.toLocaleString("de-DE")} von{" "}
+            {goal.toLocaleString("de-DE")} {unit}
+          </span>
+        </div>
+        <div className="h-4 overflow-hidden rounded-full bg-muted">
+          <div
+            className="h-full rounded-full bg-[var(--color-important)] transition-all duration-500"
+            style={{ width: `${percentage}%` }}
+          />
+        </div>
+      </div>
     </div>
   );
 }
