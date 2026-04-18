@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 
 import { Hero } from "@/components/blocks/Hero";
+import { HeroWithPhone } from "@/components/blocks/HeroWithPhone";
 import { VideoPlayer } from "@/components/blocks/VideoPlayer";
 import { AppBadges } from "@/components/blocks/AppBadges";
 
@@ -50,6 +51,7 @@ function MdxLink({ href, children, ...props }: AnchorProps) {
 export const mdxComponents = {
   a: MdxLink,
   Hero,
+  HeroWithPhone,
   VideoPlayer,
   AppBadges,
   Section,
