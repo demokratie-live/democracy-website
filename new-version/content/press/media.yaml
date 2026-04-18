@@ -238,7 +238,7 @@
   url: "https://www.youtube.com/watch?v=5sbPOUL-5Fs"
   date: 2019-06-01
   source: "MDR Doku"
-  description: "MDR-Dokumentation mit DEMOCRACY in \"Mehr Bürger an die Macht?\"."
+  description: 'MDR-Dokumentation mit DEMOCRACY in "Mehr Bürger an die Macht?".'
   image: "https://democracy-deutschland.de/files/medien/MDRDoku_560.png"
 
 - title: "Wie der Bundestag Gesetze durch trickst"
@@ -278,7 +278,7 @@
   url: "https://www.horizont.net/marketing/nachrichten/finde-die-taten-hinter-den-worten-diese-guerilla-aktion-entzaubert-die-wahlversprechen-der-parteien-194348"
   date: 2021-09-05
   source: "Horizont"
-  description: "Horizont über die Guerilla-Aktion \"Taten statt Worte\"."
+  description: 'Horizont über die Guerilla-Aktion "Taten statt Worte".'
   image: "https://democracy-deutschland.de/files/medien/Horizont_560.png"
 
 - title: "DEMOCRACY in WAHLEN – Der Film"
@@ -286,7 +286,7 @@
   url: "https://www.youtube.com/watch?v=hbbt4CYlIUI"
   date: 2021-09-20
   source: "WAHLEN – Der Film"
-  description: "DEMOCRACY als Teil der Doku \"WAHLEN – Der Film\"."
+  description: 'DEMOCRACY als Teil der Doku "WAHLEN – Der Film".'
   image: "https://democracy-deutschland.de/files/medien/Wahlen_560.png"
 
 - title: "Der verbesserte Wahl-O-Mat in einer App?"
@@ -302,7 +302,7 @@
   url: "https://www.youtube.com/watch?v=TcINuHBwk4g"
   date: 2019-03-01
   source: "Die Macher"
-  description: "\"Die Macher\" über transparente Demokratie mit der DEMOCRACY App."
+  description: '"Die Macher" über transparente Demokratie mit der DEMOCRACY App.'
   image: "https://democracy-deutschland.de/files/medien/Macherb_560.png"
 
 - title: "App soll Entscheidungen im Bundestag transparenter machen"

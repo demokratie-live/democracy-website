@@ -30,8 +30,8 @@ export function ProgressBar({
               {patronsPct}% erreicht
             </span>
             <span className="text-muted-foreground">
-              {patrons.toLocaleString("de-DE")} von{" "}
-              {patronsGoal.toLocaleString("de-DE")} Patenschaften
+              {patrons.toLocaleString("de-DE")} von {patronsGoal.toLocaleString("de-DE")}{" "}
+              Patenschaften
             </span>
           </div>
           <div className="h-4 overflow-hidden rounded-full bg-muted">
@@ -49,8 +49,7 @@ export function ProgressBar({
             {percentage}% erreicht
           </span>
           <span className="text-muted-foreground">
-            {current.toLocaleString("de-DE")} von{" "}
-            {goal.toLocaleString("de-DE")} {unit}
+            {current.toLocaleString("de-DE")} von {goal.toLocaleString("de-DE")} {unit}
           </span>
         </div>
         <div className="h-4 overflow-hidden rounded-full bg-muted">

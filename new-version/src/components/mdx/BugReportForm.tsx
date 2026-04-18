@@ -125,7 +125,12 @@ export function BugReportForm() {
           <label htmlFor="bug-platform" className="mb-1 block text-sm font-medium">
             Plattform *
           </label>
-          <select id="bug-platform" name="platform" className={inputCls("platform")} defaultValue="">
+          <select
+            id="bug-platform"
+            name="platform"
+            className={inputCls("platform")}
+            defaultValue=""
+          >
             <option value="" disabled>
               Bitte wählen…
             </option>

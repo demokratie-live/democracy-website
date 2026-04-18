@@ -14,7 +14,6 @@ schaue zum vergleich die Seite https://democracy-deutschland.de/ an.
 - [ ] die PR kommentare https://github.com/demokratie-live/democracy-website/pull/82 analysieren bewerten, commentieren und falls sinvoll umsetzen
 - [ ] beim tech stack sollen icons mit angezeigt werden
 
-
 ## Later
 
 - [ ] es soll visual regression tests für componenten geben

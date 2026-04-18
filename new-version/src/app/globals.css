@@ -63,8 +63,7 @@
   --color-surface-dark: #191d20;
   --color-surface-dark-heading: #4494d3;
 
-  --font-sans:
-    "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
   --font-display: "Edosz", "Archivo Black", "Helvetica Neue", sans-serif;
   --font-script: "Isabelle Layne", "Caveat", cursive;
 }

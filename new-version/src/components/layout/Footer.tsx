@@ -11,19 +11,14 @@ export function Footer({ footer }: FooterProps) {
   const copyrightText = footer.copyright.replace("{year}", String(year));
 
   return (
-    <footer
-      className="bg-[var(--color-surface-dark)] text-white/80"
-      aria-label="Fußbereich"
-    >
+    <footer className="bg-[var(--color-surface-dark)] text-white/80" aria-label="Fußbereich">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand + Newsletter */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-flex items-baseline gap-1">
               <span className="font-display text-2xl text-white">DEMOCRACY</span>
-              <span className="font-script text-2xl leading-none text-white">
-                App
-              </span>
+              <span className="font-script text-2xl leading-none text-white">App</span>
             </Link>
             {footer.newsletter && (
               <a
@@ -46,8 +41,7 @@ export function Footer({ footer }: FooterProps) {
               <ul className="mt-4 space-y-2" role="list">
                 {column.links.map((link) => {
                   const external = link.external ?? link.href.startsWith("http");
-                  const className =
-                    "text-sm text-white/75 transition-colors hover:text-white";
+                  const className = "text-sm text-white/75 transition-colors hover:text-white";
                   return (
                     <li key={link.href + link.label}>
                       {external ? (
@@ -89,7 +83,9 @@ export function Footer({ footer }: FooterProps) {
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-[var(--color-primary-500)] hover:text-white"
                     aria-label={item.label}
                   >
-                    {Icon ? <Icon className="h-4 w-4" /> : (
+                    {Icon ? (
+                      <Icon className="h-4 w-4" />
+                    ) : (
                       <span className="text-xs">{item.label.slice(0, 2)}</span>
                     )}
                   </a>
@@ -104,11 +100,7 @@ export function Footer({ footer }: FooterProps) {
           <p>{copyrightText}</p>
           <nav className="flex flex-wrap gap-4" aria-label="Rechtliche Links">
             {footer.legal.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-white"
-              >
+              <Link key={item.href} href={item.href} className="transition-colors hover:text-white">
                 {item.label}
               </Link>
             ))}

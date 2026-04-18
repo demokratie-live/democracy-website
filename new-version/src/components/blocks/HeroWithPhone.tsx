@@ -29,11 +29,7 @@ export function HeroWithPhone({
         {/* Phone mockup */}
         <div className="order-2 flex justify-center lg:order-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={phoneImage}
-            alt={phoneAlt}
-            className="max-h-[520px] w-auto drop-shadow-2xl"
-          />
+          <img src={phoneImage} alt={phoneAlt} className="max-h-[520px] w-auto drop-shadow-2xl" />
         </div>
 
         {/* Brand block */}
@@ -41,9 +37,7 @@ export function HeroWithPhone({
           <h1 className="font-display text-5xl tracking-wide sm:text-6xl lg:text-7xl">
             {headline}
           </h1>
-          {version && (
-            <p className="mt-2 font-display text-3xl sm:text-4xl">{version}</p>
-          )}
+          {version && <p className="mt-2 font-display text-3xl sm:text-4xl">{version}</p>}
           <p className="mt-4 font-display text-2xl sm:text-3xl">{subline}</p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:justify-center lg:justify-start">
@@ -83,12 +77,24 @@ export function HeroWithPhone({
               </Link>
             </p>
             <p>
-              <a href={aabUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
+              <a
+                href={aabUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white"
+              >
                 AAB
-              </a>{" / "}
-              <a href={apkUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
+              </a>
+              {" / "}
+              <a
+                href={apkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white"
+              >
                 {apkLabel}
-              </a>{" "}laden
+              </a>{" "}
+              laden
             </p>
           </div>
         </div>

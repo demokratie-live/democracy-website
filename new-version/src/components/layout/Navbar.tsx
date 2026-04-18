@@ -34,12 +34,8 @@ export function Navbar({ navigation }: NavbarProps) {
             aria-hidden="true"
             className="h-9 w-9 rounded-full object-contain"
           />
-          <span className="font-display text-xl leading-none text-primary-500">
-            DEMOCRACY
-          </span>
-          <span className="font-script -ml-1 mt-3 text-2xl leading-none text-primary-500">
-            App
-          </span>
+          <span className="font-display text-xl leading-none text-primary-500">DEMOCRACY</span>
+          <span className="font-script -ml-1 mt-3 text-2xl leading-none text-primary-500">App</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -48,10 +44,7 @@ export function Navbar({ navigation }: NavbarProps) {
             <Link
               key={item.href}
               href={item.href}
-              className={itemClasses(
-                item,
-                "text-sm font-medium transition-colors",
-              )}
+              className={itemClasses(item, "text-sm font-medium transition-colors")}
             >
               {item.label}
             </Link>
