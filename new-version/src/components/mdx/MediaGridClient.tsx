@@ -7,13 +7,22 @@ import { PressCardItem } from "./PressCard";
 const TYPE_LABELS: Record<string, string> = {
   all: "Alle",
   article: "Presse",
+  publication: "Publikationen",
   video: "Videos",
   document: "Downloads",
   logo: "Logos",
   screenshot: "Screenshots",
 };
 
-const TAB_ORDER = ["all", "article", "video", "document", "logo", "screenshot"] as const;
+const TAB_ORDER = [
+  "all",
+  "article",
+  "publication",
+  "video",
+  "document",
+  "logo",
+  "screenshot",
+] as const;
 
 interface MediaGridClientProps {
   entries: PressEntry[];

@@ -22,6 +22,9 @@ import { RoadmapSection } from "./RoadmapSection";
 import { ContactForm } from "./ContactForm";
 import { MediaGrid } from "./MediaGrid";
 import { BlogTeaser } from "./BlogTeaser";
+import { BugReportForm } from "./BugReportForm";
+import { HelpOutForm } from "./HelpOutForm";
+import { DiscordJoin } from "./DiscordJoin";
 
 function isInternalLink(href: string) {
   return href.startsWith("/") || href.startsWith("#");
@@ -69,4 +72,7 @@ export const mdxComponents = {
   ContactForm,
   MediaGrid,
   BlogTeaser,
+  BugReportForm,
+  HelpOutForm,
+  DiscordJoin,
 };

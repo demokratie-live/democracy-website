@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const pressEntrySchema = z.object({
   title: z.string().min(1),
-  type: z.enum(["article", "logo", "screenshot", "document", "video"]),
+  type: z.enum(["article", "logo", "screenshot", "document", "video", "publication"]),
   url: z.string().min(1),
   date: z.coerce.date().optional(),
   source: z.string().optional(),
