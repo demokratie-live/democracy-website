@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Children, isValidElement, type ReactNode, type ReactElement } from "react";
+import { useState, Children, isValidElement, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface ComparisonRowProps {
@@ -10,11 +10,51 @@ interface ComparisonRowProps {
   rightDescription: string;
 }
 
-export function ComparisonRow(_props: ComparisonRowProps) {
+export function ComparisonRow(props: ComparisonRowProps) {
+  void props;
   // Rendered by ComparisonTable, not directly
   return null;
 }
 ComparisonRow.displayName = "ComparisonRow";
+
+type ComparisonRowCandidate = Partial<ComparisonRowProps> & {
+  children?: ReactNode;
+};
+
+function isComparisonRowProps(candidate: ComparisonRowCandidate): candidate is ComparisonRowProps {
+  return (
+    typeof candidate.left === "string" &&
+    typeof candidate.leftDescription === "string" &&
+    typeof candidate.right === "string" &&
+    typeof candidate.rightDescription === "string"
+  );
+}
+
+export function extractComparisonRows(children: ReactNode): ComparisonRowProps[] {
+  const rows: ComparisonRowProps[] = [];
+
+  Children.forEach(children, (child) => {
+    if (!isValidElement<ComparisonRowCandidate>(child)) {
+      return;
+    }
+
+    if (isComparisonRowProps(child.props)) {
+      rows.push({
+        left: child.props.left,
+        leftDescription: child.props.leftDescription,
+        right: child.props.right,
+        rightDescription: child.props.rightDescription,
+      });
+      return;
+    }
+
+    if (child.props.children) {
+      rows.push(...extractComparisonRows(child.props.children));
+    }
+  });
+
+  return rows;
+}
 
 interface ComparisonTableProps {
   leftLabel: string;
@@ -32,18 +72,7 @@ export function ComparisonTable({
   children,
 }: ComparisonTableProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const rows: ComparisonRowProps[] = [];
-  Children.forEach(children, (child) => {
-    if (
-      isValidElement(child) &&
-      (child.type === ComparisonRow ||
-        (typeof child.type === "function" &&
-          (child.type as { displayName?: string }).displayName === "ComparisonRow"))
-    ) {
-      rows.push((child as ReactElement<ComparisonRowProps>).props);
-    }
-  });
+  const rows = extractComparisonRows(children);
 
   return (
     <section className="py-12">

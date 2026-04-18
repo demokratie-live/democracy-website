@@ -18,6 +18,12 @@ pnpm format:check     # Check formatting without changes
 pnpm test:e2e         # Run Playwright smoke tests (build first!)
 ```
 
+## Commit Workflow
+
+- Commit finished, self-contained fixes and features promptly instead of leaving them uncommitted.
+- Use concise English commit subjects.
+- Keep each commit scoped to the files that belong to the same change; do not bundle unrelated workspace files.
+
 ## Architecture
 
 ```
