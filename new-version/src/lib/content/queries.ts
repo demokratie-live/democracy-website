@@ -25,8 +25,13 @@ import { loadYaml } from "./load-yaml";
 
 // --- Pages ---
 
-export async function getPage(slug: string) {
-  return loadMdx<PageFrontmatter>(`pages/${slug}.mdx`, pageFrontmatterSchema);
+/**
+ * Load a page by its file identifier (the MDX filename without extension),
+ * e.g. `"home"`, `"wahlometer"`. This is **not** the frontmatter `slug` field
+ * (which is a user-facing URL path).
+ */
+export async function getPage(pageId: string) {
+  return loadMdx<PageFrontmatter>(`pages/${pageId}.mdx`, pageFrontmatterSchema);
 }
 
 // --- Blog ---

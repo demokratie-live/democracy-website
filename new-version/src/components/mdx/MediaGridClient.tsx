@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { PressEntry } from "@/lib/schemas";
+import type { SerializedPressEntry } from "@/lib/schemas";
 import { PressCardItem } from "./PressCard";
 
 const TYPE_LABELS: Record<string, string> = {
@@ -25,7 +25,7 @@ const TAB_ORDER = [
 ] as const;
 
 interface MediaGridClientProps {
-  entries: PressEntry[];
+  entries: SerializedPressEntry[];
 }
 
 export function MediaGridClient({ entries }: MediaGridClientProps) {

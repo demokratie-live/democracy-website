@@ -11,5 +11,10 @@ export {
   type DonateConfig,
 } from "./donate";
 export { roadmapGoalSchema, roadmapListSchema, type RoadmapGoal } from "./roadmap";
-export { pressEntrySchema, pressListSchema, type PressEntry } from "./press";
+export {
+  pressEntrySchema,
+  pressListSchema,
+  type PressEntry,
+  type SerializedPressEntry,
+} from "./press";
 export { footerSchema, footerColumnSchema, type FooterData } from "./footer";

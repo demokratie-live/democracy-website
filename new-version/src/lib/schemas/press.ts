@@ -13,3 +13,9 @@ export const pressEntrySchema = z.object({
 export const pressListSchema = z.array(pressEntrySchema);
 
 export type PressEntry = z.infer<typeof pressEntrySchema>;
+
+/**
+ * Client-safe, fully serializable press entry (ISO-string date).
+ * Use this across Server → Client Component boundaries where plain JSON is required.
+ */
+export type SerializedPressEntry = Omit<PressEntry, "date"> & { date?: string };

@@ -39,9 +39,21 @@ export function ContactForm() {
     setErrors({});
     setStatus("sending");
 
-    const endpoint =
-      process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ??
-      "https://formspree.io/f/contact@democracy-deutschland.de";
+    const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "";
+
+    if (!endpoint) {
+      // Fallback: pre-fill a mailto draft so users can still reach us
+      const body = encodeURIComponent(
+        Array.from(formData.entries())
+          .map(([k, v]) => `${k}: ${v}`)
+          .join("\n"),
+      );
+      window.location.href = `mailto:contact@democracy-deutschland.de?subject=${encodeURIComponent(
+        "Kontaktanfrage DEMOCRACY",
+      )}&body=${body}`;
+      setStatus("success");
+      return;
+    }
 
     try {
       const response = await fetch(endpoint, {

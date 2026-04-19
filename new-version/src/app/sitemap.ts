@@ -24,9 +24,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/nutzungsbedingungen",
   ];
 
+  const buildDate = new Date();
+
   const staticEntries: MetadataRoute.Sitemap = staticPages.map((path) => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date(),
+    lastModified: buildDate,
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1.0 : path === "/spenden" ? 0.9 : 0.7,
   }));

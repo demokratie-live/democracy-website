@@ -1,5 +1,7 @@
+"use client";
+
 import { ExternalLink, FileText, Image as ImageIcon, Video, Download } from "lucide-react";
-import type { PressEntry } from "@/lib/schemas";
+import type { SerializedPressEntry } from "@/lib/schemas";
 
 const TYPE_ICONS: Record<string, typeof ExternalLink> = {
   article: ExternalLink,
@@ -19,8 +21,8 @@ const TYPE_ACTION: Record<string, string> = {
   screenshot: "Ansehen",
 };
 
-function formatDate(date: Date): string {
-  return new Date(date).toLocaleDateString("de-DE", {
+function formatDate(isoDate: string): string {
+  return new Date(isoDate).toLocaleDateString("de-DE", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -28,7 +30,7 @@ function formatDate(date: Date): string {
 }
 
 interface PressCardItemProps {
-  entry: PressEntry;
+  entry: SerializedPressEntry;
 }
 
 export function PressCardItem({ entry }: PressCardItemProps) {

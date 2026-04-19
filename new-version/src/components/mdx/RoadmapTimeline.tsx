@@ -1,12 +1,5 @@
 import { CheckCircle, Clock, Circle } from "lucide-react";
-
-interface RoadmapGoal {
-  title: string;
-  description?: string;
-  phase: "beta" | "mvp" | "dream";
-  status: "done" | "in-progress" | "planned";
-  github?: string;
-}
+import type { RoadmapGoal } from "@/lib/schemas";
 
 interface RoadmapTimelineProps {
   goals: RoadmapGoal[];
@@ -44,7 +37,7 @@ function StatusIcon({ status }: { status: RoadmapGoal["status"] }) {
   }
 }
 
-const statusLabels: Record<string, string> = {
+const statusLabels: Record<RoadmapGoal["status"], string> = {
   done: "Erledigt",
   "in-progress": "In Arbeit",
   planned: "Geplant",
