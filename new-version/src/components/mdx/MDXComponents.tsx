@@ -31,14 +31,30 @@ function isInternalLink(href: string) {
   return href.startsWith("/") || href.startsWith("#");
 }
 
+// Non-http(s) protocols that should open in the current tab (mail clients,
+// phone dialers, etc.) — `target="_blank"` on these is usually unwanted.
+function isSameTabProtocol(href: string) {
+  return /^(mailto:|tel:|sms:)/i.test(href);
+}
+
 type AnchorProps = ComponentPropsWithoutRef<"a">;
 
 function MdxLink({ href, children, ...props }: AnchorProps) {
-  if (href && isInternalLink(href)) {
+  if (!href) {
+    return <a {...props}>{children}</a>;
+  }
+  if (isInternalLink(href)) {
     return (
       <Link href={href} {...props}>
         {children}
       </Link>
+    );
+  }
+  if (isSameTabProtocol(href)) {
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
     );
   }
   return (

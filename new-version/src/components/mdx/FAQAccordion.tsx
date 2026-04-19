@@ -40,6 +40,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
         {categories.map((cat) => (
           <button
             key={cat}
+            type="button"
             onClick={() => {
               setActiveCategory(cat);
               setOpenIndex(null);
@@ -62,6 +63,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
           return (
             <div key={`${item.category}-${index}`} className="py-1">
               <button
+                type="button"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 className="flex w-full items-center justify-between gap-4 py-4 text-left"
                 aria-expanded={isOpen}

@@ -43,6 +43,7 @@ export function MediaGridClient({ entries }: MediaGridClientProps) {
         {availableTabs.map((tab) => (
           <button
             key={tab}
+            type="button"
             onClick={() => setActiveTab(tab)}
             className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
               activeTab === tab

@@ -3,6 +3,7 @@ import type { PressEntry } from "@/lib/schemas";
 
 const TYPE_ICONS: Record<string, typeof ExternalLink> = {
   article: ExternalLink,
+  publication: FileText,
   video: Video,
   document: FileText,
   logo: ImageIcon,
@@ -11,6 +12,7 @@ const TYPE_ICONS: Record<string, typeof ExternalLink> = {
 
 const TYPE_ACTION: Record<string, string> = {
   article: "Artikel lesen",
+  publication: "Publikation lesen",
   video: "Video ansehen",
   document: "Herunterladen",
   logo: "Herunterladen",

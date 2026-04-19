@@ -44,6 +44,9 @@ jobs:
       - name: Validate content
         run: pnpm validate-content
 
+      - name: Unit tests
+        run: pnpm test:unit
+
       - name: Build
         run: pnpm build
 
