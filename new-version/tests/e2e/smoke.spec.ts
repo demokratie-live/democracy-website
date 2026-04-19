@@ -23,12 +23,7 @@ for (const route of routes) {
     const jsErrors: string[] = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
-        const text = msg.text();
-        // Ignore network resource 404s (missing pages/images that don't exist yet)
-        if (text.includes("Failed to load resource")) return;
-        // Known: React hydration mismatch on home page from VideoPlayer iframe
-        if (text.includes("Minified React error #418")) return;
-        jsErrors.push(text);
+        jsErrors.push(msg.text());
       }
     });
 
