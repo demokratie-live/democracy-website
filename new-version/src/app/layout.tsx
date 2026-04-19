@@ -43,9 +43,6 @@ export async function generateMetadata(): Promise<Metadata> {
       description: seo.description,
       images: [seo.openGraph.image],
     },
-    alternates: {
-      canonical: seo.siteUrl,
-    },
   };
 }
 

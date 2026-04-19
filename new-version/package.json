@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "serve out",
     "lint": "eslint",
     "test:unit": "tsx --test src/**/*.test.ts src/**/*.test.tsx",
     "test:e2e": "pnpm build && playwright test",

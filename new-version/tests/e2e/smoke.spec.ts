@@ -26,6 +26,9 @@ for (const route of routes) {
         jsErrors.push(msg.text());
       }
     });
+    page.on("pageerror", (err) => {
+      jsErrors.push(`pageerror: ${err.message}`);
+    });
 
     const response = await page.goto(route.path);
     expect(response?.status()).toBe(200);
@@ -33,14 +36,20 @@ for (const route of routes) {
     // Page should have content (not blank)
     await expect(page.locator("body")).not.toBeEmpty();
 
-    // No JavaScript console errors
+    // No JavaScript console errors or uncaught exceptions
     expect(jsErrors).toEqual([]);
   });
 }
 
 test("404 page renders for unknown routes", async ({ page }) => {
+  const jsErrors: string[] = [];
+  page.on("pageerror", (err) => {
+    jsErrors.push(`pageerror: ${err.message}`);
+  });
+
   const response = await page.goto("/nonexistent-page-xyz");
-  // Next.js static export returns 200 for the 404 page
-  expect(response?.status()).toBeLessThanOrEqual(404);
-  await expect(page.locator("body")).not.toBeEmpty();
+  // Next.js static export serves the exported 404 page with HTTP 404
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+  expect(jsErrors).toEqual([]);
 });

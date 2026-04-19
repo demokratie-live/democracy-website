@@ -39,7 +39,7 @@ pnpm validate-content # Content validation
 pnpm test:e2e         # Playwright smoke tests (build first!)
 pnpm format           # Format all files with Prettier (incl. MDX)
 pnpm format:check     # Check formatting without writing
-npx serve out         # Preview built site locally (pnpm start does NOT work with static export)
+npx serve out         # Preview built site locally (equivalent to `pnpm start`)
 ```
 
 ## ⚠️ Critical Workflow Rules

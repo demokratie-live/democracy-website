@@ -16,13 +16,10 @@ slug: "/url-path"
 seo:
   title: "SEO Title"
   description: "Meta description for search engines"
-hero:
-  headline: "Main Heading"
-  subline: "Optional subtitle"
 ---
 ```
 
-All fields in `seo` are required. The `hero` block is optional.
+All fields in `seo` are required. To render a hero, use the `<Hero />` or `<HeroWithPhone />` component in the MDX body.
 
 ## Available Components
 
