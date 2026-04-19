@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DEMOCRACY Deutschland – Website
 
-## Getting Started
+Static website for [DEMOCRACY Deutschland e.V.](https://www.democracy-deutschland.de),
+built with Next.js 16 App Router and exported as static HTML.
 
-First, run the development server:
+> **Looking for project conventions, architecture and content guidelines?**
+> See [`AGENTS.md`](./AGENTS.md) — it is the single source of truth for how this
+> codebase is organized.
+
+## Tech stack
+
+- **Next.js 16** (App Router, `output: "export"`)
+- **React 19**, **TypeScript** (strict)
+- **Tailwind CSS v4**
+- **MDX + YAML** for content, validated with **Zod v4**
+- **pnpm** (v10+) for dependency management
+
+## Prerequisites
+
+- Node.js 20+
+- [pnpm](https://pnpm.io/) 10+
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Common commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All commands are run from this directory (`new-version/`).
 
-## Learn More
+| Command                  | What it does                                            |
+| ------------------------ | ------------------------------------------------------- |
+| `pnpm dev`               | Start the dev server with Turbopack                     |
+| `pnpm build`             | Build the static site to `out/`                         |
+| `pnpm validate-content`  | Validate all MDX/YAML content against Zod schemas       |
+| `pnpm lint`              | Run ESLint                                              |
+| `pnpm format`            | Format all files with Prettier                          |
+| `pnpm format:check`      | Check formatting without writing                        |
+| `pnpm test:e2e`          | Run Playwright smoke tests (requires a build first)     |
+| `npx serve out`          | Preview the built static site locally                   |
 
-To learn more about Next.js, take a look at the following resources:
+> ⚠️ `pnpm start` does **not** work — this project uses static export.
+> Use `npx serve out` after `pnpm build` to preview the production output.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All content lives under [`content/`](./content) as MDX (pages, blog posts) and
+YAML (site-wide data, FAQs, team, donate, navigation, footer, …). Run
+`pnpm validate-content` after every content change.
 
-## Deploy on Vercel
+After editing any MDX file, also run `pnpm build` — MDX compile errors only
+surface during the build, not during schema validation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [`AGENTS.md`](./AGENTS.md) — architecture, content system, conventions, gotchas
+- [`CLAUDE.md`](./CLAUDE.md) — guidance for AI coding assistants

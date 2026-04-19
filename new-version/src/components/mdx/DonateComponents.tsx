@@ -15,9 +15,9 @@ export function ProgressBar({
   patrons,
   patronsGoal,
 }: ProgressBarProps) {
-  const percentage = Math.min(Math.round((current / goal) * 100), 100);
+  const percentage = goal > 0 ? Math.min(Math.round((current / goal) * 100), 100) : 0;
   const patronsPct =
-    patrons !== undefined && patronsGoal
+    patrons !== undefined && patronsGoal && patronsGoal > 0
       ? Math.min(Math.round((patrons / patronsGoal) * 100), 100)
       : undefined;
 
@@ -118,7 +118,8 @@ export function DonateCategories({ categories, goal }: DonateCategoriesProps) {
       </p>
       <div className="space-y-3">
         {categories.map((cat) => {
-          const barWidth = Math.min(Math.round((cat.amount / goal) * 100), 100);
+          const barWidth =
+            goal > 0 ? Math.min(Math.round((cat.amount / goal) * 100), 100) : 0;
           return (
             <div key={cat.label}>
               <div className="mb-1 flex items-center justify-between text-sm">

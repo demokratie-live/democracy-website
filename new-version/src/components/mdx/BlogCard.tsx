@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Tag } from "lucide-react";
 import type { BlogFrontmatter } from "@/lib/schemas";
 
@@ -18,11 +19,13 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <article className="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-border transition-shadow hover:shadow-md">
       {post.image && (
-        <div className="mb-4 overflow-hidden rounded-lg">
-          <img
+        <div className="relative mb-4 h-48 w-full overflow-hidden rounded-lg">
+          <Image
             src={post.image}
             alt={post.title}
-            className="h-48 w-full object-cover transition-transform group-hover:scale-105"
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform group-hover:scale-105"
           />
         </div>
       )}

@@ -14,7 +14,7 @@ export const donateProgressSchema = z
 
 export const donateCategorySchema = z.object({
   label: z.string().min(1),
-  amount: z.number().min(0),
+  amount: z.number().positive(),
   icon: z.string().min(1),
 });
 
@@ -28,7 +28,7 @@ export const donateConfigSchema = z.object({
     bank: z.string().min(1),
   }),
   progress: donateProgressSchema,
-  categories: z.array(donateCategorySchema),
+  categories: z.array(donateCategorySchema).nonempty(),
   callToAction: z.object({
     paypal: z.string().url().optional(),
     donorbox: z.string().url().optional(),

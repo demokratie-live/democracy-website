@@ -10,6 +10,7 @@ interface ValueRowProps {
   opposeDescription: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function ValueRow(_props: ValueRowProps) {
   // Rendered by ValueTable, not directly
   return null;

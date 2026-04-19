@@ -1,5 +1,3 @@
-import { Play } from "lucide-react";
-
 interface VideoPlayerProps {
   url: string;
   title: string;

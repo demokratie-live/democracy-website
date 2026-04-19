@@ -14,7 +14,7 @@ const routes = [
   { path: "/engineering", name: "Engineering" },
   { path: "/kontakt", name: "Kontakt" },
   { path: "/blog", name: "Blog" },
-  { path: "/blog/willkommen", name: "Blog-Artikel" },
+  { path: "/blog/news-38-weihnachtsbrief-25", name: "Blog-Artikel" },
   { path: "/presse", name: "Presse" },
 ];
 

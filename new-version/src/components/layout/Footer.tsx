@@ -40,7 +40,7 @@ export function Footer({ footer }: FooterProps) {
               </h3>
               <ul className="mt-4 space-y-2" role="list">
                 {column.links.map((link) => {
-                  const external = link.external ?? link.href.startsWith("http");
+                  const external = link.external || link.href.startsWith("http");
                   const className = "text-sm text-white/75 transition-colors hover:text-white";
                   return (
                     <li key={link.href + link.label}>

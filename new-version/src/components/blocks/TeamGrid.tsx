@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import type { TeamData } from "@/lib/schemas";
 
@@ -10,7 +11,13 @@ function MemberCard({ member }: { member: TeamData["core"][number] }) {
     <div className="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-sm ring-1 ring-border">
       <div className="mb-4 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-primary-100">
         {member.image ? (
-          <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
+          <Image
+            src={member.image}
+            alt={member.name}
+            width={96}
+            height={96}
+            className="h-full w-full object-cover"
+          />
         ) : (
           <span className="text-2xl font-bold text-primary-500">
             {member.name
