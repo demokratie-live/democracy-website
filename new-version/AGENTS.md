@@ -145,16 +145,16 @@ The `resolveIcon()` function maps strings like `"list"`, `"file-text"`, `"vote"`
 
 ### 2. German Quotation Marks in JSX Attributes
 
-German uses `„` (U+201E) and `"` (U+201C). The **closing** quote must be Unicode U+201C, not ASCII `"` (U+0022):
+German uses `„` (U+201E) and `“` (U+201C). Inside JSX attribute values, the **closing** quote must be the Unicode character `“` (U+201C), not an ASCII double quote `"` (U+0022):
 
 ```mdx
-{/* ❌ BREAKS — ASCII " terminates the JSX attribute: */}
+{/* ❌ BREAKS — ASCII " (U+0022) inside the value terminates the JSX attribute: */}
 
 <ValueRow democracy="Gemeinschaft „Bürger"" />
 
-{/* ✅ OK — Unicode closing quote: */}
+{/* ✅ OK — Unicode closing quote “ (U+201C) inside the value: */}
 
-<ValueRow democracy="Gemeinschaft „Bürger"" />
+<ValueRow democracy="Gemeinschaft „Bürger“" />
 ```
 
 ### 3. Frontmatter Not Available in MDX Body

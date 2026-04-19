@@ -19,7 +19,7 @@ import { footerSchema } from "../src/lib/schemas/footer";
 import { donateConfigSchema } from "../src/lib/schemas/donate";
 import { roadmapListSchema } from "../src/lib/schemas/roadmap";
 import { pressListSchema } from "../src/lib/schemas/press";
-import { seoSchema, globalSeoSchema } from "../src/lib/schemas/seo";
+import { globalSeoSchema } from "../src/lib/schemas/seo";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 

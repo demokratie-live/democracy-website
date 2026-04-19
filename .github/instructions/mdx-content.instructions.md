@@ -29,7 +29,7 @@ All fields in `seo` are required. The `hero` block is optional.
 Use these components directly in MDX — no imports needed:
 
 ### Layout
-- `<Section bg="white|primary-light|gray" centered>` — Page section wrapper
+- `<Section bg="white|muted|primary-light|none" centered>` — Page section wrapper (default `bg="none"`)
 - `<Grid cols={2|3}>` — Responsive column grid
 - `<CTA bg="primary-light">` — Call-to-action block
 
@@ -54,23 +54,26 @@ Use these components directly in MDX — no imports needed:
 
 ## Icons
 
-Pass icon names as strings. Available icons include:
-`list`, `file-text`, `vote`, `bar-chart-3`, `share-2`, `bell`, `users`, `landmark`,
-`shield`, `eye`, `scale`, `heart`, `globe`, `code`, `target`, `lightbulb`, `check-circle`
+Pass icon names as strings. Available icons (see `src/components/mdx/icons.ts`):
+`list`, `file-text`, `vote`, `bar-chart`, `pie-chart`, `users`, `landmark`,
+`search`, `shield`, `heart`, `arrow-right`, `play`, `external-link`, `mail`,
+`check`, `x`, `chevron-down`, `server`, `code`, `share-2`, `smartphone`,
+`tech-typescript`, `tech-react`, `tech-node`
 
 Example: `<FeatureCard icon="vote" title="Vote">...</FeatureCard>`
 
 ## ⚠️ Common Pitfalls
 
 ### German Quotation Marks
-German uses `„` (opening) and `"` (closing). The closing mark **must** be Unicode U+201C — not a regular ASCII double quote `"`:
+German uses `„` (opening, U+201E) and `“` (closing, U+201C). Inside JSX attribute values,
+do **not** use an ASCII double quote (`"`, U+0022) as the closing mark — it terminates the attribute.
 
 ```mdx
-<!-- ❌ WRONG — the regular " breaks JSX attributes -->
+<!-- ❌ WRONG — ASCII double quote " (U+0022) breaks the JSX attribute -->
 <ValueRow democracy="Gemeinschaft „Bürger"" />
 
-<!-- ✅ CORRECT — Unicode closing quote " (U+201C) -->
-<ValueRow democracy="Gemeinschaft „Bürger"" />
+<!-- ✅ CORRECT — Unicode closing quote “ (U+201C) is part of the text value -->
+<ValueRow democracy="Gemeinschaft „Bürger“" />
 ```
 
 ### No JavaScript Expressions with Optional Chaining
