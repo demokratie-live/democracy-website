@@ -37,7 +37,12 @@ async function fileExists(filePath: string): Promise<boolean> {
 
 async function validateMdxFiles(dir: string, schema: z.ZodType, label: string) {
   const fullDir = path.join(CONTENT_DIR, dir);
-  if (!(await fileExists(fullDir))) return;
+  if (!(await fileExists(fullDir))) {
+    errors++;
+    console.error(`  ❌ ${label}`);
+    console.error(`     → Verzeichnis fehlt: ${dir}`);
+    return;
+  }
 
   const files = await fs.readdir(fullDir);
   const mdxFiles = files.filter((f) => f.endsWith(".mdx") || f.endsWith(".md"));
@@ -66,7 +71,12 @@ async function validateMdxFiles(dir: string, schema: z.ZodType, label: string) {
 
 async function validateYamlFile(filePath: string, schema: z.ZodType, label: string) {
   const fullPath = path.join(CONTENT_DIR, filePath);
-  if (!(await fileExists(fullPath))) return;
+  if (!(await fileExists(fullPath))) {
+    errors++;
+    console.error(`  ❌ ${label}`);
+    console.error(`     → Datei fehlt: ${filePath}`);
+    return;
+  }
 
   try {
     const raw = await fs.readFile(fullPath, "utf-8");

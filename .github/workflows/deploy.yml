@@ -2,7 +2,7 @@ name: Build & Deploy
 
 on:
   push:
-    branches: [master, feature/MDX]
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -50,6 +50,12 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: E2E smoke tests
+        run: pnpm exec playwright test
+
       - name: Upload preview artifact
         uses: actions/upload-artifact@v4.6.2
         with:
@@ -67,13 +73,13 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/feature/MDX'
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: new-version/out
 
   deploy:
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/feature/MDX'
+    if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     environment:
