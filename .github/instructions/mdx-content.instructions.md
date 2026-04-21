@@ -38,6 +38,7 @@ Use these components directly in MDX — no imports needed:
 - `<PhilosophyCard icon="icon-name" title="...">description</PhilosophyCard>`
 - `<VideoPlayer url="https://youtube.com/embed/..." title="..." />`
 - `<AppBadges />` — App store download buttons
+- `<FeaturesShowcase />` — Interaktive Feature-Sektion mit Videos (5 Einträge, Click-basierter Source-Swap, Brand-Orange für aktiv)
 
 ### Data Tables
 - `<ComparisonTable leftLabel="A" rightLabel="B">` with `<ComparisonRow>` children

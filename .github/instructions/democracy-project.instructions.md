@@ -36,6 +36,7 @@ Content and layout structure belong in the `.mdx` file, not in `page.tsx`.
 - To add a new component: create it in `src/components/mdx/`, then register it in `MDXComponents.tsx`.
 - Icons in MDX are passed as **strings** (e.g., `icon="list"`) and resolved via `src/components/mdx/icons.ts`.
 - Client components (`"use client"`) work in MDX when registered in the component map.
+- `<FeaturesShowcase />` is a client component (registered in `MDXComponents.tsx`) that renders the interactive "Alle Funktionen von DEMOCRACY" section with click-driven video source swap; it takes no props (feature data is internal).
 
 ## MDX Gotchas
 

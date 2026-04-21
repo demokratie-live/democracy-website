@@ -1,0 +1,563 @@
+plan_id: 20260421-features-parity
+objective: >-
+  Rebuild the "Alle Funktionen von DEMOCRACY" section on the local homepage
+  (new-version/) to match the behaviour of the live site
+  (https://democracy-deutschland.de/#!home) — five clickable feature entries
+  swapping a looping video on the right — but styled in the new brand design
+  (primary-orange active state, white idle, no blue), using a static Next.js
+  export and no new dependencies.
+created_at: "2026-04-21"
+created_by: gem-planner
+status: pending
+research_confidence: high
+
+plan_metrics:
+  wave_1_task_count: 4
+  total_dependencies: 6
+  risk_score: low
+
+tldr: |
+  Add a new client-side `FeaturesShowcase` component that renders a vertical
+  list of five brand-styled buttons and a synchronized <video> element. Copy the
+  five MP4 assets (plus optional PNG posters) into public/videos/, register the
+  component in the MDX registry, replace the current static Grid/FeatureCard/img
+  block in home.mdx, then validate via lint/content/build/e2e and a browser
+  parity check against the live site.
+
+open_questions: []
+
+gaps: []
+
+pre_mortem:
+  overall_risk_level: low
+  critical_failure_modes:
+    - scenario: >-
+        Autoplay with sound-off fails on iOS Safari because `muted` or
+        `playsInline` attributes are missing after the React-controlled src
+        swap, breaking the core interaction.
+      likelihood: medium
+      impact: high
+      mitigation: >-
+        Keep `muted`, `playsInline`, `autoPlay`, `loop` on the <video> element;
+        on activeId change call `video.load()` then `video.play().catch(()=>{})`
+        inside useEffect. Verify on a mobile viewport via browser-tester.
+    - scenario: >-
+        Smooth-scroll offset miscalculates against the fixed navbar and scrolls
+        past / short of the video, producing a worse UX than the live site.
+      likelihood: medium
+      impact: medium
+      mitigation: >-
+        Prefer CSS `scroll-margin-top` on the video container (value matching
+        the existing navbar height token) and use
+        `element.scrollIntoView({ behavior: 'smooth', block: 'start' })` instead
+        of computing offsets by hand.
+    - scenario: >-
+        Videos are committed as-is and inflate the static export / git repo
+        size, or poster generation requires ffmpeg which is not available in
+        the environment.
+      likelihood: medium
+      impact: low
+      mitigation: >-
+        Copy only the 5 required MP4s into public/videos/. Attempt ffmpeg for
+        posters; on failure, fall back to the existing /files/images/*.png as
+        posters and log the decision in the task notes.
+  assumptions:
+    - "new-version uses Next.js App Router with output: 'export' (static export)."
+    - "pnpm is the only supported package manager; scripts lint / validate-content / build / test:e2e exist in new-version/package.json."
+    - "Existing FeatureCard highlight variant already encodes the primary-orange brand token; the new buttons can reuse the same Tailwind classes."
+    - "MDX components are registered centrally in new-version/src/components/mdx/MDXComponents.tsx."
+    - "The five MP4 files in the session-state files directory are the final assets and are safe to commit to the repo."
+
+implementation_specification:
+  code_structure: >-
+    One new client component
+    (new-version/src/components/mdx/FeaturesShowcase.tsx) owning local state
+    (activeId), a ref to a single <video>, and an internal FEATURES array
+    (id, icon, title, description, videoSrc, posterSrc). Registered in the MDX
+    components map and consumed from home.mdx replacing the current
+    Grid/FeatureCard/img block. Assets live under new-version/public/videos/.
+  affected_areas:
+    - new-version/src/components/mdx/FeaturesShowcase.tsx (new)
+    - new-version/src/components/mdx/MDXComponents.tsx (registry entry)
+    - new-version/content/pages/home.mdx (lines ~36–72 replaced)
+    - new-version/public/videos/*.mp4 (+ optional *.png posters)
+  component_details:
+    - component: FeaturesShowcase
+      responsibility: >-
+        Render 5 brand-styled feature buttons + a synchronized looping muted
+        video, handle active state, swap src on click, smooth-scroll to the
+        video on mobile.
+      interfaces:
+        - 'default export: () => JSX.Element (no props; data is internal)'
+      dependencies:
+        - component: react
+          relationship: useState/useRef/useEffect hooks
+        - component: lucide-react
+          relationship: reuse the same icons currently used in FeatureCard
+      integration_points:
+        - Mounted via MDX through mdxComponents registry
+        - Consumes Tailwind tokens already defined for the `highlight` variant
+    - component: MDXComponents registry
+      responsibility: Expose FeaturesShowcase to MDX files by tag name.
+      interfaces:
+        - 'export const mdxComponents: MDXComponents'
+      dependencies:
+        - component: FeaturesShowcase
+          relationship: imported and registered under key "FeaturesShowcase"
+      integration_points:
+        - Consumed by the MDX renderer that pages rely on
+    - component: home.mdx
+      responsibility: Replace the static features block with <FeaturesShowcase />.
+      interfaces: []
+      dependencies:
+        - component: FeaturesShowcase
+          relationship: rendered via MDX tag
+      integration_points:
+        - Static page build at /
+
+contracts:
+  - from_task: copy-assets
+    to_task: build-component
+    interface: >-
+      Files exist at new-version/public/videos/DDW-{List,info,vote,compare,analyse}_croped.mp4
+      (and matching .png posters if ffmpeg succeeded, otherwise documented
+      fallback PNG path).
+    format: filesystem paths, referenced by string literals in FEATURES array
+  - from_task: build-component
+    to_task: register-and-embed
+    interface: >-
+      `FeaturesShowcase` default export is a client component taking no props
+      and rendering the full section.
+    format: TypeScript React component module
+  - from_task: register-and-embed
+    to_task: validate-build
+    interface: >-
+      home.mdx renders <FeaturesShowcase /> and the old Grid/FeatureCard/img
+      block is removed; MDXComponents exports the new tag.
+    format: MDX + TS source
+  - from_task: validate-build
+    to_task: browser-parity
+    interface: Clean `pnpm build` static export + passing e2e smoke.
+    format: build artefacts under new-version/out/ (or equivalent)
+
+tasks:
+  - id: copy-assets
+    title: Copy feature videos (and posters) into public/videos/
+    description: |
+      Copy the five MP4s from the session-state files directory into
+      new-version/public/videos/:
+        - DDW-List_croped.mp4
+        - DDW-info_croped.mp4
+        - DDW-vote_croped.mp4
+        - DDW-compare_croped.mp4
+        - DDW-analyse_croped.mp4
+      Generate a PNG poster per video using ffmpeg
+      (`ffmpeg -ss 0 -i X.mp4 -vframes 1 X.png`) into the same folder. If
+      ffmpeg is unavailable, fall back to reusing the existing
+      /files/images/List.png (and siblings if present) as posters and document
+      the fallback in the task's completion notes. Do NOT commit any other
+      files from the session-state directory.
+    wave: 1
+    agent: gem-implementer
+    prototype: false
+    covers:
+      - "AC: Videos spielen autoplay/loop/muted/playsinline (Assets verfügbar)"
+    priority: medium
+    status: pending
+    flags:
+      flaky: false
+      retries_used: 0
+    dependencies: []
+    conflicts_with: []
+    context_files:
+      - path: new-version/public/
+        description: Target root for static assets in the Next.js static export.
+      - path: /Users/manuelruck/.copilot/session-state/c15753fb-aaec-4a2f-bf96-35e0b95a8d2c/files/
+        description: Source directory for the 5 MP4 feature videos.
+    planning_pass: 1
+    planning_history: []
+    estimated_effort: small
+    estimated_files: 3
+    estimated_lines: 30
+    focus_area: assets
+    verification:
+      - "ls new-version/public/videos/ shows 5 MP4 files with expected names"
+      - Each referenced posterSrc path resolves to an existing file (PNG poster or documented fallback)
+    acceptance_criteria:
+      - All 5 MP4s present under new-version/public/videos/
+      - Poster strategy (ffmpeg output or documented fallback) is in place for each video
+    failure_modes:
+      - scenario: ffmpeg not installed in the environment.
+        likelihood: medium
+        impact: low
+        mitigation: Fall back to existing /files/images/List.png and note the decision.
+    tech_stack:
+      - pnpm
+      - ffmpeg (optional)
+    test_coverage: null
+    requires_review: false
+    review_depth: null
+    review_security_sensitive: false
+
+  - id: build-component
+    title: Create FeaturesShowcase client component
+    description: |
+      Create new-version/src/components/mdx/FeaturesShowcase.tsx as a "use client"
+      component:
+        - Internal FEATURES array with id, icon (lucide icon component),
+          title, description (German copy matching current home.mdx),
+          videoSrc, posterSrc.
+        - useState<string>('waehle') for activeId (default = first feature).
+        - useRef<HTMLVideoElement> for the <video>.
+        - useEffect on activeId change: call video.load() then
+          video.play().catch(()=>{}).
+        - Layout: responsive 2-column grid on md+, stacked on mobile. Left:
+          vertical list of <button>s. Right: <video autoPlay loop muted
+          playsInline poster={...} src={...} className="...">.
+        - Active button uses the same Tailwind classes as the existing
+          FeatureCard `highlight` variant (primary-orange bg + white text);
+          idle uses white/muted with border. Hover = subtle lift + border
+          color change. No new dependencies.
+        - Accessibility: role="tablist" on the button group, role="tab"
+          + aria-selected on each button, role="tabpanel" on the video
+          wrapper, aria-label on the <video>.
+        - After a click, focus management stays on the clicked button and
+          the video container is scrolled into view via
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          the video container gets Tailwind `scroll-mt-[<navbar-height+50>]`
+          so no pixel math is needed.
+      Keep the file under 300 lines; extract no sub-components.
+    wave: 1
+    agent: gem-implementer
+    prototype: false
+    covers:
+      - "AC: 5 klickbare Feature-Einträge, genau einer aktiv"
+      - "AC: Klick wechselt Video mit Poster-Fallback"
+      - "AC: Aktiver Eintrag primary-Orange konsistent mit highlight-Variante"
+      - "AC: Smooth-Scroll zum Video nach Click"
+      - "AC: autoplay/loop/muted/playsinline (iOS-kompatibel)"
+    priority: high
+    status: pending
+    flags:
+      flaky: false
+      retries_used: 0
+    dependencies:
+      - copy-assets
+    conflicts_with: []
+    context_files:
+      - path: new-version/src/components/mdx/FeatureCard.tsx
+        description: Source of truth for the existing `highlight` primary-orange styling to reuse.
+      - path: new-version/content/pages/home.mdx
+        description: Current German copy + icon choices for the five features (lines 36-72).
+      - path: new-version/src/components/mdx/MDXComponents.tsx
+        description: Registry pattern for MDX components.
+    planning_pass: 1
+    planning_history: []
+    estimated_effort: medium
+    estimated_files: 1
+    estimated_lines: 220
+    focus_area: ui-component
+    verification:
+      - TypeScript strict build passes (no `any`)
+      - Component file starts with "use client"
+      - <video> element has autoPlay, loop, muted, playsInline, poster, src attributes
+      - Active button applies the same class tokens used by FeatureCard `highlight`
+    acceptance_criteria:
+      - Component renders 5 buttons + 1 video; state toggles correctly
+      - No new runtime dependencies added to package.json
+      - Uses scroll-margin-top via Tailwind rather than hand-computed offsets
+    failure_modes:
+      - scenario: >-
+          React hydration warning because autoPlay/muted attributes differ
+          between SSR snapshot and client.
+        likelihood: medium
+        impact: medium
+        mitigation: >-
+          Render the <video> unconditionally with stable attributes; only
+          mutate via ref inside useEffect, not during render.
+      - scenario: >-
+          Primary-orange styling drifts from existing FeatureCard highlight
+          because the classes are copied by hand.
+        likelihood: medium
+        impact: low
+        mitigation: >-
+          Import and reuse the same Tailwind class strings, or extract a
+          shared constant co-located with FeatureCard.
+    tech_stack:
+      - TypeScript
+      - React 18 client component
+      - Tailwind CSS
+      - lucide-react
+    test_coverage: null
+    requires_review: false
+    review_depth: null
+    review_security_sensitive: false
+
+  - id: register-and-embed
+    title: Register FeaturesShowcase in MDX registry and embed in home.mdx
+    description: |
+      - Import and register `FeaturesShowcase` in
+        new-version/src/components/mdx/MDXComponents.tsx under the key
+        "FeaturesShowcase" (matching existing registration pattern).
+      - In new-version/content/pages/home.mdx, replace lines ~36–72
+        (the `<Section>` containing the `<Grid cols={2}>` with five
+        `<FeatureCard>`s and the static `<img src="/files/images/List.png">`)
+        with a single `<FeaturesShowcase />` invocation, preserving the
+        surrounding Section heading/intro copy untouched.
+      - Do NOT remove FeatureCard itself; it is still used elsewhere.
+    wave: 1
+    agent: gem-implementer
+    prototype: false
+    covers:
+      - "AC: Sektion zeigt 5 klickbare Feature-Einträge"
+    priority: high
+    status: pending
+    flags:
+      flaky: false
+      retries_used: 0
+    dependencies:
+      - build-component
+    conflicts_with: []
+    context_files:
+      - path: new-version/content/pages/home.mdx
+        description: MDX file; target block is lines ~36–72.
+      - path: new-version/src/components/mdx/MDXComponents.tsx
+        description: Central MDX registry.
+    planning_pass: 1
+    planning_history: []
+    estimated_effort: small
+    estimated_files: 2
+    estimated_lines: 40
+    focus_area: integration
+    verification:
+      - grep -n 'FeaturesShowcase' home.mdx returns exactly one match
+      - grep -n 'FeatureCard' home.mdx no longer matches inside the removed block
+      - MDXComponents.tsx exports FeaturesShowcase under the expected key
+    acceptance_criteria:
+      - home.mdx renders `<FeaturesShowcase />` in place of the old block
+      - Surrounding Section/heading text remains unchanged
+    failure_modes:
+      - scenario: Key mismatch between MDX tag and registry key produces a blank section.
+        likelihood: low
+        impact: medium
+        mitigation: Use identical PascalCase identifier and grep-verify.
+    tech_stack:
+      - MDX
+      - TypeScript
+    test_coverage: null
+    requires_review: false
+    review_depth: null
+    review_security_sensitive: false
+
+  - id: validate-build
+    title: Run lint, content validation, static build and e2e smoke
+    description: |
+      From new-version/ run, in order, fixing any regression introduced by
+      this change:
+        1. pnpm lint
+        2. pnpm validate-content
+        3. pnpm build   (static export; output: 'export' must still succeed)
+        4. pnpm test:e2e
+      If a failure is unrelated to this change (pre-existing), capture the
+      failing output and escalate rather than silently suppressing.
+    wave: 2
+    agent: gem-implementer
+    prototype: false
+    covers:
+      - "AC: pnpm build erfolgreich (static export)"
+      - "AC: pnpm test:e2e grün"
+    priority: high
+    status: pending
+    flags:
+      flaky: false
+      retries_used: 0
+    dependencies:
+      - register-and-embed
+    conflicts_with: []
+    context_files:
+      - path: new-version/package.json
+        description: Source of lint / validate-content / build / test:e2e scripts.
+      - path: new-version/next.config.ts
+        description: "Confirms static export (output: 'export')."
+    planning_pass: 1
+    planning_history: []
+    estimated_effort: small
+    estimated_files: 0
+    estimated_lines: 0
+    focus_area: validation
+    verification:
+      - All 4 pnpm commands exit 0
+      - out/ (or configured export dir) contains the home page and references /videos/*.mp4
+    acceptance_criteria:
+      - Clean lint, content, build, and e2e runs on the new section
+    failure_modes:
+      - scenario: Static export fails because <video> paths are absolute and missing at build time.
+        likelihood: low
+        impact: high
+        mitigation: Verify copy-assets completed and src paths start with /videos/.
+      - scenario: e2e smoke test asserts old DOM (FeatureCard grid) and fails.
+        likelihood: medium
+        impact: medium
+        mitigation: Update the smoke selector to target the new FeaturesShowcase tablist.
+    tech_stack:
+      - pnpm
+      - Next.js
+      - Playwright (via pnpm test:e2e)
+    test_coverage: smoke
+    requires_review: false
+    review_depth: null
+    review_security_sensitive: false
+
+  - id: browser-parity
+    title: Visual + interactive parity check vs live site
+    description: |
+      Using gem-browser-tester, load the locally built site (or `pnpm dev`)
+      and the live reference https://democracy-deutschland.de/#!home side by
+      side. Validate the five flows below, take screenshots of each active
+      state on both desktop (1440x900) and mobile (iPhone 13 viewport), and
+      report any discrepancy in layout, colour (brand orange vs live blue is
+      expected), or interaction (video swap + smooth scroll + autoplay).
+    wave: 3
+    agent: gem-browser-tester
+    prototype: false
+    covers:
+      - "AC: Playwright/Browser-Vergleich visuell + interaktiv analog zu Live-Site"
+    priority: medium
+    status: pending
+    flags:
+      flaky: false
+      retries_used: 0
+    dependencies:
+      - validate-build
+    conflicts_with: []
+    context_files:
+      - path: new-version/src/components/mdx/FeaturesShowcase.tsx
+        description: Component under test.
+      - path: new-version/content/pages/home.mdx
+        description: Page embedding the component.
+    planning_pass: 1
+    planning_history: []
+    estimated_effort: small
+    estimated_files: 0
+    estimated_lines: 0
+    focus_area: e2e-visual
+    verification:
+      - Screenshots captured for all 5 active states on desktop and mobile
+      - Video src/currentSrc changes after each click (evidence via evaluate)
+      - Page scrolls to video container after click (evidence via scroll position)
+      - Autoplay works on mobile viewport (video.paused === false shortly after load)
+    acceptance_criteria:
+      - All 5 flows reproduce live-site interaction semantics
+      - Active state uses primary-orange (not live blue)
+    failure_modes:
+      - scenario: Autoplay blocked on mobile due to missing muted attribute.
+        likelihood: low
+        impact: high
+        mitigation: Re-open build-component to fix <video> attributes.
+      - scenario: Smooth-scroll jumps or overshoots the navbar.
+        likelihood: medium
+        impact: medium
+        mitigation: Adjust scroll-margin-top token.
+    validation_matrix:
+      - scenario: Default active state (Wähle)
+        steps:
+          - Load /
+          - Locate FeaturesShowcase section
+          - Read active button + video.currentSrc
+        expected_result: >-
+          First button has aria-selected=true with orange background; video
+          src ends with DDW-List_croped.mp4 and is playing.
+      - scenario: Click "Informiere"
+        steps:
+          - Click button labelled "Informiere"
+          - Wait for video load
+        expected_result: >-
+          video.currentSrc ends with DDW-info_croped.mp4, video.paused===false,
+          page has smooth-scrolled so the video container top is near the
+          viewport top below the fixed navbar.
+      - scenario: Click "Stimme"
+        steps:
+          - Click button labelled "Stimme"
+        expected_result: video.currentSrc ends with DDW-vote_croped.mp4
+      - scenario: Click "Vergleiche"
+        steps:
+          - Click button labelled "Vergleiche"
+        expected_result: video.currentSrc ends with DDW-compare_croped.mp4
+      - scenario: Click "Analysiere"
+        steps:
+          - Click button labelled "Analysiere"
+        expected_result: video.currentSrc ends with DDW-analyse_croped.mp4
+    flows:
+      - flow_id: features-parity
+        description: Exercise all 5 feature buttons and assert video + scroll.
+        setup:
+          - Start local preview of the built static export (or pnpm dev)
+        steps:
+          - Navigate to /
+          - Scroll to FeaturesShowcase
+          - For each feature in [Wähle, Informiere, Stimme, Vergleiche, Analysiere]:
+              click button, evaluate video.currentSrc and video.paused, capture screenshot
+        expected_state:
+          activeButtons: 1
+          videoPlaying: true
+        teardown:
+          - Close browser context
+    fixtures: {}
+    test_data: []
+    cleanup: true
+    visual_regression:
+      enabled: true
+      baselines:
+        - active-waehle-desktop.png
+        - active-informiere-desktop.png
+        - active-stimme-desktop.png
+        - active-vergleiche-desktop.png
+        - active-analysiere-desktop.png
+        - active-waehle-mobile.png
+
+  - id: document-change
+    title: Document the FeaturesShowcase section in the frontend docs
+    description: |
+      Add a short section to new-version/README.md (or the appropriate
+      component docs file if one exists) describing:
+        - Where FeaturesShowcase lives and how it is registered in MDX.
+        - The internal FEATURES data contract (shape + where to edit copy).
+        - How to add/replace a video (public/videos/ + poster convention).
+        - Why it is a client component (video ref + active state).
+      Keep it under ~40 lines; link to the component file.
+    wave: 3
+    agent: gem-documentation-writer
+    prototype: false
+    covers:
+      - "AC: discoverability for future contributors (implicit)"
+    priority: low
+    status: pending
+    flags:
+      flaky: false
+      retries_used: 0
+    dependencies:
+      - validate-build
+    conflicts_with: []
+    context_files:
+      - path: new-version/README.md
+        description: Likely home for a short component note.
+      - path: new-version/src/components/mdx/FeaturesShowcase.tsx
+        description: Component being documented.
+    planning_pass: 1
+    planning_history: []
+    estimated_effort: small
+    estimated_files: 1
+    estimated_lines: 40
+    focus_area: documentation
+    verification:
+      - README (or docs file) mentions FeaturesShowcase with a link to the source
+    acceptance_criteria:
+      - A future contributor can find how to edit copy and swap a video without reading the component source.
+    failure_modes: []
+    task_type: documentation
+    audience: developers
+    coverage_matrix:
+      - Component location + MDX registration
+      - Data contract (FEATURES array)
+      - Asset workflow (videos + posters)
+      - Why client component

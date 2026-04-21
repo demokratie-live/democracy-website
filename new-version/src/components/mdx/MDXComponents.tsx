@@ -10,6 +10,7 @@ import { Section } from "./Section";
 import { Grid } from "./Grid";
 import { CTA } from "./CTA";
 import { FeatureCard } from "./FeatureCard";
+import { FeaturesShowcase } from "./FeaturesShowcase";
 import { InfoCard } from "./InfoCard";
 import { PressBar, PressLink } from "./PressBar";
 import { Quote } from "./Quote";
@@ -74,6 +75,7 @@ export const mdxComponents = {
   Grid,
   CTA,
   FeatureCard,
+  FeaturesShowcase,
   InfoCard,
   PressBar,
   PressLink,

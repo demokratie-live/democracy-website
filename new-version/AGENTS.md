@@ -113,6 +113,7 @@ All MDX components are registered in `src/components/mdx/MDXComponents.tsx` as t
 | `<Hero>`                                | Page hero section                             | `blocks/Hero.tsx`         |
 | `<VideoPlayer>`                         | YouTube embed                                 | `blocks/VideoPlayer.tsx`  |
 | `<AppBadges>`                           | App store download badges                     | `blocks/AppBadges.tsx`    |
+| `<FeaturesShowcase>`                    | Interactive features section with video swap (client component, no props, 5 hardcoded entries) | `mdx/FeaturesShowcase.tsx` |
 
 ### Icon Handling in MDX
 
@@ -193,6 +194,7 @@ Use the `<ContentPage>` wrapper component with MDX content.
 - **Tailwind v4**: Uses PostCSS plugin (`@tailwindcss/postcss`), not the older config-based setup. Theme values in `globals.css` with `@theme`.
 - **pnpm**: Use pnpm (not npm or yarn). Version 10+.
 - **Images**: Unoptimized (`images: { unoptimized: true }`) for static export compatibility.
+- **Feature videos**: The `<FeaturesShowcase>` component loads feature videos from `public/videos/DDW-*.mp4` with matching PNG posters (`public/videos/DDW-*.png`) — one pair per feature (Wähle, Informiere, Stimme, Vergleiche, Analysiere).
 
 ## Formatting
 
