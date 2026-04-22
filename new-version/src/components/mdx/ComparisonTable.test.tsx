@@ -34,6 +34,9 @@ test("renders rows passed as ComparisonRow children", () => {
       leftDescription: "Beschreibung links",
       right: "Partei B",
       rightDescription: "Beschreibung rechts",
+      leftLink: undefined,
+      rightLink: undefined,
+      linkLabel: undefined,
     },
   ]);
 });
@@ -56,6 +59,9 @@ test("renders rows from MDX-like wrapped children without relying on component i
       leftDescription: "MDX Beschreibung links",
       right: "MDX Rechts",
       rightDescription: "MDX Beschreibung rechts",
+      leftLink: undefined,
+      rightLink: undefined,
+      linkLabel: undefined,
     },
   ]);
 });

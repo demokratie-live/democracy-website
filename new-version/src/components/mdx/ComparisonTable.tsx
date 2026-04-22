@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, Children, isValidElement, type ReactNode } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 interface ComparisonRowProps {
@@ -8,6 +9,9 @@ interface ComparisonRowProps {
   leftDescription: string;
   right: string;
   rightDescription: string;
+  leftLink?: string;
+  rightLink?: string;
+  linkLabel?: string;
 }
 
 export function ComparisonRow(props: ComparisonRowProps) {
@@ -44,6 +48,9 @@ export function extractComparisonRows(children: ReactNode): ComparisonRowProps[]
         leftDescription: child.props.leftDescription,
         right: child.props.right,
         rightDescription: child.props.rightDescription,
+        leftLink: child.props.leftLink,
+        rightLink: child.props.rightLink,
+        linkLabel: child.props.linkLabel,
       });
       return;
     }
@@ -61,7 +68,87 @@ interface ComparisonTableProps {
   rightLabel: string;
   leftColor?: string;
   rightColor?: string;
+  variant?: "accordion" | "static";
   children: ReactNode;
+}
+
+interface ColumnItem {
+  title: string;
+  description: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+interface ComparisonColumnProps {
+  label: string;
+  labelColor: string;
+  items: ColumnItem[];
+  expandable: boolean;
+  openIndex: number | null;
+  onToggle: (index: number) => void;
+}
+
+function ComparisonColumn({
+  label,
+  labelColor,
+  items,
+  expandable,
+  openIndex,
+  onToggle,
+}: ComparisonColumnProps) {
+  return (
+    <div className="flex flex-col">
+      <div
+        className={`relative z-10 -mb-2 inline-block self-start rounded-md ${labelColor} px-5 py-2 text-base font-semibold text-white shadow-sm`}
+      >
+        {label}
+      </div>
+      <div className="flex flex-col gap-3">
+        {items.map((item, index) => {
+          const isOpen = !expandable || openIndex === index;
+          const linkLabel = item.linkLabel ?? "Mehr erfahren";
+          return (
+            <div key={index} className="flex flex-col">
+              {expandable ? (
+                <button
+                  type="button"
+                  onClick={() => onToggle(index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-4 rounded-md bg-muted/70 px-5 py-4 text-left shadow-sm transition-colors hover:bg-muted"
+                >
+                  <span className="text-base font-bold">{item.title}</span>
+                  <ChevronDown
+                    className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              ) : (
+                <div className="rounded-md bg-muted/70 px-5 py-4 shadow-sm">
+                  <span className="text-base font-bold">{item.title}</span>
+                </div>
+              )}
+              {isOpen && (
+                <div className="px-5 pb-2 pt-4">
+                  <p className="text-base leading-relaxed text-foreground">{item.description}</p>
+                  {item.link && (
+                    <div className="mt-3 text-right">
+                      <Link
+                        href={item.link}
+                        className="text-base font-medium text-primary-500 hover:underline"
+                      >
+                        {linkLabel}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export function ComparisonTable({
@@ -69,50 +156,47 @@ export function ComparisonTable({
   rightLabel,
   leftColor = "bg-amber-500",
   rightColor = "bg-primary-500",
+  variant = "accordion",
   children,
 }: ComparisonTableProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const rows = extractComparisonRows(children);
+  const leftItems: ColumnItem[] = rows.map((r) => ({
+    title: r.left,
+    description: r.leftDescription,
+    link: r.leftLink,
+    linkLabel: r.linkLabel,
+  }));
+  const rightItems: ColumnItem[] = rows.map((r) => ({
+    title: r.right,
+    description: r.rightDescription,
+    link: r.rightLink,
+    linkLabel: r.linkLabel,
+  }));
+  const expandable = variant === "accordion";
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const handleToggle = (index: number) => {
+    setOpenIndex((current) => (current === index ? null : index));
+  };
 
   return (
     <section className="py-12">
-      <div className="mb-4 grid grid-cols-2 gap-2">
-        <div className={`rounded-lg ${leftColor} px-4 py-2 text-center font-semibold text-white`}>
-          {leftLabel}
-        </div>
-        <div className={`rounded-lg ${rightColor} px-4 py-2 text-center font-semibold text-white`}>
-          {rightLabel}
-        </div>
-      </div>
-      <div className="space-y-3">
-        {rows.map((row, index) => (
-          <div key={index} className="overflow-hidden rounded-lg ring-1 ring-border">
-            <button
-              type="button"
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-muted/50"
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              aria-expanded={openIndex === index}
-            >
-              <div className="grid flex-1 grid-cols-2 gap-4">
-                <span className="text-sm font-medium">{row.left}</span>
-                <span className="text-sm font-medium">{row.right}</span>
-              </div>
-              <ChevronDown
-                className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform ${
-                  openIndex === index ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            {openIndex === index && (
-              <div className="border-t border-border bg-muted/30 px-5 py-4">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <p className="text-sm text-muted-foreground">{row.leftDescription}</p>
-                  <p className="text-sm text-muted-foreground">{row.rightDescription}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
+        <ComparisonColumn
+          label={leftLabel}
+          labelColor={leftColor}
+          items={leftItems}
+          expandable={expandable}
+          openIndex={openIndex}
+          onToggle={handleToggle}
+        />
+        <ComparisonColumn
+          label={rightLabel}
+          labelColor={rightColor}
+          items={rightItems}
+          expandable={expandable}
+          openIndex={openIndex}
+          onToggle={handleToggle}
+        />
       </div>
     </section>
   );

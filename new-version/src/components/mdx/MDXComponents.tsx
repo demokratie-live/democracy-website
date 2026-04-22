@@ -67,6 +67,12 @@ function MdxLink({ href, children, ...props }: AnchorProps) {
 
 export const mdxComponents = {
   a: MdxLink,
+  h2: (props: ComponentPropsWithoutRef<"h2">) => (
+    <h2 {...props} className={`mb-6 text-3xl font-bold md:text-4xl ${props.className ?? ""}`} />
+  ),
+  h3: (props: ComponentPropsWithoutRef<"h3">) => (
+    <h3 {...props} className={`mb-4 text-2xl font-bold md:text-3xl ${props.className ?? ""}`} />
+  ),
   Hero,
   HeroWithPhone,
   VideoPlayer,

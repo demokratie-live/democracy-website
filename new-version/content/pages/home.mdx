@@ -42,15 +42,22 @@ seo:
 <Section bg="white">
 ## Für wen ist DEMOCRACY?
 
-<Grid cols={2}>
-  <InfoCard title="Für Bürger," subtitle="die sich mehr Transparenz & Teilhabe wünschen" link="/buerger">
-    Ob jung oder alt, ob bereits Experte oder bislang uninformiert. DEMOCRACY ist ein politisches Werkzeug für alle, die sich mehr Transparenz und Teilhabe wünschen.
-  </InfoCard>
-
-  <InfoCard title="Für Politiker," subtitle="die erklären wollen, warum sie wie entscheiden" link="/politiker">
-    Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. DEMOCRACY bietet Dir die Möglichkeit, Deinen wichtigsten Stakeholdern Gehör zu schenken: den Bürgern.
-  </InfoCard>
-</Grid>
+<ComparisonTable
+  leftLabel="Für Bürger,"
+  rightLabel="Für Politiker,"
+  leftColor="bg-primary-500"
+  rightColor="bg-primary-500"
+  variant="static"
+>
+  <ComparisonRow
+    left="die sich mehr Transparenz & Teilhabe wünschen"
+    leftDescription="Ob jung oder alt, ob bereits Experte oder bislang uninformiert. DEMOCRACY ist ein politisches Werkzeug für alle, die sich mehr Transparenz und Teilhabe wünschen."
+    leftLink="/buerger"
+    right="die erklären wollen, warum sie wie entscheiden"
+    rightDescription="Ob parlamentarischer Neuling oder abgeklärter Abgeordneter. DEMOCRACY bietet Dir die Möglichkeit, Deinen wichtigsten Stakeholdern Gehör zu schenken: den Bürgern."
+    rightLink="/politiker"
+  />
+</ComparisonTable>
 </Section>
 
 <Section centered>
