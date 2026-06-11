@@ -71,11 +71,11 @@
                     </tr>
                     <tr>
                         <th>IBAN</th>
-                        <td>DE33 5003 1000 1049 7560 00</td>
+                        <td>DE83 2605 0001 0056 1290 91</td>
                     </tr>
                     <tr>
                         <th>BIC</th>
-                        <td>TRODDEF1</td>
+                        <td>NOLADE21GOE</td>
                     </tr>
                 </table>
                 <span> Der Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des Finanzamts Göttingen vom 10.11.2022 als gemeinnützig anerkannt

@@ -53,13 +53,13 @@
                                     <b>IBAN</b>
                                 </div>
                                 <div class="col-8">
-                                    DE33 5003 1000 1049 7560 00
+                                    DE83 2605 0001 0056 1290 91
                                 </div>
                                 <div class="col-4">
                                     <b>BIC</b>
                                 </div>
                                 <div class="col-8">
-                                    TRODDEF1
+                                    NOLADE21GOE
                                 </div>
                                 <br><br>
                             </div>
