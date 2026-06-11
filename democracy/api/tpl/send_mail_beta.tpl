@@ -9,6 +9,6 @@ Ihr Team DEMOCRACY<br>
 <span><img src="cid:democracy_logo"></span>
 <br><br><br>
 DEMOCRACY Deutschland e.V.<br>
-IBAN: DE33 5003 1000 1049 7560 00<br>
-BIC: TRODDEF1<br>
+IBAN: DE83 2605 0001 0056 1290 91<br>
+BIC: NOLADE21GOE<br>
 mobil  +49 176 470 40 213
