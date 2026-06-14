@@ -97,22 +97,22 @@ All MDX components are registered in `src/components/mdx/MDXComponents.tsx` as t
 
 ### Available MDX Components
 
-| Component                               | Purpose                                       | Location                  |
-| --------------------------------------- | --------------------------------------------- | ------------------------- |
-| `<Section>`                             | Layout wrapper with `bg` and `centered` props | `mdx/Section.tsx`         |
-| `<Grid>`                                | Responsive grid (`cols={2\|3}`)               | `mdx/Grid.tsx`            |
-| `<CTA>`                                 | Call-to-action section                        | `mdx/CTA.tsx`             |
-| `<FeatureCard>`                         | Feature card with icon string                 | `mdx/FeatureCard.tsx`     |
-| `<InfoCard>`                            | Info card with icon, subtitle, link           | `mdx/InfoCard.tsx`        |
-| `<PressBar>` / `<PressLink>`            | Press mentions bar                            | `mdx/PressBar.tsx`        |
-| `<Quote>`                               | Blockquote with author                        | `mdx/Quote.tsx`           |
-| `<PhilosophyCard>`                      | Philosophy pillar card                        | `mdx/PhilosophyCard.tsx`  |
-| `<TeamSection>`                         | Team listing (async, loads YAML)              | `mdx/TeamSection.tsx`     |
-| `<ComparisonTable>` / `<ComparisonRow>` | Comparison table (client component)           | `mdx/ComparisonTable.tsx` |
-| `<ValueTable>` / `<ValueRow>`           | Values table (client component)               | `mdx/ValueTable.tsx`      |
-| `<Hero>`                                | Page hero section                             | `blocks/Hero.tsx`         |
-| `<VideoPlayer>`                         | YouTube embed                                 | `blocks/VideoPlayer.tsx`  |
-| `<AppBadges>`                           | App store download badges                     | `blocks/AppBadges.tsx`    |
+| Component                               | Purpose                                                                                        | Location                   |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------- |
+| `<Section>`                             | Layout wrapper with `bg` and `centered` props                                                  | `mdx/Section.tsx`          |
+| `<Grid>`                                | Responsive grid (`cols={2\|3}`)                                                                | `mdx/Grid.tsx`             |
+| `<CTA>`                                 | Call-to-action section                                                                         | `mdx/CTA.tsx`              |
+| `<FeatureCard>`                         | Feature card with icon string                                                                  | `mdx/FeatureCard.tsx`      |
+| `<InfoCard>`                            | Info card with icon, subtitle, link                                                            | `mdx/InfoCard.tsx`         |
+| `<PressBar>` / `<PressLink>`            | Press mentions bar                                                                             | `mdx/PressBar.tsx`         |
+| `<Quote>`                               | Blockquote with author                                                                         | `mdx/Quote.tsx`            |
+| `<PhilosophyCard>`                      | Philosophy pillar card                                                                         | `mdx/PhilosophyCard.tsx`   |
+| `<TeamSection>`                         | Team listing (async, loads YAML)                                                               | `mdx/TeamSection.tsx`      |
+| `<ComparisonTable>` / `<ComparisonRow>` | Comparison table (client component)                                                            | `mdx/ComparisonTable.tsx`  |
+| `<ValueTable>` / `<ValueRow>`           | Values table (client component)                                                                | `mdx/ValueTable.tsx`       |
+| `<Hero>`                                | Page hero section                                                                              | `blocks/Hero.tsx`          |
+| `<VideoPlayer>`                         | YouTube embed                                                                                  | `blocks/VideoPlayer.tsx`   |
+| `<AppBadges>`                           | App store download badges                                                                      | `blocks/AppBadges.tsx`     |
 | `<FeaturesShowcase>`                    | Interactive features section with video swap (client component, no props, 5 hardcoded entries) | `mdx/FeaturesShowcase.tsx` |
 
 ### Icon Handling in MDX

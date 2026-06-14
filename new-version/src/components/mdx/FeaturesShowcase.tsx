@@ -17,8 +17,7 @@ const FEATURES: readonly Feature[] = [
     id: "waehle",
     icon: "list",
     title: "Wähle",
-    description:
-      "einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages",
+    description: "einen aktuellen, vergangenen oder populären Vorgang des Deutschen Bundestages",
     videoSrc: "/videos/DDW-List_croped.mp4",
     posterSrc: "/videos/DDW-List_croped.png",
   },
@@ -26,8 +25,7 @@ const FEATURES: readonly Feature[] = [
     id: "informiere",
     icon: "file-text",
     title: "Informiere",
-    description:
-      "Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente",
+    description: "Dich über den Vorgang mithilfe der offiziellen Parlamentsdokumente",
     videoSrc: "/videos/DDW-info_croped.mp4",
     posterSrc: "/videos/DDW-info_croped.png",
   },
@@ -35,8 +33,7 @@ const FEATURES: readonly Feature[] = [
     id: "stimme",
     icon: "vote",
     title: "Stimme",
-    description:
-      "selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter",
+    description: "selbst über den Vorgang ab, als wärst Du Bundestagsabgeordneter",
     videoSrc: "/videos/DDW-vote_croped.mp4",
     posterSrc: "/videos/DDW-vote_croped.png",
   },
@@ -44,8 +41,7 @@ const FEATURES: readonly Feature[] = [
     id: "vergleiche",
     icon: "bar-chart",
     title: "Vergleiche",
-    description:
-      "Dein Abstimmungsverhalten mit der Community und dem Bundestag",
+    description: "Dein Abstimmungsverhalten mit der Community und dem Bundestag",
     videoSrc: "/videos/DDW-compare_croped.mp4",
     posterSrc: "/videos/DDW-compare_croped.png",
   },
@@ -53,8 +49,7 @@ const FEATURES: readonly Feature[] = [
     id: "analysiere",
     icon: "pie-chart",
     title: "Analysiere",
-    description:
-      "Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten",
+    description: "Deine Übereinstimmung mit dem Bundestag, den Parteien und Kandidaten",
     videoSrc: "/videos/DDW-analyse_croped.mp4",
     posterSrc: "/videos/DDW-analyse_croped.png",
   },
@@ -92,7 +87,12 @@ export function FeaturesShowcase() {
 
   return (
     <div className="grid items-start gap-8 md:grid-cols-2">
-      <div role="tablist" aria-label="Funktionen von DEMOCRACY" aria-orientation="vertical" className="space-y-4">
+      <div
+        role="tablist"
+        aria-label="Funktionen von DEMOCRACY"
+        aria-orientation="vertical"
+        className="space-y-4"
+      >
         {FEATURES.map((feature) => {
           const isActive = feature.id === activeId;
           const buttonClass = isActive

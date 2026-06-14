@@ -33,16 +33,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 All commands are run from this directory (`new-version/`).
 
-| Command                  | What it does                                            |
-| ------------------------ | ------------------------------------------------------- |
-| `pnpm dev`               | Start the dev server with Turbopack                     |
-| `pnpm build`             | Build the static site to `out/`                         |
-| `pnpm validate-content`  | Validate all MDX/YAML content against Zod schemas       |
-| `pnpm lint`              | Run ESLint                                              |
-| `pnpm format`            | Format all files with Prettier                          |
-| `pnpm format:check`      | Check formatting without writing                        |
-| `pnpm test:e2e`          | Run Playwright smoke tests (requires a build first)     |
-| `npx serve out`          | Preview the built static site locally                   |
+| Command                 | What it does                                        |
+| ----------------------- | --------------------------------------------------- |
+| `pnpm dev`              | Start the dev server with Turbopack                 |
+| `pnpm build`            | Build the static site to `out/`                     |
+| `pnpm validate-content` | Validate all MDX/YAML content against Zod schemas   |
+| `pnpm lint`             | Run ESLint                                          |
+| `pnpm format`           | Format all files with Prettier                      |
+| `pnpm format:check`     | Check formatting without writing                    |
+| `pnpm test:e2e`         | Run Playwright smoke tests (requires a build first) |
+| `npx serve out`         | Preview the built static site locally               |
 
 > ⚠️ `pnpm start` does **not** work — this project uses static export.
 > Use `npx serve out` after `pnpm build` to preview the production output.

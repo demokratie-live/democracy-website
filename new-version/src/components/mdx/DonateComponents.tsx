@@ -118,8 +118,7 @@ export function DonateCategories({ categories, goal }: DonateCategoriesProps) {
       </p>
       <div className="space-y-3">
         {categories.map((cat) => {
-          const barWidth =
-            goal > 0 ? Math.min(Math.round((cat.amount / goal) * 100), 100) : 0;
+          const barWidth = goal > 0 ? Math.min(Math.round((cat.amount / goal) * 100), 100) : 0;
           return (
             <div key={cat.label}>
               <div className="mb-1 flex items-center justify-between text-sm">
