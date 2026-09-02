@@ -1,0 +1,36 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "src/app/**/*.{ts,tsx}",
+    "src/payload.config.ts",
+    "prisma/seed.ts",
+    "scripts/**/*.ts"
+  ],
+  "project": ["src/**/*.{ts,tsx}", "prisma/**/*.ts", "scripts/**/*.ts"],
+  "ignore": [
+    "**/*.d.ts",
+    "src/payload-types.ts",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "tests/**/*"
+  ],
+  "ignoreDependencies": ["tailwindcss"],
+  "ignoreExportsUsedInFile": true,
+  "rules": {
+    "duplicates": "off"
+  },
+  "paths": {
+    "src/components/ui/*": ["src/components/ui/*"],
+    "src/components/admin/*": ["src/components/admin/*"]
+  },
+  "next": {
+    "entry": ["next.config.ts", "src/app/**/*.{ts,tsx}", "src/middleware.ts"]
+  },
+  "playwright": {
+    "config": "playwright.config.ts",
+    "entry": ["tests/**/*.{ts,tsx}"]
+  },
+  "eslint": {
+    "config": "eslint.config.mjs"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "@democracy-deutschland/payload-totp-plugin",
+  "version": "1.0.0",
+  "description": "TOTP Two-Factor Authentication Plugin for Payload CMS",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.mjs",
+      "require": "./dist/components/index.js"
+    },
+    "./middleware": {
+      "types": "./dist/middleware.d.ts",
+      "import": "./dist/middleware.mjs",
+      "require": "./dist/middleware.js"
+    },
+    "./handlers": {
+      "types": "./dist/handlers.d.ts",
+      "import": "./dist/handlers.mjs",
+      "require": "./dist/handlers.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "payload",
+    "payload-cms",
+    "plugin",
+    "totp",
+    "2fa",
+    "two-factor",
+    "authentication",
+    "mfa"
+  ],
+  "author": "DEMOCRACY Deutschland e.V.",
+  "license": "MIT",
+  "peerDependencies": {
+    "next": ">=14.0.0",
+    "payload": ">=3.0.0",
+    "react": ">=18.0.0"
+  },
+  "dependencies": {
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "next": "^15.0.0",
+    "payload": "^3.0.0",
+    "react": "^19.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/demokratie-live/democracy-website.git",
+    "directory": "packages/payload-totp-plugin"
+  }
+}
