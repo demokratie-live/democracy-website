@@ -78,7 +78,7 @@
                         <td>NOLADE21GOE</td>
                     </tr>
                 </table>
-                <span> Der Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des Finanzamts Göttingen vom 10.11.2022 als gemeinnützig anerkannt
+                <span> Der Verein DEMOCRACY Deutschland e.V. ist mit Bescheid des Finanzamts Göttingen vom 12.09.2025 als gemeinnützig anerkannt
                     (<a href="./files/download/Freistellungsbescheid.pdf" target="_blank">Nachweis der
                         Gemeinnützigkeit</a>; <a href="./files/download/Satzung_DEMOCRACY.pdf"
                         target="_blank">Satzung</a>). Deine Spenden sind daher steuerlich
@@ -125,6 +125,8 @@
                                 2023</a></span><br>
                         <span><a href="./files/download/JA_2024_DEMOCRACY.pdf" target="_blank">Jahresabschluss
                                 2024</a></span><br>
+                        <span><a href="./files/download/JA_2025_DEMOCRACY.pdf" target="_blank">Jahresabschluss
+                                2025</a></span><br>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5" id="donate-box">
