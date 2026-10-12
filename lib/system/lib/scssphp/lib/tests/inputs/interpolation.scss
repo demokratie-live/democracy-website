@@ -1,0 +1,153 @@
+
+div {
+    color: red#{white} blue;
+    color: red #{white} blue;
+    color: red #{white}blue;
+    color: red#{white}blue;
+    color: #{umm}#{yeah}#{what};
+    color: #{stacked};
+
+    font-size: 10px/#{something};
+    font-size: 10px / #{something};
+
+    test: "what#{"world"}wrong";
+    test: "what#{'world'}wrong";
+    test: "what#{world}wrong";
+    test: "what"#{world}"wrong";
+
+    hi: "what is #{4 + 12} end"
+}
+
+
+// interpolation in selectors
+
+pre {
+    $var: cool;
+
+    #{var} {
+        color: red;
+    }
+
+    #{var} dad {
+        color: red;
+    }
+
+    bed#{var}dad {
+        color: red;
+    }
+}
+
+cool {
+    @for $x from 1 through 5 {
+        .thing-#{$x} {
+            color: red;
+        }
+    }
+}
+
+a#{b}c#{d}e {
+    color: red;
+}
+
+##{hello}, .#{world}{
+    color: red;
+}
+
+#abc#{hello}yeah, .cool#{world}yes{
+    color: red;
+}
+
+$scope: 2;
+
+div.element:nth-child(#{$scope}n)
+{
+    display: none;
+}
+
+// property interpolation
+
+div {
+    $var: hello;
+    #{$var}: world;
+    cool#{$var}:world;
+    #{$var}one:world;
+    two#{$var}one:world;
+
+    one#{a + b}two: cool;
+
+    #{hello}: {
+        #{world}: red;
+        #{mold}: white;
+        #{$var}: blue;
+    }
+
+}
+
+body{
+    $test : "1", "2", "3", "4", "5";
+    color : index($test, "#{3}");
+}
+
+foo, #{x, y} {
+    color: #abc;
+}
+
+// interpolate lists
+$foo: ('a', 'b');
+div {
+    prop: #{$foo};
+}
+
+.badge {
+  a#{&} {
+    text-decoration: none;
+  }
+}
+
+@mixin button-variant($background) {
+  background: $background;
+
+  &:not(.disabled) {
+    border-color: red;
+
+    &:focus {
+	border-width: 3px;
+    }
+  }
+}
+
+.btn-primary {
+    @include button-variant(yellow);
+}
+
+@mixin pagination-mixin($border-radius) {
+  .page-item {
+    &:first-child {
+      .page-link {
+        border-radius: $border-radius;
+      }
+    }
+  }
+}
+
+.pagination {
+  @include pagination-mixin(5px);
+}
+
+@mixin set-border($width) {
+    border: $width solid #000;
+}
+.element {
+    @include set-border(#{2px}); // compiles to "2px solid #000"
+}
+
+$foo: "\
+div > p, \
+div > h1 \
+";
+
+#{$foo} {
+  & > strong {
+    color: red;
+  }
+}

@@ -1,0 +1,92 @@
+SYSTEM\DB\QP
+===============
+
+QQ Class provided by System to execute quick prepare statements.
+
+
+
+
+* Class name: QP
+* Namespace: SYSTEM\DB
+
+
+
+
+
+
+
+Methods
+-------
+
+
+### QQ
+
+    \SYSTEM\DB\Result SYSTEM\DB\QP::QQ(array $params, \SYSTEM\DB\DBINFO $dbinfo)
+
+Executes stored action and return Database Object
+
+
+
+* Visibility: **public**
+* This method is **static**.
+
+
+#### Arguments
+* $params **array** - &lt;p&gt;Parameter passed to the prepare-query&lt;/p&gt;
+* $dbinfo **SYSTEM\DB\DBINFO** - &lt;p&gt;Database Info or Null for Default DB&lt;/p&gt;
+
+
+
+### QA
+
+    array SYSTEM\DB\QP::QA(array $params, \SYSTEM\DB\DBINFO $dbinfo)
+
+Executes stored action and return all Data found
+
+
+
+* Visibility: **public**
+* This method is **static**.
+
+
+#### Arguments
+* $params **array** - &lt;p&gt;Parameter passed to the prepare-query&lt;/p&gt;
+* $dbinfo **SYSTEM\DB\DBINFO** - &lt;p&gt;Database Info or Null for Default DB&lt;/p&gt;
+
+
+
+### Q1
+
+    array SYSTEM\DB\QP::Q1(array $params, \SYSTEM\DB\DBINFO $dbinfo)
+
+Executes stored action and return one line of Data found
+
+
+
+* Visibility: **public**
+* This method is **static**.
+
+
+#### Arguments
+* $params **array** - &lt;p&gt;Parameter passed to the prepare-query&lt;/p&gt;
+* $dbinfo **SYSTEM\DB\DBINFO** - &lt;p&gt;Database Info or Null for Default DB&lt;/p&gt;
+
+
+
+### QI
+
+    boolean SYSTEM\DB\QP::QI(array $params, \SYSTEM\DB\DBINFO $dbinfo)
+
+Executes stored action and return Database Result Object.
+
+Use this function if the Result is either true or false (update/delete/insert)
+
+* Visibility: **public**
+* This method is **static**.
+
+
+#### Arguments
+* $params **array** - &lt;p&gt;Parameter passed to the prepare-query&lt;/p&gt;
+* $dbinfo **SYSTEM\DB\DBINFO** - &lt;p&gt;Database Info or Null for Default DB&lt;/p&gt;
+
+

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    SYSTEM - PHP Framework &raquo; \SYSTEM\FILES\files
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">SYSTEM - PHP Framework</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/SYSTEM.html">SYSTEM</a></li>
+                                                                        <li><a href="../namespaces/LIB.html">LIB</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public">
+        <a href="#method_delete" title="delete :: Delete a File">
+            <span class="description">Delete a File</span><pre>delete</pre>
+        </a>
+    </li>
+
+                                                                                                                                                                <li class="method public">
+        <a href="#method_get" title="get :: Retrieve a File">
+            <span class="description">Retrieve a File</span><pre>get</pre>
+        </a>
+    </li>
+
+                                                                                                                                                                <li class="method public">
+        <a href="#method_getURL" title="getURL :: Returns a URL for a File">
+            <span class="description">Returns a URL for a File</span><pre>getURL</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_put" title="put :: Move a uploaded File into a Directtory">
+            <span class="description">Move a uploaded File into a Directtory</span><pre>put</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_registerFolder" title="registerFolder :: Register a filefolder">
+            <span class="description">Register a filefolder</span><pre>registerFolder</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_rename" title="rename :: Rename a File">
+            <span class="description">Rename a File</span><pre>rename</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                            </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                <li class="method private">
+                            <a href="#method_file_get_contents_chunked" title="file_get_contents_chunked :: Returns Chunks of a File
+Callback: function($chunk,&amp;$handle,$iteration)">
+                                <span class="description">Returns Chunks of a File
+Callback: function($chunk,&amp;$handle,$iteration)</span><pre>file_get_contents_chunked</pre>
+                            </a>
+                        </li>
+                                                                                                                    <li class="method private">
+                            <a href="#method_getFolder" title="getFolder :: Returns the contents of a Folder">
+                                <span class="description">Returns the contents of a Folder</span><pre>getFolder</pre>
+                            </a>
+                        </li>
+                                                                                                                                                                                                </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>files</h1>
+                <small style="display: block; text-align: right">
+                                                        </small>
+                <p class="short_description">Files Class provided by System to register folders and serve files.</p>
+                <div class="details">
+                    <div class="long_description">
+                        
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>SYSTEM\FILES</p>
+                                    </td>
+                                </tr>
+                                                                                                                                                                                </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method_delete"></a>
+                        <div class="element clickable method public  method_delete" data-toggle="collapse" data-target=".method_delete .collapse">
+                            <h2>Delete a File</h2>
+                            <pre>delete(string $cat, string $id) : boolean</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>Category of the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>ID of the File</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true or false or throws an Error.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_file_get_contents_chunked"></a>
+                        <div class="element clickable method private  method_file_get_contents_chunked" data-toggle="collapse" data-target=".method_file_get_contents_chunked .collapse">
+                            <h2>Returns Chunks of a File
+Callback: function($chunk,&amp;$handle,$iteration)</h2>
+                            <pre>file_get_contents_chunked(string $file, integer $chunk_size, \SYSTEM\FILES\function $callback) : boolean</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$file</h4>
+                                                <code>string</code><p><p>Path of the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$chunk_size</h4>
+                                                <code>integer</code><p><p>Size of the Chunks</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$callback</h4>
+                                                <code>\SYSTEM\FILES\function</code><p><p>Callback function which is called for every chunk</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get"></a>
+                        <div class="element clickable method public  method_get" data-toggle="collapse" data-target=".method_get .collapse">
+                            <h2>Retrieve a File</h2>
+                            <pre>get(string $cat = null, string $id = null, boolean $returnasjson = false) : mixed</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>Category to query or null</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>File to query or null</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$returnasjson</h4>
+                                                <code>boolean</code><p><p>Determines if you recieve Arrays or JSON results</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p><p>Returns List of Folders if cat is null, List of Files of id is null or Streams the requested File.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getFolder"></a>
+                        <div class="element clickable method private  method_getFolder" data-toggle="collapse" data-target=".method_getFolder .collapse">
+                            <h2>Returns the contents of a Folder</h2>
+                            <pre>getFolder(string $folder) : array</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$folder</h4>
+                                                <code>string</code><p><p>Path to the Folder</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Returns a list of Files in the directory.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_getURL"></a>
+                        <div class="element clickable method public  method_getURL" data-toggle="collapse" data-target=".method_getURL .collapse">
+                            <h2>Returns a URL for a File</h2>
+                            <pre>getURL(string $cat, string $id = null) : string</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>Category of the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>ID of the File</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns URL of the File.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_put"></a>
+                        <div class="element clickable method public  method_put" data-toggle="collapse" data-target=".method_put .collapse">
+                            <h2>Move a uploaded File into a Directtory</h2>
+                            <pre>put(string $cat, string $id, \SYSTEM\FILES\ressource $contents) : boolean</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>Category for the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>ID for the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$contents</h4>
+                                                <code>\SYSTEM\FILES\ressource</code><p><p>Uploaded File Ressource</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true or false or throws an Error.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_registerFolder"></a>
+                        <div class="element clickable method public  method_registerFolder" data-toggle="collapse" data-target=".method_registerFolder .collapse">
+                            <h2>Register a filefolder</h2>
+                            <pre>registerFolder(string $path, string $cat) : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$path</h4>
+                                                <code>string</code><p><p>Path of the Folder</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>Category to register that folder to</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_rename"></a>
+                        <div class="element clickable method public  method_rename" data-toggle="collapse" data-target=".method_rename .collapse">
+                            <h2>Rename a File</h2>
+                            <pre>rename(string $cat, string $id, string $newid) : boolean</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>Category of the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>ID of the File</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$newid</h4>
+                                                <code>string</code><p><p>ID of the renamed File</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true or false or throws an Error.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                    
+                    
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_folders"> </a>
+                            <div class="element clickable property  private property_folders" data-toggle="collapse" data-target=".property_folders .collapse">
+                                <h2>array Variable to store all registred file folders</h2>
+                                <pre>folders : </pre>
+                                <div class="labels">
+                                                                        <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code></code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\SYSTEM\FILES\files"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/SYSTEM.FILES.html">FILES</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/SYSTEM.FILES.files.html">files</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Tue, 25 Jul 2017 11:33:08 +0200.<br/>
+    </footer>
+    </body>
+</html>

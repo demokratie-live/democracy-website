@@ -1,0 +1,2756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; 
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">SYSTEM - PHP Framework</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/SYSTEM.html">SYSTEM</a></li>
+                                                                        <li><a href="../namespaces/LIB.html">LIB</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            
+    <div class="row">
+
+        <div class="span4">
+            <div class="btn-group view pull-right" data-toggle="buttons-radio">
+                <button class="btn details" title="Show descriptions and method names">
+                    <i class="icon-list"></i></button><button class="btn simple" title="Show only method names">
+                    <i class="icon-align-justify"></i>
+                </button>
+            </div>
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">
+                    <i class="icon-map-marker"></i> Packages
+                </li>
+                <a href="../packages/default.html" title="\">
+                    <i class="icon-th"></i> \
+                </a>
+                <ul class="nav nav-list nav-packages">
+                        
+        <li>
+        <a href="../packages/LIB.html" title="LIB">
+            <i class="icon-th"></i> LIB
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.html" title="SYSTEM">
+            <i class="icon-th"></i> SYSTEM
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+        <li>
+        <a href="../packages/SYSTEM.API.html" title="API">
+            <i class="icon-th"></i> API
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.CACHE.html" title="CACHE">
+            <i class="icon-th"></i> CACHE
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.CONFIG.html" title="CONFIG">
+            <i class="icon-th"></i> CONFIG
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.CRON.html" title="CRON">
+            <i class="icon-th"></i> CRON
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.DB.html" title="DB">
+            <i class="icon-th"></i> DB
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.DOCU.html" title="DOCU">
+            <i class="icon-th"></i> DOCU
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.FILES.html" title="FILES">
+            <i class="icon-th"></i> FILES
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.HTML.html" title="HTML">
+            <i class="icon-th"></i> HTML
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.LIB.html" title="LIB">
+            <i class="icon-th"></i> LIB
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.LOG.html" title="LOG">
+            <i class="icon-th"></i> LOG
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.PAGE.html" title="PAGE">
+            <i class="icon-th"></i> PAGE
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.PATH.html" title="PATH">
+            <i class="icon-th"></i> PATH
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.SAI.html" title="SAI">
+            <i class="icon-th"></i> SAI
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.SECURITY.html" title="SECURITY">
+            <i class="icon-th"></i> SECURITY
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.SQL.html" title="SQL">
+            <i class="icon-th"></i> SQL
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+        <li>
+        <a href="../packages/SYSTEM.TOKEN.html" title="TOKEN">
+            <i class="icon-th"></i> TOKEN
+        </a>
+        <ul class="nav nav-list nav-packages">
+                
+    
+        </ul>
+    </li>
+    
+        </ul>
+    </li>
+    
+                </ul>
+            </ul>
+        </div>
+
+        <div class="span8 package-contents">
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html">\</a>
+    </li>
+
+    </ul>
+
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="autoload" class="element ajax clickable class">
+        <h1>autoload<a href="../classes/SYSTEM.autoload.html">¶</a></h1>
+        <p class="short_description">autoload Class provided by System to Autoload Classes</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.autoload.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="HEADER" class="element ajax clickable class">
+        <h1>HEADER<a href="../classes/SYSTEM.HEADER.html">¶</a></h1>
+        <p class="short_description">HEADER Class provided by System Send HTML Headers</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.HEADER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="locale" class="element ajax clickable class">
+        <h1>locale<a href="../classes/SYSTEM.locale.html">¶</a></h1>
+        <p class="short_description">locale Class provided by System to start manage Session Language and check a
+language against the languages configured in the configuration</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.locale.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system" class="element ajax clickable class">
+        <h1>system<a href="../classes/SYSTEM.system.html">¶</a></h1>
+        <p class="short_description">System Class provided by System to start the environment (system clock &amp; config
+aswell as optional includes) and handles the Systemwide Database Credentials</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.system.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="time" class="element ajax clickable class">
+        <h1>time<a href="../classes/SYSTEM.time.html">¶</a></h1>
+        <p class="short_description">Time Class provided by System for Runtime Clock and time sting operations</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.time.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.CRON.html">CRON</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="cronjob" class="element ajax clickable interface">
+        <h1>cronjob<a href="../classes/SYSTEM.CRON.cronjob.html">¶</a></h1>
+        <p class="short_description">Conjob Class provided by System to derive from for custom Cronjobs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CRON.cronjob.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="cron" class="element ajax clickable class">
+        <h1>cron<a href="../classes/SYSTEM.CRON.cron.html">¶</a></h1>
+        <p class="short_description">Cron Class provided by System for Tasks occurring repeateadly.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CRON.cron.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cron_cache_delete" class="element ajax clickable class">
+        <h1>cron_cache_delete<a href="../classes/SYSTEM.CRON.cron_cache_delete.html">¶</a></h1>
+        <p class="short_description">Conjob Class provided by System to delete System Cache.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CRON.cron_cache_delete.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cron_log2sqlite" class="element ajax clickable class">
+        <h1>cron_log2sqlite<a href="../classes/SYSTEM.CRON.cron_log2sqlite.html">¶</a></h1>
+        <p class="short_description">Conjob Class provided by System to extract Logentries into sqlite files.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CRON.cron_log2sqlite.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cronstatus" class="element ajax clickable class">
+        <h1>cronstatus<a href="../classes/SYSTEM.CRON.cronstatus.html">¶</a></h1>
+        <p class="short_description">Cronstatus Class provided by System for Cronjob stati.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CRON.cronstatus.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="crontime" class="element ajax clickable class">
+        <h1>crontime<a href="../classes/SYSTEM.CRON.crontime.html">¶</a></h1>
+        <p class="short_description">Crontime Class provided by System for Cronjob time calculation.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CRON.crontime.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.SQL.html">SQL</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="DATA_DEFAULT" class="element ajax clickable class">
+        <h1>DATA_DEFAULT<a href="../classes/SYSTEM.SQL.DATA_DEFAULT.html">¶</a></h1>
+        <p class="short_description">DATA_SYSTEM_TEXT Class provided by System to install the Page Defaults e.g meta tags to the Database(includes Tags)</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.DATA_DEFAULT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DATA_SYSTEM_API" class="element ajax clickable class">
+        <h1>DATA_SYSTEM_API<a href="../classes/SYSTEM.SQL.DATA_SYSTEM_API.html">¶</a></h1>
+        <p class="short_description">DATA_SYSTEM_API Class provided by System to install the System apis to the Database</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.DATA_SYSTEM_API.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DATA_SYSTEM_CRON" class="element ajax clickable class">
+        <h1>DATA_SYSTEM_CRON<a href="../classes/SYSTEM.SQL.DATA_SYSTEM_CRON.html">¶</a></h1>
+        <p class="short_description">DATA_SYSTEM_CRON Class provided by System to install the System crons to the Database</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.DATA_SYSTEM_CRON.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DATA_SYSTEM_PAGE" class="element ajax clickable class">
+        <h1>DATA_SYSTEM_PAGE<a href="../classes/SYSTEM.SQL.DATA_SYSTEM_PAGE.html">¶</a></h1>
+        <p class="short_description">DATA_SYSTEM_PAGE Class provided by System to install the System pages to the Database</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.DATA_SYSTEM_PAGE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DATA_SYSTEM_RIGHTS" class="element ajax clickable class">
+        <h1>DATA_SYSTEM_RIGHTS<a href="../classes/SYSTEM.SQL.DATA_SYSTEM_RIGHTS.html">¶</a></h1>
+        <p class="short_description">DATA_SYSTEM_RIGHTS Class provided by System to install the System rights to the Database</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.DATA_SYSTEM_RIGHTS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DATA_SYSTEM_TEXT" class="element ajax clickable class">
+        <h1>DATA_SYSTEM_TEXT<a href="../classes/SYSTEM.SQL.DATA_SYSTEM_TEXT.html">¶</a></h1>
+        <p class="short_description">DATA_SYSTEM_TEXT Class provided by System to install the System texts to the Database(includes Tags)</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.DATA_SYSTEM_TEXT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SCHEMA_SYSTEM" class="element ajax clickable class">
+        <h1>SCHEMA_SYSTEM<a href="../classes/SYSTEM.SQL.SCHEMA_SYSTEM.html">¶</a></h1>
+        <p class="short_description">SCHEMA_SYSTEM Class provided by System to install the Database Schema for system</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SCHEMA_SYSTEM.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="setup" class="element ajax clickable class">
+        <h1>setup<a href="../classes/SYSTEM.SQL.setup.html">¶</a></h1>
+        <p class="short_description">Setup Class provided by System to execute QIs defining sql files to be setup on the database</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.setup.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_API_TREE" class="element ajax clickable class">
+        <h1>SYS_API_TREE<a href="../classes/SYSTEM.SQL.SYS_API_TREE.html">¶</a></h1>
+        <p class="short_description">QQ to get System Api Tree by group</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_API_TREE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CACHE_CHECK" class="element ajax clickable class">
+        <h1>SYS_CACHE_CHECK<a href="../classes/SYSTEM.SQL.SYS_CACHE_CHECK.html">¶</a></h1>
+        <p class="short_description">QQ to check if cache entry exists</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CACHE_CHECK.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CACHE_DELETE" class="element ajax clickable class">
+        <h1>SYS_CACHE_DELETE<a href="../classes/SYSTEM.SQL.SYS_CACHE_DELETE.html">¶</a></h1>
+        <p class="short_description">QQ to delete cache entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CACHE_DELETE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CACHE_DELETE_ALL" class="element ajax clickable class">
+        <h1>SYS_CACHE_DELETE_ALL<a href="../classes/SYSTEM.SQL.SYS_CACHE_DELETE_ALL.html">¶</a></h1>
+        <p class="short_description">QQ to delete all cache entries</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CACHE_DELETE_ALL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CACHE_PUT" class="element ajax clickable class">
+        <h1>SYS_CACHE_PUT<a href="../classes/SYSTEM.SQL.SYS_CACHE_PUT.html">¶</a></h1>
+        <p class="short_description">QQ to write data into the cache</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CACHE_PUT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CRON_GET" class="element ajax clickable class">
+        <h1>SYS_CRON_GET<a href="../classes/SYSTEM.SQL.SYS_CRON_GET.html">¶</a></h1>
+        <p class="short_description">QQ to get a specific cron entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CRON_GET.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CRON_LAST_VISIT" class="element ajax clickable class">
+        <h1>SYS_CRON_LAST_VISIT<a href="../classes/SYSTEM.SQL.SYS_CRON_LAST_VISIT.html">¶</a></h1>
+        <p class="short_description">QQ to find the cronjob which had ben run the most reacent</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CRON_LAST_VISIT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CRON_LIST" class="element ajax clickable class">
+        <h1>SYS_CRON_LIST<a href="../classes/SYSTEM.SQL.SYS_CRON_LIST.html">¶</a></h1>
+        <p class="short_description">QQ to get all Cronjobs from Database</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CRON_LIST.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_CRON_UPD" class="element ajax clickable class">
+        <h1>SYS_CRON_UPD<a href="../classes/SYSTEM.SQL.SYS_CRON_UPD.html">¶</a></h1>
+        <p class="short_description">QQ to update a cronjobs status and lastrun</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_CRON_UPD.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_LOCALE_SET_LOCALE" class="element ajax clickable class">
+        <h1>SYS_LOCALE_SET_LOCALE<a href="../classes/SYSTEM.SQL.SYS_LOCALE_SET_LOCALE.html">¶</a></h1>
+        <p class="short_description">QQ to set a users language setting</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_LOCALE_SET_LOCALE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_LOG_DEL" class="element ajax clickable class">
+        <h1>SYS_LOG_DEL<a href="../classes/SYSTEM.SQL.SYS_LOG_DEL.html">¶</a></h1>
+        <p class="short_description">QQ to delete a log entry by id</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_LOG_DEL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_LOG_INSERT" class="element ajax clickable class">
+        <h1>SYS_LOG_INSERT<a href="../classes/SYSTEM.SQL.SYS_LOG_INSERT.html">¶</a></h1>
+        <p class="short_description">QQ to insert a new log entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_LOG_INSERT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_LOG_MONTH" class="element ajax clickable class">
+        <h1>SYS_LOG_MONTH<a href="../classes/SYSTEM.SQL.SYS_LOG_MONTH.html">¶</a></h1>
+        <p class="short_description">QQ to find all long entries for this month, limited by 10000</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_LOG_MONTH.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_LOG_OLDEST" class="element ajax clickable class">
+        <h1>SYS_LOG_OLDEST<a href="../classes/SYSTEM.SQL.SYS_LOG_OLDEST.html">¶</a></h1>
+        <p class="short_description">QQ to find the month of the oldest log entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_LOG_OLDEST.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_PAGE_GROUP" class="element ajax clickable class">
+        <h1>SYS_PAGE_GROUP<a href="../classes/SYSTEM.SQL.SYS_PAGE_GROUP.html">¶</a></h1>
+        <p class="short_description">QQ to get all State Data for given group and statename</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_PAGE_GROUP.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_API_ADD" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_API_ADD<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_ADD.html">¶</a></h1>
+        <p class="short_description">QQ to add a system_api entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_ADD.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_API_DEL" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_API_DEL<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_DEL.html">¶</a></h1>
+        <p class="short_description">QQ to delete a system_api entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_DEL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_API_GET" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_API_GET<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_GET.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_api entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_GET.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_API_GROUPS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_API_GROUPS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_GROUPS.html">¶</a></h1>
+        <p class="short_description">QQ to get amount of api entrys of system_api by group</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_GROUPS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_API_SINGLE_SELECT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_API_SINGLE_SELECT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_SINGLE_SELECT.html">¶</a></h1>
+        <p class="short_description">QQ to get a system_api entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_SINGLE_SELECT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CACHE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CACHE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_cache entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CACHE_CLEAR" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CACHE_CLEAR<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE_CLEAR.html">¶</a></h1>
+        <p class="short_description">QQ to delete all system_cache entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE_CLEAR.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CACHE_COUNT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CACHE_COUNT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_cache entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CRON" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CRON<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_cron entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CRON_ADD" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CRON_ADD<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_ADD.html">¶</a></h1>
+        <p class="short_description">QQ to add a system_cron entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_ADD.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CRON_CHANGE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CRON_CHANGE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_CHANGE.html">¶</a></h1>
+        <p class="short_description">QQ to update a system_cron entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_CHANGE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CRON_DEL" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CRON_DEL<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_DEL.html">¶</a></h1>
+        <p class="short_description">QQ to delete a system_cron entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_DEL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_CRON_SINGLE_SELECT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_CRON_SINGLE_SELECT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_SINGLE_SELECT.html">¶</a></h1>
+        <p class="short_description">QQ to get a system_cron entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_SINGLE_SELECT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_ANALYTICS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_ANALYTICS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_ANALYTICS.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_ANALYTICS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_BASIC_QUERYTIME" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_BASIC_QUERYTIME<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_QUERYTIME.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - basic querytime</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_QUERYTIME.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_BASIC_SUCCESS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_BASIC_SUCCESS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_SUCCESS.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - basic success</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_SUCCESS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_BASIC_VISITOR" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_BASIC_VISITOR<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_VISITOR.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - basic visitor</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_VISITOR.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_CLASS_BASIC" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_CLASS_BASIC<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_BASIC.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - class basic</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_BASIC.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_CLASS_OTHER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_CLASS_OTHER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_OTHER.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - class other</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_OTHER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_CLASS_SYSTEM" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_CLASS_SYSTEM<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_SYSTEM.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - class system</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_SYSTEM.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_ERROR" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_ERROR<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_ERROR.html">¶</a></h1>
+        <p class="short_description">QQ to get data for a system_log entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_ERROR.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to filter data from system_log</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_FILTER_COUNT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_FILTER_COUNT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTER_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to count filtered data from system_log</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTER_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_FILTERS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_FILTERS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTERS.html">¶</a></h1>
+        <p class="short_description">QQ to find all classfilters from system_log</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTERS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_TRUNCATE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_TRUNCATE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_TRUNCATE.html">¶</a></h1>
+        <p class="short_description">QQ to truncate data from system_log</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_TRUNCATE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_UNIQUE_BASIC" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_UNIQUE_BASIC<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_BASIC.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - unique basic</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_BASIC.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_UNIQUE_EXCEPTION" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_UNIQUE_EXCEPTION<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_EXCEPTION.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - unique exception</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_EXCEPTION.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_UNIQUE_REFERER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_UNIQUE_REFERER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_REFERER.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - unique referer</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_REFERER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_LOG_UNIQUE_REQUEST" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_LOG_UNIQUE_REQUEST<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_REQUEST.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics data from system_log - unique request</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_REQUEST.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_PAGE_ADD" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_PAGE_ADD<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_ADD.html">¶</a></h1>
+        <p class="short_description">QQ to add a system_page entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_ADD.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_PAGE_DEL" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_PAGE_DEL<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_DEL.html">¶</a></h1>
+        <p class="short_description">QQ to delete a system_page entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_DEL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_PAGE_GET" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_PAGE_GET<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_GET.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_page entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_GET.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_PAGE_GROUPS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_PAGE_GROUPS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_GROUPS.html">¶</a></h1>
+        <p class="short_description">QQ to count groups of all system_page entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_GROUPS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_PAGE_SINGLE_SELECT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_PAGE_SINGLE_SELECT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_SINGLE_SELECT.html">¶</a></h1>
+        <p class="short_description">QQ to get a system_page entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_SINGLE_SELECT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_DELETE_USER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_DELETE_USER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_DELETE_USER.html">¶</a></h1>
+        <p class="short_description">QQ to delete a system_user entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_DELETE_USER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS.html">¶</a></h1>
+        <p class="short_description">QQ to delete all system_user_to_rights entrys of a user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_DELETE_USER_RIGHTS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_RENAME_USER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_RENAME_USER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RENAME_USER.html">¶</a></h1>
+        <p class="short_description">QQ to rename a system_user entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RENAME_USER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_RIGHT_CHECK" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_RIGHT_CHECK<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_CHECK.html">¶</a></h1>
+        <p class="short_description">QQ to check the existance of a system_rights entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_CHECK.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_RIGHT_DELETE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_RIGHT_DELETE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_DELETE.html">¶</a></h1>
+        <p class="short_description">QQ to delete a system_rights entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_DELETE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_RIGHT_INSERT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_RIGHT_INSERT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_INSERT.html">¶</a></h1>
+        <p class="short_description">QQ to cinsert a system_rights entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_INSERT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_RIGHTS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_RIGHTS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHTS.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_rights entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHTS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER.html">¶</a></h1>
+        <p class="short_description">QQ to get a system_user entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_COUNT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_COUNT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_user entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_COUNT_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_COUNT_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_COUNT_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_user entrys with certain right</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_COUNT_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_LOG" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_LOG<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_LOG.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_log entrys for a user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_LOG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_LOG_COUNT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_LOG_COUNT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_LOG_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_log entrys of a user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_LOG_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK.html">¶</a></h1>
+        <p class="short_description">QQ to check a system_user_to_rights entry for existance</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE.html">¶</a></h1>
+        <p class="short_description">QQ to delete a system_user_to_rights entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT.html">¶</a></h1>
+        <p class="short_description">QQ to insert a system_user_to_rights entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USER_RIGHTS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USER_RIGHTS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHTS.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_rights entrys of a user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHTS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USERS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USERS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USERS.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_user entrys with filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USERS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_SECURITY_USERS_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_SECURITY_USERS_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USERS_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_user entrys with filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USERS_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_COUNT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_COUNT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_text entrys with filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_COUNT_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_COUNT_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_text entrys with filter and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_COUNT_NOTAG" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_COUNT_NOTAG<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_NOTAG.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_text entrys with no tag</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_NOTAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_text entrys with no tag + filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_COUNT_TAG" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_COUNT_TAG<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_TAG.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_text_tag entrys of a tag with filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_TAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_COUNT_TAG_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_COUNT_TAG_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_TAG_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_text_tag entrys of a tag with filter and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_TAG_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TAGS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TAGS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TAGS.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text_tag entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TAGS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TEXT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TEXT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text entry with filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TEXT_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TEXT_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text entrys with filter by tag + language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TEXT_NOTAG" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TEXT_NOTAG<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_NOTAG.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text entrys with filter and no tag</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_NOTAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text entrys with filter + language and no tags</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TEXT_TAG" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TEXT_TAG<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_TAG.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text entry with filter and tag</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_TAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TEXT_TEXT_TAG_FILTER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TEXT_TEXT_TAG_FILTER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_TAG_FILTER.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_text entrys with filter, language and tag</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_TAG_FILTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_ASSIGN" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_ASSIGN<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_ASSIGN.html">¶</a></h1>
+        <p class="short_description">QQ to assgin a system_todo entry to a user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_ASSIGN.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_ASSIGNEES" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_ASSIGNEES<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_ASSIGNEES.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_todo_assign entrys for a todo</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_ASSIGNEES.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_CLOSE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_CLOSE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_CLOSE.html">¶</a></h1>
+        <p class="short_description">QQ to close a system_todo entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_CLOSE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_CLOSE_ALL" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_CLOSE_ALL<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_CLOSE_ALL.html">¶</a></h1>
+        <p class="short_description">QQ to close all generated system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_CLOSE_ALL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_COUNT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_COUNT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_todo entrys with filter</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_COUNT_FREE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_COUNT_FREE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_FREE.html">¶</a></h1>
+        <p class="short_description">QQ to count all free system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_FREE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_COUNT_MINE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_COUNT_MINE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_MINE.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_todo entrys of the user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_MINE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_COUNT_OTHERS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_COUNT_OTHERS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_OTHERS.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_todo entrys of other users</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_OTHERS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_COUNT_TYPE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_COUNT_TYPE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_TYPE.html">¶</a></h1>
+        <p class="short_description">QQ to count all system_todo entrys by type</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_TYPE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_DEASSIGN" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_DEASSIGN<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_DEASSIGN.html">¶</a></h1>
+        <p class="short_description">QQ to deassgin a system_todo entry from a user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_DEASSIGN.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_EDIT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_EDIT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_EDIT.html">¶</a></h1>
+        <p class="short_description">QQ to update a system_todo entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_EDIT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_EXCEPTION_INSERT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_EXCEPTION_INSERT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_EXCEPTION_INSERT.html">¶</a></h1>
+        <p class="short_description">QQ to log a execption to system_todo</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_EXCEPTION_INSERT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_LIST" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_LIST<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_LIST_FREE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_LIST_FREE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_FREE.html">¶</a></h1>
+        <p class="short_description">QQ to get all free system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_FREE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_LIST_MINE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_LIST_MINE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_MINE.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_todo entrys of the user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_MINE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_LIST_OTHERS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_LIST_OTHERS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_OTHERS.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_todo entrys of other users</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_OTHERS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_LIST_TYPE" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_LIST_TYPE<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_TYPE.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_todo entrys by type</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_TYPE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_OPEN" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_OPEN<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_OPEN.html">¶</a></h1>
+        <p class="short_description">QQ to open a system_todo entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_OPEN.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_PRIORITY" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_PRIORITY<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_PRIORITY.html">¶</a></h1>
+        <p class="short_description">QQ to set the priority of a system_todo entry</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_PRIORITY.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_ASSIGNED" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_ASSIGNED<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_ASSIGNED.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics of all assigned system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_ASSIGNED.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_CLOSED" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_CLOSED<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_CLOSED.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics of all closed system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_CLOSED.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all closed generated system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all closed report system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all closed user system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all open generated system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_TODO_NOT_ASSIGNED" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_TODO_NOT_ASSIGNED<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_NOT_ASSIGNED.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all open not assigned system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_NOT_ASSIGNED.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all open report system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER.html">¶</a></h1>
+        <p class="short_description">QQ to get count of all open user system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_STATS_USERS" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_STATS_USERS<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_USERS.html">¶</a></h1>
+        <p class="short_description">QQ to get analytics of users system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_USERS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SAIMOD_TODO_TODO" class="element ajax clickable class">
+        <h1>SYS_SAIMOD_TODO_TODO<a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_TODO.html">¶</a></h1>
+        <p class="short_description">QQ to get all system_todo entrys</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_TODO.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_AVAILABLE" class="element ajax clickable class">
+        <h1>SYS_SECURITY_AVAILABLE<a href="../classes/SYSTEM.SQL.SYS_SECURITY_AVAILABLE.html">¶</a></h1>
+        <p class="short_description">QQ to check for usernames availibility</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_AVAILABLE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_AVAILABLE_EMAIL" class="element ajax clickable class">
+        <h1>SYS_SECURITY_AVAILABLE_EMAIL<a href="../classes/SYSTEM.SQL.SYS_SECURITY_AVAILABLE_EMAIL.html">¶</a></h1>
+        <p class="short_description">QQ to check for username || email combination availibility</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_AVAILABLE_EMAIL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_CHANGE_EMAIL" class="element ajax clickable class">
+        <h1>SYS_SECURITY_CHANGE_EMAIL<a href="../classes/SYSTEM.SQL.SYS_SECURITY_CHANGE_EMAIL.html">¶</a></h1>
+        <p class="short_description">QQ to get change Email of an account</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_CHANGE_EMAIL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_CHECK" class="element ajax clickable class">
+        <h1>SYS_SECURITY_CHECK<a href="../classes/SYSTEM.SQL.SYS_SECURITY_CHECK.html">¶</a></h1>
+        <p class="short_description">QQ to check for users rights</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_CHECK.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_CONFIRM_EMAIL" class="element ajax clickable class">
+        <h1>SYS_SECURITY_CONFIRM_EMAIL<a href="../classes/SYSTEM.SQL.SYS_SECURITY_CONFIRM_EMAIL.html">¶</a></h1>
+        <p class="short_description">QQ to get confirm Email of an account</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_CONFIRM_EMAIL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_CREATE" class="element ajax clickable class">
+        <h1>SYS_SECURITY_CREATE<a href="../classes/SYSTEM.SQL.SYS_SECURITY_CREATE.html">¶</a></h1>
+        <p class="short_description">QQ to create a new user</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_CREATE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_LOGIN_USER_SHA1" class="element ajax clickable class">
+        <h1>SYS_SECURITY_LOGIN_USER_SHA1<a href="../classes/SYSTEM.SQL.SYS_SECURITY_LOGIN_USER_SHA1.html">¶</a></h1>
+        <p class="short_description">QQ to check for emails creadentials (login)</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_LOGIN_USER_SHA1.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_RESET_PASSWORD" class="element ajax clickable class">
+        <h1>SYS_SECURITY_RESET_PASSWORD<a href="../classes/SYSTEM.SQL.SYS_SECURITY_RESET_PASSWORD.html">¶</a></h1>
+        <p class="short_description">QQ to reset Password of an account</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_RESET_PASSWORD.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_UPDATE_LASTACTIVE" class="element ajax clickable class">
+        <h1>SYS_SECURITY_UPDATE_LASTACTIVE<a href="../classes/SYSTEM.SQL.SYS_SECURITY_UPDATE_LASTACTIVE.html">¶</a></h1>
+        <p class="short_description">QQ to update users last active timestamp</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_UPDATE_LASTACTIVE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_UPDATE_PW" class="element ajax clickable class">
+        <h1>SYS_SECURITY_UPDATE_PW<a href="../classes/SYSTEM.SQL.SYS_SECURITY_UPDATE_PW.html">¶</a></h1>
+        <p class="short_description">QQ to change a user password</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_UPDATE_PW.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_USER_INFO" class="element ajax clickable class">
+        <h1>SYS_SECURITY_USER_INFO<a href="../classes/SYSTEM.SQL.SYS_SECURITY_USER_INFO.html">¶</a></h1>
+        <p class="short_description">QQ to get a usernames infos</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_USER_INFO.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_SECURITY_USER_SESSIONID" class="element ajax clickable class">
+        <h1>SYS_SECURITY_USER_SESSIONID<a href="../classes/SYSTEM.SQL.SYS_SECURITY_USER_SESSIONID.html">¶</a></h1>
+        <p class="short_description">QQ to reset Password of an account</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_SECURITY_USER_SESSIONID.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_DELETE" class="element ajax clickable class">
+        <h1>SYS_TEXT_DELETE<a href="../classes/SYSTEM.SQL.SYS_TEXT_DELETE.html">¶</a></h1>
+        <p class="short_description">QQ to delete a text by id and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_DELETE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_DELETE_TAGS" class="element ajax clickable class">
+        <h1>SYS_TEXT_DELETE_TAGS<a href="../classes/SYSTEM.SQL.SYS_TEXT_DELETE_TAGS.html">¶</a></h1>
+        <p class="short_description">QQ to delete tags of a certain text</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_DELETE_TAGS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_ID" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_ID<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID.html">¶</a></h1>
+        <p class="short_description">QQ to get a text by id and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_ID_ADV" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_ID_ADV<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_ADV.html">¶</a></h1>
+        <p class="short_description">QQ to get advanced result for a text by id and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_ADV.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_ID_COUNT" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_ID_COUNT<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_COUNT.html">¶</a></h1>
+        <p class="short_description">QQ to get amount of texts by id</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_COUNT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_ID_TAGS" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_ID_TAGS<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_TAGS.html">¶</a></h1>
+        <p class="short_description">QQ to get tags of text by id</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_TAGS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_LATEST" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_LATEST<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_LATEST.html">¶</a></h1>
+        <p class="short_description">QQ to get latest texts by tag and limit</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_LATEST.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_TAG" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_TAG<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAG.html">¶</a></h1>
+        <p class="short_description">QQ to get texts by tag and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_TAG_ADV" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_TAG_ADV<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAG_ADV.html">¶</a></h1>
+        <p class="short_description">QQ to get text and tags including usernames by tag and language</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAG_ADV.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_GET_TAGS" class="element ajax clickable class">
+        <h1>SYS_TEXT_GET_TAGS<a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAGS.html">¶</a></h1>
+        <p class="short_description">QQ to get tags by textid and limit</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAGS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_RENAME" class="element ajax clickable class">
+        <h1>SYS_TEXT_RENAME<a href="../classes/SYSTEM.SQL.SYS_TEXT_RENAME.html">¶</a></h1>
+        <p class="short_description">QQ to rename a text</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_RENAME.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_RENAME_TAGS" class="element ajax clickable class">
+        <h1>SYS_TEXT_RENAME_TAGS<a href="../classes/SYSTEM.SQL.SYS_TEXT_RENAME_TAGS.html">¶</a></h1>
+        <p class="short_description">QQ to rename tags-text-id of a text</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_RENAME_TAGS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_SAVE" class="element ajax clickable class">
+        <h1>SYS_TEXT_SAVE<a href="../classes/SYSTEM.SQL.SYS_TEXT_SAVE.html">¶</a></h1>
+        <p class="short_description">QQ to save a text</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_SAVE.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_SAVE_TAG" class="element ajax clickable class">
+        <h1>SYS_TEXT_SAVE_TAG<a href="../classes/SYSTEM.SQL.SYS_TEXT_SAVE_TAG.html">¶</a></h1>
+        <p class="short_description">QQ to save a tag for a text</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_SAVE_TAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TEXT_SEARCH_TAG" class="element ajax clickable class">
+        <h1>SYS_TEXT_SEARCH_TAG<a href="../classes/SYSTEM.SQL.SYS_TEXT_SEARCH_TAG.html">¶</a></h1>
+        <p class="short_description">QQ to search for texts with tag and given searchstring</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TEXT_SEARCH_TAG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TOKEN_CONFIRM" class="element ajax clickable class">
+        <h1>SYS_TOKEN_CONFIRM<a href="../classes/SYSTEM.SQL.SYS_TOKEN_CONFIRM.html">¶</a></h1>
+        <p class="short_description">QQ to confirm a token and make it invalid</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TOKEN_CONFIRM.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TOKEN_GET" class="element ajax clickable class">
+        <h1>SYS_TOKEN_GET<a href="../classes/SYSTEM.SQL.SYS_TOKEN_GET.html">¶</a></h1>
+        <p class="short_description">QQ to get a token</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TOKEN_GET.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYS_TOKEN_INSERT" class="element ajax clickable class">
+        <h1>SYS_TOKEN_INSERT<a href="../classes/SYSTEM.SQL.SYS_TOKEN_INSERT.html">¶</a></h1>
+        <p class="short_description">QQ to insert a token</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.SYS_TOKEN_INSERT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_api" class="element ajax clickable class">
+        <h1>system_api<a href="../classes/SYSTEM.SQL.system_api.html">¶</a></h1>
+        <p class="short_description">system_api Class provided by System to describe system_api table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_api.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_cron" class="element ajax clickable class">
+        <h1>system_cron<a href="../classes/SYSTEM.SQL.system_cron.html">¶</a></h1>
+        <p class="short_description">system_cron Class provided by System to describe system_cron table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_cron.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_log" class="element ajax clickable class">
+        <h1>system_log<a href="../classes/SYSTEM.SQL.system_log.html">¶</a></h1>
+        <p class="short_description">system_log Class provided by System to describe system_log table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_log.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_page" class="element ajax clickable class">
+        <h1>system_page<a href="../classes/SYSTEM.SQL.system_page.html">¶</a></h1>
+        <p class="short_description">system_page Class provided by System to describe system_page table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_page.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_text" class="element ajax clickable class">
+        <h1>system_text<a href="../classes/SYSTEM.SQL.system_text.html">¶</a></h1>
+        <p class="short_description">system_text Class provided by System to describe system_text table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_text.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_todo" class="element ajax clickable class">
+        <h1>system_todo<a href="../classes/SYSTEM.SQL.system_todo.html">¶</a></h1>
+        <p class="short_description">system_todo Class provided by System to describe system_todo table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_todo.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_todo_assign" class="element ajax clickable class">
+        <h1>system_todo_assign<a href="../classes/SYSTEM.SQL.system_todo_assign.html">¶</a></h1>
+        <p class="short_description">system_todo_assign Class provided by System to describe system_todo_assign table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_todo_assign.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_user" class="element ajax clickable class">
+        <h1>system_user<a href="../classes/SYSTEM.SQL.system_user.html">¶</a></h1>
+        <p class="short_description">system_user Class provided by System to describe system_user table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_user.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="system_user_to_rights" class="element ajax clickable class">
+        <h1>system_user_to_rights<a href="../classes/SYSTEM.SQL.system_user_to_rights.html">¶</a></h1>
+        <p class="short_description">system_user_to_rights Class provided by System to describe system_user_to_rights table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SQL.system_user_to_rights.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.PAGE.html">PAGE</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="DefaultPage" class="element ajax clickable interface">
+        <h1>DefaultPage<a href="../classes/SYSTEM.PAGE.DefaultPage.html">¶</a></h1>
+        <p class="short_description">DefaultPage Interface provided by System to describe default page functions.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PAGE.DefaultPage.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="Page" class="element ajax clickable interface">
+        <h1>Page<a href="../classes/SYSTEM.PAGE.Page.html">¶</a></h1>
+        <p class="short_description">Page Interface provided by System to describe page functions.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PAGE.Page.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="ParensParser" class="element ajax clickable class">
+        <h1>ParensParser<a href="../classes/SYSTEM.PAGE.ParensParser.html">¶</a></h1>
+        <p class="short_description">ParensParser Class provided by System to parse Statestring.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PAGE.ParensParser.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="replace" class="element ajax clickable class">
+        <h1>replace<a href="../classes/SYSTEM.PAGE.replace.html">¶</a></h1>
+        <p class="short_description">Replace Class provided by System to replace placeholders in text and files ${placeholder}.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PAGE.replace.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="State" class="element ajax clickable class">
+        <h1>State<a href="../classes/SYSTEM.PAGE.State.html">¶</a></h1>
+        <p class="short_description">State Class provided by System to get State information.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PAGE.State.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="text" class="element ajax clickable class">
+        <h1>text<a href="../classes/SYSTEM.PAGE.text.html">¶</a></h1>
+        <p class="short_description">Text Class provided by System to get Texts from the Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PAGE.text.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.DB.html">DB</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="Connection" class="element ajax clickable class">
+        <h1>Connection<a href="../classes/SYSTEM.DB.Connection.html">¶</a></h1>
+        <p class="short_description">Connection Class provided by System to open a Connection to a Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.Connection.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConnectionAbstr" class="element ajax clickable class">
+        <h1>ConnectionAbstr<a href="../classes/SYSTEM.DB.ConnectionAbstr.html">¶</a></h1>
+        <p class="short_description">Abstract Connection Class provided by System as a PDO Controller.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ConnectionAbstr.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConnectionAMQP" class="element ajax clickable class">
+        <h1>ConnectionAMQP<a href="../classes/SYSTEM.DB.ConnectionAMQP.html">¶</a></h1>
+        <p class="short_description">AMQP Connection Class provided by System to connect to AMQP Services.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ConnectionAMQP.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConnectionMYS" class="element ajax clickable class">
+        <h1>ConnectionMYS<a href="../classes/SYSTEM.DB.ConnectionMYS.html">¶</a></h1>
+        <p class="short_description">MYSQL Connection Class provided by System to connect to MYSQL Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ConnectionMYS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConnectionPG" class="element ajax clickable class">
+        <h1>ConnectionPG<a href="../classes/SYSTEM.DB.ConnectionPG.html">¶</a></h1>
+        <p class="short_description">PostgreSQL Connection Class provided by System to connect to PostgreSQL Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ConnectionPG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConnectionSQLite" class="element ajax clickable class">
+        <h1>ConnectionSQLite<a href="../classes/SYSTEM.DB.ConnectionSQLite.html">¶</a></h1>
+        <p class="short_description">SQLite Connection Class provided by System to connect to SQLite Databasefile.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ConnectionSQLite.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DBInfo" class="element ajax clickable class">
+        <h1>DBInfo<a href="../classes/SYSTEM.DB.DBInfo.html">¶</a></h1>
+        <p class="short_description">DBInfo Abstract Class provided by System to hold Database Information.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.DBInfo.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DBInfoAMQP" class="element ajax clickable class">
+        <h1>DBInfoAMQP<a href="../classes/SYSTEM.DB.DBInfoAMQP.html">¶</a></h1>
+        <p class="short_description">DBInfoAMQP Class provided by System to hold AMQP Database Information.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.DBInfoAMQP.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DBInfoMYS" class="element ajax clickable class">
+        <h1>DBInfoMYS<a href="../classes/SYSTEM.DB.DBInfoMYS.html">¶</a></h1>
+        <p class="short_description">DBInfoMYS Class provided by System to hold MYSQL Database Information.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.DBInfoMYS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DBInfoPG" class="element ajax clickable class">
+        <h1>DBInfoPG<a href="../classes/SYSTEM.DB.DBInfoPG.html">¶</a></h1>
+        <p class="short_description">DBInfoPG Class provided by System to hold PostgreSQL Database Information.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.DBInfoPG.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DBInfoSQLite" class="element ajax clickable class">
+        <h1>DBInfoSQLite<a href="../classes/SYSTEM.DB.DBInfoSQLite.html">¶</a></h1>
+        <p class="short_description">DBInfoSQLite Class provided by System to hold SQLite File-Database Information.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.DBInfoSQLite.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="QI" class="element ajax clickable class">
+        <h1>QI<a href="../classes/SYSTEM.DB.QI.html">¶</a></h1>
+        <p class="short_description">QI Class provided by System to execute quick installation statements.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.QI.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="QP" class="element ajax clickable class">
+        <h1>QP<a href="../classes/SYSTEM.DB.QP.html">¶</a></h1>
+        <p class="short_description">QQ Class provided by System to execute quick prepare statements.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.QP.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="QQ" class="element ajax clickable class">
+        <h1>QQ<a href="../classes/SYSTEM.DB.QQ.html">¶</a></h1>
+        <p class="short_description">QQ Class provided by System to execute quick query statements.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.QQ.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="Result" class="element ajax clickable class">
+        <h1>Result<a href="../classes/SYSTEM.DB.Result.html">¶</a></h1>
+        <p class="short_description">Result Class provided by System to hold Database Query Result Ressources.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.Result.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ResultAMQP" class="element ajax clickable class">
+        <h1>ResultAMQP<a href="../classes/SYSTEM.DB.ResultAMQP.html">¶</a></h1>
+        <p class="short_description">Result Class provided by System to hold Database Query Result Ressources of AMQP Querys.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ResultAMQP.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ResultMysqli" class="element ajax clickable class">
+        <h1>ResultMysqli<a href="../classes/SYSTEM.DB.ResultMysqli.html">¶</a></h1>
+        <p class="short_description">Result Class provided by System to hold Database Query Result Ressources of MYSQL Querys.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ResultMysqli.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ResultMysqliPrepare" class="element ajax clickable class">
+        <h1>ResultMysqliPrepare<a href="../classes/SYSTEM.DB.ResultMysqliPrepare.html">¶</a></h1>
+        <p class="short_description">Result Class provided by System to hold Database Query Result Ressources of MYSQL prepare Querys.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ResultMysqliPrepare.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ResultPostgres" class="element ajax clickable class">
+        <h1>ResultPostgres<a href="../classes/SYSTEM.DB.ResultPostgres.html">¶</a></h1>
+        <p class="short_description">Result Class provided by System to hold Database Query Result Ressources of PostgreSQL Querys.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ResultPostgres.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ResultSQLite" class="element ajax clickable class">
+        <h1>ResultSQLite<a href="../classes/SYSTEM.DB.ResultSQLite.html">¶</a></h1>
+        <p class="short_description">Result Class provided by System to hold Database Query Result Ressources of SQLite File Querys.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DB.ResultSQLite.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.SAI.html">SAI</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="todo_stats" class="element ajax clickable interface">
+        <h1>todo_stats<a href="../classes/SYSTEM.SAI.todo_stats.html">¶</a></h1>
+        <p class="short_description">todo_statsn Interface provided by System to calculate ToDo stats.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.todo_stats.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="default_page" class="element ajax clickable class">
+        <h1>default_page<a href="../classes/SYSTEM.SAI.default_page.html">¶</a></h1>
+        <p class="short_description">Sai default_page Class provided by System to construct the Sai Environment</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.default_page.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="sai" class="element ajax clickable class">
+        <h1>sai<a href="../classes/SYSTEM.SAI.sai.html">¶</a></h1>
+        <p class="short_description">sai Class provided by System to register and manage saimods</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.sai.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saigui" class="element ajax clickable class">
+        <h1>saigui<a href="../classes/SYSTEM.SAI.saigui.html">¶</a></h1>
+        <p class="short_description">saigui Class provided by System to handle sai userinterface. Invoke (new saigui)-&gt;html()</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saigui.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_api" class="element ajax clickable class">
+        <h1>saimod_sys_api<a href="../classes/SYSTEM.SAI.saimod_sys_api.html">¶</a></h1>
+        <p class="short_description">saimod_sys_api Class provided by System as saimod to manage the system_api table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_api.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_cache" class="element ajax clickable class">
+        <h1>saimod_sys_cache<a href="../classes/SYSTEM.SAI.saimod_sys_cache.html">¶</a></h1>
+        <p class="short_description">saimod_sys_cache Class provided by System as saimod to manage the system_cache table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_cache.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_config" class="element ajax clickable class">
+        <h1>saimod_sys_config<a href="../classes/SYSTEM.SAI.saimod_sys_config.html">¶</a></h1>
+        <p class="short_description">saimod_sys_config Class provided by System as saimod to display the config</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_config.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_cron" class="element ajax clickable class">
+        <h1>saimod_sys_cron<a href="../classes/SYSTEM.SAI.saimod_sys_cron.html">¶</a></h1>
+        <p class="short_description">saimod_sys_cron Class provided by System as saimod to manage the system_cron table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_cron.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_docu" class="element ajax clickable class">
+        <h1>saimod_sys_docu<a href="../classes/SYSTEM.SAI.saimod_sys_docu.html">¶</a></h1>
+        <p class="short_description">saimod_sys_docu Class provided by System as saimod to display the code documentation</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_docu.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_files" class="element ajax clickable class">
+        <h1>saimod_sys_files<a href="../classes/SYSTEM.SAI.saimod_sys_files.html">¶</a></h1>
+        <p class="short_description">saimod_sys_files Class provided by System as saimod to manage files (files feature)</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_files.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_git" class="element ajax clickable class">
+        <h1>saimod_sys_git<a href="../classes/SYSTEM.SAI.saimod_sys_git.html">¶</a></h1>
+        <p class="short_description">saimod_sys_git Class provided by System as saimod to display git information on the project and system</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_git.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_log" class="element ajax clickable class">
+        <h1>saimod_sys_log<a href="../classes/SYSTEM.SAI.saimod_sys_log.html">¶</a></h1>
+        <p class="short_description">saimod_sys_log Class provided by System as saimod to manage the system_log table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_log.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_login" class="element ajax clickable class">
+        <h1>saimod_sys_login<a href="../classes/SYSTEM.SAI.saimod_sys_login.html">¶</a></h1>
+        <p class="short_description">saimod_sys_login Class provided by System as saimod to provide login/register functionality</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_login.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_mod" class="element ajax clickable class">
+        <h1>saimod_sys_mod<a href="../classes/SYSTEM.SAI.saimod_sys_mod.html">¶</a></h1>
+        <p class="short_description">saimod_sys_mod Class provided by System as saimod to display all registered saimods &amp; libraries</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_mod.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_page" class="element ajax clickable class">
+        <h1>saimod_sys_page<a href="../classes/SYSTEM.SAI.saimod_sys_page.html">¶</a></h1>
+        <p class="short_description">saimod_sys_page Class provided by System as saimod to manage the system_page table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_page.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_security" class="element ajax clickable class">
+        <h1>saimod_sys_security<a href="../classes/SYSTEM.SAI.saimod_sys_security.html">¶</a></h1>
+        <p class="short_description">saimod_sys_security Class provided by System as saimod to manage the system_user, system_rights, system_user_to_rights table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_security.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_text" class="element ajax clickable class">
+        <h1>saimod_sys_text<a href="../classes/SYSTEM.SAI.saimod_sys_text.html">¶</a></h1>
+        <p class="short_description">saimod_sys_text Class provided by System as saimod to manage the system_text, system_text_tag table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_text.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saimod_sys_todo" class="element ajax clickable class">
+        <h1>saimod_sys_todo<a href="../classes/SYSTEM.SAI.saimod_sys_todo.html">¶</a></h1>
+        <p class="short_description">saimod_sys_todo Class provided by System as saimod to manage the system_todo, system_todo_assign table</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saimod_sys_todo.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SaiModule" class="element ajax clickable class">
+        <h1>SaiModule<a href="../classes/SYSTEM.SAI.SaiModule.html">¶</a></h1>
+        <p class="short_description">SaiModule Class provided by System to be etended by Saimods</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.SaiModule.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="saistart_sys_sai" class="element ajax clickable class">
+        <h1>saistart_sys_sai<a href="../classes/SYSTEM.SAI.saistart_sys_sai.html">¶</a></h1>
+        <p class="short_description">saimod_sys_sai Class provided by System as start saimod to display an overview over the Project</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.saistart_sys_sai.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="todo_stats_assign" class="element ajax clickable class">
+        <h1>todo_stats_assign<a href="../classes/SYSTEM.SAI.todo_stats_assign.html">¶</a></h1>
+        <p class="short_description">todo_stats_assign Class provided by System to calculate assigned ToDo stats.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.todo_stats_assign.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="todo_stats_data" class="element ajax clickable class">
+        <h1>todo_stats_data<a href="../classes/SYSTEM.SAI.todo_stats_data.html">¶</a></h1>
+        <p class="short_description">todo_stats_data Class provided by System as a container for todo stats</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.todo_stats_data.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="todo_stats_gen" class="element ajax clickable class">
+        <h1>todo_stats_gen<a href="../classes/SYSTEM.SAI.todo_stats_gen.html">¶</a></h1>
+        <p class="short_description">todo_stats_gen Class provided by System to calculate generated ToDo stats.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.todo_stats_gen.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="todo_stats_report" class="element ajax clickable class">
+        <h1>todo_stats_report<a href="../classes/SYSTEM.SAI.todo_stats_report.html">¶</a></h1>
+        <p class="short_description">todo_stats_report Class provided by System to calculate ToDo report stats.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.todo_stats_report.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="todo_stats_user" class="element ajax clickable class">
+        <h1>todo_stats_user<a href="../classes/SYSTEM.SAI.todo_stats_user.html">¶</a></h1>
+        <p class="short_description">todo_stats_user Class provided by System to calculate ToDo user stats.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SAI.todo_stats_user.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.FILES.html">FILES</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="files" class="element ajax clickable class">
+        <h1>files<a href="../classes/SYSTEM.FILES.files.html">¶</a></h1>
+        <p class="short_description">Files Class provided by System to register folders and serve files.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.FILES.files.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.CONFIG.html">CONFIG</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="config" class="element ajax clickable class">
+        <h1>config<a href="../classes/SYSTEM.CONFIG.config.html">¶</a></h1>
+        <p class="short_description">Config Class provided by System for configuration of the System Environment.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CONFIG.config.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="config_ids" class="element ajax clickable class">
+        <h1>config_ids<a href="../classes/SYSTEM.CONFIG.config_ids.html">¶</a></h1>
+        <p class="short_description">ConfigID Class provided by System for System Environment Config IDs.</p>
+        <div class="details collapse">Extend this class for your own purposes.</div>
+        <a href="../classes/SYSTEM.CONFIG.config_ids.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.LIB.html">LIB</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="lib" class="element ajax clickable class">
+        <h1>lib<a href="../classes/LIB.lib.html">¶</a></h1>
+        <p class="short_description">Lib Class provided by System to define API to load libs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="lib_controll" class="element ajax clickable class">
+        <h1>lib_controll<a href="../classes/LIB.lib_controll.html">¶</a></h1>
+        <p class="short_description">lib_controll Class provided by System to register libs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib_controll.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="lib_css" class="element ajax clickable class">
+        <h1>lib_css<a href="../classes/LIB.lib_css.html">¶</a></h1>
+        <p class="short_description">css lib Class provided by System to provide css libs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib_css.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="lib_js" class="element ajax clickable class">
+        <h1>lib_js<a href="../classes/LIB.lib_js.html">¶</a></h1>
+        <p class="short_description">js lib Class provided by System to provide js libs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib_js.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="lib_jscss" class="element ajax clickable class">
+        <h1>lib_jscss<a href="../classes/LIB.lib_jscss.html">¶</a></h1>
+        <p class="short_description">js+css lib Class provided by System to provide js+css libs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib_jscss.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="lib_php" class="element ajax clickable class">
+        <h1>lib_php<a href="../classes/LIB.lib_php.html">¶</a></h1>
+        <p class="short_description">php lib Class provided by System to provide php libs.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib_php.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.TOKEN.html">TOKEN</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="token_handler" class="element ajax clickable interface">
+        <h1>token_handler<a href="../classes/SYSTEM.TOKEN.token_handler.html">¶</a></h1>
+        <p class="short_description">Abstract token_handler Class provided by System to provide API for any token mechanism.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.TOKEN.token_handler.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="token" class="element ajax clickable class">
+        <h1>token<a href="../classes/SYSTEM.TOKEN.token.html">¶</a></h1>
+        <p class="short_description">Token Class provided by System to provide unique security tokens.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.TOKEN.token.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="token_change_email" class="element ajax clickable class">
+        <h1>token_change_email<a href="../classes/SYSTEM.TOKEN.token_change_email.html">¶</a></h1>
+        <p class="short_description">Email Change Token handler Class provided by System to provide a email-change mechanism.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.TOKEN.token_change_email.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="token_confirm_email" class="element ajax clickable class">
+        <h1>token_confirm_email<a href="../classes/SYSTEM.TOKEN.token_confirm_email.html">¶</a></h1>
+        <p class="short_description">Confirm Email Token handler Class provided by System to provide a email-confirmation mechanism.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.TOKEN.token_confirm_email.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="token_reset_password" class="element ajax clickable class">
+        <h1>token_reset_password<a href="../classes/SYSTEM.TOKEN.token_reset_password.html">¶</a></h1>
+        <p class="short_description">Reset Password Token handler Class provided by System to provide a reset-password mechanism.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.TOKEN.token_reset_password.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.CACHE.html">CACHE</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="cache" class="element ajax clickable class">
+        <h1>cache<a href="../classes/SYSTEM.CACHE.cache.html">¶</a></h1>
+        <p class="short_description">Cache Class provided by System for caching in the Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CACHE.cache.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cache_css" class="element ajax clickable class">
+        <h1>cache_css<a href="../classes/SYSTEM.CACHE.cache_css.html">¶</a></h1>
+        <p class="short_description">CSS Cache Class provided by System for caching CSS in the Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CACHE.cache_css.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cache_filemask" class="element ajax clickable class">
+        <h1>cache_filemask<a href="../classes/SYSTEM.CACHE.cache_filemask.html">¶</a></h1>
+        <p class="short_description">File Cache Class provided by System for hiding Filepaths on the Server.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CACHE.cache_filemask.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cache_js" class="element ajax clickable class">
+        <h1>cache_js<a href="../classes/SYSTEM.CACHE.cache_js.html">¶</a></h1>
+        <p class="short_description">JS Cache Class provided by System for caching JS in the Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CACHE.cache_js.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="cache_scss" class="element ajax clickable class">
+        <h1>cache_scss<a href="../classes/SYSTEM.CACHE.cache_scss.html">¶</a></h1>
+        <p class="short_description">SCSS Cache Class provided by System for compiling and caching SCSS in the Database.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.CACHE.cache_scss.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.DOCU.html">DOCU</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="docu_package" class="element ajax clickable interface">
+        <h1>docu_package<a href="../classes/SYSTEM.DOCU.docu_package.html">¶</a></h1>
+        <p class="short_description">Docu Package Interface to abstract from for every docu to be registered.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DOCU.docu_package.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="docu" class="element ajax clickable class">
+        <h1>docu<a href="../classes/SYSTEM.DOCU.docu.html">¶</a></h1>
+        <p class="short_description">Docu Class provided by System to register docu_packages.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DOCU.docu.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="docu_system" class="element ajax clickable class">
+        <h1>docu_system<a href="../classes/SYSTEM.DOCU.docu_system.html">¶</a></h1>
+        <p class="short_description">Docu Package Class for System.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.DOCU.docu_system.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.LOG.html">LOG</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="error_handler" class="element ajax clickable interface">
+        <h1>error_handler<a href="../classes/SYSTEM.LOG.error_handler.html">¶</a></h1>
+        <p class="short_description">Error handler Interface provided by System to derive your own loghandlers from.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.LOG.error_handler.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="COUNTER" class="element ajax clickable class">
+        <h1>COUNTER<a href="../classes/SYSTEM.LOG.COUNTER.html">¶</a></h1>
+        <p class="short_description">Counter Log Class provided by System to count calls to the Site.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.COUNTER.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="CRON" class="element ajax clickable class">
+        <h1>CRON<a href="../classes/SYSTEM.LOG.CRON.html">¶</a></h1>
+        <p class="short_description">Cron Log Class provided by System for Cron Messages.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.CRON.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DEPRECATED" class="element ajax clickable class">
+        <h1>DEPRECATED<a href="../classes/SYSTEM.LOG.DEPRECATED.html">¶</a></h1>
+        <p class="short_description">Deprecated Log Class provided by System for marking code as Deprecated.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.DEPRECATED.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="DEPRECATED" class="element ajax clickable class">
+        <h1>DEPRECATED<a href="../classes/DEPRECATED.html">¶</a></h1>
+        <p class="short_description">Deprecated Log Class provided by System for marking code as Deprecated.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/DEPRECATED.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ERROR" class="element ajax clickable class">
+        <h1>ERROR<a href="../classes/SYSTEM.LOG.ERROR.html">¶</a></h1>
+        <p class="short_description">Error Log Class provided by System for all kinds of Errors.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.ERROR.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ERROR" class="element ajax clickable class">
+        <h1>ERROR<a href="../classes/ERROR.html">¶</a></h1>
+        <p class="short_description">Error Log Class provided by System for all kinds of Errors.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/ERROR.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ERROR_EXCEPTION" class="element ajax clickable class">
+        <h1>ERROR_EXCEPTION<a href="../classes/SYSTEM.LOG.ERROR_EXCEPTION.html">¶</a></h1>
+        <p class="short_description">Error Exception Log Class provided by System for Errors Exceptions.</p>
+        <div class="details collapse">All other error exception Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.ERROR_EXCEPTION.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="error_handler_dbwriter" class="element ajax clickable class">
+        <h1>error_handler_dbwriter<a href="../classes/SYSTEM.LOG.error_handler_dbwriter.html">¶</a></h1>
+        <p class="short_description">Error handler Class provided by System to log to the database.</p>
+        <div class="details collapse">Register this before every other handler, cuz this will need to handle every single error.</div>
+        <a href="../classes/SYSTEM.LOG.error_handler_dbwriter.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="error_handler_jsonoutput" class="element ajax clickable class">
+        <h1>error_handler_jsonoutput<a href="../classes/SYSTEM.LOG.error_handler_jsonoutput.html">¶</a></h1>
+        <p class="short_description">Error handler Class provided by System to return the Error as JSON.</p>
+        <div class="details collapse">Register this Handler as last one</div>
+        <a href="../classes/SYSTEM.LOG.error_handler_jsonoutput.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="INFO" class="element ajax clickable class">
+        <h1>INFO<a href="../classes/SYSTEM.LOG.INFO.html">¶</a></h1>
+        <p class="short_description">Info Log Class provided by System for logging Infos.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.INFO.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="INFO" class="element ajax clickable class">
+        <h1>INFO<a href="../classes/INFO.html">¶</a></h1>
+        <p class="short_description">Info Log Class provided by System for logging Infos.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/INFO.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="JsonResult" class="element ajax clickable class">
+        <h1>JsonResult<a href="../classes/SYSTEM.LOG.JsonResult.html">¶</a></h1>
+        <p class="short_description">JsonResult Class provided by System to return Data as JSON or MSGPACK.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.LOG.JsonResult.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="JsonResult" class="element ajax clickable class">
+        <h1>JsonResult<a href="../classes/JsonResult.html">¶</a></h1>
+        <p class="short_description">JsonResult Class provided by System to return Data as JSON or MSGPACK.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/JsonResult.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="log" class="element ajax clickable class">
+        <h1>log<a href="../classes/SYSTEM.LOG.log.html">¶</a></h1>
+        <p class="short_description">Log Class provided by System to manage log handlers.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.LOG.log.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SHUTDOWN_EXCEPTION" class="element ajax clickable class">
+        <h1>SHUTDOWN_EXCEPTION<a href="../classes/SYSTEM.LOG.SHUTDOWN_EXCEPTION.html">¶</a></h1>
+        <p class="short_description">Shutdown Exception Class provided by System for logging Shutdown Exceptions.</p>
+        <div class="details collapse">All other error exception Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.SHUTDOWN_EXCEPTION.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYSTEM_ERROR_EXCEPTION" class="element ajax clickable class">
+        <h1>SYSTEM_ERROR_EXCEPTION<a href="../classes/SYSTEM.LOG.SYSTEM_ERROR_EXCEPTION.html">¶</a></h1>
+        <p class="short_description">System Exception Class provided by System for logging all kinds of System Exceptions.</p>
+        <div class="details collapse">All other error exception Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.SYSTEM_ERROR_EXCEPTION.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="SYSTEM_EXCEPTION" class="element ajax clickable class">
+        <h1>SYSTEM_EXCEPTION<a href="../classes/SYSTEM.LOG.SYSTEM_EXCEPTION.html">¶</a></h1>
+        <p class="short_description">System Exception Class provided by System for logging all kinds of System Exceptions.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.SYSTEM_EXCEPTION.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="TODO" class="element ajax clickable class">
+        <h1>TODO<a href="../classes/TODO.html">¶</a></h1>
+        <p class="short_description">Todo Class provided by System for logging todos.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/TODO.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="TODO" class="element ajax clickable class">
+        <h1>TODO<a href="../classes/SYSTEM.LOG.TODO.html">¶</a></h1>
+        <p class="short_description">Todo Class provided by System for logging todos.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.TODO.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="TranslatableError" class="element ajax clickable class">
+        <h1>TranslatableError<a href="../classes/SYSTEM.LOG.TranslatableError.html">¶</a></h1>
+        <p class="short_description">Translateable Error Class provided by System for serving Multilanguage Errors from Database.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.TranslatableError.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="WARNING" class="element ajax clickable class">
+        <h1>WARNING<a href="../classes/SYSTEM.LOG.WARNING.html">¶</a></h1>
+        <p class="short_description">Warning Class provided by System for logging Warnings.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/SYSTEM.LOG.WARNING.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="WARNING" class="element ajax clickable class">
+        <h1>WARNING<a href="../classes/WARNING.html">¶</a></h1>
+        <p class="short_description">Warning Class provided by System for logging Warnings.</p>
+        <div class="details collapse">All other log Classes are derived from this.</div>
+        <a href="../classes/WARNING.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.PATH.html">PATH</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="PATH" class="element ajax clickable class">
+        <h1>PATH<a href="../classes/SYSTEM.PATH.html">¶</a></h1>
+        <p class="short_description">Path Class provided by System to provide a unified path approach.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PATH.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="PLIB" class="element ajax clickable class">
+        <h1>PLIB<a href="../classes/SYSTEM.PLIB.html">¶</a></h1>
+        <p class="short_description">System Lib Path Class provided by System.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PLIB.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="PROOT" class="element ajax clickable class">
+        <h1>PROOT<a href="../classes/SYSTEM.PROOT.html">¶</a></h1>
+        <p class="short_description">Root Path Class provided by System.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PROOT.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="PSAI" class="element ajax clickable class">
+        <h1>PSAI<a href="../classes/SYSTEM.PSAI.html">¶</a></h1>
+        <p class="short_description">System SAI Path Class provided by System.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PSAI.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="PSQL" class="element ajax clickable class">
+        <h1>PSQL<a href="../classes/SYSTEM.PSQL.html">¶</a></h1>
+        <p class="short_description">System SQL Path Class provided by System.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PSQL.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="PSYSTEM" class="element ajax clickable class">
+        <h1>PSYSTEM<a href="../classes/SYSTEM.PSYSTEM.html">¶</a></h1>
+        <p class="short_description">System Path Class provided by System.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.PSYSTEM.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.HTML.html">HTML</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="html" class="element ajax clickable class">
+        <h1>html<a href="../classes/SYSTEM.HTML.html.html">¶</a></h1>
+        <p class="short_description">HTML Class provided by System to generate common HTML tags.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.HTML.html.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.SECURITY.html">SECURITY</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="RIGHTS" class="element ajax clickable class">
+        <h1>RIGHTS<a href="../classes/SYSTEM.SECURITY.RIGHTS.html">¶</a></h1>
+        <p class="short_description">Rights Class provided by System to define system rights.</p>
+        <div class="details collapse">Extend this class for your own.</div>
+        <a href="../classes/SYSTEM.SECURITY.RIGHTS.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="security" class="element ajax clickable class">
+        <h1>security<a href="../classes/SYSTEM.SECURITY.security.html">¶</a></h1>
+        <p class="short_description">security Class provided by System to manage website user and its attributes</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SECURITY.security.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="User" class="element ajax clickable class">
+        <h1>User<a href="../classes/SYSTEM.SECURITY.User.html">¶</a></h1>
+        <p class="short_description">User Class provided by System to manage website user session values</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.SECURITY.User.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.html">SYSTEM</a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/SYSTEM.API.html">API</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                                        <div id="api_default_interface" class="element ajax clickable interface">
+        <h1>api_default_interface<a href="../classes/SYSTEM.API.api_default_interface.html">¶</a></h1>
+        <p class="short_description">api_default Interface used internally in api_default Class
+can be used insted of api_default if hashbang mechanic should not be used.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.API.api_default_interface.html" class="more">« More »</a>
+    </div>
+
+                
+                                        <div id="api" class="element ajax clickable class">
+        <h1>api<a href="../classes/SYSTEM.API.api.html">¶</a></h1>
+        <p class="short_description">API Class provided by System for Smart API&#039;s.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.API.api.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="api_default" class="element ajax clickable class">
+        <h1>api_default<a href="../classes/SYSTEM.API.api_default.html">¶</a></h1>
+        <p class="short_description">API Default class providing defaulting capabilities and Hashbang-Crawling-Scheme.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.API.api_default.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="api_login" class="element ajax clickable class">
+        <h1>api_login<a href="../classes/SYSTEM.API.api_login.html">¶</a></h1>
+        <p class="short_description">API Login class providing System Account Functionality.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.API.api_login.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="api_system" class="element ajax clickable class">
+        <h1>api_system<a href="../classes/SYSTEM.API.api_system.html">¶</a></h1>
+        <p class="short_description">API System class providing System Functionality.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.API.api_system.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="verify" class="element ajax clickable class">
+        <h1>verify<a href="../classes/SYSTEM.API.verify.html">¶</a></h1>
+        <p class="short_description">API default verify Class for Parameter validation</p>
+        <div class="details collapse"></div>
+        <a href="../classes/SYSTEM.API.verify.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+    
+                
+    <ul class="breadcrumb">
+        <li><a href="../index.html"><i class="icon-th"></i></a></li>
+            
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/LIB.html">LIB</a>
+    </li>
+
+    </ul>
+
+    
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="lib_system" class="element ajax clickable class">
+        <h1>lib_system<a href="../classes/LIB.lib_system.html">¶</a></h1>
+        <p class="short_description">lib_system Class provided by System to serve system.js and system.css library.</p>
+        <div class="details collapse"></div>
+        <a href="../classes/LIB.lib_system.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+    
+        </div>
+    </div>
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Tue, 25 Jul 2017 11:33:07 +0200.<br/>
+    </footer>
+    </body>
+</html>

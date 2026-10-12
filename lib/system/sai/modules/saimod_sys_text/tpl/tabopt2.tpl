@@ -1,0 +1,1 @@
+<li class="nav-item" style="${style}"><a href="#!text(edittext(editor));id.${id};lang.${lang}" class="${default} nav-link" id="menu_lang_${lang}">${lang}</a></li>

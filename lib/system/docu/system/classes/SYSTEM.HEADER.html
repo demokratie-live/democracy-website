@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    SYSTEM - PHP Framework &raquo; \SYSTEM\HEADER
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">SYSTEM - PHP Framework</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/SYSTEM.html">SYSTEM</a></li>
+                                                                        <li><a href="../namespaces/LIB.html">LIB</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public">
+        <a href="#method_available" title="available :: Check if a given Datatype has a handler within this class.">
+            <span class="description">Check if a given Datatype has a handler within this class.</span><pre>available</pre>
+        </a>
+    </li>
+
+                                                                                                                                                                <li class="method public">
+        <a href="#method_CSS" title="CSS :: Send CSS Headers, if Header was not sent yet">
+            <span class="description">Send CSS Headers, if Header was not sent yet</span><pre>CSS</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_FILE" title="FILE :: Send FILE(download) Headers, if Header was not sent yet">
+            <span class="description">Send FILE(download) Headers, if Header was not sent yet</span><pre>FILE</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_GIF" title="GIF :: Send GIF Headers, if Header was not sent yet">
+            <span class="description">Send GIF Headers, if Header was not sent yet</span><pre>GIF</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_JPEG" title="JPEG :: Send JPEG Headers, if Header was not sent yet">
+            <span class="description">Send JPEG Headers, if Header was not sent yet</span><pre>JPEG</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_JPG" title="JPG :: Send JPG Headers, if Header was not sent yet">
+            <span class="description">Send JPG Headers, if Header was not sent yet</span><pre>JPG</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_JS" title="JS :: Send JS Headers, if Header was not sent yet">
+            <span class="description">Send JS Headers, if Header was not sent yet</span><pre>JS</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_JSON" title="JSON :: Send JSON Headers, if Header was not sent yet">
+            <span class="description">Send JSON Headers, if Header was not sent yet</span><pre>JSON</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_LESS" title="LESS :: Send LESS Headers, if Header was not sent yet">
+            <span class="description">Send LESS Headers, if Header was not sent yet</span><pre>LESS</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_PNG" title="PNG :: Send PNG Headers, if Header was not sent yet">
+            <span class="description">Send PNG Headers, if Header was not sent yet</span><pre>PNG</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                <li class="method private">
+                            <a href="#method_checkHeader" title="checkHeader :: Check if Header was already sent
+Writes Warning into Database on failure if Database logging is enabled.">
+                                <span class="description">Check if Header was already sent
+Writes Warning into Database on failure if Database logging is enabled.</span><pre>checkHeader</pre>
+                            </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>HEADER</h1>
+                <small style="display: block; text-align: right">
+                                                        </small>
+                <p class="short_description">HEADER Class provided by System Send HTML Headers</p>
+                <div class="details">
+                    <div class="long_description">
+                        
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>SYSTEM</p>
+                                    </td>
+                                </tr>
+                                                                                                                                                                                </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method_available"></a>
+                        <div class="element clickable method public  method_available" data-toggle="collapse" data-target=".method_available .collapse">
+                            <h2>Check if a given Datatype has a handler within this class.</h2>
+                            <pre>available(string $datatype) : boolean</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Not Case sensitive.</p></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$datatype</h4>
+                                                <code>string</code><p><p>Datatype to be checked eg. 'jpg'</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true or false</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_checkHeader"></a>
+                        <div class="element clickable method private  method_checkHeader" data-toggle="collapse" data-target=".method_checkHeader .collapse">
+                            <h2>Check if Header was already sent
+Writes Warning into Database on failure if Database logging is enabled.</h2>
+                            <pre>checkHeader() : boolean</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true or false</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_CSS"></a>
+                        <div class="element clickable method public  method_CSS" data-toggle="collapse" data-target=".method_CSS .collapse">
+                            <h2>Send CSS Headers, if Header was not sent yet</h2>
+                            <pre>CSS() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_FILE"></a>
+                        <div class="element clickable method public  method_FILE" data-toggle="collapse" data-target=".method_FILE .collapse">
+                            <h2>Send FILE(download) Headers, if Header was not sent yet</h2>
+                            <pre>FILE(string $filename) : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filename</h4>
+                                                <code>string</code><p><p>Filename which should be transmitted with the Filetransfere</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_GIF"></a>
+                        <div class="element clickable method public  method_GIF" data-toggle="collapse" data-target=".method_GIF .collapse">
+                            <h2>Send GIF Headers, if Header was not sent yet</h2>
+                            <pre>GIF() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_JPEG"></a>
+                        <div class="element clickable method public  method_JPEG" data-toggle="collapse" data-target=".method_JPEG .collapse">
+                            <h2>Send JPEG Headers, if Header was not sent yet</h2>
+                            <pre>JPEG() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_JPG"></a>
+                        <div class="element clickable method public  method_JPG" data-toggle="collapse" data-target=".method_JPG .collapse">
+                            <h2>Send JPG Headers, if Header was not sent yet</h2>
+                            <pre>JPG() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_JS"></a>
+                        <div class="element clickable method public  method_JS" data-toggle="collapse" data-target=".method_JS .collapse">
+                            <h2>Send JS Headers, if Header was not sent yet</h2>
+                            <pre>JS() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_JSON"></a>
+                        <div class="element clickable method public  method_JSON" data-toggle="collapse" data-target=".method_JSON .collapse">
+                            <h2>Send JSON Headers, if Header was not sent yet</h2>
+                            <pre>JSON() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_LESS"></a>
+                        <div class="element clickable method public  method_LESS" data-toggle="collapse" data-target=".method_LESS .collapse">
+                            <h2>Send LESS Headers, if Header was not sent yet</h2>
+                            <pre>LESS() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_PNG"></a>
+                        <div class="element clickable method public  method_PNG" data-toggle="collapse" data-target=".method_PNG .collapse">
+                            <h2>Send PNG Headers, if Header was not sent yet</h2>
+                            <pre>PNG() : null</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns null</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                    
+                    
+                                                        </div>
+            </div>
+            <a id="\SYSTEM\HEADER"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/SYSTEM.html">SYSTEM</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/SYSTEM.HEADER.html">HEADER</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Tue, 25 Jul 2017 11:33:08 +0200.<br/>
+    </footer>
+    </body>
+</html>

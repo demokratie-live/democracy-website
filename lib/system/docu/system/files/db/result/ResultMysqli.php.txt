@@ -1,0 +1,37 @@
+<?php
+
+namespace SYSTEM\DB;
+
+class ResultMysqli extends \SYSTEM\DB\Result{
+
+    private $res = NULL;
+    private $current = NULL;    
+
+    //Result from mysql_query
+    public function __construct($res){
+        $this->res = $res;}
+
+    public function __destruct(){
+        $this->close();}
+
+    public function close(){
+        mysqli_free_result($this->res);}
+
+    public function count(){
+        return mysqli_num_rows($this->res);}
+
+    public function affectedRows(){
+        return mysqli_affected_rows($this->res);}
+
+    public function next($object = false, $result_type = MYSQL_BOTH){        
+        if($object){
+            $this->current = mysqli_fetch_object($this->res);
+        } else {
+            $this->current = mysqli_fetch_assoc($this->res);
+        }
+        return $this->current;
+    }
+
+    public function seek($row_number){
+        return mysqli_data_seek($this->res,$row_number);}
+}

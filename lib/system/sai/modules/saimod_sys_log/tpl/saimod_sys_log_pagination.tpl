@@ -1,0 +1,1 @@
+<li class="${active} page-item"><a class="page-link" href="#!log;filter.${filter};search.${search};page.${page}">${page}</a></li>

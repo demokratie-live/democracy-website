@@ -1,0 +1,12 @@
+CREATE TABLE `system_api` (
+	`ID` INT(10) UNSIGNED NOT NULL,
+	`group` INT(10) UNSIGNED NOT NULL,
+	`type` TINYINT(3) UNSIGNED NOT NULL,
+	`parentID` INT(11) NOT NULL,
+	`parentValue` CHAR(50) NULL DEFAULT NULL,
+	`name` CHAR(50) NOT NULL,
+	`verify` CHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`ID`, `group`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;

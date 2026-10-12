@@ -1,0 +1,167 @@
+SYSTEM\DB\ResultPostgres
+===============
+
+Result Class provided by System to hold Database Query Result Ressources of PostgreSQL Querys.
+
+
+
+
+* Class name: ResultPostgres
+* Namespace: SYSTEM\DB
+* Parent class: [SYSTEM\DB\Result](SYSTEM-DB-Result)
+
+
+
+
+
+Properties
+----------
+
+
+### $res
+
+    private mixed $res = NULL
+
+ressource Variable to store Database Result-ressource
+
+
+
+* Visibility: **private**
+
+
+### $current
+
+    private mixed $current = NULL
+
+ressource Variable to store current Line either as array or object
+
+
+
+* Visibility: **private**
+
+
+### $connection
+
+    private mixed $connection = NULL
+
+ressource Variable to store Database Connection
+
+
+
+* Visibility: **private**
+
+
+Methods
+-------
+
+
+### __construct
+
+    mixed SYSTEM\DB\ResultPostgres::__construct(\SYSTEM\DB\ressource $res, \SYSTEM\DB\ressource $connection)
+
+Construct the Resultset with a database ressource
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $res **SYSTEM\DB\ressource** - &lt;p&gt;Ressource of the Database Result-Set&lt;/p&gt;
+* $connection **SYSTEM\DB\ressource** - &lt;p&gt;Connection on which the Result-Set was returned&lt;/p&gt;
+
+
+
+### __destruct
+
+    mixed SYSTEM\DB\ResultPostgres::__destruct()
+
+Close Resultset upon destruction
+
+
+
+* Visibility: **public**
+
+
+
+
+### close
+
+    null SYSTEM\DB\Result::close()
+
+Closes the Resultset
+
+
+
+* Visibility: **public**
+* This method is **abstract**.
+* This method is defined by [SYSTEM\DB\Result](SYSTEM-DB-Result)
+
+
+
+
+### count
+
+    integer SYSTEM\DB\Result::count()
+
+Counts the Lines in the Resultset
+
+
+
+* Visibility: **public**
+* This method is **abstract**.
+* This method is defined by [SYSTEM\DB\Result](SYSTEM-DB-Result)
+
+
+
+
+### affectedRows
+
+    integer SYSTEM\DB\Result::affectedRows()
+
+Counts the affected lines in the Resultset
+
+
+
+* Visibility: **public**
+* This method is **abstract**.
+* This method is defined by [SYSTEM\DB\Result](SYSTEM-DB-Result)
+
+
+
+
+### next
+
+    array SYSTEM\DB\Result::next(boolean $object)
+
+Returns the next line in the Resultset
+
+
+
+* Visibility: **public**
+* This method is **abstract**.
+* This method is defined by [SYSTEM\DB\Result](SYSTEM-DB-Result)
+
+
+#### Arguments
+* $object **boolean** - &lt;p&gt;Determines if the result will be an object or array&lt;/p&gt;
+
+
+
+### seek
+
+    boolean SYSTEM\DB\Result::seek(integer $row_number)
+
+Seeks an amount of lines within the Resultset
+
+
+
+* Visibility: **public**
+* This method is **abstract**.
+* This method is defined by [SYSTEM\DB\Result](SYSTEM-DB-Result)
+
+
+#### Arguments
+* $row_number **integer** - &lt;p&gt;Lines to seek over&lt;/p&gt;
+
+

@@ -1,0 +1,21 @@
+<?php 
+\SYSTEM\autoload::registerFolder(dirname(__FILE__),'LIB');
+require_once dirname(__FILE__).'/system/autoload.inc';
+require_once dirname(__FILE__).'/markdown/autoload.inc';
+require_once dirname(__FILE__).'/jquery/autoload.inc';
+require_once dirname(__FILE__).'/tablesorter/autoload.inc';
+require_once dirname(__FILE__).'/bootstrap/autoload.inc';
+require_once dirname(__FILE__).'/tinymce/autoload.inc';
+require_once dirname(__FILE__).'/textillate/autoload.inc';
+require_once dirname(__FILE__).'/animate/autoload.inc';
+require_once dirname(__FILE__).'/lettering/autoload.inc';
+require_once dirname(__FILE__).'/bootstrap_growl/autoload.inc';
+require_once dirname(__FILE__).'/git/autoload.inc';
+require_once dirname(__FILE__).'/jqbootstrapvalidation/autoload.inc';
+require_once dirname(__FILE__).'/scssphp/autoload.inc';
+require_once dirname(__FILE__).'/minify/autoload.inc';
+require_once dirname(__FILE__).'/phpdocumentor/autoload.inc';
+require_once dirname(__FILE__).'/phpdoc_md/autoload.inc';
+require_once dirname(__FILE__).'/jstree/autoload.inc';
+require_once dirname(__FILE__).'/popper/autoload.inc';
+require_once dirname(__FILE__).'/font_awesome/autoload.inc';

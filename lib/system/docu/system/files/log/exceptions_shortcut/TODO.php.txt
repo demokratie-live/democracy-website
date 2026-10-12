@@ -1,0 +1,2 @@
+<?php
+class TODO extends \SYSTEM\LOG\TODO {}
