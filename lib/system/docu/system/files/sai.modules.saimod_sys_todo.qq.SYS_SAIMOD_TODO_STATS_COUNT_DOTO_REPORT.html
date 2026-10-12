@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>SYSTEM - PHP Framework</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">SYSTEM - PHP Framework</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/LIB.html">\LIB</a></li>
+                                                        <li><a href="../namespaces/SYSTEM.html">\SYSTEM</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">2067</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1795308104"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1795308104" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-469364159"></a>
+                                <a href="../namespaces/LIB.html" style="margin-left: 30px; padding-left: 0">LIB</a>
+            </div>
+            <div id="namespace-469364159" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/LIB.lib.html">lib</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_controll.html">lib_controll</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_css.html">lib_css</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_js.html">lib_js</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_jscss.html">lib_jscss</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_php.html">lib_php</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_system.html">lib_system</a></li>
+                                                    <li class="class"><a href="../classes/LIB.lib_textillate.html">lib_textillate</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-731618534"></a>
+                                <a href="../namespaces/SYSTEM.html" style="margin-left: 30px; padding-left: 0">SYSTEM</a>
+            </div>
+            <div id="namespace-731618534" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-154662572"></a>
+                                <a href="../namespaces/SYSTEM.API.html" style="margin-left: 30px; padding-left: 0">API</a>
+            </div>
+            <div id="namespace-154662572" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.API.api.html">api</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.API.api_default.html">api_default</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.API.api_login.html">api_login</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.API.api_system.html">api_system</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.API.verify.html">verify</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1505488314"></a>
+                                <a href="../namespaces/SYSTEM.CACHE.html" style="margin-left: 30px; padding-left: 0">CACHE</a>
+            </div>
+            <div id="namespace-1505488314" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.CACHE.cache.html">cache</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CACHE.cache_css.html">cache_css</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CACHE.cache_filemask.html">cache_filemask</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CACHE.cache_js.html">cache_js</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CACHE.cache_scss.html">cache_scss</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-432664939"></a>
+                                <a href="../namespaces/SYSTEM.CONFIG.html" style="margin-left: 30px; padding-left: 0">CONFIG</a>
+            </div>
+            <div id="namespace-432664939" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.CONFIG.config.html">config</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CONFIG.config_ids.html">config_ids</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-734713779"></a>
+                                <a href="../namespaces/SYSTEM.CRON.html" style="margin-left: 30px; padding-left: 0">CRON</a>
+            </div>
+            <div id="namespace-734713779" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.CRON.cron.html">cron</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CRON.cron_cache_delete.html">cron_cache_delete</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CRON.cron_log2sqlite.html">cron_log2sqlite</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CRON.cronjob.html">cronjob</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CRON.cronstatus.html">cronstatus</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.CRON.crontime.html">crontime</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-649824866"></a>
+                                <a href="../namespaces/SYSTEM.DB.html" style="margin-left: 30px; padding-left: 0">DB</a>
+            </div>
+            <div id="namespace-649824866" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.DB.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ConnectionAbstr.html">ConnectionAbstr</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ConnectionAMQP.html">ConnectionAMQP</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ConnectionMYS.html">ConnectionMYS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ConnectionPG.html">ConnectionPG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ConnectionSQLite.html">ConnectionSQLite</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.DBInfo.html">DBInfo</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.DBInfoAMQP.html">DBInfoAMQP</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.DBInfoMYS.html">DBInfoMYS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.DBInfoPG.html">DBInfoPG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.DBInfoSQLite.html">DBInfoSQLite</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.QI.html">QI</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.QP.html">QP</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.QQ.html">QQ</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.Result.html">Result</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ResultAMQP.html">ResultAMQP</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ResultMysqli.html">ResultMysqli</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ResultMysqliPrepare.html">ResultMysqliPrepare</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ResultPostgres.html">ResultPostgres</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.DB.ResultSQLite.html">ResultSQLite</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1449869862"></a>
+                                <a href="../namespaces/SYSTEM.DOCU.html" style="margin-left: 30px; padding-left: 0">DOCU</a>
+            </div>
+            <div id="namespace-1449869862" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.DOCU.docu.html">docu</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1443431825"></a>
+                                <a href="../namespaces/SYSTEM.FILES.html" style="margin-left: 30px; padding-left: 0">FILES</a>
+            </div>
+            <div id="namespace-1443431825" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.FILES.files.html">files</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-479192021"></a>
+                                <a href="../namespaces/SYSTEM.HTML.html" style="margin-left: 30px; padding-left: 0">HTML</a>
+            </div>
+            <div id="namespace-479192021" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.HTML.html.html">html</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1675991526"></a>
+                                <a href="../namespaces/SYSTEM.LOG.html" style="margin-left: 30px; padding-left: 0">LOG</a>
+            </div>
+            <div id="namespace-1675991526" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.LOG.AbstractResult.html">AbstractResult</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.COUNTER.html">COUNTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.CRON.html">CRON</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.DEPRECATED.html">DEPRECATED</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.ERROR.html">ERROR</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.ERROR_EXCEPTION.html">ERROR_EXCEPTION</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.error_handler.html">error_handler</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.error_handler_dbwriter.html">error_handler_dbwriter</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.error_handler_jsonoutput.html">error_handler_jsonoutput</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.INFO.html">INFO</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.JsonResult.html">JsonResult</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.log.html">log</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.SHUTDOWN_EXCEPTION.html">SHUTDOWN_EXCEPTION</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.SYSTEM_ERROR_EXCEPTION.html">SYSTEM_ERROR_EXCEPTION</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.SYSTEM_EXCEPTION.html">SYSTEM_EXCEPTION</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.TODO.html">TODO</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.TranslatableError.html">TranslatableError</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.LOG.WARNING.html">WARNING</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-390684820"></a>
+                                <a href="../namespaces/SYSTEM.PAGE.html" style="margin-left: 30px; padding-left: 0">PAGE</a>
+            </div>
+            <div id="namespace-390684820" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.PAGE.Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PAGE.ParensParser.html">ParensParser</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PAGE.replace.html">replace</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PAGE.State.html">State</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PAGE.text.html">text</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-477376145"></a>
+                                <a href="../namespaces/SYSTEM.SAI.html" style="margin-left: 30px; padding-left: 0">SAI</a>
+            </div>
+            <div id="namespace-477376145" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.SAI.default_page.html">default_page</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.sai.html">sai</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saigui.html">saigui</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_api.html">saimod_sys_api</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_cache.html">saimod_sys_cache</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_config.html">saimod_sys_config</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_cron.html">saimod_sys_cron</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_docu.html">saimod_sys_docu</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_files.html">saimod_sys_files</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_git.html">saimod_sys_git</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_langswitcher.html">saimod_sys_langswitcher</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_log.html">saimod_sys_log</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_login.html">saimod_sys_login</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_mod.html">saimod_sys_mod</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_page.html">saimod_sys_page</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_security.html">saimod_sys_security</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_text.html">saimod_sys_text</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saimod_sys_todo.html">saimod_sys_todo</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.SaiModule.html">SaiModule</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.saistart_sys_sai.html">saistart_sys_sai</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.todo_stats.html">todo_stats</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.todo_stats_assign.html">todo_stats_assign</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.todo_stats_data.html">todo_stats_data</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.todo_stats_gen.html">todo_stats_gen</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.todo_stats_report.html">todo_stats_report</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SAI.todo_stats_user.html">todo_stats_user</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1525726552"></a>
+                                <a href="../namespaces/SYSTEM.SECURITY.html" style="margin-left: 30px; padding-left: 0">SECURITY</a>
+            </div>
+            <div id="namespace-1525726552" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.SECURITY.RIGHTS.html">RIGHTS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SECURITY.Security.html">Security</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SECURITY.User.html">User</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-570583083"></a>
+                                <a href="../namespaces/SYSTEM.SQL.html" style="margin-left: 30px; padding-left: 0">SQL</a>
+            </div>
+            <div id="namespace-570583083" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.SQL.DATA_SYSTEM_API.html">DATA_SYSTEM_API</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.DATA_SYSTEM_CRON.html">DATA_SYSTEM_CRON</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.DATA_SYSTEM_PAGE.html">DATA_SYSTEM_PAGE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.DATA_SYSTEM_RIGHTS.html">DATA_SYSTEM_RIGHTS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.DATA_SYSTEM_TEXT.html">DATA_SYSTEM_TEXT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SCHEMA_SYSTEM.html">SCHEMA_SYSTEM</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.setup.html">setup</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_API_TREE.html">SYS_API_TREE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CACHE_CHECK.html">SYS_CACHE_CHECK</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CACHE_DELETE.html">SYS_CACHE_DELETE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CACHE_DELETE_ALL.html">SYS_CACHE_DELETE_ALL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CACHE_PUT.html">SYS_CACHE_PUT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CRON_GET.html">SYS_CRON_GET</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CRON_LAST_VISIT.html">SYS_CRON_LAST_VISIT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CRON_LIST.html">SYS_CRON_LIST</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_CRON_UPD.html">SYS_CRON_UPD</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_LOCALE_SET_LOCALE.html">SYS_LOCALE_SET_LOCALE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_LOG_DEL.html">SYS_LOG_DEL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_LOG_INSERT.html">SYS_LOG_INSERT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_LOG_MONTH.html">SYS_LOG_MONTH</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_LOG_OLDEST.html">SYS_LOG_OLDEST</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_PAGE_GROUP.html">SYS_PAGE_GROUP</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_ADD.html">SYS_SAIMOD_API_ADD</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_DEL.html">SYS_SAIMOD_API_DEL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_GET.html">SYS_SAIMOD_API_GET</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_GROUPS.html">SYS_SAIMOD_API_GROUPS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_API_SINGLE_SELECT.html">SYS_SAIMOD_API_SINGLE_SELECT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE.html">SYS_SAIMOD_CACHE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE_CLEAR.html">SYS_SAIMOD_CACHE_CLEAR</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CACHE_COUNT.html">SYS_SAIMOD_CACHE_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON.html">SYS_SAIMOD_CRON</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_ADD.html">SYS_SAIMOD_CRON_ADD</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_CHANGE.html">SYS_SAIMOD_CRON_CHANGE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_DEL.html">SYS_SAIMOD_CRON_DEL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_CRON_SINGLE_SELECT.html">SYS_SAIMOD_CRON_SINGLE_SELECT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_ANALYTICS.html">SYS_SAIMOD_LOG_ANALYTICS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_QUERYTIME.html">SYS_SAIMOD_LOG_BASIC_QUERYTIME</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_SUCCESS.html">SYS_SAIMOD_LOG_BASIC_SUCCESS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_BASIC_VISITOR.html">SYS_SAIMOD_LOG_BASIC_VISITOR</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_BASIC.html">SYS_SAIMOD_LOG_CLASS_BASIC</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_OTHER.html">SYS_SAIMOD_LOG_CLASS_OTHER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_CLASS_SYSTEM.html">SYS_SAIMOD_LOG_CLASS_SYSTEM</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_ERROR.html">SYS_SAIMOD_LOG_ERROR</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTER.html">SYS_SAIMOD_LOG_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTER_COUNT.html">SYS_SAIMOD_LOG_FILTER_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_FILTERS.html">SYS_SAIMOD_LOG_FILTERS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_TRUNCATE.html">SYS_SAIMOD_LOG_TRUNCATE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_BASIC.html">SYS_SAIMOD_LOG_UNIQUE_BASIC</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_EXCEPTION.html">SYS_SAIMOD_LOG_UNIQUE_EXCEPTION</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_REFERER.html">SYS_SAIMOD_LOG_UNIQUE_REFERER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_LOG_UNIQUE_REQUEST.html">SYS_SAIMOD_LOG_UNIQUE_REQUEST</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_ADD.html">SYS_SAIMOD_PAGE_ADD</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_DEL.html">SYS_SAIMOD_PAGE_DEL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_GET.html">SYS_SAIMOD_PAGE_GET</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_GROUPS.html">SYS_SAIMOD_PAGE_GROUPS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_PAGE_SINGLE_SELECT.html">SYS_SAIMOD_PAGE_SINGLE_SELECT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_CHECK.html">SYS_SAIMOD_SECURITY_RIGHT_CHECK</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_DELETE.html">SYS_SAIMOD_SECURITY_RIGHT_DELETE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHT_INSERT.html">SYS_SAIMOD_SECURITY_RIGHT_INSERT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_RIGHTS.html">SYS_SAIMOD_SECURITY_RIGHTS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER.html">SYS_SAIMOD_SECURITY_USER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_COUNT.html">SYS_SAIMOD_SECURITY_USER_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_COUNT_FILTER.html">SYS_SAIMOD_SECURITY_USER_COUNT_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_LOG.html">SYS_SAIMOD_SECURITY_USER_LOG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_LOG_COUNT.html">SYS_SAIMOD_SECURITY_USER_LOG_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK.html">SYS_SAIMOD_SECURITY_USER_RIGHT_CHECK</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE.html">SYS_SAIMOD_SECURITY_USER_RIGHT_DELETE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT.html">SYS_SAIMOD_SECURITY_USER_RIGHT_INSERT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USER_RIGHTS.html">SYS_SAIMOD_SECURITY_USER_RIGHTS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USERS.html">SYS_SAIMOD_SECURITY_USERS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_SECURITY_USERS_FILTER.html">SYS_SAIMOD_SECURITY_USERS_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT.html">SYS_SAIMOD_TEXT_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_FILTER.html">SYS_SAIMOD_TEXT_COUNT_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_NOTAG.html">SYS_SAIMOD_TEXT_COUNT_NOTAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER.html">SYS_SAIMOD_TEXT_COUNT_NOTAG_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_TAG.html">SYS_SAIMOD_TEXT_COUNT_TAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_COUNT_TAG_FILTER.html">SYS_SAIMOD_TEXT_COUNT_TAG_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TAGS.html">SYS_SAIMOD_TEXT_TAGS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT.html">SYS_SAIMOD_TEXT_TEXT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_FILTER.html">SYS_SAIMOD_TEXT_TEXT_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_NOTAG.html">SYS_SAIMOD_TEXT_TEXT_NOTAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER.html">SYS_SAIMOD_TEXT_TEXT_NOTAG_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_TAG.html">SYS_SAIMOD_TEXT_TEXT_TAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TEXT_TEXT_TAG_FILTER.html">SYS_SAIMOD_TEXT_TEXT_TAG_FILTER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_ASSIGN.html">SYS_SAIMOD_TODO_ASSIGN</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_ASSIGNEES.html">SYS_SAIMOD_TODO_ASSIGNEES</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_CLOSE.html">SYS_SAIMOD_TODO_CLOSE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_CLOSE_ALL.html">SYS_SAIMOD_TODO_CLOSE_ALL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT.html">SYS_SAIMOD_TODO_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_FREE.html">SYS_SAIMOD_TODO_COUNT_FREE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_MINE.html">SYS_SAIMOD_TODO_COUNT_MINE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_OTHERS.html">SYS_SAIMOD_TODO_COUNT_OTHERS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_COUNT_TYPE.html">SYS_SAIMOD_TODO_COUNT_TYPE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_DEASSIGN.html">SYS_SAIMOD_TODO_DEASSIGN</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_EDIT.html">SYS_SAIMOD_TODO_EDIT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_EXCEPTION_INSERT.html">SYS_SAIMOD_TODO_EXCEPTION_INSERT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST.html">SYS_SAIMOD_TODO_LIST</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_FREE.html">SYS_SAIMOD_TODO_LIST_FREE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_MINE.html">SYS_SAIMOD_TODO_LIST_MINE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_OTHERS.html">SYS_SAIMOD_TODO_LIST_OTHERS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_LIST_TYPE.html">SYS_SAIMOD_TODO_LIST_TYPE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_OPEN.html">SYS_SAIMOD_TODO_OPEN</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_PRIORITY.html">SYS_SAIMOD_TODO_PRIORITY</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_ASSIGNED.html">SYS_SAIMOD_TODO_STATS_ASSIGNED</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_CLOSED.html">SYS_SAIMOD_TODO_STATS_CLOSED</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN.html">SYS_SAIMOD_TODO_STATS_COUNT_DOTO_GEN</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT.html">SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER.html">SYS_SAIMOD_TODO_STATS_COUNT_DOTO_USER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN.html">SYS_SAIMOD_TODO_STATS_COUNT_TODO_GEN</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_NOT_ASSIGNED.html">SYS_SAIMOD_TODO_STATS_COUNT_TODO_NOT_ASSIGNED</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT.html">SYS_SAIMOD_TODO_STATS_COUNT_TODO_REPORT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER.html">SYS_SAIMOD_TODO_STATS_COUNT_TODO_USER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_USERS.html">SYS_SAIMOD_TODO_STATS_USERS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_TODO.html">SYS_SAIMOD_TODO_TODO</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_AVAILABLE.html">SYS_SECURITY_AVAILABLE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_CHECK.html">SYS_SECURITY_CHECK</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_CREATE.html">SYS_SECURITY_CREATE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_LOGIN_MD5.html">SYS_SECURITY_LOGIN_MD5</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_LOGIN_SHA1.html">SYS_SECURITY_LOGIN_SHA1</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_UPDATE_LASTACTIVE.html">SYS_SECURITY_UPDATE_LASTACTIVE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_SECURITY_UPDATE_PW.html">SYS_SECURITY_UPDATE_PW</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_DELETE.html">SYS_TEXT_DELETE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_DELETE_TAGS.html">SYS_TEXT_DELETE_TAGS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID.html">SYS_TEXT_GET_ID</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_ADV.html">SYS_TEXT_GET_ID_ADV</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_COUNT.html">SYS_TEXT_GET_ID_COUNT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_ID_TAGS.html">SYS_TEXT_GET_ID_TAGS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_LATEST.html">SYS_TEXT_GET_LATEST</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAG.html">SYS_TEXT_GET_TAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAG_ADV.html">SYS_TEXT_GET_TAG_ADV</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_GET_TAGS.html">SYS_TEXT_GET_TAGS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_RENAME.html">SYS_TEXT_RENAME</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_RENAME_TAGS.html">SYS_TEXT_RENAME_TAGS</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_SAVE.html">SYS_TEXT_SAVE</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_SAVE_TAG.html">SYS_TEXT_SAVE_TAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.SYS_TEXT_SEARCH_TAG.html">SYS_TEXT_SEARCH_TAG</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_api.html">system_api</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_cron.html">system_cron</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_log.html">system_log</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_page.html">system_page</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_text.html">system_text</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_todo.html">system_todo</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_todo_assign.html">system_todo_assign</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_user.html">system_user</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.SQL.system_user_to_rights.html">system_user_to_rights</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SYSTEM.autoload.html">autoload</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.HEADER.html">HEADER</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.locale.html">locale</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PATH.html">PATH</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PLIB.html">PLIB</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PROOT.html">PROOT</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PSAI.html">PSAI</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PSQL.html">PSQL</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.PSYSTEM.html">PSYSTEM</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.system.html">system</a></li>
+                                                    <li class="class"><a href="../classes/SYSTEM.time.html">time</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/DEPRECATED.html">DEPRECATED</a></li>
+                                                    <li class="class"><a href="../classes/ERROR.html">ERROR</a></li>
+                                                    <li class="class"><a href="../classes/INFO.html">INFO</a></li>
+                                                    <li class="class"><a href="../classes/JsonResult.html">JsonResult</a></li>
+                                                    <li class="class"><a href="../classes/TODO.html">TODO</a></li>
+                                                    <li class="class"><a href="../classes/WARNING.html">WARNING</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>sai/modules/saimod_sys_todo/qq</small>SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT.php</h1>
+                    <p><em></em></p>
+                    
+
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/SYSTEM.SQL.SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT.html">SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/sai/modules/saimod_sys_todo/qq/SYS_SAIMOD_TODO_STATS_COUNT_DOTO_REPORT.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/LIB.html">\LIB</a></li>
+                                                                            <li><a href="../namespaces/SYSTEM.html">\SYSTEM</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on March 4th, 2016 at 19:59.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

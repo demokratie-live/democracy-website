@@ -1,0 +1,12 @@
+<?php
+
+namespace SYSTEM\LOG;
+
+class error_handler {
+    //Error Mask E_ALL, E_NOTICE ...
+    public static function MASK(){
+        throw new \RuntimeException("Implement this");}
+    //Errorhandler
+    public static function CALL(\Exception $E, $thrown){
+        throw new \RuntimeException("Implement this");}
+}

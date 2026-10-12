@@ -1,0 +1,9 @@
+CREATE TABLE `system_rights` (
+	`ID` INT(10) NOT NULL AUTO_INCREMENT,
+	`name` CHAR(50) NOT NULL,
+	`description` CHAR(255) NOT NULL,
+	PRIMARY KEY (`ID`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+AUTO_INCREMENT=16;

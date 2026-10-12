@@ -1,0 +1,1 @@
+INSERT IGNORE INTO email_list (`id`,`name`,`system_lock`) VALUES (1,'Test',1);

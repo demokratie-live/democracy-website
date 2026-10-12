@@ -1,0 +1,13 @@
+<?php
+namespace SYSTEM\LOG;
+
+class SYSTEM_EXCEPTION extends \Exception {
+    public $logged = false;
+    public $todo_logged = false;
+    public function __construct($message = "", $code = 1, $previous = NULL){
+        parent::__construct($message, $code, $previous);
+        \SYSTEM\LOG\log::__exception_handler($this,false);
+    }
+}
+
+

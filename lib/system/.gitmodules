@@ -1,0 +1,60 @@
+[submodule "lib/jquery"]
+	path = lib/jquery
+	url = ../lib_jquery.git
+[submodule "lib/bootstrap"]
+	path = lib/bootstrap
+	url = ../lib_bootstrap.git
+[submodule "lib/markdown"]
+	path = lib/markdown
+	url = ../lib_markdown.git
+[submodule "lib/tinymce"]
+	path = lib/tinymce
+	url = ../lib_tinymce.git
+[submodule "lib/bootstrap_growl"]
+	path = lib/bootstrap_growl
+	url = ../lib_bootstrap_growl.git
+[submodule "lib/textillate"]
+	path = lib/textillate
+	url = ../lib_textillate.git
+[submodule "lib/lettering"]
+	path = lib/lettering
+	url = ../lib_lettering.git
+[submodule "lib/animate"]
+	path = lib/animate
+	url = ../lib_animate.git
+[submodule "lib/tablesorter"]
+	path = lib/tablesorter
+	url = ../lib_tablesorter.git
+[submodule "lib/git"]
+	path = lib/git
+	url = ../lib_git.git
+[submodule "lib/jqbootstrapvalidation"]
+	path = lib/jqbootstrapvalidation
+	url = ../lib_jqbootstrapvalidation.git
+[submodule "lib/scssphp"]
+	path = lib/scssphp
+	url = ../lib_scssphp.git
+[submodule "lib/minify"]
+	path = lib/minify
+	url = ../lib_minify.git
+[submodule "lib/phpdocumentor"]
+	path = lib/phpdocumentor
+	url = ../lib_phpdocumentor.git
+[submodule "docu/system"]
+	path = docu/system
+	url = ../docu_system.git
+[submodule "docu/system_wiki"]
+	path = docu/system_wiki
+	url = ../system.wiki.git
+[submodule "lib/phpdoc_md"]
+	path = lib/phpdoc_md
+	url = ../lib_phpdoc_md.git
+[submodule "lib/jstree"]
+	path = lib/jstree
+	url = ../lib_jstree.git
+[submodule "lib/font_awesome"]
+	path = lib/font_awesome
+	url = ../lib_font_awesome.git
+[submodule "lib/popper"]
+	path = lib/popper
+	url = ../lib_popper.git

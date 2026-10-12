@@ -1,0 +1,36 @@
+table.sai_table tr:nth-child(even) {
+ background-color: #FFFFFF;
+}
+table.sai_table tr:nth-child(odd) {
+ background-color: #EEEEEE;
+}
+table.sai_table tr:hover {
+ background-color: #FFEFD5;
+}
+
+a.active{
+    background-color: #e7e7e7;
+}
+
+#menu_start {
+    font-size: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
+    color: #777;
+}
+
+#menu_start:hover{
+    text-decoration: none;
+    color: #555;
+}
+
+#menu_start:focus{
+    text-decoration: none;
+    color: #555;
+}
+
+#menu_start:active{
+    text-decoration: none;
+    color: #555;
+}

@@ -1,0 +1,1 @@
+<a class="dropdown-item" href="javascript:system.language('${lang}');"><img src="./files/sai/flag_${lang}.png" alt="${lang}" width="16" height="11">&nbsp;${lang}</a>&nbsp;

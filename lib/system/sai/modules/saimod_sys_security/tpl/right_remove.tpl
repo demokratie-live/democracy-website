@@ -1,0 +1,1 @@
+<button type="submit" class="btn btn-sm btn-danger deleteuserright" right_id="${id}" user_id="${userid}"><span class="fa fa-trash" aria-hidden="true"></span> ${basic_delete}</button>

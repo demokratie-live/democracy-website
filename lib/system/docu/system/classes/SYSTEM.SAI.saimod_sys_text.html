@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    SYSTEM - PHP Framework &raquo; \SYSTEM\SAI\saimod_sys_text
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">SYSTEM - PHP Framework</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/SYSTEM.html">SYSTEM</a></li>
+                                                                        <li><a href="../namespaces/LIB.html">LIB</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public inherited">
+        <a href="#method_call_account_action_change_email" title="call_account_action_change_email :: System Account Request Change EMail Token">
+            <span class="description">System Account Request Change EMail Token</span><pre>call_account_action_change_email</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_change_password" title="call_account_action_change_password :: System Account Change Password">
+            <span class="description">System Account Change Password</span><pre>call_account_action_change_password</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_check" title="call_account_action_check :: System Account Right Check">
+            <span class="description">System Account Right Check</span><pre>call_account_action_check</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_confirm" title="call_account_action_confirm :: System Account Confirm Tokens">
+            <span class="description">System Account Confirm Tokens</span><pre>call_account_action_confirm</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_confirm_email" title="call_account_action_confirm_email :: System Account Request Confirm EMail Token">
+            <span class="description">System Account Request Confirm EMail Token</span><pre>call_account_action_confirm_email</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_create" title="call_account_action_create :: System Account Create">
+            <span class="description">System Account Create</span><pre>call_account_action_create</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_isloggedin" title="call_account_action_isloggedin :: System Account isloggedin check">
+            <span class="description">System Account isloggedin check</span><pre>call_account_action_isloggedin</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_login" title="call_account_action_login :: System Account Login">
+            <span class="description">System Account Login</span><pre>call_account_action_login</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_logout" title="call_account_action_logout :: System Account Logout">
+            <span class="description">System Account Logout</span><pre>call_account_action_logout</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_account_action_reset_password" title="call_account_action_reset_password :: System Account Request Reset Password Token">
+            <span class="description">System Account Request Reset Password Token</span><pre>call_account_action_reset_password</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_bug" title="call_bug :: API Bug Call to report Bugs">
+            <span class="description">API Bug Call to report Bugs</span><pre>call_bug</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_cache" title="call_cache :: API Cache Call to request cached Data (usually js and css)">
+            <span class="description">API Cache Call to request cached Data (usually js and css)</span><pre>call_cache</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_cron" title="call_cron :: System run Cron Call">
+            <span class="description">System run Cron Call</span><pre>call_cron</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_files" title="call_files :: System File Request Call">
+            <span class="description">System File Request Call</span><pre>call_files</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_pages" title="call_pages :: System State-Pages Request Call">
+            <span class="description">System State-Pages Request Call</span><pre>call_pages</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_call_text" title="call_text :: System Text Request Call">
+            <span class="description">System Text Request Call</span><pre>call_text</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_css" title="css :: Get all css System Paths required for this Saimod">
+            <span class="description">Get all css System Paths required for this Saimod</span><pre>css</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_default_page" title="default_page :: Default Page anchor to catch all calls not answered by the saimod api">
+            <span class="description">Default Page anchor to catch all calls not answered by the saimod api</span><pre>default_page</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_get_apigroup" title="get_apigroup :: Get the Api Group this Api is operating on">
+            <span class="description">Get the Api Group this Api is operating on</span><pre>get_apigroup</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_get_class" title="get_class :: API Class function - implement this function and return the Classname">
+            <span class="description">API Class function - implement this function and return the Classname</span><pre>get_class</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_get_default_state" title="get_default_state :: Get default state for this statesystem">
+            <span class="description">Get default state for this statesystem</span><pre>get_default_state</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_get_params" title="get_params :: Fixes Classnames for sai postfield">
+            <span class="description">Fixes Classnames for sai postfield</span><pre>get_params</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_html_li_menu" title="html_li_menu :: Generate the &lt;li&gt; menu for the Saimod
+Override this">
+            <span class="description">Generate the &lt;li&gt; menu for the Saimod
+Override this</span><pre>html_li_menu</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_js" title="js :: Get all js System Paths required for this Saimod">
+            <span class="description">Get all js System Paths required for this Saimod</span><pre>js</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_right_public" title="right_public :: Check public state for the Saimod.">
+            <span class="description">Check public state for the Saimod.</span><pre>right_public</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_right_right" title="right_right :: Check rights for the Saimod.">
+            <span class="description">Check rights for the Saimod.</span><pre>right_right</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text" title="sai_mod__SYSTEM_SAI_saimod_sys_text :: Generate the HTML for the Saimods startpage">
+            <span class="description">Generate the HTML for the Saimods startpage</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete" title="sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete :: Delete a Text from the Database">
+            <span class="description">Delete a Text from the Database</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor" title="sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor :: Generate the HTML for the Editor">
+            <span class="description">Generate the HTML for the Editor</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext" title="sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext :: Generate the HTML to edit a text">
+            <span class="description">Generate the HTML to edit a text</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag" title="sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag :: Generate the HTML for the Texts with no Tag">
+            <span class="description">Generate the HTML for the Texts with no Tag</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_save" title="sai_mod__SYSTEM_SAI_saimod_sys_text_action_save :: Save a Text into the Database">
+            <span class="description">Save a Text into the Database</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_save</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag" title="sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag :: Generate the HTML for the Texts with a Tag">
+            <span class="description">Generate the HTML for the Texts with a Tag</span><pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_static__" title="static__ :: Static Time-Parameter _ Call to avoid caching and API Errors for JS requests">
+            <span class="description">Static Time-Parameter _ Call to avoid caching and API Errors for JS requests</span><pre>static__</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_static__escaped_fragment_" title="static__escaped_fragment_ :: Static Call handler for Hashbang-Crawling Requests">
+            <span class="description">Static Call handler for Hashbang-Crawling Requests</span><pre>static__escaped_fragment_</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_static__lang" title="static__lang :: Static Call to change Language for the current Session/User">
+            <span class="description">Static Call to change Language for the current Session/User</span><pre>static__lang</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public inherited">
+        <a href="#method_static__result" title="static__result :: Static Call to change Result-Type for the current Session/User">
+            <span class="description">Static Call to change Result-Type for the current Session/User</span><pre>static__result</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>saimod_sys_text</h1>
+                <small style="display: block; text-align: right">
+                                            Extends <a href="../classes/SYSTEM.SAI.SaiModule.html">\SYSTEM\SAI\SaiModule</a>
+                                                        </small>
+                <p class="short_description">saimod_sys_text Class provided by System as saimod to manage the system_text, system_text_tag table</p>
+                <div class="details">
+                    <div class="long_description">
+                        
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>SYSTEM\SAI</p>
+                                    </td>
+                                </tr>
+                                                                                                                                                                                </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method_call_account_action_change_email"></a>
+                        <div class="element clickable method public  method_call_account_action_change_email inherited" data-toggle="collapse" data-target=".method_call_account_action_change_email .collapse">
+                            <h2>System Account Request Change EMail Token</h2>
+                            <pre>call_account_action_change_email(string $new_email) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$new_email</h4>
+                                                <code>string</code><p><p>Users new EMail Address</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_change_password"></a>
+                        <div class="element clickable method public  method_call_account_action_change_password inherited" data-toggle="collapse" data-target=".method_call_account_action_change_password .collapse">
+                            <h2>System Account Change Password</h2>
+                            <pre>call_account_action_change_password(string $old_password_sha1, string $new_password_sha1) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$old_password_sha1</h4>
+                                                <code>string</code><p><p>Users Old Password SHA1 String</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$new_password_sha1</h4>
+                                                <code>string</code><p><p>Users New Password SHA1 String</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_check"></a>
+                        <div class="element clickable method public  method_call_account_action_check inherited" data-toggle="collapse" data-target=".method_call_account_action_check .collapse">
+                            <h2>System Account Right Check</h2>
+                            <pre>call_account_action_check(integer $rightid) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$rightid</h4>
+                                                <code>integer</code><p><p>RightID of the right to be checked</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_confirm"></a>
+                        <div class="element clickable method public  method_call_account_action_confirm inherited" data-toggle="collapse" data-target=".method_call_account_action_confirm .collapse">
+                            <h2>System Account Confirm Tokens</h2>
+                            <pre>call_account_action_confirm(string $token) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$token</h4>
+                                                <code>string</code><p><p>Token to do specifics with your Account</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_confirm_email"></a>
+                        <div class="element clickable method public  method_call_account_action_confirm_email inherited" data-toggle="collapse" data-target=".method_call_account_action_confirm_email .collapse">
+                            <h2>System Account Request Confirm EMail Token</h2>
+                            <pre>call_account_action_confirm_email() : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_create"></a>
+                        <div class="element clickable method public  method_call_account_action_create inherited" data-toggle="collapse" data-target=".method_call_account_action_create .collapse">
+                            <h2>System Account Create</h2>
+                            <pre>call_account_action_create(string $username, \SYSTEM\API\sha1 $password_sha1, \SYSTEM\API\email $email, \SYSTEM\API\lang $locale = null) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$username</h4>
+                                                <code>string</code><p><p>Username</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$password_sha1</h4>
+                                                <code>\SYSTEM\API\sha1</code><p><p>User Password SHA1 String</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$email</h4>
+                                                <code>\SYSTEM\API\email</code><p><p>Email of the new User</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>\SYSTEM\API\lang</code><p><p>Locale which the User wants to register or null for default language</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_isloggedin"></a>
+                        <div class="element clickable method public  method_call_account_action_isloggedin inherited" data-toggle="collapse" data-target=".method_call_account_action_isloggedin .collapse">
+                            <h2>System Account isloggedin check</h2>
+                            <pre>call_account_action_isloggedin() : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_login"></a>
+                        <div class="element clickable method public  method_call_account_action_login inherited" data-toggle="collapse" data-target=".method_call_account_action_login .collapse">
+                            <h2>System Account Login</h2>
+                            <pre>call_account_action_login(string $username, \SYSTEM\API\sha1 $password_sha1, \SYSTEM\API\lang $locale = null) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$username</h4>
+                                                <code>string</code><p><p>Username</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$password_sha1</h4>
+                                                <code>\SYSTEM\API\sha1</code><p><p>User Password SHA1 String</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$locale</h4>
+                                                <code>\SYSTEM\API\lang</code><p><p>Locale which the User wants to login with</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_logout"></a>
+                        <div class="element clickable method public  method_call_account_action_logout inherited" data-toggle="collapse" data-target=".method_call_account_action_logout .collapse">
+                            <h2>System Account Logout</h2>
+                            <pre>call_account_action_logout() : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_account_action_reset_password"></a>
+                        <div class="element clickable method public  method_call_account_action_reset_password inherited" data-toggle="collapse" data-target=".method_call_account_action_reset_password .collapse">
+                            <h2>System Account Request Reset Password Token</h2>
+                            <pre>call_account_action_reset_password(string $username) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$username</h4>
+                                                <code>string</code><p><p>Username</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_bug"></a>
+                        <div class="element clickable method public  method_call_bug inherited" data-toggle="collapse" data-target=".method_call_bug .collapse">
+                            <h2>API Bug Call to report Bugs</h2>
+                            <pre>call_bug(string $message, \SYSTEM\API\JSON $data) : null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$message</h4>
+                                                <code>string</code><p><p>Bugreport Message</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$data</h4>
+                                                <code>\SYSTEM\API\JSON</code><p><p>Bugreport Data</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_cache"></a>
+                        <div class="element clickable method public  method_call_cache inherited" data-toggle="collapse" data-target=".method_call_cache .collapse">
+                            <h2>API Cache Call to request cached Data (usually js and css)</h2>
+                            <pre>call_cache(integer $id, \SYSTEM\API\sha1 $ident) : mixed</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>integer</code><p><p>Cache id to be queried</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$ident</h4>
+                                                <code>\SYSTEM\API\sha1</code><p><p>Cache ident to be queried</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p><p>Returns cached Data from Database</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_cron"></a>
+                        <div class="element clickable method public  method_call_cron inherited" data-toggle="collapse" data-target=".method_call_cron .collapse">
+                            <h2>System run Cron Call</h2>
+                            <pre>call_cron() : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with success/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_files"></a>
+                        <div class="element clickable method public  method_call_files inherited" data-toggle="collapse" data-target=".method_call_files .collapse">
+                            <h2>System File Request Call</h2>
+                            <pre>call_files(string $cat, string $id = null) : mixed</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cat</h4>
+                                                <code>string</code><p><p>File category</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>File name</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p><p>Returns JSON result with failure status or streams the File</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_pages"></a>
+                        <div class="element clickable method public  method_call_pages inherited" data-toggle="collapse" data-target=".method_call_pages .collapse">
+                            <h2>System State-Pages Request Call</h2>
+                            <pre>call_pages(integer $group, string $state) : mixed</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$group</h4>
+                                                <code>integer</code><p><p>Page Group for Statesystem</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$state</h4>
+                                                <code>string</code><p><p>Full name of the State.</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p><p>Returns JSON result with data/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_call_text"></a>
+                        <div class="element clickable method public  method_call_text inherited" data-toggle="collapse" data-target=".method_call_text .collapse">
+                            <h2>System Text Request Call</h2>
+                            <pre>call_text(mixed $request, \SYSTEM\API\lang $lang) : \SYSTEM\API\JSON</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$request</h4>
+                                                <code>mixed</code><p><p>Request String for Text API</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$lang</h4>
+                                                <code>\SYSTEM\API\lang</code><p><p>Request Language for given text</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\API\JSON</code><p><p>Returns JSON result with data/failure status</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_css"></a>
+                        <div class="element clickable method public  method_css" data-toggle="collapse" data-target=".method_css .collapse">
+                            <h2>Get all css System Paths required for this Saimod</h2>
+                            <pre>css() : array</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Returns array of Pathobjects pointing to the saimods css</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_default_page"></a>
+                        <div class="element clickable method public  method_default_page inherited" data-toggle="collapse" data-target=".method_default_page .collapse">
+                            <h2>Default Page anchor to catch all calls not answered by the saimod api</h2>
+                            <pre>default_page(string $_escaped_fragment_ = null) : string</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$_escaped_fragment_</h4>
+                                                <code>string</code><p><p>Param for Hashbangcrawling</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML of the defaultpage</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get_apigroup"></a>
+                        <div class="element clickable method public  method_get_apigroup inherited" data-toggle="collapse" data-target=".method_get_apigroup .collapse">
+                            <h2>Get the Api Group this Api is operating on</h2>
+                            <pre>get_apigroup() : integer</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p><p>Returns api group id.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get_class"></a>
+                        <div class="element clickable method public  method_get_class inherited" data-toggle="collapse" data-target=".method_get_class .collapse">
+                            <h2>API Class function - implement this function and return the Classname</h2>
+                            <pre>get_class() : string</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns your API-Class name</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get_default_state"></a>
+                        <div class="element clickable method public  method_get_default_state inherited" data-toggle="collapse" data-target=".method_get_default_state .collapse">
+                            <h2>Get default state for this statesystem</h2>
+                            <pre>get_default_state() : string</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns name of the startstate.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get_params"></a>
+                        <div class="element clickable method public  method_get_params inherited" data-toggle="collapse" data-target=".method_get_params .collapse">
+                            <h2>Fixes Classnames for sai postfield</h2>
+                            <pre>get_params(array $params) : array</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$params</h4>
+                                                <code>array</code><p><p>Params to be corrected</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Returns array of corrected Params.</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_html_li_menu"></a>
+                        <div class="element clickable method public  method_html_li_menu inherited" data-toggle="collapse" data-target=".method_html_li_menu .collapse">
+                            <h2>Generate the &lt;li&gt; menu for the Saimod
+Override this</h2>
+                            <pre>html_li_menu() : string</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML of the <li> menu for the Saimod</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_js"></a>
+                        <div class="element clickable method public  method_js" data-toggle="collapse" data-target=".method_js .collapse">
+                            <h2>Get all js System Paths required for this Saimod</h2>
+                            <pre>js() : array</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Returns array of Pathobjects pointing to the saimods js</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_right_public"></a>
+                        <div class="element clickable method public  method_right_public inherited" data-toggle="collapse" data-target=".method_right_public .collapse">
+                            <h2>Check public state for the Saimod.</h2>
+                            <pre>right_public() : boolean</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Override this</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true if the saimod is public</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_right_right"></a>
+                        <div class="element clickable method public  method_right_right inherited" data-toggle="collapse" data-target=".method_right_right .collapse">
+                            <h2>Check rights for the Saimod.</h2>
+                            <pre>right_right() : boolean</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Override this</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Returns true if accessable for the user else false</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text .collapse">
+                            <h2>Generate the HTML for the Saimods startpage</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text() : string</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML for the Saimods startpage</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete .collapse">
+                            <h2>Delete a Text from the Database</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_delete(string $id, string $lang = null) : \SYSTEM\SAI\json</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>Text ID</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$lang</h4>
+                                                <code>string</code><p><p>Language of the Text</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\SAI\json</code><p><p>Retuns json with status true or false</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor .collapse">
+                            <h2>Generate the HTML for the Editor</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_editor(string $id, string $lang) : string</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>Text ID</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$lang</h4>
+                                                <code>string</code><p><p>Language Filter</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext .collapse">
+                            <h2>Generate the HTML to edit a text</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_edittext(string $id, string $lang) : string</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>Text ID</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$lang</h4>
+                                                <code>string</code><p><p>Language Filter</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag .collapse">
+                            <h2>Generate the HTML for the Texts with no Tag</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_notag() : string</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_save"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_save" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_save .collapse">
+                            <h2>Save a Text into the Database</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_save(string $id, string $new_id, string $lang, \SYSTEM\SAI\json $tags, string $text) : \SYSTEM\SAI\json</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>string</code><p><p>Text ID</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$new_id</h4>
+                                                <code>string</code><p><p>New Text ID</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$lang</h4>
+                                                <code>string</code><p><p>Language of the Text</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$tags</h4>
+                                                <code>\SYSTEM\SAI\json</code><p><p>Json with tags</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$text</h4>
+                                                <code>string</code><p><p>New text</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\SYSTEM\SAI\json</code><p><p>Retuns json with status true or false</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag"></a>
+                        <div class="element clickable method public  method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag" data-toggle="collapse" data-target=".method_sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag .collapse">
+                            <h2>Generate the HTML for the Texts with a Tag</h2>
+                            <pre>sai_mod__SYSTEM_SAI_saimod_sys_text_action_tag(string $tag = &#039;all&#039;, string $filter = &quot;all&quot;, string $search = &quot;%&quot;, integer $page) : string</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$tag</h4>
+                                                <code>string</code><p><p>Tag Filter</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$filter</h4>
+                                                <code>string</code><p><p>Language Filter</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$search</h4>
+                                                <code>string</code><p><p>Search Filter</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$page</h4>
+                                                <code>integer</code><p><p>Page (Displays 100)</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns HTML</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_static__"></a>
+                        <div class="element clickable method public  method_static__ inherited" data-toggle="collapse" data-target=".method_static__ .collapse">
+                            <h2>Static Time-Parameter _ Call to avoid caching and API Errors for JS requests</h2>
+                            <pre>static__(mixed $_) : null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$_</h4>
+                                                <code>mixed</code><p><p>Anticaching Parameter of some Browsers</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns nothing</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_static__escaped_fragment_"></a>
+                        <div class="element clickable method public  method_static__escaped_fragment_ inherited" data-toggle="collapse" data-target=".method_static__escaped_fragment_ .collapse">
+                            <h2>Static Call handler for Hashbang-Crawling Requests</h2>
+                            <pre>static__escaped_fragment_(string $_escaped_fragment_) : string</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$_escaped_fragment_</h4>
+                                                <code>string</code><p><p>Hashbang-Encoded State</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p><p>Returns your API-HTML result as HTML-Snapshot</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_static__lang"></a>
+                        <div class="element clickable method public  method_static__lang inherited" data-toggle="collapse" data-target=".method_static__lang .collapse">
+                            <h2>Static Call to change Language for the current Session/User</h2>
+                            <pre>static__lang(\SYSTEM\API\lang $lang) : null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$lang</h4>
+                                                <code>\SYSTEM\API\lang</code><p><p>Language requested</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns nothing</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_static__result"></a>
+                        <div class="element clickable method public  method_static__result inherited" data-toggle="collapse" data-target=".method_static__result .collapse">
+                            <h2>Static Call to change Result-Type for the current Session/User</h2>
+                            <pre>static__result(\SYSTEM\API\result $result) : null</pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$result</h4>
+                                                <code>\SYSTEM\API\result</code><p><p>Resulttype</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>null</code><p><p>Returns nothing</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                    
+                    
+                                                        </div>
+            </div>
+            <a id="\SYSTEM\SAI\saimod_sys_text"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/SYSTEM.SAI.html">SAI</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/SYSTEM.SAI.saimod_sys_text.html">saimod_sys_text</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Tue, 25 Jul 2017 11:33:08 +0200.<br/>
+    </footer>
+    </body>
+</html>

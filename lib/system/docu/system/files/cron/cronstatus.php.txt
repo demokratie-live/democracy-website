@@ -1,0 +1,29 @@
+<?php
+namespace SYSTEM\CRON;
+
+class cronstatus {
+    const CRON_STATUS_SUCCESFULLY   = 0;
+    const CRON_STATUS_RUNNING       = 1;
+    const CRON_STATUS_FAIL          = 2;
+    const CRON_STATUS_FAIL_CLASS    = 3;
+    
+    const CRON_STATUS_USER_STATES   = 99;
+    
+    public static function text($status){
+        switch($status){
+            case self::CRON_STATUS_SUCCESFULLY:
+                $status = 'SUCCESFULLY';
+                break;
+            case self::CRON_STATUS_RUNNING:
+                $status = 'RUNNING';
+                break;
+            case self::CRON_STATUS_FAIL:
+                $status = 'FAIL';
+                break;
+            case self::CRON_STATUS_FAIL_CLASS:
+                $status = 'FAIL_CLASS';
+                break;
+        }
+        return $status;
+    }
+}

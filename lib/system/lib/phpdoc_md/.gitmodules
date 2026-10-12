@@ -1,0 +1,6 @@
+[submodule "lib/phpdoc_md"]
+	path = lib/phpdoc_md
+	url = https://github.com/evert/phpdoc-md.git
+[submodule "lib/twig"]
+	path = lib/twig
+	url = https://github.com/fabpot/Twig.git
