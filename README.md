@@ -34,15 +34,32 @@ The PHP framework and its modules used to be Git submodules from
 [webcraftmedia](https://github.com/webcraftmedia). They are part of this repository now and
 are changed here directly:
 
-| path | origin | imported commit | commit in this repository |
+| path | origin | imported commit | history tag |
 | --- | --- | --- | --- |
-| `lib/system` | [webcraftmedia/system](https://github.com/webcraftmedia/system) | `1bd0c36` | `0013dac` |
-| `lib/mail_cannon` | [webcraftmedia/lib_mail_cannon](https://github.com/webcraftmedia/lib_mail_cannon) | `f5ad05b` | `37480bd` |
-| `democracy/sai/saimod_mail` | [webcraftmedia/saimod_mail](https://github.com/webcraftmedia/saimod_mail) | `4018599` | `07f9b13` |
+| `lib/system` | [webcraftmedia/system](https://github.com/webcraftmedia/system) | `1bd0c36` | `import/system` |
+| `lib/mail_cannon` | [webcraftmedia/lib_mail_cannon](https://github.com/webcraftmedia/lib_mail_cannon) | `f5ad05b` | `import/mail_cannon` |
+| `democracy/sai/saimod_mail` | [webcraftmedia/saimod_mail](https://github.com/webcraftmedia/saimod_mail) | `4018599` | `import/saimod_mail` |
 
-Their history was imported too and moved into these paths, so `git log` and `git blame` work
-on the files. The commit IDs differ from the original repositories, the table maps the imported
-state. The original repositories have newer commits that were not taken over.
+The original repositories have newer commits that were not taken over.
+
+The code came in with the single commit `092bb1a`, so a plain `git log` on these files ends there.
+Their earlier history is kept in the tags above, moved into the same paths (the commit IDs differ
+from the original repositories). A clone fetches the tags, an existing clone needs
+`git fetch --tags`. Without further setup you can read it per tag:
+
+```
+git log import/system -- lib/system/db/result/ResultMysqliPrepare.php
+```
+
+To make `git log` and `git blame` follow the files into that history, attach the tags as
+parents of `092bb1a` in your local clone (git warns that the replacement drops the commit
+signature, which only affects your clone):
+
+```
+git replace --graft 092bb1a a2bfb55 import/system import/mail_cannon import/saimod_mail
+```
+
+`git replace --delete 092bb1a` removes it again.
 
 `lib/system` itself included libraries and its documentation as submodules. They were imported
 as plain files, without their history:
